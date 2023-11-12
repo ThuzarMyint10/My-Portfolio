@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Flex Box Layout</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+     <h1>Introduction to Flexbox Laytout</h1>
+     <p>
+        ဒီတစ်ခါ လေ့လာမှာကတော့ webpages တွေကို laying out လုပ်ဖို့ရန်အတွက် အခြေခံအကျဆုံး methods တစ်ခုဖြစ်တဲ့ CSS Flexbox layout ပဲဖြစ်ပါတယ်။ floats, in inline block and absolute positioning တွေလို CSS lab methods တွေမှာဆိုရင် certain limitations တွေရှိပါတယ်။ သူတို့ကို ယနေ့ခောတ် complex responsive websites တွေရဲ့ layout demands ကို handle လုပ်ဖို့ရန်အတွက် designed လုပ်ထားတာတော့ မဟုတ်ပါဘူး။ Floats ဟာဆိုရင် page layout အတွက် intended လုပ်ပေးတာတော့မဟုတ်ပါဘူး။ သူဟာ around images မှာရှိတဲ့ text တွေကို wrapping လုပ်ပေးတာပဲဖြစ်ပါတယ်။ CSS layout basics ကိုလေ့လာခဲ့သလိုပဲ floats မှာ သူရဲ့ တစ်မူထူးခြားတဲ့ behavior ကြောင့် problem လေးတွေရှိနိုင်ပါတယ်။  Flexbox or Flexible box layout ဟာဆိုရင် CSS property ရဲ့ set တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ page content တွေကို layout လုပ်ဖု့ိရန်အတွက် flexible way တစ်ခုကို prove လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ remarkable layout feature တစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ Flexbox ကိုအသုံးပြုပြီးတော့ navigation links, content columns and images တွေရဲ့ direction, size and order or elements တွေကို change လုပ်နိုင်ပါတယ်။ သူတို့ရဲ့  original size and order တွေကို HTML ထဲမှာ regardless လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+     </p>
+     <p>
+        Flexbox ကိုအသုံးမပြုခင်မှာ ကျွန်တော်တို့ဟာ flexbox ရဲ့ နောက်မှာရှိတဲ့  terminology and concepts တွေကို နားလည်ထားသင့်ပါတယ်။ Flexbox layout မှာရှိတဲ့ အရေးကြီးဆုံး elements နှစ်ခုကတော့ flex containers and flex items တွေပဲဖြစ်ပါတယ်။ First step အနေနဲ့ flexbox ကို အသုံးပြုမယ်ဆိုရင် flex container ကို create လုပ်ရပါမယ်။ flex container ဟာဆိုရင် flexbox layout ရဲ့ context ကို sets လုပ်ပေးတာပဲဖြစ်ပါတယ်။ flexbox context မှာဆိုရင် flex items တွေပါပါတယ်။ Flex container ထဲမှာ div, ul, header, span element တွေကဲ့သို့သော် block-level or inline element တွေကို ထည့်နိုင်ပါတယ်။ အဲ့ဒါတွေကို flex item လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ဟာ flexbox ရဲ့ powerful ဖြစ်တဲ့ alignment properties တွေကို အသုံးပြုနိုင်ပါတယ်။ Flexbox ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို နားလည်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ flex items တွေကို place လုပ်နိုင်တဲ့ browser ရဲ့ axis ကိုနားလည်ထားဖို့လိုပါတယ်။ Flexbox ဟာဆိုရင် flex items တွေရဲ့ layout direction ကို determine လုပ်ပေးတဲ့ axis နှစ်ခုကို follows လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Items တွေဟာ container ထဲမှာဆိုရင် main axis or cross axis မှာ နေရာယူတာဖြစ်ပါတယ်။ Flexbox ထဲမှာရှိတဲ့ အရာတွေအားလုံးဟာ အဲ့ axis နှစ်ခုနဲ့ relative ဖြစ်နေပါတယ်။ main axis ဟာဆိုရင် primary axis ဖြစ်ပြီးတော့ flex items တွေဟာ သူ့တစ်လျောက်လုံးမှာနေရာယူပါတယ်။ သူဟာ flex container ထဲမှာရှိတဲ့ flex items တွေရဲ့ direction ကို define လုပ်ပေးပါတယ်။ cross axis ဟာ main axis ရဲ့ perpendicular မှာ runs လုပ်ပါတယ်။ axis တစ်ခုချင်းစီမှာဆိုရင် start side and end side ဆိုပြီးတော့ sides နှစ်ခုရှိပါတယ်။  main axis ရဲ့ default ဖြစ်တဲ့ main start and main end တို့ရဲ့ direction ကို left to right သွားတာပြီးတော့ cross ဟာတော့ top to bottom သွားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ directions တွေကို အလွယ်တကူ change လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ main axis တစ်လျောက်မှာရှိတဲ့ horizontal column layout ကို flexbox properties ကို သုံးပြုပြီးတော့ vertical layout ကို switch လုပ်နိုင်ပါတယ်။
+     </p><hr>
+     <h1>Flexbox Layout </h1>
+     <p>
+        အခုကျွန်တော်တို့မှာ basic concepts and terminology အကြောင်းကို သိပြီးခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ flexbox ကို အသုံးပြုမှာဖြစ်ပါတယ်။ first step အနေနဲ့ flex box layout ကို create လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် container ဆိုတဲ့ class ကို flexbox layout ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ flexbox ကို အသုံးပြုတဲ့အခါမှာ display property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ သူ့မှာဆိုရင် value ကို flex နဲ့ inline-flex ဆိုပြီးတော့ပေးနိုင်ပါတယ်။ 
+     </p>
+     <h2>Code in HTML </h2>
+     <pre>
+         <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="flexbox.css"&gt;
+                &lt;title&gt;Flexbox Layout&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;div class="container"&gt;
+                     &lt;div class="item-1 item"&gt;Item1&lt;/div&gt;
+                     &lt;div class="item-2 item"&gt;Item2&lt;/div&gt;
+                     &lt;div class="item-3 item"&gt;Item3&lt;/div&gt;
+                     &lt;div class="item-4 item"&gt;Item4&lt;/div&gt;
+                     &lt;div class="item-5 item"&gt;Item5&lt;/div&gt;
+                     &lt;div class="item-6 item"&gt;Item6&lt;/div&gt;
+                 &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+         </code>         
+     </pre>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .container{
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+            body{
+                font-size: 1.35em;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: #fff;
+                padding-left: 5%;
+                padding-right: 5%;
+                background: #e8e9e9; 
+            }
+            .item{
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+            .container{
+                display: flex;
+                /* display: inline-flex; */
+                height: 300px;
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1>Flex Direction Property </h1>
+     <p>
+        ကျွန်တော်ဟာ display value ကို flex or inline flex  ကို အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ flex container ကိုအသုံးပြုပြီးတော့ flex boxes ရဲ့ advantage တွေဖြစ်တဲ့ powerful direction order, alignment and sizing properties တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အချို့ flex box properties တွေဟာ flex container ကိုပဲ apply လုပ်ပေးတာဖြစ်ပါတယ်။ သူတို့ဟာ ကျွန်တော်တို့ရဲ့ layout ကိုတော့ apply လုပ်မှာမဟုတ်ပါဘူး။ flex direction property ကိုအသုံးပြုတဲ့ အခါမှာ values တွေဟာ row, column, row-reverse, column-reverse values တွေကို အသုံးပြုနိုင်ပါတယ်။ row နဲ့ column values ရဲ့ layout ကို effect ကတော့ ရှင်းပါတယ်။ row ဆိုရင် ကျွန်တော်တို့ရဲ့ container ထဲမှာရှိတဲ့ items တွေဟာ row အတိုင်း left to right ပေါ်မှာဖြစ်ပါတယ်။ column value ဟာဆိုလည်း items တွေကို top to bottom ပေါ်မှာဖြစ်ပါတယ်။ row-reverse နဲ့ column-reverse ဟာဆိုရင်တော့ row-reverse ဟာဆိုရင် row ရဲ့ ပြောင်းပြန် right to left ဖြစ်ပြီးတော့ column-reverse ဟာဆိုရင် bottom to top ပေါ်မှာဖြစ်ပါတယ်။
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .container{
+                display: flex;
+                /* display: inline-flex; */
+                direction: row;
+                
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1>Flex Wrap Property </h1>
+     <p>
+        Flex container ရဲ့ default အရ flex items တွေဟာ single line မှာ နေရာယူမှာဖြစ်ပါတယ်။ အဲ့ဒါကို flex line လို့ခေါ်ပါတယ်။ flex container ဟာဆိုရင် items တွေအားလုံးကို flex line တစ်ခုထဲမှာဘဲ fit ဖြစ်အောင်လုပ်ထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ browser ကို resize လုပ်လိုက်တဲ့အခါမှာ container ဟာ narrow ဖြစ်လာတာကို တွေ့ရပြီး flex items တွေဟာ flex container ရဲ့ boundaries ကို overflow ဖြစ်သွားမှာဖြစ်ပါတယ်။ flex container ကို multiple flex lines နဲ့ items တွေကို break လုပ်ချင်တဲ့အခါမှာ flex wrap property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ flex wrap property နဲ့  flex container ကို single line or multi-line layout မှာ control လုပ်နိုင်ပါတယ်။ flex wrap property မှာဆိုရင် အသုံးပြုရတဲ့ value ကတော့ wrap ပဲဖြစ်ပါတယ်။ အဲ့ value ကို အသုံးပြုပြီးတော့ flex container ကို browser ကို resize လုပ်တဲ့အခါမှာလည်း အဆင်ပြေအောင် control လုပ်နိုင်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .container{
+                display: flex;
+                /* display: inline-flex; */
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 250px;
+                
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1> Justity Content Property</h1>
+     <p>ကျွနတော်တို့ဟာ floats or inline block display ကို layout အတွက်အသုံးပြုတဲ့အခါမှာ elements တွေဟာ space ရဲ့ အပြင်ဘက် next line မှာ break ဖြစ်သွားကြပါတယ်။ Flex box ဟာ flexible ဖြစ်ပါတယ်။ သူဟာ available space ကို distribute လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ elements တွေရဲ့ display value ကို flex or inline flex နဲ့ set လုပ်နိုင်ပါတယ်။ flex items ရဲ့ direction ကိုပဲ set လုပ်နိုင်ပါတာမဟုတ်ပါဘူး flex container ရဲ့ ability တွေဖြစ်တဲ့ flex items ရဲ့ width and height တို့ကိုလည်း change လုပ်နိုင်ပါတယ်။ အဲ့ဒါတွေကို လုပ်ဆာင်ဖို့ရန်အတွက် justified content property ကိုအသုံးပြုနိုင်ပါတယ်။ သူဟာ flex items တွေရဲ့ padding and margins တွေကို accounted လုပ်ပြီးတဲ့အခါမှာ available space ကို distribute လုပ်ပေးပါတယ်။ justified content property ကို flex containers တစ်ခုထဲမှာဘဲအသုံးပြုနိုင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ justify content property မှာ value ကို flex-start လို့ပေးလိုက်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ flex items တွေဟာဆိုရင် flex line ရဲ့ start မှာနေရာယူမှာဖြစ်ပါတယ်။ flex-start လိုပဲ flex-end ကိုအသုံးပြုတဲ့အခါမှာ flex line ရဲ့ end မှာ items တွေဟာ နေရာယူမှာဖြစ်ပါတယ်။ နောက်ထပ် justify-content value ကို center ပေးလိုက်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ items တွေဟာ container ရဲ့ center မှာနေရာယူမှာဖြစ်ပါတယ်။ center value ကိုအသုံးပြုတဲ့အခါမှာ first item ရဲ့ start edge နဲ့ last item ရဲ့ end edge တွေရဲ့ empty space ဟာဆိုရင် equal ဖြစ်နေမှာဖြစ်ပါတယ်။ နောက်ထပ် အသုံးများတဲ့ value တွေကတော့ space-between နဲ့ space-around ပဲဖြစ်ပါတယ်။ သူတို့ဟာဆိုရင် line တစ်ခုထဲမှာဘဲ available space ကို distribute လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် browser ဟာဆိုရင် တစ်ကယ်လိုအပ်တဲ့ space ကို auto တွက်ထုပ်ပေးမှာဖြစ်ပါတယ်။ space-between value ကို အသုံးးပြုလိုက်တဲ့အခါမှာ flex items တွေကြားထဲမှာရှိတဲ့ space ဟာဆိုရင် equal ဖြစ်နေမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ဟာ flex items တစ်ခုချင်းစီရဲ့ spacing ကို equal ဖြစ်ချင်တယ်ဆိုရင် space-around value ကိုအသုံးပြုနိုင်ပါတယ်။ ကျန်တော်တို့ဟာ container ရဲ့ background or border ကို set လုပ်ချင်တဲ့အခါမှာ space-around value ဟာဆိုရင် useful ဖြစ်ပါတယ်။ margin ဟာဆိုရင် flex item ပေါ်မှာ significant effect တစ်ခုရှိပါတယ်။ first item ကို margin ကို auto ပေးလိုက်တဲ့အခါမှာ first item နဲ့ remaining items ကြားမှာ extra space ကို distribute လုပ်ပေးမှာဖြစ်ပါတယ်။ </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code> 
+            .container{
+                display: flex;
+                /* display: inline-flex; */
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .item-2{
+                margin-right: auto;
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1>Order Property </h1>
+     <p>
+        Default အရ items တွေအားလုံးဟာ source code ထဲမှာရှိတဲ့ order အလိုက် appear ဖြစ်လာမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ flex items တွေရဲ့ order ကို order property ကိုအသုံးပြုပြီးတော့ change လုပ်နိုင်ပါတယ်။ ဥပမာ item1 ကို main axis ရဲ့ second, third, fourth or fifth ဆိုတဲ့ ကျွန်တော်တို့ appear ဖြစ်စေချင်တဲ့ နေရာမှာ appear ဖြစ်လာအောင် order property ကိုအသုံးပြုပြီးတော့ change လုပ်နိုင်ပါတယ်။ order property ဟာဆိုရင် flex items တွေမှာပဲ apply လုပ်ပေးတာဖြစ်ပါတယ်။ flex container မှာ apply မလုပ်ပါဘူး။ flex items တွေအားလုံးရဲ့ default order ဟာ zero ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ item-6 ရဲ့ order property မှာ value ကို -1 ပေးလိုက်တဲ့ခါမှာ item-6 ဟာဆိုရင် first နေရာကို order လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့လိုပဲ item-1 ကိုနောက်ဆုံးမှာပေါ်ချင်ရင် 1 ဆိုပြီးတော့ ပေးရမှာဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .item-1{
+                order: -2;
+            }
+            .item-5{
+               order: -1;
+            }
+            .item-4{
+                order: 1;
+            }            
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1>Flex Grow Property</h1>
+     <p>
+        ကျွန်တော်တို့ဟာ flex items တွေရဲ့ container ထဲမှာရှိတဲ့ available space ကို flex grow property ကိုအသုံးပြုပြီးတော့ adjust လုပ်နိုင်ပါတယ်။ first, second or ဘယ် flex item ရဲ့ container ထဲမှာ more space ကို ဒီ property ကို အသုံးပြုပြီးတော့ take up လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် flex grow ရဲ့ default value ဟာဆိုရင် zero ကနေစတာပဲဖြစ်ပါတယ်။ adjust လုပ်ချင်တဲ့အခါမှာ 1,2,3 ဆိုပြီးတော့ numbers တွေကိုအသုံးပြုနိုင်ပါတယ်။ flex grow property ဟာ flex container  ဟာ narrow ဖြစ်လာတဲ့အချိန်မှာ flex items တွေရဲ့ width ကို auto adjust လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .container{
+                display: flex;
+                /* display: inline-flex; */
+                flex-wrap: wrap;
+            }
+            .item{
+                flex-grow: 1;
+            }
+            .item-1{
+                flex-grow: 3;
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbox.html">Test Yourself</a><hr>
+     <h1>Flex Basic Property </h1>
+     <p>
+        Flex basic property ကိုအသုံးပြုတာဟာ ကျွန်တော်တို့ရဲ့ flex items တွေရဲ့ size ပေါ်မှာ ပိုပြီးတော့ control လုပ်နိုင်ပါတယ်။ flex basic property ဟာဆိုရင် display လုပ်တဲ့နေရာမှာ flex grow property နဲ့ equal ဖြစ်ပါတယ်။ flex basic property ကိုသုံးပြုတဲ့အခါမှာ width and height properties ကို same values နဲ့ accept လုပ်နိုင်ပါတယ်။ flex basic property ကို 200 pixel set လုပ်လိုက်တဲ့အခါမှာ flex items တွေအားလုံးရဲ့ size ဟာ 200 pixel မှာပဲ equal ဖြစ်နေမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် flex items တွေမှာဆိုရင် flexible width တွေရှိကြပါတယ်။ ကျွန်တော်တို့ဟာ flex-grow and flex-basic values တွေကို flex ဆိုတဲ့ shorthand property ကိုအသုံးပြုပြီးတော့ ရေးနိုင်ပါတယ်။ flex-shrink property ဟာဆိုရင် flex-grow နဲ့ opposite ဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+                .container{
+                    display: flex;
+                    /* display: inline-flex; */
+                    flex-wrap: wrap;
+                }
+                .item{
+                    flex-grow: 1;
+                    flex-basis: 100px;
+                }
+                .item-2{
+                    flex-grow: 2;
+                }
+                
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbasic.html">Test Yourself</a><hr>
+     <h1>Align Item and Align Self Properties</h1>
+     <p>
+            ကျွန်တော်တို့ဟာ main axis ပေါ်မှာ justified content property နဲ့ flex items တွေကို ဘယ်လို align လုပ်ရမယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုတစ်ခါမှာတော့ align items and align self properties ကိုအသုံးပြုပြီးတော့ cross axis မှာ flex items တွေကို ဘယ်လို align လုပ်သင့်တယ်ဆိုတာကိုပြောပြပေးမှာဖြစ်ပါတယ်။ align items property မှာဆိုရင် values တွေကတော့ center, stretch, flex-start and flex-end တို့ကို အသုံးပြုနိုင်ပါတယ်။ align self property ဟာဆိုရင် flex items တွေမှာပဲအသုံးပြုတာဖြစ်ပါတယ်။ သူ့မှာ values တွေကတော့ align items မှာရှိတဲ့ values တွေနဲ့ အတူတူပဲဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+                .container{
+                    display: flex;
+                    /* display: inline-flex; */
+                    flex-wrap: wrap;
+                    height: 450px;
+                }
+                .item{
+                    flex: 1;
+                }
+                .item-1
+                {
+                    align-self: flex-end;
+                }
+                .item-2{
+                    flex: 2;
+                }
+                .item-4{
+                    align-self: center;
+                }
+                
+                
+         </code>
+     </pre>
+     <a href="CSS_Example/flexbasic.html">Test Yourself</a><hr>
+     <h1>Centering Content </h1>
+     <p>
+        Content တွေကို center မှာထားတာဟာ CSS မှာ လုပ်ရခက်တဲ့ things တစ်ခုဖြစ်ပါတယ်။ elements တွေကို vertical center and center မှာ web designers and developers တွေဟာ layout properties တွေဖြစ်တဲ့ float, display or position တို့ကိုအသုံးပြုပါတယ် အခုကျွန်တော်ပြောပြပေးမှာကတော့ content တွေကို vertically or horizontally center မှာ flexbox properties တွေဖြစ်တဲ့ align item, align self or justify content တွေကို အသုံးပြုပြီးတော့ လုပ်ပြသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ flex box ကိုအသုံးပြုပြီးတော့ content တွေကို center မှာပေါ်ချင်တဲ့အခါ ကျွန်တော်ပြောာခဲ့တဲ့ properties တွေကို ကြိက်တဲ့ဟာမှာ သူ့တို့ရဲ့ values ကို center ပေးပြီးတော့ အသုံးပြုနိုင်ပါတယ်။
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+            .cointainner{
+                display: flex;
+                min-height: 50vh;
+            }
+            .item{
+                align-self: center;
+            }
+            .container{
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+            body{
+                font-size: 1.35em;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: #fff;
+                padding-left: 5%;
+                padding-right: 5%;
+                background: #e8e9e9; 
+            }
+            .item{
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/centering.html">Test Yourself</a><hr>
+     <h1>Page Example </h1>
+     <p>
+        အခုကျွန်တော်တို့ဟာ flex box ဟာ content တွေကို lay out လုပ်တဲ့ အခါမှာ quicker and easier way ဖြစ်တယ်ဆိုတာကို သိရှိပြီ ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ flex box properties တွေကို အသုံးပြုပြီးတော့ responsive layout ကို build လုပ်နိုင်ပါတယ်။ ကျွန်တော် အခု example page မှာ media query ကိုလည်းအသုံးပြုသွားမှာဖြစ်ပါတယ်။ first အနေဲ့ navigation bar ကို responsive ဖြစ်အောင် ရေးပြသွားမှာဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in HTML</h2>
+     <pre>
+         <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Best City Guide&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="css/base.css"&gt;
+                &lt;link rel="stylesheet" href="css/flexbox.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                
+                &lt;header class="main-header"&gt;
+                    &lt;h1 class="name"&gt;&lt;a href="#"&gt;Best City Guide&lt;/a&gt;&lt;/h1&gt;
+                    &lt;ul class="main-nav"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;ice cream&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;donuts&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;tea&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;coffee&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/header&gt;&lt;!--/.main-header--&gt;   
+            
+                &lt;div class="banner"&gt;
+                    &lt;img class="logo" src="img/city-logo.svg" alt="City"&gt;
+                    &lt;h1 class="headline"&gt;The Best City&lt;/h1&gt;
+                    &lt;span class="tagline"&gt;The best drinks and eats in the best city ever.&lt;/span&gt;
+                &lt;/div&gt;&lt;!--/.banner--&gt;
+                
+                &lt;div class="row"&gt;		
+                    &lt;div class="primary col"&gt;
+                        &lt;h2&gt;Welcome!&lt;/h2&gt;
+                        &lt;p&gt;Everything in this city is worth waiting in line for.&lt;/p&gt;
+                        &lt;p&gt;Cupcake ipsum dolor sit. Amet chocolate cake gummies jelly beans candy bonbon brownie candy. Gingerbread powder muffin. Icing cotton candy. Croissant icing pie ice cream brownie I love cheesecake cookie. Pastry chocolate pastry jelly croissant.&lt;/p&gt;
+                        &lt;p&gt;Cake sesame snaps sweet tart candy canes tiramisu I love oat cake chocolate bar. Jelly beans pastry brownie sugar plum pastry bear claw tiramisu tootsie roll. Tootsie roll wafer I love chocolate donuts.&lt;/p&gt;
+                        &lt;p&gt;Brownie ice cream cotton candy liquorice cake. Macaroon caramels fruitcake lemon drops. Carrot cake jelly halvah biscuit. &lt;/p&gt;
+                    &lt;/div&gt;&lt;!--/.primary--&gt;
+                    
+                    &lt;div class="secondary col"&gt;
+                        &lt;h2&gt;How to get here&lt;/h2&gt;
+                        &lt;p&gt;&lt;strong&gt;Plane: &lt;/strong&gt;Tiramisu caramels gummies chupa chups lollipop muffin. Jujubes chocolate caramels cheesecake brownie lollipop drag&#233;e cheesecake.&lt;/p&gt;
+                        &lt;p&gt;&lt;strong&gt;Train: &lt;/strong&gt;Pie apple pie pudding I love wafer toffee liquorice sesame snaps lemon drops. Lollipop gummi bears dessert muffin I love fruitcake toffee pie.&lt;/p&gt;
+                        &lt;p&gt;&lt;strong&gt;Car: &lt;/strong&gt;Jelly cotton candy bonbon jelly-o jelly-o I love. I love sugar plum chocolate cake pie I love pastry liquorice.&lt;/p&gt;
+                    &lt;/div&gt;&lt;!--/.secondary--&gt;
+                &lt;/div&gt;
+                
+                &lt;footer class="main-footer"&gt;
+                    &lt;span&gt;&copy;2015 Residents of The Best City Ever.&lt;/span&gt;
+                &lt;/footer&gt;
+                
+            &lt;/body&gt;
+            &lt;/html&gt;
+         </code>
+     </pre>
+     <h2>Code in CSS</h2>
+     <h3>base.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Base Element Styles
+          ==================================== */
+          
+          * {
+              box-sizing: border-box;
+          }
+          body {
+              font-family: 'Varela Round', sans-serif;
+              line-height: 1.6;
+              color: #3a3a3a;
+              margin: 0;
+          }
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          p {
+              font-size: .95em;
+              margin-bottom: 1.8em;
+          }
+          h2,
+          h3,
+          a {
+              color: #093a58;
+          }
+          h2,
+          h3 {
+              margin-top: 0;
+          }
+          a {
+              text-decoration: none;
+          }
+          img {
+              max-width: 100%;
+          }
+          
+          /* ================================= 
+            Base Layout Styles
+          ==================================== */
+          
+          /* ---- Navigation ---- */
+          
+          .name {
+              font-size: 1.35em;
+              margin: 0;
+          }
+          .main-nav {
+              margin-top: 5px;
+          }
+          .name a,
+          .main-nav a {
+              text-align: center;
+              display: block;
+              padding: 10px 15px;
+          }
+          .main-nav a {
+              font-size: .95em;
+              color: #3acec2;
+              text-transform: uppercase;
+          }
+          .main-nav a:hover {
+              color: #093a58;
+          }
+          
+          /* ---- Layout Containers ---- */
+          
+          .main-header {
+              padding-top: .5em;
+              padding-bottom: .5em;
+          }
+          .banner,
+          .main-footer {
+              text-align: center;
+          }
+          .banner {
+              color: #fff;
+              background: #3acec2;
+              padding: 3.2em 0;
+              margin-bottom: 48px;
+          }
+          .col {
+              padding-right: 1em;
+              padding-left: 1em;
+          }
+          .main-footer {
+              background: #d9e4ea;
+              padding: 2em 0;
+              margin-top: 30px;
+          }
+          
+          /* ---- Page Elements ---- */
+          
+          .logo {
+              width: 190px;
+          }
+          .headline {
+              margin-bottom: 0;
+          }
+          .feat-img {
+              border-radius: 5px;
+          }
+          
+          /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+              .main-header,
+              .row {
+                  width: 80%;
+                  margin: 0 auto;
+                  max-width: 1150px;
+              }
+              .tagline {
+                  font-size: 1.4em;
+              }
+          }
+         </code>
+     </pre>
+     <h3>flexboxexample.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+          
+              .main-header,
+              .main-nav {
+                  display: flex;
+              }
+              .main-header {
+                  flex-direction: column;
+                  align-items: center;
+              }
+          
+          }
+          
+          @media (min-width: 1025px) {
+          
+              .main-header {
+                  flex-direction: row;
+                  justify-content: space-between;
+              }
+          
+          }
+         </code>
+     </pre>
+     <a href="CSS_Example/pageexample.html">Test Yourself</a><hr>
+     <h1>Two Columns Layout</h1>
+     <p>
+        ကျွန်တော်တို့ဟာ flexbox ကိုအသုံးပြုပြီးတော့ flexible, multicolumn layouts တွေကို floats or display properties တွေမှာ inline block value ကိုအသုံးပြုစရာမလိုဘဲနဲ့ create လုပ်နိုင်ပါတယ်။ အခု page မှာရှိတဲ့ primary content နဲ့ secondary content ကို two column layouts ဖြစ်အောင် လုပ်သွားမှာဖြစ်ပါတယ်။ သူတို့နှစ်ခုရဲ့ width ကို လည်း flex-grow property ကိုအသုံးပြုနိုင်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS </h2>
+     <pre>
+         <code>
+            @media (min-width: 769px) {
+
+                .main-header,
+                .main-nav,
+                .row{
+                    display: flex;
+                }
+                .main-header {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .col{
+                    flex: 1;
+                }
+            
+            }
+            
+            @media (min-width: 1025px) {
+            
+                .main-header {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+                .primary{
+                    flex: 2;
+                }
+            
+            }
+         </code>
+     </pre>
+     <a href="CSS_Example/pageexample.html">Test Yourself</a><hr>
+     <h1>Three-column Design</h1>
+     <p>
+        ကျွန်တော်တို့ဟာ flex box ကိုအသုံးပြုပြီးတော့ simple column layout ကို create လုပ်ပြီးခဲ့ပြီးဖြစ်ပါတယ် အခုတစ်ခါမှာတော့ page မှာ flexible three-column design ကို ဘယ်လို create လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ page ထဲကို third column content ကို add လုပ်ထားပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အခု page မှာရှိတဲ့ columns တွေကို small screen မှာဆိုရင် one column and medium screens မှာဆိုရင် two column layout and large screen မှာဆိုရင် three columns နဲ့ ပေါ်မှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် middle column ဟာဆိုရင် အခြား columns နှစ်ခုထက် ပိုပြီးတော့ wider ဖြစ်နေတာကို တွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ flex box property အတော်များများကို အသုံးပြုမှာဖြစ်ပါတယ်။
+     </p>
+     <h2>Code in HTML</h2>
+     <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;Three Column&lt;/title&gt;
+                    &lt;link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'&gt;
+                    &lt;link rel="stylesheet" href="threecolumn.css"&gt;
+                    &lt;link rel="stylesheet" href="three.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    
+                    &lt;header class="main-header"&gt;
+                        &lt;h1 class="name"&gt;&lt;a href="#"&gt;Best City Guide&lt;/a&gt;&lt;/h1&gt;
+                        &lt;ul class="main-nav"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;ice cream&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;donuts&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;tea&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;coffee&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/header&gt;&lt;!--/.main-header--&gt;   
+                
+                    &lt;div class="banner"&gt;
+                        &lt;img class="logo" src="img/city-logo.svg" alt="City"&gt;
+                        &lt;h1 class="headline"&gt;The Best City&lt;/h1&gt;
+                        &lt;span class="tagline"&gt;The best drinks and eats in the best city ever.&lt;/span&gt;
+                    &lt;/div&gt;&lt;!--/.banner--&gt;
+                    
+                    &lt;div class="row"&gt;		
+                        &lt;div class="primary col"&gt;
+                            &lt;h2&gt;Great food&lt;/h2&gt;
+                            &lt;img class="feat-img" src="img/treats.svg" alt="Drinks and eats"&gt;
+                            &lt;p&gt;Croissant macaroon pie brownie. Cookie marshmallow liquorice gingerbread caramels toffee I love chocolate. Wafer lollipop dessert. Bonbon jelly beans pudding dessert sugar plum. Marzipan toffee drag&#233;e chocolate bar candy toffee pudding I love. Gummi bears pie gingerbread lollipop.&lt;/p&gt;
+                        &lt;/div&gt;&lt;!--/.primary--&gt;
+                        
+                        &lt;div class="secondary col"&gt;
+                            &lt;h2&gt;Welcome!&lt;/h2&gt;
+                            &lt;p&gt;Everything in this city is worth waiting in line for.&lt;/p&gt;
+                            &lt;p&gt;Cupcake ipsum dolor sit. Amet chocolate cake gummies jelly beans candy bonbon brownie candy. Gingerbread powder muffin. Icing cotton candy. Croissant icing pie ice cream brownie I love cheesecake cookie. Pastry chocolate pastry jelly croissant.&lt;/p&gt;
+                            &lt;p&gt;Cake sesame snaps sweet tart candy canes tiramisu I love oat cake chocolate bar. Jelly beans pastry brownie sugar plum pastry bear claw tiramisu tootsie roll. Tootsie roll wafer I love chocolate donuts.&lt;/p&gt;
+                        &lt;/div&gt;&lt;!--/.secondary--&gt;
+                        
+                        &lt;div class="tertiary col"&gt;
+                            &lt;h2&gt;How to get here&lt;/h2&gt;
+                            &lt;p&gt;&lt;strong&gt;Plane: &lt;/strong&gt;Tiramisu caramels gummies chupa chups lollipop muffin. Jujubes chocolate caramels cheesecake brownie lollipop drag&#233;e cheesecake.&lt;/p&gt;
+                            &lt;p&gt;&lt;strong&gt;Train: &lt;/strong&gt;Pie apple pie pudding I love wafer toffee liquorice sesame snaps lemon drops. Lollipop gummi bears dessert muffin I love fruitcake toffee pie.&lt;/p&gt;
+                            &lt;p&gt;&lt;strong&gt;Car: &lt;/strong&gt;Jelly cotton candy bonbon jelly-o jelly-o I love. I love sugar plum chocolate cake pie I love pastry liquorice.&lt;/p&gt;
+                        &lt;/div&gt;&lt;!--/.tertiary--&gt;	
+                    &lt;/div&gt;
+                    
+                    &lt;footer class="main-footer"&gt;
+                        &lt;span&gt;&copy;2015 Residents of The Best City Ever.&lt;/span&gt;
+                    &lt;/footer&gt;
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+     </pre>
+     <h2>Code in CSS</h2>
+     <h3>threecolumn.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Base Element Styles
+          ==================================== */
+          
+          * {
+              box-sizing: border-box;
+          }
+          body {
+              font-family: 'Varela Round', sans-serif;
+              line-height: 1.6;
+              color: #3a3a3a;
+              margin: 0;
+          }
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          p {
+              font-size: .95em;
+              margin-bottom: 1.8em;
+          }
+          h2,
+          h3,
+          a {
+              color: #093a58;
+          }
+          h2,
+          h3 {
+              margin-top: 0;
+          }
+          a {
+              text-decoration: none;
+          }
+          img {
+              max-width: 100%;
+          }
+          
+          /* ================================= 
+            Base Layout Styles
+          ==================================== */
+          
+          /* ---- Navigation ---- */
+          
+          .name {
+              font-size: 1.35em;
+              margin: 0;
+          }
+          .main-nav {
+              margin-top: 5px;
+          }
+          .name a,
+          .main-nav a {
+              text-align: center;
+              display: block;
+              padding: 10px 15px;
+          }
+          .main-nav a {
+              font-size: .95em;
+              color: #3acec2;
+              text-transform: uppercase;
+          }
+          .main-nav a:hover {
+              color: #093a58;
+          }
+          
+          /* ---- Layout Containers ---- */
+          
+          .main-header {
+              padding-top: .5em;
+              padding-bottom: .5em;
+          }
+          .banner,
+          .main-footer {
+              text-align: center;
+          }
+          .banner {
+              color: #fff;
+              background: #3acec2;
+              padding: 3.2em 0;
+              margin-bottom: 48px;
+          }
+          .col {
+              padding-right: 1em;
+              padding-left: 1em;
+          }
+          .main-footer {
+              background: #d9e4ea;
+              padding: 2em 0;
+              margin-top: 30px;
+          }
+          
+          /* ---- Page Elements ---- */
+          
+          .logo {
+              width: 190px;
+          }
+          .headline {
+              margin-bottom: 0;
+          }
+          .feat-img {
+              border-radius: 5px;
+          }
+          
+          /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+              .main-header,
+              .row {
+                  width: 90%;
+                  margin: 0 auto;
+              }
+              .tagline {
+                  font-size: 1.4em;
+              }
+          }
+          @media (min-width: 1025px) {
+              .main-header,
+              .row {
+                  width: 80%;
+                  max-width: 1150px;
+              }
+          }
+         </code>
+     </pre>
+     <h3>three.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+          
+              .main-header,
+              .main-nav,
+              .row {
+                  display: flex;
+              }
+          
+              .main-header {
+                  flex-direction: column;
+                  align-items: center;
+              }
+          
+              .col {
+                  flex: 1 50%;
+              }
+          
+              .row {
+                  flex-wrap: wrap;
+              }
+          
+          
+              .secondary {
+                  order: -1;
+              }
+          
+          }
+          
+          @media (min-width: 1025px) {
+          
+              .main-header {
+                  flex-direction: row;
+                  justify-content: space-between;
+              }
+          
+              .col {
+                  flex-basis: 0;
+              }
+          
+              .primary {
+                  flex-grow: 1.4;
+              }
+          
+          }
+         </code>
+     </pre>
+     <a href="CSS_Example/threecolumn.html">Test Yourself</a><hr>
+     <h1>Bottom-Age</h1>
+     <p>
+        Web designers and developers တွေဟာ layouts တွေကို building လုပ်တဲ့အခါမှာ တွေ့နေကြ problem တစ်ခုကတော့ elements တွေကို container ရဲ့ bottom-age မှာ ဘယ်လို align လုပ်မယ်ဆိုတာကို စဉ်းစားရတာပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ flex box ကိုအသုံးပြုတဲ့အခါမှာတော့ အဲ့ဒါတွေကို အလွယ်တကူ ဖြေရှင်းနိုင်ပါတယ်။ example မှာဆိုရင် bottom 3 ခုကို container ထဲမှာ align-self property ကိုအသုံးပြုပြီးတော့ adjust လုပ်နိုင်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <h3>bottomage.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+          
+              .main-header,
+              .main-nav,
+              .row {
+                  display: flex;
+              }
+          
+              .main-header {
+                  flex-direction: column;
+                  align-items: center;
+              }
+          
+              .col {
+                  flex: 1;
+              
+                  display: flex;
+                  flex-direction: column;
+              }
+          
+              .button {
+                  margin-top: auto;
+                  align-self: flex-start; /* flex-end */
+              }
+          
+          }
+          
+          @media (min-width: 1025px) {
+          
+              .main-header {
+                  flex-direction: row;
+                  justify-content: space-between;
+              }
+          
+          }
+         </code>
+     </pre>
+     <h3>bottom.css</h3>
+     <pre>
+         <code>
+            /* ================================= 
+            Base Element Styles
+          ==================================== */
+          
+          * {
+              box-sizing: border-box;
+          }
+          body {
+              font-family: 'Varela Round', sans-serif;
+              line-height: 1.6;
+              color: #3a3a3a;
+              margin: 0;
+          }
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          p {
+              font-size: .95em;
+              margin: 0 0 1em 0;
+          }
+          h2,
+          h3,
+          a {
+              color: #093a58;
+          }
+          h2,
+          h3 {
+              margin: 0 0 .8em 0;
+          }
+          a {
+              text-decoration: none;
+          }
+          img {
+              max-width: 100%;
+          }
+          
+          /* ================================= 
+            Base Layout Styles
+          ==================================== */
+          
+          /* ---- Navigation ---- */
+          
+          .name {
+              font-size: 1.35em;
+              margin: 0;
+          }
+          .main-nav {
+              margin-top: 5px;
+          }
+          .name a,
+          .main-nav a {
+              text-align: center;
+              display: block;
+              padding: 10px 15px;
+          }
+          .main-nav a {
+              font-size: .95em;
+              color: #3acec2;
+              text-transform: uppercase;
+          }
+          .main-nav a:hover {
+              color: #093a58;
+          }
+          
+          /* ---- Layout Containers ---- */
+          
+          .main-header {
+              padding-top: .5em;
+              padding-bottom: .5em;
+          }
+          .banner,
+          .main-footer {
+              text-align: center;
+          }
+          .banner {
+              color: #fff;
+              background: #3acec2;
+              padding: 3.2em 0;
+              margin-bottom: 48px;
+          }
+          .col {
+              padding: 1em;
+              background: #edf4f7;
+              border-radius: .35em;
+              margin: 0 .5em .8em;
+          }
+          .main-footer {
+              background: #d9e4ea;
+              padding: 2em 0;
+              margin-top: 30px;
+          }
+          
+          /* ---- Page Elements ---- */
+          
+          .logo {
+              width: 190px;
+          }
+          .headline {
+              margin-bottom: 0;
+          }
+          .feat-img {
+              border-radius: 5px;
+          }
+          .button {
+              color: #fff;
+              text-align: center;
+              padding: .625em 1.25em;
+              background: #3acec2;
+              border-radius: .35em;
+          }
+          
+          /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+              .main-header,
+              .row {
+                  width: 90%;
+                  margin: 0 auto;
+              }
+              .tagline {
+                  font-size: 1.4em;
+              }
+          }
+          @media (min-width: 1025px) {
+              .main-header,
+              .row {
+                  width: 80%;
+                  max-width: 1150px;
+              }
+          }
+         </code>
+     </pre>
+     <a href="CSS_Example/bottomage.html">Test Yourself</a><hr>
+     <h1>Stick Footer</h1>
+     <p>
+            Stick footer တစ်ခုဆိုတာ footer တစ်ခုပဲဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ရဲ့ page content ဟာဆိုရင် browser ထက် height ဖြစ်နေတဲ့ အခါမှာ ကျွန်တော်တို့ဟာ footer ကိုအသုံးပြုပြီးတော့ page content ကို end လုပ်နိုင်ပါတယ်။ stick footers ကို CSS ကိုအသုံးပြုပြီးတော့ create လုပ်တဲ့နေရာမှာ different methods တွေရှိပါတယ်။ popular methods တစ်ခုကတော့ CSS calc function ပဲဖြစ်ပါတယ်။ သူ့ကို value VH နဲ့အသုံးပြုပါတယ်။ ကျွန်တော်တို့ဟာ တစ်ခါတစ်လေမှာ footer နဲ့ bottom view port ကြားထဲမှာ big undesirable gap ကိုတွေ့ရတတ်ပါတယ်။ အဲ့ဒါဟာ web design အတွက် common problem တစ်ခုပဲဖြစ်ပါတယ်။ flex boxes flexibility ဟာဆိုရင် ဒီ common problem တွေအတွက် great solution တစ်ခုပဲဖြစ်ပါတယ်။ အခြား stick footer methods တွေကတော့ browser ရဲ့ total height ထဲနေ footer ရဲ့ height ကို subtract လုပ်ပြီးမှာ involve ဖြစ်လာတာပဲဖြစ်ပါတယ်။ 
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+                /* ================================= 
+                Base Styles
+              ==================================== */
+              
+              body {
+                  display: flex;
+                  flex-direction: column;
+                  min-height: 100vh;
+              }
+              
+              .row {
+                  flex: 1;
+              }
+              
+              /* ================================= 
+                Media Queries
+              ==================================== */
+              
+              @media (min-width: 769px) {
+              
+                  .main-header,
+                  .main-nav {
+                      display: flex;
+                  }
+                  .main-header {
+                      flex-direction: column;
+                      align-items: center;
+                  }
+              
+              }
+              
+              @media (min-width: 1025px) {
+              
+                  .main-header {
+                      flex-direction: row;
+                      justify-content: space-between;
+                  }
+              
+              }
+         </code>
+     </pre>
+     <a href="CSS_Example/stick.html">Test Yourself</a><hr>
+
+</body>
+</html>

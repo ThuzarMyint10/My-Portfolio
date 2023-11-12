@@ -1,0 +1,21 @@
+/* Photo 3D Transform & Transition */
+
+.photo-container{
+    perspective: 700px;
+    perspective-origin: 50% 100%;
+}
+
+.photo {
+    transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+    transform-style: preserve-3d;
+}
+.photo:hover {
+    transform: rotate3d(0, 1, 0, 180deg);
+}
+.side-b
+{
+    backface-visibility: hidden;
+}
+.side-b {
+    transform: rotateY(180deg);
+}

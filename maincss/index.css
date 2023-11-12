@@ -1,0 +1,98 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Navigation bar*/
+.navbar.navbar-expand-lg{
+    background-color: transparent !important;
+}
+.navbar-brand{
+    font-size: 3em;
+}
+.collapse.navbar-collapse{
+    justify-content: space-around;
+}
+.navbar.navbar-expand-lg .navbar-collapse a:hover{
+    border-bottom: 2px solid rgba(0, 255, 85, 0.568);
+}
+.navbar.navbar-expand-lg a{
+    text-decoration: none;
+    /* color: blanchedalmond; */
+}
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  /* body{
+      background-color: rgb(248, 245, 245);
+} */
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.623);
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu li a{
+    margin-left: 10px;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu li a:hover{
+    background-color: rgba(44, 250, 37, 0.267);
+    padding: 10px;
+}
+/* .navbar-toggler{
+    color: black;
+} */
+@media(max-width: 769px){
+    /* .navbar.navbar-expand-lg{
+        background-color: rgba(0, 0, 0, 0.548);
+    } */
+    header .jumbotron-fluid{
+        display: none;
+    }
+}
+/* /Navigation*/
+/* Backgroud Image*/
+ header .header-background img{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat ;
+}
+header .jumbotron.jumbotron-fluid{
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    right: 0;
+    background: none;
+    color: white;
+    
+}
+header .jumbotron.jumbotron-fluid .container h1{
+    font-size: 4.6em;
+}
+/*About*/
+#about{
+    width: 80%;
+    margin: 50px auto;
+}
+/*Course*/
+.course-header{
+    text-align: center;
+    margin-top: 50px; 
+    margin-bottom: 0;
+}
+.course{
+    max-width: 98%;
+    margin: 0 auto;
+}
+.course .grid{
+    width: 80%;
+    margin: 0 auto;
+}
+.course .grid .contained{
+    widows: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}

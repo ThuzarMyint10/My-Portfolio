@@ -1,0 +1,40 @@
+.tag{
+    background-color: aqua;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    display: table;
+    margin: 10px auto;
+
+}
+/*FOR HEADER ELEMENT*/
+header{
+    line-height: 1.5;
+   
+}
+/*FOR PARAGRAHP*/
+.para{
+    background-color: #222;
+    color: yellow;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    
+}
+header .profile-image{
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: all .3s;
+    display: block;
+    margin: 0 auto;
+
+
+
+}
+header .profile-image:hover{
+    transform: scale(2) rotate(360deg);
+}

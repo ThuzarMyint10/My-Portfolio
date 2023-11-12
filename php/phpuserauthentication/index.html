@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP UserAuthentcation</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Intorduction to User Authentication</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ user participation ပေါ်မှာအခြေခံပြီးတော့ sites တွေကို building လုပ်တဲ့အခါမှာ ကျွန်တော်တု့ိရဲ့
+        data
+        တွေကို safe and secure လုပ်ပေးဖို့လိုပါတယ်။ Participation မှာတော့ purchasing products or providing products to
+        sell,
+        leaving comments or providing stories တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေကို ကျွန်တော်တို့ဟာ ဘယ်သူက ဘာတွေကို access
+        လုပ်ထားတယ်ဆိုတာကို manage လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့လို manage လုပ်တဲ့အခါမှာ authentication and authorization ကို
+        လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ book voting system တစ်ခုအတွက် authentication and authorization
+        တစ်ခုကို
+        စပြီးတော့ building လုပ်မယ်ဆိုရင် ကျွန်တော်တို့ဟာ book club မှာ ဘယ်သူက နောက်ထပ် book ကို read လုပ်ချင်တယ်ဆိုတာကို
+        decide
+        လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ authentication ကို အသုံးပြုပြီးတော့ book တစ်ခုပေါ်မှာ registered လုပ်ထားတဲ့ users
+        တွေဟာပဲ
+        vote လုပ်ပေးနိုင်တာကို allow လုပ်ပေးနိုင်ပါတယ်။ နောက် authorization ကို အသုံးပြုမယ်ဆိုရင် ကျွန်တော်တို့ဟာ users
+        တွေကို
+        သူတို့ရဲ့ own books တွေကို add and edit လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက်ပြီးတော့ administrators
+        တွေကိုလည်း any book ကို modify လုပ်ပေးဖို့ရန်အတွက်လည်း allow လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Authentication vs Authorization</h1>
+    <p>
+        Authentication and Authorization ဆိုတာကို ကျွန်တော်တို့ဟာ နဲနဲလေး confuse ဖြစ်နိုင်ပါတယ်။ Authentication ဆိုတာ
+        ကျွန်တော်တို့ဟာ ဘယ်သူဖြစ်ပါတယ်ဆိုတဲ့ process ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ကိုယ်တိုင် authenticate လုပ်နိုင်တာတဲ့
+        ways
+        တွေအများကြီးရှိပါတယ်။ အခု section မှာဆိုရင် user authentication with PHP ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        common
+        ဖြစ်တဲ့ authentication ကတော့ username and password ပဲဖြစ်ပါတယ်။ နောက် authorization ဆိုတာကတော့ ကျွန်တော်တို့ဟာ
+        ဘာကို
+        လုပ်ဆောင်ဖို့ access ရှိတယ်ဆိုတာကို verifying လုပ်တဲ့ process ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် authenticated user တွေကို
+        adiministrative dashboard တစ်ခုကို access လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Registration System</h1>
+    <p>
+        User တစ်ယောက်ဟာ book တစ်ခုကို submit လုပ်ဖို့ရန်နှင့် အဲ့ book မှာ vote လုပ်ဖို့ရန်အတွက် logged in
+        ဝင်ပြီးသားဖြစ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ လုပ်ဆောင်ရမှာကတော့ user တစ်ခုကို ကျွန်တော်တို့ရဲ့ book
+        voting
+        site အတွက် register လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးရမှာဖြစ်ပါတယ်။ Registration procedure မှာဆိုရင် items 3 ခုနဲ့
+        asking
+        လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ username, a password and confirm password တို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့
+        အရင် လုပ်ဆောင်ရမှာကတော့ registration အတွက် procedure ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        doRegister.php
+        ဆိုတဲ့ new file တစ်ခုကို create လုပ်ထားတာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ items 3 ခုကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်
+        သူတို့ကို user ကို database ထဲကို inserting မလုပ်ခင်မှာ checks လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ registration
+        scripts
+        ကို writing လုပ်တဲ့အချိန်မှာ checks လုပ်တဲ့အခါမှာ database connection မလိုအပ်ပါဘူး။ Example မှာဆိုရင် first
+        check ကတော့
+        passwords ပဲဖြစ်ပါတယ်။ တစ်ကယ်လို့ passwords ဟာ match မဖြစ်ဘူးဆိုရင် flash message တစ်ခုကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        First check ပြီးသွားပြီဆိုရင် နောက်ထပ်ကတော့ username ကို check လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့အတွက် example မှာဆိုရင်
+        database
+        connection အတွက် function တစ်ခုရှိပြီးဖြစ်ပါတယ်။ Function ကတော့ findUserByUsername ပဲဖြစ်ပါတယ်။ အဲ့ function
+        ဟာဆိုရင် no
+        username ကို found ဖြစ်တဲ့အခါမှာ empty array ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ ဒီ registration
+        finished မဖြစ်ခင်မှာ passwords and security အကြောင်းကို သိထားဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>doRegister.php</h3>
+    <pre>
+        <code>
+           &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            
+            $username = request()->get('username');
+            $password = request()->get('password');
+            $confirmPassword = request()->get('confirm_password');
+            
+            if ($password != $confirmPassword) {
+              $session->getFlashBag()->add('error', 'Passwords do NOT match');
+              redirect('/register.php');
+            }
+            
+            $user = findUserByUsername($username);
+            if (!empty($user)) {
+              $session->getFlashBag()->add('error', 'User Already Exists');
+              redirect('/register.php');
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Securing Passwords</h1>
+    <p>
+        နောက်ကျွန်တော်တို့ဟာ password နဲ့ နောက်ထပ် လုပ်လို့ရပါသေးတယ်။ PHP မှာဆိုရင် ကျွန်တော်တို့ရဲ့ password hashing
+        အတွက်
+        အသုံးပြုနိုင်တဲ့ nice feature တစ်ခုရှိပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ password hash ကိုအသုံးပြုပြီးတော့ database
+        ထဲမှာ store
+        လုပ်မဲ့ password ကို create လုပ်ရမှာဖြစ်ပါတယ်။ ဒီ function ဟာဆိုရင် single direction hash ကို create
+        လုပ်တာဖြစ်ပါတယ်။
+        ဆိုလိုတာကတော့ ဒီ hash ဟာဆိုရင် plain text password ကို see လုပ်ဖို့ရန်အတွက် reversed မလုပ်နိုင်ပါဘူး။ Password
+        hash
+        function မှာဆိုရင် some properties တွေရှိပါတယ်။ First property ကတော့ plain text password ပဲဖြစ်ပါတယ်။ Next
+        property
+        ကတော့ ကျွန်တော်တို့ဟာ ဘယ် algorithm ကို အသုံးပြုချင်ပါတယ်ဆိုတာကို define လုပ်ပေးတာဖြစ်ပါတယ်။ Currently
+        အရဆိုရင်တော့
+        bcrypt algorithm ကို အသုံးပြုကြပါတယ်။ ဒါဟာဆိုရင် MCF password လို့ခေါ်တဲ့ modular crypt format တစ်ခုကို
+        ထုပ်ပေးပါတယ်။
+        Final property ကတော့ options တွေရဲ့ array တစ်ခုပဲဖြစ်ပါတယ်။ Example အတွက်ဆိုရင် ကျွန်တော်တို့ဟာ default options
+        တွေအားလုံးကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example $2y$ မှာဆိုရင် ဒါဟာ modular crypt format ထဲမှာရှိတဲ့ bcrypt hash
+        တစ်ခုပဲဖြစ်ပါတယ်။ MCF or modular crypt format ရဲ့ standard ကတော့ encoding password hash strings ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>doRegister.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            
+            $username = request()->get('username');
+            $password = request()->get('password');
+            $confirmPassword = request()->get('confirm_password');
+            
+            if ($password != $confirmPassword) {
+              $session->getFlashBag()->add('error', 'Passwords do NOT match');
+              redirect('/register.php');
+            }
+            
+            $user = findUserByUsername($username);
+            if (!empty($user)) {
+              $session->getFlashBag()->add('error', 'User Already Exists');
+              redirect('/register.php');
+            }
+            
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+            $user = createUser($username, $hashed);
+            saveUserSession($user);
+            $session->getFlashBag()->add('success', 'User Added');
+            redirect('/');
+        </code>
+    </pre>
+    <hr>
+    <h1>Login System</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ users တွေကို log in လုပ်ဖို့ရန်အတွက် allow လုပ်ပးရမှာဖြစ်ပါတယ်။ အခု section မှာတော့
+        logins
+        system ရဲ့ နောက်မှာရှိတဲ့ logic ပေါ်မှာ focus ထားသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ရဲ့ login
+        system ဟာ
+        hashing passwords, password verifying တို့အတွက် အသုံးပြုတဲ့ related function တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ဒီ
+        function ဟာဆိုရင် database ထဲမှာ stored လုပ်ထားတဲ့ correct password ကို အသုံးပြုပါတယ်။ သူဟာဆိုရင် new hash
+        password
+        နှင့် stored လုပ်ထားတဲ့ password hash တို့ရဲ့ matches ဖြစ်မဖြစ်ပေါ်မှာ depend လုပ်ပြီးတော့ true or false ကို
+        return
+        ပြန်ပေးတာဖြစ်ပါတယ်။ Example မှာဆိုရင် doLogin.php ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပေးထားတာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        user array ဟာ empty ကို return ပြန်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ flash error message ကို add လုပ်ပြီးတော့ login
+        screen ကို
+        redirect ပြန်လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ passwords တွေ match ဖြစ်မဖြစ်ကို check
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        Database ထဲမှာရှိတဲ့ password ဟာ hashed ဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ကို ဘာတွေ provided
+        လုပ်ခဲ့တယ်ဆိုတာနှင့် database ထဲမှာ ဘာရှိတယ်ဆိုတာကို compare လုပ်လို့မရပါဘူး။ သို့သော်လည်း အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့ရန်အတွက် password verify function ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် passwords တွေဟာ match
+        မဖြစ်တဲ့အခါမှာ
+        flash message တစ်ခုကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် login page ကို redirect လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ ဒီ
+        checks နှစ်ခုလုံးကို past ဖြစ်သွားပြီဆိုရင် user ဟာ login ဝင်လို့ရပြီဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ
+        user
+        details ကို ကျွန်တော်တို့ရဲ့ session ထဲမှာ restore လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user[id] နှင့် role ဟာ
+        integer
+        ဖြစ်တဲ့အတွက်ကြောင့် (int) ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ success flash ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>doLogin.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../inc/bootstrap.php';
+            
+            $user = findUserByUsername(request()->get('username'));
+            
+            if (empty($user)) {
+              $session->getFlashBag()->add('error', 'Username was not found');
+              redirect('../login.php');
+            }
+            
+            if (!password_verify(request()->get('password'), $user['password'])) {
+              $session->getFlashBag()->add('error', 'Invalid Password');
+              redirect('/login.php');
+            }
+            
+            $session->set('auth_logged_in', true);
+            $session->set('auth_user_id', (int) $user['id']);
+            $session->set('auth_roles', (int) $user['role_id']);
+            
+            $session->getFlashBag()->add('success', 'Successfully Logged In');
+            saveUserSession($user);
+            redirect('/');
+        </code>
+    </pre>
+    <hr>
+    <h1>Verify Authentication</h1>
+    <p>
+        Example ထဲမှာဆိုရင် inc folder ထဲမှာ function_auth.php ဆိုတဲ့ new file တစ်ခုကို add လုပ်ပေးထားပါတယ်။ အဲ့ new
+        file
+        ထဲမှာဆိုရင် new function တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ Function name ကတော့ isAuthenticated ဖြစ်ပါတယ်။ အဲ့
+        function
+        ဟာဆိုရင် user ဟာ logged in ဖြစ်တယ်ဆိုရင် ကျွန်တော်တို့ရဲ့ session ကို read လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကြောင့်
+        ကျွန်တော်တို့ရဲ့ session ဟာ function ထဲမှာ အလုပ်လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် သူ့ကို access လုပ်ဖို့လိုပါတယ်။
+        Example
+        မှာဆိုရင် simple approach တစ်ခုဖြစ်တဲ့ the global ကို အသုံးပြုထားပါတယ်။ နောက် ကျွန်တော်တို့ဟာ get method ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Get method ဟာဆိုရင် default value ကို second parameter အဖြစ်နှင့် specify
+        လုပ်ဖို့ရန်အတွက်
+        allow လုပ်ပေးပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် second parameter ဟာ false ဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ ဒီ
+        results
+        ကို returns ပြန်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် true ဆိုရင် user ဟာ logged in ဖြစ်ပါတယ်။ False ဆိုရင် user ဟာ not
+        logged
+        in ဖြစ်ပါတယ်။ နောက် အဲ့ isAuthenticated function ကို proper length ကို show လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ရဲ့
+        navigation
+        bar မှာ အသုံးပြုမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် user ဟာ authenticated ဆိုရင် books တွေကို add
+        လုပ်ပေးဖို့ပဲဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ အဲ့ item မှာ condition တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        user ဟာ
+        logged in ဖြစ်တယ်ဆိုရင် login and register links တို့ကို show လုပ်ဖို့မလိုပါဘူး။ အဲ့ဒါကြောင့် အဲ့ item မှာလည်း
+        condition
+        ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ links နှစ်ခုအစား log out ကို show လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function_auth.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            function isAuthenticated()
+            {
+              global $session;
+              return $session->get('auth_logged_in', false);
+            }
+        </code>
+    </pre>
+    <h3>nav.php</h3>
+    <pre>
+        <code>
+            &lt;nav class="navbar navbar-default navbar-static-top"&gt;
+            &lt;div class="container"&gt;
+            
+            &lt;div class="navbar-header"&gt;
+            &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false"&gt;
+            &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class="navbar-brand" href="/"&gt;Book Voting&lt;/a&gt;
+            &lt;/div&gt;
+            
+            
+            &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+            &lt;ul class="nav navbar-nav"&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="./books.php"&gt;Book List&lt;/a&gt;&lt;/li&gt;
+            &lt;?php if (isAuthenticated()) : ?&gt;
+            &lt;li&gt;&lt;a href="./add.php"&gt;Add Book&lt;/a&gt;&lt;/li&gt;
+            &lt;?php endif; ?&gt;
+            &lt;/ul&gt;
+            &lt;ul class="nav navbar-nav navbar-right"&gt;
+            &lt;?php if (isAuthenticated()) : ?&gt;
+            &lt;li&gt;&lt;a href="./account.php"&gt;My Account&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="./procedures/doLogout.php"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+            &lt;?php else : ?&gt;
+            &lt;li&gt;&lt;a href="login.php"&gt;Login&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="register.php"&gt;Register&lt;/a&gt;&lt;/li&gt;
+            &lt;?php endif; ?&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/nav&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Logging Out</h1>
+    <p>
+        Log in system ရဲ့ final part ကတော့ logging out ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် new procedure တစ်ခုဖြစ်တဲ့ doLogout.php
+        ကို
+        create လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user တစ်ယောက်ကို log out လုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ဟာ log in မှာ set
+        လုပ်ခဲ့တဲ့ authenticated sessions တွေအားလုံးကို remove လုပ်ဖို့လိုပါတယ်။ နောက် set method အစား remove method
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ value ကို pass လုပ်စရာမလိုပါဘူး။ နောက် flash
+        message
+        ကိုလည်း change လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ် လုပ်ဆောင်ရမှာကတော့ newly registered user တစ်ယောက်ဆိုရင်
+        automatically log
+        in ဖြစ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ registration ပေါ်မှာ log in လုပ်ဖို့အတွက် same session variables
+        တွေကို
+        save လုပ်ဖို့ရန်အတွက်လိုပါတယ်။ အဲ့ဒါကြောင့် function_auth ထဲမှာ saveUserSession ဆိုတဲ့ new function ကို create
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် user ကို access လုပ်ဖို့လိုပါတယ်။ နောက် အဲ့ new function ကို do register procedure
+        ထဲမှာလည်းအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>doLogout.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../inc/bootstrap.php';
+            
+            $session->remove('auth_logged_in');
+            $session->remove('auth_user_id');
+            $session->remove('auth_roles');
+            
+            $session->getFlashBag()->add('success', 'Successfully Logged Out');
+            redirect('/login.php');
+        </code>
+    </pre>
+    <h3>function_auth.php</h3>
+    <pre>
+        <code>
+            function saveUserSession($user)
+            {
+            global $session;
+            $session->set('auth_logged_in', true);
+            $session->set('auth_user_id', (int) $user['id']);
+            $session->set('auth_roles', (int) $user['role_id']);
+            
+            $session->getFlashBag()->add('success', 'Successfully Logged In');
+            }
+        </code>
+    </pre>
+    <h3>doRegister.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            
+            $username = request()->get('username');
+            $password = request()->get('password');
+            $confirmPassword = request()->get('confirm_password');
+            
+            if ($password != $confirmPassword) {
+              $session->getFlashBag()->add('error', 'Passwords do NOT match');
+              redirect('/register.php');
+            }
+            
+            $user = findUserByUsername($username);
+            if (!empty($user)) {
+              $session->getFlashBag()->add('error', 'User Already Exists');
+              redirect('/register.php');
+            }
+            
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+            $user = createUser($username, $hashed);
+            saveUserSession($user);
+            $session->getFlashBag()->add('success', 'User Added');
+            redirect('/');
+        </code>
+    </pre>
+    <hr>
+    <h1>Require Authentication</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ require authentication လို့ခေါ်တဲ့ pages ပေါ်မှာ အသုံးပြုနိုင်တဲ့ another function
+        တစ်ခုလိုအပ်ပါတယ်။
+        အဲ့ဒါကြောင့် requireAuth ဆိုတဲ့ new function ကို create လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့ function ဟာဆိုရင်
+        isAuthenticated
+        function ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user ဟာ not authenticated ဆိုရင် flash error message တစ်ခုကို
+        add
+        လုပ်ပြီးတော့ login ကို redirect လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒီ function ကို ကျွန်တော်တို့ require authentication
+        လုပ်ချင်တဲ့
+        file တွေမှာ အသုံးပြုရမှာဖြစ်ပါတယ်။ကျွန်တော်တို့ဟာ require authentication လို့ခေါ်တဲ့ pages ပေါ်မှာ
+        အသုံးပြုနိုင်တဲ့ another function တစ်ခုလိုအပ်ပါတယ်။ အဲ့ဒါကြောင့် requireAuth ဆိုတဲ့ new function ကို create
+        လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့ function ဟာဆိုရင် isAuthenticated function ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        user ဟာ not authenticated ဆိုရင် flash error message တစ်ခုကို add လုပ်ပြီးတော့ login ကို redirect
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒီ function ကို ကျွန်တော်တို့ require authentication လုပ်ချင်တဲ့ file တွေမှာ
+        အသုံးပြုရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function_auth.php</h3>
+    <pre>
+        <code>
+            function requireAuth()
+            {
+            if (!isAuthenticated()) {
+            global $session;
+            $session->getFlashBag()->add('error', 'Not Authorized');
+            redirect('/login.php');
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>User Profile</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ website ပေါ်မှာ authentication portion ကို set up လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        users တွေကို
+        allow လုပ်ပြီးဖြစ်ပါတယ်။ ဒါပေမဲ့ users တွေ ဘာလုပ်ရမယ်ဆိုတာကို allow လုပ်ဖို့လိုပါသေးတယ်။ ကျွန်တော်တို့ user
+        တစ်ယောက်ဟာ
+        book တစ်ခုပေါ်မှာ vote လုပ်နိုင်ဖို့ရန်အတွက် သေချာဖို့ပါတယ်။ သူတို့ဟာ တစ်ကြိမ်ပဲ vote လုပ်နိုင်ပြီးတော့ အဲ့ vote
+        ကိုလည်း
+        change လုပ်အတွက် allow လုပ်ဖို့လိုပါတယ်။ နောက် users တွေဟာ books တွေကို add လုပ်နိုင်ဖို့နှင့် သူတို့ရဲ့ own
+        books
+        တွေကို update လုပ်ဖို့အတွက် allow လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ books တွေကို handle မလုပ်ခင်မှာ another
+        feature
+        တစ်ခုဖြစ်တဲ့ user တစ်ယောက်ကို specific ဖြစ်သင့်တဲ့ user တွေရဲ့ password ကို change လုပ်ဖို့ရန်အတွက် ability
+        ပဲဖြစ်ပါတယ်။
+        Logged in ဖြစ်တဲ့ user တွေပဲ password ကို change လုပ်နိုင်တာဖြစ်ပါတယ်။ First အနေနဲ့ navigation မှာ My Account
+        ဆိုတဲ့
+        item ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>account.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/inc/bootstrap.php';
+            requireAuth();
+            require_once __DIR__ . '/templates/header.php';
+            require_once __DIR__ . '/templates/nav.php';
+            ?&gt;
+            
+            &lt;div class="container"&gt;
+            &lt;div class="well col-sm-6 col-sm-offset-3"&gt;
+            &lt;form class="form-signin" method="post" action="/procedures/changePassword.php"&gt;
+            &lt;h2 class="form-signin-heading"&gt;My Account&lt;/h2&gt;
+            &lt;h4&gt;Change Password&lt;/h4&gt;
+            &lt;label for="inputCurrentPassword" class="sr-only"&gt;Current Password&lt;/label&gt;
+            &lt;input type="password" id="inputCurrentPassword" name="current_password" class="form-control" placeholder="Current
+            Password" required autofocus&gt;
+            &lt;br&gt;
+            &lt;label for="inputPassword" class="sr-only"&gt;New Password&lt;/label&gt;
+            &lt;input type="password" id="inputPassword" name="password" class="form-control" placeholder="New Password"
+            required&gt;
+            &lt;br&gt;
+            &lt;label for="inputPassword" class="sr-only"&gt;Confirm Password&lt;/label&gt;
+            &lt;input type="password" id="inputPassword" name="confirm_password" class="form-control" placeholder="Confirm Password"
+            required&gt;
+            &lt;br&gt;
+            &lt;button class="btn btn-lg btn-primary btn-block" type="submit"&gt;Change Password&lt;/button&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;?php require_once __DIR__ . '/templates/footer.php'; ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Update Password</h1>
+    <p>
+        Update password ကို အလုပ်လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ new procedure တစ်ခုကို create လုပ်ဖို့လိုပါတယ်။
+        အဲ့ဒါကြောင့်
+        example မှာဆိုရင် changePassword.php ဆိုတဲ့ new file တစ်ခုကို add လုပ်ထားပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ
+        user
+        enter data တွေကို get လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ new passwords match ဖြစ်မဖြစ်ကို check
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ logged in user ရဲ့ details ကို လိုချင်တာဖြစ်တဲ့အတွက်ကြောင့်
+        function_auth
+        ထဲမှာ new function တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ကတော့ getAuthtenticatedUser ပဲဖြစ်ပါတယ်။
+        နောက် အဲ့
+        function ထဲမှာရှိတဲ့ ID ကို အသုံးပြုပြီးတော့ user ကို find လုပ်မှာဖြစ်ပါတယ်။ နောက် ဒီ function ကို
+        ကျွန်တော်တို့ရဲ့
+        change password procedure ထဲမှာ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် current password နှင့် database ထဲမှာရှိတဲ့
+        password ဟာ
+        match မဖြစ်ဘူးဆိုရင် error message တစ်ခုကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ checks တွေပြီးသွားတဲ့အခါမှာ
+        password
+        ကို update လုပ်လို့ရပြီဖြစ်ပါတယ်။ Example မှာဆိုရင် functions_users file ထဲမှာ update password function
+        တစ်ခုရှိပါတယ်။
+        အဲ့ function မှာဆိုရင် password နှင့် user ID ကို accepts လုပ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ function ကို call
+        မလုပ်ခင်မှာ
+        ကျွန်တော်တို့ရဲ့ new password မှာ password hash function ကို အသုံးပြုတယ်ဆိုတာကို
+        သေချာအောင်လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။
+        နောက်ဆုံးမှာတော့ updated password အတွက် success message ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>changePassword.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            requireAuth();
+            
+            $currentPassword = request()->get('current_password');
+            $newPassword = request()->get('password');
+            $confirmPassword = request()->get('confirm_password');
+            
+            if ($newPassword != $confirmPassword) {
+              $session->getFlashBag()->add('error', 'New passwords do not match. Please try again.');
+              redirect('../account.php');
+            }
+            
+            $user = getAuthenticatedUser();
+            
+            if (empty($user)) {
+              $session->getFlashBag()->add('error', 'Some Error Happend. Try again. If it continues,  please log out and back in.');
+              redirect('../account.php');
+            }
+            
+            if (!password_verify($currentPassword, $user['password'])) {
+              $session->getFlashBag()->add('error', 'Current password was incorrect, please try again');
+              redirect('../account.php');
+            }
+            
+            $hashed = password_hash($newPassword, PASSWORD_DEFAULT);
+            
+            if (!updatePassword($hashed, $user['id'])) {
+              $session->getFlashBag()->add('error', 'Could not update password, please try again.');
+              redirect('../account.php');
+            }
+            
+            $session->getFlashBag()->add('success', 'Password Updated');
+            redirect('../account.php');
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating Helper Functions</h1>
+    <p>
+        အခု section မှာဆိုရင် ကျွန်တော်တို့ရဲ့ application ကို maintain လုပ်တဲ့ code တွေကို reuse လုပ်ဖို့ရန်အတွက် allow
+        လုပ်တဲ့
+        helper function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ application ရဲ့ authorization system
+        အတွက်ဆိုရင် ဒီ
+        helper function ပေါ်မှာ rely လုပ်သွားရမှာဖြစ်ပါတယ်။ Authorization helper functions တွေဟာဆိုရင် တစ်ခါတစ်လေမှာ
+        guards
+        အနေနဲလည်း refer လုပ်ပါတယ်။ Guard တစ်ခုဆိုတာ ကျွန်တော်တို့ application ရဲ့ certain sections တွေကို protect
+        လုပ်ဖို့ရန်အတွက် allow လုပ်တဲ့ tool တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် guards တွေကို request ကို check
+        လုပ်ဖို့ရန်အတွက်နှင့် administrators တွေကိုပဲ page ကို view လုပ်ဖို့ရန်အတွက် allow လုပ်ဖို့ရန်အတွက် create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ logged-in user ဟာ book တစ်ခုရဲ့ owner or a vote
+        ဖြစ်တယ်ဆိုတာကိုသေချာအောင်လုပ်ဖို့ရန်အတွက် guard တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section
+        မှာဆိုရင်
+        require authentication function ကို create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ ဒီ function ဟာဆိုရင် isAuthenticated function
+        ကိုလည်း
+        အသုံးပြုပါတယ်။ အဲ့ဒါကြောင့် functions နှစ်ခုလုံးဟာ guards တွေပဲဖြစ်ပါတယ်။ အခု section မှာတော့ နောက်ထပ် guards
+        နှစ်ခုကို
+        admin အတွက် build လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီတစ်ခါမှာတော့ user ဟာ logged in ကို check လုပ်ရုံမဟုတ်ဘဲနဲ့
+        ကျွန်တော်တို့ဟာ
+        admin role ကိုလည်း check လုပ်ပေးရမှာဖြစ်ပါတယ်။ First function ကတော့ isAdmin ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user ဟာ
+        authenticated ဖြစ်မဖြစ်ကို check လုပ်ထားတာဖြစ်ပါတယ်။ နောက်ထပ် function တစ်ခုကတော့ requireAdmin ပဲဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        user ဟာ admin ဖြစ်မဖြစ်ကို ပြောဖို့ရန်အတွက် isAdmin function ကို အသုံးပြုနိုင်ပါတယ်။ နောက်ထပ် guard တစ်ခုကို add
+        လုပ်မှာဖြစ်ပါတယ်။ သူဟာဆိုရင် logged in ဖြစ်တဲ့ user ဟာ book or vote ရဲ့ owner ဖြစ်မဖြစ်ကို check
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒီ
+        function ဟာဆိုရင် single property ဖြစ်တဲ့ id ကို accept လုပ်မှာဖြစ်ပါတယ်။ Function name ကတော့ isOwner
+        ပဲဖြစ်ပါတယ်။ Next
+        section မှာဆိုရင် guards တွေကို ကျွန်တော်တို့ရဲ့ application ထဲမှာ အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function_auth.php</h3>
+    <pre>
+        <code>
+            function isAdmin()
+            {
+            if (!isAuthenticated()) {
+            return false;
+            }
+            
+            global $session;
+            return $session->get('auth_roles') === 1;
+            }
+            
+            function requireAdmin()
+            {
+            if (!isAdmin()) {
+            global $session;
+            $session->getFlashBag()->add('error', 'Not Authorized');
+            redirect('/login.php');
+            }
+            }
+            
+            function isOwner($ownerId)
+            {
+            if (!isAuthenticated()) {
+            return false;
+            }
+            
+            global $session;
+            return $ownerId == $session->get('auth_user_id');
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>User Administration Panel</h1>
+    <p>
+        ကျွန်တော်တို့ add and edit ကို books တွေမှာ add မလုပ်ခင်မှာ ကျွန်တော်တို့ဟာ books တွေအားလုံးကို administrators
+        ဟာ edit
+        လုပ်တာကို allow လုပ်ဖို့ရန်အတွက် လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိဟာ administrators တွေကို set
+        လုပ်ဖို့ way
+        တစ်ခုလိုပါတယ်။ ကျွန်တော်တို့ other users တွေကို administrator တစ်ယောက်ဟာ promote လုပ်နိုင်တာကို sure
+        ဖြစ်အောင်လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ functionality ကို steps နှစ်ခုနဲ့ add
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        First, ကျွန်တော်တို့ဟာ promote and demote buttons တွေနဲ့ user list တစ်ခုကို create လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက်
+        new file
+        တစ်ခုကို create လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ new file ထဲမှာ user table တစ်ခုနှင့် new panel တစ်ခုကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် table body ထဲမှာ user တစ်ယောက်ချင်းစီကို loop through လုပ်ပြီးတော့ promote or
+        demote
+        ဆိုတဲ့ button တစ်ခုခုပေါ်မှာ မူတည်ပြီးတော့ correct information တွေကို display လုပ်သွားမှာဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        functions_users file ထဲက functions နှစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ First function တော့ getAllUsers
+        ပဲဖြစ်ပါတယ်။
+        သူဟာဆိုရင် database ထဲမှာရှိတဲ့ users အားလုံးရဲ့ array တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ အခြား function
+        တစ်ခုကတော့
+        changeRole ပဲဖြစ်ပါတယ်။ သူဟာ userId and role တစ်ခုကို accepts လုပ်ပါတယ်။ နောက် အဲ့ new values တွေနဲ့ database
+        ကို
+        updates လုပ်ပြီးတော့ updated user တစ်ယောက်ကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ buttons တွေကို add
+        လုပ်တဲ့နေရာမှာ condition တွေကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် role_id ဟာ 1 နဲ့ ညီတဲ့အခါမှာ Demote ကို
+        add
+        လုပ်မှာဖြစ်ပြီးတော့ role_id ဟာ 2 နဲ့ ညီတဲ့ အခါမှာ Promote ကို add လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>admin.php</h3>
+    <pre>
+        <code>
+            &lt;;?php
+            require_once __DIR__ . '/inc/bootstrap.php';
+            requireAdmin();
+            require_once __DIR__ . '/templates/header.php';
+            require_once __DIR__ . '/templates/nav.php';
+            ?&gt;
+            &lt;;div class="container"&gt;
+            &lt;;div class="well"&gt;
+            &lt;;h2&gt;Admin&lt;;/h2&gt;
+            &lt;;div class="panel"&gt;
+            &lt;;h4&gt;Users&lt;;/h4&gt;
+            &lt;;table class="table table-striped"&gt;
+            &lt;;thead&gt;
+            &lt;;tr&gt;
+            &lt;;th&gt;Username&lt;;/th&gt;
+            &lt;;th&gt;Registered&lt;;/th&gt;
+            &lt;;th&gt;Promote/Demote&lt;;/th&gt;
+            &lt;;/tr&gt;
+            &lt;;/thead&gt;
+            &lt;;tbody&gt;
+            &lt;;?php foreach (getAllUsers() as $user) : ?&gt;
+            &lt;;tr&gt;
+            &lt;;td&gt;&lt;;?php echo $user['username']; ?&gt;&lt;;/td&gt;
+            &lt;;td&gt;&lt;;?php echo $user['created_at']; ?&gt;&lt;;/td&gt;
+            &lt;;td&gt;&lt;;?php if (isOwner($user['id'])): ?&gt;
+            &lt;;span class="btn btn-xs btn-default"&gt;Cannot alter your own role&lt;;/span&gt;
+            &lt;;?php else : ?&gt;
+            &lt;;?php if ($user['role_id'] == 1) : ?&gt;
+            &lt;;a href="/procedures/adjustRole.php?roleId=2&userId=&lt;;?php echo $user['id']; ?&gt;" class="btn btn-xs
+            btn-warning"&gt;Demote to General User&lt;;/a&gt;
+            &lt;;?php elseif ($user['role_id'] == 2) : ?&gt;
+            &lt;;a href="/procedures/adjustRole.php?roleId=1&userId=&lt;;?php echo $user['id']; ?&gt;" class="btn btn-xs
+            btn-success"&gt;Promote to Admin&lt;;/a&gt;
+            &lt;;?php endif; ?&gt;
+            &lt;;?php endif; ?&gt;&lt;;/td&gt;
+            &lt;;/tr&gt;
+            &lt;;?php endforeach; ?&gt;
+            &lt;;/tbody&gt;
+            &lt;;/table&gt;
+            &lt;;/div&gt;
+            &lt;;/div&gt;
+            &lt;;/div&gt;
+            &lt;;?php
+            require_once __DIR__ . '/templates/footer.php';
+        </code>
+    </pre>
+    <h3>function_user.php</h3>
+    <pre>
+        <code>
+            function getAllUsers()
+            {
+            global $db;
+            
+            try {
+            $query = "SELECT * FROM users";
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll();
+            } catch (\Exception $e) {
+            throw $e;
+            }
+            }
+            function changeRole($userId, $roleId)
+            {
+            global $db;
+            
+            try {
+            $query = "UPDATE users SET role_id = :roleId WHERE id = :userId";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':roleId', $roleId);
+            $stmt->bindParam(':userId', $userId);
+            $stmt->execute();
+            return findUserById($userId);
+            } catch (\Exception $e) {
+            throw $e;
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Changing User Role</h1>
+    <p>
+        Procedure folder ထဲမှာ adjustRole.php ဆိုတဲ့ new file တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ file ထဲမှာ
+        changeRole
+        function ကို call လုပ်ပေးရမှာဖြစ်ပါတယ်။ ေ
+    </p>
+    <h2>Code Example</h2>
+    <h3>adjustRole.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../inc/bootstrap.php';
+            requireAdmin();
+            
+            $user = changeRole(request()->get('userId'), request()->get('roleId'));
+            if ($user['role_id'] == 1) {
+              $session->getFlashBag()->add('success', $user['username'] . ' promoted to admin!');
+            } else {
+              $session->getFlashBag()->add('success', $user['username'] . ' demoted to restricted user!');
+            }
+            redirect('/admin.php');
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Authorization Checks</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ admin functionality ကို few more restrictions တွေကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        First အနေနဲ့ guards တွေကတစ်ခုကို adjustRole page ထဲမှာ requireAdmin ကိုလုပ်ဆောင်ဖို့ရန်အတွက်
+        အသုံးပြုမှာဖြစ်ပါတယ်။ နောက်
+        admin page မှာရှိတဲ့ requireAuth ကို requireAdmin ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ restrict
+        လုပ်မှာကတော့ ကျွန်တော်တို့ရဲ့ own role ကို adjust လုပ်လို့မရတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် new
+        conditional
+        statement တစ်ခုထဲမှာ button logic ကို wrapping လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ loop
+        ထဲမှာရှိတဲ့
+        current user ID နှင့် logged in user နဲ့ matches ဖြစ်မဖြစ်ကို check လုပ်ဖို့ရန်အတွက် isOwner function ကို
+        အသုံးပြုနိုင်ပါတယ်။ နောက် navigation မှာ administrators တွေကို admin link ကို show လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။
+        အဲ့ဒါကိုလည်း
+        isAdmin function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ ကျွန်တော်တို့ရဲ့ book list page
+        ကိုသွားပြီးတော့
+        ဘယ်သူက book တစ်ခုကို edit or delete လုပ်ဖို့အတွက် access ရှိတယ်ဆိုတာကို update လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>admin.php</h3>
+    <pre>
+        <code>
+            &lt;;?php
+            require_once __DIR__ . '/inc/bootstrap.php';
+            requireAdmin();
+            require_once __DIR__ . '/templates/header.php';
+            require_once __DIR__ . '/templates/nav.php';
+            ?&gt;
+            &lt;;div class="container"&gt;
+            &lt;;div class="well"&gt;
+            &lt;;h2&gt;Admin&lt;;/h2&gt;
+            &lt;;div class="panel"&gt;
+            &lt;;h4&gt;Users&lt;;/h4&gt;
+            &lt;;table class="table table-striped"&gt;
+            &lt;;thead&gt;
+            &lt;;tr&gt;
+            &lt;;th&gt;Username&lt;;/th&gt;
+            &lt;;th&gt;Registered&lt;;/th&gt;
+            &lt;;th&gt;Promote/Demote&lt;;/th&gt;
+            &lt;;/tr&gt;
+            &lt;;/thead&gt;
+            &lt;;tbody&gt;
+            &lt;;?php foreach (getAllUsers() as $user) : ?&gt;
+            &lt;;tr&gt;
+            &lt;;td&gt;&lt;;?php echo $user['username']; ?&gt;&lt;;/td&gt;
+            &lt;;td&gt;&lt;;?php echo $user['created_at']; ?&gt;&lt;;/td&gt;
+            &lt;;td&gt;&lt;;?php if (isOwner($user['id'])): ?&gt;
+            &lt;;span class="btn btn-xs btn-default"&gt;Cannot alter your own role&lt;;/span&gt;
+            &lt;;?php else : ?&gt;
+            &lt;;?php if ($user['role_id'] == 1) : ?&gt;
+            &lt;;a href="/procedures/adjustRole.php?roleId=2&userId=&lt;;?php echo $user['id']; ?&gt;" class="btn btn-xs
+            btn-warning"&gt;Demote to General User&lt;;/a&gt;
+            &lt;;?php elseif ($user['role_id'] == 2) : ?&gt;
+            &lt;;a href="/procedures/adjustRole.php?roleId=1&userId=&lt;;?php echo $user['id']; ?&gt;" class="btn btn-xs
+            btn-success"&gt;Promote to Admin&lt;;/a&gt;
+            &lt;;?php endif; ?&gt;
+            &lt;;?php endif; ?&gt;&lt;;/td&gt;
+            &lt;;/tr&gt;
+            &lt;;?php endforeach; ?&gt;
+            &lt;;/tbody&gt;
+            &lt;;/table&gt;
+            &lt;;/div&gt;
+            &lt;;/div&gt;
+            &lt;;/div&gt;
+            &lt;;?php
+            require_once __DIR__ . '/templates/footer.php';
+        </code>
+    </pre>
+    <h3>nav.php</h3>
+    <pre>
+        <code>
+            &lt;nav class="navbar navbar-default navbar-static-top"&gt;
+            &lt;div class="container"&gt;
+            
+            &lt;div class="navbar-header"&gt;
+            &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false"&gt;
+            &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;span class="icon-bar"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class="navbar-brand" href="/"&gt;Book Voting&lt;/a&gt;
+            &lt;/div&gt;
+            
+            
+            &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+            &lt;ul class="nav navbar-nav"&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="./books.php"&gt;Book List&lt;/a&gt;&lt;/li&gt;
+            &lt;?php if (isAuthenticated()) : ?&gt;
+            &lt;li&gt;&lt;a href="./add.php"&gt;Add Book&lt;/a&gt;&lt;/li&gt;
+            &lt;?php endif; ?&gt;
+            &lt;/ul&gt;
+            &lt;ul class="nav navbar-nav navbar-right"&gt;
+            &lt;?php if (isAuthenticated()) : ?&gt;
+            &lt;li&gt;&lt;a href="./account.php"&gt;My Account&lt;/a&gt;&lt;/li&gt;
+            &lt;?php if(isAdmin()) : ?&gt;
+            &lt;li&gt;&lt;a href="/admin.php"&gt;Admin&lt;/a&gt;&lt;/li&gt;
+            &lt;?php endif ; ?&gt;
+            &lt;li&gt;&lt;a href="./procedures/doLogout.php"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+            &lt;?php else : ?&gt;
+            &lt;li&gt;&lt;a href="login.php"&gt;Login&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="register.php"&gt;Register&lt;/a&gt;&lt;/li&gt;
+            &lt;?php endif; ?&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/nav&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        ဒီမှာဆိုရင် condition ဟာ isAdmin or isOwner ကို check လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ check ကို ကျွန်တော်တို့ဟာ
+        editBook and
+        deleteBook တို့မှာလည်း အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ requireAuth ကို add လုပ်ရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် admin or owner မဟုတ်ဘူးဆိုရင် books တွေကို edit or delete လုပ်လို့မရပါဘူး။ နောက်ထပ် ကျန်တာကတော့
+        lockdown
+        voting ပဲဖြစ်ပါတယ်။ User တစ်ယောက်ချင်းစီဟာဆိုရင် book တစ်ခုကို တစ်ခါပဲ vote လုပ်နိုင်ပြီးတော့ users တွေဟာ
+        သူတို့ရဲ့ vote
+        ကို change လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>editBook.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            requireAuth();
+            
+            $book = getBook(request()->get('bookId'));
+            if (!isAdmin() && !isOwner($book['owner_id'])) {
+               $session->getFlashBag()->add('error', 'Not Authorized');
+               redirect('../books.php');
+            }
+        </code>
+    </pre>
+    <h3>deleteBook.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../inc/bootstrap.php';
+            requireAuth();
+            
+            $book = getBook(request()->get('bookId'));
+            if (!isAdmin() && !isOwner($book['owner_id'])) {
+               $session->getFlashBag()->add('error', 'Not Authorized');
+               redirect('../books.php');
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Update Voting System</h1>
+    <p>
+        အခု section မှာတော့ final step ဖြစ်တဲ့ book voting system ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        authenticated
+        users တွေပဲ vote လုပ်နိုင်တာဖြစ်ပါတယ်။ Example မှာဆိုရင် first function ဟာ specific user တစ်ယောက်ကနေပြီးတော့
+        specific
+        book တစ်ခုအတွက် vote ကို save ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user ID ဟာ default 0 ပဲဖြစ်ပါတယ်။ Next function
+        ဟာဆိုရင်
+        actual vote ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် bookId, a score and an optional userId ကို accepts လုပ်ပါတယ်။ အဲ့ function
+        ဟာဆိုရင် clearVote function ကို calls လုပ်ပါတယ်။ clearVote function ဟာ bookId and a userId ကို accepts
+        လုပ်ပြီးတော့
+        delete ကို attempts လုပ်ပါတယ်။ တစ်ကယ်လို့ vote တစ်ခုဟာ actually deleted ဖြစ်သွားတယ်ဆိုရင် function ဟာဆိုရင် 0
+        ထက်ကြီးတော့ count တစ်ခုကို return ပြန်ပေးပါတယ်။ Vote function ဟာဆိုရင် user's vote ကို count လုပ်ပြီးတော့ true
+        ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက် vote.php ကို update
+        လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် authenticated user ရဲ့ ID ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ First အနေနဲ့
+        requireAuth ကို
+        add လုပ်ရမှာဖြစ်ပါတယ်။ နောက် getAuthenticatedUser function ကို call လုပ်ပြီးတော့ id ကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        arrows တွေကို update လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ way နှင့် current user ဟာ voted လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        book.php ထဲမှာ authenticated user ကို get လုပ်ဖို့လိုပါတယ်။ Check လုပ်ပြီးတဲ့အချိန်မှာ user ဟာ authenticated
+        ဖြစ်တယ်ဆိုရင် getAuthenticatedUser function ကို call လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် up arrow class မှာ php block
+        ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် down arrow မှာလည်း add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function_vote.php</h3>
+    <pre>
+        <code>
+            <?php
+            /**
+             * Functions to interface with `votes` table
+             */
+            function getUserVote($bookId, $userId = 0) {
+              global $db;
+              
+              try {
+                    $query = "SELECT value FROM votes "
+                      . " WHERE book_id = :bookId"
+                      . " AND user_id = :userId";
+                    $stmt = $db->prepare($query);
+                    $stmt->bindParam(':bookId', $bookId);
+                    $stmt->bindParam(':userId', $userId);
+                    $stmt->execute();
+                    return (int) $stmt->fetchColumn();
+                } catch (\Exception $e) {
+                    throw $e;
+                }
+            }
+            function vote($bookId, $score, $userId = 0)
+            {
+                global $db;
+                if (clearVote($bookId, $userId)) {
+                    return true;
+                }
+            
+                try {
+                    $query = 'INSERT INTO votes (book_id, user_id, value) VALUES (:bookId, :userId, :score)';
+                    $stmt = $db->prepare($query);
+                    $stmt->bindParam(':bookId', $bookId);
+                    $stmt->bindParam(':userId', $userId);
+                    $stmt->bindParam(':score', $score);
+                    $stmt->execute();
+                } catch (\Exception $e) {
+                    throw $e;
+                }
+            }
+            function clearVote($bookId, $userId)
+            {
+                global $db;
+            
+                try {
+                    $query = "DELETE FROM votes WHERE book_id = :bookId AND user_id = :userId";
+                    $stmt = $db->prepare($query);
+                    $stmt->bindParam(':bookId', $bookId);
+                    $stmt->bindParam(':userId', $userId);
+                    $stmt->execute();
+                    return $stmt->rowCount();
+                } catch (\Exception $e) {
+                    throw $e;
+                }
+            }
+        </code>
+    </pre>
+    <h3>vote.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ .'/../inc/bootstrap.php';
+            requireAuth();
+            
+            $user = getAuthenticatedUser();
+            
+            vote(request()->get('bookId'), request()->get('vote'), $user['id']);
+            
+            redirect('../books.php');
+            
+            ?>
+        </code>
+    </pre>
+    <a href="../userauthenticationexample/index.php">Test Yourself</a>
+    <hr>
+    <h1>Cookies vs. Session Storage</h1>
+    <p>
+        အခု section မှာတော့ authenticated user information တွေကို store လုပ်ဖို့ရန်အတွက် debate လို့ခေါ်တဲ့ cookies or
+        session
+        အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ debate အတွက် 100% correct answer မရှိသေးပါဘူး။ ဒါပေမဲ့ အခု section
+        မှာတော့
+        ဒီနှစ်ခုရဲ့ differences ဖြစ်တဲ့ positives and negatives တို့ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ A lot of people တွေကတော့
+        user ရဲ့
+        information တွေကို session နဲ့ storing လုပ်တာဟာ correct way ဆိုပြီးတော့ ငြင်းခုန်နေကြပါတယ်။ ဒါပေမဲ့ ဒါဟာဆိုရင်
+        hacker
+        တစ်ယောက်ကို cross site scripting အတွက် same session ကို ရဖို့ရန်အတွက် access ဖြစ်သွားနိုင်ပါတယ်။ Sessions တွေဟာ
+        cross
+        site scripting ကို prone လုပ်ကြပါတယ်။ ဘာကြောင့်လဲဆိုတော့ sessions တွေဟာ accessible via JavaScript
+        ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် သူဟာ ဒီလိုဖြစ်တာတွေကို keep လုပ်တဲ့ way မရှိပါဘူး။ Typically အရတော့ people
+        တွေဟာ
+        သူတို့ရဲ့ site ပေါ်မှာ cross site scripting ကို prevent လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့အချိန်မှာ သူတို့ဟာ encode
+        လုပ်ကြတယ် or
+        untrusted information တွေအားလုံးကို escape လုပ်ကြပါတယ်။ နောက် cookies storage ဟာဆိုရင် အလုပ်လုပ်ဖို့ရန်အတွက်
+        အနည်းငယ်
+        ခက်ခဲပါတယ်။ ဒါပေမဲ့ ဒီ project ထဲမှာအသုံးပြုထားတဲ့ Symphony HTTP Foundation package လို packages နဲ့ဆိုရင်
+        cookies ကို
+        creating and updating လုပ်တာဟာ simpler ဖြစ်ပါတယ်။ Cookies ဟာဆိုရင် HTTP တစ်ခုရှိပါတယ်။ အဲ့ဒါဟာ သူတို့ပေါ်မှာ
+        flag set
+        ဖြစ်နေပါတယ်။ Cookies ရဲ့ other nice feature တစ်ခုကတော့ cookie တစ်ခုကို more secure ဖြစ်အောင်လုပ်ဆောင်ပေးတဲ့
+        HTTPS ပေါ်ပဲ
+        transmitted လုပ်နိုင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ cookies ကို အသုံးပြုရခြင်းရဲ့ way ကတော့ cookie ကို stateless
+        ဖြစ်စေဖို့
+        allow လုပ်တဲ့ user information တွေအားလုံးပါဝင်တဲ့ JSON ကို store လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ Cookies ရဲ့
+        downside ကတော့
+        သူတို့ဟာ prone to cross-site request forgery ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် hacker တွေကို form or user တွေကို hidden
+        လုပ်ထားတဲ့
+        image ကိုအသုံးပြုပြီးတော့ providing cookie မှာ browser ကို trick လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Cross site
+        request
+        forgery ကို protecting လုပ်တဲ့နေရာမှာ few steps ရှိပါတယ်။ အဲ့ဒါကတော့ PHP session ထဲမှာ storing လုပ်ထားတဲ့ token
+        တစ်ခုလိုအပ်ပါတယ်။ နောက် form submission တစ်ခုပေါ်မှာ ကျွန်တော်တို့ဟာ session ထဲမှာရှိတဲ့ token နှင့်
+        နောက်တစ်ခုကို
+        compare လုပ်ရပါတယ်။ အဲ့ဒါဟာဆိုရင် proceeding မလုပ်ခင်မှာ သူတို့နှစ်ခုကိုလုံး same ဖြစ်ပါတယ်ဆိုတာကို sure
+        ဖြစ်အောင်လုပ်ဆောင်တာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>JSON Web Tokens</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ logged in user တွေရဲ့ information တွေကို ဘယ်မှာ store လုပ်ရမယ်ဆိုတာကို
+        သိခဲ့ပြီဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့အသုံးပြုမှာကတော့ JSON Web Token or JWT ပဲဖြစ်ပါတယ်။ JWT ဟာဆိုရင် data တွေကို secure
+        and URL
+        safe way တစ်ခုမှာ transfer and store လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ JWT တစ်ခုမှာဆိုရင် အပိုင်း ၃ ပိုင်းရှိပါတယ်။
+        အဲ့ဒါတွေကတော့ header, claims, and signature တို့ပဲဖြစ်ပါတယ်။ Header မှာဆိုရင် JWT ကို defines လုပ်တဲ့
+        cryptographic
+        information တွေအားလုံး ပါဝင်ပါတယ်။ နောက် claims section မှာဆိုရင် JWT ထဲမှာ store လုပ်ဖို့ရန်အတွက် information
+        တွေအားလုံးပါဝင်ပါတယ်။ အဲ့မှာဆိုရင် claims နှစ်မျိုးကို put လုပ်နိုင်ပါတယ်။ အဲ့ဒါတွေကတော့ Public claims နှင့်
+        Private
+        claims တို့ပဲဖြစ်ပါတယ်။ Public claims ဟာဆိုရင် collision safe claims ဖြစ်ပြီးတော့ private claims ဟာဆိုရင်
+        caution နှင့်
+        တွဲသုံးရပါတယ်။ ဘာလို့လဲဆိုတော့ no collision ကို guaranteeing လုပ်ဖို့ရန်အတွက် way
+        မရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        Typical claims ကို JWT တစ်ခုအတွင်းမှာ issuer, subject, issued at, not before, and JWT ID ဆိုပြီးတော့ရှိပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ system ထဲမှာ role ကို define လုပ်ဖို့ရန်အတွက် some private claims တွေကို add လုပ်နိုင်ပါတယ်။
+        အဲ့မှာဆိုရင် is_admin claim ဟာဆိုရင် current user ဟာ administrator တစ်ယောက်ဖြစ်ခဲ့လျှင် ကျွန်တော်တို့ရဲ့ logic
+        ကို
+        Boolean အနေနဲ့ add လုပ်ပေးတာဖြစ်ပါတယ်။ Last JWT secure ကို လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ JWT ကို
+        private key
+        တစ်ခုနဲ့ sign လုပ်နိုင်ပါတယ်။
+    </p>
+    <hr>
+</body>
+
+</html>

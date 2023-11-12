@@ -1,0 +1,23 @@
+
+/* Translation Function */
+
+.slide {
+    overflow: hidden;
+}
+
+.side .photo-desc,
+.slide img {
+    transition: transform .6s;
+}
+
+.slide .photo-desc {
+    transform: translateX(-100%);
+}
+
+.slide:hover .photo-desc {
+    transform: translateX(0);
+}
+
+.slide:hover img {
+    transform: translate(100%);
+}

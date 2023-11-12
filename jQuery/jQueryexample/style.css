@@ -1,0 +1,10 @@
+.container{
+    text-align: center;
+}
+.container .box{
+    width: 6%;
+    padding: 50px;
+    background-color: green;
+    border-radius: 15px;
+    margin-left: 583px;
+}

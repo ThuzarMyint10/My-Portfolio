@@ -1,0 +1,83 @@
+.col a {
+    background: #4a89ca5c;
+    /* margin: 2em auto; */
+    padding: 20px 0px;
+    line-height: 0;
+    margin: 0;
+    border-radius: 6px;
+}
+
+.main-photo {
+    position: relative;
+    line-height: 0;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Photo Overlay Property */
+.photo-overlay {
+    opacity: 0;
+    /* transition-property: opacity;
+    transition-duration: .5s; */
+    transition: opacity, .5s;
+    background: #171616a3;
+}
+
+.photo-overlay:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Button Transition */
+
+.button {
+    opacity: 0;
+   transition: opacity .3s ease-out .2s, background .4s ease-out .3s, box-shadow .5s ease-out 0s; 
+}
+
+.button:hover {
+    background: rgba(74,137,202,1);
+    box-shadow: 0 0 0  3px rgba(255,255,255, .7);
+}
+
+.photo-overlay:hover .button {
+    opacity: 1;
+}
+/***************
+TIMING FUNCTION
+***************/
+.btn-icon{
+    opacity: o;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(img/thambnalis/download.png);
+    position: absolute;
+    left: 45%;
+    top: 75%;
+}
+.btn-icon {
+    transition-property: opacity, left;
+    transition-duration: .5s;
+    transition-delay: .3s;
+    transition-timing-function: ease-out;
+}
+.button:hover .btn-icon {
+    opacity: 1;
+    left: 70%;
+}

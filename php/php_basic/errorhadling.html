@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Errors Handling</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction To Errors Handling</h1>
+    <p>
+        Exceptions တွေဟာဆိုရင် errors တွေကို handling လုပ်ဖို့ရန်အတွက် object oriented approach တစ်ခုဖြစ်ပါတယ်။ Exception တစ်ခုဟာဆိုရင် something goes wrong မှာရှိတဲ့ ကျွန်တော်တို့ application ကနေ thrown လုပ်လိုက်တဲ့ object တစ်ခုပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် flow of the program ကို interrupt လုပ်ဖို့ရန်အတွက် allows လုပ်ပေးပါတယ်။ ပြီးတော့ ဘယ်လို application ဟာ errors ကို handles လုပ်တယ်ဆိုတာကိုလည်း customize လုပ်ရန်အတွက် allows လုပ်ပေးထားပါတယ်။ Exceptions တွေဟာ ဘာလုပ်တာလဲဆိုတော့ exceptionally useful ဟာ error တွေကို catch လုပ်ဖို့ရန် ability ပဲဖြစ်ပါတယ်။ Catching exceptions ဟာဆိုရင် gracefully and either exit our application or customize the error ကို recover လုပ်ဖို့ရန်အတွက်ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ receive လုပ်ထားတဲ့ ဘယ် type of exception ပေါ်မှာမူတည်ပြီးတော့ ဘာတွေ happens ဖြစ်တယ်ဆိုတာကို customize လုပ်နိုင်ပါတယ်။ Catching exception ဟာဆိုရင် exception တစ်ခုချင်းစီနဲ့ ဘာ happens ဖြစ်တယ်ဆိုတာကို determine လုပ်ဖို့ရန် ability ကို ကျွန်တော်တို့ကို ပေးပါတယ်။ Example မှာဆိုရင် catching database exceptions ကို PHP data object တစ်ခုနဲ့ လုပ်ပြထားတာဖြစ်ပါတယ်။ First အနေနဲ့ try ဆိုတဲ့ keyword ရှိပါတယ်။ ပြီးတော့ curly braces ထဲမှာ ကျွန်တော်တို့ try or attempt to execute လုပ်ချင်တဲ့ code တွေရှိပါတယ်။ Example မှာဆိုရင်တော့ to a sqlite database ကို connecting လုပ်တာပဲဖြစ်ပါတယ်။ နောက် catch keyword ပြီးတဲ့နောက်မှာ ကျွန်တော်တို့ဟာ PHP ကို ကျွန်တော်တို့ ဘာတွေကို catching လုပ်ထားပါတယ်ဆိုတာကိုေ tell လုပ်ဖို့ရန်အတွက် parentheses ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ြပြီးတော့ new variable တစ်ခုကို caught ဖြစ်စေတဲ့ exception ကို assign လုပ်နိုင်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ exception methods ကိုအသုံးပြုပြီးတော့ details တွေကို get လုပ်ဖို့ရန်အတွက် exception variable ကို အသုံးပြုနိုင်ပါတယ်။ Example မှာဆိုရင်တော့  this message, get message, returns ဆိုတဲ့ methods 3 ခုကို  အသုံးပြုထားတာဖြစ်ပါတယ်။ ဒီမှာဆိုရင် exception class အတွက် available additional methods တွေရှိပါတယ်။ Next section တွေမှာဆိုရင် ဘယ် conditions အောက်မှာ exceptions တွေကို ဘယ်လိုအသုံးပြုရမယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ first အနေနဲ့ proper use of exceptions တွေကို ပြုလုပ်ဖို့ရန်အတွက် four tips ကို လေ့လာကြည့်ရအောင်။ First, exceptions တွေဟာ part of the object oriented programming။ အဲ့ဒါကြောင့် exception တစ်ခုဟာ သူကိုယ်တိုင် object တစ်ခုဖြစ်နေတာဖြစ်ပါတယ်။ သူ့ကို object oriented approach တစ်ခုနဲ့ အကောင်းဆုံးအလုပ်လုပ်နိုင်ဖို့အတွက် designed ချထားတာဖြစ်ပါတယ်။ PHP ဟာ procedural code တွေနဲ့အလုပ်လုပ်တဲ့အချိန်မှာ error ကို handling လုပ်ဖု့ိရန်အတွက် a number of options ကို offers လုပ်ထားပါတယ်။ Second, exceptions တွေဟာ exceptional ဖြစ်ပါတယ်။ သူတို့ကို normal program flow ကို manage လုပ်ဖို့ရန်အတွက်တော့ အသုံးပြုလို့မရပါဘူး။ Third, exceptions တွေဟာ handled လို့ meant ဖြစ်ပါတယ်။ Try catch block တစ်ခုရဲ့ very existence ဟာ အဲ့ exceptions တွေဟာ handled ဖြစ်ပါတယ်ပြီးတော့ indicates လုပ်တာဖြစ်ပါတယ်။ Finally, exceptions တွေဟာ silenced ကိုတော့ meant မဖြစ်ပါဘူး။ ကျွန်တော်တို့မှာ empty catch block တစ်ခုရှိတယ်ဆိုရင် ကျွန်တော်တို့ဟာ exception ကို silencing လုပ်တာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            try{
+                $db = new PDO("sqlite:".__DIR__."/data.db);
+            } catch (Exception $e) {
+                echo "Unable to connect:" . $e ->getMessage()
+                . "in file: " . $e->getFile()
+                . " on line " .$e->getLine();
+            }
+        </code>
+    </pre><hr>
+    <h1>Exception Handling with Class</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ PHP ကိုယ်တိုင် throws လုပ်လိုက်တဲ့ exceptions တွေကို ဘယ်လို catch လုပ်ရတယ်ဆိုတာကို simple example နဲ့ လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ file တစ်ခု or database တစ်ခုဟာ resource တစ်ခုထဲမှာမရှိတာ စတဲ့ own exceptions တွေကို thrown လုပ်နိုင်ပါတယ်။ အဲ့ဒါဟာ application တစ်ခုရဲ့ normal flow ထဲမှာတော့မရှိသင့်ပါဘူး။ ဒါပေမဲ့ အဲ့ဒါဟာ something exceptional မှာပဲ happens ဖြစ်တာဖြစ်ပါတယ်။ Production server တစ်ခုမှာဆိုရင်တော့ ကျွန်တော်တို့ဟာ errors အားလုံးကို show မလုပ်ကြပါဘူး။ Exceptions တွေဟာဆိုရင် ကျွန်တော်တို့ကို issues တွေကို catch လုပ်ရန် ပြီးတော့ ဘာတွေဖြစ်တယ်ဆိုတာကို control လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ ကျွန်တော်တို့ရဲ့ file ကို reading လုပ်ဖို့အတွက် open လုပ်ဖို့မရတဲ့အခါမှာ ပြီးတော့ new exception တစ်ခုကို throw လုပ်ချင်တဲ့အခါမှာ new class object တစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ သူ့ကို အသုံးပြုတဲ့အခါမှာ new keyword ပြီးတော့ new exception ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် argument တစ်ခုကို pass လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် message ကတော့ unable to access file ကို show လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ errors တွေကို throw လုပ်မယ်ဆိုရင် အဲ့ errors တွေကို catch လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် try catch block တစ်ခုထဲမှာ ထည့်ပေးထားတာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            error_reporting(1);
+            class myData{
+                function getData(){
+                    if (!$file = fopen("data.txt", "r")){
+                        throw new Exception('Unable to access file');
+                    }
+                }
+            }
+            $data = new myData();
+            try {
+                $data ->getData();
+            } catch (Exception $e){
+                echo $e ->getMessage();
+            }
+            echo "End of File";
+            ?>
+        </code>
+    </pre>
+    <h3>Output Example</h3>
+    <img src="../../javaScriptExample/image/exception.png" alt="">
+    <img src="../../javaScriptExample/image/handling.png" alt=""><hr>
+    <p>
+        ကျွန်တော်တို့ introduction မှာလေ့လာခဲ့သလိုပဲ exception တစ်ခုဟာ သူကိုယ်တိုင် object တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ programming ကိုမှာ object oriented approach တစ်ခုနဲ့ ကောင်းကောင်းအလုပ်လုပ်ဖို့ရန်အတွက် designed ချထားတာဖြစ်ပါတယ်။ PHP ဟာဆိုရင် procedural code တွေနဲ့ မလုပ်လုပ်တဲ့အခါမှာ error ကို handling လုပ်ဖို့အတွက် different options တွေကို offers လုပ်ပေးထားပါတယ်။ In most cases, objects တွေနဲ့အလုပ်လုပ်တဲ့အချိန်မှာ procedural code and exceptions တွေအတွက် errors တွေကို အသုံးပြုကြပါတယ်။ PHP ဟာဆိုရင် default အရ exceptioned light language တစ်ခုဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ most situations တွေဟာ exception တစ်ခုကို မဟုတ်ဘဲနဲ့ error တစ်ခုကိုပေးတာဖြစ်ပါတယ်။ PHP 7မှာဆိုရင် the way of exception handling ကို much more added လုပ်ပေးထားပါတယ်။ PHP 5 and PHP 7 နှစ်ခုလုံးမှာ errors တွေကို exceptions အဖြစ် turn လုပ်ဖို့ရန်အတွက် way တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ ကျွန်တော်တို့ဟာ object oriented application တစ်ခုကို writing လုပ်တဲ့အခါမှာ ဒီ exceptions တွေကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် errors တွေကို handling လုပ်ဖို့အတွက် ကျွန်တော်တို့ရဲ့ own function ကို define လုပ်ဖို့ရန်အတွက် PHP ရဲ့ built in function တစ်ခုဖြစ်တဲ့ set_error_handler ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ ဒီ set error handler ဟာ parameters တွေအနေနဲ့ five error details ကို past လုပ်ပေးရပါတယ်။ အဲ့ထဲက နှစ်ခုဟာ required ဖြစ်ပြီးတော့ ကျန်တဲ့ 3 ခုဟာ optional ဖြစ်ပါတယ်။ First parameter ဟာ level of error raised ကို denoting လုပ်တဲ့ integer တစ်ခုဖြစ်ပါတယ်။ Second parameter ဟာ error message ပါတဲ့ string တစ်ခုဖြစ်ပါတယ်။ Third parameter ကတော့ optional ဖြစ်ပြီးတော့ သူဟာ error was raised ဖြစ်တဲ့ file name တွေပါတဲ့ string တစ်ခုဖြစ်ပါတယ်။ Fourth parameter ဟာလည်း optional ဖြစ်ပါတယ်။ ပြီးတော့ သူဟာ error was raised ဖြစ်တဲ့ line number တွေပါတဲ့ integer တစ်ခုဖြစ်ပါတယ်။ Fifth parameter ဟာလည်း optional ဖြစ်ပြီးတော့ every scope ထဲမှာရှိတဲ့ every variable ပါတဲ့ array တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            ini_set('display_errors', 'Off');
+            function exception_error_handler($severity, $file, $line){
+                throw new Exaception($message, 0, $severity, $file, $line);
+            }
+            set_error_handler("exception_error_handler");
+            try {
+                strops();
+            } catch (Exception $e) {
+                echo "Error!". $e->getMessage();
+            }
+            echo "End of File";
+           ?>
+        </code>
+    </pre><hr>
+</body>
+</html>

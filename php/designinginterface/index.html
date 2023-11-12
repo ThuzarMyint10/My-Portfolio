@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desingning Interfaces</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>What is an Interface</h1>
+    <p>
+        အခု course မှာတော့ important concept တစ်ခုဖြစ်တဲ့ interfaces လို့ခေါ်တဲ့ object-oriented design ကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ Interface တစ်ခုဆိုတာ type of contract တစ်ခုဖြစ်ပါတယ်။ သူ့ရဲ့ certain abilities တွေဟာ
+        particular
+        object class တစ်ခုမှာ available ဖြစ်ပါတယ်။ Composer ကို through လုပ်ပြီးတော့ package management တွေကို use
+        လုပ်တာဟာ
+        standard ဖြစ်လာပါတယ်။ Standard interfaces, package maintainers တွေရှိတာဟာ logging, caching, and HTTP messages
+        တို့လို
+        common tasks တွေကို build and maintain packages အတွက် easy ဖြစ်စေပါတယ်။ PHP FIG or PHP Framework Interop Group
+        ဟာ
+        standardizing common interfaces မှာ leader တစ်ခုဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Autoloading</h1>
+    <p>
+        Example မှာရှိတဲ့ project ထဲမှာဆိုရင် many different classes and interfaces တွေကို အသုံးပြုထားတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ file တစ်ခုချင်းစီကို individually အရ adding လုပ်နေမဲ့ အစား နောက်ထပ် object oriented programming
+        ရဲ့
+        great component တစ်ခုဖြစ်တဲ့ autoloading ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Autoloading ဟာဆိုရင် class တစ်ခုကို
+        မတွေ့တဲ့အချိန်မှာ triggered လုပ်တာဖြစ်ပါတယ်။ Autoload function ကို create မလုပ်ခင်မှာ documentation ကို
+        သွားကြည့်ရပါမယ်။
+        အဲ့မှာဆိုရင်first result ဟာ sql_autoload_register function ပဲဖြစ်ပါတယ်။ Class တစ်ခုကို specifically အရ including
+        လုပ်တဲ့အစား sql_autoload_register ဟာဆိုရင် function တစ်ခုကို class တစ်ခု not available ဖြစ်တဲ့အချိန်မှာ trigger
+        လုပ်ပေးတာဖြစ်ပါတယ်။ ဒီ triggers တွေကို sometimes မှာ listeners လို့လည်း refer လုပ်ပါတယ်။ နောက် သူ့ရဲ့ example
+        မှာဆိုရင်
+        php ဟာဆို instantiate လုပ်ဖို့ attempting လုပ်တဲ့ class ရဲ့ name ကို automatically pass လုပ်ပေးတာဖြစ်ပါတယ်။
+        Example နဲ့
+        မတူတာကတော့ ကျွန်တော်တို့ဟာ subdirectories ထဲကို classes and interfaces တို့ကို organize လုပ်ချင်တာဖြစ်ပါတယ်။
+        အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့ရန်အတွက် glob လို့ခေါ်တဲ့ another built in function တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Glob ဟာဆို
+        pathnames
+        ကို finds လုပ်ပြီးတော့ pattern တစ်ခုနဲ့ matching လုပ်တာဖြစ်ပါတယ်။ Example မှာဆိုရင် GLOB_ONLYDIR ကို pattern နဲ့
+        match
+        ဖြစ်တဲ့ directory entities ကိုပဲ return ပြန်စေချင်တဲ့အတွက်ကြောင့် သူ့ကို အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>config.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            function autoloader($class_name) {
+                foreach(glob(__DIR__ . '/*', GLOB_ONLYDIR) as $dir) {
+                    if (file_exists("$dir/" . $class_name . '.php')) {
+                        require_once "$dir/" . $class_name . '.php';
+                        break;
+                    }
+                }
+            }
+            
+            spl_autoload_register('autoloader');
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing an Interface</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ collection class ကို fill in မလုပ်ခင်မှာ ကျွန်တော်တို့ဟာ data source တစ်ခုနဲ့ connect
+        လုပ်ဖို့လိုပါတယ်။
+        အဲ့မှာဆိုရင် many different data sources တွေရှိပါတယ်။ အဲ့ဒါတွေကတော့ database, files and feeds တို့ပဲဖြစ်ပါတယ်။
+        Example
+        အတွက်ဆိုရင် data တွေကို retrieving လုပ်တဲ့နေရာမှာ two ways ရှိပါတယ်။ First ကျွန်တော်တို့ဟာ certain table or
+        entity
+        တစ်ခုကနေ items တွေအားလုံးကို retrieve လုပ်ရပါမယ်။ Second, single item တစ်ခုကိုလည်း find လုပ်ရပါမယ်။ Example
+        မှာဆိုရင်
+        contract ကို defines လုပ်တဲ့ ကျွန်တော်တို့ရဲ့ first interface ကို create လုပ်ပြထားပါတယ်။ Interface ဟာဆိုရင်
+        class
+        တစ်ခုကို defined လုပ်တဲ့ way နဲ့ တူပါတယ်သူ့မှာ interface keyword ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Contract ကို
+        create
+        လုပ်ဖို့ရန်အတွက် ဘယ် methods တွေကို implemented လုပ်မယ်ဆိုတာကို define လုပ်ပေးရပါမယ်။ ဒါပေမဲ့ example မှာတော့ ဒီ
+        methods
+        တွေရဲ့ contents ကို define လုပ်မထားပါဘူး။ Contract ဟာဆိုရင် methods တွေကို access လုပ်ဖို့ရန်အတွက် available
+        ဖြစ်တယ်ဆိုတာကို ကျွန်တော်တို့ကို assures ဖြစ်စေပါတယ်။ အဲ့ဒါကြောင့် methods အားလုံးကို interface တစ်ခုထဲမှာ
+        public နဲ့
+        declared လုပ်ပေးရပါမယ်။ Method ရဲ့ contents တွေကို defining မလုပ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ curly braces
+        ကို
+        အသုံးမပြုဘဲနဲ့ semicolon ကို အသုံးပြုရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>RepositoryInterface.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            interface RepositoryInterface
+            {
+                public function all($entity);
+                public function find($entity, $id, $filed = 'id');
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Implementing an Interface</h1>
+    <p>
+        Data တွေနဲ့ အလုပ်လုပ်တဲ့အခါမှာ store, retrieve, parse and decode လုပ်တဲ့ way တွေဟာ အသုံးပြုတဲ့ type of data
+        ပေါ်မှာ
+        မူတည်ပြီးတော့ နဲနဲ change ဖြစ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ project အတွက် types of data နှစ်ခုကို provided
+        လုပ်ထားပါတယ်။ အဲ့ဒါတွေကတော့ SQLite file and a JSON file တို့ပဲဖြစ်ပါတယ်။ သို့သော်လည်း ဒီ sources တွေကနေ data
+        တွေကို
+        retrieving လုပ်တာဟာ very different ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ interface ကို written လုပ်ပြီးဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ
+        classes တွေကို build လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ classes တွေဟာ repository interface ကို implement
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ JSON
+        data အတွက်ဆိုရင် requirement ကတော့ ကျွန်တော်တို့ connect လုပ်ချင်တဲ့ JSON file ပဲဖြစ်ပါတယ်။ နောက် jsonRepository
+        class
+        မှာဆိုရင် implement လုပ်ဖို့ရန်အတွက် abstract methods နှစ်ခုပါဝင်ပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>jsonRepository.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class jsonRepository implements RepositoryInterface
+            {
+                protected $file;
+                
+                public function __construct($file)
+                {
+                    $this->file = $file;
+                }
+                
+                public function all($entity)
+                {
+                    $data = json_decode(file_get_contents($this->file));
+                    return $data->$entity;
+                }
+                
+                public function find($entity, $value, $field = 'id')
+                {
+                    foreach($this->all($entity) as $key=>$data) {
+                        if ($data->$field == $value) {
+                            return array($data);
+                        }
+                    }
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Code to Multiple Interfaces</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ အသုံးပြုနိုင်တဲ့ loops and perform some additional functionalities တို့ပါတဲ့
+        collection တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ Looping capabilities အတွက် PHP ဟာ iterator interface တစ်ခုကို
+        offer
+        လုပ်ပေးထားပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ကိုယ်ပိုင် create လုပ်စရာမလိုပါဘူး။ Interfaces တွေနဲ့
+        အလုပ်လုပ်တဲ့အခါမှာ
+        iterator လို existing interfaces တွေကို အသုံးပြုပေးရပါတယ်။ Multiple interfaces တွေကို combining လုပ်တာဟာ rest of
+        the
+        application ကနေ လွယ်လွယ်ကူကူ နားလည်နိုင်တဲ့ powerful components တွေကို build လုပ်နိုင်မှာ ဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        implements ဟာ iterator interface ထဲမှာ built လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ implements keyword ဟာဆိုရင် ပေးထားတဲ့
+        interface ရဲ့
+        contract နဲ့ meet ဖြစ်တဲ့ class တွေကို ဘယ်လို specify လုပ်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Interfaces တွေကို comma နဲ့
+        separated
+        လုပ်ပြီးတော့ adding လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် collection ကို countable ဖြစ်ချင်တာဖြစ်ပါတယ်။
+        နောက်အဲ့မှာဆိုရင်
+        properties နှစ်ခုကို အသုံးပြုမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Collection.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class Collection implements Iterator, Countable
+            {
+                protected $repo;
+                public $collection;
+            
+                public function __construct(RepositoryInterface $repo, $id=null, $field = 'id'){
+                    $this->repo = $repo;
+                    if (!empty($id)){
+                        $this->collection = $this->repo->find('posts', $id, $field);
+                    } else {
+                        $this->collection = $this->repo->all('posts');
+                    }
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Implementing Interface Methods</h1>
+    <p>
+        Iterator interface ရဲ့ documentation ကို သွားကြည့်တဲ့အခါမှာ သူဟာ methods 5 ခု လိုအပ်ပါတယ်။ အဲ့ဒါတွေကတော့
+        current, key,
+        next, rewind, and valid တို့ပဲဖြစ်ပါတယ်။ Countable interface ဟာ single count method တစ်ခုလိုအပ်ပါတယ်။ Own
+        interfaces
+        လိုပဲ PHP ဟာဆိုရင် required methods တွေမပါဘဲနဲ့ built in interface တစ်ခုကို implement လုပ်မယ်ဆိုရင် exceptions
+        တွေကို
+        throws လုပ်မှာဖြစ်ပါတယ်။ Example မှာဆိုရင် public method တစ်ခုချင်းစီကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့
+        collection array မှာ built-in function တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Iterator method တစ်ခုချင်းစီအတွက်
+        function
+        တစ်ခုချင်းစီဟာ array pointer နဲ့ အလုပ်လုပ်ပါတယ်။ Pointer ဟာဆိုရင် array တစ်ခုမှာ position ကို saves
+        လုပ်ပေးထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Collection.php</h3>
+    <pre>
+        <code>
+                public function current()
+                {
+                return current($thi->collection);
+                }
+                public function key()
+                {
+                return key($thi->collection);
+                }
+                public function next()
+                {
+                return next($thi->collection);
+                }
+                public function rewind()
+                {
+                return reset($thi->collection);
+                }
+                public function valid()
+                {
+                return key($thi->collection) !== null;
+                }
+                public function count()
+                {
+                return count($thi->collection);
+                }
+        </code>
+    </pre>
+    <hr>
+    <h1>Extending an Interface</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ another requirement ကို collection ထဲမှာ add လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ ability ကတော့ short
+        description
+        ကို return ပြန်ဖု့ိပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် another interface ကို implementing လုပ်မဲ့အစား ဒီ requirement
+        အားလုံးကို
+        single collection interface တစ်ခုထဲမှာ combine လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် collection interface ကို
+        implements
+        လုပ်တဲ့ ဘယ် class ကိုပဲဖြစ်ဖြစ် iterator အားလုံးနဲ့ countable methods ရှိစေမှာဖြစ်ပါတယ်။ နောက် new method
+        ကိုလည်း define
+        လုပ်လည်းရပါတယ်။ Example မှာဆိုရင် function ဟာ shortDescription ဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် current details ကို
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>CollectionInterface.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+             interface CollectionInterface extends Iterator, Countable
+             {
+                 public function shortDescription();
+             }
+        </code>
+    </pre>
+    <h3>list.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if ($item-&gt;status == 'published'){
+            echo '&lt;article&gt;';
+            echo '&lt;h2&gt;' . $item-&gt;title . '&lt;/h2&gt;';
+            echo '&lt;p&gt;' . $content-&gt;shortDescription() . '&lt;/p&gt;';
+            echo '&lt;/article&gt;';
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Working with a Single Item</h1>
+    <p>
+        Example မှာဆိုရင် single item ကို find လုပ်ဖို့ရန်အတွက် ability ရှိပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ single
+        blog post
+        ကို display လုပ်ဖို့ရန်အတွက် ကျန်တဲ့ လိုအပ်တာတွေကို write လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ single post view
+        ကို create
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက် index.php ထဲမှာ config file ရဲ့ နောက်မှာ ကျွန်တော်တို့အသုံးပြုမဲ့ ID အတွက် check
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့
+        ID ကိုအသုံးပြုပြီးတော့ single item ကို find လုပ်ရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့အသုံးပြုချင်တဲ့ single item
+        ကို
+        validate လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံး check ကတော့ ဘယ် view ကို show လုပ်သင့်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Blog post ဟာ
+        post
+        နဲ့ associated ဖြစ်နေတဲ့ author နဲ့ post ကို published လုပ်တဲ့ data တို့ကို track လုပ်ဖို့ရန်အတွက် helpful
+        ဖြစ်ပါတယ်။
+        အဲ့ဒါကို trackable လို့လည်းခေါ်လို့ရပါတယ်။ အဲ့ဒါကြောင့် trackable interface တစ်ခုကို define လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင်
+        images တို့လို other piece of content trackable ကိုလည်း လုပ်ဆောင်နိုင်ပါတယ်။ နောက်ထပ် important feature
+        တစ်ခုကတော့
+        social media တစ်ခုပေါ်မှာ post တစ်ခုကို share လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် shareable interface
+        တစ်ခုကို
+        create လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>singel.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            echo '&lt;article&gt;';
+            echo $content-&gt;current()-&gt;details;
+            echo '&lt;/article&gt;';
+        </code>
+    </pre>
+    <h3>list.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if ($item-&gt;status == 'published'){
+            echo '&lt;article&gt;';
+            echo '&lt;h2&gt;&lt;a href="?id=' .$item-&gt;id .'"&gt;' . $item-&gt;title . '&lt;/a&gt;&lt;/h2&gt;';
+            echo '&lt;p&gt;' . $content-&gt;shortDescription() . '&lt;/p&gt;';
+            echo '&lt;/article&gt;';
+            }
+        </code>
+    </pre>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once "src/config.php";
+            if (isset($_GET['id'])){
+                $content = new Collection(
+                    $repo,
+                    filter_input(
+                        INPUT_GET,
+                        'id',
+                        FILTER_SANITIZE_NUMBER_INT
+                    )
+                    );
+            }
+            
+            if (isset($content) && $content->count() == 1 && $content->current()->status == "published")
+            {
+                $title = $content->current()->title;
+            } else {
+                $content = new Collection($repo);
+                $title = "ITVisionHub Blog";
+            }
+            
+            require 'views/header.php';
+            
+            if ($content->count() == 1){
+                include 'views/single.php';
+            } else{
+            foreach ($content as $item){
+                include 'views/list.php';
+                }
+            }
+            
+            require 'views/footer.php';
+        </code>
+    </pre>
+    <hr>
+    <h1>Extending a Collection</h1>
+    <p>
+        Site ဟာဆိုရင် posts တွေကိုပဲ display လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ pages တွေကို လည်း display
+        လုပ်ချင်တာဖြစ်ပါတယ်။ ဒီ
+        content types တစ်ခုချင်းစီမှာဆိုရင် many things တွေရှိပါတယ်။ ဒါပေမဲ့ သူတို့မှာ ကိုယ်ပိုင် features တွေရှိပါတယ်။
+        အခု
+        section မှာတော့ ဒီ different content types တွေနဲ့ post features ကိုလည်း expand လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက်
+        new
+        class တစ်ခုကို creating လုပ်ပေးရမှာဖြစ်ပါတယ်။ Posts.php ပဲဖြစ်ပါတယ်။ သူ့ကို Collection ကနေ extends လုပ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ constructor ကို အနည်းငယ် change ဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် parent လို့ပဲ same parameters တွေကို
+        accept
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Parent constructor ကို call မလုပ်ခင်မှာ ကျွန်တော်တို့ entity or ကျွန်တော်တို့ အသုံးပြုမဲ့
+        type of
+        content ကို set လုပ်ပေးဖို့လိုပါတယ်။ နောက် Collection.php ထဲမှာ 'posts' နေရမှာ "$this->entity" ဆိုပြီးတော့
+        change
+        လုပ်ပေးရပါမယ်။ ဘာကြောင့်လဲဆိုတော့ parent မှာရှိတဲ့ constructor ဟာ new entity ကိုအသုံးပြုဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တု့ိရဲ့ new class အလုပ်လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ရဲ့ instance calls ကို change လုပ်ပေးရပါမယ်။ နောက်
+        trackable and shareable interfaces တို့အတွက် implement လုပ်ပေးရပါမယ်။ Trackable interface အတွက်ဆိုရင် function
+        တွေကတော့
+        getAuthor() နဲ့ getDateTime() ပဲဖြစ်ပါတယ်။ getAuthor() မှာဆိုရင် searching ဟာ users ပဲဖြစ်ပါတယ်။ အဲ့မျာဆိုရင်
+        current
+        item ရဲ့ author id နဲ့ match ဖြစ်တဲ့ user ကို find လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် getDateTime() မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ
+        date and time အတွက် formatted string တစ်ခုကိုလိုချင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ format ကို optional parameter
+        အနေနဲ့
+        add လုပ်နိုင်ပါတယ်။ နောက် current date time ကို date time object တစ်အဖြစ် turn လုပ်ပေးရမှာဖြစ်ပါတယ်။ Shareable
+        interface
+        အတွက်ဆိုရင် methods 3 ခုကို create လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါတွေကတော့ shareTwitter(), shareEmail() and
+        shareFacebook()
+        တို့ပဲဖြစ်ပါတယ်။ shareTwitter() မှာဆိုရင် space တစ်ခုနဲ့title တစ်ခုကို encoded လုပ်ထားတဲ့ URL တစ်ခုကို return
+        ပြန်ပေးရပါတယ်။ နောက် current page ကို သွားတဲ့ link တစ်ခုကို add လုပ်ပေးရပါမယ်။ နောက် shareEmail() မှာဆိုရင်
+        subject and
+        body ပါတဲ့ string တစ်ခုကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ နောက် shareFacebook မှာဆိုရင် current page ကို သွားတဲ့
+        link
+        တစ်ခုကို return ပြန်ပေးထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>posts.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class Posts extends Collection implements TrackableInterface, ShareableInterface
+            {
+                public function __construct(RepositoryInterface $repo, $id=null, $field = 'id'){
+                    $this->entity = 'posts';
+                    parent::__construct($repo, $id, $field);
+                }
+            
+                public function getAuthor()
+                {
+                    $user = $this->repo->find('user', $this->current()->author[0]);
+                    if (empty($user->name)){
+                        return 'Unknown';
+                    }
+                    return $user->name;
+                }
+                public function getDateTime($format = 'D, d M Y H:i:s')
+                {
+                    $date = new DateTime($this->current()->dateTime);
+                    return $date->format($format);
+                }
+                public function shareTwitter(){
+                    return 'subject=' . urlencode($this->current()->title)
+                            . '&body=' . urlencode($this->shortDescription() . "\n\nRead more at ")
+                            . 'http://'
+                            . $_SERVER['HTTP_HOST']
+                            .$_SERVER['REQUEST_URI'];
+                }
+                public function shareFacebook()
+                {
+                    return 'http://'
+                            . $_SERVER['HTTP_HOST']
+                            .$_SERVER['REQUEST_URI'];
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Testing for Interfaces</h1>
+    <p>
+        Things တွေထဲက တစ်ခုဟာ interfaces တွေကို mot useful ဖြစ်အောင်လုပ်ဆောင်ပေးပါတယ်။ Same interface ဟာ collection or a
+        single
+        object class တစ်ခုကို applied လုပ်နိုင်ပါတယ်။ Specific interfaces တွေကို check လုပ်တဲ့ ability ဟာ interface နဲ့
+        match
+        ဖြစ်တဲ့ any object မှာ methods တွေကို အသုံးပြုဖု့ိရန်အတွက် allow လုပ်ပေးပါတယ်။ အခု section မှာတော့ trackable and
+        shareable interfaces တွေကို check လုပ်ပြီးတော့ details ကို display လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် list view
+        မှာရှိတဲ့
+        title ပြီးတဲ့အခါမှာ conditional statement တစ်ခုကို add လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>list.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if ($item-&gt;status == 'published'){
+            echo '&lt;article&gt;';
+            echo '&lt;h2&gt;&lt;a href="?id=' .$item-&gt;id .'"&gt;' . $item-&gt;title . '&lt;/a&gt;&lt;/h2&gt;';
+            if ($content instanceof TrackableInterface){
+            include __DIR__ . 'track.php';
+            }
+            echo '&lt;p&gt;' . $content-&gt;shortDescription() . '&lt;/p&gt;';
+            echo '&lt;/article&gt;';
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Abstract Class vs Interface</h1>
+    <p>
+        Interfaces and abstract classes တွေဟာ many of the same goals တွေနဲ့ accomplish ဖြစ်နိုင်ပါတယ်။
+        သူတို့နှစ်ခုလုံးမှာ own
+        unique objectives ရှိပါတယ်။ ကျွန်တော်တို့ဟာ specific classes ကို guarantee လုပ်ချင်တဲ့အခါမှာ specific
+        functionality ကို
+        provide လုပ်ပေးရပါမယ်။ နောက် interface ဟာ great tool တစ်ခုဖြစ်ပါတယ်။ Interface တစ်ခုဟာ ဘာဖြစ်သင့်ပါတယ်ဆိုတာကို
+        defines
+        လုပ်ပေးတာဖြစ်ပါတယ်။ ဒါပေမဲ့ အဲ့ဒါတွေကို လုပ်ဆောင်ဖို့ ဘာတွေလိုတယ်ဆိုတာကိုတော့ define မလုပ်ပေးပါဘူး။ ဒါဟာဆိုရင်
+        projects
+        တွေကြားထဲမှာ code ကို sharing လုပ်တဲ့အခါမှာ အလွန် useful ဖြစ်ပါတယ်။ Writing software ရဲ့ most challenging parts
+        တွေထဲက
+        တစ်ခုကတော့ other piece of code တွေနဲ့ piece of code တစ်ခုချင်းစီ ဟာ ဘယ်လို interact လုပ်တယ်ဆိုတဲ့ information
+        အားလုံးရဲ့
+        mental load ပဲဖြစ်ပါတယ်။ ဒီ challenge ကို solving လုပ်တဲ့ key တစ်ခုကတော့ encapsulation ပဲဖြစ်ပါတယ်။
+        Encapsulation
+        ဟာဆိုရင် control of specific functionalities တွေကို individual objects တွေအဖြစ်တဲ့ ပေးပါတယ်။ Multiple interfaces
+        တွေကို
+        implementing လုပ်ခြင်းဖြင့်ကျွန်တော်တို့ဟာ application ကို throughout လုပ်ဖို့ အသုံးပြုနိုင်တဲ့ functionality
+        ကို
+        smaller parts တွေအဖြစ် group လုပ်နိုင်ပါတယ်။ Interfaces တွေရဲ့ limitation ကတော့ သူတို့ဟာ any implementation
+        details ကို
+        သူတို့ကိုယ်တိုင် actually store လုပ်ထားတာမဟုတ်ပါဘူး။ Interface တစ်ခုကို implements လုပ်ထားတဲ့ class
+        တစ်ခုချင်းစီဟာ
+        သူတို့ရဲ့ own methods ကို write လုပ်ရပါမယ်။ Interface တစ်ခုကို changing လုပ်ခြင်းဟာ implementing class
+        အားလုံးကို
+        changing လုပ်ဖို့လိုပါတယ်။ ဘာကြောင့်လဲဆိုတော့ အဲ့မှာ default implementation မရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        Classes
+        တွေကြားထဲမှာ implementation details ကို share လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ inheritance ရဲ့ power ကို harness
+        လုပ်နိုင်ပါတယ်။ နောက် parent class တစ်ခုကို abstract တစ်ခုအနေနဲ့ declaring လုပ်ခြင်းဖြင့် အဲ့ class ကို directly
+        instantiated လုပ်တာကနေ prevent လုပ်ပေးပါတယ်။ Abstract classes ဟာ any extending children ကနေ implemented
+        လုပ်ထားတဲ့
+        abstract methods ကို define လုပ်ဖို့ရန်အတွက် ability ကို ပေးပါတယ်။ Abstract class တစ်ခုရဲ့ main limitation ကတော့
+        any
+        other class တွေနဲ့ အတူတူပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ class တစ်ခုကနေ တစ်ကြိမ်ပဲ inherit လုပ်နိုင်ပါတယ်။
+        Interfaces and
+        inheritance ကို combining လုပ်ခြင်းဖြင့် ကျွန်တော်တို့ဟာ construct တစ်ခုချင်းစီရဲ့ best qualities ကို
+        အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Abstract Methods and Classes</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ စလေ့လာမယ်ဆိုရင် abstract classes ကို creating and using လုပ်တာဟာ little abstract ဖြစ်နိုင်ပါတယ်။
+        Example
+        မှာဆိုရင် collection class နဲ့ စတင်တဲ့အခါမှာ any class ကို abstract class လုပ်တဲ့အခါမှာ သူ့ရဲ့ရှေ့မှာ abstract
+        keyword
+        ကို add လုပ်ပေးရပါတယ်။ Abstract keyword ကို adding လုပ်တာဟာ class ကို instantiating လုပ်တာကနေ object တွေကို
+        prevent
+        လုပ်ပေးပါတယ်။ နောက် Posts ဟာ collection class ကနေ extends လုပ်ထားတာဖြစ်ပြီးတော့ entity ကို set လုပ်ဖို့အတွက်
+        constructor
+        ကို overrides လုပ်သွားပါတယ်။ အဲ့မှာဆိုရင် property ကို set လုပ်ဖို့ရန်အတွက် easy way မရှိပါဘူး။ အဲ့ဒါကြောင့်
+        method
+        တစ်ခုကို abstract method ကိုအသုံးပြုပြီးတော့ defined လုပ်ပေးရပါမယ်။ Constructor ကို override လုပ်ဖို့ရန်အတွက်
+        child
+        class တစ်ခုပေါ်မှာ relying လုပ်နေမဲ့အစား set entity method လို့ခေါ်တဲ့ constructor ကို add လုပ်နိုင်ပါတယ်။
+        Interface
+        တစ်ခုလိုပဲ abstract methods တွေကို guarantee လုပ်ဖို့ရန်အတွက် define လုပ်နိုင်ပါတယ်။ နောက် interface methods
+        အားလုံးဟာ
+        abstract တွေဖြစ်တဲ့အတွက်ကြောင့် method ကို defining လုပ်တဲ့အခါမှာ abstract keyword ကို ရှေ့မှာ add
+        လုပ်ပေးရပါတယ်။ နောက်
+        interfaces တွေဟာ specify လုပ်ဖို့ရန်အတွက် public methods တွေကိုပဲ allowed လုပ်တာဖြစ်ပြီးတော့ abstract classes
+        တွေဟာ
+        public and protected နှစ်ခုလုံးကို allowed လုပ်ပေးပါတယ်။ သူဟာ private ကိုတော့ allow မလုပ်ပါဘူး။
+        ဘာကြောင့်လဲဆိုတော့
+        private methods တွေဟာ child class တစ်ခုကနေ overridden မလုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Protected methods
+        တွေဟာ
+        child class တစ်ခုကနေ overridden လုပ်နိုင်ပါတယ်။ ဒါပေမဲ့ သူတို့ဟာ internal access ကပဲ restricted လုပ်တာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>posts.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class Posts extends Collection implements TrackableInterface, ShareableInterface
+            {
+                protected $user;
+                public function setEntity(){
+                    $this->entity = 'posts';
+                }
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Passing Abstract Methods</h1>
+    <p>
+        Currently, collection class ဟာ abstract ဖြစ်ပြီးတော့ သူ့ကို CollectionInterface ကနေ implements
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        Interface က methods အားလုံးဟာ collection class ထဲမှာ implemented လုပ်ထားတာဖြစ်ပါတယ်။ အခု section မှာတော့ method
+        တစ်ခုကို
+        interface ဆီကို add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ getTitle function ပဲဖြစ်ပါတယ်။ အဲ့ method ကို posts class
+        ထဲမှာ add
+        လုပ်ရပါမယ်။ အဲ့မှာဆိုရင် condition ဟာ ကျွန်တော်တို့ဟာ single post page ထဲမှာဆိုရင် current title ကို return
+        ပြန်ပေးမှာဖြစ်ပါတယ်။ အဲ့ return ကို pass လုပ်ပြီးတဲ့အခါမှာ Latest Posts ကို return ပြန်ပေးထားပါတယ်။ နောက်
+        ကျွန်တော်တို့
+        $title နေရာမှာ new method ကို replace လုပ်ပေးရပါမယ်။ နောက် index page က title ကိုလည်း remove လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>CollectionInterface.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+             interface CollectionInterface extends Iterator, Countable
+             {
+                 public function shortDescription();
+                 public function getTitle();
+             }
+        </code>
+    </pre>
+    <hr>
+    <h1>Extending an Abstract Class</h1>
+    <p>
+        Second type of content ကို include ဖြစ်ဖို့ရန်အတွက် first အနေနဲ့ ကျွန်တော်တို့ လုပ်ဆောင်ရမှာကတော့ pages class
+        ကို create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ Pages ဟာဆိုရင် collection ကနေ extends လုပ်ထားတာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ implemented
+        လုပ်ထားတဲ့
+        methods နှစ်ခုရှိပါတယ်ဆိုတာပဲဖြစ်ပါတယ်။ Collection interface က getTitle() method နဲ့ collection class က
+        setEntity()
+        method တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ single page တစ်ခုကိုပဲ အသုံးပြုမှာဖြစ်တဲ့အတွက်ကြောင့် getTitle() method
+        မှာ
+        current title ကိုပဲ return ပြန်ပေးရမှာဖြစ်ပါတယ်။ နောက် index.php file ကို blog.php ဆိုပြီးတော့ rename
+        ပြန်ပေးရပါမယ်။
+        နောက် index.php new file တစ်ခုကို create လုပ်ပေးရပါမယ်။ First အနေနဲ့ index.php file ထဲမှာ လိုအပ်တဲ့ files တွေကို
+        add
+        လုပ်ပေးရပါမယ်။ နောက် ကျွန်တော်တို့ရဲ့ page အတွက် content လိုပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ page data အတွက်
+        slug
+        field ကို အသုံးပြုပေးရပါမယ်။ နောက် ကျွန်တော်တို့ display လုပ်ချင်တဲ့ page ပေါ်မှာ မူတည်ပြီးတော့ slug variable ဟာ
+        change
+        ဖြစ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class Pages extends Collection
+            {
+                protected function setEntity()
+                {
+                    $this->entity = 'pages';
+                }
+                public function getTitle()
+                {
+                    return $this->current()->title;
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Finishing Our Site</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ဟာ header file ထဲကို navigation ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ pages တွေကို loop through လုပ်သွားမှာဖြစ်ပါတယ်။ Page တစ်ခုချင်းစီအတွက် list item တစ်ခုကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ list item ဟာ page slug ကို link လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် featured image ကိုလည်း add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ pages တွေအတွက်ပဲ new feature ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        Pages မှာ
+        method တစ်ခုကို add လုပ်ပေးရပါမယ်။ အဲ့ method ဟာ current item image ကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        Instanceof ဟာ any class or interface ကို object's hierarchy တစ်ခုထဲမှာ check လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးပါတယ်။
+        နောက်
+        အဲ့မှာဆိုရင် Pages class ကနေ featured image method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>header.php</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+            &lt;meta name="description" content=""&gt;
+            &lt;meta name="author" content=""&gt;
+            
+            &lt;title&gt;&lt;?php echo $content-&gt;getTitle(); ?&gt;&lt;/title&gt;
+            
+            &lt;!-- Latest compiled and minified CSS --&gt;
+            &lt;link rel="stylesheet" href="assets/css/custom.css"&gt;
+            &lt;script src="assets/js/scripts.js"&gt;&lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;div class="navbar-wrapper"&gt;
+            &lt;div class="container"&gt;
+            
+            &lt;nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse"&gt;
+            &lt;button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class="navbar-brand" href="index.php"&gt;ITVisionHub Blog&lt;/a&gt;
+            &lt;div class="collapse navbar-collapse" id="navbarCollapse"&gt;
+            &lt;ul class="navbar-nav mr-auto"&gt;
+            &lt;?php
+            foreach (new Pages($repo) as $page){
+            echo '&lt;li class="nave-item';
+            if (isset($slug) && $slug == $page-&gt;slug){
+            echo 'active';
+            }
+            echo '"&gt;';
+            echo '&lt;a class="nav-link" href="index.php?slug='
+            . $page-&gt;slug . '"&gt;';
+            echo ucwords(str_replace('-', ' ', $page-&gt;slug));
+            echo '&lt;/a&gt;&lt;/li&gt;';
+            }
+            ?&gt;
+            &lt;/ul&gt;
+            &lt;ul class="navbar-nav mt-2 mt-md-0"&gt;
+            &lt;li class="nav-item&lt;?php
+            if ($_SERVER['SCRIPT_NAME'] == '/blog.php'){
+            echo ' active';
+            }
+            ?&gt;"&gt;
+            &lt;a class="nav-link" href="blog.php"&gt;Latest Blog Posts&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/nav&gt;
+            
+            &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;?php if ($content instanceof Pages){?&gt;
+            &lt;!-- Begin page content --&gt;
+            &lt;div id="myCarousel" class="carousel slide" data-ride="carousel"&gt;
+            &lt;div class="carousel-inner" role="listbox"&gt;
+            &lt;div class="carousel-item active"&gt;
+            &lt;img class="first-slide" src="assets/img/&lt;?php
+            echo $content-&gt;featuredImage();?&gt;" alt="First slide"&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;?php }?&gt;
+            &lt;div class="container"&gt;
+            &lt;div class="page-header"&gt;
+            &lt;h1&gt;&lt;?php echo $content-&gt;getTitle(); ?&gt;&lt;/h1&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <a href="Designing_Interfaces/index.php">Test Yorself</a>
+    <hr>
+
+</body>
+
+</html>

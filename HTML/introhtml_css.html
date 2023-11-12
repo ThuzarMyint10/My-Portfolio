@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduction to HTML and CSS</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+</style>
+<body>
+    <h1>Introduction to HTML and CSS</h1>
+    <P>
+        HTML and CSS ဟာ webpages ရဲ့ structure and style တွေအတွက်အသုံးပြုတဲ့ languages နှစ်ခုပဲဖြစ်ပါတယ်။ HTML မှာဆိုရင် webpage ရဲ့ structure တွေဟာ ဘယ်လိုရှိတယ်ဆိုတာကို ဖော်ပြဖို့အတွက် tag ကိုအသုံးပြုရပါတယ်။ CSS or cascading style sheets ဟာဆိုရင်တော့ tag ကြားထဲက content တွေဟာ ဘယ်လို မြင်ချင်တယ်ဆိုတာကို browser ကိုပြောပြတာပဲဖြစ်ပါတယ်။ CSS ဟာ ကျွန်တော်တို့ သုံးလိုက်တဲ့ html tag တွေဟာ ဘယ်လို color ရှိရမယ်၊ ဘယ်လို background color ရှိရမယ်ဆိုတာကို ပြောပြပေးတာ ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ language s နှစ်ခုကိုသုံးပြီး funny animations တွေကိုလည်း create လုပ်နိုင်ပါတယ်။ အောက်က example မှာ CSS ဟာ HTML tag တွေကို ဘယ်လို apply လုပ်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။
+    </P>
+    <h2>HMTL Example code</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Example&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../CSS/example.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;header&gt;
+                        &lt;img src="learning.jpg" alt="This is learning."&gt;
+                        &lt;h1 class="tag"&gt;Hello Everybody&lt;/h1&gt;
+                        &lt;p class="para"&gt;My Home Town is kpg&lt;/p&gt;
+                    &lt;/header&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>CSS Example code</h2>
+    <pre>
+        <code>
+                .tag{
+                    background-color: aqua;
+                    color: black;
+                    padding: 10px;
+                    border-radius: 5px;
+                    display: table;
+                    margin: 10px auto;
+                
+                }
+                .para{
+                    background-color: #222;
+                    color: yellow;
+                }
+        </code>
+    </pre>
+    <a href="../Example/htm_css.html">Output>>>></a><hr>
+    <h1>How to connect HTML file and CSS file</h1>
+    <p>
+        Html file မှာ class နဲ့ ပေးခဲ့ရင် css file မှာ dot နဲ့ ခေါ်မှာသာ အဲ့ html tag ကို apply လုပ်ချင်တဲ့ css file ဟာ အလုပ်လုပ်မှာဖြစ်ပါတယ်။ ဒီတစ်ခါမှာ profile picture နဲ့ ပါတ်သတ်ပြီး css ဘက်မှာ ရေးတဲ့ပုံဟာ ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာဘဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ image ကို profile-image ဆိုတဲ့ class name နဲ့ပေးခဲ့တယ်ဆိုပါစို့။ အဲ့ဒါကို css ဘက်မှာ dot နဲ့ target လုပ်ပြီး ကျွန်တော်တို့ ဖြစ်စေချင်တာတွေကို ရေးနိုင်ပါတယ်။ ကျွန်တော်ပြောပြခဲ့တာတွေကို example မှာ လေ့လာနိုင်ပါတယ်ခင်ဗျာ။
+    </p>
+    <pre>
+        <code>
+            .tag{
+                background-color: aqua;
+                color: black;
+                padding: 10px;
+                border-radius: 5px;
+                display: table;
+                margin: 10px auto;
+            
+            }
+            header{
+                line-height: 1.5;
+               
+            }
+            .para{
+                background-color: #222;
+                color: yellow;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+                width: 40%;
+                
+            }
+            header .profile-image{
+                margin-top: 50px;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 3px solid white;
+                transition: all .3s;
+                display: block;
+                margin: 0 auto;
+            
+            
+            
+            }
+            header .profile-image:hover{
+                transform: scale(2) rotate(360deg);
+            }
+        </code>
+    </pre><hr>
+    <h1>About Web Development and HTML and CSS </h1>
+    <p>
+        HTML and CSS ဟာ websites အားလုံးရဲ့ အခြေခံကျတဲ့ အပိုင်းပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ Amazon, Facebook, Twitter  တု့ိလို websites တွေမှာဆိုရင် HTML and CSS ကို သူတို့ရဲ့ service တွေကို provide လုပ်ဖို့ရန်အတွက် technologies နှစ်ခုအနေနဲ့ အသုံးပြုပါတယ်။ Wev Development ကို split လုပ်ကြည့်တဲ့ အခါ areas နှစ်ခုကိုရှိပါတယ်။ အဲ့ဒါတွေကတော့ front end development နဲ့ back end development တို့ပဲဖြစ်ပါတယ်။ Front end developers တွေဟာ client ဘက်မှာမြင်ရဖို့အတွက် HTML တို့ CSS JavaScript တို့ကို အသုံးပြုပါတယ်။ Back end developers တွေဟာ server ပေါ်မှာ runs ဖို့ရန်အတွက် responsible ဖြစ်ကြပါတယ်။ သူတို့ဟာ data တွေကို save, change and retrieve data လုပ်ဖို့ရန်အတွက် Python, Ruby,and Java languages တွေကို database နဲ့ ချိတ်ပြီးအသုံးပြုကြပါတယ်။ HTML and CSS တို့ဟာ သုံးပြီး website တစ်ခု create လုပ်လိုက်တဲ့အခါ JavaScript ဟာ website ထဲမှာရှိတဲ့ ဟာ တွေကို show လုပ်ပေးတဲ့ program တစ်ခုပဲဖြစ်ပါတယ်။ ဥပမာ Facebook login page တစ်ခုကို HTML ကို သုံးပြီး  create လုပ်လိုက်တဲ့အခါ  အဲ့မှာ sumbit button တစ်ခုလည်းပါဝင်ပါတယ်။ အဲ့ button ကို လိုချင်တဲ့ ပုံကို CSS နဲ့ control လုပ်ပါတယ်။ ကျွန်တော်တို့ ထည့်လိုက်တဲ့ username ကို မှန်မှန်ကန်ကန်နဲ့ formatted ဖြစ်အောင် JavaScript ကနေလုပ်ဆောင်ပေးပါတယ်။ အဲ့မှာ password ကို check လုပ်တဲ့ error ပြချင်ရင်လည်း JavaScript ကိုအသုံးပြုပါတယ်။ အဲ့နေရာ back end language တွေဖြစ်တဲ့ Python တို့ Ruby တို့ကို username နဲ့ password တွေကို database ထဲမှာ save ထားဖို့ရန်အတွက် အသုံးပြုဖို့လိုပါတယ်။ HTML and CSS တို့ဟာ webapplication တို့ website တို့ရဲ့ foundation ပဲဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>The Basic Structure of Web Page</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ headline, paragraph, or navigation bar တို့လို့HTML tags တွေအကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် tags တွေဟာ nested ဖြစ်နေလို့လဲရပါတယ်။ Website တစ်ခုထဲမှာဆိုရင် box တွေခွဲပြီးတော့ လေ့လာနိုင်ပါတယ်။ Outer box ဟာ HTML ဖြစ်ပြီးတော့ အဲ့ထဲမှာဆိုရင် webpage ရဲ့ အကြောင်းတွေပါဝင်ပါတယ်။ အဲ့ HTML box ထဲမှာ နောက်ထပ် boxes နှစ်ခုထပ်ပါဝင်ပါသေးတယ်။ အဲ့ဒါတွေကတော့ head နဲ့ body တု့ိပဲဖြစ်ပါတယ်။ Head မှာဆိုရင် ကျွန်တော်တို့ မမြင်ရတဲ့ web page ကို ပြဖို့အတွက် အရေးကြီးတဲ့ scenes information တွေပါဝင်ပါတယ်။ Body box မှာဆိုရင်browser ထဲမှာ  ကျွန်တော်တို့ မြင်နိုင်တဲ့ information တွေပါဝင်ပါတယ်။ Body box ထဲမှာဆိုရင် ကိုယ် add လုပ်ချင်တဲ့ box တွေကို add လုပ်နိုင်ပါတယ်။ အဲ့လို add လုပ်တဲ့ နေရာမှာ ကျွန်တော်တို့မှာ header, main and footer ဆိုတဲ့ three boxes ရှိပါတယ်။ အဲ့ boxes တွေမှာဆိုရင် လိုအပ်တဲ့ photo box တို့ navigation box တို့ပါဝင်ပါတယ်။ Doctype ဟာဆိုရင် HTML မှာဆိုရင် first thing ဖြစ်ပါတယ်။ သူ့ကိုအပေါ်ဆုံးမှာရေးပေးရပါတယ်။ HTML tag ထဲမှာဆိုရင် head  tag and body tag ပါဝင်ပါတယ်။ Head tag ထဲမှာဆိုရင် title tag ဟာဆိုရင် browser tabs မှာ ပြပေးတဲ့ ဟာပဲဖြစ်ပါတယ်။ နောက်ပြီး အခြား documents တွေကို link လုပ်တဲ့ links tag လည်းပါဝင်ပါတယ်။ အဲ့ links tag ဟာ CSS file တွေကို link ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ link tag ဟာ browser ကို ဒီ link ဟာ အခြား documents ကို apply လုပ်တဲ့ path ဖြစ်တယ်ဆိုတာကို ပြောပြပေးတာပဲဖြစ်ပါတယ်။ Head tag ထဲမှာဆိုရင် meta tags ပါဝင်ပါတယ်။ အဲ့ဒါကို search engines နဲ့ browsers ကနေ information တွေကို provide လုပ်ဖု့ိရန်အတွက်အသုံးပြုပါတယ်။ Body tag ထဲမှာဆိုရင် ကိုယ်သုံးချင်တဲ့ html tag ကို put လုပ်နိုင်ပါတယ်။ Web designer အများစုဟာ body tag ထဲမှာ  sections 3 ခုနဲ့ ခွဲခြားအသုံးပြုထားပါတယ်။ အဲ့ဒါတွေကတော့ header, main, and footer တို့ပဲဖြစ်ပါတယ်။ Header မှာဆိုရင် company logo, name of the site, and the purpose of the site တု့ိလို introductory information တွေပါဝင်ပါတယ်။ နောက်ထပ် site ရဲ့ navigation menu တွေလည်းပါဝင်ပါတယ်။ Main section မှာဆိုရင် bulk of the information တွေပါဝင်ပါတယ်။ Footer မှာဆိုရင် copy right information, social media links and a secondary navigation တွေပါဝင်ပါတယ်။ သူတို့ 3 ခုဟာ web page ရဲ့ basic structure ကို helpful ဖြစ်စေပါတယ်။ Web developer တွေဟာဆိုရင် အခုကျွန်တော်ပြောပြခဲ့တဲ့ doctype, html, head, title and body တွေကို browser ကို display လုပ်ဖို့ရန်အတွက် အသုံးပြုဖို့လိုအပ်ပါတယ်။
+    </p><hr>
+    <h1>How to use Image Element and It's Attributes </h1>
+    <p>
+        Photo and images တွေဟာ ဆိုရင် beautiful web pages တစ်ခုအတွက် အခြေခံကျတဲ့ အရာပဲဖြစ်ပါတယ်။ HTML tag တွေမှာဆိုရင် attribute တွေကို add လုပ်ပေးကြရပါတယ်။ Attribute ဟာ browsers ကို instructions ပေးတာပဲဖြစ်ပါတယ်။ Image tag ထဲမှာဆိုရင် src, alt, and class ဆိုတဲ့ attributes 3 ခုပါဝင်ပါတယ်။ Classs attribute ကို CSS file ကို create လုပ်တဲ့အခါမှာ အဲ့ class name နဲ့ target လုပ်ပြီး image ကို ဘယ်လိုပေါ်ချင်တယ်ဆိုတာကို ရေးပဲဖြစ်ပါတယ်။ Image tag ဟာဆိုရင် attributes တွေကို learn လုပ်တဲ့အခါ good element တစ်ခုပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူမှာ attributes နှစ်ခုပဲလိုအပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Source attribute ဟာဆိုရင် file path တစ်ခုကို point လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ image link နေရာမှာ image URL ကို လည်းအသံုံးပြုနိုင်ပါတယ်။ နောက်ထပ် attribute ကတော့ alternative text လို့ခေါ်တဲ့ alt ပဲဖြစ်ပါတယ်။ အဲ့ attribute ကို visitors တွေဟာ page ကိုဝင်လိုက်တဲ့အချိန်မှာ image တွေဟာ cut ဖြစ်သွားနိုင်ပါတယ်။ အဲ့ချိန်မှာ alt ကို search engines and screen readers တွေက အသုံးပြုပါတယ်။ Visitor တစ်ယောက်ဟာ screen reader ကိုသုံးပြီးတော့ site ကို visit လာလုပ်တဲ့အချိန်မှာ alt ဟာ image ရဲ့ အကြောင်းကို ပြောပြပေးမှာဖြစ်ပါတယ်။ Image tag မှာဆိုရင် closing tag မပါဝင်ပါဘူး။ ဒါပေမဲ့ HTML ရဲ့ major elements တွေမှာဆိုရင်တော့ closing tag လိုအပ်ပါတယ်။
+    </p><hr>
+    <h1>Introduction to CSS</h1>
+    <P>
+        အခုပြောပြပေးမှာကတော့ HTML မှာ ရေးထားတဲ့ tag တွေကို CSS ဘက်မှာ ဘယ်လိုခေါ်သုံးရတယ်ဆိုတာနဲ့ CSS ဘက်ကရေးလိုက်တာတွေဟာ HTML tag တွေကို ဘယ်လို apply လုပ်တယ်ဆိုတာကိုပြောပြပေးမှာဖြစ်ပါတယ်။ Web sites တွေဟာ CSS မပါရင် ကြည့်လို့ အဆင်မပြေပါဘူး။ အဲ့ဒါကြောင့် CSS အကြောင်းကို ပြောပြတာပဲဖြစ်ပါတယ်။ CSS ကို အသုံးပြုတာဟာ browser ကို HTML ရဲ့ tags တွေကို ဘယ်လိုမျိုးဆိုကြည့်ကောင်းတယ်ဆိုတဲ့ instructions ပေးတာပဲဖြစ်ပါတယ်။ CSS block တစ်ခုချင်းစီကို CSS rule လို့ခေါ်ပါတယ်။ အဲ့ rule တွေဟာ html tag တစ်ခုကို select လုပ်ပြီးတော့ list of properties တွေနဲ့ အဲ့ select လုပ်လိုက်တဲ့ tag တွေဟာ ဘယ်လိုမျိုးပေါ်စေချင်တယ်ဆိုတာကို  browser ကို ပြောပြတာဘဲဖြစ်ပါတယ်။ CSS ကိုရေးတဲ့အခါမှာ ရှေ့မှာကျွန်တော်တို့ apply လုပ်ချင်တဲ့ html tag ပဲဖြစ်ပြီး tag name နဲ့ target လုပ်ထားရင် အဲ့ tag ရှိတဲ့နေရာတွေအားလုံးကို apply လုပ်မှာဖြစ်ပါတယ်။ သို့သော် ကျွန်တော်တို့ apply လုပ်စေချင်တဲ့ html tag ကို id (သို့) class နဲ့ ပေးခဲ့လျှင် CSS မှာ အဲ့ပေးတဲ့ class or id name ကိုပဲရေးပေးရပါမယ်။ အဲ့ဒါမှ ကျွန်တော်ဟာ id or class ပေးခဲ့တဲ့ html tag ကိုဟာ CSS file ကနေ apply လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့လို CSS မှာ apply လုပ်ချင်တဲ့ properties တွေကို "{}" ထဲမှာ  property တစ်ခုပြီးလျှင် ";" ခံပြီး ကိုယ် apply လုပ်ချင်တဲ့ property ကိုရေးပေးရမှာဖြစ်ပါတယ်။ CSS properties တွေဟာ အများကြီးရှိပါတယ်။ ဥပမာ color, background-color,border,width and etc.
+    </P><hr>
+    <h1>How to target and use HTML tag in CSS</h1>
+    <P>
+        ဒီတစ်ခါတော့ HTML မှာ class နဲ့ ရေးထားတဲ့ tag တွေကို ဘယ်လိုခေါ်သုံးတာနဲ့ CSS property အနည်းငယ်ကိုလည်းရှင်းပြသွားမှာဖြစ်ပါတယ်။ HTML မှာ class နဲ့ပေးထားခဲ့ရင် CSS မှာဆိုခေါ်သုံးတဲ့အခါ ပေးထားတဲ့ class name ရဲ့ ရှေ့မှာ dot ခံပြီးရေးပေးရမှာဖြစ်ပါတယ်။ Dot လေးခံမသုံးလျှင် CSS   file ကို browser ကနေ read လုပ်နိုင်မှာမဟုတ်ပါဘူး။ CSS properties တွေကို css-trick.com မှာ တစ်ခုချင်းစီရဲ့ အသုံးပြုပုံတွေကို လေ့လာနိုင်ပါတယ်။ ကျွန်တော်အခုရှင်းပြပေးမှာကတော့ border property အကြောင်းပဲဖြစ်ပါတယ်။ သူ့ထဲမှာ border-style ကိုလည်းထည့်ရေးလို့ရပါတယ်။ Color လည်းပေးလို့ရပါတယ်။ Border-width ကိုပေးတဲ့နေရာမှာ px ဟာ အသုံးများတဲ့ unit ပဲဖြစ်ပါတယ်။ Border-radius ကိုတော့ border ကို round ဖြစ်ဖို့ရန်အတွက် px နှင့်ပေးပြီးအသုံးပြုရပါတယ်။သူ့ကို "%" နဲ့ပေးပြီးတော့လည်းအသုံးပြုနိုင်ပါတယ်။အဲ့ CSS properties တွေကို အောင်မှာ သူတို့ဟာ html tag ကို ဘယ်လို apply လုပ်တယ်ဆိုတာကို output နဲ့အတူ လေ့လာနိုင်ပါတယ်။
+    </P>
+    <p>HTML file</p>
+    <pre>
+        <code>
+            &lcy;!DOCTYPE html&gt;
+            &lcy;html lang="en"&gt;
+            &lcy;head&gt;
+                &lcy;meta charset="UTF-8"&gt;
+                &lcy;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lcy;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lcy;title&gt;Select HTML tag in CSS &lcy;/title&gt;
+                &lcy;link rel="stylesheet" href="../CSS/style.css"&gt;
+            &lcy;/head&gt;
+            &lcy;body&gt;
+                &lcy;h1 class="name"&gt;My Name is My Thu Zar Myint&lcy;/h1&gt;
+            &lcy;/body&gt;
+            &lcy;/html&gt;
+        </code>
+    </pre>
+    <p>CSS file</p>
+    <pre>
+        <code>
+            .name{
+                text-align: center;
+                border: solid 5px;
+                border-radius: 60px;
+            }
+        </code>
+    </pre>
+    <a href="../Example/selectclass.html" target="_blank">Output>>>>></a><hr>
+    <h1>About Multiple Element select by Class</h1>
+    <p>
+        CSS မှာ class နဲ့ target လုပ်တာဟာပိုပြီးကောင်းပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူဟာ reuseable ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ html မှာ &lt;p&gt; tag နဲ့ &lt;h1&gt; tag ကို class name အတူတူပေးခဲ့လျှင် CSS မှာ အဲ့ class name အတွက်ရေးတဲ့အခါမှာ browser ကနေ အဲ့ hmtl tags  နှစ်ခုလုံးကို apply လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် CSS properties နှစ်ဖြစ်တဲ့ padding နဲ့ margin တို့ရဲ့ သူတို့ ဘယ်လို apply လုပ်တယ်ဆိုတာကိုလည်းပြောပြပေးမှာဖြစ်ပါတယ်။ အဲ့နှစ်ခုကိုသုံးတာဟာ element တစ်ခုရဲ့ space ကို control လုပ်ဖို့ပဲဖြစ်ပါတယ်။ Padding ဆိုတာဟာ ကျွန်တော်တို့အရင်ကပြောခဲ့တဲ့ html box ထဲမှာရှိတဲ့  element ရဲ့ space ကို increase or decrease လုပ်လို့်ရပါတယ်။ Margin ဆိုတာကတော့ အဲ့ html box ရဲ့ အပြင်ဘက်က space ကို increase or decrease လုပ်လို့ရပါတယ်။ သူတို့ကိုလည်း number နဲ့ px or % နဲ့တွဲသုံးလို့်ရပါတယ်။ Margin-top ဟာဆိုရင် top margin ကနေ လိုချင်တဲ့ space ကို adjust လုပ်လို့ရပါတယ်။ Elements တွေကို style ချဖို့ရန်အတွက် class ကိုသုံးတာဟာ code ကို clean and organized ဖြစ်စေပါတယ်။
+    </p>
+    <p>HTML File</p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+
+                &lt;meta charset="UTF-8"&gt;
+
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+
+                &lt;title&gt;
+                Select HTML tag in CSS &lt;/title&gt;
+
+                &lt;link rel="stylesheet" href="../CSS/style.css"&gt;
+
+            &lt;/head&gt;
+
+            &lt;body&gt;
+
+                &lt;h1 class="name"&gt;
+                My Name is My Thu Zar Myint&lt;/h1&gt;
+
+                &lt;p class="name"&gt;
+                Ok.Hello guys.Good evening.
+                    Firstly, May i introduce myself.
+                    My name is Thu Zar Myint.I am final year students in
+                    university of computer studies meiktile
+                    I have 4 family members, I am eldest son in my family.
+                    my native town is kyaukpadaung towship, yay ngan village.
+                    today i want to talk about html dialog box.
+                    And connect with a JavaScript file.
+                    Traditional dialog windows created with 
+                    other HTML markup and CSS have been implemented in most front
+                    end frameworks for a long time.
+                    when we want to create this project.   
+                    We must be created a html file and a JavaScript files.
+                    in html file include a dialog tag for dialog box.
+                    we must use Form tag and in these tag of method attribute we 
+                    type dialog.&lt;/p&gt;
+
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+
+        </code>
+    </pre>
+    <p>CSS File</p>
+    <pre>
+        <code>
+            .name{
+                text-align: center;
+                border: solid 5px;
+                border-radius: 60px;
+                padding: 40px;
+                margin: 30px;
+                margin-top: 50px;
+            }
+        </code>
+    </pre><hr>
+    <h1>How to create a own web page </h1>
+    <p>
+        အခုကျွန်တော် ရှင်းပြပေးမှာကတော့ HTML ကိုအသုံးပြုပြီး web page တစ်ခုကို create လုပ်မှာဖြစ်ပါတယ်။ အရင်ဆုံးကျွန်တော်တို့ဟာ ဒါဟာ့HTML file ဖြစ်တယ်ဆိုတာကို browser သိဖို့ရန်အတွက် DOCTYE html ကိုအရင်းဆုံးရေးပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါပြီးတဲ့အခါ head tag ကို ရေးပေးရပါမယ်။ အဲ့ထဲမှာဆိုရင် CSS file တွေနဲ့ link လုပ်နိုင်တယ်၊ ကျွန်တော်တို့ page ရဲ့ title ကိုလည်း အဲ့ထဲမှာ create လုပ်လို့ရပါတယ်။ Head tag ပြီးတဲ့နောက် body tag ပဲဖြစ်ပါတယ်။ Body tag ထဲမှာဆိုရင် ကျွန်တော်တု့ိဟာ page ပေါ်မှာပေါ်ချင်တဲ့ ပုံစံကို HTML tag တွေကိုအသုံးပြုပြီး ရေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်အခု create လုပ်ပြပေးမှာကတော့ profile တစ်ခုကို create လုပ်ပြသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Web Developer&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;img src="http://placeimg.com/200/200/people" alt="This is a Profile Image"&gt;
+                &lt;h1&gt;Alex Web Developer&lt;/h1&gt;
+                &lt;h2&gt;Summary of Qualification&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Expericen in ITVisionHub&lt;/li&gt;
+                    &lt;li&gt;Start in 2019&lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Output Link</h2>
+    <a href="../Example/ownpage.html">Output>>>>></a><hr>
+    <h1>How to apply CSS file in HTML file </h1>
+    <p>ဒီတစ်ခါတော့ HTML file ကို CSS fire နဲ့ ချိတ်ဆက်တာကို example နဲ့အတူဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS ဘက်မှာ HTML tag တွေကို ဘယ်လို ခေါ်ပြီးသုံးရတယ်ဆိုတာကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ CSS  file ကို HTML file မှာ link tag နဲ့ ခေါ်ပြီးအသုံးပြုရတယ်ဆိုတာကိုလည်းသိရှိထားပြီးဖြစ်ပါတယ်။ CSS properties တွေကို CSS learn လုပ်တဲ့အခါပြီးတော့ နားလည်သိရှိအောင်ပြောပြပေးသွားမှာဖြစ်ပါတယ်။</p>
+    <h2>Example HTML Code</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Web Developer&lt;/title&gt;
+               &lt;link rel="stylesheet" href="../CSS/own.css">&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;img src="http://placeimg.com/200/200/people" alt="This is a Profile Image"&gt;
+                &lt;h1&gt;Alex Web Developer&lt;/h1&gt;
+                &lt;h2&gt;Summary of Qualification&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Expericen in ITVisionHub&lt;/li&gt;
+                    &lt;li&gt;Start in 2019&lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Example CSS Code</h2>
+    <pre>
+        <code>
+            body{
+                font-family: "Arial";
+            
+            }
+            .img-profile{
+                border: solid 4px black;
+                border-radius: 50%;
+            
+            }
+            h1{
+                background-color: aquamarine;
+                padding: 5px;
+            
+            }
+            .section-title{
+                text-transform: capitalize;
+            }
+        </code>
+    </pre>
+    <h2>Output Example</h2>
+    <a href="../Example/ownpage.html">Output>>>>></a><hr>
+    <h1>Link One Page to another Page</h1>
+    <p>Link tag တွေကို paragraph tag တွေထဲမှာလည်းထည့်ပြီးတော့ အခြား web page တစ်ခုကို link လုပ်နိုင်ပါတယ်။ ကျွန်တော်အောက်မှာ example အနေနဲ့ လုပ်ပြထားပါတယ်။ အခု ကျွန်တော်တို့ Own web page တစ်ခုကို create လုပ်နိုင်ပါပြီ။ ဒါကြောင့် Own web page တစ်ခုကို ကျွန်တော်ပြောပြခဲ့တဲ့ html tags တွေနဲ့ css file တွေကို သုံးပြီး create လုပ်ကြည့်ကြပါ။</p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            &lt;body&gt;
+                &lt;h1 class="name"&gt;My Name is My Thu Zar Myint&lt;/h1&gt;
+                &lt;p class="name"&gt;Ok.Hello guys.Good evening.
+                    Firstly, May i introduce myself.
+                    My name is Thu Zar Myint.I am final year students in
+                    university of computer studies meiktile
+                    I have 4 family members, I am eldest son in my family.
+                    my native town is kyaukpadaung towship, yay ngan village.
+                    today i want to talk about html dialog box.
+                    And connect with a JavaScript file.
+                    Traditional dialog windows created with 
+                    other HTML markup and CSS have been implemented in most front
+                    end frameworks for a long time.
+                    when we want to create this project.   
+                    We must be created a html file and a JavaScript files.
+                    in html file include a dialog tag for dialog box.
+                    we must use Form tag and in these tag of method attribute we 
+                    type dialog.&lt;a href="ownpage.html"&gt;My Site is&lt;/a&gt;.&lt;/p&gt;
+            &lt;/body&gt;
+        </code>
+    </pre>
+    <h2>Output Example</h2>
+    <a href="../Example/selectclass.html">Output>>>>></a><hr>
+
+
+</body>
+</html>

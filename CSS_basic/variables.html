@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition and Transform</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+    <h1>CSS Variables Introduction</h1>
+    <p>
+            Sass or Less or PostCSS ကဲ့သို tool တွေလို CSS preprocessor ကိုအသုံးပြုတဲ့အခါမှာ style sheet ထဲမှာ values တွေကို store and keep track လုပ်ဖို့ရန်အတွက် variables တွေကို declare လုပ်ဖို့လိုပါတယ်။ CSS မှာ variables တွေကို special processing tools တွေမလိုဘဲနဲ့ တိုက်ရိုက်အသုံးပြုနိုင်ပါတယ်။ Variables တွေဟာ programming မှာ အရေးကြီးတဲ့ concept တစ်ခုပဲဖြစ်ပါတယ်။ သူတို့ကို information တွေကို store and keep track လုပ်ဖို့ရန်အတွက် နည်းလမ်းတစ်ခုပဲဖြစ်ပါတယ်။ CSS variables တွေကို custom properties လို့လဲခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့ဟာ regular CSS properties နဲ့ similar ဖြစ်ပါတယ် ပြီးတော့ သူဟာ custom property notation လို့ခေါ်တဲ့ special syntax ကိုအသုံးပြုထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ သူ့ကို create လုပ်မယ်ဆိုရင် property name ရဲ့ ရှေ့မှာ two dashes  ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ browser ကို ဒါဟာ custom property ဖြစ်တယ်ဆိုတာကို instruct လုပ်ပေးလိုက်တာပဲဖြစ်ပါတယ်။ Property name ရဲ့နောက်မှာ value ကို assign လုပ်ပေးရမှာဖြစ်ပါတယ်။ Code ထဲမှာ သူ့ရဲ့ value ကို retrieve လုပ်ဖို့ရန်အတွက် CSS bar function ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို technically အရတော့ Custom Properties လို့ခေါ်ပြီးတော့ developers တွေကတော့ CSS variables လို့ခေါ်ကြပါတယ်။ 
+    </p><hr>
+    <h1>Declarig and Using Variables</h1>
+    <p>
+            CSS variables ကို style sheet ထဲမှာအသုံးပြုမယ်ဆိုရင် steps နှစ်ခုရှိပါတယ်။ First, custom property notation ကိုအသုံးပြုပြီးတော့ selector တစ်ခုထဲမှာ variable ကို declare လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးရင် CSS R function ကိုအသုံးပြုပြီးတော့ variable or custom property ကို reference လုပ်ပေးရမှာဖြစ်ပါတယ်။ CSS variables တွေဟာဆိုရင် property value pairs လိုပဲ အလုပ်လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ property name ကို ကိုယ်ကြိုက်တဲ့ name ပေးပြီးတော့ CSS Property ကို write လုပ်နိုင်ပါတယ်။ ပြီးရင် name ရဲ့ ရှေ့မှာ dashes နှစ်ခုကိုခံပြီးရင် အဲ့ variable တစ်ခုအနေနဲ့ identify လုပ်ပေးလိုက်တာပဲဖြစ်ပါတယ်။ သူ့တိုကို declare လုပ်တဲ့ အချိန်မှာ element ရဲ့ rule set ထဲမှာ declare လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူ့ကို rule ရဲ့အပြင်မှာ declare လုပ်လိုက်မယ်ဆိုရင် သူတို့ဟာ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ သူ့တို့ကိုလည်း variable တစ်ခုအနေနဲ့ style sheet ထဲမှာ အသုံးပြုလို့မရနိုင်ပါဘူး။ Variables တွေကို declare လုပ်လိုက်တဲ့အခါမှာမှာ brand color, base font size စတဲ့ elements တွေကို reference လုပ်ပေးမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် :root pseudo class ကိုအသုံးပြုပြီးတော့ variables တွေကို declare လုပ်ထားတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <h3>variables1.css</h3>
+    <pre>
+        <code>
+                /* Variables *************************************/
+
+                :root {
+                    --color-primary: #fff;
+                    --color-secondary: #FFC107;
+                    --color-main : #e3e3e3;
+                    --color-nav: green;
+                    --nav-mobile-color : #174617;
+                    --color-bg: #278da4;
+                    --color-bg-light:#2b87ada3;
+                
+                    --gradient:var(--color-bg-light),
+                            var(--color-bg);
+                
+                    --font-stack-primary: 'Raleway',sans-serif;
+                    --font-stack-secondary: 'Bree Serif', serif;
+                
+                    --max-width: 1150px;
+                }
+                
+                
+                
+                
+                
+                * {
+                    box-sizing: border-box;
+                }
+                body {
+                    color: #343434;
+                    font-size: 1em;
+                    line-height: 1.5;
+                    text-align: center;
+                    margin: 0;
+                    background: var(--color-primary);
+                    font-family: var(--font-stack-primary);
+                }
+                p {
+                    margin-bottom: 1.5em;
+                    line-height: 1.7;
+                }
+                
+                h1 {
+                    color: var(--color-primary);
+                    margin-bottom: 0;
+                    font-size: 2em;
+                }
+                
+                img {
+                    max-width: 100%;
+                }
+                .main-header {
+                    padding-top: .6em;
+                    padding-bottom: .6em;
+                }
+                
+                .name {
+                    font-size: 1.6em;
+                    margin: 0;
+                }
+                
+                .name a {
+                    color: var(--color-primary);
+                    text-shadow: -3px 6px black;
+                    font-size: 1.3em;
+                }
+                
+                .wrapper {
+                    background: var(--color-nav);
+                }
+                .main-nav {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                
+                .main-nav a,
+                .name a {
+                    display: block;
+                    text-align: center;
+                    padding: 10px 15px;
+                    text-decoration: none;
+                }
+                
+                .main-nav li {
+                    margin-bottom: 5px;
+                    margin-top: 5px;
+                    
+                }
+                
+                .main-nav a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: .95em;
+                    color: var(--color-primary);
+                    background: var(--nav-mobile-color);
+                    margin: 0 auto;
+                }
+                
+                .main-nav a:hover {
+                    color: var(--color-secondary);
+                }
+                
+                
+                
+                
+                
+                /* Main Content */
+                .main-content {
+                    margin: 2em auto;
+                    padding: 0px 15px;
+                }
+                
+                .main-content {
+                    width: 90%;
+                    display: grid;
+                    max-width: var(--max-width);
+                    grid-gap: 20px;
+                    grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
+                }
+                
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .card {
+                    border: 1px solid var(--color-nav);
+                    border-radius: 2px;
+                    padding: 20px;
+                }
+                
+                .card h1 {
+                    line-height: 1.5;
+                    color: var(--color-bg);
+                }
+                
+                
+                .btn {
+                    margin-top: auto;
+                }
+                
+                .btn {
+                    background: var(--color-bg);
+                    padding: 10px 0px;
+                    border-radius: 7px;
+                    color: #fff;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 1em;
+                    display: inline-block;
+                }
+                
+                .btn:hover {
+                    background: var(--color-bg-light);
+                }
+                
+                
+                /* Main Banner */
+                .banner {
+                    color: var(--color-primary);
+                    /*background: var(--color-bg);*/
+                    background: linear-gradient(#131212, #03a9f454), url(../img/images\ \(1\).jpg) no-repeat;
+                    background-blend-mode: multiply;
+                    background-size: cover;
+                    height: 500px;
+                    /* padding: 3.2em 0;
+                    /* margin-bottom: 60px; */
+                }
+                .banner img {
+                    border-radius: 50%;
+                    margin-top: 70px;
+                    box-shadow: 8px -10px 9px 5px #44414182;
+                }
+                .tagline {
+                    font-size: 1em;
+                }
+                
+                
+                /* ================================= 
+                  Media Queries
+                ==================================== */
+                
+                @media (min-width:769px) {
+                    .main-header {
+                        width: 90%;
+                        margin: 0 auto;
+                        max-width: var(--max-width);
+                    }
+                
+                    .main-nav li {
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                    }
+                
+                    .main-nav a {
+                        background: none;
+                    }
+                    
+                }
+                
+                @media(min-width:1025px) {
+                    .main-header {
+                        width: 90%;
+                        margin: 0 auto;
+                        max-width: var(--max-width);
+                    }
+                
+                    .main-nav li {
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                    }
+                
+                    .main-nav a {
+                        background: none;
+                    }
+                }
+                
+        </code>
+    </pre>
+    <p>
+            CSS variables ကို create လုပ်တာဟာ preprocessor variables နဲ့ equivalent ဖြစ်နေတာပဲဖြစ်ပါတယ်။ သူတို့မှာ တူညီတဲ့ functionality တွေကို offer လုပ်ပေးပါတယ်။ Variables တွေဟာ CSS ထဲမှာ ဘယ်အရာကိုမဆို လုပ်ဆောင်နိုင်ပါတယ်။ Preprocessor variables နဲ့ဆိုရင်တော့ မလုပ်ဆောင်နိုင်ပါဘူး။ Preprocessors တွေဟာ browser ထဲမှာ run အလုပ်နိုင်ပါဘူး။ Variables တွေကို source file တစ်ခုထဲမှာ declare လုပ်လိုက်တဲ့အချိန်မှာ preprocessors တွေဟာ CSS နဲ့ compile လုပ်တဲ့အချိန်မှာ variables နေရာကို သူ့ရဲ့ static values နဲ့ replace လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ CSS variables တွေဟာ code ကို compiled လုပ်တာထက် ပိုပြီးတော့ flexible ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့ဟာ browser ထဲမှာရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ CSS variables ရဲ့ value ကို update လုပ်လိုက်တဲ့အချိန်မှာ browser ဟာ run time မှာ variables ရဲ့ reference လုပ်တဲ့ နေရာတွေကို update လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် section မှာဆိုရင် CSS variables ဟာ ဘယ်လို cascade လုပ်တယ် သူ့ကိုရဲ့ parent ဆီကနေ value ကို ဘယ်လို inherit လုပ်တယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ 
+    </p>
+    <p>
+            ကျွန်တော်တို့ဟာ CSS variables ကို define လုပ်ဖု့ိရန်အတွက် သူရဲ့ scope ကိုစ ပြီးတော့ define လုပ်တာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Root မှာ variable တစ်ခုကို implies လုပ်တဲ့အခါမှာ variable ဟာ elements အားလုံးအတွက် available ဖြစ်လာတာဖြစ်ပါတယ်။ Root ကို အသုံးပြုတာဟာ global variables တွေကို set လုပ်တဲ့ great way တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ variables တွေကို တစ်နေရာထဲမှာ keep လုပ်ထားပြီးတော့ maintenance လုပ်ဖို့ရန်လည်း လွယ်ကူပါတယ်။ အမြဲတမ်းတော့ variables တွေကို root ထဲမှာ declare လုပ်ဖို့မလိုပါဘူး။ CSS variables တွေဟာ standard cascade rules ကို follow လုပ်တဲ့ အတွက်ကြောင့်  variables တွေဟာ regular CSS properties လို behave လုပ်နိုင်ပါတယ်။ Variable တစ်ခုကို specificity ရဲ့ different levels မှာ define or reset လုပ်နိုင်ပါတယ်။
+    </p>
+    <a href="CSS_Example/variablesexample/declarvariables.html">Test Yourself</a><hr>
+    <h1>Calc Function</h1>
+    <p>
+        Var function ဟာဆိုရင် fall back value တစ်ခုလို act လုပ်တဲ့ optional second argument တစ်ခုကိုလည်း accept လုပ်နိုင်ပါတယ်။ Variable ကို declare မလုပ်ခဲ့ရင် သူဟာဆိုရင် invalid ဖြစ်နေမှာဖြစ်ပါတယ်။ Second argument ကို variable ရဲ့ substitution value တစ်ခု အနေနဲ့ အသုံးပြုတာပဲဖြစ်ပါတယ်။ Fall back values တွေကို providing လုပ်တာဟာ style sheet ကို sharable and extensible ဖြစ်အောင်လုပ်နိုင်ပါတယ်။ Fall back values ဟာဆိုရင် initial styles နဲ့ theming hooks ကို provide လုပ်ပေးတဲ့ custom properties တွေကိုလည်း set လုပ်နိုင်ပါတယ်။ နောက်ထပ် simple calculations တွေအတွက်လည်း CSS variables တွေကိုအသုံးပြုနိုင်ပါတယ်။ CSS calc function ဟာဆိုရင် length values တွေကို determine လုပ်တဲ့ calculations တွေကို လုပ်ဆောင်နိုင်ပါတယ်။ Example သူ့ကို ဘယ်လို create လုပ်ရတယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+               
+
+            :root {
+                --color-primary: #278da4;
+                --color-secondary: #b13c69;
+    
+                --color-bg: #3acec2;
+                --color-bg-light:#009fe1;
+    
+                --gradient:var(--color-bg-light),
+                        var(--color-bg);
+    
+                --font-stack-primary: 'Raleway',sans-serif;
+                --font-stack-secondary: 'Bree Serif', serif;
+    
+                --max-width: 100px;
+                --gutter: 12px;
+                --spacing : 2;
+    
+            }
+    
+            header {
+                background: linear-gradient(var(--gradient)),url('..img/bg.jpg') no-repeat;
+                background-blend-mode: multiply;
+                background-size: cover;
+                margin-bottom: calc(var(--spacing)* 1em); /* 2em */
+                }
+                
+                /* COMPONENT STYLES -------------------------*/
+                
+                .main-nav li {
+                margin: 0 calc(var(--spacing)* 10px);     /* 20px */
+                }
+        </code>
+    </pre><hr>
+    <h1>SVG Image with Variables</h1>
+    <p>
+        CSS variables တွေရဲ့ element တစ်ခုရဲ့ style attribute တစ်ခုအတွင်းမှာရှိတဲ့ line ထဲမှာ updated and altered လုပ်နိုင်တဲ့အကြောင်းကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ CSS variables ကိုအသုံးပြုပြီးတော့ style and line svgs ထဲမှာရှိတဲ့ presentational attributes တို့ကို modify လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် heart icon ရဲ့ reusable template တစ်ခုကို defines လုပ်ထားပါတယ်။ အဲ့မှာ symbol ရဲ့ အောက်မှာ use element ကို အသုံးပြုထားပါတယ်။ Parent SVG ရဲ့ symbol တစ်ခုချင်းစီမှာဆိုရင် different class တစ်ခုစီရှိကြပါတယ်။ 
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;SVG image with variables&lt;/title&gt;
+                &lt;link rel="stylesheet" href="svg.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;svg xmls="http://www.w3.org/2000/svg" style="display:none;"&gt;
+                    &lt;symbol id="heart" viewBox="0 0 113.0 96.2"&gt;
+                        &lt;path fill="var(--secondary-fill)" d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z" astroke="var(--primary-fill)"/&gt;
+                        &lt;path fill="var(--primary-fill)" d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/&gt;
+                    &lt;/symbol&gt;
+                &lt;/svg&gt;
+                &lt;div class="main"&gt;
+                    &lt;!-- Red --&gt;
+                    &lt;svg width="160" height="160" class="heart-red"&gt;
+                        &lt;use Xlink:href="#heart"/&gt;
+                    &lt;/svg&gt;
+                    &lt;!-- Green --&gt;
+                    &lt;svg width="160" height="160" class="heart-green"&gt;
+                        &lt;use Xlink:href="#heart"/&gt;
+                    &lt;/svg&gt;
+                    &lt;!-- BLue --&gt;
+                    &lt;svg width="160" height="160" class="heart-blue"&gt;
+                        &lt;use Xlink:href="#heart"/&gt;
+                    &lt;/svg&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            .heart-red {
+                --primary-fill: #c44;
+                --secondary-fill: #d35f5f;
+            }
+            .heart-green {
+                --primary-fill: #41af5d;
+                --secondary-fill: #5ece7f;
+            }
+            .heart-blue{
+                --primary-fill: #2e97af;
+                --secondary-fill: #38acd0;
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/variablesexample/svg.html">Test Yourself</a><hr>
+    <h1>Variable with JavaScript</h1>
+    <p>
+        CSS variables တွေဟာဆိုရင် cascade and inheritance ကိုအသုံးပြုပြီးတော့ဘဲ update လုပ်ရတာမဟုတ်ပါဘူး။ နောက်ထပ် JavaScript က CSS variable values ကို get or set , read and write လုပ်ပြီးတော့ လည်း update လုပ်နိုင်ပါတယ်။ CSS variables တွေဟာဆိုရင် run time မှာ JavaScript နဲ့ interact လုပ်နိုင်ပါတယ်။ အဲ့လို လုပ်တဲ့နေရာမှာ custom property တစ်ခုရဲ့ value ကို get လုပ်ဖို့ရန်အတွက် getPropertyValue ဆိုတဲ့ method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ နောက် value ကို set လုပ်ဖို့ရန်အတွက် setProperty method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ JavaScript မှာဆိုရင် html ရဲ့ element ကို selecting လုပ်တဲ့ နေရာ document.querySelector ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ CSS variables တွေဟာဆိုရင် cascade and inheritance ကိုအသုံးပြုပြီးတော့ဘဲ update လုပ်ရတာမဟုတ်ပါဘူး။ နောက်ထပ် JavaScript က CSS variable values ကို get or set , read and write လုပ်ပြီးတော့ လည်း update လုပ်နိုင်ပါတယ်။ CSS variables တွေဟာဆိုရင် run time မှာ JavaScript နဲ့ interact လုပ်နိုင်ပါတယ်။ အဲ့လို လုပ်တဲ့နေရာမှာ custom property တစ်ခုရဲ့ value ကို get လုပ်ဖို့ရန်အတွက် getPropertyValue ဆိုတဲ့ method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ နောက် value ကို set လုပ်ဖို့ရန်အတွက် setProperty method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ JavaScript မှာဆိုရင် html ရဲ့ element ကို selecting လုပ်တဲ့ နေရာ document.querySelector ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် class ball ကို specify လုပ်ထားတာဖြစ်ပြီးတော့ body ကို click လုပ်လိုက်တဲ့အခါမှာ valleys လေးဟာ change ဖြစ်ချင်တဲ့အတွက်ကြောင့် body.addEventListener ကိုသုံးပြုပေးတာဖြစ်ပါတယ်။ Style property ထဲမှာဆိုရင် value တစ်ခုချင်းစီအတွက် set property method ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ Set property မှာဆိုရင် valleys ဖြစ်စေချင်တဲ့ position နဲ့ value ကိုတော့ e.clientY ဆိုတာကတော့ vertical coordinates ကို provide လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;&lt;/title&gt;
+                    &lt;link rel="stylesheet" type="text/css" href="variable.css"&gt;
+                    
+                &lt;/head&gt;
+                &lt;body&gt;
+                    
+                &lt;div class="ball"&gt;
+                    
+                &lt;/div&gt;
+
+                &lt;script type="text/javascript" src="ball.js"&gt;&lt;/script&gt;
+
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                .ball {
+                    background-color: var(--ball-bg, tomato);
+                    transform: translate( calc(var(--pos-x) * 1px) , calc(var(--pos-y) * 1px) );
+                    transition: 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                }
+                .ball {
+                    width: 100px;
+                    height: 100px;
+                    border-radius:100%;
+                }
+                *{
+                    width: 100%;
+                    height: 100%;
+                }
+        </code>
+    </pre>
+    <h2>Code in JavaScript</h2>
+    <pre>
+        <code>
+                const body = document.querySelector('body');
+                const ball = document.querySelector('.ball');
+                
+                body.addEventListener('click', e => {
+                    ball.style.setProperty('--pos-x', e.clientX - 80);
+                    ball.style.setProperty('--pos-y', e.clientY - 80);
+                    ball.style.setProperty('--ball--bg', randomHex())
+                });
+                
+                //set a rondom hex value
+                function randomHex() {
+                    let max = 1 << 24;
+                    let hex = (max + Math.floor(Math.random() * max)).toString(16).slice(-6);
+                    return `#${hex}`;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/variablesexample/javascript.html">Test Yourself</a><hr>
+    <h1>How to use CSS Variables</h1>
+    <p>
+            အခုဆိုရင် custom properties တွေဟာ var function မှာ ဘယ်လို အလုပ်လုပ်တယ်ဆိုတာကို သိရှိပြီးဖြစ်ပါတယ်။ First, var ကို selector တစ်ခုအနေနဲ့ အသုံးပြုတဲ့အခါမှာ invalid ဖြစ်နိင်ပါတယ်။ Var ဟာ property name တစ်ခုအနေနဲ့ valid ဖြစ်တာမဟုတ်ပါဘူး။ Var ကို CSS values တွေမှာလည်း အသုံးပြိုနိုင်ပါတယ်။ Var ကို media query expression ထဲမှာလည်းအသုံးပြုလို့မရပါဘူး။ နောက် var function ကို length value ကို create လုပ်တဲ့ခါမှာလည်းအသုံးပြုလို့မရပါဘူး။ Length value ကို build လုပ်ဖို့ဆိုရင် calc ကို အသုံးပြုပြီးမှ var function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ CSS variables ဟာဆိုရင် useful and fun feature တွေပဲဖြစ်ပါတယ်။
+    </p>
+</body>
+</html>

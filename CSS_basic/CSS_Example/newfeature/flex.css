@@ -1,0 +1,35 @@
+
+ul {
+    width: 75%;
+    margin: 0 auto;
+    list-style: none;
+    padding: 15px 0;
+    background: rgb(2, 102, 2);
+}
+ul li {
+    border: 2px solid rgb(183, 231, 105);
+    color: aliceblue;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+}
+/********************
+FLEX BOX EXAMPLE
+**************************************/
+ul {
+    display: -webkit-flex;
+    -webkit-flex-flow:row;
+    -webkit-flex-wrap : wrap;
+}
+
+li {
+    -webkit-flex-grow: 1;
+    height: 300px;
+}
+li:nth-child(3)
+{
+    -webkit-flex-grow: 5;
+    -webkit-order: -1;
+    height: 75px;
+    -webkit-align-self: flex-end;
+}

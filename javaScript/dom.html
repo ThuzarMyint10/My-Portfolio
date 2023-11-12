@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Lesson</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to DOM</h1>
+    <p>
+            JavaScript ဟာဆိုရင် exciting language တစ်ခုဖြစ်ပါတယ်။ သူတို့ကို desktop programs, even control robots တွေကို create လုပ်ဖို့ရန်အတွက် power web servers တွေမှာ အသုံးဖြစ်ပါတယ်။ သူဟာ popular all-purpose language တစ်ခုလည်းဖြစ်ပါတယ်။ JavaScript ကို ကျွန်တော်တို့ဟာ fun, interactive, and useful websites တွေကို create လုပ်ဖို့အတွက် most important tool အနေနဲ့ လည်းတွေရနိုင်ပါတယ်။ အခု section မှာတော့ webpages တွေကို power of JavaScript ကို အသုံးပြုပြီးတော့ ဘယ်လို bring လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ interactivity ကို three basic actions အဖြစ်ကို ဘယ်လို break လုပ်ရတယ်ဆိုတာကိုလည်းလေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ selecting elements on the page, manipulating elements, and listening for user actions တို့ပဲဖြစ်ပါတယ်။ Web page တစ်ခုမှာဆိုရင် elements တွေအများကြီးရှိပါတယ်။ ဒီ actions ၃ ခုဟာ all of the interactive မှာ ဖြစ်သွားတာဖြစ်ပါတယ်။ နောက် ဒီ course မှာဆိုရင် webpages တွေကို JavaScript နဲ့ Document Object Model ( DOM) နဲ့ accessing လုပ်ပြီးတော့ ဘယ်လို control လုပ်ရတယ်ဆိုတာကိုလည်းလေ့လာသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Object and Properties</h1>
+    <p>
+            JavaScript ဟာဆိုရင် global environment တစ်ခုဖြစ်ပါတယ်။ သူဟာ cockpit အမျိုးအစားတစ်ခုလည်းဖြစ်ပါတယ်။ သူဟာ things happen တွေကို လုပ်ဆောင်ဖို့ရန်အတွက် code တွေကို အသုံးပြုတဲ့အခါမှာ full control ဖြစ်ပါတယ်။ ဒီ controls တွေဟာ JavaScript objects and functions and inside of a browser ထဲမှာဖြစ်ပါတယ်။ သူတို့ဟာ code တွေကို see လုပ်ဖို့ရန်နဲ့ web pages ကို manipulate လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ browser environment တွေကို  Chrome web browser မှာရှိတဲ့ Developer tools လို့ခေါ်တဲ့ feature တစ်ခုကနေပြီးတော့ explore လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ alert command ကိုသိပြီးသားဖြစ်ပါတယ်။ Alert ဟာဆိုရင် browser function တစ်ခုဖြစ်ပါတယ်။ သူဟာ message တစ်ခုကို window ကနေ user ဆီကို show လုပ်ပေးပါတယ်။ နောက် ကျွန်တော်တို့ဟာ current ကို မြင်ချင်တဲ့အခါမှာ location.href ကိုရိုက်ပြီးတော့ ကြည့်လို့ရပါတယ်။ အဲ့မှာဆိုရင် Chrome ဟာဆိုရင် address bar မှာရှိတဲ့ http:// ကို hide လုပ်ထားတာဖြစ်ပါတယ်။ ဒီ variables တွေဟာဆိုရင် browser's global environment ရဲ့ part တွေဖြစ်ပြီးတော့ global environment မှာဆိုရင် variables တွေအများကြီးရှိပါတယ်။ Global variables တွေဟာ single global object တစ်ခုရဲ့ properties တွေဖြစ်ပါတယ်။ သူတို့ဟာ window လို့ခေါ်တဲ့ browsers ထဲမှာဖြစ်ပါတယ်။ Console မှာ window လို့ရိုက်လိုက်တဲ့အခါမှာ objects တွေနဲ့ သူရဲ့ properties တွေကို အားလုံးကိုတွေ့ရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ document object ကိုအသုံးပြုပြီးတော့ page load လုပ်တဲ့အချိန်မှာ element ကို select လုပ်တဲ့နေရာမှာအသုံးပြုနိုင်ပါတယ်။ သူ့ကိုအသုံးပြုတဲ့နေရာမှာ element ရဲ့ id ကို target လုပ်ပြီးတော့အသုံးပြုရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Output>>>></h2>
+    <pre>
+        <code>
+             <img src="../javaScriptExample/image/object.png" alt="output">
+        </code>
+    </pre><hr>
+    <h1>DOM or Document Object Model</h1>
+    <p>
+            ပြီးခဲ့တဲ့ section မှာ document object အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ Document ဟာဆိုရင် HTML and content of a webpage တို့ကို representing လုပ်ပေးတဲ့ global object တစ်ခုပဲဖြစ်ပါတယ်။ Document ကိုအသုံးပြုပြီးတော့ webpage ရဲ့ different parts တွေကို select and change လုပ်နိုင်ပါတယ်။ အဲ့ဒါတွေဘယ်လို အလုပ်လုပ်တယ်ဆိုတာကို နားလည်ထားတာဟာ DOM ရဲ့ understanding တစ်ခုကို နားလည်တာပဲဖြစ်ပါတယ်။ DOM ကတော့ document object model ပဲဖြစ်ပါတယ်။ DOM ဆိုတာ JavaScript ကနေအသုံးပြုနိုင်တဲ့ webpage တစ်ခုရဲ့ representation တစ်ခုပဲဖြစ်ပါတယ်။ DOM ဟာ web page တစ်ခုကို tree-like structure တစ်ခုအဖြစ်နဲ့ represent လုပ်ပေးပါတယ်။ HTML web page တစ်ခုမှာဆိုရင် head တစ်ခု body တစ်ခုရှိပါတယ်။ နောက် သူတို့ထဲမှာ nested ဖြစ်နေတဲ့ အခြား elements တွေလည်းရှိတယ်ဆိုပါတော့ အဲ့မှာဆိုရင် document element or node ဟာ tree ရဲ့ root node တစ်ခုဖြစ်ပါတယ်။ Head နဲ့ body ကတော့ အခြား branches တွေကို leading လုပ်တဲ့ branches တွေပဲဖြစ်ပါတယ်။ Tree ရဲ့ top မှာရှိတဲ့ leaves တွေဟာ heading element or list item nodes တွေပဲဖြစ်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/family_tree.png" alt="domtree">
+    <hr>
+    <h1>Another Action</h1>
+    <p>
+            ဒီ section မှာဆိုရင် browser environment မှာရှိတဲ့ global scope အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ JavaScript တွေ load မလုပ်ခင်မှာကတည်းက a lot of global variables တွေရှိပါတယ်။ Main global variable ဟာတော့ document object ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် other global variables တွေနဲ့အတူတူပဲဖြစ်ပါတယ်။ နောက်သူဟာ window object ရဲ့ property တစ်ခုလည်းဖြစ်ပါတယ်။ အစောပိုင်းမှာ element တစ်ခုကို JavaScript နဲ့ controlling လုပ်တဲ့ two step အကြောင်းကိုပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ First, element ကို select လုပ်ပြီးတော့ read or manipulate လုပ်နိုင်ပါတယ်။ အခု another action ကိုအပြောပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ element တစ်ခုကို some event တစ်အတွက် listen လုပ်ဖို့ရန် ask လုပ်နိုင်ပါတယ်။ Event ဆိုတာကတော့ click or key press တို့လို user action ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const myHeading = document.getElementById('myHeading');
+
+                myHeading.addEventListener('click', () => {
+                    myHeading.style.color = 'red';
+                
+                });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/object.html">Test Yourself</a><hr>
+    <h1>Select an Element By ID</h1>
+    <p>
+            ပြီးခဲ့တဲ့ section မှာ element တစ်ခုကို click လုပ်လိုက်တဲ့အခါမှာ color ပြောင်းသွားတဲ့ some JavaScript တွေကို ရေးခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် document.getElementById နဲ့ element ကို select လုပ်တာပဲဖြစ်ပါတယ်။ Selection ဟာ element တစ်ခုကို browser တစ်ခုအတွက် identify လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါမှ browser ကနေပြီးတော့ element ကို ရှာနိုင်ပြီးတော့ ကျွန်တော်တို့ လုပ်ဆောင်ချင်တဲ့ အရာတွေကို လုပ်ပေးမှာဖြစ်ပါတယ်။ အခု ဒီ section မှာလည်း headline ရဲ့ color ကို change လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့လိုလုပ်တဲ့နေရာမှာ button ကို click လုပ်လိုက်တဲ့အခါမှာ headline ရဲ့ color ပြောင်းသွားတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် button ကို select လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့ဟာ action ကို button ကို click လုပ်မှာ ဖြစ်စေချင်တာဖြစ်တဲ့အတွက် addEventListener မှာ button ကို select လုပ်ထားတဲ့ const name ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+                const myHeading = document.getElementById('myHeading');
+                const myButton = document.getElementById('myButton');
+                const myTextInput = document.getElementById('textInput');
+                
+                myButton.addEventListener('click', () => {
+                    myHeading.style.color = myTextInput.value ;
+                
+                });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/object.html">Test Yourself</a><hr>
+    <h1>Select an Element By TagName</h1>
+    <p>
+            ပြီးခဲ့တဲ့ section မှာ element တစ်ခုကို ID နဲ့ select လုပ်ခဲ့တာဖြစ်ပါတယ်။ သူဟာ single element တစ်ခုကိုပဲ select လုပ်ပေးတာဖြစ်ပါတယ်။ 
+            အခု section မှာတော့ ကျွန်တော်တို့ဟာ multiple elements တွေကို select လုပ်ချင်တဲ့အခါမှာ document.getElementsByTagName ဆိုတဲ့ method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူဟာ အရင် section မှာ ပြောပြခဲ့တဲ့ method နဲ့ very similar ဖြစ်ပါတယ်။ ဒီ method ရဲ့ elements စကားလုံးမှာဆိုရင် 's' ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ 's' ဆိုတာလေးမပါခဲ့ရင်တော့ သူဟာ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ နောက် သူဟာ collection of elements ကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ Collection တစ်ခုဟာ array တစ်ခုနဲ့ တူပါတယ်။ ကျွန်တော်ဟာ သူတို့အားလုံးကို access လုပ်ထားတဲ့ collection တစ်ခုလုံးပေါ်မှာသူ့ရဲ့ index or loop ကို အသုံးပြုပြီးတော့ element တစ်ခုကို access လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const myList = document.getElementsByTagName('li');
+
+                for(let i = 0; i < myList.length; i += 1){
+                    myList[i].style.color = 'purple';
+                }
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/tagname.html">Test Yorself</a><hr>
+    <h1>Select an Element By ClassName</h1><p>
+            အခု section မှာတော့ class name တွေကို အသုံးပြုပြီးတော့ element တွေကို action တွေကို လုပ်ပြသွားမှာဖြစ်ပါတယ်။ အဲ့မှာ ဆိုရင် document.getElementsByClassName method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const myList = document.getElementsByTagName('li');
+
+                for(let i = 0; i < myList.length; i += 1){
+                    myList[i].style.color = 'purple';
+                }
+                const errorNotPurple = document.getElementsByClassName('error-not-purple');
+                
+                for(let i = 0; i < errorNotPurple.length; i += 1){
+                    errorNotPurple[i].style.color = 'red';
+                }
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/classname.html">Test Yorself</a><hr>
+    <h1>Query Selectors</h1>
+    <p>
+            အခု section မှာတော့ last selector ဖြစ်တဲ့ query selector and query selectorAll အကြောင်းကို ပြောပြသွားမှာဖြစ်ပါတယ်။ သူတို့ဟာဆိုရင် most flexible of selectors တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ IDs, classes, tag names တို့ကို accept လုပ်နိုင်ပါတယ်။ Query selector all ကတော့ elements တွေအားလုံးကို selector လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် query selector ကတော့ element တစ်ခုကိုပဲ select လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ class name ကိုခေါ်ပြီးတော့အသုံးပြုမယ်ဆိုရင် "." ကိုထည့်ရေးပေးရမှာဖြစ်ပြီးတော့ ID ကိုအသုံးပြုတဲ့အခါမှာ "#" sign ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Tag name နဲ့ ကျန်တာတွေဆိုရင်တော့ ဘာမှထည့်စရာမလိုပါဘူး။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const myList = document.getElementsByTagName('li');
+
+                for(let i = 0; i < myList.length; i += 1){
+                    myList[i].style.color = 'purple';
+                }
+                const errorNotPurple = document.getElementsByClassName('error-not-purple');
+                
+                for(let i = 0; i < errorNotPurple.length; i += 1){
+                    errorNotPurple[i].style.color = 'red';
+                }
+                const evens = document.querySelectorAll('li:nth-child(even)');
+                
+                for(let i = 0; i < evens.length; i += 1){
+                    evens[i].style.backgroundColor = 'lightgray';
+                }
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/query.html">Test Yourself</a><hr>
+    <h1>TextContent and InnerHTML methods</h1>
+    <p>
+            အခု section မှာ DOM element properties နှစ်ခုဖြစ်တဲ့ textContent and innerHTML တို့အကြောင်းကို ပြောပြသွားမှာဖြစ်ပါတယ်။ သူတို့တစ်ခုချင်းစီမှာဆိုရင် DOM ရဲ့ own approach ရှိကြပါတယ်။ First, textContent အကြောင်းကိုပြောပြမှာဖြစ်ပါတယ်။ TextContent ကို elements တွေရဲ့ values တွေကို read or set နေရာမှာအသုံးပြုနိုင်ပါတယ်။ သူတို့နှစ်ခုလုံးကိုတော့ text တွေကို change လုပ်ချင်တဲ့အခါမှာလည်း အသုံးပြုနိုင်ပါတယ်။ InnerHTML ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ဟာ element တစ်ခုရဲ့ opening and closing tags တွေကြားထဲမှာရှိတဲ့ အရာတွေအားလုံးကို read and replace လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+                const input = document.querySelector('input');
+                const p = document.querySelector('p.description');
+                const button = document.querySelector('button');
+                
+                button.addEventListener('click', () => {
+                    p.textContent = input.value + ':';
+                });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/textcontent.html">Test Yourself</a><hr>
+    <h1>Element Attribute</h1>
+    <p>
+            Link တစ်ခုပေါ်မှာရှိတဲ့ href attribute or form တစ်ခုမှာရှိတဲ့ action attribute တွေလို attributes တွေဟာ element object တစ်ခုရဲ့ properties တွေအနေနဲ့ တည်ရှိကြပါတယ်။ သူတို့ကို set or get လုပ်ချင်ရင် အစောပိုင်းက section ထဲကအတိုင်းအသုံးပြုနိုင်ပါတယ်။ Element တစ်ခုရဲ့ class တစ်ခုထဲကို get or set လုပ်ချင်ရင်တော့ class property ဟာ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ သူတို့ကို အသုံးပြုချင်တယ်ဆိုရင်တော့ element.className ဆိုပြီးတော့ select လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် section မှာတော့ special property တစ်ခုဖြစ်တဲ့ element's style property ကိုအကြောင်းကိုပြောပြပေးသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Output</h2>
+    <pre>
+        <code> 
+            <img src="../javaScriptExample/image/attribute.png" alt="attribute">
+        </code>
+    </pre><hr>
+    <h1>Style Property</h1>
+    <p>
+            ကျွန်တော်တို့အရင် ကသိထားသလိုပါပဲ HTML element တစ်ခုကို inline styles ကို set လုပ်ချင်တဲ့အခါမှာ style attribute ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Inline styles attribute ဟာဆိုရင် style property နဲ့ element တစ်ခုပေါ်မှာ set လုပ်နိုင်ပါတယ်။ Other attributes တွေနဲ့ မတူတာကတော့ style property ဟာဆိုရင် သူကိုယ်တိုင် object တစ်ခုဖြစ်နေတာပဲဖြစ်ပါတယ်။ Style object မှာရှိတဲ့ properties တွေဟာ ကျွန်တော်တို့ set လုပ်နိုင်တဲ့ various CSS properties တွေကို represent လုပ်ပါတယ်။ ကျွန်တော်တို့ဟာ console မှာ p.style လို့ input ပေးလိုက်တဲ့အခါမှာ style property အားလုံးကို တွေ့ရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Output</h2>
+    <pre>
+        <code>
+                <img src="../javaScriptExample/image/style.png" alt="styleproperty">
+        </code>
+    </pre>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const toggleList = document.getElementById('toggleList');
+                const listDiv = document.querySelector('.list');
+                const input = document.querySelector('input.description');
+                const p = document.querySelector('p.description');
+                const button = document.querySelector('button.description');
+                
+                toggleList.addEventListener('click', () => {
+                    if (listDiv.style.display == 'none'){
+                        toggleList.textContent = 'Hide list';
+                        listDiv.style.display = 'block';
+                    } else {
+                        toggleList.textContent = 'Show list';
+                        listDiv.style.display = 'none'
+                    }
+                
+                });
+                
+                button.addEventListener('click', () => {
+                    p.textContent = input.value + ':';
+                });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Yourself</a><hr>
+    <h1>Create New Element</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ JavaScript နဲ့ page မှာရှိတဲ့ elements တွေကို several changes တွေပြုလုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခု နောက် level တစ်ခုဖြစ်တဲ့ new elements တစ်ခု create လုပ်တာကိုပြောပြသွားမှာဖြစ်ပါတယ်။ JavaScript မှာ new element တစ်ခုကို create လုပ်တဲ့အခါမှာ document.createElement ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ သူ့ထဲမှာ ကျွန်တော်တို့ create လုပ်ချင်တဲ့ HTML element name ကို string အနေနဲ့ create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ဟာ new element ကို add လုပ်ရမှာ မဟုတ်သေးပါဘူး။ အဲ့ဒါကို နောက် section မှာပြောပြပေးထားပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+                const toggleList = document.getElementById('toggleList');
+                const listDiv = document.querySelector('.list');
+                const descriptioninput = document.querySelector('descriptioninput.description');
+                const descriptionP = document.querySelector('descriptionP.description');
+                const descriptionButton = document.querySelector('descriptionButton.description');
+                const addItemInput = document.querySelector('input.addItemInput');
+                const addItemButton = document.querySelector('button.addItemButton');
+                
+                
+                toggleList.addEventListener('click', () => {
+                    if (listDiv.style.display == 'none'){
+                        toggleList.textContent = 'Hide list';
+                        listDiv.style.display = 'block';
+                    } else {
+                        toggleList.textContent = 'Show list';
+                        listDiv.style.display = 'none'
+                    }
+                
+                });
+                
+                descriptionButton.addEventListener('click', () => {
+                    descriptionP.textContent = descriptioninput.value + ':';
+                });
+                
+                addItemButton.addEventListener('click', () => {
+                    let li = document.createElement('li');
+                    li.textContent = addItemInput.value;
+                });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Yorself</a><hr>
+    <h1>AppendChild Method</h1>
+    <p>
+        ရှေ့က section မှာ JavaScript နဲ့ elements ကို ဘယ်လို create လုပ်ရတယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာ add လိုက်တဲ့ new element ဟာ appear ဖြစ်လာမှာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ အစောပိုင်းမှာ DOM ကို tree တစ်ခုရဲ့ nodes and branches  တွေပါတဲ့ structure တစ်ခုအနေနဲ့ပြောပြခဲ့ပါတယ်။ အဲ့ဒါကို အသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ new element or DOMNode တွေကို နေရာချလို့ရပါတယ်။ အဲ့မှာဆိုရင် existing node တစ်ခုကို select လုပ်ပြီးတော့ လုပ်ရမှာဖြစ်ပါတယ်။ ပြီးမှာ new node ကို existing node တစ်ခုရဲ့ child တစ်ခုအနေနဲ့ appending or adding လုပ်ရမှာဖြစ်ပါတယ်။ Node တစ်ခုကို DOM မှာ appending လုပ်တဲ့နေရာမှာ appendChinld method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို parent element ရဲ့ appendChild လို့ခေါ်လို့ရပါတယ်။ နောက် ကျွန်တော်တို့ new childElement ထဲမှာ argument တစ်ခုအနေနဲ့ select and pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Nodes တွေဟာ DOM ကို belong လုပ်ပြီးတော့ elements တွေကတော့ plain HTML တွေပဲဖြစ်ပါတယ်။ Example ရဲ့ HTML page ထဲမှာ ဆိုရင် li တွေဟာ ul ထဲမှာ nested ဖြစ်နေတဲ့အတွက် ြကောင့် ul ဟာ parent element ဖြစ်ပြီးတော့ li ဟာသူ့ရဲ့ children တွေပဲဖြစ်ပါတယ်။  ul ကို select လုပ်ပြီးရင် child တစ်ခုကို သူ့ဆီကို append လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါမှာ ကျွန်တော်တို့ add လုပ်ချင်တဲ့ li လေးဟာ last item ရဲ့ နောက်မှာ appear ဖြစ်လာမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် small problem တစ်ခုရှိပါတယ်။ ဘာလဲဆိုတော့ ကျွန်တော်တို့ input ဟာ getting clear ဖြစ်မသွားဘူး။ နောက်ထပ် list item တစ်ခုကို add လုပ်လိုက်တဲ့ခါကျရင် input ထဲမှာ ရှိတဲ့ text ကို clear အရင်လုပ်နေရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ add လုပ်လိုက်တဲ့ input ဟာ input text ထဲမှာ clear ဖြစ်နေရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ဆိုရင် input's value ကို empty string တစ်ခုကို set လုပ်ဖို့ရန်အတွက် value attribute ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const toggleList = document.getElementById('toggleList');
+            const listDiv = document.querySelector('.list');
+            const descriptionInput = document.querySelector('input.description');
+            const descriptionP = document.querySelector('p.description');
+            const descriptionButton = document.querySelector('Button.description');
+            const addItemInput = document.querySelector('input.addItemInput');
+            const addItemButton = document.querySelector('button.addItemButton');
+            
+            
+            toggleList.addEventListener('click', () => {
+                if (listDiv.style.display == 'none'){
+                    toggleList.textContent = 'Hide list';
+                    listDiv.style.display = 'block';
+                } else {
+                    toggleList.textContent = 'Show list';
+                    listDiv.style.display = 'none';
+                }
+            
+            });
+            
+            descriptionButton.addEventListener('click', () => {
+                descriptionP.textContent = descriptionInput.value + ':';
+                descriptionInput.value = '';
+            });
+            
+            addItemButton.addEventListener('click', () => {
+                let ul = document.getElementsByTagName('ul')[0];
+                let li = document.createElement('li');
+                li.textContent = addItemInput.value;
+                ul.appendChild(li);
+                addItemInput.value = '';
+            });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Yourself</a><hr>
+    <h1>RemoveChild Method</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ elements တွေကို selecting and manipulating လုပ်တာတွေကို လေ့လာခဲ့ကြပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ page ကနေပြီးတော့ elements တွေကို remove လုပ်တာတွေကို ပြောပြပေးမှာဖြစ်ပါတယ်။ Elements တွေကို page ကနေ remove လုပ်ဖို့ဆိုရင် removeChild() method ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ appenChild လိုပဲ remveChild ဟာလည်း child element တစ်ခုကို argument တစ်ခုအနေနဲ့ယူရမှာဖြစ်ပါတယ်။ သူ့ကို parent element ဆီကနေ remove လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် section တွေမှာ ကျွန်တော်တု့ိအခုအသုံးပြုခဲ့တဲ့ evenListeners တွေအကြောင်းကိုပြောပြပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const removeItemButton = document.querySelector('button.removeItemButton');
+            removeItemButton.addEventListener('click', () => {
+                let ul = document.getElementsByTagName('ul')[0];
+                let li = document.querySelector('li:last-child');
+                ul.removeChild(li);
+            });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Yourself</a><hr>
+    <h1> About Events </h1>
+    <p>
+        ကျွန်တော်တို့ဟာ web page တစ်ခုနဲ့ interact လုပ်တဲ့အချိန်တိုင်းမှာ kinds of events အားလုံးကို လုပ်ဆောင်ရပါတယ်။ Event တစ်ခုဆိုတာ clicking a link or scrolling and moving mouse around စတဲ့ web page ပေါ်မှာ လုပ်ဆောင်တဲ့အရာတွေထဲက တစ်ခုခုပဲဖြစ်ပါတယ်။ အဲ့ events တွေကို browsers ကနေ listen လုပ်ပြီးတော့ response လုပ်ပေးပါတယ်။ Web page တစ်ခုနဲ့ interact လုပ်တဲ့အချိန်မှာ events တွေအများကြီးကို လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ Cases အတော်များများမှာတော့ response မှာ anything special ကိုတော့ လုပ်ဆောင်မှာမဟုတ်ပါဘူး။ အဲ့လိုဖြစ်တာဟာ event ကို handles or responds လုပ်ဖို့ရန်အတွက် JavaScript code တွေကို မရေးခဲ့ရသေးလို့ဖြစ်ပါတယ်။ JavaScript ကို events တွေကို listen လုပ်ဖို့နဲ့ သူတို့ကို response လုပ်ဖို့ရန်အတွက် create လုပ်ခဲ့တာပဲဖြစ်ပါတယ်။ ရှေ့မှာ ကျွန်တော်တို့အသုံးပြုခဲ့တဲ့ click events တွေအပြင် other events တွေအများကြီးရှိပါတယ်။ ဥပမာ users scroll, move their mice, touch and drag on their phones တို့ပဲဖြစ်ပါတယ်။ Event တစ်ချင်းစီမှာ browsers တွေကနေ recognize လုပ်ပေးထားတဲ့ name တစ်ခုစီရှိပါတယ်။ Keyboard တစ်ခုဟာ user events တွေကိုလုပ်ဆောင်နိုင်တဲ့ another way တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>More About Functions</h1>
+    <p>
+        JavaScript ဟာ user events ဆီကို ဘယ်လို respond လုပ်နိုင်တယ်ဆိုတာကို နားလည်ဖို့ရန်အတွက် functions အကြောင်းကို ပိုပြီးတော့ နားလည်ထားဖို့လိုပါတယ်။ JavaScript မှာဆိုရင် functions တွေဟာ first class citizens တွေပဲဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ functions တွေဟာ number, string or an object စတဲ့ any others data types တွေကို treated လုပ်နိုင်ပါတယ်။ ဥပမာ ကျွန်တော်တို့ဟာ function တစ်ခုကို another function တစ်ခုဆီကို argument တစ်ခုအနေနဲ့ pass လုပ်နိုင်ပါတယ်။ အဲ့လိုပဲ ကျွန်တော်တို့ဟာ number or string တွေကိုလည်း pass လုပ်လို့ရပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            function say (something){
+                console.log(something);
+            }
+            function exec(func, args){
+                func(args);
+            }
+            exec(say, 'Hi', 'There!');
+            
+            // function exec(func, args){
+            //     func(args);
+            // }
+            // exec( (something) => {
+            //     console.log(something);
+            // }, 'Greeting', 'Everyone!');
+        </code>
+    </pre>
+    <h2>Output>>>></h2>
+    <pre>
+        <code>
+             <img src="../javaScriptExample/image/function.png" alt="Functions">
+        </code>
+    </pre><hr>
+    <h1>setTimeout Method</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ JavaScript function တစ်ခုဟာ another function တစ်ခုဆီကို pass လုပ်နိုင်တဲ့အကြောင်းကိုလေ့လာခဲ့တာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section ထဲမှာ anonymous function ရဲ့ execution ကို ကျွန်တော်တို့ဟာ ရေးခဲ့ပြီးဖြစ်ပါတယ်။ သူ့ကို three seconds delay ဖြစ်အောင်လုပ်ဆောင်တာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Window object မှာဆိုရင် setTimeout လို့ခေါ်တဲ့ method တစ်ခုရှိပါတယ်။ အဲ့ method ကို ကျွန်တော်တို့ဟာ အသုံးပြုသွားမှာဖြစ်ပါတယ်။ MDN မှာဆိုရင် ဒီ function ရဲ့ အသေးစိတ်အကြောင်းကိုလေ့လာနိုင်ပါတယ်။ သူ့ကို အသုံးပြုတဲ့အခါမှာ function ကို declare လုပ်စရာမလိုပါဘူး။ Example မှာလေ့လာကြည့်ရအောင်။
+    </p>
+    <pre>
+        <code>
+            // function say (something){
+                //     console.log(something);
+                // }
+                // function exec(func, args){
+                //     func(args);
+                // }
+                // exec(say, 'Hi There!');
+                window.setTimeout( (something) => {
+                    console.log(something);
+                }, 3000,'Greeting , Everyone!');
+        </code>
+    </pre>
+    <h2>Output>>>></h2>
+    <pre>
+        <code>
+             <img src="../javaScriptExample/image/settimeout.png" alt="settimeoutmethod">
+        </code>
+    </pre><hr>
+    <h1>addEvenListener</h1>
+    <p>
+        အစောပိုင်းမှာ ကျွန်တော်တို့ဟာ site interactive ကို လုပ်ဆောင်ဖို့ရန်အတွက် three basic concepts ရှိတဲ့အကြောင်းကို ပြောပြခဲ့ပါတယ်။ Selection ဟာ first steps ဖြစ်ပြီးတော့ အဲ့မှာဆိုရင် element directory ကို manipulate or element ကို user actions တွေအတွက် ask လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ first two concepts အကြောင်းကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု third တစ်ခုဖြစ်တဲ့ listening for user actions or events အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ အစောပိုင်း section တွေမှာ addEvenListener method ကို အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ သူနဲ့ ပါတ်သတ်တဲ့ description တွေကို MDN မှာ ထပ်မံလေ့လာနိုင်ပါတယ်။ Listener မှာဆိုရင် first နေရာမှာ ထည့်ပေးရမှာက type ဖြစ်ပါတယ်။ Type ဟာ string အနေနဲ့ put လုပ်ပေးရမှာဖြစ်ပါတယ်။ Type တွေကတော့ အများကြီးရှိပါတယ်။ ရှေ့မှာ click ဆိုတဲ့ type ကို အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။  addEvenListener မှာဆိုရင် even type and callback function တစ်ခု ပါရပါမယ်။ Callback function ကို event handler လို့လည်းခေါ်ပါတယ်။ ဘာလို့လဲဆိုတော့ သူရဲ့ purpose ဟာ events တွေကို handle ပေးတာပဲဖြစ်ပါတယ်။ addEventLister တစ်ခုကို run လိုက်တဲ့အခါမှာ event target မှာရှိတဲ့ handler တစ်ခုကို registers လုပ်ပေးပါတယ်။ အခု section မှာတော့ mouseover နဲ့ mouseout types နှစ်ခုအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Example မှာလုပ်ပြထားကတော့ mouse over လုပ်လိုက်တဲ့အခါမှာ list item တွေဟာ upper case ကိုပြောင်းပြီးတော့ mouse out ဖြစ်သွားတဲ့အခါမှာ lowercase ကို ပြောင်းသွားတာကို example အနေနဲ့ လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ list item တစ်ခုချင်းစီအတွက် listeners နှစ်ခုလိုပါတယ်။ One ဟာ mouse over အတွက် ဖြစ်ပြီးတော့ another one ကတော့ mouse out အတွက်ဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် problem တစ်ခုရှိပါတယ်။ ကျွန်တော်တို့ဟာ item တစ်ခုကို add လုပ်လိုက်တဲ့အခါမှာ add လုပ်လိုက်တဲ့ item ဟာ mouse over လုပ်လိုက်တဲ့အချိန်မှာ uppercase ကိုပြောင်းမသွားပါဘူး။ အဲ့ problem ကို တော့ နောက် section မှာပြောပြပေးမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const listItem = document.getElementsByTagName('li');
+            for (let i=0; i, listItem.length; i +=1) {
+                listItem[i].addEventListener('mouseover', () => {
+                    listItem[i].textContent = listItem[i].textContent.toUpperCase();
+                });
+                listItem[i].addEventListener('mouseout', () => {
+                    listItem[i].textContent = listItem[i].textContent.toLowerCase();
+                });
+            
+            }
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Yourself</a><hr>
+    <h1>Bubbling </h1>
+    <p>
+        Event တစ်ခုဟာ element တစ်ခုက အဲ့ element တစ်ခုပေါ်မှာ မရပ်ဘဲနဲ့ received လုပ်ပါတယ်။ အဲ့ဒါကို event bubbling လို့ခေါ်ပါတယ်။ အောက်မှာပြထားတဲ့ DOM ပုံကိုကြည့်ကြည့်ပါတယ်။ အဲ့မှာဆိုရင် user တစ်ယောက်ဟာ list item ပေါ်မှာ click လုပ်တဲ့အခါမှာ list item တစ်ခုဟာ click event ကို receive လုပ်တာဖြစ်ပြီးတော့ သူ့ရဲ့ parent ဖြစ်တဲ့ UL element ဟာလည်း same event ကို receive လုပ်ပါတယ်။ ဆိုလိုတာက ul ကိုလည်း click event handler ကို add လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ul မှာဘဲ click event ဟာ stop အဖြစ်ဘဲနဲ့ ul ရဲ့ parent ဖြစ်တဲ့ body မှာလည်း same event ကို receive လုပ်ပါတယ်။ နောက် click event ဟာ tree ရဲ့ top most element အထိသွားပါတယ်။ အဲ့မှာဆိုရင် DOM tree ဟာဆိုရင် bubbles လို့မျိုး rise up ဖြစ်သွားတာဖြစ်ပါတယ်။ Bubbling ဟာဆိုရင် ancestor elements ပေါ်မှာ events ကို listen လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Example DOM tree မှာဆိုရင် body ကို click လုပ်လိုက်ရင် သူ့ရဲ့ children တွေဟာလည်း click လုပ်ပြီးသားဖြစ်ပါတယ်။ Bubbling ဟာဆိုရင် ကျွန်တော်တို့ကို much more powerful handlers တွေကို create လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Example မှာဆိုရင် ဘယ် list item တွေဟာ event ကို triggering လုပ်တာလဲဆိုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကို နောက် section မှာလေ့လာသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>DOM Tree</h2>
+    <img src="../javaScriptExample/image/dom1.png" alt="domtree">
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+            const listDiv = document.querySelector('.list');
+            listDiv.addEventListener('mouseover', () => {
+                listItem[i].textContent = listItem[i].textContent.toUpperCase();
+            });
+            listDiv.addEventListener('mouseout', () => {
+                listItem[i].textContent = listItem[i].textContent.toLowerCase();
+            });
+        </code>
+    </pre><hr>
+    <h1>Event Object</h1>
+    <p>
+        ပြီးခဲ့ section မှာ events bubble အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ List item တစ်ခုကို click လုပ်လိုက်တဲ့အခါမှာ UL ထဲမှာရှိတဲ့ list item အားလုံးကို click event ဟာ triggers လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါဟာ parent element ဆီကို event listener တစ်ခုကို add လုပ်တဲ့အချိန်မှာ useful ဖြစ်ပါတယ်။ ပြီးတော့ သူဟာ parent element မှာရှိတဲ့ children တွေရဲ့ event ကိုလည်း handle လုပ်ပေးပါတယ်။ Event handler တစ်ခုကို call လုပ်လိုက်တဲ့အချိန်မှာ သူဟာ event object တစ်ခုကို သူ့ရဲ့ first argument တစ်ခုအနေနဲ့ receive လုပ်ပေးပါတယ်။ အဲ့ object မှာ event နဲ့ပါတ်သတ်တဲ့ useful information တွေရှိပါတယ်။ နောက် handler ထဲမှာ event ကို handle လုပ်တဲ့နေရာမှာ ကူညီပေးတဲ့ few methods တွေလည်းရှိပါတယ်။ Even object အကြောင်းကို MDN မှာ ဆက်လေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            //Bubbling
+            listDiv.addEventListener('mouseover', (event) => {
+                if (event.target.tagName == 'LI'){
+               event.target.textContent = event.target.textContent.toUpperCase();
+                }
+            });
+            
+            listDiv.addEventListener('mouseout', () => {
+                if(event.target.tagName == 'LI'){
+                event.target.textContent = event.target.textContent.toLowerCase();
+            }
+            });
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/style.html">Test Youself</a><hr>
+    <h1>Using parentNode to Traverse Up the DOM</h1>
+    <p>
+        အခု final section မှာတော့ DOM ကို ဘယ်လို get around or traverse လုပ်တယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ Traverse ဟာဆိုရင် selection နဲ့ similar ဖြစ်ပါတယ်။ အစောပိုင်းမှာ ကျွန်တော်တို့ဟာ document object ကိုအသုံးပြုပြီးတော့ elements တွေကို select ဖို့ရန်အတွက် DOM tree ရဲ့ top ကနေ start လုပ်ခဲ့ကြပါတယ်။ အဲ့ဒါကို DOM Traversal လို့ခေါ်ပါတယ်။ Traversal ဆိုတာ DOM ရဲ့ part တစ်ခုကနေ another part ကို move လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ ပြီးတော့ element တစ်ခုကို သူ့ရဲ့ အခြား element တစ်ခုကို သွားတဲ့ relationship ကို အခြေခံပြီးတော့ select လုပ်တာပဲဖြစ်ပါတယ်။ Example ကျွန်တော်တို့ဟာ DOM ကနေ paragraph တစ်ခုကို remove လုပ်တဲ့အခါမှာ removeChild ကိုအသုံးပြုလို့ရပါတယ်။ အဲ့မှာဆိုရင် paragraph's parent ကိုလည်း removeChild ကို ခေါ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် problem တစ်ခုရှိပါတယ်။ အဲ့လို ခေါ်တဲ့နေရာမှာ ကျွန်တော်တို့မှာ parent ကို reference လုပ်ထားတာမရှိပါဘူး။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ parentNode ဆီကို traverse လုပ်ပေးဖို့လိုပါတယ်။ Element တစ်ခုရဲ့ parentNode ကို reference လုပ်ဖို့ရန်အတွက် parentNode property ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <h3>traverse.html</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="object.css"&gt;
+                &lt;title&gt;Style Property &lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                &lt;p&gt;Making a web page interactive&lt;/p&gt;&lt;hr style="color: aqua; border-style: dashed"&gt;
+                &lt;button id="toggleList" style="background-color: seagreen"&gt;Hide List&lt;/button&gt;
+                &lt;div class="list"&gt;
+                    &lt;p class="description"&gt;Things that are purple:&lt;/p&gt;
+                    &lt;input type="text" class="description"&gt;
+                    &lt;button class="description"&gt; Change list description&lt;/button&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;grapes &lt;button&gt;Remove&lt;/button&gt;&lt;/li&gt;
+                        &lt;li&gt;amethyst &lt;button&gt;Remove&lt;/button&gt;&lt;/li&gt;
+                        &lt;li&gt;lavender &lt;button&gt;Remove&lt;/button&gt;&lt;/li&gt;
+                        &lt;li&gt;plums &lt;button&gt;Remove&lt;/button&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;input type="text" class="addItemInput"&gt;
+                    &lt;button class="addItemButton" style="background-color: seagreen"&gt; Add item&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;script src="traverse.js"&gt;&lt;/script&gt;
+                &lt;script src="addevenlistener.js"&gt;&lt;/script&gt;
+                
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h3>traverse.js</h3>
+    <pre>
+        <code>
+            const toggleList = document.getElementById('toggleList');
+            const listDiv = document.querySelector('.list');
+            const descriptionInput = document.querySelector('input.description');
+            const descriptionP = document.querySelector('p.description');
+            const descriptionButton = document.querySelector('Button.description');
+            const listUl = listDiv.querySelector('ul');
+            const addItemInput = document.querySelector('input.addItemInput');
+            const addItemButton = document.querySelector('button.addItemButton');
+            
+            
+            toggleList.addEventListener('click', () => {
+                if (listDiv.style.display == 'none'){
+                    toggleList.textContent = 'Hide list';
+                    listDiv.style.display = 'block';
+                } else {
+                    toggleList.textContent = 'Show list';
+                    listDiv.style.display = 'none';
+                }
+            
+            });
+            
+            descriptionButton.addEventListener('click', () => {
+                descriptionP.textContent = descriptionInput.value + ':';
+                descriptionInput.value = '';
+            });
+            
+            addItemButton.addEventListener('click', () => {
+                let ul = document.getElementsByTagName('ul')[0];
+                let li = document.createElement('li');
+                li.textContent = addItemInput.value;
+                ul.appendChild(li);
+                addItemInput.value = '';
+            });
+            //Bubbling
+            listUl.addEventListener('click', (event) => {
+                if (event.target.tagName == 'BUTTON'){
+                    let li = event.target.parentNode;
+                    let ul = li.parentNode;
+                    ul.removeChild(li);
+                }
+            });
+            
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/traverse.html">Test Yourself</a><hr>
+    <h1>previousElementSilbling</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ parentNode property အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ သူဟာ element တစ်ခုရဲ့ parent node ကို reference တစ်ခုကို holds လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ သူဟာ previous element sibling property ထဲမှာ store လုပ်ထားတဲ့ previous sibling ကိုလည်း reference လုပ်ပါသေးတယ်။ MDN page မှာဆိုရင် previous element sibling အကြောင်းကို အသေးစိတ်လေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် prevousSibling property ဟာဆိုရင် older ဖြစ်ပါတယ်။ သူ့မှာဆိုရင် previousElementSilbling ထက် ကောင်းမွန်တဲ့ browser support ရှိပါတယ်။ သိုသော်လည်း avoiding previousSibling အတွက် reason ဟာဆိုရင် console မှာ လွယ်လွယ်ကူကူ မြင်နိုင်ပါတယ်။ အောက်က output ကို ကြည့်ပြီးတော့ console မှာ စမ်းသပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် previousSibling ဟာဆိုရင် provious document node ကို get လုပ်သွားတာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ရဲ့ example page ထဲမှာ up button ကို add လုပ်ပြီးတော့ element တစ်ခုချင်းစီဟာ previousSibing ကို အသုံးပြုပြီးတော့ up ကို ရွေ့စေမှာပါ။ ကျွန်တော်တို့ဟာ class name ကို target လုပ်လိုက်တဲ့အခါမှာ element ဟာ move လုပ်မှာဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ if statement ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ selection တစ်ခုကို လုပ်ဆောင်ပြီးတဲ့အခါမှာ target လုပ်လိုက်တဲ့ element ဟာ သူရဲ့ နေရာကို DOM ထဲမှာ arrange ဖြစ်ဖို့ရန်အတွက် insertBefore method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ သူဟာဆိုရင် node တစ်ခုကို reference element မတိုင်ခင်မှာ insert လုပ်ပေးမှာဖြစ်ပါတယ်။ InsertBefore method ကို MDN မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် parentNode method ထဲမှာ arguments နှစ်ခုကို ခေါ်ပေးရမှာဖြစ်ပါတယ်။ First argument ဟာ new element ဖြစ်ပြီးတော့ အဲ့ element ဟာ ကျွန်တော်တို့ place လုပ်ချင်တဲ့ element ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second argument ဟာ reference argument ဖြစ်ပြီးတော့ သူဟာ new element ကို သူ့ရဲ့ရှေ့မှာ ထားရမဲ့ element ဖြစ်ပါတယ်။   နောက်ထပ် method တစ်ခုကတော့ insertAfter method ဖြစ်ပါတယ်။ သူကတော့ insertBefore နဲ့ မတူပါဘူး။ အခု section မှာတော့ အဲ့ method ကိုအသုံးပြုမှာမဟုတ်ပါဘူး။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ top most က up button ကို click လုပ်လိုက်တဲ့အခါမှာ သူဟာ bottom ကို သွားရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                listUl.addEventListener('click', (event) => {
+                    if (event.target.tagName == 'BUTTON'){
+                        if (event.target.className == 'remove'){
+                            let li = event.target.parentNode;
+                            let ul = li.parentNode;
+                            ul.removeChild(li);
+                      }
+                      if (event.target.className == 'up'){
+                        let li = event.target.parentNode;
+                        let preLi = li.previousElementSibling;
+                        let ul = li.parentNode;
+                        ul.insertBefore(li, preLi);
+                        
+                      } 
+                    }
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/traverse.html">Test Yourself</a><hr>
+    <h1>Next Element Sibling </h1>
+    <p>
+            ကျွန်တော်တို့ဟာ ပြီးခဲ့တဲ့ section မှာ previous element sibling အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ နောက်ထပ် အဲ့မှာဆိုရင် next element sibling property ရှိပါသေးတယ်။ သူဟာဆိုရင် element ကို reference element ကို following လုပ်ပြီးတော့ return လုပ်တာဖြစ်ပါတယ်။ Example မှာဆိုရင် down button ကို add လုပ်ပြီးတော့ လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ button ဟာဆိုရင် item တစ်ခုကို list ထဲမှာရှိတဲ့ one position ကို downward ဖြစ်သွားတာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် next element sibling method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+                if (event.target.className == 'down'){
+                    let li = event.target.parentNode;
+                    let nextLi = li.nextElementSibling;
+                    let ul = li.parentNode;
+                    ul.insertBefore(nextLi, li);
+                    
+                  } 
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/traverse.html">Test Yourself</a><hr>
+    <h1>Getting all Children of a Node with Children</h1>
+    <p>
+            Properties အတော်များများကို ကျွန်တော်တို့ဟာ လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ node တစ်ခုရဲ့ children elements အားလုံးကို children property ကိုအသုံးပြုပြီးတော့ get လုပ်လို့ရပါတယ်။ သူဟာ အရင် လေ့လာခဲ့တဲ့ element sibling and next element sibling တို့နဲ့ similar ဖြစ်ပါတယ်။ Children ဟာဆိုရင် HTML element တွေကိုပဲ return ပြန်ပေးတာဖြစ်ပါတယ်။ အရင် ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ example မှာဆိုရင် new list item တစ်ခုကို add လုပ်လိုက်တဲ့အခါမှာ buttons တွေဟာ ပါမလာတာကို သတိထားမိမှာပါဘူး။ အခု add လုပ်လိုက်တဲ့အခါမှာ buttons တွေပါလာအောင် children property ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ USer click လုပ်လိုက်တဲ့အချိန်မှာ new list item ကို create လုပ်ပြီးတော့ သူတို့ဟာ buttons တွေ run နိုင်ဖို့ရန်အတွက် handle လုပ်မှာဖြစ်ပါတယ်။ New list item ကို text ကို set လုပ်မယ် dom ကို appends လုပ်တာတွေကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် buttons ၃ ခုကို create လုပ်ဖို့လိုပါတယ်။ ပြီးတော သူတို့ဟာ list item ကို append လုပ်ပေးမှာဖြစ်ပါတယ်။ Page load လုပ်တဲ့အချိန်မှာ any list item မှာ buttons တွေဟာ already present ဖြစ်နေရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ separate function ကို write လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <h2>children.html</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;link rel="stylesheet" href="object.css"&gt;
+                    &lt;title&gt; Children Property   &lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                    &lt;p&gt;Making a web page interactive&lt;/p&gt;&lt;hr style="color: aqua; border-style: dashed"&gt;
+                    &lt;button id="toggleList" style="background-color: seagreen"&gt;Hide List&lt;/button&gt;
+                    &lt;div class="list"&gt;
+                        &lt;p class="description"&gt;Things that are purple:&lt;/p&gt;
+                        &lt;input type="text" class="description"&gt;
+                        &lt;button class="description"&gt; Change list description&lt;/button&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;grapes 
+                            &lt;/li&gt;
+                            &lt;li&gt;amethyst 
+                            &lt;/li&gt;
+                            &lt;li&gt;lavender 
+                            &lt;/li&gt;
+                            &lt;li&gt;plums 
+                            &lt;/li&gt;
+
+                                
+                        &lt;/ul&gt;
+                        &lt;input type="text" class="addItemInput"&gt;
+                        &lt;button class="addItemButton" style="background-color: seagreen"&gt; Add item&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;script src="children.js"&gt;&lt;/script&gt;
+                    &lt;script src="addevenlistener.js"&gt;&lt;/script&gt;
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>children.js</h2>
+    <pre>
+        <code>
+                const toggleList = document.getElementById('toggleList');
+                const listDiv = document.querySelector('.list');
+                const descriptionInput = document.querySelector('input.description');
+                const descriptionP = document.querySelector('p.description');
+                const descriptionButton = document.querySelector('Button.description');
+                const listUl = listDiv.querySelector('ul');
+                const addItemInput = document.querySelector('input.addItemInput');
+                const addItemButton = document.querySelector('button.addItemButton');
+                const lis = listUl.children;
+                
+                
+                
+                function attachListItemButtons(li){
+                    let up = document.createElement('button');
+                    up.className = 'up';
+                    up.textContent = 'Up';
+                    li.appendChild(up);
+                
+                    let down = document.createElement('button');
+                    down.className = 'down';
+                    down.textContent = 'Down';
+                    li.appendChild(down);
+                
+                    let remove = document.createElement('button');
+                    remove.className = 'remove';
+                    remove.textContent = 'Remove';
+                    li.appendChild(remove);
+                
+                }
+                
+                for (let i= 0; i< lis.length; i+=1){
+                    attachListItemButtons(lis[i]);
+                }
+                
+                
+                toggleList.addEventListener('click', () => {
+                    if (listDiv.style.display == 'none'){
+                        toggleList.textContent = 'Hide list';
+                        listDiv.style.display = 'block';
+                    } else {
+                        toggleList.textContent = 'Show list';
+                        listDiv.style.display = 'none';
+                    }
+                
+                });
+                
+                descriptionButton.addEventListener('click', () => {
+                    descriptionP.textContent = descriptionInput.value + ':';
+                    descriptionInput.value = '';
+                });
+                
+                addItemButton.addEventListener('click', () => {
+                    let ul = document.getElementsByTagName('ul')[0];
+                    let li = document.createElement('li');
+                    li.textContent = addItemInput.value;
+                    attachListItemButtons(li);
+                    ul.appendChild(li);
+                    addItemInput.value = '';
+                });
+                //Bubbling
+                listUl.addEventListener('click', (event) => {
+                    if (event.target.tagName == 'BUTTON'){
+                        if (event.target.className == 'remove'){
+                            let li = event.target.parentNode;
+                            let ul = li.parentNode;
+                            ul.removeChild(li);
+                      }
+                      if (event.target.className == 'up'){
+                        let li = event.target.parentNode;
+                        let preLi = li.previousElementSibling;
+                        let ul = li.parentNode;
+                        ul.insertBefore(li, preLi);
+                        
+                      } 
+                      if (event.target.className == 'down'){
+                        let li = event.target.parentNode;
+                        let nextLi = li.nextElementSibling;
+                        let ul = li.parentNode;
+                        ul.insertBefore(nextLi, li);
+                        
+                      } 
+                    }
+                });
+                
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/children.html">Test Yourslef</a><hr>
+    <h1>First and Last Elements Child</h1>
+    <p>
+            အခုတစ်ခါမှာတော့ DOM ရဲ့ properties နှစ်ခုကို လေ့လာသွားမှာဖြစ်ပါတယ်။ First ကတော့ selected element တစ်ခုရဲ့ first child element ကိုပေးတဲ့ element child ပဲဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ last element ကို ပေးတဲ့ last element child တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ next sibling ကို traversing လုပ်တာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် firstChild and lastChild လို့ခေါ်တဲ့ cousins ကို supported လုပ်တဲ့နေရာ older or better ဖြစ်ပါတယ်။ သူတို့ဟာ HTML elements တွေကို return မပြန်ပေးပါဘူး။ firstElementChild and lastElementChild ဟာ traversing ကို လုပ်ဆောင်ပြီးတဲ့အခါမှာ straightforward ဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ ul element ကနေ သူ့ရဲ့ first and last child elements ကို traverse လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ul ရဲ့ first and last child elements တို့ရဲ့ background color ကို change လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့လုပ်ရမှာက new Constants နှစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ မှာဆိုရင် firstListItem ဟာ ul element ကနေ first child ဆီကို traverse လုပ်တာဖြစ်ပြီးတော့ အဲ့မှာ ul ကို Constant listUl ထဲမှာ stored လုပ်ထားတာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                const firstListItem = listUl.firstElementChild;
+                const lastListItem = listUl.lastElementChild;
+
+                firstListItem.style.backgroundColor = 'lightblue';
+                lastListItem.style.backgroundColor = 'lightsteelblue';
+        </code>
+    </pre>
+    <a href="../javaScriptExample/domexample/children.html">Test Yourself</a><hr>
+</html>

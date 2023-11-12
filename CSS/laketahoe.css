@@ -1,0 +1,31 @@
+/****************
+FOR: Lake Tahoe
+****************/
+body
+{
+    color: blue;
+    margin: 0;
+}
+header{
+   background-color: orange;
+
+}
+h1{
+  font-size: 90px;
+  color: white;
+}
+h2{
+ font-size: 50px;
+}
+h3{
+    font-size: 20px;
+    color: #45525d;
+}
+#primary-content{
+    border: 3px solid red;
+}
+#main-footer{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid orange;
+}

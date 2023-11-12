@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Media</title>
+</head><link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+<link rel="stylesheet" href="../default.css">
+<link rel="stylesheet" href="../CSS/link.css">
+
+<script src="../highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+p{
+    font-family:Myanmar3,Yunghkio;
+}
+.hljs {
+    max-width: 90%;
+    height: 400px;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+</style>
+<body>
+        <h1>OverView of Web Media</h1>
+        <p>
+                အခုတစ်ခါတော့ကျွန်တော် web page တစ်ခုထဲကို video တွေနဲ့ audio တွေကို ဘယ်လို add လုပ်တာနဲဲ့ add လုပ်လိုက်ရင် ဘာတွေဖြစ်တယ်ဆိုတာကို ရှင်းပြပေးမှာဖြစ်ပါတယ်။ Text နဲ့ images တွေကို web content ရဲ့ foundation တစ်ခုအနေနဲ့ တည်ရှိနေတာကို တွေ့ရမှာဖြစ်ပါတယ်။ Video တွေကို web ပေါ်မှာ ပေါ်ဖို့ရန်အတွက် Quick Time, Flash, RealPlayer, and several others တို့လို plugins တွေကို အသုံးပြုပါတယ်။ ဒါပေမဲ့ browser plulgins ကိုအသုံးပြုတာဟာ  accessibility, mobile devices, battery life, and many other factors အတွက်မကောင်းပါဘူး။ Browser plugins ကို မသုံးသင့်ပါဘူး။ ကျွန်တော်တို့ဟာ video and audio player ကို အခြေခံပြီး standard တစ်ခုကို create လုပ်တဲ့အခါမှာ plugins ကိုအသုံးပြုစရာမလိုပါဘူး။ Web page တစ်ခုထဲကို video and audio တွေကို add လုပ်တာဟာ အရမ်းကို လွယ်ကူပါတယ်။ Video and audio elements တွေကို အချိန်ပေးပြီးလေ့လာရပါမယ်။
+            
+        </p><hr>
+        <h1>How to use Video Element</h1>
+        <p>
+                အခုကျွန်တော်ရှင်းပြချင်တာကတော့ video element အကြောင်းပဲဖြစ်ပါတယ်။ &lt;video&gt; tag ထဲမှာ src attribute ကို အသုံးပြုပေးရပါမယ်။ အဲ့ attribute ထဲမှာ video ရဲ့ URL ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာလည်း type attribute ကိုလည်း အသုံးပြုထားပါတယ်။ အဲ့ attribute ကိုတော့ video/mp4 ကို ထည့်ပေးရပါမယ်။ ကျွန်တော်တု့ိဟာ video control လုပ်ဖို့ရန်အတွက် controls attribute ကို သုံးနိုင်ပါတယ်။ ဒါပေမဲ့ video ကို autopaly လုပ်ချင်တဲ့အခါ autoplay attribute ကိုအသုံးပြုနိုင်ပါတယ်။ Video tag မှာ ပါတဲ့ src attrinute ကို video tag မှာမသုံးချင်ရင် source tag ထဲမှာ ထည့်ပြီးအသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်ပြောပြခဲ့ attribute တွေနဲ့ tag တွေကို အောက်က example မှာလေ့လာနိုင်ပါတယ်။
+        </p>
+        <pre>
+            <code>
+                   &lt;!DOCTYPE html&gt;
+                   &lt;html lang="en"&gt;
+                   &lt;head&gt;
+                       &lt;meta charset="UTF-8"&gt;
+                       &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                       &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                       &lt;title&gt;Document&lt;/title&gt;
+                   &lt;/head&gt;
+                   &lt;body&gt;
+                       &lt;div class="wrapper"&gt;
+                           &lt;video src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4" type="video/mp4" controls&gt;&lt;/video&gt;
+                           &lt;source  src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4" type="video/mp4"&gt;
+                    
+                       &lt;/div&gt;
+                   &lt;/body&gt;
+                   &lt;/html&gt;
+
+            </code>
+        </pre>
+        <h2>Example Vidoe Element</h2>
+        <div class="wrapper">
+                <video controls>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></source>
+                        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg"></source>
+                        <track label="English" kind="subtitles" srclang="en" src="caption.vtt" default>
+                    </video>
+        
+            </div><hr>
+        <h1>How to use Audio Element</h1>
+        <p>
+                Video tag ပြီးတဲ့နောက်မှာ Audio tag အကြောင်းကိုရှင်းပြချင်ပါတယ်။ သူဟာ video နဲ့ အရမ်းကြီးတော့မကွာပါဘူး။ သူ့ထဲမှာသုံးတဲ့ attribute တွေကလည်း အတူတူပဲဖြစ်ပါတယ်။ ရာမှာ mp3 ပြောင်းပေးရပါမယ်။ အောက်က example မှာ လေ့လာနိုင်ပါတယ်။
+        </p>
+        <pre>
+            <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                        &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                        &lt;title&gt;Document&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;div class="wrapper"&gt;
+                        &lt;audio controls&gt;
+                                &lt;source src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3"
+                                type="audio/mp3"&gt;
+                         &lt;/audio&gt;
+                     
+                        &lt;/div&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+
+            </code>
+        </pre>
+        <h2>Example Audio Element</h2>
+        <audio controls>
+                <source src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3"
+                type="audio/mp3">
+        </audio><hr>
+        <h1>About Creating Media</h1>
+        <p>
+            ကျွန်တော်ရှင်းပြပေးချင်တဲ့အကြောင်းအရာကတော့ Media တစ်ခုကို ဘယ်လို create လုပ်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Web page တစ်ခုကို create လုပ်တဲ့ နေရာမှာ အရေးကြီးဆုံးအချက်တစ်ချက်ကတော့ file sizes ပဲဖြစ်ပါတယ်။ Data တွေကို load လုပ်ထားဖို့ရန်လိုပါတယ်။ ဘာလို့လဲဆိုရင် site visitors တွေ wait လုပ်မနေရအောင်ပဲဖြစ်ပါတယ်။ ဒါဟာ audio and video တို့လို media တွေမှာ အရေးကြီးပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့မှာ text and images တို့ထက် ပိုကြီးတဲ့ file sizes တွေရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ဒါဟာ camera တို့ smartphone တို့ကနေ web page တစ်ခုထဲကို video clip တစ်ခု ယူပြီးထည့်ဖို့ရန်အတွက် enough မဖြစ်ပါဘူး။ Video and audio တွေကို small size ဖြစ်အောင်လုပ်ဖို့လိုပါတယ်။ အဲ့လိုလုပ်တဲ့နေရာမှာ video ဟာ ကြည့်လို့လည်းကောင်းရမယ်၊ အသံလည်းကောင်းရမှာဖြစ်ပါတယ်။ ဒါကို လုပ်ဖု့ိရန်အတွက် မတူညီတဲ့ programs နှစ်ခုရှိပါတယ်။ တစ်ခုကတော့ media player တစ်ခုဖြစ်တဲ့ VLC or VideoLan ပဲဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ Adobo Media Encoder or nonlinear video editor တစ်ခုပဲဖြစ်ပါတယ်။ ဘယ်တစ်ခုကိုပဲ သုံးသုံး video ကို H.264 အထိ convert လုပ်ပေးနိုင်ပါတယ်။ အဲ့ format ဟာ Internet Explore တို့ Safari တို့ကနေ support လုပ်ပေးထားတာဘဲဖြစ်ပါတယ်။ ဒါပေမဲ့ ပြောင်းတဲ့ Ogg Theora ကိုပြောင်းတာဟာ VLC ဟာ ကောင်းကောင်းအလုပ်လုပ်ပါတယ်။ 
+        </p><hr>
+        <h1>How to create Caption File</h1>
+        <p>
+            အခုတစ်ခါ video တစ်ခုအတွက် caption file or subtitles ကို ဘယ်လို create လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာ ဖြစ်ပါတယ်။ အခုလို create လုပ်တဲ့ idea ဟာ ကောင်းပါတယ်။ ဘာလို့လဲဆိုရင် video တွေမှာ subtitles တွေပါတော့ public area တစ်ခုမှာ headphone မပါဘဲနဲ့ video ကြည့်တယ်ဆိုရင်တောင် video ထဲမှာပါဝင်တဲ့ အကြောင်းအရာတွေကို နားလည်နိုင်ပါတယ်။ အဲ့ဒါကို create လုပ်ဖို့ဆိုရင် မတူညီတဲ့ file format နှစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ တစ်ခုက SRT file၊ နောက်တစ်ခုကတော့ web မှာ အသုံးများတဲ့ Web VTT ပဲဖြစ်ပါတယ်။ Create လုပ်ဖို့ဆိုရင် new file တစ်ခုကို ဆောက်ရပါမယ်။ အဲ့လိုဆောက်တဲ့နေရာမှာ .vtt နဲ့ ပေးရပါမယ်။ WebVTT ဟာဆိုရင် အလွန် specific ဖြစ်တဲ့ file format တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ထဲမှာ time code တွေရေးပေးရပါမယ်။ 00:00:00:500 --> 00:00:05:000 အဲ့မှာဆိုရင် ရှေ့ဆုံးက 00 ဟာ hours ဖြစ်ပါတယ်၊ သူ့ရဲ့နောက်ကတော့ minutes ဖြစ်ပါတယ်၊ အဲ့နောက်ကတော့ seconds ဖြစ်ပြီး နောက်ဆုံးကတော့ milliseconds ဖြစ်ပါတယ်။ အဲ့ဒါကို ပထမလာတဲ့ အစုဟာ video ကိုစစေချင်တဲ့ format ဖြစ်ပါတယ်။ အဲ့နောက်ကတော့ video end တဲ့ format ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေရဲ့ အောက်မှာ [] ထဲမှာ ကိုယ်ပေါ်ချင်တဲ့ စာတွေကိုရေးထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့လို format တစ်ခုပြီးလို့ နောက် format တွေကိုလည်း အခုပြောပြခဲ့တဲ့အတိုင်းရေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်အောက်က example မှာ ရေးပြထားပါတယ်။
+        </p>
+        <h2>Example</h2>
+        <div style="width: 400; height:500;">
+             <pre>
+                <code>
+                    WEBVTT FILE
+
+                    0
+                    00:00:00:500: --> 00:00:05:000
+                    [truck engine]
+                    
+                    1
+                    00:00:06:000: --> 00:00:10:000
+                    [bird chirping]
+                    
+                    2
+                    00:00:13:000: --> 00:00:16:000
+                    [water flowing]
+                    
+                    3
+                    00:00:18:000: --> 00:00:24:350
+                    [water flow continutes]
+                    
+                    00:00:24:350: --> 00:00:30:000
+                    [water flow continutes]
+                    
+                    
+                
+
+
+                </code>
+            </pre>
+        </div><hr>
+    <h1>
+        How to use Track Element
+    </h1>
+    <p>
+            အခုရှင်းပြပေးမှာကတော့ caption file ကို video ထဲမှာ HTML ရဲ့ track tag ကိုသုံးပြီးတော့ ဘယ်လို add လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။   &lt;track&gt; tag ကိုသုံးတဲ့နေရာမှာ attribute တွေကိုအသုံးပြုရမှာဖြစ်ပါတယ်။   label attribute ကိုတော့ video ဟာ ဘာ language လဲဆိုတာကိုဖော်ပြပေးတာပဲဖြစ်ပါတယ်။ ပြီးရင် kind attribute ကို video ဟာ subtitles လား caption လားဆိုတာကို ဖော်ပြပေးတာပဲဖြစ်ပါတယ်။ Source language အတွက်ကို srclang attribute ကိုအသုံးပြုပေးရပါတယ်။ နောက်ထပ် video ကို link လုပ်ဖို့ရန်အတွက် src attribute ကိုအသုံးပြုပေးရပါတယ်။ ကျွန်တော်ပြောခဲ့ attribute ကို အောက်မှာ example နဲ့ အတူဖော်ပြပေးထားပါတယ်။
+    </p>
+    <pre>
+            <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                        &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                        &lt;title&gt;Document&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                     &lt;video src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4" type="video/mp4" controls&gt;&lt;/video&gt;
+                     &lt;source  src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4" type="video/mp4"&gt;
+                    &lt;track label="English" kind="subtitles" srclang="en" src="Example/captoin.vtt" default&gt;
+                     
+                        
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+
+            </code>
+        </pre>
+        <a href="track.html" target="_blank">Test Yourself</a><hr>
+    
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+    
+</style>
+<body>
+    <h1>SVG Theory</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ computer screen နီးနီးကပ်ကပ်ကြည့်လိုက်တဲ့အခါမှာ  ကျွန်တော်တို့ကြည့်လိုက်တဲ့ image ဟာ squares ဖြစ်နေတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုတော့ pixels လို့ခေါ်ပါတယ်။ Graphics တွေဟာဆိုရင် pixels တွေနဲ့ composed လုပ်ထားပြီးတော့ အဲ့ဒါကို raster graphics လို့ခေါ်ပါတယ်။ အစောပိုင်းတွေကဆိုရင် phones တို့ tablets တို့ desktop တို့မှာ မတူညီတဲ့ physical dimensions တွေမရှိပါဘူး။ ဒါပေမဲ့ သူတို့မှာ မတူညီတဲ့ pixel densities တွေရှိပါတယ်။ User တွေအတွက်ဆိုရင်တော့ pixel များတဲ့ screen ဟာပိုပြီးတော့ ကြည့်တဲ့အခါမှာ images တွေကို ပြတ်ပြတ်သားသားမြင်နိုင်မှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ web designer တွေအတွက်တော့ problem တစ်ခုပဲဖြစ်ပါတယ်။ မတူညီတဲ့ screen sizes တွေကို responsive web design နဲ့ handled လုပ်ထားပါတယ်။ ကျွန်တော်တို့ဟာ image ကို deliver လုပ်ဖို့ရန်အတွက် enough resolution မရှိခဲ့ဘူးဆိုရင် ကြည့်ရတာ ဝါးနေမှာဖြစ်ပါတယ်။ နောက်ထပ် ကျွန်တော်ဟာ resolution အများကြီးနဲ့ image ကို deliver လုပ်မယ်ဆိုရင် အဲ့ဒါဟာ bandwidth တွေကို waste ဖြစ်စေပြီး browser ကို load လုပ်တဲ့နေရာမှာ slower ဖြစ်နိုင်ပါတယ်။ Scalable Vector Graphic လို့ခေါ်တဲ့ SVG ဟာဆိုရင် great resolution ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် JPEG or PNG file တွေလို pixels တွေနဲ့ composed မလုပ်ပါဘူး။ သူဟာ vectors တွေနဲ့ composed လုပ်ထားတာပဲဖြစ်ပါတယ်။ SVG file တစ်ခုရဲ့ vector တစ်ခုမှာဆိုရင် x and y coordinate  ပါတဲ့ point တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့လို points တွေအများကြီး လုပ်ပြီးတော့လည်း အဲ့ points တွေကို connect လုပ်နို်င်ပြီးတော့ ကျွန်တော်တို့ဟာ shapes and outlines တွေကို လုပ်ဆောင်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ SVG file ကို zoom ဆွဲလိုက်တဲ့အခါမှာ သူဟာ ရှင်းရှင်းလင်းလင်းမြင်နိုင်ပါတယ်။ သူဟာ pixelated မဖြစ်ပါဘူး။ Vectorized imagery ဟာဆိုရင် rasterizes pixel grid ကို automatically protected လုပ်ထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ images တွေမှာဆိုရင် SVG file တွေကိုပဲအသုံးပြုသင့်ပါတယ်။ Digital cameras တွေဟာဆိုရင်တော့ photo ကို vector image အနေနဲ့ ယူတာမဟုတ်ပါဘူး။ SVGs ကို intricate illustrations အတွက်အသုံးလို့ရပါတယ်။
+    </p><hr> 
+    <h1>Creating SVG </h1>
+    <p>
+            SVG ဟာဆိုရင် HTML လို XML markup language တစ်ခုပဲဖြစ်ပါတယ်။  သူ့ထဲမှာဆိုရင် မတူညီတဲ့ elements တွေ attributes တွေ ပါဝင်ပါတယ်။  ကျွန်တော်တို့ဟာ SVG file ကို HTML file လိုပဲ text editor ကိုအသုံးပြုပြီးတော့ create လုပ်နိုင်ပါတယ်။လူအများစုကတော့ Adobe Illustrator လို program ကိုအသုံးပြုကြပြီးတော့ အဲ့ဒါတွေကို SVG format နဲ့ export လုပ်ကြပါတယ်။ SVG ရဲ့ elements နဲ့ attributes တွေကို  Mozilla DeveloperNetwork documentation မှာလေ့လာနိုင်ပါတယ်။
+    </p><hr>
+    <h1>SVGs as Images</h1>
+    <p>
+            SVGs ကို web page မှာ add လုပ်တဲ့နေရာမှာ မတူညီတဲ့ နည်းလမ်းနှစ်ခုရှိပါတယ်။ တစ်နည်းကတော့ SVG markup ကို HTML document ထဲကို direct add တာနဲ့ နောက်တစ်ခုကတော့ SVGs ကို web page ထဲကို add တာပဲဖြစ်ပါတယ်။ အခုကျွန်တော်ပြောပြပေးမှာကတော့ SVGs ကို web page ထဲကို add လုပ်တာပဲဖြစ်ပါတယ်။ သူ့ကို PNGS or JPEGs တို့လို့ပဲအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့လို add တဲ့နေရာမှာ image element ထဲမှာထည့်ပြီးတော့လည်း အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ SVG file ကို add မလုပ်ခင်မှာ အရင်ဆုံးလုပ်ရမှာကတော့ SVG optimization ပဲဖြစ်ပါတယ်။ သူ့ကို SVGO or SVG optimizer လို့ခေါ်တဲ့ GitHub မှာရရှိနိုင်ပါတယ်။ အဲ့ဒါဟာ graphical user interface ပဲဖြစ်ပါတယ်။ သူဟာ Mac and Windows နှစ်ခုလုံးမှာ အလုပ်လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် svgo-gui ကို install လုပ်ပေးရမှာဖြစ်ပါတယ်။ Install တင်ပြီးရင် ကျွန်တော်တို့ သုံးချင်တဲ့ file ကို အဲ့ထဲကို ဆွဲထည့်လိုက်ရမှာဖြစ်ပါတယ်။ အဲ့လိုလုပ်တာဟာ ကျွန်တော်တို့ မလိုအပ်တဲ့ additional metadata ကို remove လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ file size ကိုလည်း pretty small ဖြစ်အောင်လည်း လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;link rel="stylesheet" href="../CSS/svg.css"&gt;
+                    &lt;title&gt;Scalable Vector Graphic&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                     &lt;h1&gt;SVG Example&lt;/h1&gt;
+                     &lt;div class="wrapper"&gt;
+                         &lt;div class="graphic"&gt;
+                             &lt;img src="../image/pictogram-download-orange.svg" alt="Star Logo"&gt;
+                
+                         &lt;/div&gt;
+                         &lt;div class="graphic_svg"&gt;
+                             &lt;p&gt;This text will go on top of the graphic&lt;/p&gt;
+                
+                         &lt;/div&gt;
+                
+                     &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                body{
+                    font-family: 'Nunito',sans-serif;
+                    color: #384047;
+                }
+                .wrapper{
+                    max-width: 100%;
+                    margin: 10px auto;
+                    padding: 10px 20px;
+                    background: #f4f7f8;
+                    border-radius: 8px;
+                }
+                h1{
+                    margin: 30px 0;
+                    text-align: center;
+                }
+                .graphic
+                {
+                    margin: 1em auto;
+                    width: 20%;
+                }
+                .graphic_svg{
+                    color: #fff;
+                    background: transparent url('../image/pictogram-download-orange.svg') center center no-repeat;
+                    height: 300px;
+                }
+                .graphic_svg{
+                   
+                    margin: 1em auto;
+                    width: 20%;
+                }
+        </code>
+    </pre>
+    <a href="../Example/svgimage.html">Test Yourself</a><hr>
+    <h1>SVG: XML</h1>
+    <p>
+            SVGs တွေကို JPEG and PNG တို့လို raster image formats နဲ့အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ ဒီတစ်ခါမှာတော့ SVG file ကို workspaces မှာ open up လုပ်ပြီးအသုံးပြုမှာဖြစ်ပါတယ်။ တစ်နည်းပြောရရင် SVG data တွေကို HTML ထဲမှာ direct ထည့်တာပဲဖြစ်ပါတယ်။SVG ကိုလည်း CSS ကိုအသုံးပြုပြီးတော့ ကိုယ်ပြင်ချင်သလို ပြင်နိုင်ပါတယ်။ HTML file ထဲကို ထည့်မဲ့ SVGs တွေဟာ file size ကိုသေးငယ်ရပါမယ်။ သူ့ကိုသုံးတာဟာ HTTP ရဲ့ request ကို reduce ဖြစ်စေတာကြောင့် page ရဲ့ loading time ကိုမြန်စေပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;h1>SVG Example&lt;/h1&gt;
+
+                &lt;div class="wrapper"&gt;
+
+                           &lt;svg class="photo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"&gt;
+
+                               &lt;style type="text/css"&gt;
+                                .st0{fill:indigo;} &lt;/style&gt;
+
+                               &lt;g&gt;
+                               &lt;/g&gt;
+                                &lt;path class="st0" d="M200,0C89.7,0,0,89.7,0,200c0,110.3,89.7,200,200,200c110.3,0,200-89.7,200-200C400,89.7,310.3,0,200,0L200,0z M270,240.9l-61.2,61.2c-4.9,4.9-12.8,4.9-17.7,0l-60.6-60.6c-2.6-2.3-4.3-5.7-4.3-9.4c0-6.9,5.6-12.5,12.5-12.5H175V119.2 c0-13.8,11.2-25,25-25c13.8,0,25,11.2,25,25v100.4h36.2c5,0,9.6,3,11.5,7.7C274.7,232,273.6,237.4,270,240.9L270,240.9z"&gt;
+                               &lt;/path&gt;
+                                &lt;/g&gt;
+
+                        &lt;/svg&gt;
+
+                &lt;/div&gt;
+
+        </code>
+    </pre>
+    <a href="../Example/svgxml.html">Test Yourself</a><hr>
+    <h1>SVG Optimization</h1>
+    <p>
+        ကျွန်တော်အခုပြောပြပေးမဲ့ အကြောင်းကတော့ SVG ကို အသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ page ကို ဘယ်လို improve ဖြစ်အောင် လုပ်မယ်ဆိုတာကိုပြောပြပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ SVG file ကို optimizing,့ organizing, and structuring လုပ်ဖို့ရန်အတွက် useful tools တွေကို လေ့လာရမှာဖြစ်ပါတယ်။ ကျွန်တော်ဟာ Bolt ကဲ့သို့သော် bill tool ကိုအသုံးပြုပြီးတော့ SVG icon system ကို ဘယ်လို create လုပ်တယ်ဆိုတာကိုလည်းပြောပြပေးမှာဖြစ်ပါတယ်။ Optimization ဟာဆိုရင် SVG တွေကို web ပေါ်မှာ display လုပ်ဖို့ရနအတွက် အရေးကြီးတဲ့ step တစ်ခုပဲဖြစ်ပါတယ်။ File size တွေကို smallest possible ဖြစ်အောင် လုပ်တာဟာ users တွေအတွက် ကျွန်တော်တို့ရဲ့ sites ကို faster ဖြစ်အောင်လုပ်ဆောင်ပေးနိုင်ပါတယ်။ SVG file size တွေကို reduce လုပ်ဖို့ဆိုရင် အသုံးများတဲ့ SVG optimization tool လို့ခေါ်တဲ့ SVGO ကိုအသုံးပြုမှဖြစ်ပါတယ်။ အဲ့ဒါကို github.com မှာ download လုပ်နိုင်ပါတယ်။ SVGO or SVG ဟာဆိုရင် node based command line tool တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကိုအသုံးပြုမယ်ဆိုရင် ကျွန်တော်တို့ရဲ့ computer မှာ nodejs and NPM ကို installed လုပ်ထားဖို့လိုပါတယ်။ SVG editors တွေဟာ SVG file တစ်ခုကို exporting လုပ်ပြီးတဲ့ အချိန်မှာ lots of extra information တွေကို leave လုပ်ထားခဲ့ပါတယ်။ အဲ့ information ကတော့ ကျွန်တော်တို့ဟာ SVG file တစ်ခုကို receive လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ SVGO ဟာဆိုရင် valuable time saving tool တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ SVG workflow လိုပဲ ကျွန်တော်တို့ကို integrate လုပ်တဲ့နေရာမှာ လွယ်ကူပါတယ်။ SVGO command line tool ကို install လုပ်တဲအခါမှာ ကျွန်တော်တို့ရဲ့ terminal ကနေ npm install -svgo ကို ရိုက်ထည့်ပြီးတော့ install လုပ်နိုင်ပါတယ်။ SVG ရဲ့ list of commands တွေကို github.com ရဲ့ "Hoe to use" section မှာလေ့လာနိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Grouping and Referencing With SVG</h1>
+    <p>
+        SVG မှာဆိုရင် circles path and polygons တို့လို drawing လုပ်ဖို့ရန်အတွက် elements  တွေမပါဝင်ပါဘူး။ သူဟာဆိုရင် ကျွန်တော်တို့ရဲ့ SVG fiels ရဲ့ structure ကို organizing လုပ်ဖို့ရန်အတွက် useful elements တွေပါဝင်ပါတယ်။ အခုကျွန်တော်တို့ဟာ &lt;g&gt;, &lt;defs&gt;, &lt;symbol&gt; and &lt;use&gt; တို့ကို ဘယ်လို utilize လုပ်တယ်ဆိုတာကိုလေ့လာကြမှာဖြစ်ပါတယ်။ g or group element ဟာဆိုရင် SVG file ထဲမှာ grouping container တစ်ခုကနေနဲ့ လုပ်ဆောင်ပေးပါတယ်။ Grouping element ဟာဆိုရင် two or more SVG elements တွေကို group တစ်ခုဖြစ်စေပါတယ်။ Vector tools တွေမှာဆိုရင် SVG မှာ g tags ကိုအသုံးပြုဖို့ရန်အတွက် grouped objects တွေကို export လုပ်ပြီးသားဖြစ်ပါတယ်။ Def elements, stores elements and defines element ကိုသုံးတာဟာ ကျွန်တော်တို့ဟာ နောက်တစ်ကြိမ်မှာပြန်သုံးချင်တဲ့ အခါမှာ အသုံးပြုပါတယ်။ နောက်ထပ်တစ်ခုကတော့ use tag ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် selfclosing tag ပါပါတယ်။ Use tag ဟာဆိုရင် SVG elements တွေကို duplicates ဖြစ်စေပြီး အခြားနေရာတွေမှာ သူ့တို့ကို display လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ reuse a single element or a group of elements inside g or defs tags duplicate လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt; 
+            &lt;html lang="en"&gt; 
+                &lt;head&gt; 
+                    &lt;meta charset="UTF-8"&gt; 
+                    &lt;title&gt;SVG Elements&lt;/title&gt; 
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;/head&gt; 
+                &lt;body&gt;
+                        &lt;!-- HEART GRAPHIC --&gt;
+                        &lt;svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.8 96.2"&gt;
+                            &lt;defs&gt;
+                                &lt;g class="heart" id="heart"&gt;
+                                    &lt;path d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z"/&gt;
+                                    &lt;path d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/&gt;
+                                &lt;/g&gt;
+                            &lt;/defs&gt;
+                    
+                            &lt;!-- usage --&gt;
+                           &lt;use xlink:href="#heart" fill="#c44" transform="scale(.4)" /&gt;
+                           &lt;use xlink:href="#heart" fill="#41af5d" transform="scale(.3) translate(160)" /&gt;
+                        &lt;/svg&gt;
+                    &lt;/body&gt;
+            &lt;/html&gt;
+    
+
+        </code>
+    </pre>
+    <a href="../Example/svggroup.html">Test Yourself</a><hr>
+    <h1>Reusing Graphis With Symbol</h1>
+    <p>
+        Symbol element defs and g elements တို့နဲ similar ဖြစ်ပါတယ်။ A symbol or groups elements ဟာဆိုရင် ဘယ်နေရာမှာဘဲဖြစ်ဖြစ် reference လုပ်နိုင်တဲ့ reasonable template တွေကို define လုပ်တဲ့နေရာမှာအသုံးပြုနိုင်ပါတယ်။ Symbol element ကို graphics အတွက်အသုံးပြုနိုင်ပါတယ်။ အဲ့ graphics ကို same document မှာ multiple times အသုံးပြုထားတာပဲဖြစ်ပါတယ်။ Symbol element မှာဆိုရင် g and defs elements ပေါ်မှာ significant advantage တစ်ခုရှိပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt; 
+            &lt;html lang="en"&gt; 
+                &lt;head&gt; 
+                    &lt;meta charset="UTF-8"&gt; 
+                    &lt;title&gt;SVG Elements&lt;/title&gt; 
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;/head&gt; 
+                &lt;style&gt;
+                    .heart-red {
+                        fill: #c44;
+                        color: #f35f5f;
+                    }
+                    .heart-green {
+                        fill: #41af5d;
+                        color: #5ece7f;
+                    }
+                    .heart-blue {
+                        fill: #2e97af;
+                        color: #38acd0;
+                    }
+                &lt;/style&gt;
+                &lt;body&gt;
+                        &lt;!-- HEART GRAPHIC --&gt;
+                        &lt;svg version="1.0" xmlns="http://www.w3.org/2000/svg" style="display: none;"&gt;
+                                &lt;symbol id="heart" viewBox="0 0 113.8 96.2"&gt;
+                                    &lt;path d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z"/&gt;
+                                    &lt;path fill="currentColor" d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/&gt;
+                                &lt;/symbol&gt;
+                    
+                            &lt;!-- usage --&gt;
+                           
+                           
+                        &lt;/svg&gt;
+            
+                        &lt;div class="main"&gt;
+                            &lt;!-- Red --&gt;
+                            &lt;svg width="150" height="150"&gt;
+                                &lt;use xlink:href="#heart" class="heart-red" /&gt;
+                            &lt;/svg&gt;
+                            &lt;!-- Green --&gt;
+                            &lt;svg width="130" height="130"&gt;
+                                &lt;use xlink:href="#heart" class="heart-green" /&gt;
+                            &lt;/svg&gt;
+                            &lt;!-- Blue --&gt;
+                            &lt;svg width="110" height="110"&gt;
+                                &lt;use xlink:href="#heart" class="heart-blue" /&gt;
+                            &lt;/svg&gt;
+                        &lt;/div&gt;
+                    &lt;/body&gt;
+            &lt;/html&gt;
+    
+
+        </code>
+    </pre>
+    <a href="../Example/symbol.html">Test Yourself</a><hr>
+    <h1>SVG: Sprite Tools</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ simple element တစ်ခုကို referencing လုပ်ပြီးတော့ multiple places SVG graphics တွေကို ဘယ်လို display လုပ်တယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ SVG file ထဲမှာ image tag တွေနဲ့ icon တွေကို rendering လုပ်တာဟာ ကျွန်တော်တို့ရဲ့ HTTP loads ကို save လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ SVG file တစ်ခုထဲကနေ ကျွန်တော်တို့ရဲ့ icons တွေကို serving လုပ်တာဟာ ကျွန်တော်တို့ရဲ့ sites ကို run တဲ့ အခါ ပိုပြီးတော့ faster ဖြစ်အောင်လုပ်ပေးနိုင်ပါတယ်။ SVG sprites တွေကို generate လုပ်ပေးတဲ့ tool ကို svg-sprite လို့ခေါ်ပါတယ်။ svg-sprite ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ SVG file ကို optimizes လုပ်ပြီးတော့ သူတို့ကို SVG sprite sheet ထဲကို places လုပ်ပေးပါတယ်။ Best part ကတော့ create လုပ်ထားတဲ့ svg-sprite ကို Gulp ထဲကို port လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ svg-sprite အကောင်းကို github.com ရဲ့ gulp-svg-sprite section မှာ လေ့လာနိုင်ပါတယ်။ အဲ့ထဲမှာပါတဲ့ usage instruction တွေအတိုင်း လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>3D in Browser</h1>
+    <p>
+        ကျွန်တော်တို့ အခုလေ့လာမှာကတော့ browser ထဲမှာရှိတဲ့ 3D browser အကြောင်းပဲဖြစ်ပါတယ်။ Web browser တွေဟာ 2D graphics ကိုပဲ သိကြတာများပါတယ်။ အခုဆိုတော့ တစ်ကမ္ဘာလုံးမှာ flat design ကိုအသုံးပြုနေကြပြီဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာလဲ CSS ထဲမှာသုံးတဲ့ box model ရှိနေပြီဖြစ်ပါတယ်။ Browser တွေဟာ things တွေကို 2D နဲ့ displaying လုပ်တဲ့အခါမှာ ကောင်းကောင်းမွန်မွန် display လုပ်နိုင်ပါတယ်။ တစ်ချို့နေရာတွေမှာဆိုရင် အဲ့ဒါဟာ expansive ဖြစ်နိုင်ပါတယ်။ ဘာလို့လဲဆိုရင် အဲ့ဒါတွေအားလုံးဟာ Central Processing Unit လို့ခေါ်တဲ့ CPU ပေါ်မှာပဲ processing ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Computer တွေမှာ ဆိုရင် CPU နဲ့ Graphic Processing Unit လို့ခေါ်တဲ့ GPU ပါကြပါတယ်။ Web browsers တွေမှာဆိုရင် GPU ရဲ့ advantage မရှိကြပါဘူး။ အဲ့ web browsers တွေဟာဆိုရင် CPU ကိုပဲအသုံးပြုကြတာများပါတယ်။ ကျွန်တော်တို့မှာ GPU ကို အသုံးပြုနိုင်တဲ့ ability ရှိတာဟာ ကောင်းမွန်ပါတယ်။ အဲ့ထဲမှာ ပါတဲ့ new technologies တွေဖြစ်တဲ့ three.js and webGL တို့ရဲ့ အသုံးပြုပုံကိုလည်းပြောပြပေးမှာဖြစ်ပါတယ်။ GPU ဟာဆိုရင် web browser ကို ဖြတ်ပြီးတော့ access မလုပ်နိုင်ပါဘူး ဒါပေမဲ့ ကျွန်တော်တို့ဟာ အခု WebGL ဆိုတဲ့ technology ကိုအသုံးပြုပြီးောတာ့ လုပ်နိုင်နေပါပြီ။ WebGL ဟာဆိုရင် သူ့ရဲ့ raw form ထဲမှာ အသုံးပြုဖို့အတွက် complex ဖြစ်ပါတယ်။ အဲ့ဒါဟာ OpenGL ရဲ့ port တစ်ခုပဲဖြစ်ပါတယ်။ OpenGL ဆိုတာ graphics technology တစ်ခုဖြစ်ပြီးတော့ သူ့ကို real-time 3D games တွေကို render လုပ်တဲ့ နေရာမှာ အသုံးပြုပါတယ်။ WebGL ရဲ့ matrix of support ကို 10UIs.com မှာ check out လုပ်နိုင်ပါတယ်။ Three.js ဆိုတာကတော့ framework တစ်ခုပဲဖြစ်ပါတယ်။ သူ့ကို three.js.org မှာလေ့လာနိင်ပါတယ်။ 
+    </p><hr>
+</body>
+</html>

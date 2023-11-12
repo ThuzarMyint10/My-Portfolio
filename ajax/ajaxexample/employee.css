@@ -1,0 +1,45 @@
+body{
+    box-sizing: border-box;
+}
+.container{
+    background-color: bisque;
+    width: 90%;
+    margin: 0 auto;
+}
+#employeeList .in::before{
+    content: "IN";
+    padding: 5px;
+    background-color: green;
+    color: whitesmoke;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+#employeeList .out::before{
+    content: "OUT";
+    padding: 5px;
+    background-color: rgb(245, 27, 27);
+    color: whitesmoke;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+ul{
+    list-style: none;
+}
+#employeeList ul li{
+    margin: 15px 4px 3px 0;
+}
+.rooms .empty{
+    padding: 10px;
+    background-color: rgb(20, 245, 20);
+    margin: 4px;
+    border-radius: 5px;
+}
+.rooms .full{
+    padding: 10px;
+    background-color: rgb(247, 33, 33);
+    margin: 4px;
+    border-radius: 5px;
+}
+.rooms{
+    display: flex;
+}

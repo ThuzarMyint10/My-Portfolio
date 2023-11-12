@@ -1,0 +1,40 @@
+body{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+/*Navigation*/
+.navbar-expand-lg .navbar-collapse{
+    flex-direction: row-reverse;
+}
+.navbar-expand-lg{
+    margin-right: 100px;
+    position: relative;
+    padding: 20px;
+    margin-left: 100px;
+}
+.header{
+    background-image: url('../CSS/image/banner.jpg');
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*Media Query for NAVIGATION*/
+@media(max-width:1000px){
+    body{
+        background-color: turquoise;
+    }
+    .navbar-expand-lg{
+        margin: 0;
+    }
+    .header{
+        height: 400px;
+    }
+}
+@media(max-width:759px){
+    .header{
+        height: 350px;
+    }
+}

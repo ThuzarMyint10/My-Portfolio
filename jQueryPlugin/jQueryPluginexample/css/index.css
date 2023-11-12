@@ -1,0 +1,176 @@
+body{
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+.logo{
+    display: block;
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 20px;
+}
+.row{
+    position: static;
+    z-index: 1000;
+}
+.description{
+    font-size: 0.75em;
+    color: rgb(39, 37, 39);
+    padding-top: 40px;
+    margin-left: 49px;
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(228, 240, 174, 0.301);
+    transition: 1s;
+}
+.is-sticky .header{
+    background-color: rgba(0, 0, 0, 0.589);
+}
+.is-sticky .header a{
+    color: blanchedalmond;
+}
+.is-sticky .header .main_nav .description{
+    color: blanchedalmond;
+}
+.header-team{
+    text-align: center;
+}
+.main-team{
+    position: static;
+}
+.team img{
+    width: 100%;
+    height: 100px;
+    border-radius: 50%;
+}
+.header-team p{
+    font-size: 1em;
+}
+
+.header .main_nav ul{
+    display: flex;
+    padding: 20px;
+}
+.header .main_nav ul li{
+    padding: 10px;
+}
+ul{
+    list-style: none;
+}
+.header .main_nav ul li a:hover{
+  border-bottom: 2px solid rgb(248, 31, 139) !important; 
+}
+a {
+    text-decoration: none;
+}
+.build-app img{
+    width: 100%;
+    height: 200px;
+}
+.build-app{
+    display: grid;
+    width: 80%;
+    margin: 50px auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-gap: 20px;
+    position: static;
+}
+.main-row{
+    display: grid;
+    width: 80%;
+    margin: 50px auto;
+    grid-gap: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-auto-flow: row;
+    position: static;
+
+}
+.text{
+    text-align: center;
+}
+.main-team{
+    display: grid;
+    margin: 80px auto;
+    width: 100%;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    text-align: center;
+
+}
+.grid img{
+    width: 100%;
+    height: 200px;
+}
+.grid p{
+    text-align: center;
+}
+.grid a{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 40%;
+    border-radius: 5px;
+    background-color: rgba(23, 107, 175, 0.384);
+}
+.main_row .grid
+{
+    text-align: center;
+}
+ .main-row .grid .link{
+     display: block;
+     margin: 0 auto;
+     text-align: center;
+    padding: 10px;
+    width: 45%;
+    border-radius: 5px;
+    background-color: rgb(221, 233, 238);
+    color: black;
+}
+@media(max-width: 700px){
+    .header{
+        background-color: rgb(20, 197, 220);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 250px;
+    }
+    .header .main_nav ul {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .description{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+.work{
+    color: rgb(10, 10, 10);
+    margin: 0;
+    padding: 12px 0;
+}
+.text .email-text{
+    color: rgb(37, 235, 235);
+}
+.slides{
+    width: 90%;
+    text-align: center;
+}
+.slides img{
+    display: inline;
+}
+/* slick styles*/
+.slick-dots{
+    bottom: 80px;
+
+}
+.slick-dots li button:before{
+    font-size: 16px;
+
+}

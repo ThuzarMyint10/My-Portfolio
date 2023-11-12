@@ -1,0 +1,56 @@
+body{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+#wrap{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 200px 350px;
+    grid-template-areas: 
+    "nav"
+    "main"
+    "footer"
+    ;
+    width: 100%;
+}
+.siderbar{
+    grid-area: nav;
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: rgb(49, 49, 49);
+}
+.siderbar h1{
+    font-weight: 500;
+    font-size: 2em;
+    color: bisque;
+}
+.siderbar .avatar{
+    margin-top: 20px;
+}
+.siderbar ul{
+    list-style: none;
+    padding: 0;
+}
+.siderbar hr{
+    width: 20%;
+}
+.siderbar p{
+    color: bisque;
+}
+.main{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-left: 10px;
+}
+.footer{
+    grid-area: footer;
+    text-align: center;
+    grid-column-start: 2;
+    margin-top: 40px;
+    color: blanchedalmond;
+    background-color: rgba(25, 90, 6, 0.829);
+    grid-column-end: 3;
+}

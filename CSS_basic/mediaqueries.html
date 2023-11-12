@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+     <h1>Media Query For Desktop Resolution</h1>
+     <p>
+            ကျွန်တော်တို့ဟာ page တစ်ခုကို low and high fidelity mockups မှာ ဘယ်လို create လုပ်ရတယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ fluid grids ကို ဘယ်လို media queries ကိုအသုံးပြုပြီးတော့ ဘယ်လို set လုပ်ပြမှာဖြစ်ပါတယ်။ media queries ဟာဆိုရင် responsive web design ရဲ့ last major component ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဘယ်လို web page ကိုပဲ create လုပ်လုပ် media queries ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် different devices တွေနဲ့ different screen resolutions တွေမှာဆိုရင် ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ web page တစ်ခုဟာ ကြည့်တဲ့အခါမှာ အဆင်ပြေအောင် media queries ကိုအသုံးပြုပေးတာပဲဖြစ်ပါတယ်။အဲ့မှာဆိုရင် 1700px ဟာ larger screen resolution တွေအတွက် ဖြစ်ပြီးတော့ 1400px ဟာဆိုရင် ပုံမှန်ရှိတဲ့ screen resolution တွေအတွက်ပဲဖြစ်ပါတယ်။ 1200px ကတော့ small screen resolution တွေအတွက်ဖြစ်ပါတယ်။ အဲ့မှာကျွန်တော်တို့ apply လုပ်ချင်တဲ့ element တိုင်းကို apply လုပ်နိုင်ပါတယ်။
+     </p>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+                /**************
+                1700px
+                **************/
+                @media(max-width:1700px){
+                    body{
+                        background: yellowgreen;
+                
+                    }
+                    #header p{
+                        font-size: 1.1em;
+                    }
+                    #misc #calll_to_action{
+                        font-size: 1.3em;
+                    }
+                    #misc blockquote{
+                        font-size: 1.4em;
+                    }
+                    #feature .feature .info p{
+                        font-size: 1em;
+                    }
+                    #feature .feature{
+                        min-height: 150px;
+                    }
+                }
+                /**************
+                1400px
+                **************/
+                @media(max-width:1400px){
+                
+                
+                    body{
+                        background: palevioletred;
+                    }
+                    #header p {
+                        font-size: 1em;
+                    }
+                    #header h2 {
+                        font-size: 1em;
+                    }
+                    #misc #call_to_action {
+                        font-size: 1.2em;
+                    }
+                    #misc blockquote {
+                        font-size: 1.2em;
+                    }
+                    #feature .feature .info p {
+                        font-size: 0.9em;
+                    }
+                    #feature .feature {
+                        min-height: 130px;
+                    }
+                }
+                /**************
+                1200px
+                **************/
+                @media(max-width:1200px){
+                    body {
+                        background: red;
+                    }
+                    #header{
+                        float: left;
+                        width: 50%;
+                        margin-top: 10%;
+                    }
+                    #misc {
+                        float: left;
+                        clear: left;
+                        width: 55%;
+                      }
+                        
+                      #misc #call_to_action, #logo {
+                        margin-top: 0;
+                      }
+                      
+                      #phone {
+                        float: right;
+                      }
+                    #misc blockquote {
+                        display: none;
+                    }
+                    #wrapper {
+                        width: 90%;
+                    }
+                }
+         </code>
+     </pre>
+     <a href="CSS_Example/responsive.html">Test Yourself</a><hr>
+     <h1>Media Query For Mobile Devices</h1>
+     <p>
+            ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ create လုပ်လိုက်တဲ့အခါမှာ mobile devices တွေမှာလည်း ကြည့်ရတာအဆင်ပြေအောင် media query ကိုအသုံးပြုပြီးရေးသွားမှာဖြစ်ပါတယ်။ mobile devices တွေမှာဆိုရင်လည်း သူတု့ိမှာ မတူညီတဲ့ resolution တွေရှိနိုင်ပါတယ်။ အဲ့ဒါတွေအားလုံးအတွက်အဆင်ပြေအောင်ရေးရမှာဖြစ်ပါတယ်။
+     </p>
+     <h2>Code in CSS </h2>
+     <pre>
+         <code>
+                @media(max-width:720px){
+                    body{
+                        background: #C5C5C5;
+                    }
+                    #phone #video_container video{
+                        display: none;
+                    }
+                    #phone #video_container #video_app_screenshot{
+                        display: block;
+                    }
+                    #header, #phone, #misc {
+                        float: left;
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                    #header p {
+                        -webkit-text-size-adjust: none;
+                    }
+                    #phone {
+                        margin-bottom: 50px;
+                        background: transparent;
+                        float: none;
+                    }
+                    #phone #video_container {
+                        width: 100%;
+                        margin: 0px
+                                auto
+                                10%;
+                    }
+                    #misc #call_to_action {
+                        background: #1da051;
+                    }
+                    #misc #cal_to_action:hover{
+                        background: #46ff6c;
+                    }
+                    #features .feature:nth-child(1n){
+                        float: left;
+                        width: 100%;
+                        margin: 0 auto 30px auto;
+                    }
+                    #features .feature .info p {
+                        font-size: 1em;
+                        -webkit-text-size-adjust: none;
+                    }
+                }
+                /**************
+                iPad
+                **************/
+                 @media only screen and (min-device-width: 768px)
+                                   and (max-device-width:1024px)
+                                   and (orientation: portrait){
+                
+                                    #phone #video_container video{
+                                        height: 282px;
+                                    }
+                                   }
+                @media only screen and (min-device-width: 768px)
+                                   and (max-device-width:1024px)
+                                   and (orientation: landscape){
+                
+                #phone #video_container video{
+                    height: 376px;
+                }
+                } 
+         </code>
+     </pre>
+     <a href="CSS_Example/responsive.html">Test Yourself</a><hr>
+</body>
+</html>

@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PHP Basic</title>
+  <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+  <link rel="stylesheet" href="../../default.css">
+  <link rel="stylesheet" href="../../CSS/main.css">
+  <link rel="stylesheet" href="../../CSS/link.css">
+  <script src="../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+  p {
+    font-family: Myanmar3, Yunghkio;
+  }
+
+  img {
+    width: 80%;
+    margin: 0 0 50px 0;
+
+  }
+</style>
+</head>
+
+<body>
+  <h1>Getting to Know the Project</h1>
+  <p>
+    အခု section မှာတော့ basic PHP website တစ်ခုကို database တစ်ခုနဲ့ ဘယ်လို connect
+    လုပ်ရမယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+    ဒါဟာဆိုရင် constantly changing information နှင့် ကျွန်တော်တို့ရဲ့ web pages ကို dynamically update
+    လုပ်ဖို့ရန်အတွက်
+    ခွင့်ပြုပေးပါတယ်။ Database ကို data တွေကို store လုပ်ဖို့ရန်အတွက် designed လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ
+    data
+    တွေကို store လုပ်ဖို့လိုအပ်တယ်ဆိုရင် database ဟာ good choice တစ်ခုပဲဖြစ်ပါတယ်။ Another important thing
+    တစ်ခုကတော့
+    anytime မှာ array ထဲမှာ stored လုပ်ထားတဲ့ data တွေကို အသုံးပြုချင်တဲ့အခါမှာလည်း လွယ်ကူပါတယ်။ Database
+    တစ်ခုဟာဆိုရင် more
+    advanced sorting and search capabilities ကို ပေးပါတယ်။ အခု example project ထဲမှာဆိုရင် media items တွေကို store
+    လုပ်ဖို့ရန်အတွက် database တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ရဲ့ application ကို scale
+    လုပ်ဖို့ရန်အတွက် easier and faster ဖြစ်စေပါတယ်။ နောက် functionality ကို add လုပ်ဖို့ရန်အတွက်လည်း easier and
+    faster
+    ဖြစ်စေပါတယ်။ Example project ထဲမှာဆိုရင် search and pagination functionality တို့ကို adding
+    လုပ်သွားမှာဖြစ်ပါတယ်။ PHP's
+    data objects or pto ကို အသုံးပြုပြီးတော့ ဘယ်လို communicate လုပ်ရမယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Pto ဟာဆိုရင်
+    object
+    oriented methodology ကိုအသုံးပြုထားပါတယ်။ နောက်ကျွန်တော်တို့ဟာ relational database
+    ကိုလည်းအသုံးပြုသွားမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တု့ိရဲ့ data တွေဟာ
+    တစ်ခုတစ်ခု relates ဖြစ်နေတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+  </p>
+  <hr>
+  <h1>Introducing Objects</h1>
+  <p>
+    PHP version 5.1 ဟာဆိုရင် database တစ်ခုနဲ့ connecting လုပ်အတွက် built in mechanism တစ်ခုနဲ့ လာပါတယ်။ အဲ့ဒါကတော့
+    PHP Data
+    Object or PDO ပဲဖြစ်ပါတယ်။ PDO ဟာဆိုရင် SQLite and MySQL စတဲ့ databases အားလုံးနဲ့ working လုပ်ဖို့ရန်အတွက် some
+    great
+    methods တွေကို provides လုပ်ပေးပါတယ်။ Object တစ်ခုဆိုတာ complex variable type တစ်ခုဖြစ်ပါတယ်။ သူဟာဆိုရင်
+    variables and
+    functions တွေကို single unit တစ်ခုထဲမှာ အတူတူအကွ bundles လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ variables တွေကို properties
+    တွေလို့ခေါ်ပြီးတော့ functions တွေကိုတော့ methods တွေလို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ PHP basic website မှာ object
+    ကို
+    အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကတော့ third party library တစ်ခုကို အသုံးပြုတာပဲဖြစ်ပါတယ်။ သူဟာ PHPMailer object
+    တစ်ခုကို
+    provides လုပ်ပေးပါတယ်။ PHPMailer objects မှာဆိုရင် information တွေကို store လုပ်ဖို့ရန်အတွက် properties
+    တွေရှိပါတယ်။
+    အဲ့မှာဆိုရင် methods တွေလည်းပါဝင်ပါတယ်။ ကျွန်တော်တို့ဟာ objects တွေရဲ့ properties and methods တွေကို access
+    လုပ်ဖို့ရန်အတွက် hyphen and greater than sign တို့ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ class ကို
+    discuss
+    လုပ်သွားမှာဖြစ်ပါတယ်။ PHP မှာဆိုရင် class တစ်ခုဆိုတာ type of object or an object definition တစ်ခုပဲဖြစ်ပါတယ်။
+    Class ဟာ
+    ဘယ် properties and methods တွေဟာ ဒီ class ရဲ့ any objects ထဲမှာ exit ဖြစ်တယ်ဆိုတာကို defines လုပ်တာပဲဖြစ်ပါတယ်။
+    Object
+    တစ်ခုချင်းစီဟာ သူတို့ရဲ့ class ကို instantiate လုပ်ဖို့ရန်အတွက် said လုပ်တာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ ဒါဟာ
+    instance တစ်ခု
+    or separate object တစ်ခုကို အဲ့ class ကနေပြီးတော့ ပြုလုပ်တာဖြစ်ပါတယ်။ PHPMailer ဟာ တစ်ကယ်တော့ class
+    တစ်ခုပဲဖြစ်ပါတယ်။
+    နောက် PDO ဟာလည်း class တစ်ခုပဲဖြစ်ပါတယ်။ အခု course မှာတော့ ကျွန်တော်တု့ိဟာ third party library တစ်ခုကို
+    အသုံးပြုမှာမဟုတ်ပါဘူး။ ကျွန်တော်တု့ိဟာ PDO class ကို instantiate လုပ်တဲ့ object တစ်ခုကို create လုပ်နိုင်ပါတယ်။
+    ပြီးတော့
+    အဲ့ object မှာ class ကနေပြီးတော့ defined လုပ်ထားတဲ့ properties and methods တွေရှိရမှာဖြစ်ပါတယ်။ နောက် ဒီ object
+    ကိုအသုံးပြုပြီးတော့ database ကို query လုပ်သွားမှာဖြစ်ပါတယ်။
+  </p>
+  <hr>
+  <h1>Getting Started with PDO</h1>
+  <p>
+    အခု ကျွန်တော်တို့ဟာ objects, methods, properties, and classes တု့ိရဲ့ basic ကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု
+    section
+    မှာတော့ PDO class ကိုအသုံးပြုပြီးတော့ instance of an object တစ်ခုကို instantiate or create လုပ်ဖို့ရန်အတွက် code
+    ကို
+    write လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ object ကိုအသုံးပြုပြီးတော့ database နဲ့ connect လုပ်သွားမှာဖြစ်ပါတယ်။ Example
+    မှာဆိုရင်
+    database နဲ့ connecting လုပ်ဖို့အတွက် code တွေကို set up လုပ်ဖို့ရန်အတွက် new file တစ်ခုကို create
+    လုပ်ထားတာဖြစ်ပါတယ်။
+    Class တစ်ခုကနေပြီးတော့ object တစ်ခုကို create လုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ create လုပ်ချင်တဲ့ object အတွက်
+    variable name
+    တစ်ခုကို declare အရင်လုပ်ပေးရမှာဖြစ်ပါတယ်။ New object တစ်ခုကို create လုပ်ဖို့ဆိုရင် new keyword
+    ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် class name ကို open parenthesis နဲ့ specify လုပ်ပေးရမှာဖြစ်ပါတယ်။ Class
+    တစ်ခုကနေ new
+    object တစ်ခုကို create လုပ်ဖို့ဆိုရင် a function or method ကို class ထဲမှာ calls လုပ်ပေးရမှာဖြစ်ပါတယ်။ Function
+    လိုပဲ
+    class တစ်ခုကနေ new object တစ်ခုကို create လုပ်တဲ့အခါမှာ arguments တွေကို pass လုပ်နိုင်ပါတယ်။ PDO class
+    နဲ့ဆိုရင်
+    example မှာဆိုရင် SQLite ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့ database အတွက် ဘာတွေလိုအပ်တယ်ဆိုတာကို "pdo driver"
+    မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် several different PDO drivers တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ SQLite ကို
+    အသုံးပြုထားတာဖြစ်တဲ့အတွက်ကြောင့် SQLite ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် PDO_SQLITE ဟာ driver
+    တစ်ခုဖြစ်ပြီးတော့ သူဟာ
+    SQLite 3 database ကို access လုပ်ဖို့ရန်အတွက် PHP data object interface ကို implements လုပ်ပေးတာဖြစ်ပါတယ်။
+    အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် certain string တစ်ခု လိုအပ်ပါတယ်။ PDO_SQLITE DNS ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+    ကျွန်တော်တို့ဟာ
+    data source name လိုအပ်ပါတယ်။ အဲ့ဒါကတော့ SQLite ပဲဖြစ်ပါတယ်။ သူဟာ disk ပေါ်မှာ database တစ်ခုကို access
+    လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ DSN prefix ဆီကို absolute path ကို append လုပ်ဖို့လိုပါတယ်။
+    SQLite ဟာ
+    database ဆီသွားတဲ့ path လိုပါတယ်။ PDO class ကို call လုပ်ထားတဲ့ထဲမှာ SQLite ကို quotes ထဲမှာ add
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    ပြီးတော့ full colon ခံပြီးတော့ ကျွန်တော်တို့ database ရှိတဲ့ path ကို add လုပ်ပေးရမှဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်လည်း
+    full
+    path အစား PHP မှာရှိတဲ့ special magic constant တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ __DIR__
+    ပဲဖြစ်ပါတယ်။
+    ဒါဟာကျွန်တော်တို့ရဲ့ file ဟာ ဘယ်နေရာမှာရှိတယ်ဆိုတာကိုပြောပြတာဖစ်ပါတယ်။
+  </p>
+  <pre>
+        <code>
+            &lt;?php
+              $db = new PDO("sqlite:".__DIR__."/database.db");
+              var_dump($db);
+            ?&gt;
+        </code>
+    </pre>
+  <hr>
+  <h1>Handling Exceptions</h1>
+  <p>
+    ကျွန်တော်တို့ရဲ့ code ဟာ external system တစ်ခုပေါ်မှာအခြေခံပြီးတော့ something wrong ဖြစ်နိုင်ပါတယ်။ Database ဟာ
+    down
+    ဖြစ်သွားတာတွေ ၊ သူ့ကို ကျွန်တော်တု့ိရဲ့ code ဟာ ဘယ်လို response ပြန်မယ်ဆိုတာတွေပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေကို
+    exceptions
+    လို့ခေါ်ပါတယ်။ External system တစ်ခုကို connecting လုပ်ထားတဲ့ ဘယ်လို code ပဲဖြစ်ဖြစ် exceptions တွေကို handle
+    လုပ်ဖို့လို့ပါတယ်။ Managing errors ဟာ any application မှာ အရေးကြီးပါတယ်။ Especially အရတော့ သူတို့ဟာ database
+    errors
+    ကနေလာကြပါတယ်။ Exceptions တွေဟာ exceptional ဖြစ်ပါတယ်။ PHP မှာဆိုရင် exception တစ်ခုကို handling လုပ်ဖို့ရန်အတွက်
+    block
+    of code ကို try catch block လို့ခေါ်ပါတယ်။ ကျွန်တော်တု့ိ execute လုပ်ဖို့ရန်အတွက် code ကိုအစခင်မှာ try command
+    ကို put
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိ execute လုပ်ချင်တဲ့ code ကို curly bracket နဲ့ surround
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    နောက် catch command တစ်ခုကို try block ပြီးတဲ့အခါမှာ put လုပ်ပေးရမှာဖြစ်ပါတယ်။ Exception တစ်ခုကို တွေ့တဲ့အခါမှာ
+    PHP ဟာ
+    catch block ထဲမှာရှိတဲ့ code ကို execute လုပ်မှာဖြစ်ပါတယ်။ Example မှာဆိုရင် catch block ထဲမှာရှိတဲ့ e ထဲမှာ
+    exception
+    အကြောင်း details ပါဝင်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+        <code>
+            &lt;?php
+            try{
+            $db = new PDO("sqlite:".__DIR__."/database.db");
+            var_dump($db);
+            } catch(Exception $e){
+            echo "Unable to connect";
+            }
+            echo "Connected to the database";
+            ?&gt;
+        </code>
+    </pre>
+  <hr>
+  <h1>Querying the Database</h1>
+  <p>
+    အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ exceptions အကြောင်းကို ပိုပြီး details ကျအောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    Something
+    goes wrong ဖြစ်တဲ့အချိန်မှာ ကျွန်တော်တု့ိ ဖြစ်နိုင်သလောက် details ကျတဲ့ information တွေကိုလိုချင်တာဖြစ်ပါတယ်။
+    အဲ့ဒါအတွက်
+    PHP Eception Manual ကို သွားပြီးတော့ Extending Exceptions မှာ exception classes တွေအကြောင်းကို လေ့လာနိုင်ပါတယ်။
+    အဲ့မှာဆိုရင် several different methods တွေရှိပါတယ်။ အခု section မှာ ကျွန်တော်တို့အသုံးပြုချင်တဲ့ method ကတော့
+    getMessage() method ပဲဖြစ်ပါတယ်။ ဒီ method ဟာ detailed message ကို ပေးပါတယ်။ နောက် message ကို string အနေနဲ့
+    ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့လုပ်ဆောင်ရမှာကတော့ command or PDO object ပေါ်မှာရှိတဲ့ method
+    ပဲဖြစ်ပါတယ်။
+    အဲ့ဒါအတွက် PDO Manual ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်လည်း several different methods တွေရှိပါတယ်။
+    ကျွန်တော်တို့ဟာ
+    example အတွက် setAttribute() method ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ change လုပ်နိုင်တဲ့
+    several
+    constants or actual attributes တွေရှိပါတယ်။ အဲ့မှာဆိုရင် attribute case and attribute error mode
+    ကိုတွေ့ရပါလိမ့်မယ်။
+    ကျွန်တော်တို့အသုံးပြုမှာကတော့ attribute error mode or error reporting ပဲဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+        <code>
+            &lt;?php
+              try{
+                $db = new PDO("sqlite:".__DIR__."/database.db");
+                $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+              } catch(Exception $e){
+                echo "Unable to connect";
+                echo $e->getMessage();
+              }
+              echo "Connected to the database";
+            ?&gt;
+        </code>
+    </pre>
+  <hr>
+  <h1>Retrieving the Result Set</h1>
+  <p>
+    အခု section မှာတော့ ကျွန်တော်တု့ိရဲ့ SQLite database နဲ့ connection တစ်ခုကို opened လုပ်တဲ့ PHP code ကို write
+    လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ section မှာ database ကနေ data တွေကို retrieving လုပ်သွားမှာဖြစ်ပါတယ်။
+    အဲ့အတွက်အသုံးပြုရမဲ့
+    command ကတော့ select command ပဲဖြစ်ပါတယ်။ Select statement ဟာဆိုရင် query တစ်ခုဖြစ်ပြီးတော့ သူဟာ some data
+    တွေကို select
+    လုပ်ပေးတာဖြစ်ပြီးတော့ အဲ့ results တွေကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ နောက် ဒီ query ကို လုပ်ဆောင်ဖို့ရန်အတွက်
+    PDO ကို
+    ဘယ်လို အသုံးပြုရမယ်ဆိုတာကိုလည်းလေ့လာသွားမှာဖြစ်ပါတယ်။ နောက် ဘယ် information တွေကို ဒီ query ဟာ returns
+    ပြန်ပေးတယ်ဆိုတာကိုလည်းလေ့လာသွားမှာဖြစ်ပါတယ်။ Example မှာ query ကိုလည်း try catch block ကို
+    အသုံးပြုထားတာဖြစ်ပါတယ်။
+    ကျွန်တော်တို့ created လုပ်ခဲ့တဲ့ database object ထဲမှာ query ကိုလုပ်ဆောင်ဖို့ရန် method တစ်ခုပါဝင်ပါတယ်။
+    အဲ့ဒါကတော့
+    query method ပဲဖြစ်ပါတယ်။ Query method ထဲမှာ ကျွန်တော်တို့ run ချင်တဲ့ query statement ကို argument အနေနဲ့ put
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ query ကို method ထဲမှာ string အနေနဲ့ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးမှာ ကျွန်တော်တို့
+    run
+    လုပ်ချင်တဲ့ query ကို specify လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ title and category တု့ိကို results
+    ထုပ်ပြထားတာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+        <code>
+            &lt;?php
+              try{
+                $db = new PDO("sqlite:".__DIR__."/database.db");
+                $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+              } catch(Exception $e){
+                echo "Unable to connect";
+                echo $e->getMessage();
+              }
+              try {
+                $result = $db->query("SELECT title, category FROM Media");
+                echo "Retrieved Results";
+              } catch (Exception $e) {
+                echo "Unable to retrieved results";
+              }
+            ?&gt;
+        </code>
+    </pre>
+  <hr>
+  <h1>Working with Query Results</h1>
+  <p>
+    ကျွန်တော်တို့မှာ database တစ်ခုနဲ့ connects လုပ်ပြီးတော့ query တစ်ခုကို run လုပ်တဲ့ code ကို write
+    လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။
+    ဒီ section မှာတော့ results တွေနဲ့ အလုပ်လုပ်သွားမှာဖြစ်ပါတယ်။ Results တွေဟာဆိုရင် results ဆိုတဲ့ variable name
+    ထဲမှာဖြစ်ပါတယ်။ သို့သော်လည်း variable ဟာ simple array တစ်ခုမဟုတ်ပါဘူး။ အမှန်တစ်ကယ်တော့ သူဟာ new kind of PHP
+    object
+    တစ်ခုဖြစ်ပါတယ်။ Example မှာဆိုရင် information တွေကို var_dump() နဲ့ display လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+    variable
+    ဟာ object တစ်ခုဖြစ်ပါတယ်။ အဲ့ object ဟာ different kind of object တစ်ခုဖြစ်ပါတယ်။ သူဟာ PDO statement object
+    တစ်ခုဖြစ်ပါတယ်။ Object တစ်ခုဆိုတာ properties, and functions လို့ခေါ်တဲ့ methods လို့ခေါ်တဲ့ collection of
+    variables
+    တွေပဲဖြစ်ပါတယ်။ အားလုံးကိုး အတူတူ bundled လုပ်ထားတာဖြစ်ပါတယ်။ နောက် object တစ်ခုရဲ့ information တွေကို screen
+    ပေါ်မှာ
+    display လုပ်ချင်တဲ့အခါမှာ properties တွေကို တွေ့ရမှာဖြစ်ပါတယ်။ ဒီ object မှာ property query string
+    တစ်ခုရှိပါတယ်။ PHP
+    မှာဆိုရင် PDO statement ဟာ native class တစ်ခုဖြစ်ပါတယ်။ Details ကို PHP Manual မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင်
+    methods
+    တွေအများကြီးရှိပါတယ်။ ကျွန်တော်တို့ဟာ example အတွက် fetchAll() method ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ သူဟာဆိုရင်
+    result
+    အားလုံးပါတဲ့ array တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+        <code>
+            &lt;?php
+              try{
+                $db = new PDO("sqlite:".__DIR__."/database.db");
+                $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+              } catch(Exception $e){
+                echo "Unable to connect";
+                echo $e->getMessage();
+              }
+              try {
+                $result = $db->query("SELECT title, category FROM Media");
+                var_dump($result->fetchAll());
+              } catch (Exception $e) {
+                echo "Unable to retrieved results";
+              }
+            ?&gt;
+        </code>
+    </pre>
+  <hr>
+  <h1>Integrating Database Results</h1>
+  <p>
+    ကျွန်တော်တို့မှာ database ကနေပြီးတော့ information တွေကို retrieve လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ code
+    တွေရှိပြီဖြစ်ပါတယ်။
+    အခု section မှာတော့ အဲ့ results တွေကို အသုံးပြုပြီးတော့ media items တွေကို display လုပ်သွားမှာဖြစ်ပါတယ်။ Original
+    data.php file ထဲမှာ catalog information ရဲ့ array တစ်ခုပါဝင်ပါတယ်။ ကျွန်တော်တို့ လုပ်ဆောင်ရမှာကတော့ အဲ့ file ကို
+    database ကနေ pull လုပ်ထားတဲ့ information တွေနဲ့ update လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါပြီးတဲ့နောက်မှာ ကျွန်တော်တို့ရဲ့
+    functions တွေကို database ကနေ data တွေကို better use ဖြစ်ဖို့ရန်အတွက် updating လုပ်သွားရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+    data.php file ထဲမှာ ကျွန်တော်တို့ရဲ့ information တွေကို retrieve လုပ်ထားတဲ့ connection.php file ကို include
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <hr>
+  <h1></h1>
+  <p>
+    ကျွန်တော်တို့မှာ catalog နဲ့ အလုပ်လုပ်တဲ့ data.php and function.php ဆိုတဲ့ files နှစ်ခုရှိပါတယ်။ Functions file
+    ဟာဆိုရင်
+    အမှန်တစ်ကယ်အလုပ်ဟာ catalog ကို reading လုပ်တာနဲ့ ပြီးတော့ ကျွန်တော်တို့ရဲ့ web page ဆီကို items တေတွကို adding
+    လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ functions file ဟာ ကျွန်တော်တို့လိုအပ်တဲ့ data တွေကိုအကြောင်းကို
+    သိထားဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ data file ဟာ connection file ထဲမှာ ပါဝင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+    ကျွန်တော်တို့ရဲ့ function file ထဲမှာ connection ကို ပါဝင်ဖို့ရန် လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ ပြီးတော့ rest of the pages
+    ကို
+    clean up လုပ်နိုင်ပါတယ်။ ဒါဟာဆိုရင် concerns တွေကို separate လုပ်ဖို့ရန်အတွက် help ဖြစ်ပြီးတော့ duplicated code
+    တွေကို
+    minimum တစ်ခုမှာ keep လုပ်ပေးပါတယ်။ နောက် အဲ့ဒါတွေကို maintain လုပ်ဖို့ရန်လည်း easier ဖြစ်အောင်ပြုလုပ်ပေးပါတယ်။
+    အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ connection.php file ထဲက query ကို functions file ထဲကို move လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    function.php file ထဲမှာ new function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို query ကို လုပ်ဆောင်ပေးတဲ့
+    function
+    ပဲဖြစ်ပါတယ်။ နောက် အဲ့ function ထဲမှာ database နှင့် connection လုပ်ထားတဲ့ connection.php file
+    လည်းပါဝင်ရမှာဖြစ်ပါတယ်။
+    နောက် ကျွန်တော်တို့ဟာ catalog ကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တု့ိလုပ်ဆောင်ရမှာက files တွေထဲမှာ
+    ကျွန်တော်တု့ိရဲ့ function page ကို include ဖြစ်အောင်လုပ်ဖို့ပဲဖြစ်ပါတယ်။ Functionality ကို adding
+    လုပ်တဲ့တစ်လျောက်လုံးမှာ ဒီ project ကို throughout တဲ့အခါမှာ refactoring လို့ခေါ်တဲ့ process တစ်ခုကို utilizing
+    လုပ်တာဖြစ်ပါတယ်။ Code-refactoring ဆိုတာ restructuring ရဲ့ process တစ်ခုပဲ and နောက် သူ့ရဲ့ external behavior တွေကို
+    changing မလုပ်ဘဲနဲ့ exiting code တွေကို improving လုပ်တာပဲဖြစ်ပါတယ်။ Refactoring ဆိုတာ ကျွန်တော်တို့ features တွေကို
+    add
+    လုပ်ချင်သလောက် ကျွန်တော်တို့ရဲ့ code ကို slowly improve ဖြစ်ဖို့ allow လုပ်ပေးပါတယ်။ Refactoring ရဲ့ goals တွေကတော့
+    code
+    တွေကို easier to read ဖြစ်ဖို့ ၊ complexity ကို reduce လုပ်ဖို့ရန်နှင့် maintainability ကို improve
+    ဖြစ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ Refactoring လုပ်တဲ့ key တစ်ခုကတော့ ကျွန်တော်တို့ test လုပ်နိုင်တဲ့ incremental changes
+    တွေကို small ဖြစ်အောင်ပြုလုပ်ပေးတာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Examlple</h2>
+  <pre>
+    <code>
+      &lt;?php
+      function full_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $result = $db-&gt;query("SELECT title, category,img FROM Media");
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $result-&gt;fetchAll();
+      return $catalog;
+      }
+      function get_item_html($id,$item) {
+      $output = "&lt;li&gt;&lt;a href='details.php?id="
+      . $id . "'&gt;&lt;img src='"
+      . $item["img"] . "' alt='"
+      . $item["title"] . "' /&gt;"
+      . "&lt;p&gt;View Details&lt;/p&gt;"
+      . "&lt;/a&gt;&lt;/li&gt;";
+      return $output;
+      }
+      
+    function array_category($catalog,$category) {
+    $output = array();
+    
+    foreach ($catalog as $id =&gt; $item) {
+    if ($category == null OR strtolower($category) == strtolower($item["category"])) {
+    $sort = $item["title"];
+    $sort = ltrim($sort,"The ");
+    $sort = ltrim($sort,"A ");
+    $sort = ltrim($sort,"An ");
+    $output[$id] = $sort;
+    }
+    }
+      
+      asort($output);
+      return array_keys($output);
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Understanding Relationship Tables</h1>
+  <p>
+    ဒီနေ့ ခောတ်မှာအသုံးပြုနေတဲ့main database models နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ relational and no SQL တု့ိပဲဖြစ်ပါတယ်။
+    ကျွန်တော်တု့ိရဲ့ data တွေဟာ tables and rows တေမှာ fits လုပ်ထားတယ်ဆိုရင် relational database ဟာ data တွေနဲ့
+    interaction
+    လုပ်တဲ့အခါမှာ easy ဖြစ်ပြီးတော့ robust ကိုလည်း offer လုပ်ပေးပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တု့ိကိုယ်တိုင် arrays or JSON
+    objects တွေကို store လုပ်ဖို့ trying လုပ်တဲ့အခါမှာ noSQL database နဲ့ အလုပ်လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာ
+    ကျွန်တော်တို့ရဲ့ media data တွေကို tables and rows တွေမှာ fairly standardized and fits လုပ်ထားတာဖြစ်တဲ့အတွက်ကြောင့်
+    relational database ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ SQLite ပဲဖြစ်ပါတယ်။ Relational database တစ်ခုဆိုတာ
+    relationships တွေအကြောင်း အားလုံးပဲဖြစ်ပါတယ်။ Database တစ်ခုထဲမှာရှိတဲ့ relationships အကြောင်းပြောမယ်ဆိုရင်
+    relationships types 3 ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ "one to one", "many to one" and "many to many" တို့ပဲဖြစ်ပါတယ်။
+    အဲ့ဒါတွေဘယ်အလုပ်လုပ်တယ်ဆိုတာကို example မှာရှိတဲ့ media table နှင့်ကြည့်ကြည့်ရအောင်။ Main table ဟာ media table
+    ဖြစ်ပြီးတော့ သူ့မှာဆိုရင် catalog ထဲမှာရှိတဲ့ items တွေအားလုံးပါဝင်ပါတယ်။ အဲ့ဒါတွေကတော့ unique media ID, title,
+    image,
+    format, year, category and genre တု့ိပဲဖြစ်ပါတယ်။ Book items မှာဆိုရင် fields နှစ်ခုရှိပါသေးတယ်။ Publisher and ISBN
+    တို့ပဲဖြစ်ပါတယ်။ ဒါတွေဟာ ဒီ extra information တွေအတွက် separate books table တစ်ခုဖြစ်ပါတယ်။ အဲ့ books table
+    မှာဆိုရင်
+    media ID , publisher and isbn တို့ရှိပါတယ်။ ကျွန်တော်တို့ဟာ Medial table ရဲ့ media-id နဲ့ books table ရဲ့ media ID
+    နှင့်
+    link လုပ်မှာဖြစ်ပါတယ်။ အဲ့ဒါကို one-to-one relationship လို့ခေါ်ပါတယ်။ Media item တစ်ခုမှာ extra book information
+    တစ်ခုရှိပါတယ်။ နောက် Media table မှာရှိတဲ့ Genre ID ကို genre ID and the genre တို့ပါတဲ့ genre table နဲ့ link
+    လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို many to one relationship လို့ခေါ်ပါတယ်။ Many media items ဟာ one genre တစ်ခုကိုပဲ link
+    လုပ်တာဖြစ်ပါတယ်။ ဒါပေမဲ့ multiple genres တွေပါအောင် ဒီ relationship ကို change လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို many to many
+    relationship လို့ခေါ်ပါတယ်။ ကျွန်တော်တု့ိရဲ့ media items တစ်ခုချင်းစီနဲ့ associated ဖြစ်တဲ့ many people တွေရှိပါတယ်။
+    ကျွန်တော်တု့ိဟာ အဲ့ဒါတွေကို media table ထဲမှာ a lot of duplication မပါဘဲနဲ့ store လုပ်လို့မရပါဘူး။ Good database
+    design
+    ဟာ duplication ကို minimum တစ်ခုမှာ keeps လုပ်ပေးတာဖြစ်ပါတယ်။ ဥပမာ movie တစ်ခုထဲမှာရှိတဲ့ many actors or stars
+    တွေရှိတယ်ဆိုပါစို့ actors တစ်ခုယောက်ချင်းဟာ many different movies ထဲက role တစ်ခုထဲမှာပါဝင်နိုင်ပါတယ်။
+    ကျွန်တော်တို့ဟာ
+    actor information တွေကို media table ထဲမှာ database ထဲမှာရှိတဲ့ multiple movies အတွက် actor's information တွေကို
+    duplicating မလုပ်ဘဲနဲ့ include မလုပ်နိုင်ပါတယ်။ One movies မှာဆိုရင် many actors တွေရှိနိုင်ပြီးတော့ one actors
+    မှာဆိုရင် many movies တွေရှိနိုင်ပါတယ်။ အဲ့ဒါကို many to many relationship လို့ခေါ်ပါတယ်။
+  </p>
+  <hr>
+  <h1>Querying Multiple Tables with JOIN</h1>
+  <p>
+    ကျွန်တော်တို့ရဲ့ pull catalog array function ဟာ title, category and image တွေနှင့် array တစ်ခုကို returns
+    ပြန်ပေးတာဖြစ်ပါတယ်။ Example မှာရှိတဲ့ details page မှာဆိုရင် information တွေပါတဲ့ other tables ကနေ specific item
+    တွေအကြောင်းကို details ကို pull လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် join တစ်ခုကို
+    အသုံးပြုရမှာဖြစ်ပါတယ်။
+    အဲ့ဒါဟာ multiple tables မှာရှိတဲ့ data တွေကို အတူတကွ combining or joining လုပ်ဖို့ရန်အတွက် method တစ်ခုပဲဖြစ်ပါတယ်။
+    Example မှာဆိုရင် first အနေနဲ့ full catalog array ကို duplicating လုပ်ရမှာဖြစ်ပါတယ်။ နောက် media table မှာ ကျန်တဲ့
+    column တွေကို select လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ genres table မှာ joint တစ်ခုကို add
+    လုပ်ရမှာဖြစ်ပါတယ်။
+    အဲ့မှာဆိုရင် Medial table နှင့် Gener table တို့ကို သူ့တို့ရဲ့ id နဲ့ join လုပ်ထားတာဖြစ်ပါတယ်။ Media items အားလုံးဟာ
+    books မဟုတ်ပါဘူး။ အဲ့ဒါကြောင့် book tables ထဲမှာလည်း သူတို့ရဲ့ details တွေမရှိပါဘူး။ ကျွန်တော်တို့ဟာ OUTER JOIN
+    ကိုအသုံးပြုနိုင်ပါတယ်။ ဒါဟာဆိုရင် books table ထဲမှာရှိတဲ့ details တွေကို select လုပ်ဖို့ရန် allow လုပ်ပေးပါတယ်။
+    နောက်ကျွန်တော်တို့ဟာ books table ကနေ optionally အရ data တွေကို pull လုပ်ချင်တဲ့ဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ
+    books
+    details ကို ကျွန်တော်တု့ိရဲ့ media ID နဲ့ matches up ဖြစ်တဲ့ data တွေကို pull လုပ်ချင်တာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code> 
+      function single_catalog_array($id){
+      include "connection.php";
+      
+      try {
+      $result = $db->query("
+      SELECT media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media = $id"
+      );
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $result->fetch();
+      return $catalog;
+      }
+      
+      var_dump(single_catalog_array(1));
+    </code>
+  </pre>
+  <hr>
+  <h1>Understanding SQL Injections</h1>
+  <p>
+    ကျွန်တော်တို့ အခု section မှာ attribute တစ်ခုအနေနဲ့ ID ကို accept လုပ်ဖို့ရန်အတွက် ကျွန်တော်တု့ိရဲ့ single item
+    array
+    ကို set up လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ ID ဟာ browser ထဲမှာရှိတဲ့ query string ကနေလာတဲ့ ID ပဲဖြစ်ပါတယ်။ Visitor
+    တစ်ယောက်ဟာ
+    detailsphp?id=1 လို့ type လုပ်လိုက်တဲ့အချိန်မှာ အဲ့ 1 ဟာ single item array function ထဲကို passes
+    လုပ်သွားမှာဖြစ်ပါတယ်။
+    Function ဟာ database ကို query လုပ်ဖို့ရန်အတွက် အဲ့ 1 ကို အသုံးပြုမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ someone ဟာ
+    details.php?id=2;DROP
+    TABLE Media လို့ type လုပ်နိုင်ပါတယ်။ တစ်ကယ်လို့simple select query ထဲမှာ inserted လုပ်ထားတဲ့ whole string ဟာ သူ့ကို
+    executed မလုပ်ခင်မှာရှိနေတဲ့အခါမှာ Query ဟာဆိုရင် "SELECT * FROM Media WHERE media_id=1; "
+    ဆိုပြီးဖြစ်သွားမှာဖြစ်ပါတယ်။
+    အဲ့ semi colon လေးဟာ query နှစ်ခုကြားမှာရှိလာမှာဖြစ်ပါတယ်။ တစ်ခုဟာ item information တွေကို retrieve လုပ်ပြီးတော့
+    နောက်တစ်ခုကတော့ media table တစ်ခုလုံးကို drop လုပ်လိုက်မှာဖြစ်ပါတယ်။ ဒီ queries နှစ်ခုလုံးဟာ executed
+    လုပ်မှာဖြစ်ပါတယ်။
+    အဲ့မှာဆိုရင် database ကနေပြီးတော့ media table အားလုံးကို remove လုပ်လိုက်မှာဖြစ်ပါတယ်။ ဒီလို attack ကို SQL
+    injection
+    လို့ခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ another query ဟာ run လုပ်လို့ဖို့ရန်အတွက် intended လုပ်လို့မရနိုင်ပါဘူး။ အဲ့ဒါဟာ
+    ကျွန်တော်တို့ရဲ့ code ထဲမှာ injected ဖြစ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ code အပြင်ဘက်က values တွေနဲ့ dealing
+    လုပ်တဲ့အခါမှာ filter input, and escape output ဆိုတဲ့ rules နှစ်ခုကို တွေ့ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့အဲ့နှစ်ခုကို
+    suggest form မှာအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ Example မှာဆိုရင် places နှစ်ခုမှာ filter လုပ်သွားမှာဖြစ်ပါတယ်။
+    အဲ့နှစ်ခုလုံးဟာ ကျွန်တော်တို့ရဲ့ database ကို query လုပ်တဲ့အချိန်မှာ user data တွေကို receive လုပ်ပေးမှာဖြစ်ပါတယ်။
+    Example မှာရှိတဲ့ details.php ထဲမှာဆိုရင် ကျွန်တော်တို့ရဲ့ code ဟာ queries string ကနေပြီးတော့ id အတွက် value
+    တစ်ခုကို
+    get variable ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ ဒီ variable ဟာ input ကို considered လုပ်မှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် သူဟာ
+    ကျွန်တော်တု့ိ code ရဲ့ outside somewhere ကနေ လာမှာဖြစ်ပါတယ်။ Example မှာရှိတဲ့ id ဟာ integer ဖြစ်ပါတယ်။
+    ကျွန်တော်တို့ဟာ
+    sql injection ကို အလုပ်လုပ်ဖို့ရန်အတွက်ဆိုရင် integer တစ်ခုထက်ပိုတဲ့ something ရှိအောင် id ကို specified
+    လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင် suggest form မှာအတိုင်း filter_input function ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ နောက်
+    single_item_array function call ကို details file ထဲမှာ move လုပ်ပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      if (isset($_GET["id"])) {
+      $id = filter_input(INPUT_GET,"id",FILTER_SANITIZE_NUMBER_INT);
+      $item = single_item_array($id);
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Preparing SQL Statements</h1>
+  <p>
+    အခု section မှာတော့ ကျွန်တော်တု့ိရဲ့ function ထဲမှာ PDO class ရဲ့ new method တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+    အဲ့ဒါဟာ
+    ကျွန်တော်တို့ရဲ့ query ကို SQL inject တစ်ခုရဲ့ subject မဖြစ်အောင်ပြုလုပ်ပေးပါတယ်။ အဲ့ဒါကတော့ prepare method
+    ပဲဖြစ်ပါတယ်။
+    Prepare method ကို query လိုပဲ pass လုပ်နိုင်ပါတယ်။ အဲ့လို pass လုပ်လိုက်ဖြင့် သူဟာ run လုပ်မှာမဟုတ်သေးပါဘူး။ နောက်
+    place of ID ထဲမှာ placeholder တစ်ခုကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် couple of ways
+    ရှိပါတယ်။
+    အဲ့ ways တွေကို prepare methods documentation မှာ လေ့လာနိုင်ပါတယ်။ Example မှာဆိုရင် အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက်
+    question mark တစ်ခုနဲ့ လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ question mark ဟာ unnamed placeholder ကို considered
+    လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် results variable ဟာ PDO statement object တစ်ခုဖြစ်နေတုန်းပဲဖြစ်ပါတယ်။ ဒါပေမဲ့
+    statement
+    ဟာ run လုပ်သေးမှာမဟုတ်ပါဘူး။ အဲ့မှာဆိုရင် result မရှိတဲ့ အတွက်ကြောင့် fetch လုပ်ဖို့လည်းရမှာမဟုတ်ပါဘူး။ အဲ့ဒါကြောင့်
+    ကျွန်တော်တု့ိ သူ့ကို run မလုပ်ခင်မှာID ကို ဘယ်နေရမှာ placeholder ထဲမှာ အသုံးပြုမယ်ဆိုတာလုပ်ဆောင်ရမှာဖြစ်ပါတယ်။
+    အဲ့ဒါကို
+    လုပ်ဆောင်ဖို့ရန်အတွက် အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် results object မှာ method တစ်ခုကို calling လုပ်ရမှာဖြစ်ပါတယ်။
+    အဲ့
+    method ကတော့ bindParam() ပဲဖြစ်ပါတယ်။ ဒါဟာ bind parameter ရဲ့ short ဖြစ်ပြီးတော့ သူ့ကို SQL statement ထဲမှာ
+    placeholders
+    တစ်ခုအနေနဲ့ variable and parameter တို့ကို connect လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်ပါတယ်။ ဒီ method ဟာဆိုရင် arguments
+    နှစ်ခုကို receives လုပ်ပါတယ်။ အဲ့ဒါတွေဟာ optional data type တစ်ခုပဲဖြစ်ပါတယ်။ First argument ဟာ placeholder ကို
+    reference လုပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ unnamed placeholders နှင့် number of placeholder ကို specify
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ 1 ပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တု့ိဟာ first parameter ကိုပဲ
+    bind
+    လုပ်ချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ဘာလဲဆိုတော့ question mark တစ်ခုပဲဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Second argument
+    ကတော့ placeholder မှာ ကျွန်တော်တို့ bind လုပ်ချင်တဲ့ variable တစ်ခုကို reference လုပ်တာပဲဖြစ်ပါတယ်။ Example
+    မှာဆိုရင်တော့ id ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ parameter တစ်ခုကို bound လုပ်ပြီးတဲ့အခါမှာ query ကို execute method ကို
+    calling လုပ်ပြီးတော့ run လုပ်နိုင်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      function single_item_array($id){
+      include "connection.php";
+      try {
+      $results = $db->prepare(
+      "SELECT Media.media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media_id = ?"
+      );
+      $results->bindParam(1, $id, PDO::PARAM_INT);
+      $results->execute();
+    </code>
+  </pre>
+  <hr>
+  <h1>Adding a Secondary Query</h1>
+  <p>
+    ကျွန်တော်တု့ိရဲ့ single_item_array function မှာဆိုရင် Media table, Genre table and books table ကနေပြီးတော့ data
+    တွေကို
+    retrieves လုပ်တဲ့ query တစ်ခုပဲရှိပါတယ်။ ဒါပေမဲ့ အဲ့ဒါဟာ data တွေဟာ exists ဖြစ်နေမှာ retrieves လုပ်မှာဖြစ်ပါတယ်။ အခု
+    section မှာ item နှင့် associated ဖြစ်တဲ့ people တွေကို retrieve လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ people တွေနဲ့
+    သူတို့ရဲ့ roles တွေကို item array ထဲမှာ သူတို့ ဝင်လာတဲ့ format အတိုင်း add လုပ်ဖို့လိုပါတယ်။ အဲ့အတွက်
+    ကျွန်တော်တို့ဟာ
+    query တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာ ကျွန်တော်တို့ဟာ columns နှစ်ခုကိုပဲ select လုပ်ချင်တာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      function single_item_array($id){
+      include "connection.php";
+      try {
+      $results = $db->prepare(
+      "SELECT Media.media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media_id = ?"
+      );
+      $results->bindParam(1, $id, PDO::PARAM_INT);
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      $item = $results->fetch();
+      if(empty($item)) return $item;
+      try {
+      $results = $db->prepare(
+      "SELECT fullname, role
+      FROM Media_People
+      JOIN People ON Media_People.people_id = People.people_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media_People.media_id = ?"
+      );
+      $results->bindParam(1, $id, PDO::PARAM_INT);
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      return $item;
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Fetching in a While Loop</h1>
+  <p>
+    ကျွန်တော်တို့မှာ people and roles တို့ကို result object ထဲမှာ ရှိနေပြီဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ results တွေကို item
+    variable ထဲမှာ add လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက် fetch method ကို authors တွေအားလုံးကို retrieve လုပ်ဖို့ရန်အတွက်
+    အသုံးပြုနိုင်ပါတယ်။ ဒါပေမဲ့ သူတို့ဟာ ကျွန်တော်တို့လိုချင်တဲ့ format အတိုင်း တော့ဟုတ်မှာမဟုတ်ပါဘူး။
+    ဘာကြောင့်လဲဆိုတော့
+    author တစ်ယောက်ချင်းဟာ database ထဲမှာရှိတဲ့ row တစ်ခုဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Fetch all ဟာဆိုရင် author
+    တစ်ခုယောက်ချင်းစီအတွက် whole array တစ်ခုလုံးကို ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ simple array တစ်ခုအပြင် anything ကို
+    results လိုချင်တဲ့အခါမှာ while loop တစ်ခုကို add လုပ်ပေးဖို့လိုပါတယ်။ While loop ဟာဆိုရင် results တွေကို
+    တစ်ကြိမ်ထဲမှာ
+    through လုပ်ပြီးတော့ ကျွန်တော်တို့ လိုချင်တဲ့ format အတိုင်းထွက်လာပေးမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တု့ိဟာ
+    row
+    အားလုံးကို တစ်ကြိမ်ထဲမှာ statement ကို while loop တစ်ခုထဲမှာ wrapping လုပ်ခြင်းဖြင့် fetch လုပ်နိုင်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      function full_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $results = $db->query("SELECT media_id, title, category,img FROM Media");
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results->fetchAll();
+      return $catalog;
+      }
+      function single_item_array($id){
+      include "connection.php";
+      try {
+      $results = $db->prepare(
+      "SELECT Media.media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media_id = ?"
+      );
+      $results->bindParam(1, $id, PDO::PARAM_INT);
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      $item = $results->fetch();
+      if(empty($item)) return $item;
+      try {
+      $results = $db->prepare(
+      "SELECT fullname, role
+      FROM Media_People
+      JOIN People ON Media_People.people_id = People.people_id
+      WHERE Media_People.media_id = ?"
+      );
+      $results->bindParam(1, $id, PDO::PARAM_INT);
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      while($row = $results->fetch(PDO::FETCH_ASSOC)){
+      $item[$row["role"]] [] = $row["fullname"];
+      }
+      return $item;
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Getting Specific with Queries</h1>
+  <p>
+    ကျွန်တော်တို့ အခု section မှာ ကျွန်တော်တို့ လိုချင်တဲ့ items ကိုပဲ first place မှာ retrieve လုပ်ဖို့ရန်အတွက်
+    functions
+    တွေဟာ သူတို့ရဲ့ won queries ကို အသုံးပြုဖို့ရန်အတွက် modify လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ sequel
+    specific
+    features ကိုအသုံးပြုဖို့ရန်အတွက် number of different ways တွေရှိပါတယ်။ Example limits, ordering, and aggregate
+    functions
+    တို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် sql ကိုအသုံးပြုပြီးတော့ home page အတွက် four random items ကို grab
+    လုပ်သွားမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      function random_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $results = $db->query(
+      "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY RANDOM()
+      LIMIT 4"
+      );
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results->fetchAll();
+      return $catalog;
+      }
+    </code>
+  </pre>
+  <a href="../phpexample/integratephpdatabase/index.php">Test Yourself</a>
+  <hr>
+  <h1>Filtering Data by Category</h1>
+  <p>
+    ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ လိုချင်အပ်သလောက်ပဲ items တွေ pull လုပ်တာကို create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခု
+    section မှာလည်း category pages မှာ ကျွန်တော်တို့ဟာ specific category တစ်ခုထဲမှာ items တွေကိုပဲ pull
+    လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် full_catalog_array ကို နောက်ထပ် copy လုပ်ပြီးတော့ name ကို category_catalog_array
+    ဆိုပြီးတော့ ပြောင်းပေးထားပါတယ်။ First အနေနဲ့ ကျွန်တော်တု့ိ လုပ်ဆောင်ရမှာကတော့ category ဖြင့် filter
+    လုပ်ရမှာဖြစ်ပါတယ်။
+    နောက် query ကို prepare method ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် bindParam ကို လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။
+    အဲ့မှာဆိုရင် first argument ကို 1 ကိုအသုံးပြုခဲ့ရမှာဖြစ်ပါတယ်။ နောက် second argument ကို category variable ကို
+    အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် category ဟာဆိုရင် database ထဲမှာ capitalized stored လုပ်ထားတာဖြစ်ပါတယ်။ ပြီးတော့
+    ကျွန်တော်တို့ passing လုပ်လိုက်တဲ့ category ဟာ lowercase ဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် safe ဖြစ်ဖို့ရန်အတွက် functions
+    နှစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ တစ်ခုက SQL မှာ တစ်ခုက PHP မှာဖြစ်ပါတယ်။ PHP ဆိုရင်တော့ ကျွန်တော်တို့ ပြီးခဲ့တဲ့
+    section မှာ လုပ်ခဲ့သလိုပဲ strtolower ဆိုတာကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ passing လုပ်လိုက်တဲ့
+    category ဟာဆိုရင် lowercase ဖြစ်တယ်ဆိုတာကို သေချာအောင်ပြုလုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ function အတွက် SQL version
+    မှာဆိုရင်တော့ lower ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိရဲ့ data type ကို specify လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက်
+    PDO::PARAM_STR ကို string အတွက် အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ ဒီ new function ကို catalog page မှာ call
+    လုပ်ပြီးတော့ things တွေကို test လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် if statement တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    နောက်ထပ်ကျွန်တော်တို့ဟာ items တွေကို alphabetically အရ sorted လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် ORDER BY statement
+    ကို
+    SQL ထဲမှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ a, an and the ဆိုတဲ့ prepositions တွေကို remove
+    လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် REPLACE function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် REPLACE ဟာ case sensitive
+    ဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် capitalized ရဲ့ any occurrence ကို empty string တစ်ခုနဲ့ replace လုပ်နိုင်ပါတယ်။ နောက် a and
+    an
+    အတွက် nested replace ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ previous replace ကို ပေါ်မှာ next
+    operation ကိုလုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <h3>function.php</h3>
+  <pre>
+    <code>
+      &lt;?php
+      function full_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $results = $db-&gt;query(
+      "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )"
+      );
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function category_catalog_array($category){
+      include "connection.php";
+      $category=strtolower($category);
+      try {
+      $results = $db-&gt;query(
+      "SELECT media_id, title, category,img
+      FROM Media
+      WHERE LOWER(category) =?
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )"
+      );
+      $results-&gt;bindParam(1,$category, PDO::PARAM_STR);
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function random_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $results = $db-&gt;query(
+      "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY RANDOM()
+      LIMIT 4"
+      );
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function single_item_array($id){
+      include "connection.php";
+      try {
+      $results = $db-&gt;prepare(
+      "SELECT Media.media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media_id = ?"
+      );
+      $results-&gt;bindParam(1, $id, PDO::PARAM_INT);
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      $item = $results-&gt;fetch();
+      if(empty($item)) return $item;
+      try {
+      $results = $db-&gt;prepare(
+      "SELECT fullname, role
+      FROM Media_People
+      JOIN People ON Media_People.people_id = People.people_id
+      WHERE Media_People.media_id = ?"
+      );
+      $results-&gt;bindParam(1, $id, PDO::PARAM_INT);
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      while($row = $results-&gt;fetch(PDO::FETCH_ASSOC)){
+      $item[$row["role"]] [] = $row["fullname"];
+      }
+      return $item;
+      }
+      
+      function get_item_html($item) {
+      $output = "&lt;li&gt;&lt;a href='details.php?id="
+      . $item["media_id"] . "'&gt;&lt;img src='"
+      . $item["img"] . "' alt='"
+      . $item["title"] . "' /&gt;"
+      . "&lt;p&gt;View Details&lt;/p&gt;"
+      . "&lt;/a&gt;&lt;/li&gt;";
+      return $output;
+      }
+      
+      function array_category($catalog,$category) {
+      $output = array();
+      
+      foreach ($catalog as $id =&gt; $item) {
+      if ($category == null OR strtolower($category) == strtolower($item["category"])) {
+      $sort = $item["title"];
+      $sort = ltrim($sort,"The ");
+      $sort = ltrim($sort,"A ");
+      $sort = ltrim($sort,"An ");
+      $output[$id] = $sort;
+      }
+      }
+      
+      asort($output);
+      return array_keys($output);
+      }
+    </code>
+  </pre>
+  <h3>catalog.php</h3>
+  <pre>
+    <code>
+      &lt;?php
+      include("inc/functions.php");
+      
+      $pageTitle = "Full Catalog";
+      $section = null;
+      
+      if (isset($_GET["cat"])) {
+      if ($_GET["cat"] == "books") {
+      $pageTitle = "Books";
+      $section = "books";
+      } else if ($_GET["cat"] == "movies") {
+      $pageTitle = "Movies";
+      $section = "movies";
+      } else if ($_GET["cat"] == "music") {
+      $pageTitle = "Music";
+      $section = "music";
+      }
+      }
+      if(empty($section)){
+      $catalog = full_catalog_array();
+      } else{
+      $catalog = category_catalog_array($section);
+      }
+      
+      include("inc/header.php"); ?&gt;
+      
+      &lt;div class="section catalog page"&gt;
+      
+      &lt;div class="wrapper"&gt;
+      &lt;h1&gt;&lt;?php
+      if ($section != null) {
+      echo "&lt;a href='catalog.php'&gt;Full Catalog&lt;/a&gt; &gt; ";
+      }
+      echo $pageTitle; ?&gt;&lt;/h1&gt;
+      
+      &lt;ul class="items"&gt;
+      &lt;?php
+      foreach ($catalog as $item) {
+      echo get_item_html($item);
+      }
+      ?&gt;
+      &lt;/ul&gt;
+      
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;?php include("inc/footer.php"); ?&gt;
+    </code>
+  </pre>
+  <h3>index.php</h3>
+  <pre>
+    <code> 
+      &lt;?php
+      include("inc/functions.php");
+      
+      $pageTitle = "Personal Media Library";
+      $section = null;
+      
+      include("inc/header.php"); ?&gt;
+      &lt;div class="section catalog random"&gt;
+      
+      &lt;div class="wrapper"&gt;
+      
+      &lt;h2&gt;May we suggest something?&lt;/h2&gt;
+      
+      &lt;ul class="items"&gt;
+      &lt;?php
+      $random = random_catalog_array();
+      foreach ($random as $item) {
+      echo get_item_html($item);
+      }
+      ?&gt;
+      &lt;/ul&gt;
+      
+      &lt;/div&gt;
+      
+      &lt;/div&gt;
+      
+      &lt;?php include("inc/footer.php"); ?&gt;
+    </code>
+  </pre>
+  <a href="../phpexample/integratephpdatabase/catalog.php">Test Yourself</a>
+  <hr>
+  <h1>Setting Up Pagination Variables</h1>
+  <p>
+    အခု section မှာတော့ pagination ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ Pagination ဟာဆိုရင် ကျွန်တော်တို့ကို multiple pages
+    တွေကို
+    across လုပ်ပြီးတော့ ကျွန်တော်တို့ရဲ့ results တွေကို split လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ရဲ့ site
+    မှာ
+    pagination ကို add လုပ်ဖို့ရန်အတွက် သိထားဖို့ရန် လိုအပ်တဲ့ things 3 ခုရှိပါတယ်။ Firs, ကျွန်တော်တို့ဟာ total items
+    ဘယ်လောက်ရှိတယ်ဆိုတာကို သိထားရမှာဖြစ်ပါတယ်။ အဲ့ဒါမှာ ကျွန်တော်တု့ိဟာ items တွေရဲ့ pages ဟာ ဘယ်လောက်ရှိရမယ်ဆိုတာကို
+    figured out လုပ်လို့ရမှာဖြစ်ပါတယ်။ Second, နောက် ကျွန်တော်တို့ဟာ page တစ်ခုမှာ ဘယ်လောက် items ကို display
+    လုပ်ချင်တယ်ဆိုကို သိထားရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ visitor ဟာ item ရဲ့ pages တွေကိုဖြစ်ပြီးတော့ moves
+    လုပ်သွားအချိန်မှာ visitor တွေ viewing လုပ်တဲ့ page ရဲ့ track ကို keep လုပ်ထားဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် catalog.php
+    ထဲမှာ page တစ်ခုရှိတဲ့ number of items ကို define လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် page number တစ်ခုကို GET variable
+    ကိုအသုံးပြုပြီးတော့ passing လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ GET variable ကို check လုပ်ဖို့ရန်အတွက်
+    အသုံးပြုပေးလို့ရပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ input ကို sure ဖြစ်ဖို့ filter_input ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    ကျွန်တော်တို့ဟာ current page ကို တစ်ကြိမ်ပဲ set လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် if statement
+    နောက်တစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ total number ကို သိဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+    database
+    ကို queries လုပ်တဲ့ new function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ဟာ count ကိုပဲ return
+    ပြန်ပေးမှာဖြစ်ပါတယ်။ Function name ကတော့ get_catalog_count ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ catalog page
+    တစ်ခုထဲမှာလည်း ဖြစ်နိုင်သလို full catalog page ထဲမှာလည်း ဖြစ်နိုင်ပါတယ်။ အဲ့ဒါကြောင့် category parameter ကို
+    optional
+    ဖြစ်အောင်လုပ်ပေးရမှာဖြစ်ပါတယ်။ Parameter တစ်ခုကို optional အနေနဲ့ specify လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ သူ့ကို
+    function ထဲမှာ setting up လုပ်တဲ့အခါမှာ default တစ်ခုကို ပေးခဲ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် $category ထဲမှာ null ကို
+    အသုံးပြုခဲ့တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ category ထဲမှာ pass မလုပ်ဘူးဆိုရင် သူဟာ null ကို set
+    လုပ်ပေးမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      function get_catalog_count($category = null){
+      $category = strtolower($category);
+      include "connection.php";
+      try{
+      $sql ="SELECT COUNT(media_id) FROM Media";
+      if(!empty($category)){
+      $results = $db->prepare(
+      $sql.
+      " WHERE LOWER(category)");
+      $results->bindParam(1,$category, PDO::PARAM_STR);
+      } else{
+      $results = $db->prepare($sql);
+      }
+      $results->execute();
+      } catch (Exception $e){
+      echo "bad query";
+      }
+      $count= $results->fetchColun(0);
+      return $count;
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Calculations and Links</h1>
+  <p>
+    အခု ကျွန်တော်တို့ဟာ basic parameters တွေကို set up လုပ်ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ couple calculations တွေကို
+    လုပ်ဆောင်ဖို့လိုပါသေးတယ်။ First အနေနဲ့ total number of pages ကို calculate လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်total
+    number ကို page တစ်ချင်းစီမှာရှိတဲ့ items အရေအတွက် divide လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ဒါကို ကျွန်တော်တို့ဟာ
+    next
+    highest integer value ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ အဲ့ value ကို rounding up လုပ်ပေးဖို့လည်းလိုပါသေးတယ်။
+    အဲ့ဒါအတွက်
+    ceil လို့ခေါ်တဲ့ built in function တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ calculation ကို
+    ceil
+    function နဲ့ surround လုပ်ပေးထားတာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ current page အတွက် items ဘယ်လောက်ကို skip
+    လုပ်မယ်ဆိုတာကို
+    find out လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် items per page ဟာ 8 ဖြစ်ပါတယ်။ နောက် page 2 အတွက်ဆိုရင်
+    ကျွန်တော်တို့ဟာ
+    first 8 items ကို skip လုပ်လိုက်မှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      $total_pages = ceil($total_items / $items_per_page);
+      
+      // limit results in redirect
+      $limit_results = "";
+      if(!empty($section)){
+      $limit_results = "cat=" . $section . "&";
+      }
+      
+      // redirect too-large page number to the last page
+      
+      if($current_page > $total_pages){
+      header("location:catalog.php?"
+      . $limit_results
+      . "pg=" . $total_pages);
+      }
+      
+      // redirect tool-small page numbers to the first page
+      if ($current_page &lt; 1){ header("location:catalog.php" . $limit_results . "pg=1" ); }
+
+      // determine the offset  (number of items to skip) for the current page 
+      // for example" on page 3 with 8 items per page, offset would be 16
+
+      $offset = ($current_page - 1) * $items_per_page;
+
+    </code>
+  </pre>
+  <hr>
+  <h1>Setting LIMITs</h1>
+  <p>
+    Pagination အတွက် variables အားလုံးကို set လုပ်ပြီးပြီဖြစ်ပါတယ်။ အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ limits ကို
+    adding
+    လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တု့ိဟာ page တစ်ခုချင်းစီမှာ show လုပ်မဲ့ items တွေရဲ့number ကို limiting
+    သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် limits ကို ကျွန်တော်တို့ရဲ့ catalog calls မှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ
+    database
+    ကို limited လုပ်ထားတဲ့ items တွေကိုပဲ return ပြန်ပါဆိုပြီးတော့ ပြောလိုက်တာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ function
+    page မှာ catalog array ထဲကို some optional arguments တွေကို add လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါတွေကိုတော့ $limit = null,
+    $offset= 0 တို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် parameter တစ်ခု ၊ default value တစ်ခုကို ပေးတာဟာ ကျွန်တော်တို့ဟာ argument
+    ကို
+    passed လုပ်စရာမလိုပါဘူး။ ကျွန်တော်တို့ဟာ full catalog array function ကို calls လုပ်မယ်ဆိုရင် ဒီ arguments တွေကို
+    passing
+    လုပ်စရာမလိုပါဘူး။ ကျွန်တော်တို့မှာ limit လုပ်ထားတာမရှိဘူးဆိုရင် ကျွန်တော်တို့ရဲ့ catalog ထဲမှာ items တွေအားလုံးကို
+    return ပြန်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် limits ကို SQL statement ထဲမှာ add လုပ်ဖို့ လိုပါတယ်။ နောက် ကျွန်တော်တို့
+    method ကို prepare method ကို change လုပ်ပြီးတော့ execute တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့
+    conditional တစ်ခုကို အသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ limits ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိဟာ
+    category catalog array function မှာလည်း changes လုပ်ဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် optional parameters တွေဖြစ်တဲ့ $limit
+    and
+    $offset တို့ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ function ကို set up လုပ်ပြီးတဲ့အခါမှာ $limit and $offset
+    ထဲကို
+    pass လုပ်ပေးဖို့လိုပါတယ်။ နောက် အဲ့ဒါကို category catalog array မှာလည်း add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <h3>function.php</h3>
+  <pre>
+    <code>
+      function full_catalog_array( $limit = null, $offset = 0){
+      include "connection.php";
+      
+      try {
+      $sql = "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )";
+      if (is_integer($limit)){
+      $results = $db->prepare($sql . " LIMIT ? OFFSET ?");
+      $results->bindParam(1,$limit, PDO::PARAM_INT);
+      $results->bindParam(2,$offset, PDO::PARAM_INT);
+      } else{
+      $results = $db->prepare($sql);
+      }
+      
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results->fetchAll();
+      return $catalog;
+      }
+      function category_catalog_array($category, $limit = null, $offset = 0){
+      include "connection.php";
+      $category=strtolower($category);
+      try {
+      $sql="SELECT media_id, title, category,img
+      FROM Media
+      WHERE LOWER(category) =?
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )";
+      if (is_integer($limit)){
+      $results = $db->prepare($sql . " LIMIT ? OFFSET ?");
+      $results->bindParam(1,$category, PDO::PARAM_STR);
+      $results->bindParam(2,$limit, PDO::PARAM_INT);
+      $results->bindParam(3,$offset, PDO::PARAM_INT);
+      } else{
+      $results->bindParam(1,$category, PDO::PARAM_STR);
+      }
+      $results->execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results->fetchAll();
+      return $catalog;
+      }
+    </code>
+  </pre>
+  <h3>catalog.php</h3>
+  <pre>
+    <code>
+      if(empty($section)){
+      $catalog = full_catalog_array($items_per_page, $offset);
+      } else{
+      $catalog = category_catalog_array($section,$items_per_page, $offset);
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Adding Pagination Links</h1>
+  <p>
+    အခု section မှာတော့ pagination links တွေကို adding လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ul ရဲ့ ပေါ်မှာရော အောက်မှာပါ
+    pagination link ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ page numbers တွေကို calculate
+    လုပ်ဖို့ရန်အတွက် for loop ကို အသုံးပြုထားတာဖြစ်ပါတယ်။
+  </p>
+  <h3>catalog.php</h3>
+  <pre>
+    <code>
+      &lt;?php
+      include("inc/functions.php");
+      $items_per_page = 8;
+      $pageTitle = "Full Catalog";
+      $section = null;
+      
+      if (isset($_GET["cat"])) {
+      if ($_GET["cat"] == "books") {
+      $pageTitle = "Books";
+      $section = "books";
+      } else if ($_GET["cat"] == "movies") {
+      $pageTitle = "Movies";
+      $section = "movies";
+      } else if ($_GET["cat"] == "music") {
+      $pageTitle = "Music";
+      $section = "music";
+      }
+      }
+      if (isset($_GET["pg"])){
+      $current_page= filter_input(INPUT_GET,"pg",FILTER_VALIDATE_INT);
+      }
+      
+      if(empty($current_page)){
+      $current_page=1;
+      }
+      
+      $total_items = get_catalog_count($section);
+      $total_pages = ceil($total_items / $items_per_page);
+      
+      // limit results in redirect
+      $limit_results = "";
+      if(!empty($section)){
+      $limit_results = "cat=" . $section . "&";
+      }
+      
+      // redirect too-large page number to the last page
+      
+      if($current_page &gt; $total_pages){
+      header("location:catalog.php?"
+      . $limit_results
+      . "pg=" . $total_pages);
+      }
+      
+      // redirect tool-small page numbers to the first page
+      if ($current_page &lt; 1){
+      header("location:catalog.php"
+      . $limit_results
+      . "pg=1");
+      }
+      
+      // determine the offset (number of items to skip) for the current page
+      // for example" on page 3 with 8 items per page, offset would be 16
+      
+      $offset = ($current_page - 1) * $items_per_page;
+      
+      
+      if(empty($section)){
+      $catalog = full_catalog_array($items_per_page, $offset);
+      } else{
+      $catalog = category_catalog_array($section,$items_per_page, $offset);
+      }
+      
+      $pagination = "&lt;div class=\"pagination\"&gt;";
+      $pagination .= "Pages: ";
+      for( $i = 1; $i&lt;= $total_pages; $i++){
+      if($i == $current_page){
+      $pagination .= " &lt;span&gt;$i&lt;/span&gt;";
+      } else {
+      $pagination .= " &lt;a href='catalog.php?";
+      if(!empty($section)) {
+      $pagination .= "cat=".$section."&";
+      }
+      $pagination .= "pg=$i'&gt; $i&lt;/a&gt;";
+      }
+      }
+      $pagination .= "&lt;/div&gt;";
+      
+      
+      include("inc/header.php"); ?&gt;
+      
+      &lt;div class="section catalog page"&gt;
+      
+      &lt;div class="wrapper"&gt;
+      &lt;h1&gt;&lt;?php
+      if ($section != null) {
+      echo "&lt;a href='catalog.php'&gt;Full Catalog&lt;/a&gt; &gt; ";
+      }
+      echo $pageTitle; ?&gt;&lt;/h1&gt;
+      &lt;?php echo $pagination; ?&gt;
+      &lt;ul class="items"&gt;
+      &lt;?php
+      foreach ($catalog as $item) {
+      echo get_item_html($item);
+      }
+      ?&gt;
+      &lt;/ul&gt;
+      &lt;?php echo $pagination; ?&gt;
+      
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;?php include("inc/footer.php"); ?&gt;
+    </code>
+  </pre>
+  <hr>
+  <h1>Challenge</h1>
+  <p>
+    ကျွန်တော်တု့ိ PHP and database အကြောင်းကို အတော်ကြာလေ့လာခဲ့ကြပြီးဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ functions queries,
+    conditional
+    statements and loops တို့ပဲဖြစ်ပါတယ်။ ဒါတွေဟာအမှန်တကယ်တော့ database ကနေပြီးတော့ form drop down အတွက် genre ကို pull
+    လုပ်ဖို့ရန်အတွက် enough ဖြစ်နေပြီဖြစ်ပါတယ်။ အခု challenge တော့ genres drop down အတွက် database ကို
+    အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် several things တွေလိုအပ်ပါတယ်။ First ကျွန်တော်တို့ဟာ database
+    ကနေပြီးတော့ genres အားလုံးကို pull လုပ်ဖို့လိုပြီးတော့ သူတို့ကို alphabetically အရ sorted လုပ်ထားဖို့လိုပါတယ်။ နောက်
+    သူတို့ကို category အလိုက် grouped လုပ်ထားပေးရမှာဖြစ်ပါတယ်။ Second, ကျွန်တော်တို့ ဒီ results တွေကို loop through
+    လုပ်ပြီးတော့ genres ရဲ့ drop down အတွက် HTML ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Third, user တွေကနေ form ထဲမှာ posted
+    လုပ်ထားတဲ့ genre အတွက် optional selection တစ်ခုပါဝင်တဲ့ HTML ကို sure ဖြစ်အောင်လုပ်ဖို့လိုပါတယ်။ အဲ့အတွက် comments
+    ဟာဆိုရင် great way တစ်ခုဖြစ်ပါတယ်။ နောက် section မှာတော့ ဒီ challenge ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+  </p>
+  <hr>
+  <h1>Setting Up the Search Form</h1>
+  <p>
+    အခု section မှာတော့ any collection တွေရဲ့ important features တစ်ခုဖြစ်တဲ့ search capabilities ကို add
+    လုပ်သွားမှာဖြစ်ပါတယ်။
+  </p>
+  <h3>header.php</h3>
+  <pre>
+    <code>
+      &lt;div class="search"&gt;
+      &lt;form method="get" action="catalog.php"&gt;
+      &lt;label for="s"&gt; Search: &lt;/label&gt;
+      &lt;input type="text" name="s" id="s" /&gt;
+      &lt;input type="submit" value="go" /&gt;
+      &lt;/form&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <hr>
+  <h1>Matching Search Patterns</h1>
+  <p>
+    ကျွန်တော်တု့ိရဲ့ search form ဟာ ready ဖြစ်နေပြီဖြစ်ပါတယ်။ Visitor ဟာ search term တစ်ခုကို enter လုပ်နိုင်ပြီးတော့
+    အဲ့
+    information ကို ကျွန်တော်တို့ရဲ့ server ဆီကို send လုပ်မှာဖြစ်ပါတယ်။ ဒါပေမဲ့ကျွန်တော်တို့ရဲ့ site ဟာ အခု
+    အလုပ်မလုပ်သေးပါဘူး။ အဲ့ဒါကြောင့် first အနေနဲ့ ကျွန်တော်တို့ရဲ့ catalog page မှာ user input ကို variable တစ်ခုထဲမှာ
+    filter လုပ်ရမှာဖြစ်ပါတယ်။ နောက် အဲ့ variable ကိုအသုံးပြုပြီးတော့ database ထဲမှာ searching လုပ်ရမှာဖြစ်ပါတယ်။
+    ပြီးတော့
+    results ကို display လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် catalog.php file ထဲမှာ search variable တစ်ခုကို null value နဲ့
+    create လုပ်ခဲ့တာဖြစ်ပါတယ်။ နောက် current_page ရဲ့ condition ကို copy လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် get variable ရဲ့
+    name
+    ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။ pg ကနေ s ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် assigning လုပ်တဲ့ variable ကို
+    change
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ search results ကို count လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် get_catalog_count
+    function
+    ကို modify လုပ်ပေးရမှာဖြစ်ပါတယ်။ First အနေနဲ့ လုပ်ရမှာက another optional parameter တစ်ခုကို search အတွက် add
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် another conditional တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ search အတွက် check
+    လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ search term နဲ့ mach ဖြစ်တဲ့အကောင်ကို display လုပ်ပေးမှာဖြစ်ပါတယ်။
+    နောက် bind လုပ်တဲ့အခါမှာ bindParam အစား bindValue ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <h3>function.php</h3>
+  <pre>
+    <code>
+      function get_catalog_count($category = null){
+      $category = strtolower($category);
+      include "connection.php";
+      try{
+      $sql ="SELECT COUNT(media_id) FROM Media";
+      if (!empty($search)){
+      $results = $db->prepare(
+      $sql
+      . "WHER title LIKE ?"
+      );
+      $results->bindValue(1,'%'. $search. '%', PDO::PARAM_STR);
+      }
+      else if(!empty($category)){
+      $results = $db->prepare(
+      $sql.
+      " WHERE LOWER(category)");
+      $results->bindParam(1,$category, PDO::PARAM_STR);
+      } else{
+      $results = $db->prepare($sql);
+      }
+      $results->execute();
+      } catch (Exception $e){
+      echo "bad query";
+      }
+      $count= $results->fetchColumn(0);
+      return $count;
+      }
+    </code>
+  </pre>
+  <h3>catalog.php</h3>
+  <pre>
+    <code>
+      if (isset($_GET["s"])){
+      $search= filter_input(INPUT_GET,"s",FILTER_STR);
+      }
+    </code>
+  </pre>
+  <hr>
+  <h1>Creating the Search Function</h1>
+  <p>
+    အခု section မှာတော့ count function ကို search term ရဲ့ results ကို count လုပ်ဖို့ရန်အတွက် change
+    လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    အဲ့ဒါကြောင့်search term ကိုအသုံးပြုပြီးတော့ items တွေကို pull လုပ်တဲ့ function ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    အဲ့ဒါကြောင့် example မှာဆိုရင် category_catalog_array ကို duplicate လုပ်ထားတာဖြစ်ပါတယ်။ နောက် name ကို
+    search_catalog_array ဆိုပြီးတော့ change လုပ်ပေးထားပါတယ်။ နောက် category variable နေရာမှာ $search ကို
+    အစားသွင်းပေးရမှာဖြစ်ပါတယ်။ နောက် WHERE clause မှာ ကျွန်တော်တို့ပြီးခဲ့တဲ့ section မှာ အတိုင်း
+    လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။
+    နောက် bindParam ကို bindValue ပြောင်းပေးရမှာဖြစ်ပါတယ်။ နောက် catalog.php file ထဲက catalog variable ကို setting up
+    လုပ်ထားတဲ့ထဲမှာ another conditional ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <h3>function.php</h3>
+  <pre>
+    <code>
+      &lt;?php
+      function get_catalog_count($category = null, $search = null){
+      $category = strtolower($category);
+      include "connection.php";
+      $results=null;
+      try{
+      $sql ="SELECT COUNT(media_id) FROM Media";
+      if (!empty($search)){
+      $results = $db-&gt;prepare(
+      $sql
+      . " WHERE title LIKE ?"
+      );
+      $results-&gt;bindValue(1,'%'.$search.'%', PDO::PARAM_STR);
+      }
+      else if(!empty($category)){
+      $results = $db-&gt;prepare(
+      $sql.
+      " WHERE LOWER(category) = ? ");
+      $results-&gt;bindParam(1,$category, PDO::PARAM_STR);
+      } else{
+      $results = $db-&gt;prepare($sql);
+      }
+      
+      } catch (Exception $e){
+      echo "bad query";
+      }
+      $results-&gt;execute();
+      $count= $results-&gt;fetchColumn(0);
+      return $count;
+      }
+      function full_catalog_array( $limit = null, $offset = 0){
+      include "connection.php";
+      
+      try {
+      $sql = "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )";
+      if (is_integer($limit)){
+      $results = $db-&gt;prepare($sql . " LIMIT ? OFFSET ?");
+      $results-&gt;bindParam(1,$limit, PDO::PARAM_INT);
+      $results-&gt;bindParam(2,$offset, PDO::PARAM_INT);
+      } else{
+      $results = $db-&gt;prepare($sql);
+      }
+      
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function search_catalog_array($search, $limit = null, $offset = 0){
+      include "connection.php";
+      try {
+      $sql="SELECT media_id, title, category,img
+      FROM Media
+      WHERE title LIKE ?
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )";
+      if (is_integer($limit)){
+      $results = $db-&gt;prepare($sql . " LIMIT ? OFFSET ?");
+      $results-&gt;bindValue(1,'%'.$search.'%', PDO::PARAM_STR);
+      $results-&gt;bindParam(2,$limit, PDO::PARAM_INT);
+      $results-&gt;bindParam(3,$offset, PDO::PARAM_INT);
+      } else{
+      $results-&gt;bindParam(1,'%'.$search.'%', PDO::PARAM_STR);
+      }
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function category_catalog_array($category, $limit = null, $offset = 0){
+      include "connection.php";
+      $category=strtolower($category);
+      try {
+      $sql="SELECT media_id, title, category,img
+      FROM Media
+      WHERE LOWER(category) =?
+      ORDER BY
+      REPLACE(REPLACE(
+      REPLACE(title,'The ',''),
+      'An ',''
+      ),
+      'A ',''
+      )";
+      if (is_integer($limit)){
+      $results = $db-&gt;prepare($sql . " LIMIT ? OFFSET ?");
+      $results-&gt;bindParam(1,$category, PDO::PARAM_STR);
+      $results-&gt;bindParam(2,$limit, PDO::PARAM_INT);
+      $results-&gt;bindParam(3,$offset, PDO::PARAM_INT);
+      } else{
+      $results-&gt;bindParam(1,$category, PDO::PARAM_STR);
+      }
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function random_catalog_array(){
+      include "connection.php";
+      
+      try {
+      $results = $db-&gt;query(
+      "SELECT media_id, title, category,img
+      FROM Media
+      ORDER BY RANDOM()
+      LIMIT 4"
+      );
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      }
+      $catalog = $results-&gt;fetchAll();
+      return $catalog;
+      }
+      function single_item_array($id){
+      include "connection.php";
+      try {
+      $results = $db-&gt;prepare(
+      "SELECT Media.media_id, title, category, img, format, year, genre, publisher, isbn
+      FROM Media
+      JOIN Genres ON Media.genre_id = Genres.genre_id
+      LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+      WHERE Media.media_id = ?"
+      );
+      $results-&gt;bindParam(1, $id, PDO::PARAM_INT);
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      $item = $results-&gt;fetch();
+      if(empty($item)) return $item;
+      try {
+      $results = $db-&gt;prepare(
+      "SELECT fullname, role
+      FROM Media_People
+      JOIN People ON Media_People.people_id = People.people_id
+      WHERE Media_People.media_id = ?"
+      );
+      $results-&gt;bindParam(1, $id, PDO::PARAM_INT);
+      $results-&gt;execute();
+      } catch (Exception $e) {
+      echo "Unable to retrieved results";
+      exit;
+      }
+      while($row = $results-&gt;fetch(PDO::FETCH_ASSOC)){
+      $item[$row["role"]] [] = $row["fullname"];
+      }
+      return $item;
+      }
+      
+      function genre_array($category = null){
+      $category = strtolower($category);
+      include ("connection.php");
+      
+      try{
+      $sql = "SELECT genre, category"
+      . " FROM Genres "
+      . "JOIN Genre_Categories "
+      . "ON Genres.genre_id = Genre.genre_id ";
+      
+      if(!empty($category)){
+      $results = $db-&gt;prepare($sql
+      . " WHERE LOWER(category) = ?"
+      . " ORDER BY genre");
+      $results-&gt;bindParam(1,$category,PDO::PARAM_STR);
+      } else {
+      $results = $db-&gt;prepare($sql . " ORDER BY genre");
+      }
+      $results-&gt;execute();
+      } catch(Exception $e){
+      echo "bad query";
+      }
+      $genres = array();
+      while ($row = $results -&gt; fetch(PDO::FECTCH_ASSOC)){
+      $genres[$row["category"]][] = $row["genre"];
+      }
+      return $genres;
+      }
+      
+      
+      
+      
+      
+      
+      function get_item_html($item) {
+      $output = "&lt;li&gt;&lt;a href='details.php?id="
+      . $item["media_id"] . "'&gt;&lt;img src='"
+      . $item["img"] . "' alt='"
+      . $item["title"] . "' /&gt;"
+      . "&lt;p&gt;View Details&lt;/p&gt;"
+      . "&lt;/a&gt;&lt;/li&gt;";
+      return $output;
+      }
+      
+      function array_category($catalog,$category) {
+      $output = array();
+      
+      foreach ($catalog as $id =&gt; $item) {
+      if ($category == null OR strtolower($category) == strtolower($item["category"])) {
+      $sort = $item["title"];
+      $sort = ltrim($sort,"The ");
+      $sort = ltrim($sort,"A ");
+      $sort = ltrim($sort,"An ");
+      $output[$id] = $sort;
+      }
+      }
+      
+      asort($output);
+      return array_keys($output);
+      }
+    </code>
+  </pre>
+  <h3>catalog.php</h3>
+  <pre>
+    <code>
+      &lt;?php
+      include("inc/functions.php");
+      $items_per_page = 8;
+      $pageTitle = "Full Catalog";
+      $search = null;
+      $section = null;
+      
+      if (isset($_GET["cat"])) {
+      if ($_GET["cat"] == "books") {
+      $pageTitle = "Books";
+      $section = "books";
+      } else if ($_GET["cat"] == "movies") {
+      $pageTitle = "Movies";
+      $section = "movies";
+      } else if ($_GET["cat"] == "music") {
+      $pageTitle = "Music";
+      $section = "music";
+      }
+      }
+      if (isset($_GET["search"])){
+      $search = filter_input(INPUT_GET,"search", FILTER_SANITIZE_STRING);
+      }
+      if (isset($_GET["pg"])){
+      $current_page= filter_input(INPUT_GET,"pg",FILTER_VALIDATE_INT);
+      }
+      
+      if(empty($current_page)){
+      $current_page=1;
+      }
+      $total_items = get_catalog_count($section,$search);
+      $total_pages = ceil($total_items / $items_per_page);
+      
+      // limit results in redirect
+      $limit_results = "";
+      if(!empty($section)){
+      $limit_results = "cat=" . $section . "&";
+      }
+      
+      // redirect too-large page number to the last page
+      
+      if($current_page &gt; $total_pages){
+      header("location:catalog.php?"
+      . $limit_results
+      . "pg=" . $total_pages);
+      }
+      
+      // redirect tool-small page numbers to the first page
+      if ($current_page &lt; 1){
+      header("location:catalog.php"
+      . $limit_results
+      . "pg=1");
+      }
+      
+      // determine the offset (number of items to skip) for the current page
+      // for example" on page 3 with 8 items per page, offset would be 16
+      
+      $offset = ($current_page - 1) * $items_per_page;
+      
+      if(!empty($search)){
+      $catalog = search_catalog_array($search, $items_per_page, $offset);
+      }else if(empty($section)){
+      $catalog = full_catalog_array($items_per_page, $offset);
+      } else{
+      $catalog = category_catalog_array($section,$items_per_page, $offset);
+      }
+      
+      $pagination = "&lt;div class=\"pagination\"&gt;";
+      $pagination .= "Pages: ";
+      for( $i = 1; $i&lt;= $total_pages; $i++){
+      if($i == $current_page){
+      $pagination .= " &lt;span&gt;$i&lt;/span&gt;";
+      } else {
+      $pagination .= " &lt;a href='catalog.php?";
+      if(!empty($section)) {
+      $pagination .= "cat=".$section."&";
+      }
+      $pagination .= "pg=$i'&gt; $i&lt;/a&gt;";
+      }
+      }
+      $pagination .= "&lt;/div&gt;";
+      
+      
+      include("inc/header.php"); ?&gt;
+      
+      &lt;div class="section catalog page"&gt;
+      
+      &lt;div class="wrapper"&gt;
+      &lt;h1&gt;&lt;?php
+      if ($section != null) {
+      echo "&lt;a href='catalog.php'&gt;Full Catalog&lt;/a&gt; &gt; ";
+      }
+      echo $pageTitle; ?&gt;&lt;/h1&gt;
+      &lt;?php echo $pagination; ?&gt;
+      &lt;ul class="items"&gt;
+      &lt;?php
+      foreach ($catalog as $item) {
+      echo get_item_html($item);
+      }
+      ?&gt;
+      &lt;/ul&gt;
+      &lt;?php echo $pagination; ?&gt;
+      
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;?php include("inc/footer.php"); ?&gt;
+    </code>
+  </pre>
+  <hr>
+  <h1>Accounting for Empty Results</h1>
+  <p>
+    အခု section မှာ ကျွန်တော်တို့ empty results list တစ်ခုအတွက် handle လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ search
+    term
+    နဲ့ match ဖြစ်တဲ့ items တွေမရှိတဲ့ အခါမှာ message ကို display လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ search page
+    တစ်ခုထဲမှာ သူတို့ကို သိဖို့ရန်အတွက်လည်း လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ search term ဟာ
+    ဘာဖြစ်တယ်ဆိုတာကိုလည်း လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် catalog.php ထဲက h1 header ထဲမှာ another conditional
+    ကို
+    add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် $section ကို check လုပ်သလိုပဲ check လုပ်ရမှာဖြစ်ပါတယ်။ နောက်အဲ့မှာဆိုရင်
+    ကျွန်တော်တို့ရဲ့ output ကို filter လုပ်ဖို့ရန်အတွက် built in function တစ်ခုဖြစ်တဲ့ htmlspecialchars ကို
+    အသုံးပြုပေးရမှာဖစ်ပါတယ်။ နောက် no search results ဆိုရင် message တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် h1 tag
+    close လုပ်ထားတဲ့ အောက်မှာ another conditional တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် condition ဟာ total
+    items
+    ဟာ 1 less ဖြစ်တဲ့အခါမှာ message ကို display လုပ်ပေးမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+      $total_pages = 1;
+      $offset = 0;
+      if ($total_items &gt; 0){
+      $total_pages = ceil($total_items / $items_per_page);
+      
+      // limit results in redirect
+      $limit_results = "";
+      if(!empty($section)){
+      $limit_results = "cat=" . $section . "&";
+      }
+      
+      // redirect too-large page number to the last page
+      
+      if($current_page &gt; $total_pages){
+      header("location:catalog.php?"
+      . $limit_results
+      . "pg=" . $total_pages);
+      }
+      
+      // redirect tool-small page numbers to the first page
+      if ($current_page &lt; 1){
+      header("location:catalog.php"
+      . $limit_results
+      . "pg=1");
+      }
+      
+      // determine the offset (number of items to skip) for the current page
+      // for example" on page 3 with 8 items per page, offset would be 16
+      
+      $offset = ($current_page - 1) * $items_per_page;
+      
+      $pagination = "&lt;div class=\"pagination\"&gt;";
+      $pagination .= "Pages: ";
+      for( $i = 1; $i&lt;= $total_pages; $i++){
+      if($i == $current_page){
+      $pagination .= " &lt;span&gt;$i&lt;/span&gt;";
+      } else {
+      $pagination .= " &lt;a href='catalog.php?";
+      if(!empty($section)) {
+      $pagination .= "cat=".$section."&";
+      }
+      $pagination .= "pg=$i'&gt; $i&lt;/a&gt;";
+      }
+      }
+      $pagination .= "&lt;/div&gt;";
+      }
+      
+      if(!empty($search)){
+      $catalog = search_catalog_array($search, $items_per_page, $offset);
+      }else if(empty($section)){
+      $catalog = full_catalog_array($items_per_page, $offset);
+      } else{
+      $catalog = category_catalog_array($section,$items_per_page, $offset);
+      }
+      
+      
+      include("inc/header.php"); ?&gt;
+      
+      &lt;div class="section catalog page"&gt;
+      
+      &lt;div class="wrapper"&gt;
+      &lt;h1&gt;&lt;?php
+      if ($search !=null){
+      echo "Search Results for \"".$search."\"";
+      } else {
+      if ($section != null) {
+      echo "&lt;a href='catalog.php'&gt;Full Catalog&lt;/a&gt; &gt; ";
+      }
+      echo $pageTitle;
+      }?&gt;&lt;/h1&gt;
+      &lt;?php
+      if ($total_items &lt; 1) {
+      echo "&lt;p&gt; No items were found matching that search term.&lt;/p&gt;";
+      echo "&lt;p&gt; Search Again or "
+      ."&lt;a href=\"catalog.php\"&gt; Browse th Full Catalog&lt;/a&gt;&lt;/p&gt;";
+      } else{
+      echo $pagination; ?&gt;
+      &lt;ul class="items"&gt;
+      &lt;?php
+      foreach ($catalog as $item) {
+      echo get_item_html($item);
+      }
+      ?&gt;
+      &lt;/ul&gt;
+      &lt;?php echo $pagination;
+      }?&gt;
+      
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <hr>
+  <h1></h1>
+  <p>
+    အခုဆိုရင် user ဟာ input မှာ သူတို့လိုချင်တဲ့ any term ကို type လုပ်နိုင်ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ results
+    return ဟာ items 8 ခုထက်ပိုတဲ့အခါမှာ pagination နဲ့ display လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first 8 items ကိုပဲ
+    display လုပ်မှာဖြစ်ပြီးတော့ ကျန်တဲ့ items တွေကို second ကိုသွားတဲ့ link တစ်ခုနဲ့ display လုပ်ပေးမှာဖြစ်ပါတယ်။
+    အဲ့ဒါအတွက်
+    ကျွန်တော်တို့ဟာ search results နှင့် ကျွန်တော်တို့ရဲ့ pagination integrating လုပ်တာကို finish ဖြစ်ဖို့လိုအပ်ပါတယ်။
+    Example မှာဆိုရင် အဲ့ဒါကို pagination section မှာလေ့လာရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တု့ိ category အတွက် check
+    လုပ်ထားတဲ့ condition တစ်ခုရှိပါတယ်။ နောက် new conditional တစ်ခုကို search အတွက် add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    အဲ့မှာဆိုရင်
+    user input ဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ output ကို escape လုပ်ပေးဖို့လိုအပ်ပါတယ်။ အဲ့ဒါကြောင့်
+    အဲ့မှာဆိုရင်လည်း
+    HTML special chars ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ passing လုပ်လိုက်တဲ့ data ကို
+    query
+    string ဟာ interpret properly လုပ်နိုင်ဖို့ရန်အတွက် function တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့
+    urlencode()
+    ပဲဖြစ်ပါတယ်။ နောက် first if statement ကို copy ကူးပြီးတော့ $limit_results မှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    အဲ့မှာဆိုရင်
+    pagination variable ကိုပဲ change လုပ်ပေးရမှာဖြစ်ပါတယ်။
+  </p>
+  <h2>Code Example</h2>
+  <pre>
+    <code>
+        $limit_results = "";
+        if( !empty($search)){
+        $limit_results = "s=".urlencode(htmlspecialchars($search)). "&";
+        } else if(!empty($section)){
+        $limit_results = "cat=" . $section . "&";
+        }
+        
+        // redirect too-large page number to the last page
+        
+        if($current_page &gt; $total_pages){
+        header("location:catalog.php?"
+        . $limit_results
+        . "pg=" . $total_pages);
+        }
+        
+        // redirect tool-small page numbers to the first page
+        if ($current_page &lt; 1){
+        header("location:catalog.php"
+        . $limit_results
+        . "pg=1");
+        }
+        
+        // determine the offset (number of items to skip) for the current page
+        // for example" on page 3 with 8 items per page, offset would be 16
+        
+        $offset = ($current_page - 1) * $items_per_page;
+        
+        $pagination = "&lt;div class=\"pagination\"&gt;";
+        $pagination .= "Pages: ";
+        for( $i = 1; $i&lt;= $total_pages; $i++){
+        if($i == $current_page){
+        $pagination .= " &lt;span&gt;$i&lt;/span&gt;";
+        } else {
+        $pagination .= " &lt;a href='catalog.php?";
+        if( !empty($search)){
+        $pagination .= "s=".urlencode(htmlspecialchars($search)). "&";
+        } else if(!empty($section)) {
+        $pagination .= "cat=".$section."&";
+        }
+        $pagination .= "pg=$i'&gt; $i&lt;/a&gt;";
+        }
+        }
+        $pagination .= "&lt;/div&gt;";
+        }
+    </code>
+  </pre>
+  <a href="../phpexample/integratephpdatabase/catalog.php">Test Yourself</a>
+  <hr>
+</body>
+
+</html>

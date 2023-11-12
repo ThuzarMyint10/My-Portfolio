@@ -1,0 +1,141 @@
+
+header {
+    padding-top: 10px;
+    width: 100%; 
+    margin-bottom: 60px;
+    background: #66eeee;
+}
+.logo{
+    width: 45%;
+    text-decoration: none;
+    float: left;
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px 0;
+    font-size: 2.75em;
+    font-weight: normal;
+    line-height: 0.8em;
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin: -5px 0 10px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+
+
+
+/*******************************
+ NAVIGATION
+********************************/
+
+nav {
+    text-align: right;
+    padding:  10px 0;
+    font-size: 1.125em; 
+}
+
+nav ul{
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+}
+nav a{
+    font-weight: 800;
+    padding: 15px 10px; 
+    text-decoration: none;
+}
+
+
+/*******************************
+ FOOTER
+********************************/
+
+footer {
+    font-size: 0.75em;
+    text-align: center;
+    padding-top: 10px;
+    background-color: rgb(31, 100, 100);
+    color: rgb(161, 7, 97);
+    clear: both;
+}
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+
+
+/*******************************
+ PAGE : INDEX
+********************************/
+#section ul{
+    list-style: none;
+}
+#sectoion {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#section li {
+    float: left;
+    width: 25%;
+    margin: 2.5%; 
+    border-block-start-style: initial;;
+    background-color: #f5f5f5;
+    color: #bdc3c7;
+
+}
+
+#section li img {
+    width: 326px;
+    height: 330px;
+}
+#section li  p{
+     margin: 0;
+     padding: 5%;
+     font-size:  1.85em;
+     text-align: center;
+     color: black;
+
+ }
+/*******************************
+ COLOR
+********************************/
+/* body part */
+body {
+    background-color: #599a68;
+    color: #999;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* green header */
+header {
+    margin-top: 0;
+    border-color: #599a68;
+}
+
+/* nav background in mobile device */
+
+/* nav link */
+nav a , nav a:visited{
+    color: #66eeee;
+}
+/* selected nav link */
+nav a.selected , nav a:hover {
+    color: #e2f110;
+}
+
+/* logo text */
+h1,h2 {
+    color: black;;
+}

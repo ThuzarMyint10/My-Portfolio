@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Animations</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Getting Started</h1>
+    <p>
+        အခု course မှာ animation နှင့် React apps တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ React ဟာ သူကိုယ်တိုင် built-in
+        animation
+        tools တွေမပါဝင်ပါဘူး။ ဒါပေမဲ့ React community ဟာ ReactCSSTransitionGroup လို့ခေါ်တဲ့ React အတွက် animation
+        add-on built
+        တစ်ခုကို developed လုပ်ပေးထားပါတယ်။ သူဟာဆိုရင် React components တွေထဲမှာ CSS animations, transitions and
+        transforms
+        တွေကို implement လုပ်ဖို့ simple way တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ React ဟာ updating and redrawing the DOM
+        အတွက်
+        responsible ဖြစ်တဲ့အတွက်ကြောင့် CSS transition or animation class ကို React component တစ်ခုမှာတိုက်ရိုက် apply
+        လုပ်လို့မရပါဘူး။ ReactCSSTransitionGroup ဟာဆိုရင် handle လုပ်နိုင်တဲ့ component တစ်ခုကို provides
+        လုပ်ပေးထားပါတယ်။
+        Example အနေနဲ့ simple guest list app တစ်ခုကို animate လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် app loads လုပ်တဲ့ခါ
+        guest list
+        ဟာ fade in ဖြစ်ပြီးတော့ new guest တစ်ခုကို add လုပ်လိုက်တဲ့အခါမှာ guest ဟာ left ကနေ animate ဖြစ်လာမှာဖြစ်ပါတယ်။
+        နောက်
+        guest ကို remove လုပ်လိုက်တဲ့အခါမှာ left to right ကို animate လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Installing and Using ReactCSSTransitionGroup</h1>
+    <p>
+        ReactCSSTransitionGroup ဟာ React addon component တစ်ခုဖြစ်ပြီးတော့ သူဟာ React မှာ addition of CSS transitions
+        and
+        animations ကို facilitates လုပ်ပေးပါတယ်။ သူ့ကို အသုံးမပြုခင်မှာ ကျွန်တော်တို့ရဲ့ projects ထဲမှာ သူ့ကို
+        dependency
+        တစ်ခုအနေနဲ့ install လုပ်ပေးဖို့လိုပါတယ်။ သူ့ကို run ရမဲ့ command ကတော့ "npm install
+        react-addons-css-transition-group"
+        ပဲဖြစ်ပါတယ်။ နောက် ReactCSSTransitionGroup ကို App.js ထဲမှာ import လုပ်ပေးရပါမယ်။ ReactCSSTransitionGroup ဟာ
+        regular
+        React component တစ်ခုဖြစ်ပြီးတော့ သူဟာ ကျန်တော်တို့ animate လုပ်ချင်တဲ့ components တွေအားလုံးကို wraps
+        လုပ်ပေးပါတယ်။
+        Example မှာဆိုရင်တော့ list items မှာ animate လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် return method ထဲမှာ ul tag
+        နေရာမှာ
+        ReactCSSTransitionGroup ကို replace လုပ်ပေးရပါမယ်။ နောက် animate လုပ်ချင်တဲ့ list of items component ကို passing
+        လုပ်ပေးရပါမယ်။ အဲ့ဒါကို မသွားခင်မှာ React devtools ကိုကြည့်တဲ့အခါမှာ item တစ်ခုချင်းစီဟာ ReactCSSTransitionGroup
+        ထဲမှာ
+        wrapped လုပ်ထားတာကိုတွေ့ရပါမယ်။ နောက် elements panel မှာဆိုရင် default အရ ReactCSSTransitionGroup ဟာ span
+        element
+        တစ်ခုအနေနဲ့ renders လုပ်ပေးတာဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ ul tag တစ်ခုထဲမှာလိုချင်တာဖြစ်ပါတယ်။ အဲ့ဒါအတွက်
+        ကျွန်တော်တို့ဟာ ReactCSSTransitionGroup ကို component property ကို ပေးနိုင်ပါတယ်။ သူ့ရဲ့ value ကိုတော့ ul
+        ဆိုပြီးတော့
+        pass လုပ်နိုင်ပါတယ်။ ReactCSSTransitionGroup ဟာ သူ့ထဲမှာရှိတဲ့ items တွေကို သူတို့ CSS animation or transition
+        ကို
+        triggering လုပ်ခြင်းဖြင့် DOM ကနေ enter or leave လုပ်သွားတာကို animates လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် items
+        တွေကို
+        CSS နဲ့ target and transition လုပ်ဖို့အတွက် transition name and a transition duration ကို define
+        လုပ်ပေးဖို့လိုပါတယ်။
+        ReactCSSTransitionGroup component ဟာ transition တစ်ခုကို creating လုပ်ဖို့ props 3 ခုကို accepts လုပ်နိုင်ပါတယ်။
+        Transition name, သူဟာ value ကို ကျွန်တော်တို့ define လုပ်ထားတဲ့ actual animations တွေပါနဲ့ CSS classes maps
+        လုပ်ပေးပါတယ်။ အဲ့မှာဆိုရင် name ဟာ ကြိုက်တဲ့ name ကို ပေးနိုင်ပါတယ်။ နောက် transitionEnterTimeout property
+        ပဲဖြစ်ပါတယ်။
+        သူကတော့ DOM ထဲကို enters လုပ်လာတဲ့ item တစ်ခုချင်းစီအတွက် transition duration ကို defines လုပ်ပေးတာဖြစ်ပါတယ်။
+        Value ဟ
+        milliseconds ဖြစ်ရပါမယ်။ နောက် transitionLeaveTimeout property ကို defines လုပ်ပေးရပါမယ်။ သူ့ရဲ့ value ကိုလည်း
+        milliseconds နဲ့ set လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            &lt;ReactCSSTransitionGroup component="ul" transitionName="slide" transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}&gt;
+            
+                {guests}
+            
+            &lt;/ReactCSSTransitionGroup&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating the Animations with CSS</h1>
+    <p>
+        ReactCSSTransitionGroup နဲ့ဆိုရင် animations တွေဟာ real DOM မှာ happen ဖြစ်သွားတာဖြစ်ပါတယ်။ React ဟာ elements
+        တွေ DOM
+        ထဲကို enter and leave လုပ်တဲ့အခါမှာ အဲ့ elements တွေကို certain classes တွေကို injects လုပ်ပေးပါတယ်။
+        ကျွန်တော်တို့ဟာ အဲ့
+        classes တွေကို target လုပ်ပြီးတော့ အဲ့ elements တွေမှာ animations တွေကို apply လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်
+        slide-enter and slide-enter-action ဆိုတဲ့ classes တွေကို elements တွေ DOM ထဲကို enter လုပ်လာတဲ့အချိန်မှာ add
+        လုပ်ပေးပါတယ်။ နောက် slide-leave and slide-leave-active classes တွေကို elements တွေ DOM ကနေ leave
+        လုပ်တဲ့အချိန်မှာ add
+        လုပ်ပေးပါတယ်။ အဲ့ classes တွေဟာ actual animations တွေကို လုပ်ဆောင်ပေးမဲ့ classes တွေပဲဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        style.css ထဲမှာ animations တွေကို create လုပ်ပြထားပါတယ်။ နောက် ကျွန်တော်တို့ဟာ transitions ထဲမှာ steps
+        တစ်ခုချင်းစီအတွက်
+        own custom class names တွေကို define လုပ်နိုင်တဲ့ option ရှိပါတယ်။ အဲ့ဒါကို React docs for animation
+        မှာလေ့လာနိုင်ပါတယ်။
+        Next section မှာတော့ main wrapping component ကို ဘယ်လို animate လုပ်ရမယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>style.css</h3>
+    <pre>
+        <code>
+            .slide-enter {
+            transform: translateX(-100%);
+            }
+            
+            /* end enter state */
+            .slide-enter.slide-enter-active {
+            transform: translateX(0);
+            transition: transform 0.5s ease-out;
+            }
+            
+            /* start leave state */
+            .slide-leave {
+            transform: translateX(0);
+            }
+            
+            /* end leave state */
+            .slide-leave.slide-leave-active {
+            transform: translateX(100%);
+            opacity: 0;
+            transition: 0.5s ease-in;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Animate a Component's Initial Mounting</h1>
+    <p>
+        နောက် ကျွန်တော်တို့ဟာ main component ရဲ့ initial mount မှာ extra transition phase တစ်ခုကို add လုပ်လို့ရပါတယ်။
+        Example
+        မှာဆိုရင်တော့ ul ပဲဖြစ်ပါတယ်။ ReactCSSTransitionGroup ဟာဆိုရင် transition ကို လလုပ်ဆောင်ဖို့ရန်အတွက် optional
+        props 2
+        ခုကို provides လုပ်ပေးထားပါတယ်။ အဲ့ဒါတွေကတော့ transitionAppear, and transitionAppearTimeout ပဲဖြစ်ပါတယ်။
+        transitionAppear မှာ true ကို set လုပ်ခဲ့တဲ့အချိန်မှာ ReactCSSTransitionGroup ကို initial mount of the component
+        မှာ
+        transition တစ်ခုကို apply လုပ်ဖို့ instructs လုပ်လိုက်တာဖြစ်ပါတယ်။ transitionAppearTimeout ဟာ enterTimeout လိုပဲ
+        transition duration ကို set လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် initial mount အတွင်းမှာ ReactCSSTransitionGroup ဟာ
+        ul
+        element ကို slide-appear ဆိုတဲ့ class နဲ့ slide-appear-active class တို့ကို add လုပ်ပေးပါတယ်။ အဲ့ classes တွေကို
+        target
+        လုပ်ပြီးတော့ CSS ဖြင့် transitions တွေကို လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ လေ့လာခဲ့သလိုပဲ
+        ReactCSSTransitionGroup ကိုအသုံးပြရခြင်းရဲ့ one of the best parts တစ်ခုကတော့ သူဟာ easy to use ဖြစ်ပါတယ်။
+        ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့ဟာ CSS transitions, transforms and animations တွေရဲ့ advantage ကို take
+        လုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ReactCSSTransitionGroup ဟာ simple animation library တစ်ခုဖြစ်ပါတယ်။
+        သူ့မှာဆိုရင်
+        interpolation, pausing and rewinding တု့ိလို timeline management features တွေမပါဝင်ပါဘူး။ Other features တွေကို
+        other
+        JavaScript animation libraries တွေမှာ လေ့လာနိုင်ပါတယ်။ React အတွက် other more advanced and powerful animation
+        libraries
+        တွေရှိပါသေးတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>style.css</h3>
+    <pre>
+        <code>
+            /* initial mounting */
+            .slide-appear {
+            opacity: 0;
+            }
+            .slide-appear.slide-appear-active{
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Overview of What We'll Build</h1>
+    <p>
+        အခု section မှာတော့ party တစ်ခုအတွက် RSVPs ကို store and manage လုပ်တဲ့ React application တစ်ခုကို build
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါကို လေ့လာပြီးတဲ့အခါမှာ common problems တွေကို React ကိုအသုံးပြုပြီးတော့ ဘယ်လို solve
+        လုပ်ရမယ်ဆိုတဲ့ opportunity ကို ပေးပါလိမ့်မယ်။ Application မှာဆိုရင် loads လုပ်လုပ်တဲ့အခါမှာ name of an invitee
+        ကို
+        ကျွန်တော်တို့ type လုပ်လို့ရပါမယ်။ Name တစ်ခုကို type လုပ်လိုက်ရင် အောက်မှာ tile တစ်ခု appears ဖြစ်လာပါမယ်။ Form
+        ကို
+        submit လုပ်လိုက်တဲ့အခါမှာ tile မှာရှိတဲ့ name ဟာ darkens ဖြစ်လာပါတယ်။ နောက် other element တွေဖြစ်တဲ့ check box
+        and
+        buttons တွေဟာလည်း appear ဖြစ်လာရပါမယ်။ နောက် right ဘက်မှာရှိတဲ့ counter ဟာလည်း updated ဖြစ်သွားရပါမယ်။ နောက်
+        confirmed
+        ကို check လုပ်လိုက်တဲ့အခါမှာ counter ဟာ update ဖြစ်သွားပါတယ်။ အဲ့ name ကို edit and remove လည်းလုပ်နိုင်ပါတယ်။
+        Example မှာဆိုရင်တော့ project ကို "create-react-app my-app" ကိုအသုံးပြုပြီးတော့ set up လုပ်ထားတာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Mapping the Component Structure</h1>
+    <p>
+        Example မှာဆိုရင် first step အနေနဲ့ app ကို components တွေအဖြစ် break လုပ်ရမှာဖြစ်ပါတယ်။ နောက် အဲ့ components
+        တွေဟာ
+        တစ်ခုနဲ့ တစ်ခု ဘယ်လို connect လုပ်တယ်ဆိုတာကို think လုပ်ရပါမယ်။ အဲ့ဒါဟာ state ဟာ ဘယ်နေရာမှာထားရမယ်ဆိုတဲ့ idea
+        ကို
+        ပေးမှာဖြစ်ပါတယ်။ State ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ app ထဲမှာ data တွေအားလုံးကို track လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင် user ဟာ type in a form, or check a box လို any action ကို လုပ်ဆောင်တဲ့အခါမှာ application ရဲ့ state ဟာ
+        changing
+        ဖြစ်သွားပါတယ်။ အဲ့ changes တွေကို data အနေနဲ့ somewhere မှာ store လုပ်ထားဖို့လိုပါတယ်။ နောက် အဲ့ data တွေ
+        changes
+        ဖြစ်သလိုပဲ app ရဲ့ different components တွေဟာလည်း user ကို ဘာ show လုပ်မယ်ဆိုတာကို update လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် app ရဲ့ components တွေဟာ ဒီ changes တွေကို လုပ်ဆောင်ဖို့အတွက် state ကို access လုပ်ဖို့လိုပါတယ်။
+        အဲ့ဒါကြောင့် access ကို efficient ဖြစ်အောင်လုပ်ဖို့ သူတို့ကို ဘယ်လို fit လုပ်မယ်ဆိုတာကို plan လုပ်ဖို့လိုပါတယ်။
+        Component structure ကို understand ဖို့ best way ကတော့ app ရဲ့ ဘယ် parts ကို user တစ်ယောက်ဟာ interacts လုပ်တယ်
+        ပြီးတော့
+        state changes အနေနဲ့ ဘယ်လို response ပြန်သင့်တယ်ဆိုတာကိုကြည့်ရမှာဖြစ်ပါတယ်။ Project ထဲမှာဆိုရင် entire app ကို
+        contain
+        ဖြစ်ဖို့ component တစ်ခုလိုပါမယ်။ နောက် first thing ကတော့ user ဟာ form နဲ့ interact လုပ်ပါတယ်။ နောက် another
+        component
+        ကတော့ counter ပဲဖြစ်ပါတယ်။ သူဟာ ကိုယ်တိုင် state changes အနေနဲ့ update လုပ်ဖို့လိုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        နောက်
+        confirmed guests ဟာလည်း component တစ်ခုပဲဖြစ်ပါတယ်။ နောက်အဲ့မှာဆိုရင် hidden components တွေကို find
+        လုပ်ဖို့လိုပါသေးတယ်။
+        အဲ့မှာ name တွေကို add လုပ်လိုက်တဲ့အခါမှာ tile ဆိုတဲ့ new component ကို တွေ့ရပါလိမ်မယ်။ သူဟာ name တစ်ခုကို add
+        လုပ်ရင်
+        component တစ်ခုဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင် user interaction ကို change or accept လုပ်နိုင်တဲ့ other parts
+        တွေရှိပါသေးတယ်။
+        အဲ့မှာဆိုရင် tile component တစ်ခုမှာ components 4 ခုပါဝင်ပါတယ်။ Example မှာဆိုရင်တော့ name, confirmed, check box
+        and two
+        buttons, edit and remove တု့ိပဲဖြစ်ပါတယ်။ နောက် new name တစ်ခုကို typing လုပ်တဲ့အခါမှာ list အတွက် pending name
+        တစ်ခုကို
+        indicating လုပ်ပေးတဲ့ ghost tile တစ်ခုကို call လုပ်လိုက်ပါတယ်။ သူဟာလည်း component တစ်ခုပဲဖြစ်ပါတယ်။
+        ဘာကြောင့်လဲဆိုတော့
+        သူဟာ form ပေါ်မှာ text ပေါ်မှာ depending လုပ်ပြီးတော့ သူကိုယ်တိုင် shows or hides
+        လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        နောက်သူကိုယ်တိုင် form က text ကို updates သူပေးပါယ်။ နောက် အဲ့မှာရှိတဲ့ tile name ဟာဆိုရင်လည်း different data or
+        name
+        နှင့် same component ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ name တစ်ခုချင်းစီအတွက် component တစ်ခုကို reuse
+        လုပ်နိုင်ပါတယ်။ ဒါပေမဲ့ row အနေနဲ့ organize လုပ်ဖို့ သူတို့ကို hold လုပ်ဖို့ another component တစ်ခုလိုအပ်ပါတယ်။
+        အခု
+        ကျွန်တော်တို့ရဲ့ project ထဲမှာပါမဲ့ components တွေကို mapped out လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် some components
+        တွေဟာ
+        others ထဲမှာ inside ဖြစ်နေတာဖြစ်ပါတယ်။ ဒီ nesting တွေဟာ app ထဲမှာ components တွေကို ဘယ်လို nested
+        လုပ်ရမယ်ဆိုတာကို
+        ပြပေးတာဖြစ်ပါတယ်။ State ဟာ ဘယ်လို share လုပ်မယ်ဆိုတာကို ကြည့်ရအောင်။ Form မှာ name ကို type လုပ်လိုက်တဲ့အခါမှာ
+        ghost
+        tile ဟာ အဲ့ form ကို access လုပ်ဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် name ဟာ form and ghost tile components နှစ်ခုလုံးမှာ
+        shared
+        လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အဲ့ components နှစ်ခုလုံးဟာ ဒီ state ကို access လုပ်ဖို့လိုပါတယ်။ Example
+        မှာဆိုရင်တော့
+        main app ပဲဖြစ်ပါတယ်။ Main app ဟာ form ရဲ့ parent ပြီးတော့ ghost tile ရဲ့ grandparent ဖြစ်ပါတယ်။ နောက် counter
+        ဟာ state
+        ထဲမှာရှိတဲ့ number of guests ပေါ်မှာအခြေခံပြီးတော့ change ဖြစ်သွားပါမယ်။ အဲ့ဒါကြောင့် main app ထဲမှာ state ကို
+        putting
+        လုပ်မဲ့ planing မှာ counter ဟာ သူ့ရဲ့ parent ကို access လုပ်နိုင်ရပါမယ်။ နောက် counter ဟာ name tiles မှာရှိတဲ့
+        ဘယ် boxes
+        ဟာ checked in လုပ်တယ်ဆိုတာကိုလည်း သိဖို့လိုပါသေးတယ်။ အဲ့ဒါကြောင့် main app ထဲက state ဟာ updating ဖြစ်နေရင်
+        counter ဟာ
+        အဲ့ information ကို access လုပ်ရမှာဖြစ်ပါတယ်။ နောက် section မှာတော့ state ထဲမှာ ဘာတွေကို store လုပ်မယ်ဆိုတာကို
+        specific
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Initialize the State</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ app ထဲမှာ components တွေ တစ်ခုနဲ့တစ်ခု ဘယ်လို nested ဖြစ်နေတယ်ဆိုတာကို
+        လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။
+        နောက် ဘယ်မှာ state ရှိရမယ်ဆိုတာကိုလည်းလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Example မှာဆိုရင် App component ထဲမှာ state ကို
+        declare
+        လုပ်ပေးထာပါတယ်။ အဲ့မှာဆိုရင် state ကို create လုပ်တဲ့အခါမှာ constructor function ထဲကို ထည့်ပြီးတော့ create
+        လုပ်တာကို
+        basic course မှာလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ create-react-app ဟာ ကျွန်တော်တို့ရဲ့ code တွေကို
+        simply
+        လုပ်ဖို့ ခွင့်ပြုပေးထားပါတယ်။ Example မှာဆိုရင် guests တွေကို track လုပ်ဖို့လိုတာပဲဖြစ်ပါတယ်။ နောက် app ဟာ track
+        of
+        guests ကို keeping လုပ်ထားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင်ံ list of guests ကို perfect way တစ်ခုမှာ store
+        လုပ်ပေးရပါမယ်။
+        အဲ့ဒါကြောင့် guest property ကို empty array တစ်ခုနဲ့ create လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့ array ထဲကို put လုပ်တဲ့
+        guest
+        အားလုံးဟာ page ပေါ်မှာရှိတဲ့ tile တစ်ခုဖြစ်လာမှာဖြစ်ပါတယ်။ Tile တစ်ခုချင်းစီမှာ a name and whether of not the
+        guest has
+        confirmed တို့ကို store လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် name string ကို refer လုပ်တဲ့ key တစ်ခုနဲ့ other key ကတော့
+        isConfirmed ပဲဖြစ်ပါတယ်။ သူကတော့ boolean ပဲဖြစ်ပါတယ်။ အဲ့ data တွေဟာ နောက်ကျရင် change လုပ်ဖို့
+        လိုလာမှာဖြစ်ပါတယ်။
+        နောက်ထပ် object တစ်ခုကို add လုပ်ပေးထားပါတယ်။ App ဟာဆိုရင် counter component ထဲမှာ number of guests ကို track
+        လုပ်ဖို့လိုပါတယ်။ Guest count ဟာဆိုရင် guest array ကနေ derived လုပ်နိုင်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ guest array's
+        length
+        နဲ့ equal ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် getting total count ကို handle လုပ်ဖို့ method တစ်ခုကို write
+        လုပ်ရပါမယ်။ အဲ့ method ဟာ guests array ရဲ့ length ကိုပဲ return ပြန်ပေးရမှာဖြစ်ပါတယ်။ နောက် total of confirmed
+        and total
+        of unconfirmed တို့ကို သိဖို့ လိုပါသေးတယ်။ Number of confirmed guests ကို get ဖို့အတွက် guest တစ်ခုချင်းစီကို
+        loop
+        လုပ်တဲ့ another method တစ်ခုဖြစ် write လုပ်ပေးရပါမယ်။ နောက် number of times confirmed ကို count လုပ်ပေးရပါမယ်။
+        ကျွန်တော်တို့မှာ number of confirmed guests ရှိပြီဆိုရင် number of unconfirmed guests ရဖို့ total invite ထဲကနေ
+        subtract
+        လုပ်ပေးရပါမယ်။ အခု section မှာတော့ comment အနေနဲ့ပဲ create လုပ်ထားတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            state = {
+                guests: [
+                {
+                    name: 'John'
+                    isConfirmed: false
+                },
+                {
+                name: 'Alex'
+                isConfirmed: false
+                }
+                ];
+            }
+
+            getTotalInvited = () => this.state.guests.length;
+            // getAttendingGuests = () =>
+            // getUnConfirmedGuests = () =>
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Building the GuestList Component</h1>
+    <p>
+        အခု section မှာတော့ first step အနေနဲ့ guest list component ကို building လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        သူတို့ကို unordered list item နဲ့ represent လုပ်ထားတာဖြစ်ပါတယ်။ First အနေနဲ့ GuestList.js ဆိုတဲ့ new file
+        တစ်ခုကို
+        create လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>GuestList.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+
+            const GuestList = props =>
+                &lt;ul&gt;
+                  {props.guests.map((guest, index)) =>
+                    &lt;li key={index}&gt; 
+                     &lt;span&gt;{guest.name}&lt;/span&gt;
+                     &lt;label&gt;
+                        &lt;input type="checkbox" checked={guest.isConfirmed} /&gt; Confirmed
+                     &lt;/label&gt;
+                     &lt;button&gt;edit&lt;/button&gt;
+                     &lt;button&gt;remove&lt;/button&gt;
+                    &lt;/li&gt;
+                  }
+                &lt;/ul&gt;;
+
+                GurstList.propTypes = {
+                    guests: PropTypes.array.isRequired
+                }
+
+            export default GuestList;
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing a Handler to Confirm Guests</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ first subcomponent ဖြစ်တဲ့ GuestList component ကို build လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့ဒါဟာ
+        သူတို့ကိုယ်တိုင် state က data တွေနဲ့ successfully rendering လုပ်တာဖြစ်ပါတယ်။ ဒါပေမဲ့ သူနဲ့ interact လုပ်တဲ့ way
+        မရှိသေးပါဘူး။ အဲ့ဒါကတော့ application state ကို change ဖြစ်သွားတဲ့ way ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ some
+        event
+        handlers ကို create လုပ်ပေးရပါမယ်။ First အနေနဲ့ list item ကို extract လုပ်ပေးရပါမယ်။ အဲ့ဒါအတွက် Guest ဆိုတဲ့ new
+        file
+        တစ်ခုကို create လုပ်ပေးရပါမယ်။ အဲ့ထဲမှာဆိုရင် guest list ကို pass လုပ်မှာဖြစ်ပါတယ်။ နောက် သူ့ကို GuestList.js
+        ထဲမှာ
+        Guest.js ကို import လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် map function ထဲမှာ Guest component ကို pass လုပ်ပေးရပါမယ်။ နောက်
+        state
+        of application ကို effect ဖြစ်ဖို့ confirmed boxes တွေကို connect လုပ်ပေးရမှာဖြစ်ပါတယ်။ React ဟာဆိုရင် data
+        တွေဟာ
+        downwards ကို flows လုပ်တာဖြစပ်ပါတယ်။ ဆိုလိုတာကတော့ ancestor state ဟာ props ဖြင့် သူ့ရဲ့ descendants ဆီကို
+        passed down
+        လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ descendants တွေဟာ data တွေကို passed back မလုပ်နိုင်ပါဘူး။ တစ်ခါတစ်လေမှာတော့
+        data တွေဟာ
+        ancestor ဆီကို travel လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့အတွက် ancestor ဟာ call back function တစ်ခုကို
+        define
+        လုပ်ပြီးတော့ အဲ့ function ကို descendant ဆီကို pass down လုပ်ပေးရပါမယ်။ Function ကတော့ data တွေကို access
+        လုပ်ပါတယ်။
+        Function ဟာဆိုရင် child component ပေါ်မှာရှိတဲ့ events တွေကို bound လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် handler
+        ကို App.js
+        ထဲမှာ set up လုပ်ထားပါတယ်။ အဲ့မှာဆိုရင် confirmation ကို true or false ဖြစ်နိုင်တာကြောင့် ကျွန်တော်တို့ဟာ
+        handler runs
+        လုပ်တဲ့အချိန်တိုင်းမှာ check box ရဲ့ value ကို flip လုပ်ရပါမယ်။ ဆိုလိုတာကတော့ သူဟာ check box ကနေ value တစ်ခုကို
+        accept
+        လုပ်ဖို့ မလိုအပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ stored လုပ်ထားတဲ့ ဘယ် value ကိုမဆို take လုပ်ပြီးတော့ သူ့ရဲ့
+        opposite ကို
+        flip လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ အဲ့မှာဆိုရင် number of guests တွေရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တု့ိဟာ state ကို change ဖြစ်သွားတဲ့ guest ရဲ index ကိုပဲ လိုအပ်တာဖြစ်ပါတယ်။ နောက် state of changing
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက်သူ့ထဲမှာ state ဖြစ်လာမဲ့ new object တစ်ခုကို passing လုပ်ရပါမယ်။ အဲ့မှာ ကျွန်တော်တို့
+        change
+        လုပ်ချင်တဲ့ property ဟာ guest ပဲဖြစ်ပါတယ်။ သူဟာ array တစ်ခုဖြစ်ပါတယ်။ နောက် array ထဲမှာရှိတဲ့ member တစ်ခုကိုပဲ
+        change
+        လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် map method ကိုအသုံးပြုပေးရပါမယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ index ဟာ matches
+        ဖြစ်တဲ့အခါမှာပဲ change ဖြစ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် if statement တစ်ခုကို add လုပ်ရပါမယ်။ Matches
+        ဖြစ်တယ်ဆိုရင်
+        same name နဲ့ object တစ်ခုကို produce လုပ်ပေးပြီးတော့ နောက် isConfirmend အတွက်တော့ opposite value ပဲဖြစ်ပါတယ်။
+        Matches
+        မဖြစ်ဘူးဆိုရင် same object ကိုပဲ return ပြန်ပေးမှာဖြစ်ပါတယ်။ Next section မှာတော့ ဒီ handler ကို form input နဲ့
+        connect
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+             toogleConfirmationAt = indexToChange => 
+             this.setState({
+                 guests: this.state.guests.map((guest,index) =>{
+                     if (index == indexToChange){
+                         return{
+                             ...guest,
+                             isConfirmed: !guest.isConfirmed
+                         };
+                     }
+                     return guest;
+                 })
+             });
+        </code>
+    </pre>
+    <hr>
+    <h1>Connecting the Confirm Guests Handler</h1>
+    <p>
+        အခု section မှာတော့ toogleConfirmationAt method ကို Guest component ဆီကို pass down လုပ်ရမှာဖြစ်ပါတယ်။ နောက်
+        သူ့ကို
+        check box's change event မှာ bind လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် first မနေနဲ့ App.js ထဲမှာ GuestList ထဲမှာ
+        toggleConfirmationAt ဆိုတဲ့ new prop တစ်ခုကို pass လုပ်ပေးရပါမယ်။ နောက်သူ့ထဲမှာ ကျွန်တော်တု့ိရဲ့ function ကို
+        this.toggleConfirmatonAt နှင့် pass လုပ်ပေးရပါမယ်။ နောက် GuestList component ထဲမှာ propTypes ထဲကို new prop ကို
+        add
+        လုပ်ပေးရပါမယ်။ နောက် GuestLinst ထဲမှာ Guest component ထဲကို handleConfirmation ဆိုတဲ့ new prop တစ်ခုကို add
+        လုပ်ရပါမယ်။
+        အဲ့ function ကို guest component ထဲမှာရှိတဲ့ check box ဟာ changed ဖြစ်သွားတဲ့အချိန်မှာ call လုပ်မှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် ဒီ handle ကို guest component's props ကို pass လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် handler ဟာ index
+        လိုအပ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Toggling Edit State for Guests</h1>
+    <p>
+        အခု section မှာတော့ editing and saved view ကြားမှာရှိတဲ့ toggle ကို users တွေကို ခွင့်ပြုပေးမှာဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင်တော့ users ဟာ edit ကို click လုပ်လိုက်တဲ့အခါမှာ text input ကို show လုပ်ပေးပြီးတော့ နောက် save ကို
+        click
+        လုပ်လိုက်တဲ့အခါမှာ span element ကို show လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ changes ကို track လုပ်ဖို့
+        boolean
+        ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ boolean ကတော့ isEditing ပဲဖြစ်ပါတယ်။ First အနေနဲ့ သူ့ကို state ထဲမှာ add
+        လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင် true ဆိုရင် text input ကို show လုပ်မှာဖြစ်ပြီးတော့ false ဆိုရင် span element ပဲဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        isEditing ဟာ guest တစ်ခုချင်းစီမှာဖြစ်တဲ့အတွက်ကြောင့် သူ့ကို guest တစ်ခုချင်းစီမှာ add လုပ်ပေးရပါမယ်။ Function
+        ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ either of the isConfirm or isEditing properties အတွက် modify လုပ်ဖို့ usable
+        ဖြစ်အောင်
+        လုပ်တဲ့ way ကို write လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် isConfirmed or isEditing ကို လုပ်ဆောင်တဲ့ property ကို
+        configure
+        လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် အဲ့ values နှစ်ခုလုံးကို hold လုပ်တဲ့ parameter တစ်ခုကို add လုပ်ပေးရပါမယ်။
+        Example
+        မှာဆိုရင်တော့ property ပဲဖြစ်ပါတယ်။ အဲ့ property name ကို new state ထဲမှာ set လုပ်တဲ့ ways တွေအများကြီးရှိပါတယ်။
+        Example
+        မှာဆိုရင်တော့ computed property name တစ်ခုကိုအသုံးပြုပေးထားပါတယ်။ နောက် အဲ့ method ကို call လုပ်တဲ့ short
+        methods
+        နှစ်ခုကို writ လုပ်ပေးရပါမယ်။ အဲ့ဒါတွေကတော့ isConfirmed and isEditing အတွက်ပဲဖြစ်ပါတယ်။ နောက်အဲ့ function
+        နှစ်ခုကို
+        GuestList မှာ pass လုပ်ပေးရပါမယ်။ နောက်အဲ့ဒါကို GuestList component ထဲက Guest ထဲမှာ pass လုပ်ပေးရပါမယ်။ နောက်
+        Guest
+        component ထဲမှာ သူ့တို့ကို pass လုပ်ပေးရပါမယ်။ နောက် edit button မှာ events ကို click လုပ်တဲ့ handler ကို bind
+        လုပ်ပေးရပါမယ်။ နောက် အခု name ကို hold လုပ်ဖို့ state ကို span element နဲ့ connect လုပ်ဖို့လိုပါတယ်။
+        အဲ့မှာဆိုရင် သူ့ရဲ့
+        own component အနေနဲ့ name ကို pull လုပ်တာဟာ great opportunity တစ်ခုဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ GuestName
+        ဆိုတဲ့ new
+        component တစ်ခုကို create လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် condition တစ်ခုလိုပါတယ်။ isEditing ဟာ true ဖြစ်တယ်ဆိုရင်
+        text
+        input ကို return ပြန်ပေးပြီးတော့ false ဆိုရင်တော့ span element ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက်
+        အဲ့မှာဆိုရင် name
+        and state ကို change လုပ်တဲ့ handler တစ်ခုနဲ့ input တစ်ခုကို provide လုပ်ပေးဖို့လိုပါသေးတယ်။ အဲ့ဒါကို next
+        section မှာ
+        လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>GuestName.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+
+            const GuestName = props => {
+                if(prop.isEditing){
+                    return (
+                        &lt;input type="text" value={props.children} /&gt;
+                    );
+                }
+                return (
+                    &lt;span&gt;{props.children}&lt;/span&gt;
+                );
+            };
+
+            GuestName.propTypes ={
+                isEditing: PropTypes.bool.isRequired
+            };
+            export default GuestName;
+        </code>
+    </pre>
+    <hr>
+    <h1>Changing Guest Name in State</h1>
+    <p>
+        အခု section မှာတော့ state ထဲမှာရှိတဲ့ name ကို change လုပ်ဖို့ handler တစ်ခုကို input လုပ်သွားမှာဖြစ်ပါတယ်။ အခု
+        section
+        ပြီးခဲ့တဲ့ section တွေမှာလိုမဟုတ်ဘဲ bottom ကနေ up ကို သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် GuestName ထဲမှာ input ထဲကို
+        change
+        handler တစ်ခုကို add လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ handleNameEdits ပဲဖြစ်ပါတယ်။ နောက် သူဟာ function
+        ဖြစ်တယ်ဆိုတာကို sure ဖြစ်အောင်လုပ်ဖို့ propTypes မှာ add လုပ်ပေးရပါမယ်။ နောက် သူ့ရဲ့ up tree ဖြစ်တဲ့ Guest
+        component
+        ထဲမှာ new handler ကို GuestName ထဲမှာ pass လုပ်ပေးရပါမယ်။ သူဟာဆိုရင် function တစ်ခုကို hold
+        လုပ်တာဖြစ်တဲ့အတွက်ကြောင့်
+        event object တစ်ခုကို receive လုပ်ပါတယ်။ အဲ့ event object ဟာတော့ text input ထဲက value ကို get လုပ်တာဖြစ်ပါတယ်။
+        နောက် up
+        tree ဖြစ်တဲ့ GuestList component ထဲမှာ function ကို pass လုပ်ပေးရပါမယ်။ နောက် App component ထဲမှာ ကျွန်တော်တို့
+        create
+        လုပ်ပေးရမဲ့ function name ကတော့ example မှာဆိုရင် setNameAt ပဲဖြစ်ပါတယ်။ သူဟာ toggleGuestPropertyAt function နဲ့
+        really
+        similar ဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် သူ့ကို copy ကူးပြီးတော့ function name ပြောင်းမယ်။ နောက် property နေရာမှာ name
+        ပြောင်းပေးရပါမယ်။ နောက် guest နေရာမှာ ကျွန်တော်တု့ိဟာ name ကို set လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် name ကို replace
+        လုပ်ပေးရပါမယ်။ နောက် button ရဲ့ text ဟာ change ဖြစ်သွားဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် condition
+        တစ်ခုလိုအပ်ပါတယ်။ Example မှာဆိုရင်တော့ ternary operator ကိုအသုံးပြုထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>GuestName.js</h3>
+    <pre>
+        <code>
+            const GuestName = props => {
+            if (props.isEditing) {
+            return (
+            &lt;input type="text" value={props.children} onChange={props.handleNameEdits} /&gt;
+            );
+            }
+            &lt;button onClick={props.handeToggleEditing}&gt;
+                {props.isEditing ? "save" : "edit"}
+            &lt;/button&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Filtering Guests</h1>
+    <p>
+        အခု section မှာတော့ guest filtering function ကို implement လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ filter ကို on
+        and off
+        လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် Boolean တစ်ခုကို add လုပ်ပေးရပါမယ်။ အဲ့ဒါကြောင့် collection of guests ကို treat
+        လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကတော့ filter Boolean ဟာ guest array ရဲ့ outside မှာရှိရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် initial
+        state
+        ထဲမှာ isFiltered ဆိုတဲ့ Boolean ကို add လုပ်ပေးရပါမယ်။ နောက် ဒီ property ကို state ပေါ်မှာ set လုပ်ဖို့ handler
+        တစ်ခုကို
+        write လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ guest array ကို hunt လုပ်ဖို့ through လုပ်စရာမလိုပါဘူး။ Example
+        မှာဆိုရင် handler name ဟာ toggleFilter ပဲဖြစ်ပါတယ်။ အဲ့ handler ထဲမှာဆိုရင် isFiltered boolean ကို reversing
+        လုပ်ပြီးတော့ new state တစ်ခုကို set လုပ်ရမှာဖြစ်ပါတယ်။ နောက် method ကို check box ရဲ့ onChange events မှာ bind
+        လုပ်ပေးရပါမယ်။ နောက် pattern ကို complete ဖြစ်ဖို့အတွက် checked property ကို isFilter state မှာ bind
+        လုပ်ပေးရပါတယ်။
+        အခုဆိုရင် users တွေ filtering on and off ကိုလုပ်ဆောင်လို့ပါပြီ။ နောက်အဲ့ဒါကို guest list component မှာ
+        လုပ်ဆောင်ဖို့လိုပါတယ်။ First အနေနဲ့ isFilter value ကို သူ့ထဲကို pass လုပ်ပေးဖို့လိုပါတယ်။ နောက် GuestList.js
+        ထဲမှာ
+        သူ့ကို PropTypes declaration မှာ add အရင်လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် filtering ကိုလုပ်ဆောင်ဖို့အတွက် filter
+        array method
+        ကိုအသုံးနိုင်ပါတယ်။ သူဟာဆိုရင် new filtered array တစ်ခုကို return ပြန်ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ map
+        ရဲ့ အပေါ်မှာ new line တစ်ခုနဲ့ create လုပ်နိုင်ပါတယ်။ နောက် filter method ထဲမှာ call back တစ်ခုကို put
+        လုပ်ပေးဖို့ပါတယ်။
+        အဲ့ call back ဟာ state ကိုကြည့်ပြီးတော့ guest တစ်ခုချင်းစီဟာ final view ထဲမှာ ရှိသင့်တယ်မရှိသင့်ဘူးဆိုတာကို
+        decide
+        လုပ်ပေးပါတယ်။ Example မှာဆိုရင် guest parameter ကို defining လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် false ကို return
+        ပြန်မယ်ဆိုရင် guest တစ်ခုဟာ appear မဖြစ်ရပါဘူး။ True ဆိုရင်တော့ appear ဖြစ်ရပါမယ်။ Next section မှာတော့ users
+        တွေကို new
+        guest ကို add လုပ်ဖို့ ခွင့်ပြုပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            toggleFilter = () =>
+            this.setState({ isFiltered: !this.state.isFiltered });
+        </code>
+    </pre>
+    <h3>GuestList.js</h3>
+    <pre>
+        <code>
+            {props.guests
+            .filter(guest => !props.isFiltered || guest.isConfirmed)
+            .map((guest, index) =>
+            &lt;Guest key={index} name={guest.name} isConfirmed={guest.isConfirmed} isEditing={guest.isEditing}
+                handleConfirmation={()=> props.toggleConfirmation(guest.id)}
+                handeToggleEditing={() => props.toggleEditing(guest.id)}
+                setName={text => props.setName(text, guest.id)} />
+                )}
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Guests to the List</h1>
+    <p>
+        အခု section မှာတော့ users တွေကို သူတို့ရဲ့ own name ကို add လုပ်ခွင့်ပြုမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် guest
+        names
+        တွေကို collect လုပ်ဖို့ form ကို app ရဲ့ top မှာ အသုံးပြုထားပါတယ်။ Form ကို submit လုပ်လိုက်တဲ့အခါမှာ name ကို
+        app state
+        ဆီကို add လုပ်သွားပါမယ်။ အဲ့ဒါအတွက် form state ကို hold လုပ်ဖို့ app state ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက်
+        form field
+        ထဲကို names တွေကို type လုပ်ဖို့ users တွေကို allow လုပ်ဖို့ handlers ကို create လုပ်ပေးရပါမယ်။ First အနေနဲ့
+        state
+        ပေါ်မှာ form input data တွေကို track လုပ်ဖို့ property တစ်ခုကို add လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့
+        pendingGuest
+        ပဲဖြစ်ပါတယ်။ သူ့ကို empty string နဲ့ set လုပ်ထားပါတယ်။ နောက် form ကနေလာတဲ့ text input နဲ့ ဒီ property ကို
+        connect
+        လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် first အနေနဲ့ change events ကို handle လုပ်ဖို့ method တစ်ခုကို create
+        လုပ်ပေးထားပါတယ်။
+        အဲ့ method ကတော့ handleNameInput ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင် event object ကို accept လုပ်နိုင်ပြီးတော့ target's
+        value
+        တစ်ခုနဲ့ state ကို set လုပ်ပါတယ်။ အဲ့မှာဆိုရင် pendingGuest property ကို set လုပ်ပေးရပါမယ်။ နောက် အဲ့ events
+        တွေကို
+        change လုပ်ဖို့ handler ကို bind လုပ်ပေးရပါမယ်။ နောက် သူ့ကို value property မှာလည်း connect လုပ်ပေးရပါမယ်။ နောက်
+        user ဟာ
+        submit လုပ်လိုက်တဲ့အခါမှာ name ကို add လုပ်သွားတာကို လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ First အနေနဲ့ submit မှာ state
+        ကို sets
+        လုပ်ပေးတဲ့ method တစ်ခုကို create လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ newGuestSubmitHandler ပဲဖြစ်ပါတယ်။ နောက်
+        သူ့ထဲမှာ
+        event object ကို pass လုပ်ပေးရမယ်။ သူ့ထဲမှာဆိုရင် first အနေနဲ့ form's default behavior ကို prevent
+        လုပ်ပေးရပါမယ်။ နောက်
+        new guest ကို guest array ထဲမှာ add လုပ်ဖို့ လိုတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် setState ကို call လုပ်ပေးရပါမယ်။
+        အဲ့ထဲမှာ
+        guest property နဲ့ new object တစ်ခုကို passing လုပ်ပေးရပါမယ်။ အဲ့ array ထဲမှာဆိုရင် new object literal တစ်ခုကို
+        put
+        လုပ်ပေးရပါမယ်။ ဒါဟာ ကျွန်တော်တို့ရဲ့ new guest ပဲဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ form submit event ဆီကို handler ကို
+        bind
+        လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            handleNameInput = e =>
+            this.setState({ pendingGuest: e.target.value });
+            
+            newGuestSubmitHandler = e => {
+            e.preventDefault();
+            const id = this.newGuestId();
+            this.setState({
+            guests: [
+            {
+            name: this.state.pendingGuest,
+            isConfirmed: false,
+            isEditing: false,
+            id
+            },
+            ...this.state.guests
+            ],
+            pendingGuest: ''
+            });
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Removing Names From the List</h1>
+    <p>
+        အခု section မှာတော့ Remove button ကို click လုပ်လိုက်တဲ့အချိန်မှာ guest ကို remove လုပ်ပေးမှာဖြစ်ပါတယ်။ Remove
+        အတွက်
+        logic ဟာ ပြီးခဲ့တဲ့ section မှာ create လုပ်ခဲ့တဲ့ handlers တွေနဲ့ similar ဖြစ်ပါတယ်။ သူဟာ index ကို ယူပြီးတော့
+        guest
+        array ထဲမှာ search လုပ်ပြီးတော့ သူ့ကို modify လုပ်ပေးမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် first အနေနဲ့ handler
+        တစ်ခုကို
+        create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Name ကတော့ removeGuestAt ပဲဖြစ်ပါတယ်။ သူဟာ item ကို remove လုပ်ဖို့ index တစ်ခုကို
+        ယူပါတယ်။
+        နောက် new array တစ်ခုကို pointing လုပ်တဲ့ guest's property နဲ့ state ကို set လုပ်ပေးရပါမယ်။ နောက် arrays
+        နှစ်ခုရဲ့
+        contents တွေကို တစ်ခုထဲ put လုပ်ဖို့ spread operator ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ First array ကတော့
+        ကျွန်တော်တို့ remove
+        မလုပ်ခင်မှာ every guest ကို hold လုပ်တဲ့ array ဖြစ်ပါတယ်။ နောက် new array တစ်ခုကို return ပြန်ပေးတဲ့ slice
+        method
+        ကိုအသုံးပြုပေးရပါမယ်။ Handler ကို setup လုပ်ပြီးတဲ့နောက်မှာ အဲ့ handler ကို remove button မှာ wired up
+        လုပ်ပေးရပါမယ်။
+        First အနေနဲ့ handler ကို guest component ကနေ called လုပ်ပေးရပါမယ်။ နောက် သူ့ကို အသုံးပြုမဲ့ Guest component အထိ
+        pass
+        လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            removeGuestAt = index =>
+            this.setState({
+                guests: [
+                ...this.state.guests.slice(0, index),
+                ...this.state.guests.slice(index +1)
+                ]
+            });
+        </code>
+    </pre>
+    <hr>
+    <h1>Pending Name Submission Feature</h1>
+    <p>
+        အခု section မှာတော့ form filed ထဲမှာ user types လုပ်လိုက်တဲ့ name ကို shows လုပ်ပေးတဲ့ ghost tile တစ်ခုကို
+        create
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ guests တွေကို holds လုပ်တဲ့ unordered list ထဲကို list item
+        တစ်ခုကို add
+        လုပ်ပေးရပါမယ်။ နောက် form input ထဲမှာရှိတဲ့ အဲ့ text ကိုပဲ show လုပ်ပေးမှာဖြစ်ပါတယ်။ First အနေနဲ့ new component
+        တစ်ခုကို
+        create လုပ်ပေးရပါမယ်။ သူဟာ Guest component နဲ့ similar ဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင်တော့ span tag တစ်ခုနဲ့ name ပဲ
+        ပါဝင်တာဖြစ်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ လုပ်ဆောင်ပေးရမှာက form filed ထဲမှာ text ရှိတယ်ဆိုရင် အဲ့ element ကို
+        render
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် pending guest property တစ်ခုအတွက် props ကို if statement တစ်ခုနဲ့ check
+        လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင် form input ထဲမှာ text ရှိတယ်ဆိုရင် li item နဲ့ span element ကို render လုပ်ပေးမှာဖြစ်ပါတယ်။
+        မရှိဘူးဆိုရင်
+        null ကို return ပြန်ပေးထားပါတယ်။ နောက် သူ့ကို GuestList component ထဲမှာ ul tag ရဲ့နောက်မှာ place လုပ်ပေးရပါမယ်။
+        အဲ့
+        PendingGuest property ထဲမှာဆိုရင် state ကနေ name prop တစ်ခုကို pass လုပ်ပေးရပါမယ်။ နောက် App component ထဲက
+        GuestList
+        ထဲကို state ကနေ PendingGuest ကို pass လုပ်ပေးရပါမယ်။ နောက် section မှာတော့ project ရဲ့ final feature
+        တစ်ခုဖြစ်တဲ့
+        counter ကိုလုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>PendingGuest.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const PendingGuest = props => {
+            if (props.name) {
+            return (
+            &lt;li className="pending"&gt;
+                &lt;span&gt;
+                    {props.name}
+                &lt;/span&gt;
+            &lt;/li&gt;
+            );
+            }
+            return null;
+            };
+            
+            PendingGuest.propTypes = {
+            name: PropTypes.string.isRequired
+            };
+            
+            export default PendingGuest;
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating the Counter</h1>
+    <p>
+        Example ရဲ့ last feature တစ်ခုဖြစ်တဲ့ app change ရဲ့ state အနေနဲ့ counter component ကို update
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        First step အနေနဲ့ counter component ကို create လုပ်ပေးရပါမယ်။ နောက် Counter component ကို App component ထဲကို
+        import
+        လုပ်ပေးရပါမယ်။ နောက် Counter component ထဲမှာရှိတဲ့ numerals တစ်ခုချင်းစီမှာ prop values တွေကို replace
+        လုပ်ပေးရပါမယ်။
+        First အနေနဲ့ကတော့ props.numberAttending ဖြစ်ပြီးတော့ second ကတော့ prop.numberUnconfirmed ဖြစ်ပါတယ်။
+        နောက်ဆုံးကတော့
+        prop.totalInvited ပဲဖြစ်ပါတယ်။ နောက်သူတို့ကို propTypes မှာ declare လုပ်ပေးရပါမယ်။ နောက် App component ထဲမှာ ဒီ
+        totals
+        တွေကို counter ထဲမှာ passing လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် သူတို့တစ်ခုချင်းစီအတွက် variable တစ်ခုစီနဲ့ store
+        လုပ်ပေးထားပါတယ်။ နောက် attending guess total ကို ရဖို့အတွက် confirmed ဖြစ်တဲ့ number of guess ကို count
+        လုပ်ုဖို့လိုပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့အတွက် reduce method ကိုအသုံးပြုနိုင်ပါတယ်။ Reduce ဟာဆိုရင် array
+        တစ်ခုထက် some
+        value တစ်ခုနဲ့ end up လုပ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ Example မှာဆိုရင်တော့ single number တစ်ခုကို
+        လိုချင်တာဖြစ်ပါတယ်။ Reduce ဟာ accumulator တစ်ခုနဲ့ current value တစ်ခုကို ယူပါတယ်။ Guest တစ်ခုချင်းအတွက်
+        isConfirmed ဟာ
+        true ဖြစ်တယ်ဆိုရင် total ထဲကို 1 ပေါင်းပေးမှာဖြစ်ပါတယ်။ False ဆိုရင် total unchange ကို return
+        ပြန်ပေးမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် ternary expression ကိုအသုံးသွားမှာဖြစ်ပါတယ်။ unconfirmed ကို ရဖို့အတွက် total ထဲက
+        numberattending ကို subtract လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const Counter = props =>
+            &lt;table className="counter"&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Attending:&lt;/td&gt;
+                        &lt;td&gt;{props.numberAttending}&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Unconfirmed:&lt;/td&gt;
+                        &lt;td&gt;{props.numberUnconfirmed}&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Total:&lt;/td&gt;
+                        &lt;td&gt;{props.totalInvited}&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;;
+            
+            Counter.propTypes = {
+            numberAttending: PropTypes.number,
+            numberUnconfirmed: PropTypes.number,
+            totalInvited: PropTypes.number
+            };
+            
+            export default Counter;
+
+        </code>
+    </pre>
+    <a href="http:www.guest.itvisionlab.com" target="_blank">Test Yourself</a>
+    <hr>
+</body>
+
+</html>

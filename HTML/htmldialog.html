@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dialog</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+</style>
+<body>
+    <h1>About Dialog Markup</h1>
+    <p>
+            ကျွန်တော်ဒီတစ်ခါပြောပြချင်တဲ့အကြောင်းကတော့ HTML ရဲ့ dialog အကြောင်းပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ website အချို့ကိုဝင်ကြည့်တဲ့အခါမှာ dialog box ကိုတွေ့ရပါတယ်။ ဥပမာအနေနဲ့ ကတော့ email address ကို sign up လုပ်ခိုင်းတာတွေ web app တစ်ခုထဲမှာ change တစ်ခုကို confirm လုပ်ခိုင်းတာတွေ။W3C ဟာဆိုရင် dialog window တစ်ခုကို describe လုပ်ဖို့ရန်အတွက် standardized လုပ်ထားတဲ့ HTML markup အချို့နဲ့ came up ဖြစ်လာပါတယ်။ Traditional dialog window ကို အချိန်အကြာကြီး front end frameworks ကို implement လုပ်ထားတဲ့ CSS နဲ့ အခြား HTML markup တွေနဲ့ ပေါင်းပြီး create လုပ်ထားပါတယ်။ Front end frameworks ဟာ အကောင်းဆုံး choice ဆိုရင် ဘာလို့ standardized dialog element တစ်ခုကို create လုပ်တာလဲဆိုတဲ့ မေးခွန်း အတွက် reasons တွေ အများကြီးရှိပါတယ်။   Frameworks မှာဆိုရင် dialog element အတွက် support တွေပါဝင်ပါတယ်။ Dialog တစ်ခုကို create လုပ်ဖို့ဆိုရင် HTML file တစ်ခုနဲ့ JavaScript file တစ်ခုလိုအပ်ပါတယ်။ Dialog tag တစ်ခုကို create လုပ်လိုက်မယ်။ သူတဲ့မှာ သုံးတဲ့ attribute ကတော့ open attribute ပဲဖြစ်ပါတယ်။ အဲ့ dialog tag ထဲမှာ ကျွန်တော်တို့ လေ့လာပြီးသားဖြစ်တဲ့ HTML tag အချို့ကို အသုံးပြုနိုင်ပါတယ်။ Dialog box ထဲကို form တစ်ခုနဲ့ အဲ့ form ထဲမှာ text တစ်ခု နဲ့ button တစ်ခုကို create လုပ်လိုက်မယ်။ အဲ့ button ကို press လုပ်လိုက်ရင် dialog window ဟာ dismiss ဖြစ်သွားမှာဖြစ်ပါတယ်။ နောက်ထပ် button နှစ်ခုကို create လုပ်လိုက်မယ်။ အဲ့နှစ်ခုကို id ပေးခဲ့မယ်။ Name ကိုတော့ မတူအောင်ပေးလိုက်ပါမယ်။ အဲ့ buttons နစ်ခုထဲက တစ်ခုထဲကို dialog window open ဖြစ်ဖို့အတွက် JavaScript အချို့ကို add လုပ်ဖို့ပဲဖြစ်ပါတယ်။ နောက်ထပ် button တစ်ခုကိုတော့ အခြား page interactions blocks လုပ်ထားတဲ့ dialog  window ကို open လုပ်ဖို့ဖြစ်ပါတယ်။ ဒါဟာ အသုံးများတဲ့ design pattern တစ်ခုပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ dialog တစ်ခုဟာ open ဖြစ်နေတဲ့ အချိန်မှာ user တွေဟာ rest of the application ကို အသုံးမပြုခင်  sort of interaction အချို့ကို perform လုပ်ဖို့ရန်လိုပါတယ်။ Dialog နဲ့ ပါတ်သတ်ပြီးအောက်မှာထပ်ပြီးတော့ ရှင်းပြပေးပါမယ်
+    </p>
+    <pre> 
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;dialog open&gt;
+                        &lt;form method="dialog"&gt;
+                            &lt;input type="text"&gt;
+                            &lt;button type="submit"&gt;OK&lt;/button&gt;
+                        &lt;/form&gt;
+                    &lt;/dialog&gt;
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/dialogex.html" target="_blank">Output>>>>></a><hr>
+    <h1>How to connect HTML Dialog Window with JavaScript File </h1>
+    <p>
+            Dialog buttons တွေကို Javascript file တွေနဲ့ ID attribute ကိုအသုံးပြုပြီးတော့ ဘယ်လိုချိတ်ရတယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအပြင် buttons ကိုသုံးတဲ့အခါ သူတို့ကို browser က ဘယ်လို apply လုပ်တယ်ဆိုတာကိုလည်းရှင်းပြပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ dialog  ကို id ပေးခဲ့ဖို့လိုပါမယ်။ ဘာလို့လဲဆိုရင် Javascript file မှာ create လုပ်လိုက်တဲ့ dialog ကို ပြန်ခေါ်သုံးဖို့ပဲဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ buttons တွေပဲဖြစ်ပါတယ် butttons တွေကိုလည်း id ပေးခဲ့လို့လိုပါတယ်။ အဲ့ buttons တွေကတော့ openDialog နဲ့ openModalDialog တို့ပဲဖြစ်ပါတယ်။ OpenDialog button ကို click လုပ်လိုက်တဲ့အချိန်မှာ dialog window ဟာပေါ်လာမှာဖြစ်ပြီး အဲ့မှာ OK ကို click လုပ်လိုက်ရင် dialog window ဟာ dismiss ဖြစ်သွားမှာဖြစ်ပြီး အဲ့ openDialog ကို နောက်တစ်ကြိမ်ပြန် click လုပ်လိုက်ရင်လည်း text ထဲမှာ input လုပ်လိုက်တဲ့ text ဟာ ပျောက်မသွားတာကို သတိထားမိမှာဖြစ်ပါတယ်။ နောက်ထပ် openModalDialog ကို click လုပ်လိုက်ရင် dialog window ဟာ browser ကနေ apply လုပ်ပေးလိုက်တဲ့ default styling နဲ့ အတူ appear ဖြစ်လာမှာဖြစ်ပါတယ်။ အဲ့မှာ အရင် button နဲ့ မတူတာကတော့ သူဟာ အဲ့မှာရေးထားတဲ့ button တွေကို select လုပ်လို့မရပါဘူး။ JavaScript file မှာဆိုရင်တော့ ကျွန်တော်တို့ dialog box ရယ် buttons တွေကို ပေးခဲ့တဲ့ id နဲ့ ပြန်ခေါ်ပြီးအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ javascript file ထဲမှာ ကျွန်တော်တို့ ပြန်ခေါ်လိုက်တဲ့ buttons တွေကို သိမ်းဖို့ အတွက် var ဆိုပြီး name တစ်ခုကို ပေးထားရမှာဖြစ်ပါတယ်။ အဲ့လို id နဲ့ ပြန်ခေါ်တဲ့ အခါမှာ document.getElementById နဲ့ ခေါ်ပေးရပါမယ်။ အဲ့ဒါပြီးရင် (' ') အဲ့ single quote ထဲမှာ ကျွန်တော်တို့ပေးခဲ့ သက်ဆိုင်တဲ့ Id တွေကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်ရှင်းပြခဲ့တာတွေကို အောက်က example မှာ လေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>HTML File</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Dialog&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;dialog id="dialogWindow"&gt;
+                        &lt;form method="dialog"&gt;
+                            &lt;input type="text"&gt;
+                            &lt;button type="submit"&gt;OK&lt;/button&gt;
+                        &lt;/form&gt;
+                    &lt;/dialog&gt;
+                    &lt;button id="openDialog"&gt;openDialog&lt;/button&gt;
+                    &lt;button id="openModalDialog"&gt;openModalDialog&lt;/button&gt;
+                    &lt;script type="text/javascript" src="app.js"&gt;&lt;/script&gt;
+                 
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>JavaScript File</h2>
+    <pre>
+        <code>
+                (function() {
+                    var openDialog = document.getElementById('openDialog');
+                    console.log(openDialog);
+                    var openModalDialog = document.getElementById('openModalDialog');
+                    var dialogwindow= document.getElementById('dialogWindow');
+                
+                    openDialog.addEventListener('click', function(){
+                        dialogwindow.show();
+                    });
+                    openModalDialog.addEventListener('click', function(){
+                        dialogwindow.showModal();
+                    });
+                
+                
+                })();
+        </code>
+    </pre>
+    <a href="../Example/javascriptdialog.html" target="_blank">Output>>>>></a><hr>
+    
+    
+</body>
+</html>

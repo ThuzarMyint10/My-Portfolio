@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Environment Variables</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Environments</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ life ဟာဆိုရင် different actions, eating, sleeping, working, playing တို့ အတွက် different
+        environments
+        တွေမှာ filled ဖြစ်ရပါမယ်။ Programming ဟာလည်း အတူတူပါပဲ။ ကျွန်တော်တို့ရဲ့ code ဟာဆိုရင် different environments
+        မှာ
+        different reasons အတွက် run လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့ရဲ့ application တစ်ခုကို develop လုပ်တယ်ဆိုပါစို့။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ development or dev environment တစ်ခုမှာ အလုပ်လုပ်ရပါမယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ new
+        features တွေနဲ့ playing လုပ်ပြီးတော့ bugs တွေကို fixing လုပ်ပေးရမှာဖြစ်ပါတယ်။ Dev environment တစ်ခုဆိုတာ
+        typically
+        အရတော့ mixture of test and production data တွေပါဝင်တဲ့ test database တစ်ခုကို references လုပ်ပါတယ်။ Test data
+        တွေဟာ
+        application ထဲမှာ specific scenarios တွေကို test လုပ်ဖို့ easier ဖြစ်အောင်လုပ်ဆောင်ပေးပါတယ်။ နောက် production
+        data
+        ဟာဆိုရင် mirror the production environment နဲ့ closing ဖြစ်နေတဲ့ under conditions တွေမှာ ရှိတဲ့ application ကို
+        test
+        လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ရဲ့ application ဟာ third party services, or APIs,
+        such as
+        mail servers and human processors တို့နဲ့ connects ဖြစ်နေတဲ့အခါမှာ ဒီ services တွေမှာဆိုရင် တစ်ခါတစ်ရံမှာ own
+        test
+        environments ရှိကြပါတယ်။ နောက် impacting production or incurring additional expense မပါဘဲနဲ့ request ကို
+        ပြုလုပ်နိုင်တဲ့
+        sandboxes တွေလည်းရှိကြပါတယ်။ Dev environment ဟာဆိုရင် developers တွေကို situation ကို quickly assess လုပ်ဖို့
+        ကူညီပေးတဲ့
+        additional debugging and logging တွေရှိပါတယ်။ Development and production ဟာ most critical environments
+        နှစ်ခုဖြစ်ပါတယ်။
+        New feature or bug တစ်ခုဟာ issue or task တစ်ခုအဖြစ် often refer လုပ်ပါတယ်။ အဲ့ဒါကတော့ developer တစ်ယောက်ကို
+        implement or
+        fix လုပ်ဖို့ assigned လုပ်တာဖြစ်ပါတယ်။ Developer ဟာ သူတို့ရဲ့ local development environment ကို ဒီ issue or bug
+        ကို
+        resolve လုပ်ဖို့ရန်အတွက် အသုံးပြုကြပါတယ်။
+    </p>
+    <hr>
+    <h1>Accessing Environment Variables</h1>
+    <p>
+        Environment ဆိုတာ သူ့ထဲမှာ ကျွန်တော်တို့ရဲ့ code တွေ run လုပ်တဲ့ system တစ်ခုပဲဖြစ်ပါတယ်။ Environment variable
+        တစ်ခုဟာ
+        ဘယ် system ပေါ်မှာ running လုပ်တယ်ဆိုတာပေါ်မှာ မူတည်ပြီးတော့ changes ဖြစ်သွားပါတယ်။ ဘာကြောင့်လဲဆိုတော့
+        environment
+        variable ဟာ ကျွန်တော်တို့ရဲ့ code base ထဲမှာ stored လုပ်ထားတာ မဟုတ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ သူ့ကို system
+        ပေါ်မှာရှိတဲ့ some sort of configuration ထဲမှာ stored လုပ်ထားတာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ ဒီ environment variables
+        တွေဟာ
+        programming language တစ်ခုကို specific မလုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ သူတို့ကို any program, regardless of
+        language,
+        running on that particular environment ကနေ အသုံးပြုနိုင်ပါတယ်။ ဒီမှာဆိုရင် number of environment variables
+        တွေရှိပါတယ်။
+        သူတို့ကို default အရ set လုပ်ပေးထားပါတယ်။ ဆိုလိုတာကတော့ သူတို့ကို ကျွန်တော်တို့ဟာ access လုပ်နိုင်ပါတယ်။ Example
+        မှာဆိုရင် phpinfo() function ကို echo လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကို browser မှာသွားကြည့်လိုက်တဲ့အခါမှာ
+        environment နဲ့
+        ပါတ်သတ်တဲ့ a lot of information တွေရှိပါတယ်။ နောက် အဲ့မှာဆိုရင် environment variables တွေအများရှိပါတယ်။
+        Variables
+        တွေအားလုံးဟာ uppercase တွေဖြစ်ပါတယ်။ Environment variable တစ်ခုကို access လုပ်ဖို့ရန်အတွက် getenv() ဆိုတဲ့
+        function
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် function ထဲမှာ ကျွန်တော်တို့ အသုံးပြုချင်တဲ့ environment variable ရဲ့ name
+        ကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;php
+             var_dump(getenv('SCRIPT_NAME'));
+             echo phpinfo();
+        </code>
+    </pre>
+    <hr>
+    <h1>Setting up the Project and Package</h1>
+    <p>
+        အခု section မှာတော့ simple application တစ်ခုဖြစ်တဲ့ developers say the darnedest things ကို prepared
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ application မှာဆိုရင် pages နှစ်ခုရှိပါတယ်။ Refresh လုပ်လိုက်တဲ့အခါတိုင်းမှာ homepage
+        ဟာ
+        somethings a developer commonly says တွေကို displays လုပ်ပေးမှာဖြစ်ပါတယ်။ Contact page မှာဆိုရင် comment or a
+        suggestion
+        ကို email ဖို့ form တစ်ခုရှိပါတယ်။ အဲ့မှာဆိုရင် spam ကို reduce လုပ်ဖို့ရန်အတွက် Google reCAPTCHA
+        တစ်ခုပါဝင်ပါတယ်။
+        ဒီမှာဆိုရင် ကျွန်တော်တို့ဟာ site ရဲ့ functionality အားလုံးကိုတော့ change လုပ်သွားမှာမဟုတ်ပါဘူး။ ဒီမှာဆိုရင်
+        application
+        ကို upgrade လုပ်ဖို့ရန်အတွက် knowledge of environment variables ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        environment
+        variables တွေကို SMTP and reCAPTCHA အတွက် credentials တွေကို move လုပ်ဖို့ အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ပြီးတော့
+        quotes
+        တွေအတွက် data source တွေကို change လုပ်သွားမှာဖြစ်ပါတယ်။ First, ကျွန်တော်တို့ဟာ environment variables တွေကို set
+        လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် way တွေအများရှိပါတယ်။ အဲ့ ways တွေအားလုံးမှာ main camps နှစ်ခုရှိပါတယ်။ First,
+        သူတို့ကို server ပေါ်မှာ set လုပ်ပေးရမယ် or သူတို့ကို code တွေနဲ့ set လုပ်ပေးရမယ်။ Environment variables တွေရဲ့
+        benefits
+        တစ်ခုကတော့ သူတို့ကို ကျွန်တော်တို့ရဲ့ code ထဲမှာ store လုပ်ထားတာမဟုတ်ပါဘူး။ ဘာကြောင့်သူတို့ကို code တွေနဲ့ set
+        လုပ်တာလဲဆိုတဲ့မေးခွန်းရှိပါတယ်။ Production server မှာဆိုရင်တော့ ကျွန်တော်တု့ိဟာ မလုပ်နိုင်ပါတယ်။ ဒါပေမဲ့
+        development
+        environment မှာဆိုရင် သူ့မှာ number of advantages တွေရှိပါတယ်။ Packages တွေဟာ additional functionality ကို
+        ပေးပါတယ်။
+        သူတို့ကို environment variables တွေနဲ့ conjunction ထဲမှာ အသုံးပြုနိုင်ပါတယ်။ နောက် server တစ်ခုကို ဘယ်လို manage
+        လုပ်တယ်တာကိုသိစရာမလိုပါဘူး။ ကျွန်တော်တို့ဟာ different projects တွေအတွက် different variables တွေကို same
+        development
+        environment ဆိုရင်တောင် set လုပ်နိုင်ပါတယ်။ ဒီ variables တွေကို separate file တစ်ခုထဲမှာ store လုပ်နိုင်ပါတယ်။
+        Example
+        မှာဆိုရင် php.env လို့ခေါ်တဲ့ package တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Package ဟာဆိုရင် environment variables
+        တွေကို
+        .env file တစ်ခုနဲ့ loads လုပ်ပေးတာဖြစ်ပါတယ်။ 'ဒီ .env files ဟာဆိုရင် same across languages ဖြစ်ပြီးတော့ command
+        line
+        မှာလည်း အသုံးပြုနိုင်ပါတယ်။ Package ကို Composer နဲ့ install လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့လုပ်ရမှာက
+        ကျွန်တော်တို့ အသုံးပြုမဲ့ .env file ဟာ ကျွန်တော်တို့ရဲ့ gitignore file ထဲကို added လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့်
+        console မှာ "nano .gitignore" ဆိုပြီး console မှာ type လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် prompts နောက်မှာ "Ctrl+ O" ဟာ
+        output
+        အတွက်ပြီးတော့ "Enter" ဟာ access အတွက်၊ "Ctrl+X ဟာ exit အတွက်ပဲဖြစ်ပါတယ်။ နောက် .env file ကို add
+        လုပ်ရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကတော့ "nano inc/.enc" ဆိုပြီးတော့ type လုပ်ပေးရမှာဖြစ်ပါတယ်။ inc ဆိုတာကတော့ folder name ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Using Environment Specific Settings</h1>
+    <p>
+        အခု section မှာတော့ SMTP ကို moving လုပ်ပြီးတော့ environment variables ကို set လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ app password တစ်ခုလိုပါတယ်။ ကျွန်တော်တို့ဟာ same SMTP provider ကိုပဲ အသုံးပြုနေမယ်ဆိုရင်
+        ကျွန်တော်တို့ဟာ
+        username and password ကို switch out လုပ်ပေးဖို့လိုပါတယ်။ First အနေနဲ့ .env file ကို update
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>process_form.php</h3>
+    <pre>
+        <code>
+            //To Do Email
+            $mail = new PHPMailer;
+            
+            //Tell PHPMailer to use SMTP
+            $mail->isSMTP();
+            //Enable SMTP debugging
+            // 0 = off (for production use)
+            // 1 = client messages
+            // 2 = client and server messages
+            $mail->SMTPDebug = getenv('SMTP_DEBUG');
+            //Set the hostname of the mail server
+            $mail->Host = getenv('SMTP_HOST');
+            // use
+            // $mail->Host = gethostbyname('smtp.gmail.com');
+            // if your network does not support SMTP over IPv6
+            //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+            $mail->Port = getenv('SMTP_PORT');
+            //Set the encryption system to use - ssl (deprecated) or tls
+            $mail->SMTPSecure = getenv('SMTP_SECURE');
+            //Whether to use SMTP authentication
+            $mail->SMTPAuth = getenv('SMTP_AUTH');
+            //Username to use for SMTP authentication - use full email address for gmail
+            $mail->Username = getenv('SMTP_USRNAME');
+            //Password to use for SMTP authentication
+            $mail->Password = getenv('SMTP_PASSWORD');
+            
+            
+            
+            //It's important not to use the submitter's address as the from address as it's forgery,
+            //which will cause your messages to fail SPF checks.
+            //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+            $mail->setFrom( getenv('SMTP_FROM'), $name);
+            $mail->addReplyTo($email, $name);
+            $mail->addAddress(getenv('MAILTO_EMAIL'), getenv('MAILTO_NAME'));
+            $mail->Subject = 'Website Contact from' . $name;
+            if ($mail->send()){
+            echo $message= "Thanks for your response, I'll check it out shortly!";
+            }
+            
+            
+            }
+            ?>
+        </code>
+    </pre>
+    <a href="Environment_variables/index.php">Test Yourself</a>
+    <hr>
+</body>
+
+</html>

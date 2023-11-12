@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+    
+</style>
+<body>
+    <h1>Inttoduction to HMTL and the Portfolio Project</h1>
+    <p>
+        ဒီမှာဆိုရင် HTML နဲ့ CSS ကိုသုံးပြီးတော့ own web site တစ်ခုကို ဘယ်လို create လုပ်တယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ HTML နဲ့ CSS တို့ဟာ website တွေရဲ့ အခြေခံကျတဲ့ blocks တွေပဲဖြစ်ပါတယ်။ ကိုယ့်website ရဲ့ design ကို ကိုယ်ကြိုက်သလို create လုပ်လိုရပါတယ်။ ရှင်းပြတဲ့အခါမှာလည်း ကျွန်တော်ဟာ step by step ရှင်းပြသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>What is HTML</h1>
+    <P>
+        HTML ဟာ hypertext markup language လို့ခေါ်တဲ့ initialism တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ scientific research papers တွေအတွက် original designed တစ်ခုပဲဖြစ်ပါတယ်။ တစ်နည်းအားဖြင့် computer screen ပေါ်မှာ ပြပေးတဲ့ text အမျိုးအစားတွေပဲဖြစ်ပါတယ်။ HTML ဟာ structure တွေကို describe လုပ်ဖို့ allows လုပ်ပေးပါတယ်။ HTML ဟာဆိုရင် facebook or Twitter တို့လို complex web applications တွေအတွက် designed လုပ်ထားတာတော့မဟုတ်ပါဘူး။
+    </P><hr>
+    <h1>How to Make a Website</h1>
+    <p>
+        ဒီတစ်ကျွန်တော်ပြောပြချင်တာကတော့ web page တွေရဲ့ design နဲ့ ပါတ်သတ်တာတွေပဲဖြစ်ပါတယ်။Site တစ်ခုကနေ another site ကို သွားတဲ့  Design process တွေဟာအများကြီးရှိနိုင်ပါတယ်။ Design decisions မှာဆိုရင် အပိုင်း တွေခွဲပြီးလုပ်ရပါတယ်။ အဲ့ဒါတွေကတော့ decide on Goals, list the page elements, and layout the pages with shapes တို့ပဲဖြစ်ပါတယ်။ အခု goals of our site ကို decide လုပ်ပါမယ်။ Decide လုပ်တဲ့အခါ portfolio design နဲ့ ဥပမာပေးပြီးပြောပြပေးသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ family တွေနဲ့ friends တွေကို share လုပ်ဖို့ရန်အတွက် gallery photos တစ်ခုကို create လုပ်ချင်လျှင် ကျွန်တော်တို့မှာ လိုအပ်တဲ့ page elements တွေကို list လုပ်တဲ့ own goal ရှိရပါတယ်။ ဒီ website မှာဆိုရင် ကျွန်တော်တို့ဟာ Image Gallery, an About Page, and a Content Page ဆိုတာတွေ လိုအပ်ပါမယ်။ နောက်ထပ် ကျွန်တော်တို့ဟာ title ပါရေးလို့ရတဲ့ header တစ်ခုရယ် navigation ရယ်လိုအပ်ပါသေးတယ်။ Wide header ကို Top Level Navigation လို့လဲခေါ်ပါတယ်။ အဲ့မှာဆိုရင် Footer လဲလိုအပ်ပါသေးတယ်။ ဒီ Image Gallery ဟာ ကျွန်တော်တို့ work ကို showcase လုပ်တာပဲဖြစ်ပါတယ်။ About Page ဟာဆိုရင်တော့ website ရဲ့ some contacts ကို provide လုပ်ပေးတဲ့အပြင် visitor တွေကို information တွေလည်းပေးပါတယ်။  Contact Page ဆိုတာကတော့ visitor တွေ contact လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ ဒါတွေဟာ design portfolio တစ်ခုအတွက် အရေးကြီးတဲ့ အရာတွေပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ site ရဲ့ shapes and visual structure တွေကို layout လုပ်ဖို့ရန်အတွက် Wire Framing လို့ခေါ်တဲ့ technique တစ်ခုကို အသုံးပြုပါတယ်။
+    </p><hr>
+    <h1>Use Navigation Elememt</h1>
+    <p>
+        ကျွန်တော်အခုတစ်ခါမှာတော့ page ထဲမှာ navigation နဲ့ content တွေကို ဘယ်လိုအသုံးပြု တယ်ဆိုတာကို ရှင်းပြပေးမှာဖြစ်ပါတယ်။ ပြီးတော့ အဲ့ navigation တစ်ခုချင်းစီမှာ အခြား page တွေကို သွားတဲ့ link tag ကိုဘယ်လိုအသုံးပြုရတယ်ဆိုတာကိုလည်း ရှင်းပြပေးမှာဖြစ်ပါတယ်။  Navigation ကို html file ရေးတဲ့ အခါ &lt;nav&gt; tag နဲ့ သုံးရပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Navigation Example&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;header&gt;
+                     &lt;h1&gt;&lt;a href="nav.html"&gt;Alex&lt;/a&gt;&lt;/h1&gt;
+                     &lt;h2&gt;&lt;a href="nav.html"&gt;Web Developer&lt;/a&gt;&lt;/h2&gt;
+                 &lt;/header&gt;
+                 &lt;nav&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;&lt;a href="profile.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/nav&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Image Gallery</h1>
+    <p>
+        Image gallery တစ်ခုကို create လုပ်မှာဖြစ်ပါတယ်။ အဲ့လိုလုပ်တဲ့နေရာမှာ HTML list ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့လို create လုပ်တဲ့အခါမှာ img tag ကိုအသုံးပြုမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Navigation Example&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;header&gt;
+                     &lt;h1&gt;&lt;a href="nav.html"&gt;Alex&lt;/a&gt;&lt;/h1&gt;
+                     &lt;h2&gt;&lt;a href="nav.html"&gt;Web Developer&lt;/a&gt;&lt;/h2&gt;
+                 &lt;/header&gt;
+                 &lt;nav&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;&lt;a href="profile.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/nav&gt;
+                 &lt;section&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;
+                             &lt;img src="../image/AMERICANNO.jpg" alt="coffee"&gt;
+                         &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/section&gt;
+                 &lt;footer&gt;
+                     &lt;p&gt;&copy; 2019&lt;/p&gt;
+                 &lt;/footer&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>About Comment</h1>
+    <p>
+        အခုကျွန်တော်ပြောပြမဲ့အကြောင်းကတော့ comments တွေအကြောင်းပဲဖြစ်ပါတယ်။ Comment တစ်ခုဆိုတာ browser ကနေ interpreted လုပ်တာမပါဘနဲ့ code ထဲမှာ note တစ်ခုကို ရေးတဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ Site visitors တွေကတော့  view the source of your webpage ကို မသွားဘဲနဲ့ ဒီ comment ကိုမြင်ရမှာမဟုတ်ပါဘူး။ ဒါဟာကောင်းတဲ့ idea တစ်ခုဘဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် comments ဟာ remainders or visual cues တစ်ခုအနေနဲ့ serve လုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ဒီလိုလုပ်တာဟာ နောင်ကျရင် code ကို maintain လုပ်တဲ့အခါ ပိုပြီးလွယ်ကူစေပါတယ်။ Comment တစ်ခုကို create လုပ်တဲ့အခါမှုာ forward slash"/" တစ်ခုရယ် အဲ့နောက်မှာ "*" တစ်ခုရယ်ပါရပါမယ်။ သူတို့ပိတ်တဲ့အခါကျရင်လဲ "*" ကအရင်လာပြီးတော့ ပြီးမှ forward slash ကနောက်ကျခံရပါတယ်။ အဲ့နှစ်ခုရဲ့ ကြားထဲမှာ ကျွန်တော် ရေးချင်တဲ့ comment ကို create လုပ်လို့်ရပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            .tag{
+                background-color: aqua;
+                color: black;
+                padding: 10px;
+                border-radius: 5px;
+                display: table;
+                margin: 10px auto;
+            
+            }
+            /*FOR HEADER ELEMENT*/
+            header{
+                line-height: 1.5;
+               
+            }
+            /*FOR PARAGRAHP*/
+            .para{
+                background-color: #222;
+                color: yellow;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+                width: 40%;
+                
+            }
+            header .profile-image{
+                margin-top: 50px;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 3px solid white;
+                transition: all .3s;
+                display: block;
+                margin: 0 auto;
+            
+            
+            
+            }
+            header .profile-image:hover{
+                transform: scale(2) rotate(360deg);
+            }
+        </code>
+    </pre><hr>
+    <h1>How to add Image Gallery Content</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ link tag ကို image tag တွေမှာလည်းအသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;title&gt;Navigation Example&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                    &lt;header&gt;
+                        &lt;h1&gt;&lt;a href="nav.html"&gt;Alex&lt;/a&gt;&lt;/h1&gt;
+                        &lt;h2&gt;&lt;a href="nav.html"&gt;Web Developer&lt;/a&gt;&lt;/h2&gt;
+                    &lt;/header&gt;
+                    &lt;nav&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="profile.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/nav&gt;
+                    &lt;section&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;
+                                &lt;a href="mm.html"&gt;
+                                &lt;img src="../image/AMERICANNO.jpg" alt="coffee"&gt;
+                                &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                               &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                   &lt;a href="../image/Cold.jpg"&gt;
+                                   &lt;img src="../image/Cold.jpg" alt="coffee"&gt;
+                                   &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                               &lt;/a&gt;
+                           &lt;/li&gt;
+                           &lt;li&gt;
+                                &lt;a href="../image/IRISH.jpg"&gt;
+                                &lt;img src="../image/IRISH.jpg" alt="coffee"&gt;
+                                &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                               &lt;/a&gt;
+                           &lt;/li&gt;
+                           &lt;li&gt;
+                               &lt;a href="../image/ESPRESSO.jpg"&gt;
+                               &lt;img src="../image/ESPRESSO.jpg" alt="coffee"&gt;
+                               &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                               &lt;/a&gt;
+                           &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/section&gt;
+                    &lt;footer&gt;
+                        &lt;p&gt;&copy; 2019 Mg Thar Gyi&lt;/p&gt;
+                    &lt;/footer&gt;
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>About Footer Element</h1>
+    <p>
+            ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ဟာ link ကို icon တွေနဲ့ဖော်ပြီး ကိုယ် link လုပ်ချင်တဲ့ web site ကို link လုပ်လို့ရတယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ ဥပမာ facebook တို့ Twitter တု့ိလို page တွေကို link လုပ်တာကို example အနေနဲ့ လုပ်ပြသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို footer element ထဲမှာထည့်ရေးရမှာဖြစ်ပါတယ်။  
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Navigation Example&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;header&gt;
+                     &lt;h1&gt;&lt;a href="nav.html"&gt;Alex&lt;/a&gt;&lt;/h1&gt;
+                     &lt;h2&gt;&lt;a href="nav.html"&gt;Web Developer&lt;/a&gt;&lt;/h2&gt;
+                 &lt;/header&gt;
+                 &lt;nav&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;&lt;a href="profile.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/nav&gt;
+                 &lt;section&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;
+                             &lt;a href="mm.html"&gt;
+                             &lt;img src="../image/AMERICANNO.jpg" alt="coffee"&gt;
+                             &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                            &lt;/a&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                                &lt;a href="../image/Cold.jpg"&gt;
+                                &lt;img src="../image/Cold.jpg" alt="coffee"&gt;
+                                &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                             &lt;a href="../image/IRISH.jpg"&gt;
+                             &lt;img src="../image/IRISH.jpg" alt="coffee"&gt;
+                             &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="../image/ESPRESSO.jpg"&gt;
+                            &lt;img src="../image/ESPRESSO.jpg" alt="coffee"&gt;
+                            &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/section&gt;
+                 &lt;footer&gt;
+                     &lt;a href="http://twitter.com/nickptt" target="_blank"&gt;&lt;img src="../image/twitter.png" alt="Twitter Logo"/&gt;&lt;/a&gt;
+                     &lt;a href="htttp://facebook.com/nickpettit" target="_blank"&gt;&lt;img src="../image/facebook.png" alt="Facebook Logo"&gt;&lt;/a&gt;
+                     &lt;p&gt;&copy; 2019 Mg Thar Gyi&lt;/p&gt;
+                 &lt;/footer&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Connect to CSS File </h1>
+    <p>
+        ကျွန်တော်တို့ဟာ CSS နဲ့ HTML files တို့ရဲ့ တစ်ခုနဲ့ တစ်ခု ဘယ်လို connect လုပ်တယ်၊ သူတို့ကို ဘယ်လို separate လုပ်ထားတယ်ဆိုတာကိုလေ့လာကြရမှာဖြစ်ပါတယ်။ CSS file ကို create လုပ်မယ်ဆိုလျှင် ကျွန်တော်တို့ဟာ folder ကို နောက်ထပ်တစ်ခုယူပြီး create လုပ်တာပိုကောင်းပါတယ်။ Folder name ကို  CSS လို့ပေးခဲ့ပါ။ ကျွန်တော်တို့ဟာ create လုပ်ခဲ့တဲ့ css file ကို html file မှာ apply ဖြစ်ဖို့ရန်အတွက် ခေါ်သုံးတဲ့ အခါမှာ link element ကိုအသုံးပြုပြီးခေါ်သုံးရမှာဖြစ်ပါတယ်။ အဲ့ link element ဟာ anchor element နဲ့လုံးဝအတူပါဘူး။ သူထဲမှာပါတဲ့ attributes တွေကတော့ relationship လို့ခေါ်တဲ့ rel နဲ့ ကျွန်တော်တို့ တွေ့နေကြဖြစ်တဲ့ href တို့ပဲဖြစ်ပါတယ်။ အဲ့ href attribute မှာဆိုရင် ကျွန်တော်တို့ဟာ css file path လမ်းကြောင်းကို မှန်အောင်ရေးထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ directory တစ်ခုထဲမှာ html ရော css files ရော ရှိနေရင် ဘာမှ ပြသာနာ မရှိပါဘူး။ မရှိတဲ့ဘူးဆိုရင် "../" နဲ့ပြန်ခေါ်ပေးရမှာဖြစ်ပါတယ်။ "../" ဆိုတာကတော့ directory မတူတဲ့ အခါမှာ ကျွန်တော်တို့ html file ရှိနေတဲ့ directory ထဲကနေ တစ်ချက် ထွက်တာပဲဖြစ်ပါတယ်။ အဲ့နောက်မှာတော့ "/" ခံပြီးတော့ ကျွန်တော်တို့ create လုပ်ခဲ့ တဲ့  CSS file ရှိတဲ့ directory ကိုရေးရမှာဖြစ်ပြီး အဲ့နောက်မှ CSS file ကိုရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+              &lt;link rel="stylesheet" href="../CSS/example.css"&gt;
+        </code>
+    </pre><hr>
+    <h1>What is CSS </h1>
+    <P>
+            CSS ဟာ initialism တစ်ခုပဲဖြစ်ပါတယ်။ Style sheet ရဲ့ portion ဟာဆိုရင်တော့ မြင်လွယ်ပါတယ်။ ဆိုလိုတာကတော့ webpage တစ်ခုရဲ့ visual look   ကို ဖော်ပြတဲ့ document တစ်ခုပဲဖြစ်ပါတယ်။ Cascading portion ဟာအရေးအကြီးဆုံးဖြစ်ပါတယ်။ CSS rule တစ်ခုချင်းစီမှာ potential to override or cancel out previous rules တွေရှိပါတယ်။ CSS ကို file တစ်ခုခွဲမရေးချင်လည်းရပါတယ်။ သူကို html ရဲ့ head tag ထဲမှာ style နဲ့ ခေါ်ပြီးရေးလို့လည်းရပါတယ်။ တစ်ကယ်တော့ ကျွန်တော်တို့ဟာ CSS ရဲ့ cascading nature ကို ကျွန်တော်တို့ရဲ့ advantage အတွက်အသုံးပြုတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ curly braces ထဲမှာ property တွေ value တွေကို element selector နဲ့ ခေါ်ပြီးရေးလို့်ရပါတယ်။ အဲ့လို ရေးတာကို rule လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ဟာ project ထဲမှာ  CSS rule တွေအများကြီးကို create လုပ်လို့ရပါတယ်။ Element selector ဆိုတာ ကတော့ ကျွန်တော်တို့html က tags တွေကို apply လုပ်ဖို့ရန်အတွက် အဲ့ tag ကိုပြန်ခေါ်တာကို ပြောချင်တာပါ။ အဲ့ ကျွန်တော်တို့ခေါ်တာတဲ့ html tag ထဲမှာ ရေးတဲ့ဟာကို declaration လို့ခေါ်ပါတယ်။ ဥပမာ "footer{ color: green;}" ။ CSS rule မှာဆိုရင် multiple declarations တွေပါဝင်ပါတယ်။ အဲ့ declaration ရဲ့ right ဘက်မှာရှိတာဟာ property လို့ခေါ်ပြီးတော့ left ဘက်ကဟာကို value လို့ခေါ်ပါတယ်။ သူတို့နှစ်ခုကြားမှာ colon နဲ့ခြားပေးရပြီး အဆုံးမှာတော့ semicolon နဲ့ ပိတ်ပေးရမှာဖြစ်ပါတယ်။ Curly braces ဆိုတာကတော့ ဘယ် declarations ဟာ selector ကို apply ဖြစ်စေတယ်ဆိုတာကို encapsulate လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေကို rule လို့ခေါ်တာပဲဖြစ်တယ်။ 
+    </P><hr>
+    <h1>Use Id Selectors</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ CSS ရဲ့ basic syntax ကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်ရင်ကရှင်းပြခဲ့သလိုပါပဲ html မှာ class နဲ့ ပေးခဲ့ရင် css မှာ dot နဲ့ပြန်ခေါ်ပြီး သူ့ကို apply လုပ်ချင်တဲ့ rule တွေကို curly braces ထဲမှာ ထည့်ရေးပေးရမှာဖြစ်ပြီး html မှာ id နဲ့ပေးခဲ့ရင် # sign နဲ့ ပြန်ခေါ်ပေးရပါတယ်။ အခုကျွန်တော်က id ပေးပြီးခေါ်ပြထားပါတယ်။ 
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+             #div{
+                 background-color: blue;
+
+             }
+        </code>
+    </pre><hr>
+    <h1> About Some CSS Rules</h1>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော် id နဲ့ ခေါ်ထားတဲ့ selector ထဲကို property တွေ value တွေကို ထည့်ပြီးတော့ အဲ့ value တွေဟာ browser မှာဘယ်လို apply လုပ်တယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ max-width ဆိုတဲ့ property ရဲ့နောက်မှာ 940px ဆိုပြီးပေးလိုက်တာဟာ ကျွန်တော်တို့ရဲ့ div ဟာ width 940 ထက်မကြီးရဘူးဆိုတာကို browser ကို ပြောပြတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ mobile and desktop devices ရဲ့ styling တွေကို adjustments လုပ်တဲ့နေရာမှာ အသုံးဝင်ပါတယ်။ နောက်ထပ် declaration ကတော့ margin ပဲဖြစ်ပါတယ်။အဲ့ဒါဟာ element ရဲ့ spacing အတွက်အသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ sides ၄ ခုလုံးမှာ apply လုပ်ပေးပါတယ်။ First value ကတော့ element ရဲ့ margin on the top and botton ပဲဖြစ်ပါတယ်။ နောက်ထပ် auto ကတော့ margin ရဲ့ left or right side ရဲ့ လိုအပ်တဲ့ နေရာ တိုင်းကို fill လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ background color ကိုထည့်ချင်ရင်လည်း အဲ့ max-width မှာပဲ background color ဟာ apply ဖြစ်မှာဖြစ်ပါတယ်။ အဲ့ background color ကို ကိုယ်ကြိုက်သလို colors တွေကို ပေးလို့ရပါတယ်။ နောက်ထပ်ကတော့ padding ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်လည်း first value ဟာ top and botton ရဲ့ padding ပဲဖြစ်ပြီးတော့ second value ကတော့ left and right ရဲ့ padding ပဲဖြစ်ပါတယ်။</p>
+    <h2>HTML Code</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Navigation Example&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../CSS/nav.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                     &lt;header&gt;
+                         &lt;h1&gt;&lt;a href="nav.html"&gt;Alex&lt;/a&gt;&lt;/h1&gt;
+                         &lt;h2&gt;&lt;a href="nav.html"&gt;Web Developer&lt;/a&gt;&lt;/h2&gt;
+                     &lt;/header&gt;
+                     &lt;nav&gt;
+                         &lt;ul&gt;
+                             &lt;li&gt;&lt;a href="profile.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                         &lt;/ul&gt;
+                     &lt;/nav&gt;
+                     &lt;div id="divition"&gt;
+                            &lt;section&gt;
+                                &lt;ul&gt;
+                                    &lt;li&gt;
+                                        &lt;a href="mm.html"&gt;
+                                        &lt;img src="../image/AMERICANNO.jpg" alt="coffee"&gt;
+                                        &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                            &lt;a href="../image/Cold.jpg"&gt;
+                                            &lt;img src="../image/Cold.jpg" alt="coffee"&gt;
+                                            &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                        &lt;a href="../image/IRISH.jpg"&gt;
+                                        &lt;img src="../image/IRISH.jpg" alt="coffee"&gt;
+                                        &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                        &lt;a href="../image/ESPRESSO.jpg"&gt;
+                                        &lt;img src="../image/ESPRESSO.jpg" alt="coffee"&gt;
+                                        &lt;p&gt;This is a Coffee Image&lt;/p&gt;
+                                        &lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/section&gt;
+                            &lt;footer&gt;
+                                &lt;a href="http://twitter.com/nickptt" target="_blank"&gt;&lt;img src="../image/twitter.png" alt="Twitter Logo"/&gt;&lt;/a&gt;
+                                &lt;a href="htttp://facebook.com/nickpettit" target="_blank"&gt;&lt;img src="../image/facebook.png" alt="Facebook Logo"&gt;&lt;/a&gt;
+                                &lt;p&gt;&copy; 2019 Mg Thar Gyi&lt;/p&gt;
+                            &lt;/footer&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>CSS Code</h2>
+    <pre>
+        <code>
+                a{
+                    text-decoration: none;
+                
+                }
+                #divition{
+                    max-width: 940px;
+                    padding: 0 5%;
+                    margin: 0 auto;
+                    background-color: aqua;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Take a Mobile-First Approach</h1>
+    <p>
+            အခုကျွန်တော်တို့ရဲ့ site ကို mobile version ပုံစံဖြစ်အောင်ရေးမှာဖြစ်ပါတယ်။ ဒါဟာ အနည်းငယ်တော့ counter-intuitive ဖြစ်ပါတယ်။ ဒါပေမဲ့ modern website တွေဟာ mobile devices တွေလိုပဲ built လုပ်ထားတာပဲဖြစ်ပါတယ်။ အဲ့လို built လုပ်တဲ့နေရာမှာ two factors ရှိပါတယ်။ First, mobile website တစ်ခုကို built လုပ်တာဟာ အရမ်းလွယ်ကူပါတယ်။ ကျွန်တော်တို့မှာ complex features, advertisements, complex layouts တွေရဲ့ tons မရှိဘူးဆိုရင်တောင် စိတ်ပူစရာမလိုပါဘူး။ ကျွန်တော်တို့ဟာ website ရဲ့ pure essence ကို reduce လုပ်ချင်တဲ့အခါ ကျွန်တော်တို့ဟာ tablets and desktops တို့ platforms တွေကို design up လုပ်ဖို့လိုပါတယ်။ ဒါဟာ desktop ပေါ်မှာ real complex website တစ်ခုကို create လုပ်တာထက်ပိုပြီးလွယ်ကူပါတယ်။ Second ကတော့ small platform မဟုတ်တဲ့ mobile experience နဲ့ mobile web တို့ကို attention လုပ်ထားဖို့ အရေးကြီးပါတယ်။ တစ်ကယ်တော့ mobile browsing ဟာ eclipe desktop browsing ရဲ့ track တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>CSS Code</h2>
+    <pre>
+        <code>
+                a{
+                    text-decoration: none;
+                
+                }
+                #divition{
+                    max-width: 940px;
+                    padding: 0 5%;
+                    margin: 0 auto;
+                    background-color: aqua;
+                }
+                #logo{
+                    text-align: center;
+                    margin: 0;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Use Color in CSS</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ CSS ရဲ့ values ရဲ့ types တွေရယ် units တွေကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ color အကြောင်းကိုတော့ discussed မလုပ်ရသေးပါဘူး။ဒါကြောင့်် အခုပြောပြပေမှာကတော့ CSS ရဲ့ colors တွေအကြာင်းပဲဖြစ်ပါတယ်။ CSS ရဲ့ colors တွေကို အသုံးပြုတဲ့ အခါမှာ မတူညီတဲ့ နည်းလမ်းအနည်းငယ်ရှိပါတယ်။ အခုကျွန်တော်ပြောပြပေးမှာကတော့ hexadecimal colors အကြောင်းပဲဖြစ်ပါတယ်။ Hexadecimal ဆိုတာ base 16 numbering system တစ်ခုပဲဖြစ်ပါတယ်။ နောက်ထပ် base ten number system ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆို number 0 to 9 အထိရေးပါမယ်။ အဲ့နောက်မှာ a,b,c,d,e ဆိုတဲ့ letters တွေလိုက်ပေးမယ်။ 1 2 3 4 5 6 7 8 9 a b c d e ဆိုပြီး ရှိပါတယ်။ အဲ့ letters တွေဟာ ten to 15 ကို represent လုပ်တဲ့ single digit or character တွေပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါတွေကို two hexadecimal values နဲ့ combine လုပ်တဲ့ အခါကျရင် 256 values ဆိုပြီးရပါတယ်။ ဒါဟာဘာကြောင့်လဲဆိုရင် number တစ်ခုချင်းစီဟာ 16 digits ဆိုပြီးရှိကြပြီး သူတို့ကို 16 နဲ့ multiplied လုပ်လိုက်တဲ့အတွေက်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ red, green and blue ဆိုတဲ့ colors ကို ပေါင်းပြီး digital screen ပေါ်မှာ any color တွေကို create လုပ်နိုင်ပါတယ်။ အဲ့ R, G , B မှာဆိုရင် two hexadecimal numbers တွေပါဝင်ပါတယ်။ First two numbers ဟာ R အတွေက်ဖြစ်ပါတယ်၊ second two ဟာ G , third two ဟာ B အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ထဲမှာ နောက်ထပ် color တွေကိုလည်း mixed လုပ်နိုင်ပါတယ်။ ဥပမာ #000000 ဟာ black color ဖြစ်ပါတယ်။ ကျွန်တော်တို့ create လုပ်ချင်တဲ့ colors တွေရဲ့ ရှေ့မှာ "#" sign ခံပြီးရေးပေးရပါတယ်။ 
+    </p>
+    <p>
+            ကျွန်တော်ပြောပြခဲ့တဲ့ css colors တွေကို css မှာ create လုပ်ပြပေးသွားမှာဖြစ်ပါတယ်။ အဲ့လို create လုပ်တဲ့အခါမှာ colors တွေကို properties တွေရဲ့ နောက်မှာ ရေးပြီး create လုပ်ရပါတယ်။ Example မှာ လေ့လာပြီး ကိုယ်တိုင်လည်း css မှာ colors တွေကို create လုပ်ကြည့်နိုင်ပါတယ်။
+    </p>
+    <h2>Example CSS</h2>
+    <pre>
+        <code>
+                a{
+                    text-decoration: none;
+                
+                }
+                #divition{
+                    max-width: 940px;
+                    padding: 0 5%;
+                    margin: 0 auto;
+                    background-color: aqua;
+                }
+                #logo{
+                    text-align: center;
+                    margin: 0;
+                }
+                header{
+                    background-color: #6ab47b;
+                    border-color: #599a68;
+                }
+                h1,h2{
+                    color: #fff;
+                }
+                
+                nav{
+                    background: #599a68;
+                
+                }
+                nav a, nav a:visited{
+                    color: #fff;
+                }
+                a{
+                    color: #6ab47b;
+                }
+                ul{
+                    margin: 0;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Use Classes in CSS </h1>
+    <p>
+            ကျွန်တော်တို့ဟာ html file က ကျွန်တော်တို့ apply လုပ်ချင်တာတွေကို css file မှာ # sign တု့ိ dot တို့နဲ့ခေါ်ကပြီး အသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါကြောင့် အခု html မှာ class နဲ့ ပေးခဲ့တာကို css မှာ dot နဲ့ပြန်ခေါ်ပြီးအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့အပြင် သူတို့ကို ခေါ်တဲ့နေရာမှာ မတူတဲ့ ပုံစံနဲ့ခေါ်ပြီးအသုံးပြုမှာဖြစ်ပါတယ်။ ဥပမာ nav a. selected လို့ခေါ်ပြီးရေးတာဟာ အဲ့ a link ကို select လုပ်တဲ့အချိန်မှာ color တွေ change သွားတာမျိုးကို လုပ်ဆောင်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ selected အစား hover ကိုအသုံးလို့လဲရပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ရဲ့ link ပေါ်ကို hover လုပ်တဲ့ အချိန်မှာ color တွေ change သွားတာကို လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ Colors ကို ကျွန်တော်တို့ ကြိုက်တဲ့ color ကို create လုပ်ပြီးအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Wrap Class Name</h2>
+    <pre>
+        <code>
+                &lt;nav&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="profile.html" class="selected"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="about.html"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                &lt;/nav&gt;
+        </code>
+    </pre>
+    <h2>In CSS </h2>
+    <pre>
+        <code>
+                nav a.selected, a:hover{
+                    color: #c5d81e;
+                }
+                body{
+                    background-color: #fff;
+                    color: #999;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html" target="_blank">Output>>>>></a><hr>
+    <h1>Use Fonts Style</h1>
+    <p>
+            ကျွန်တော်အခုတစ်ခါပြောပြမှာကတော့ fonts-size အကြောင်းနဲ့ font-family အကြောင်းပဲဖြစ်ပါတယ်။ Font-family မှာဆိုရင်တော့ ကြိုက်တဲ့ font အမျိုးကိုပေးနိုင်ပါတယ်။ Font-size ကိုပေးတဲ့အခါမှာ ems ဆိုတဲ့ unit နဲ့ပေးရမှာဖြစ်ပါတယ်။ Ems ဟာ measurement ရဲ့ relative unit တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+                h1{
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 1.75em;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html" target="_blank">Output>>>>></a><hr>
+    <h1>Resize Text</h1>
+    <p>
+            ကျွန်တော်အပေါ်က example ထဲမှာ font-weight နဲ့ line-height ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ Font-weight ကို normal ပေးတာဟာ ဒါဟာ ကျွန်တော်တို့ရဲ့ headline ကို unbold လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုတော့ headline elements ကို browser ကနေ bold ကို default ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Line-height ကိုလည်း ems နဲ့ပေးရမှာ ဖြစ်ပါတယ်။ Line-height property ဟာ text တစ်ခုချင်းစီရဲ့ ကြားထဲမှာရှိတဲ့ amount of space ကို determines လုပ်ပေးတာဘဲဖြစ်ပါတယ်။ ဒါဟာ paragraph text တွေမှာဆိုရင် အရေးကြီးပါတယ်။ 
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+                body{
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                }
+                nav{
+                    text-align: center;
+                   
+                    padding: 10px 0;
+                }
+                footer{
+                    font-size: 0.75em;
+                    text-align: center;
+                    padding-top: 50px;
+                    color: #cccc;
+                }
+                ul{
+                    list-style: none;
+                }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Add Style in Portfolio</h1>
+    <p>
+        ကျွန်တော်တို့ နောက်ထပ် intermediate techniques တွေကိုလေ့လာကြပါစို့။ ကျွန်တော်တို့ဟာ image gallery ကို css နဲ့ apply လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ unordered list တစ်ခုရှိပါတယ်။ အဲ့ထဲမှာ list items တွေလည်းပါဝင်ပါတယ်။  ကျွန်တော်တို့ဟာ အဲ့ ul tag ကို id ပေးခဲ့ပြီး css နဲ့ apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့ gallery ကို mobile site လိုပဲ columns နှစ်ခုပါပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ထဲမှာပါတဲ့ image တွေကို fix ဖြစ်ဖို့ရန်အတွက် max-width ကို 100% ပေးရပါမယ်။ အဲ့လိုပေးတာဟာ container ဟာ shrinks down in size ဖြစ်သွားတဲ့ အခါကျရင် အဲ့ image ဟာလည်း container နဲ့ အတူ shrinks down in size ဖြစ်စေမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ css section တစ်ခုကို create လုပ်မှာဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော်တို့ အခု apply လုပ်မဲ့ image gallery ကို id နဲ့ ခေါ်ပြီး apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ ကျွန်တော်တို့ဟာ css property အသစ်ဖြစ်တဲ့ list-style: none ;ပေးခဲ့မှာဖြစ်ပါတယ်။ အဲ့လို none ပေးတာဟာ list ထဲမှာရှိတဲ့ bullets points တွေကို remove လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ list items တွေကို two columns နဲ့ ဖြစ်စေချင်တဲ့ ပထမ သုံးရမဲ့ css property ကတော့ float ပဲဖြစ်ပါတယ်။ အဲ့ float ကတော့ elements တွေကို side by side appear ဖြစ်စေမှာပါညဘဲဖြစ်ပါတယ်။ နောက်ပြီးတော့ design ကိုလည်း မြင်လာစေမှာဖြစ်ပြီး image တွေကိုဟာလည်း page မှာ left or right floated  ဖြစ်စေမှာဖြစ်ပါတယ်။ Text ဟာလည်း image ရဲ့ ပါတ်ပါတ်လည်မှာ ပေါ်လာမှာဖြစ်ပါတယ်။ Width ကို 45% ပေးတာကတော့ window ရဲ့ size ကို regardless ဖြစ်စေတာပဲဖြစ်ပါတယ်။ Image တစ်ခုချင်းစီဟာ သူရဲ့ parent element ကနေ total width ကို 45% ပဲ အမြဲယူမှာဖြစ်ပါတယ်။ Margin ကို 2.5% ပေးတာဟာ image တစ်ခုမှာရှိတဲ့ sides တွေဟာ 2.5% ပဲဖြစ်တယ်ဆိုတာကိုပြောပြပေးတာပဲဖြစ်ပါတယ်။ Color ကတော့ ကျွန်တော်တို့ ကြိုက်တဲ့ color ကို ပေးနိုင်ပါတယ်။ 
+    </p>
+    <h2>Example HTML Code</h2>
+    <pre>
+        <code>
+                &lt;
+                ul id="gallery"&gt;
+                        &lt;
+                        li&gt;
+                            &lt;
+                            a href="mm.html"&gt;
+                            &lt;
+                            img src="../image/AMERICANNO.jpg" alt="coffee"&gt;
+                            &lt;
+                            p&gt;This is a Coffee Image&lt;
+                            /p&gt;
+                            &lt;
+                            /a&gt;
+                        &lt;
+                        /li&gt;
+                        &lt;
+                        li&gt;
+                                &lt;
+                                a href="../image/Cold.jpg"&gt;
+                                &lt;
+                                img src="../image/Cold.jpg" alt="coffee"&gt;
+                                &lt;
+                                p&gt;This is a Coffee Image&lt;
+                                /p&gt;
+                            &lt;
+                            /a&gt;
+                        &lt;
+                        /li&gt;
+                        &lt;
+                        li&gt;
+                            &lt;
+                            a href="../image/IRISH.jpg"&gt;
+                            &lt;
+                            img src="../image/IRISH.jpg" alt="coffee"&gt;
+                            &lt;
+                            p&gt;This is a Coffee Image&lt;
+                            /p&gt;
+                            &lt;
+                            /a&gt;
+                        &lt;
+                        /li&gt;
+                        &lt;
+                        li&gt;
+                            &lt;
+                            a href="../image/ESPRESSO.jpg"&gt;
+                            &lt;
+                            img src="../image/ESPRESSO.jpg" alt="coffee"&gt;
+                            &lt;
+                            p&gt;This is a Coffee Image&lt;
+                            /p&gt;
+                            &lt;
+                            /a&gt;
+                        &lt;
+                        /li&gt;
+                    &lt;
+                    /ul&gt;
+
+        </code>
+    </pre>
+    <h2>
+        Example CSS Code
+    </h2>
+    <pre>
+        <code>
+                /*PAGE STYLE*/
+                #gallery{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                
+                }
+                #gallery li{
+                    float: left;
+                    width: 45%;
+                    margin: 2.5%;
+                    background-color: #599a68;
+                    color: #999;
+                
+                }
+                img{
+                    max-width: 100%;;
+                }
+             
+        </code>
+    </pre>
+    <a href="../Example/nav.html" target="_blank">Output>>>>></a><hr>
+    <h1> Style the Image Captions</h1>
+    <p>
+        အခုကျွန်တော်တို့နောက်ဆုံးကျန်တာကတော့ paragraph tag အတွကို style တွေ ထည့်ဖို့ပဲဖြစ်ပါတယ်။ အဲ့ paragraph ဟာ ကျွန်တော်တို့ id ပေးခဲ့တဲ့ gallery ထဲမှာရှိတဲ့အတွက်ကြောင့် paragraph tag လေးရှိနေတဲ့ path လမ်းကြောင်းအပြည့်အစုံကို css file မှာရေးထည့်ပေးရမှာဖြစ်ပါတယ်။ CSS file ထဲမှာဆိုရင် ကျွန်တော်တို့ apply ဖြစ်စေချင်တဲ့ property တွေကို ရေးရမှာဖြစ်ပါတယ်။  ကျွန်တော်တို့ဟာ အဲ့ css file ထဲမှာ clear ဆိုတဲ့ property ကို footer element အတွက် အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ဒါကို အသုံးပြုတာဟာ footer element မှာရှိတဲ့ html tag တွေရဲ့ left and right sides တွေကို clear ဖြစ်စေချင်တဲ့ အတွက်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /* This is for paragraph style */
+            #gallery li a p {
+                margin: 0;
+                padding: 5%;
+                font-size: 0.75em;
+                color: #c5d81e;
+            }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Build Navigation with Unordered List </h1>
+    <p>
+        ကျွန်တော်တို့လေ့လာနေတာဟာ basic ကို ပြီးသလောက်ဖြစ်နေပါပြီ။ အခုကျွန်တော်ပြောပေးမှာကတော့ navigation အကြောင်းပဲဖြစ်ပါတယ်။ ပထမအနေနဲ့ header ကို fix ဖြစ်အောင်လုပ်ဖို့လိုပါပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ margin ကိုပေးတဲ့အခါမှာ အရင်နဲ့မတူဘဲ values 4 ခု နဲ့ပေးထားပါတယ်။ သူတို့ဟာ circle ပုံအတိုင်းသွားပါတယ်။ ဥပမာ top, right, botton, and left ဆိုပြီးသွားပါတယ်။ Float property ကိုတော့ ကျွန်တော် ရှင်းမပြတော့ပါဘူး။ Margin ဟာဆိုရင် header ကို အခြား botton က content တွေကနေ separate လုပ်ပေးထားပါတယ်။ Width ကို 100% ပေးတာဟာ ကျွန်တော်တို့ရဲ့ float element ဟာ 100% ထက်မကျော်ဘူးဆိုတာကို ပြောထားတာဖြစ်ပါတယ်။ နောက်ထပ်ကျွန်တော်တို့အသုံးပြုမဲ့ property ကတော့ display ပဲဖြစ်ပါတယ်။ သူထဲမှာ သုံးတဲ့ values တွေကတော့ block or inline တို့ပဲဖြစ်ပါတယ်။ Block level element ဟာ page ထဲမှာရှိတဲ့ space ကို ယူတာပဲဖြစ်ပါတယ်။ ဥပမာ sections, divs, and many other elements တွေလို လုပ်ဆောင်ပေးတာပဲဖြစ်ပါတယ်။ Inline elements ဆိုတာကတော့ text နဲ့အတူတူပါပဲ။ ဥပမာ ကျွန်တော်တို့ဟာ anchor tag ကို paragraph tag ထဲကို ထည့်တဲ့ အချိန်မှာ သူဟာ next line ကို push လုပ်ပါတယ်။ ဆိုလိုတာကတော့ line တစ်ခုထဲဖြစ်သွားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့နောက်ထပ်ပြောပြချင်တဲ့ property ကတော့ inline block ပဲဖြစ်ပါတယ်။ ဒီ property ဟာဆိုရင် inline နဲ့အတူတူပါပဲ ကျွန်တော်တို့မှာရှိတဲ့ items တွေကို side by side ရှိနေမှာပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ သူဟာ block level features တွေကို retain လုပ်ပေးပါတယ်။
+    </p>
+    <h2>Code In CSS </h2>
+    <pre>
+        <code>
+            header{
+                background-color: #6ab47b;
+                border-color: #599a68;
+                float: left;
+                margin: 0 0 30px 0;
+                padding: 5px 0 0 0;
+                width: 100%; 
+            }
+            nav li{
+                display: inline-block;
+            }
+            
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Polish Navigation and Footer</h1>
+    <p>
+        အခုကျွန်တော် anchor elements တွေရဲ့ style ကိုပြောပြပေးမှာဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ ရဲ့  portfolio ကိုကြည့်တဲ့ အခါ anchor tag တေဟာ နီးနီးကပ်ကပ် လေးဖြစ်နေတာကို တွေ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော်ဟာ ကြည့်ကောင်းတဲ့ ပုံစံဖြစ်အောင် css file မှာ properties တွေသုံးပြီးရေးပြသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h1>Code in CSS</h1>
+    <pre>
+        <code>
+            .social-icon {
+                width: 300px;
+                height: 50px;
+                margin: 0 5px;
+            
+            }
+            nav a {
+                font-weight: 800;
+                padding: 15px 10px;
+            
+            }
+            
+        </code>
+    </pre><hr>
+    <h1>Add New Page </h1>
+    <p>
+        အခုကျွန်တော်တို့မှာ portfolio page အတွက် html နဲ့ css ကို create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခုတစ်ခါ ကျွန်တော်တို့ page ရဲ့ navigation မှာရှိတဲ့ about အတွက် page တစ်ခုကို create လုပ်မှာဖြစ်ပါတယ်။ အဲ့လို create လုပ်တဲ့အခါ ကျွန်တော်တို့ဟာ ကိုယ်ကြိုက်တဲ့ page  style နဲ့ create လုပ်နိုင်ပါတယ်။ အခုကျွန်တော် create လုပ်ပြတဲ့ portfolio မှာတော့ ကျွန်တော်ဟာ home page ထဲကနေ အနည်းငယ် copy ကူးယူပြီး create လုပ်ပြမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;About&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../CSS/nav.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                     &lt;header&gt;
+                         &lt;a href="nav.html" id="logo"&gt;
+                         &lt;h1&gt;Alex&lt;/h1&gt;
+                         &lt;h2&gt;Web Developer&lt;/h2&gt;
+                         &lt;/a&gt;
+                     &lt;/header&gt;
+                     &lt;nav&gt;
+                         &lt;ul&gt;
+                             &lt;li&gt;&lt;a href="profile.html" &gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="about.html" class="selected"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                         &lt;/ul&gt;
+                     &lt;/nav&gt;
+                     &lt;section&gt;
+                         &lt;img src="../image/tzm.jpg" alt="My Photograph" class="profile-photo"&gt;
+                         &lt;h3&gt;About&lt;/h3&gt;
+                         &lt;p&gt;Hi, I am Alex! This is my design portfolio where I share all my 
+                             favourite work. When I'm not designing things, I enjoy exercising, playing video games,
+                            drinking good coffee, and more.&lt;/p&gt;
+                         &lt;p&gt;
+                             If you'd like to follow me on Twitter, my username is &lt;a href="http://twitter.com"&gt;@alex.&lt;/a&gt;
+                
+                         &lt;/p&gt;
+                
+                     &lt;/section&gt;
+                     
+                            
+                     &lt;footer&gt;
+                        &lt;a href="http://twitter.com/nickptt" target="_blank" class="social-icon"&gt;&lt;img src="../image/twitter.png" alt="Twitter Logo"/&gt;&lt;/a&gt;
+                        &lt;a href="htttp://facebook.com/nickpettit" target="_blank" class="social-icon"&gt;&lt;img src="../image/facebook.png" alt="Facebook Logo"&gt;&lt;/a&gt;
+                        &lt;p&gt;&copy; 2019 Mg Thar Gyi&lt;/p&gt;
+                     &lt;/footer&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/about.html">Output>>>>>></a><hr>
+    <h1>Add Style to About Page</h1>
+    <p>
+            ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ about page ကို css file နဲ့ချိတ်ပြီး page ရဲ့ style ကို create လုပ်ပေးမှာဖြစ်ပါတယ်။  
+    </p>
+    <a href="../Example/about.html">Output>>>>></a><hr>
+    <h1>Create Contact Page </h1>
+    <p>
+            နောက်ဆုံးကျန်ကတော့ contact page ပဲဖြစ်ပါတယ်။ Contact page ကို create လုပ်တာဟာ ကျွန်တော်တို့ page ကို လာရောက်တဲ့ visitors တွေကို own information တွေကို ဖော်ပြတာပဲဖြစ်ပါတယ်။ပြီးတော့ ကျွန်တော်တို့ကို contact လုပ်နိုင်ဖို့ရန်အတွက် ကျွန်တော်တို့ ရဲ့ phone number, email and twitter account တွေကို ဖော်ပြပေးတာပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ contact page တစ်ခုရဲ့ main information တွေပဲဖြစ်ပါတယ်။ သူတို့ကို create လုပ်တဲ့နေရာမှာ ကျန်တော်တို့ကြိုက်တဲ့ style နဲ့ create လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Contact&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../CSS/nav.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                     &lt;header&gt;
+                         &lt;a href="nav.html" id="logo"&gt;
+                         &lt;h1&gt;Alex&lt;/h1&gt;
+                         &lt;h2&gt;Web Developer&lt;/h2&gt;
+                         &lt;/a&gt;
+                     &lt;/header&gt;
+                     &lt;nav&gt;
+                         &lt;ul&gt;
+                             &lt;li&gt;&lt;a href="nav.html" target="_blank"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="about.html" target="_blank"&gt;About Page&lt;/a&gt;&lt;/li&gt;
+                             &lt;li&gt;&lt;a href="contact.html" target="_blank" class="selected"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                         &lt;/ul&gt;
+                     &lt;/nav&gt;&lt;br&gt;
+                     &lt;section&gt;
+                           &lt;h3&gt;General Information&lt;/h3&gt;
+                           &lt;p&gt;I am not currently looking for new design work, but I am avaliable for 
+                               speaking gigs and similar enagements. If you have and questions, please don't hesitate to contact me!
+                           &lt;/p&gt;
+                           &lt;p&gt;
+                               Please only use phone contact for urgent inquiries. Otherwise, Twitter and email are the best way to reach me.
+                           &lt;/p&gt;
+                     &lt;/section&gt;
+                     &lt;section&gt;
+                         &lt;h3&gt;Contact Details&lt;/h3&gt;
+                         &lt;ul class="contact-info"&gt;
+                             &lt;li class="phone"&gt;&lt;a href="tel:09-972282919"&gt;09-972282919&lt;/a&gt;&lt;/li&gt;
+                             &lt;li class="email"&gt;&lt;a href="mailto:thuzarmyint795@gmail.com"&gt;thuzarmyint795&lt;/a&gt;&lt;/li&gt;
+                             &lt;li class="twitter"&gt;&lt;a href="https://www.linkedin.com/in/thuzar-myint-a2a706258"&gt;thuzarmyint&lt;/a&gt;&lt;/li&gt;
+                
+                
+                         &lt;/ul&gt;
+                     &lt;/section&gt;
+                     
+                            
+                     &lt;footer&gt;
+                        &lt;a href="http://twitter.com/nickptt" target="_blank" class="social-icon"&gt;&lt;img src="../image/twitter.png" alt="Twitter Logo"/&gt;&lt;/a&gt;
+                        &lt;a href="htttp://facebook.com/nickpettit" target="_blank" class="social-icon"&gt;&lt;img src="../image/facebook.png" alt="Facebook Logo"&gt;&lt;/a&gt;
+                        &lt;p&gt;&copy; 2019 Mg Thar Gyi&lt;/p&gt;
+                     &lt;/footer&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/contact.html" target="_blank">Output>>>>></a><hr>
+    <h1>Add Iconography to Contact Page</h1>
+    <p>
+        အခုကျွန်တော်တို့မှာ contact page မှာရေးထားတဲ့ phone number တွေ email တွေ twitter တွေအတွက် icons လေးတွေကို add လုပ်မှာဖြစ်ပါတယ်။ အဲ့လို လုပ်တဲ့နေရာမှာ css မှာ background-image property ကိုအသုံးပြုပြီးတော့ ထည့်ပြသွားမှာဖြစ်ပါတယ်။ အဲ့ property မှာဆိုရင် "url" value ကို အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာ ကျွန်တော်တို့ဟာ image ရဲ့ url ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ css ရေးတဲ့အခါမှာ လိုအပ်တာတွေကတော့ min-height ကို 20px ပေးခဲ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ items တွေဟာ အနည်းဆုံး 20 px ပဲရှိရမယ်လို့ ပြောပြလိုက်တာပဲဖြစ်ပါတယ်။ နောက်ထပ်သုံးတာကတော့ background-repeat နဲ့ background-size တို့ပဲဖြစ်ပါတယ်။ CSS မှာရှိတဲ့ background image ဟာဆိုရင် default က repeat ဖြစ်နေတဲ့အတွက်ကြောင့် background-repeat ကို no-repeat ပေးပြီး အသုံးပြုထားတာပဲဖြစ်ပါတယ်။  ကျွန်တော်တို့ဟာ backgrounds ကို တစ်ကြိမ်ပဲ display လုပ်မှာဖြစ်ပါတယ်။ နောက်ထပ် background-size property ကတော့ backgrounds ကို resize လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူမှာဆိုရင်လည်း values ဟာ နှစ်ခုနဲ့ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ padding ကို အသုံးပြုတာဟာ elements ရဲ့ left ဘက်မှာ space ကို ထပ်လိုချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်ကျွန်တော်တို့ဟာ left မှာပဲ 30px ဆိုပြီး ထည့်ပေးခဲ့တာပဲဖြစ်ပါတယ်။ Margin property ကို သုံးတာဟာ ကျွန်တော်တို့ရဲ့ links ကို အခြားတစ်ခုကတော့separation ဖြစ်စေချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Example code in CSS</h2>
+    <pre>
+        <code>
+            .contact-info{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: 0.9em;
+            }
+            .contact-info li.phone a{
+                background-image: url('../image/phone.png');
+                
+            }
+            .contact-info li.email a{
+                background-image: url('../image/email.png');
+            }
+            .contact-info li.twitter a{
+                background-image: url('../image/twitter.png');
+            }
+            .contact-info a{
+                 display: block;
+                 min-height: 20px;
+                 background-repeat: no-repeat;
+                 background-size: 20px 20px;
+                 padding: 0 0 0 30px;
+                 margin: 0 0 10px;
+            }
+            
+        </code>
+    </pre>
+    <a href="../Example/contact.html">Output>>>>></a><hr>
+    <h1>Responsive Web Design and Testing</h1>
+    <p>
+        အခုကျွန်တော်တို့ ရှင်းပြချင်တဲ့ အကြောင်းကတော့ responsive web design အကြောင်းပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ web site ဟာ responsive web design လို့ခေါ်တဲ့ technique ကို အသုံးပြုတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ mobile version approach တစ်ခုမှာ responsive web design ကိုယူလိုက်တာဟာ  ကျွန်တော်တို့မှာ site မှာ mobile version ကို designed ချပြီးဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် အဲ့ဒါဟာ simple layout တစ်ခုကို ယူဖို့ရန်အတွက် အလွန်လွယ်ကူပါတယ်။ Responsive web design ဟာ အရေးကြီးတဲ့ concept တစ်ခုပဲဖြစ်ပါယတယ်။ ကျွန်တော်တို့ရဲ့ web browser ရဲ့ size ကို adjust လုပ်တဲ့အခါမှာ layout ရဲ့ size ဟာ browser increases and decreases လုပ်တဲ့ width အတိုင်း flexes ဖြစ်နေမှာဖြစ်ပါတယ်။ အဲ့ဒါကို fluid layout လို့ခေါ်ပါတယ်။ တစ်ခါတစ်လေမှာ ကျွန်တော်တို့ရဲ့ browser ဟာ mobile device တစ်ခုလို thin ဖြစ်နေတဲ့အချိန်မှာ ကျွန်တော်တို့ရဲ့ page ဟာလည်း pretty decent ဖြစ်နေမှာဖြစ်ပါတယ်။ ဒါမှမဟုတ်ရင် page ဟာ desktop or a tablet device တို့လို wide ဖြစ်နေတဲ့ အချိန်မှာလည်း page ဟာ pretty stretched out ဖြစ်နေမှာပဲဖြစ်ပါတယ်။ နောက်ထပ်လာမဲ့ အပိုင်းတွေမှာတော့ ကျွန်တော်ဟာ navigation changing နဲ့ layout changing ကို ဆက်လက်ရှင်းပြပေးသွားမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>Add BreakPoint for Devices</h1>
+    <p>
+        ကျွန်တော်တို့ အခုလေ့လာမှာကတော့ page layout ကို page ရဲ့ width ကို အခြေခံပြီးတော့ adjust လုပ်ဖို့ရန်အတွက်အသုံးပြုတဲ့ media queries အကြောင်းကို လေ့လာမှာပဲဖြစ်ပါတယ်။ Media query တစ်ခုချင်းစီဟာဆိုရင် break point တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ layout ဟာ stretched ဖြစ်နေတဲ့အချိန်မှာ page ဟာ ကြည့်လို့ကောင်းမှာမဟုတ်ပါဘူး။ တစ်ခါတစ်လေမှာတော့ break points တွေဟာ popular devices တွေရဲ့ screen resolution ပေါ်မှာ မူတည်နေပါတယ်။ ကျွန်တော်တို့ဟာ break points ကို မရေးခင်မှာ media query ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Media query ကို create လုပ်ရင် new css file တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ file ကို ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ html file အားလုံးမှာ link ချိတ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ new css file ထဲမှာဆိုရင်  CSS ရဲ့ special syntax ကို အသုံးပြုမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ page ဟာ မတူတဲ့ devices တွေမှာဆိုရင် stretched လုပ်တဲ့အခါပဲဖြစ်ဖြစ် thin လုပ်တဲ့အခါပဲဖြစ်ဖြစ် page ဟာ device ရဲ့ screen အပြည့်မပေါ်တာတွေ ပြီးရင် page မှာရှိတဲ့ shape တွေမပါလာတာတွေ ရှိတတ်ပါတယ် အဲ့ဒါကြောင့် break point ကို အသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့ထဲမှာ min-width: 480px ပေးတာဟာ ကျွန်တော်တို့ရဲ့ page ဟာ 480px ထက်ကျော်ခဲ့ရင် color change မှာဘဲဖြစ်ပါတယ်။ နောက်ထပ် function တွေလည်းလုပ်ဆောင်နိုင်ပါတယ်။ Coding ကို သွားကြည့်ကြစို့။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            @media screen and (min-width: 480px){
+                body{
+                    background:navy;
+            
+                }
+            }
+            @media screen and (min-width: 660px){
+                body{
+                    background:darkgreen;
+                }
+            }
+        </code>
+    </pre>
+    <a href="../Example/nav.html">Output>>>>></a><hr>
+    <h1>Build a Three Columns Layout</h1>
+    <p>
+        ကျွန်တော်အခုရှင်းပြပေးချင်တာကတော့ page ကို 3 columns ဖြစ်အောင် css မှာဘယ်လို create လုပ်ရတယ်ဆိုတာပဲဖြစ်ပါတယ်။ နောက်ထပ်ကျွန်တော်တို့ဟာ 2 columns ကိုလည်း ဘယ်လို create လုပ်တယ်ဆိုတာကို ရှင်းပြပေးမှာဖြစ်ပါတယ်။ Mobile devices တွေဟာ tall and thin ဖြစ်တဲ့အတွက်ကြောင့် သူတို့ဟာ လွယ်လွယ်ကူကူ scroll up and down လုပ်နိုင်ပါတယ်။ Desktop browsers တွေမှာဆိုရင်တော့ scroll လုပ်ဖို့ရန်လွယ်ကူပါတယ်။ ဒါပေမဲ့  သူတို့ဟာ အလွန်ကျယ်ပါတယ်။ အခုကျွန်တော် portfolio page ကို mobile မှာ ရော desktop မှာရောအဆင်ပြေေအောင် create လုပ်ပြပေးမှာဖြစ်ပါတယ်။ အဲ့ page မှာဆိုရင် ကျွန်တော်တို့ဟာ two columns ရှိပြီးသားဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ three columns ကို create လုပ်တဲ့အချိန်မှာ page ကို stretched လုပ်လိုက်တဲ့အခါ ကျွန်တော်တို့ page မှာ items 5 ခုရှိရင် နောက်ကျန်တဲ့နှစ်ခုက ကွဲေနေမှာဖြစ်ပါတယ်။ အဲ့လို မဖြစ်အောင် ကျွန်တော်တို့ဟာ nth-child ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ သူဟာ  ကျွန်တော်တို့ရဲ့ items တွေကို applied လုပ်ပေးပါတယ်။ Parentheses ထဲမှာရေးထားတဲ့ n ဟာဆိုရင် fourth ကြိမ်မြောက် item တွေကိုအားလုံးကို applied ဖြစ်စေမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Example Code for Contact Page</h2>
+    <pre>
+        <code>
+            #primary {
+                width: 50%;
+                float: left;
+            }
+            #secondary {
+                width: 40%;
+                float: left;
+            }
+            /*****************************
+            PAGE: PROTFLIO
+            ******************************/
+            #gallery li{
+                width: 28.333333%;
+            }
+            #gallery li:nth-child(4n){
+                clear: left;
+            }
+        </code>
+    </pre>
+    <a href="../Example/contact.html">Output For Contact Page>>>>></a><br>
+    <a href="../Example/nav.html">Output For Portfolio>>>>></a><hr>
+    <h1>Adjust the Profile page and Header</h1>
+    <p>
+        အခုကျွန်တော်တို့ create လုပ်နေတဲ့ portfolio page မှာနောက်ဆုံးကျန်တဲ့ about page ကို full responsive ဖြစ်အောင် css မှာ create လုပ်ပြမှာဖြစ်ပါတယ်။ အဲ့ page ကို contact page လို two columns နှစ်ခုပုံစံကိုပြောင်းပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ profile picture ကို left ဘက်ကို ပို့ပေးမှာဖြစ်ပါတယ်။ နောက်ထပ်ကျွန်တော်တို့ဟာ header ကိုလည်း ကျွန်တော်တို့တွေ့နေကြ page တွေလို ဖြစ်အောင် adjust လုပပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေအားလုံးကို css file မှာ လုပ်ဆောင်နိုင်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+                @media screen and ( min-width: 992px ) {
+        
+                    /*******************************
+                    HEADER 
+                    ********************************/
+                
+                    nav {
+                        background: none;
+                        float: right;
+                        font-size: 1.125em;
+                        margin-right: 5%;
+                        text-align: right;
+                        width: 45%;
+                    }
+                    #logo {
+                        float: left;
+                        margin-left: 5%;
+                        text-align: left;
+                        width: 45%; 
+                    }
+                    h1 {
+                        font-size: 2.5em;
+                    }
+                    h2 {
+                        font-size: 0.825em;
+                        margin-bottom: 20px;
+                    }
+                    header {
+                        border-bottom: 5px solid #599a68;
+                        margin-bottom: 60px;
+                    }
+                
+                
+                
+                }
+        </code>
+    </pre>
+    <a href="../Example/about.html">Output>>>>></a><hr>
+    <h1>Web Testing </h1>
+    <p>
+            ကျွန်တော်တို့ဟာ website တွေကို built လုပ်ပြီးတဲ့နောက်မှာ test လုပ်ပေးရပါတယ်။ Testing လုပ်တဲ့နရောမှာ မတူညီတဲ့ ways တွေအများကြီးရှိပါတယ်။ တစ်ခုကတော့ HTML and CSS ကို valid ဖြစ်မဖြစ်ကို သေချာအောင် လုပ်တာပဲဖြစ်ပါတယ်။ W3C  or Worldwide Web Consortium ဟာ organization တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ HTML, CSS and many other languages တွေအတွက် standard တစ်ခုပဲဖြစ်ပါတယ်။  ကျွန်တော်တို့ရဲ့ code တွေဟာ matches the specification ဖြစ်မဖြစ်ဆိုတာကို W3C  validation services နဲ့ test လုပ်နိုင်ပါတယ်။ အဲ့လိုလုပ်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့HTML code အားလုံးကို copy ကူးရမှာဖြစ်ပါတယ်။ ပြီးရင် validator.w3.org ဆိုတဲ့ website ထဲကို ဝင်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာကျွန်တော်တို့ရဲ့ code ကို နည်းလမ်း ၃ ခုနဲ့ test လုပ်နိုင်ပါတယ်။ ပထမတစ်ခုကတော့ code တွေရှိတဲ့ URL နဲ့ test လုပ်နိုင်ပါတယ်။ နောက်တစ်ခုကတော့ file upload နဲ့ test လုပ်နိုင်ပါတယ်။ နောက်ဆုံးကတော့ direct input နဲ့ test လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ HTML file တစ်ခုလုံးကို copy ကူးထားတာဖြစ်တဲ့အတွက်ကြောင့် နောက်ဆုံးနည်းလမ်းနှစ်ခုထဲက ကြိုက်တဲ့ နည်းလမ်းကိုအသုံးပြုနိုင်ပါတယ်။ ပြီးရင် copy ကို paste လုပ်ပြီး check ကိုနှိပ်လိုက်ပါ။ အဲ့ဒါမှ ကျွန်တော်ရဲ့ code ဟာ matches ဖြစ်မဖြစ်ကို test လုပ်ပေးမှာ ဖြစ်ပါတယ်။ CSS file တွေကို test လုပ်တဲ့အခါမှာ နောက်ထပ် website တစ်ခုနဲ့ test လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ site ကတော့ jigsaw. w3.org or css-validator ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုလည်း နည်းလမ်း ၃ ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ HTML ရဲ့ test လုပ်တဲ့ နည်းလမ်းတွေနဲ့ အတူတူပါပဲ။ နောက်တစ်ခုကတော့ ကျန်တော်တို့ရဲ့ webpage ပုံကို screenshots ရိုက်ပြီး test လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့လိုလုပ်တဲ့အခါမှ browserstack.com ဆိုတဲ့ site ကိုသွားပြီး test လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ site ဟာ paid service တစ်ခုပဲဖြစ်ပါတယ်။  ကျွန်တော်တို့ဟာ အဲ့ site မှာဆိုရင် sing up နဲ့ test လုပ်လည်းရပါတယ်။ ဒါမှမဟုတ် free trail နဲ့လည်း test လုပ်နိုင်ပါတယ်။ အဲ့ site လုပ်နိုင်တာကတော့ URL ကိုအသုံးပြုပြီးတော့ပဲ test လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ သူ့မှာဆိုရင်တော့ start testing ဆိုတဲ့ button ကိုပဲ test လုပ်တဲ့အချိန်မှာ နှိပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>Find a Domain</h1>
+    <p>
+            Website တစ်ခုကို create လုပ်ပြီးလျှင် ကျွန်တော်တို့ website ကို ဘယ်လို find လုပ်ရမယ်ဆိုတာကို remember ဖြစ်ဖို့ရန်အတွက် good domain name ကို တစ်ခုကို pick up လုပ်ဖို့ရန်အရေးကြီးပါတယ်။ Domain name ဆိုတာကတော့ ကျွန်တော်တို့ သွားချင်တဲ့ website ကို visit လုပ်တဲ့အခါ သုံးတဲ့ web address တစ်ခုပဲဖြစ်ပါတယ်။ Example facebook.com or google.com ။ Domain တိုင်းဟာ unique ဖြစ်ပါတယ်။ ကျွန်တော်တို့ အခု domain တစ်ခုကို ဘယ်လို purchase လုပ်ရတယ်ဆိုတာကို လေ့လာကြမှာဖြစ်ပါတယ်။ ဥပမာ အနေနဲ့ http://www.example.com ဆိုတဲ့ address ကိုအသုံးပြုပြပါမယ်။ အဲ့မှာဆိုရင် http:// ကို protocol လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့အခု အသုံးပြုထားတာကတော့ hyper text transfer protocol လို့ခေါ်တဲ့ http ကိုအသုံးပြုမှာပဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် ကျွန်တော်တို့ဟာ  webpages တွေကို သွားဖို့အတွက် internet ကိုအသုံးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ many other protocols တွေကိုတော့ မြင်ရမှာမဟုတ်ပါဘူး။ ဘာကြောင့်လဲဆိုရင် multiplayer games or streaming video chat ကဲ့သို့သော် applications တွေမှာဆိုရင် protocol ဟာ မကြာမကြာ hidden ဖြစ်နေနိုင်ပါတယ်။ နောက်က www. ဆိုတာကတော့ subdomain ပဲဖြစ်ပါတယ်။ အစောပိုင်းတွေမှာဆိုရင် ဒီ subdomain ကို add လုပ်တာဟာ popular ဖြစ်ခဲ့ပါတယ်။  ဒါပေမဲ့ အဲ့ subdomain ဟာ အမှန်တစ်ကယ်တော့ သိပ်မလိုအပ်ပါဘူး။ နောက်ထပ်ကတော့ အမှန်တစ်ကယ် domain name ပဲဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ top level domain လို့ခေါ်တဲ့ TLD ပဲဖြစ်ပါတယ်။ ဒီမှာဆိုရင်တော့TLD ဟာ .com ကိုအသုံးပြုထားပါတယ်။ နောက်ထပ် TLD တွေအများကြီးရှိပါသေးတယ်။ လူတွေအတွက် domain ဝယ်တဲ့အခါ .me or .name ကိုအသုံးပြုကြပါတယ်။ Domain ကို purchase လုပ်တဲ့နေရာမှာသုံးတဲ့ web site ကတော့ GoDaddy.com ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် domain ကို register လုပ်ပြီး purchase လုပ်နိုင်ပါတယ်။
+    </p><hr>
+    <h1>Web Hosting </h1>
+    <p>ကျွန်တော်တို့ဟာ web address တစ်ခုကို type လုပ်လိုက်တဲ့အချိန် domain ဟာ IP address or protocol တွေနဲ့ အမှန်တစ်ကယ် mapping ဖြစ်နေတာပဲဖြစ်ပါတယ်။ IP address ဆိုတာ server လု့ိခေါ်တဲ့ special computer တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ domain တစ်ခုရှိတယ်ဆိုပတော့ ကျွန်တော်တို့ရဲ့ file တွေကို host လုပ်ဖို့ရန်အတွက် server တစ်ခုလိုပါတယ်။ Host ကိုလည်း domain ကို purchase လုပ်သလိုပဲ လုပ်နိုင်ပါတယ်။ Domain ကို registers လုပ်သလိုပဲ သူ့မှာလည်း web hosting ရဖို့ရန်အတွက် different options တွေ ရှိပါတယ်။ ပထမ mediatemple.net ကိုသွားရမှာဖြစ်ပါတယ်။ နောက် bluehost.com ကိုသွားရမှာပါ။ dreamhost.com ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် all services ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာမှ shared hosting ကို choose လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာလည်းကျွန်တော်တို့ဟာ account တစ်ခုကို create လုပ်နိုင်ပါတယ်။ Account ရှပြီးသားဆိုရင်တော့ တစ်ခါထဲ login ဝင်လို့ရပါတယ်။ Login ဝင်ပြီးရင် ကျွန်တော်တို့ရှိပြီးသား domain ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ Continute  ကိုနှိပ်ပြီးတဲ့အခါကျရင် ကျွန်တော်တို့ဟာ ကြိုက်တဲ့ ပုံစံနဲ့ web hosting ကို purchase လုပ်နိုင်ပါတယ်။ ဥပမာ monthy or years ။ အဲ့ဒါရွေးပြီးရင်တော့ ကျွန်တော်တို့ရဲ့ name တွေ address တွေကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ web hosting ဝယ်ပြီးတဲ့အခါ ကျွန်တော်တို့ဟာ name server or DNS ကိုရှာပေးရပါမယ်။ အဲ့ဒါဟာ domain နဲ့ hosting ချိတ်တာကို ပြပေးတာပဲဖြစ်ပါတယ်။ Name server မှာ 2 ခု or 3 ခု တစ်ခါတစ်လေ 4 ခုတောင်ရှိနိုင်ပါတယ်။ name server ရဲ့ အတိုကောင်တွေကတော့ ns1.dreamhost.com , ns2.dreamhost.com တို့ပဲဖြစ်ပါတယ်။ သူတို့ကို copy လုပ်ပြီး ကျွန်တော်တို့ရဲ့ domain ရဲ့ name server category မှာ ထည့်ပေးရမှာဖြစ်ပါတယ်။ Name server ချိတ်တာဟာ တစ်ခါတစ်လေ 48 hours လောက်ကြာနိုင်ပါတယ်။ တစ်ခါတစ်လေ 5 minutes လောက်လည်းကြာနိုင်ပါတယ်။ ဘာလို့လဲဆိုတော့ တစ်ကမ္ဘာလုံးက domain name server တွေကိုကျော်ဖြတ်ရလို့ပဲဖြစ်ပါတယ်။ 
+        
+    </p><hr>
+    <h1>Upload Website </h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ website ကို ကျွန်တော်တို့ရဲ့ server ပေါ်ကို upload လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့လိုလုပ်တဲ့အခါမှာ SFTP လို့ခေါ်တဲ့ software လိုအပ်ပါတယ်။ SFTP ဆိုတာ Secure Transfer Protocol ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ file တွေကို transfer လုပ်ဖို့ရန်အတွက် secure connection တစ်ခုကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ FTP software ကိုအသုံးပြုဖို့ရန်အတွက် Cyberduck လို့ခေါ်တဲ့ software တစ်ခုလိုပါတယ်။ အဲ့ software ကိုတော့ cyberduck.io မှာရရှိနိုင်ပါတယ်။ အဲ့ website ကနေပြီးတော့ installl လုပ်ရမှာဖြစ်ပါတယ်။ သူဟာ window မှာရော Mac မှာပါ အလုပ်လုပ်ပါတယ်။ ကျွန်တော်တို့ဟာ application ကိုဖွင့်ပြီးတော့ connection ယူမှာပဲဖြစ်ပါတယ်။ အဲ့နေရာမှာ FTP အစား SFTP ကို ရွေးရမှာဖြစ်ပါတယ်။ အဲ့မှာကျွန်တော်တို့ဟာ server တစ်ခုရယ် username ရယ် password ရယ်လိုအပ်ပါသေးတယ်။ အဲ့လိုအပ်တာတွေကို DreamHost မှာ setup သွားလုပ်ရမှာ ဖြစ်ပါတယ်။ အဲ့ DreamHost ရဲ့ admin မှာ ကျွန်တော်တို့ဟာ user အသစ်ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ "users" အောက်က "manage users" click လုပ်ပြီးတော့ " Add New User" ကို click လုပ်တဲ့အခါမှာကျွန်တော်တို့ဟာ SFTP ကို choose လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါပြီးရင် username ရယ် fullname ရယ် password ရယ်ကို ပေးပြီး "add user" ကို click လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ new user ကို create လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့နောက်မှ "manage domain" ကိုသွားပြီး ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ user name ရဲ့ ဘေးက "edit" ကို click ပြီး "Users, Files and Paths" မှာ ကျွန်တော်တို့ DreamHost မှာ create လုပ်ခဲ့တဲ့ username ကိုရွေးပေးရမှာဖြစ်ပါတယ်။ ပြီးရင် "change setting" ကို click လုပ်ရမှာဖြစ်ပြီး change လုပ်တာဟာ 5-10 minutes ကြာနိုင်ပါတယ်။ Changes finished သွားတဲ့အချိန်မှာ ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ name တွေ username တွေ password တွေဟာ SFTP ကို process လုပ်ဖို့ရန်အတွက် လိုအပ်ပါတယ်။ အဲ့ဒါတွေပြီးရင် cyberduck ကို ပြန်ဖွင့်ပြီး server ရဲ့ အောက်မှာ ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ domain name တွေ username တွေ 
+        password တွေကို ရေးထည့်ပေးရမှာဖြစ်ပါတယ်။ ပြီးရင် fingerprint ကို allow လုပ်ပေးလိုက်တာနဲ့ connection ဟာ finished ဖြစ်သွားပြီဖြစ်ပါတယ်။ အဲ့ထဲမှာ ပေါ်လာတဲ့ file တွေကို delete လုပ်ပြီး ကျွန်တော်တို့ရဲ့  create လုပ်ခဲ့ html နဲ့ css fie တွကို အဲ့ ထဲကို ထည့်လိုက်တာနဲ့ ကျွန်တော်တို့ရဲ့ website ကို upload လုပ်ပြီးဖြစ်ပါတယ်။ ပြီးရင် ကျွန်တာ်တို့ရဲ့ domain name ကို borwser ရဲ့ bar မှာရိုက်ပြီး website ကိုခေါ်လို့ရပါပြီ။
+    </p><hr>
+    <h1>Debugging HTML and CSS Problems</h1>
+    <p>
+        အခုကျွန်တော်ရှင်းပြေးမှာကတော့ developers tools အကြောင်းပဲဖြစ်ပါတယ်။ Problem or issue တွေဟာ bug တစ်ခုကိုလို့ပြောလို့ရပါတယ်။ ကျွန်တော်တို့မှာ common problems တွေမရှိခင်မှာ အချို့ methods တွေဟာ ဒီ issues တွေကို identify and diagnose လုပ်တဲ့အခါမှာ ကူညီပေးနိုင်ပါတယ်။ ကျွန်တော်တို့ chrome developer tools ကို ဖွင့်လိုက်ရင် website ရဲ့ problems တေကိုရှင်းတဲ့နေရာမှာ မတူညီနည်းလမ်း ၃ ခုနဲ့ဖြေရှင်းနိုင်ပါတယ်။ အဲ့ developer tools ကိုခေါ်တဲ့နေရာမှာ ပထမတစ်ခုကတော့ window မှာဆိုရင် ctrl+shift+i keys တွေကို ပေါင်းနှိပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ အဲ့ website ပေါ်မှာ right click ထောက်ပြီး Inspect Element ကို selelct လုပ်လိုက်ရင် လည်း developer tools ဟာ ကျလာမှာဖြစ်ပါတယ်။ နောက်ဆုံးနည်းလမ်းကတော့ chrome ရဲ့ upper right မှာရှိတဲ့ menu ရဲ့ tools ကနေ developer tools ကနေလည်း ခေါ်လို့ရနိုင်ပါတယ်။ အဲ့ developer tools မှာဆိုရင် ကိုယ်ကြိုက်တဲ့ css ကို create လုပ်ကြည့်လို့ရပါတယ်။ ကျွန်တော်တို့ရဲ့ page errors ကိုတော့ console မှာ သွားကြည့်နိုင်ပါတယ်။
+    </p><hr>
+    <h1>Fix Problems</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ HTML file ရော CSS file ရော ရေးကြတဲ့အခါမှာ ကျွန်တော်တို့သုံးတဲ့ html tag တွေမှာဆိုရင် စလုံးပေါင်းတွေ နောက်ပြီးတော့ သူ့ထဲမှာ attributes တွေသုံးတဲ့အခါမှာလည်း "" လေးတွေကိုလည်းမကျန်ခဲ့အောင် ရေးပေးရမှာဖြစ်ပါတယ်။ HTML tags တွေမှာလည်း သူနဲ့သက်ဆိုင်တဲ့ closing tag တွေကို မကျန်ခဲ့အောင်ရေးပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါလေးတွေကျန်ခဲ့တာနဲ့ ကျွန်တော်တို့ရဲ့ page ဟာ ပုံစံတွေပြောင်းမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်ကျွန်တော်တို့ အဲ့ဒါတွေကို ကျန်ခဲ့အောင် သေချာဂရုစိုက်ပြီးရေးရမှာဖြစ်ပါတယ်။ HTML လို့ပဲ CSS file မှာလည်း {} တွေ ":" တွေ ";" တွေကို မကျန်ခဲ့ရအောင် သေချာအောင် ရေးပေးရမှာဖြစ်ပါတယ်။  နောက်ပြီးတော့ HTML ဘက်မှာ tags တွေကို id နဲ့ပဲဖြစ်ဖြစ် class နဲ့ပဲဖြစ်ဖြစ် ပေးခဲ့တာတွေကို apply လုပ်တဲ့အခါမှာ သူတို့နဲ့ သက်ဆိုင်တဲ့ selector ကိုမှန်မှန်ကန်ကန်သုံးပေးရမှာဖြစ်ပါတယ်။ နောက်ပြီးတော့ nested ဖြစ်နေတဲ့ tags တွေကို apply လုပ်ချင်တဲ့အခါမှာလည်း ကိုယ် apply လုပ်ချင်တဲ့ကောင်ကို မှန်မှန်ကန်ကန် ရေးပေးမှာ CSS ဟာ apply လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>Continue Learning</h1>
+    <p>
+        Web ဆိုတာကတော့ relatively unexplored medium တစ်ခုပဲဖြစ်ပါတယ်။ Web professional တွေဟာ  web တွေဟာ သူတို့ တစ်ခုတည်း အလုပ်လုပ်မလုပ်နိုင်ဘူးဆိုတာကို သိကြပါတယ်။ သူတို့ အလုပ်လုပ်ဖို့ဆိုရင် network ရဲ့ resources တွေ လိုအပ်ပါတယ်။ ကျွန်တော်တို့မှာ static website တစ်ခုကို simple HTML and CSS front end တွေနဲ့ create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် အဲ့ site မှာ server ပေါ်မှာ run ဖို့ရန်အတွက် back end programming code တွေမပါတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ contact forms, social networks, and e-commerce stores တွေလို advance things တွေကို create လုပ်ချင်တယ်ဆိုရင်တော့ back end programming languages တွေဖြစ်တဲ့ Ruby or PHP တို့ကိုသုံးပြီး dynamic site တစ်ခုကို ဘယ်လို create လုပ်ရတယ်ဆိုတာကို လေ့လာဖို့လိုပါတယ်။ အဲ့ဒါတွေကို treehouse.com/trucks မှာလေ့လာနိုင်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့မှာ အဲ့ဒါတွေကို လေ့လာတဲ့အခါမှာ questions တွေရှိခဲ့တယ်ဆိုရင် အဲ့ဒါတွေကိုသိဖို့ရန်အတွက် Treehouse Forum မှာသွားရောက်လေ့လာနိုင်ပါတယ်။ နောက်ထပ် W3C မှာလည်းသွားရောက်လေ့လာနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ webdesign and development နဲ့ ပိုပြီးတော့ familiar ဖြစ်လာခဲ့ရင် ကျွန်တော်တို့ဟာ latest webdesign blogs တွေကို keep လုပ်ဖို့ရန်လိုအပ်ပါတယ်။ အဲ့ဒါတွေကို blog.teamtreehouse.com မှာ လေ့လာနိုင်ပါတယ်။ အဲ့ site မှာဆိုရင် ကျွန်တော်တို့ဟာ webdesign, development, business and other topics အကြောင်းတွေကိုလည်း လေ့လာနိုင်ပါတယ်။ CSS အတွက်ဆိုရင်တော့ CSS Tricks မှာသွားရောက်လေ့လာနိုင်ပါတယ်။
+    </p><hr>
+   
+    
+
+
+
+
+
+</body>
+</html>

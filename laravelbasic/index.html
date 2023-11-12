@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Arrays</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Introduction to Laravel Basic</h1>
+    <p>
+        Frameworks တွေဟာဆိုရင် ကျွန်တော်တို့ရဲ့ code တွေကို structure လုပ်တဲ့နေရာမှာ ကူညီပေးပါတယ်။ Laravel ဟာဆိုရင်
+        framework
+        တစ်ခုပဲဖြစ်ပါတယ်။ Laravel မှာဆိုရင် other frameworks တွေထက် technical advantages တွေရှိပါတယ်။
+    </p>
+    <hr>
+    <h1>Frameworks & MVC</h1>
+    <p>
+        အခု section မှာတော့ framework တစ်ခုကို ဘာကြောင့် learning လုပ်သင့်တယ် သူတို့ဟာ ဘယ်လို ကျွန်တော်တို့ကို
+        ကူညီပေးတယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Software framework တစ်ခုဆိုတာ universal, software application product
+        and
+        solution ကို develop လုပ်ဖို့ရန်အတွက် reusable platform တစ်ခုဖြစ်ပါတယ်။ Software frameworks တွေဟာ distinguishing
+        features of a framework တွေကို considered လုပ်ပါတယ်။ အဲ့ features တွေကတော့ Inversion of Control ဟာဆိုရင်
+        framework
+        တစ်ခုမှာ unlike libraries or normal user applications တွေအားလုံးရဲ့ program's flow of control ဟာ caller ကနေ
+        dictated
+        မလုပ်ပါဘူး။ ဒါပေမဲ့ framework ဟာ လုပ်ဆောင်ပေးပါတယ်။ နောက် default behaviour, framewrok တစ်ခုမှာ default
+        behaviour
+        ရှိပါတယ်။ ဒီ default behaviour ဟာဆိုရင် some kind of useful behaviour ဖြစ်ပါတယ်။ Extensibility, framework
+        တစ်ခုဟာ user
+        ကနေ extended လုပ်နိုင်ပါတယ်။ အများအားဖြင့်တော့ user code တွေနဲ့ specific functionality ကို provide လုပ်ဖို့
+        selective
+        over writing or specialized လုပ်ကြပါတယ်။ Non-modifiable framework code, framework code ဟာ general မှာဆိုရင်
+        modified
+        လုပ်ဖို့ရန်အတွက် supposed မလုပ်ပါဘူး။ နောက် accepting user ဟာ extensions တွေကို implemented လုပ်ပါတယ်။
+        နောက်တစ်နည်းပြောရရင် users တွေဟာ codes framework တွေကို extend လုပ်နိုင်ပြီးတော့ code တွေကိုတော့ modify
+        မလုပ်နိုင်ပါတယ်။
+        ဒါတွေအပြင် laravel မှာဆိုရင် many more useful features တွေရှိပါသေးတယ်။ MVC ဆိုတာကတော့ Model, View and Controller
+        ပဲဖြစ်ပါတယ်။ Model မှာဆိုရင် application's data နဲ့ business logic and interaction တွေပါဝင်ပါတယ်။ View တစ်ခုဟာ
+        user
+        visual data and ကျွန်တော်တို့ application နဲ့ interact လုပ်ဖို့ရန်အတွက် method တစ်ခု ပါဝင်ပါတယ်။ Controller
+        တစ်ခုဟာ
+        view, or user and model input တို့ကို accepts လုပ်ပြီးတော့ သူတို့ကြားထဲမှာ interactions တွေကို translates
+        လုပ်ပါတယ်။
+        နောက် controller တစ်ခုဟာ mode ဆီကို editing a document တို့လို model's state တွေကို update လုပ်ဖို့ရန်အတွက်
+        commands
+        တွေကို send လုပ်နိုင်ပါတယ်။ နောက် သူဟာ model ရဲ့ view's presentation ကို change လုပ်ဖု့ိရန်အတွက် သူနဲ့
+        associated
+        ဖြစ်နေတဲ့ view ကို commands တွေ send လုပ်နိုင်ပါတယ်။ Model တစ်ခုဟာ သူရဲ့ associated views နဲ့ controllers တွေကို
+        notifies လုပ်ပါတယ်။ ဘယ်ချိန်မှာလဲဆိုတော့ သူ့ရဲ့ state ထဲမှာ change တစ်ခုရှိတဲ့အချိန်မှာဖြစ်ပါတယ်။ View တစ်ခုဟာ
+        model ကနေ
+        information တွေကို user ဆီကို output representation ကို generating လုပ်ဖို့လိုတဲ့အချိန်မှာ requests လုပ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Installing Laravel</h1>
+    <p>
+        Core of our development environment ကို installed လုပ်ပြီးတဲ့အခါမှာ ကျွန်တော်တို့ဟာ Laravel framework ကို
+        install
+        လုပ်နိုင်ပြီဖြစ်ပါတယ်။ First အနေနဲ့ composer ကို install လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိဟာ via
+        Composer, our
+        project ကို install and create လုပ်ပေးရဖြစ်ပါတယ်။ Command ကတော့ composer create-project laravel
+        laravel-prefer-dist
+        ဖြစ်ပါတယ်။ အဲ့ဒါဟာ latest version ကို install လုပ်ပေးမှာဖြစ်ပါတယ်။ ်နောက်ဆုံး laravel ရဲ့ နောက်မှာ ကျွန်တော်တို့
+        ထည့်ချင်တဲ့ folder ကို define လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် laravel folders ထဲမှာ public folder တစ်ခုကို
+        တွေ့ရပါလိမ့်မယ်။ 127.0.0.1 ဟာရင် ကျွန်တော်တို့ရဲ့ Laravel test site ပဲဖြစ်ပါတယ်။ နောက် 8000 port ဆိုတာကတော့
+        Laravel ကို
+        8000 port ပေါ်မှာ run လုပ်တာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် virtual environment or a virtual box တစ်ခုပဲဖြစ်ပါတယ်။
+        နောက်ထပ်ကတော့
+        ကျွန်တော်တု့ိဟာ အဲ့ port နေရာမှာ ကျွန်တော်တို့ရဲ့ expected URL ကို replacing လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့
+        "Laravel.dev" ပဲဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် ကျွန်တော်တို့ရဲ့ local machine ပေါ်မှာ host file ကို
+        changing
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ host file ကို ရဖို့ vagrant box ကနေ exit လုပ်ဖို့ိလိုပါတယ်။ အဲ့ဒါကြောင့်
+        exit
+        command ကို type လုပ်ဖို့လိုပါတယ်။ နောက် cd /etc ဆိုတဲ့ command ကို run ပေးရပါမယ်။ အဲ့မှာဆိုရင် a lot of files
+        တွေတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ host file နဲ့ concerned လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် sudo subl hosts ဆိုတဲ့
+        command
+        ကို run ပေးရပါမယ်။ နောက် hosts file ကျလာတဲ့အခါမှာ သူ့ရဲ့ထပ်ဆုံးမှာ laravel.dev ဆိုတာကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Routes, views & layouts</h1>
+    <p>
+        အခု section မှာတော့ Routes, views and layouts တို့ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိရဲ့ application ရဲ့
+        roots ကို
+        roots folder ထဲမှာတွေ့နိုင်ပါတယ်။ Roots folder ထဲကမှ web.php file ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင် laravel ဟာ
+        ကျွန်တော်တို့အတွက် route တစ်ခုကို create လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် route ကို route object ရဲ့ static methods
+        ကို
+        အသုံးပြုပြီးတော့ define လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် default ဟာ get ဖြစ်ပါတယ်။ နောက်ထပ် post, path, put,
+        delete
+        တို့ကလည်း အသုံးပြုနိုင်ပါတယ်။ Get ဟာဆိုရင် data တွေကို fetch လုပ်ဖို့အတွက် အသုံးပြုတာဖြစ်ပါတယ်။ ဒီ static get
+        method
+        ရဲ့parameters တွေဟာဆိုရင် first ကတော့ address or URL ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ slash ပဲဖြစ်ပါတယ် သူဟာ
+        domain
+        page အတွက်ဖြစ်ပါတယ်။ နောက် second parameter ဟာဆိုရင် closure ပဲဖြစ်ပါတယ်။ Closure ဆိုတာ name တစ်ခုမပါတဲ့
+        function
+        တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ function ကို any other place ကနေ call မလုပ်နိုင်ပါဘူး။ နောက်သူဟာ ဒီ route အတွက်
+        ကျွန်တော်တု့ိဟာ
+        function ကို call လုပ်လိုက်တဲ့အခါမှာ some content ကို return ပြန်ပေးတာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ အဲ့ function
+        ထဲမှာ
+        rendered လုပ်ထားတာတွေကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် return statement တစ်ခုရှိပါတယ်။ နောက် အဲ့
+        statement ဟာ
+        View လို့ခေါ်တဲ့ magic function တစ်ခုကို calls လုပ်ထားပါတယ်။ အဲ့ဒါဟာ php built function တစ်ခုမဟုတ်ပါဘူး။ သူဟာ
+        laravel
+        framework ကနေလာတဲ့ function တစ်ခုပဲဖြစ်ပါတယ်။ နောက်သူဟာ helper functions တွေထဲက တစ်ခုဖြစ်ပါတယ်။ အဲ့ view
+        function ရဲ့
+        responsibility ကတော့ template တစ်ခု and templates တွေကို find လုပ်ဖို့ပဲဖြစ်ပါတယ်။ Templates တွေကိုတော့
+        resources/views
+        folder ထဲမှာ defined လုပ်ထားတာဖြစ်ပါတယ်။ Example မှာဆိုရင် first အနေနဲ့ welcome template ကို render
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တု့ိဟာ template name ကိုပဲ ထည့်ပေးရတာဖြစ်ပါတယ်။ Example မှာဆိုရင် welcome နေရာမှာ own
+        template
+        တစ်ခုဖြစ်တဲ့ home ကို create လုပ်ပေးထားပါတယ်။ နောက် example မှာဆိုရင် another route တစ်ခုကိုလည်း create
+        လုပ်ပေးထားပါတယ်။
+        နောက် အဲ့ route အတွက် contact template တစ်ခုကိုလည်း create လုပ်ပေးထားပါတယ်။ Example မှာဆိုရင် templates
+        နှစ်ခုလုံးမှာ
+        same chunk of HTML ရှိတာကို notice မဖြစ်ပါလိမ့်မယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ အဲ့ဒါကို single file တစ်ခုထဲကို
+        move
+        လုပ်လို့ရပါတယ်။ အဲ့ file ထဲမှာဆိုရင် templates ရဲ့ actual content တွေကိုပဲ store လုပ်ပေးထားဖြစ်ပါတယ်။ Laravel
+        မှာဆိုရင်
+        အဲ့အတွက် layouts ခေါ်တဲ့ tool တစ်ခုရှိပါတယ်။ သူ့ကို views ထဲမှာ create လုပ်ပေးရပါမယ်။ အဲ့ file ထဲမှာဆိုရင်
+        ကျွန်တော်တို့
+        display လုပ်ဖို့ လိုအပ်တာတွေကို hold လုပ်ထားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် contact and home page
+        တို့ပဲဖြစ်ပါတယ်။ နောက်
+        contact file ထဲမှာဆိုရင် chunk of HTML ကို delete လုပ်ပေးရပါမယ်။ နောက် laravel blade directive ကို
+        အသုံးပြုပေးပါတယ်။
+        Directive ဟာ @ sign နဲ့ စပေးရပါတယ်။ နောက် extends ကို အသုံးပြုရပါမယ်။ နောက် သူ့ထဲမှာ ကျွန်တော်တို့ extend
+        လုပ်ချင်တဲ့
+        layout template name ကို type လုပ်ပေးရပါမယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ individual template တစ်ခုချင်းစီမှာ
+        different
+        layout တစ်ခုနဲ့ extend လုပ်နိုင်ပါတယ်။ နောက် အဲ့ဒါကို run ပြီးတော့ view page source ကိုကြည့်လိုက်တဲ့အခါမှာ
+        သူ့ရဲ့
+        content တွေဟာ HTML chunk ရဲ့ outside ကိုရောက်နေတာကို တွေ့ရပါလိမ့်မယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကို sections
+        ကိုအသုံးပြုပြီးတော့ achieve လုပ်နိုင်ပါတယ်။ Sections တွေကို individual templates ထဲမှာ defined လုပ်ပေးရပါတယ်။
+        သူ့ကို
+        အသုံးပြုတဲ့အခါမှာ @section('') လို့ရေးရပြီတော့ သူ့ထဲမှာ section name ကို put လုပ်ပေးရပါတယ်။ နောက်ကျွန်တော်တို့ဟာ
+        အဲ့
+        section content ကို end section နဲ့ end လုပ်ဖို့လိုပါသေးတယ်။ နောက် ကျွန်တော်တို့ဟာ layout ထဲမှာ another
+        directive တစ်ခုဖြစ်တဲ့ yield ကိုအသုံးပြုပေးရပါတယ်။ Yield ဟာဆိုရင် section
+        တစ်ခုကို render လုပ်ဖို့အသုံးပြုတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>web.php</h3>
+    <pre>
+        <code>
+            <?php
+            
+            /*
+            |--------------------------------------------------------------------------
+            | Web Routes
+            |--------------------------------------------------------------------------
+            |
+            | Here is where you can register web routes for your application. These
+            | routes are loaded by the RouteServiceProvider within a group which
+            | contains the "web" middleware group. Now create something great!
+            |
+            */
+            
+            Route::get('/', function () {
+                return view('home');
+            });
+            Route::get('/contact', function () {
+                return view('contact');
+            });
+
+        </code>
+    </pre>
+    <h3>layout.blade.php</h3>
+    <pre>
+        <code>
+            &tl;!DOCTYPE html &gl;
+            &tl;html lang="en" &gl;
+            &tl;head &gl;
+            &tl;meta charset="UTF-8" &gl;
+            &tl;meta name="viewport" content="width=device-width, initial-scale=1.0" &gl;
+            &tl;title &gl;Document &tl;/title &gl;
+            &tl;/head &gl;
+            &tl;body &gl;
+            @yield('contact')
+            &tl;/body &gl;
+            &tl;/html &gl;
+        </code>
+    </pre>
+    <h3>home.blade.php</h3>
+    <pre>
+        <code>
+            @extends('layout')
+            &lt;h1>Welcome to Laravel!&lt;/h1>
+            &lt;p>This is the content of the main page&lt;/p>
+
+        </code>
+    </pre>
+    <h3>contact.blade.php</h3>
+    <pre>
+        <code>
+            @extends('layout')
+            @section('contact')
+            &lt;h1>Contact&lt;/h1>
+            &lt;p>Hello this is contact!&lt;/p>
+            @endsection
+        </code>
+    </pre>
+    <hr>
+    <h1>View routes, route parameters, rendering data in views</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာဆိုရင် simple routes နှစ်ခုကို define လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် get method
+        ကိုအသုံးပြုပြီးတော့ return ပြန်ပေးထားတာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ Route::view () ဆိုပြီးတော့လည်း Route
+        တစ်ခုကို
+        create လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် view ဟာ parameters နှစ်ခုကို accepts လုပ်နိုင်ပါတယ်။ First ကတော့ URL
+        ပဲဖြစ်ပါတယ်။
+        Second ကတော့ template name ပဲဖြစ်ပါတယ်။ အခု section မှာတော့ Route တွေကို parameters တွေနဲ့
+        လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် URL ထဲမှာ many parameters ကိုအသုံးပြုနိုင်ပါတယ်။ သူတို့ကို curly braces ထဲမှာ enclosed
+        လုပ်ပေးရပါမယ်။
+        Parameters ကိုအသုံးပြုတဲ့နေရာမှာ restriction တွေရှိပါတယ်။ Parameters တွေမှာ alphabetic characters and
+        underscores
+        တွေပဲပါဝင်ရပါမယ်။ နောက် view ထဲကို data တွေဘယ်လို pass လုပ်တယ်ဆိုတာကို ကြည့်ရအောင်။ အဲ့ဒါအတွက် example မှာဆိုရင်
+        blog
+        post blade ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပေးထားပါတယ်။ သူဟာလည်း layout ကနေ extends လုပ်ထားပြီးတော့ content
+        လို့ခေါ်တဲ့ section တစ်ခုရှိပါတယ်။ နောက် route ထဲမှာ pages ဆိုတဲ့ variable နဲ့ associated array တစ်ခုကို create
+        လုပ်ပေးထားပါတယ်။ နောက် return မှာဆိုရင် view ကို change လုပ်ပြီးတော့ blog-post ကို render လုပ်ရပါမယ်။ နောက်
+        သူ့ထဲမှာ
+        parameters တွေကို ဘယ်လို pass လုပ်မလဲဆိုတာကြည့်ရအောင်။ အဲ့မှာဆိုရင် second argument ဟာ data array ဖြစ်ပါတယ်။
+        သူ့မှာဆိုရင် variable name ကို represent လုပ်တဲ့ key တွေပါဝင်ပါတယ်။ အဲ့မှာဆိုရင် Route ID ပေါ်မှာမူတည်ပြီးတော့
+        data
+        တွေကို passing လုပ်ထားတာဖြစ်ပါတယ်။ နောက် view ထဲကို data တွေကို ဘယ်လို render လုပ်တယ်ဆိုတာကြည့်ရအောင်။
+        အဲ့မှာဆိုရင်
+        double curly braces ကိုအသုံးပြုပေးရပါမယ်။ နောက် သူ့ထဲမှာ variable name ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ data
+        ပဲဖြစ်ပါတယ်။ နောက် အဲ့ variable ဟာ array ဖြစ်တယ်ဆိုရင် array အတိုင်း ကျွန်တော်တု့ိ display လုပ်ချင်တဲ့ property
+        ကို pass
+        လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ title ကို pass လုပ်ပေးထားပါတယ်။ နောက်ဆုံးကတော့ Laravel blade view မှာဆိုရင်
+        HTML
+        specialcharacter built in function တွေကိုအသုံးပြုပြီးတော့ escaped လုပ်နိုင်ပါတယ်။ အဲ့ဒါကြောင့် သူဟာ cross site
+        scripting
+        attacks ကို prevent လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ Hello message မှာ &lt;b> ကို surround လုပ်ပေးထားပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ အဲ့ဒါကို view မှာ render လုပ်ချင်တယ်ဆိုရင် blade ထဲမှာ double curly braces နေရာမှာ single
+        curly
+        braces နဲ့ start and end မှာ exclamation mark ကို ထည့်ပေးရပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>blog-post.blade.php</h3>
+    <pre>
+        <code>
+            @extends('layout')
+            
+            @section('contact')
+            {!!$welcome!!}{{$data['title']}}
+            @endsection
+        </code>
+    </pre>
+    <pre>
+        <code>
+            Route::get('/blog-post/{id}/{welcome?}', function($id, $welcome = 1){
+            $pages = [
+            1 => [
+            'title' => ' from page 1',
+            ],
+            2 => [
+            'title' => ' from page 2',
+            ],
+            ];
+            $welcomes = [
+            1 => '&lt;b>Hello&lt;/b>',
+            2 => 'Welcome to '
+            ];
+            return view('blog-post', [
+            'data' => $pages[$id],
+            'welcome' => $welcomes[$welcome],
+            ]);
+            });
+        </code>
+    </pre>
+    <hr>
+    <h1>Named routes and generating URLs</h1>
+    <p>
+        အခု section မှာတော့ routes တွေကို name တွေပြီးတော့ browser မှာ call လုပ်မှာဖြစ်ပါတယ်။ 
+        နောက် page တစ်ခုချင်းစီအတွက် link တစ်ခုစီကိုလည်း add လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>web.php</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html>
+            &lt;html lang="en">
+            &lt;head>
+                &lt;meta charset="UTF-8">
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+                &lt;title>Document&lt;/title>
+            &lt;/head>
+            &lt;body>
+                &lt;ul>
+                    &lt;li>&lt;a href="{{route('home')}}">Home&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="{{route('contact')}}">Contact&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="{{route('blog-post',['id' => 1])}}">Blog-post&lt;/a>&lt;/li>
+                &lt;/ul>
+                @yield('contact')
+            &lt;/body>
+            &lt;/html>
+        </code>
+    </pre>
+    <hr>
+    <h1>Controller basics</h1>
+    <p>
+        နောက် ကျွန်တော်တို့ရဲ့ route အတွက် logic တွေကို group လုပ်ဖို့အတွက် another way တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါကတော့ controllers ပဲဖြစ်ပါတယ်။ 
+        Controllers တွေဟာ specific route အတွက် logic တွေပါ၀င်တဲ့ class ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ contorllers တွေကို app/http/controllers ထဲမှာရှိပါတယ်။
+        အခု section မှာတော့ first controller တစ်ခုကို create  လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် terminal မှာ php artisan ကို run လုပ်လိုက်တဲ့အခါမှာ  php artisan ကိုအသုံးပြုပြီးတော့ လုပ်ဆောင်နိုင်တာတဲ့ command တွေအားလုံးရှိပါတယ်။ 
+        အခု section မှာတော့ အဲ့ command တွေထဲက controller ကို create လုပ်တဲ့ command ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ 
+        Command ကတော့ php artisan make:controller name ပဲဖြစ်ပါတယ်။ Name နေရာမှာ ကျွန်တော်တို့ ကြိုက်တဲ့ name ကို add လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ HomeController ကို create လုပ်ထားပါတယ်။ 
+        နောက် controller မှာဆိုရင် actions တွေရှိရပါမယ်။ Action ဆိုကတော့ controller class ထဲမှာရှိတဲ့ class method ပဲဖြစ်ပါတယ်။ 
+        အဲ့မှာဆိုရင် paramerter ကို accept လုပ်လို့မရပါဘူး။ နောက် သူ့ရဲ့ return မှာဆိုရင် view ကို return ပြန်ပေးရပါတယ်။ နောက် ကျွန်တော်တို့ ရဲ့ route မှာ view ကို get ကို ပြောင်းပေးရပါမယ်။
+        နောက် route ထဲမှာရှိတဲ့ second parameter ဟာဆိုရင် contorller ရဲ့ name ဖြစ်ရပါမယ်။ သူ့ရဲ့နောက်မှာ @ sign နဲ့ controller ထဲမှာရှိတဲ့ action name ကို ထည့်ပေးရပါမယ်။ 
+        Example မှာဆိုရင်တော့ class method 3 ခုကို create လုပ်ပေးထားပါတယ်။ 
+        နောက် Laravel controller classes တွေကို ဘယ်ကနေ ကြည့်တာလဲဆိုတော့ example မှာဆိုရင် HomeController နေရာမှာ အခြား namespace ကို add လုပ်လို့မရပါဘူး။
+        နောက် HomeController မှာဆိုရင် namespace ဟာ App/Http/Controller ဆိုပြီးတော့ရှိပါတယ်။ နောက် serviporvider တွေဟာ ကျွန်တော်တို့ရဲ့ application ကို bootstrapping လုပ်ပေးတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>HomeController</h3>
+    <pre>
+        <code>
+            <?php
+
+            namespace App\Http\Controllers;
+            
+            use Illuminate\Http\Request;
+            
+            class HomeController extends Controller
+            {
+                public function home (){
+                    return view('home');
+                }
+            
+                public function contact(){
+                    return view('contact');
+                }
+            
+                public function blogPost($id, $welcome=1){
+                    $pages = [
+                        1 => [
+                            'title' => ' from page 1',
+                        ],
+                        2 => [
+                            'title' => ' from page 2',
+                        ],
+                    ];
+                    $welcomes = [
+                        1 => '&lt;b>Hello&lt;/b>',
+                        2 => 'Welcome to '
+                        ];
+                    return view('blog-post', [
+                        'data' => $pages[$id],
+                        'welcome' => $welcomes[$welcome],
+                    ]); 
+                }
+            }
+            
+        </code>
+    </pre>
+    <hr>
+    <h1>Database configuration and environment variables</h1>
+    <p>
+        အခု section မှာတော့ database နဲ့ အလုပ်လုပ်တာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ new database တစ်ခုကို create လုပ်ပေးရပါမယ်။ 
+        အဲ့ဒါကြောင့် PHP MyAdmin မှာ new ကို example မှာဆိုရင်တော့ larabel ဆိုတဲ့ new database တစ်ခုကို create လုပ်ပေးထားပါတယ်။ နောက် database ကို create လုပ်တဲ့အခါမှာ character set ကိုအသုံးပြုပေးရပါမယ်။  
+        နောက် project ထဲမှာရှိတဲ့ config folder ထဲမှာရှိတဲ့ database.php file ရှိပါတယ်။ သူ့ကို ကျွန်တော်တို့ database နဲ့ ဘယ်လို အလုပ်လုပ်မယ်ဆိုတာအတွက်အသုံးပြုနိုင်ပါတယ်။
+        အဲ့မှာ first တွေ့ရတာကတော့  default connection တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ connection ဟာ database တစ်ခုထဲအသုံးပြုမယ်ဆိုရင် enough ဖြစ်ပါတယ်။ နောက် သူ့ထဲက function မှာဆိုရင် first argument ဟာ environment name ဖြစ်ပြီးတော့ seond ကတော့ default value တစ်ခုဖြစ်ပါတယ်။ နောက် seond မှာရှိတဲ့ msql string ဟာဆိုရင် laravel ကို ကျွန်တော်တို့ဟာ myslq ကိုအသုံးပြုပါမယ်ဆိုတာကို ပြောပြပေးတာမဟုတ်ပါဘူး။
+        နောက် သူ့ရဲ့အောက်မှာ application အတွက် defined လုပ်ထားတဲ့ connections တွေပဲဖြစ်ပါတယ်။ 
+        အဲ့မှာဆိုရင် database တွေအများကြီးရှိပါတယ်။ သူတို့အားလုံးမှာဆိုရင် driver ရှိကြပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ အသုံးပြုမဲ့ variable type ပဲဖြစ်ပါတယ်။ 
+        နောက် အဲ့မှာ connection parameters တွေလည်းရှိပါတယ်။ သူတို့အားလုံးကို env ဆိုတဲ့ function ကိုအသုံးပြုပြီးတော့ loaded လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ env ဟာ environment variable တစ်ခုရဲ့ value ကို fetch လုပ်တာဖြစ်ပါတယ်။ 
+    </p>
+    <hr>
+    <h1>Introduction to database migrations</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ဟာ new database ကို  ကျွန်တော်တို့ရဲ့ larabel project နဲ့ connect လုပ်သွားမှာဖြစ်ပါတယ်။ Connect လုပ်ဖို့ရန်အတွက် .env file ထဲမှာ user name and password ကို ထည့်ပေးရပါမယ်။
+        နောက် ကျွန်တော်တို့ရဲ့ database name ကိုလည်း add လုပ်ပေးရပါမယ်။ နောက် migrations concept ကို လေ့လာကြည့်ရအောင်။ Migration ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ database scheme version ကို keep လုပ်ပေးတာဖြစ်ပါတယ်။
+        ဆိုလိုတာကတော့ ကျွန်တော်တို့ဟာ database scheme တွေဖြစ်တဲ့ table or filed တို့ကို change လုပ်ချင်တဲ့အခါမှာ အဲ့ဒါတွေကို migration file ထဲမှာ put လုပ်နိုင်ပါတယ်။ 
+        Migration file ကို database folder ထဲမှာတွေ့နိုင်ပါတယ်။ Laravel ဟာဆိုရင် migration file နှစ်ခုနဲ့ လာပါတယ်။ အဲ့ migration file ထဲမှာဆိုရင် migration ဟာ ဘာကိုလုပ်ဆောင်တယ်ဆိုတာကို describes လုပ်တဲ့ class တစ်ခုရှိပါတယ်။ 
+        အဲ့ class ဟာ Migration class ကနေ extends လုပ်ထာားတာဖြစ်ပါတယ်။ နောက် သူ့ထဲမှာ up and down ဆိုတဲ့ methods နှစ်ခုရှိပါတယ်။ သူတို့ဟာ ဘာလုပ်ပေးတာလဲဆိုတော့ ကျွန်တော်တို့ database ထဲမှာ change လုပ်တဲ့အချိန်မှာ ကျွန်တော်တို့ဟာ up method ကို ‌call လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဟာ change ကို revert လုပ်ချင်တဲ့အခါမှာ down method ကို call လုပ်တာဖြစ်ပါတယ်။ 
+        နောက် migration ကို run လုပ်ဖို့အတွက် php artisan migrate ဆိုတဲ့ command ကို run လုပ်ပေးရပါမယ်။ 
+    </p>
+    <hr>
+    <h1>Creating and managing migrations</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ အခု section မှာတော့ migration ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ Migration ကို create လုပ်တာဟာ table ကို create လုပ်တာနဲ့ အတူတူပဲဖြစ်ပါတယ်။ 
+        Migration ကို create လုပ်ချင်တယ်ဆိုရင် php artisan make: create_blogpost_table ဆိုပြီးတော့ terminal မှာ run လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် blogpost ဟာ table name ဖြစ်ပါတယ်။ အဲ့ file ထဲမှာဆိုရင် up and down method နှစ်ခုကို generate လုပ်ပေးထားဖြစ်ပါတယ်။
+        Up method မှာဆိုရင် tabel columns တွေကို create လုပ်နိုင်ပါတယ်။ နောက် down method ကတော့ table or columns တွေကို roll back လုပ်နိုင်ပါတယ်။ 
+        Tabel columne တွေကို create လုပ်တဲ့နေရာမှာ up method မှာရှိတဲ့ blueprint object နဲ့ create လုပ်ပေးရပါတယ်။ Example $table->string('title'); ပဲဖြစ်ပါတယ်။ နောက်အဲ့မှာဆိုရင် text ဟာ 255 ထက်ပိုအသုံးပြုချင်တဲ့အခါမှာ string အစား text ကိုအသုံးပြုပေးရပါတယ်။ 
+        နောက် down method မှာလည်း specific columns တွေကို rollback လုပ်နိုင်ပြီဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Laravel Tinker and Eloquent models</h1>
+    <p>
+        Database နဲ့ interact လုပ်ဖို့ဆိုရင် eloquent ကိုအသုံးပြုပေးရပါတယ်။ Eloquent ဟာ laravel library တစ်ခုဖြစ်ပါတယ်။ သူ့ကို ORM လို့လည်းခေါ်ပါတယ်။
+        ORM ဆိုတာကတော့ object relationship mapping ပဲဖြစ်ပါတယ်။ Laravel ဟာဆိုရင် Active Record model ကိုအသုံးပြုပါတယ်။ Example မှာဆိုရင် blogposts table ကို create လုပ်ပြီးဖြစ်ပါတယ်။ ဒါပေမဲ့ အဲ့ table ကို manage လုပ်ဖို့ model မရှိသေးပါဘူး။
+        အဲ့ဒါကြောင့် အခု model တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် php artisan make:model name  ဆိုတဲ့ command ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ model ဟာ App folder ထဲကို‌ရောက်သွားတာဖြစ်ပါတယ်။
+        သူဟာ very powerful ဖြစ်ပါတယ်။ Tinker ဟာဆိုရင် PHP code တွေကို terminal မှာ execute လုပ်ဖို့ allow လုပ်ပေးပါတယ်။ သူ့ကို php artisan tinker ဆိုတဲ့ command ကို run လုပ်ပေးရဖြစ်ပါတယ်။
+        နောက် tinker မှာ php code ကို run လုပ်တဲ့အခါမှာ error ဖြစ်တယ်ဆိုရင် php.ini file ကိုသွားပြီးတော့ pcre.jit=0 ကို သွားထည်‌့ပေးရမှာဖြစ်ပါတယ်။ 
+        နောက် php.ini file ကို php -i | grep 'php.ini' ဆိုတဲ့ command နဲ့လည်း သွားနိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ table name ကို change လုပ်ချင်တဲ့အခါမှာ နှစ်ခုကို လုပ်ဆောင်ပေးရပါမယ်။
+        အဲ့ဒါတွေကတော့ command line ကနေသွားတာနဲ့ code ရေးထည့်တာတို့ပဲဖြစ်ပါတယ်။ Command ကနေဆိုရင် php artisan make:migration change_blogposts_table_name --table=blogposts ဆိုတဲ့ command ကိုအသုံးပြုပေးရပါမယ်။ 
+        ‌နောက်ထက်ကတော့ Schema::rename('table_name', change_table_name) ကို up method  နဲ့ down method နှစ်ခုထဲမှာ ထည့်ပြီးတော့ အသုံးပြုတာပဲဖြစ်ပါတယ်။ 
+        နောက် down method ထဲမှာဆိုရင် table name ဟာ reverse ထည့်ပေးရပါမယ်။
+    </p>
+    <hr>
+    <h1>Resource controllers</h1>
+    <p>
+        အခု section မှာတော့ database ထဲက data တွေကို ဘယ်လို fetch လုပ်တယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ 
+        နောက် one single controller or one single class တစ်ခုဟာ much responsibility တွေကို handling or having လုပ်တာကိုလည်း လေ့လာသွားမှာဖြစ်ပါတယ်။ 
+        အဲ့ဒါအတွက် blogpost ကို separate controller တစ်ခုထဲမှာ move လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ blogpost link တွေကို move လုပ်ပေးရပါမယ်။ 
+        Laravel မှာဆိုရင် post တစ်ခုကို adding and deleting and updating လုပ်တာတွေကို လုပ်ဆောင်နိုင်တဲ့ controller တစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ resource controller ပဲဖြစ်ပါတယ်။ 
+        အဲ့ controller ကို php artisan make:controller PostController --resource ဆိုတဲ့ command ကို အသုံးပြုပေးရပါမယ်။ သူ့ထဲမှာဆိုရင် actions တွေအားလုံးပါ၀င်ပါတယ်။ 
+        Example မှာဆိုရင်တော့ index and show နှစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            <?php
+
+            namespace App\Http\Controllers;
+            
+            use Illuminate\Http\Request;
+            use App\BlogPost;
+            
+            class PostController extends Controller
+            {
+                /**
+                 * Display a listing of the resource.
+                 *
+                 * @return \Illuminate\Http\Response
+                 */
+                public function index()
+                {
+                    dd(BlogPost::all());
+                }
+            
+            
+            
+                /**
+                 * Display the specified resource.
+                 *
+                 * @param  int  $id
+                 * @return \Illuminate\Http\Response
+                 */
+                public function show($id)
+                {
+                    dd(Blogpost::find($id));
+                }
+            
+            }            
+        </code>
+    </pre>
+    <hr>
+</body>
+
+</html>

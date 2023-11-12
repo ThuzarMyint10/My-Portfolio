@@ -1,0 +1,52 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media(min-width:769px) {
+    /* body {
+        background: red;
+    } */
+
+    .main-header,
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .main-nav {
+        flex-direction: row;
+    }
+
+    .tagline {
+        font-size: 1.4em;
+    }
+
+    .main-nav a:hover {
+        color: var(--color-secondary);
+        background: #1b291b;
+        box-shadow: -4px 4px 2px 0px #335433;
+    }
+    
+    .main-nav a:focus {
+        background: #1b291b;
+           box-shadow: -4px 4px 2px 0px #335433;
+    }
+
+}
+
+
+
+@media(min-width:1025px) {
+    /* body {
+        background: yellow;
+    } */
+    .main-header,
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+}

@@ -1,0 +1,19 @@
+.grid-container{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    width: 90%;
+}
+.grid-100{
+    width: 100%;
+}
+.contained{
+    width: 90%;
+    background: aquamarine;
+    margin: 0 auto;
+}
+#load{
+    background: blue;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to jQuery</h1>
+    <p>
+        jQuery ဟာဆိုရင် ကျယ်ကျယ်ပြန့်ပြန့်အသုံးပြုတဲ့ JavaScript library တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် ကျွန်တော်တို့ကို web pages တွေကို interactivity တွေကို add လုပ်တဲ့အခါမှာ quickly and easily ဖြစ်အောင် ကူညီပေးပါတယ်။ ကျွန်တော်တို့ဟာ animations တွေကို တိတိကျကျ add လုပ်နိုင်ပြီးတော့ web page တစ်ခုမှာရှိတဲ့elements တွေကို manipulate လုပ်နိုင်ပါတယ်။ ပြီးတော့ user interactions တွေကိုလည်း response လုပ်နိုင်ပါတယ်။ ပြီးတော့ regular JavaScript နဲ့ ajax request ကိုလည်း ပြုလုပ်နိုင်ပါတယ်။ သို့သော်လည်း jQuery ကိုအသုံးပြုပြီးတော့ some nice conveniences တွေကို add လုပ်တာဟာ DOM programming ကို easier ဖြစ်အောင်လုပ်ဆောင်ပေးနိုင်ပါတယ်။ jQuery ဟာဆိုရင် incredibly popular ဖြစ်လာပါတယ်။ ဘာကြောင့်လဲဆိုတော့ consistently across browsers မှာ behave လုပ်နိုင်တဲ့ writing code တွေနဲ့လာတဲ့ many of the headaches တေကို addressed လုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် သူဟာ more standardized ဖြစ်ဖို့ရန်အတွက် modern browsers အနေနဲ့တော့ less necessary ဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် simple တစ်ခုအနေနဲ့ remain ဖြစ်နေပြီးတော့ web pages တွေနဲ့ interact  လုပ်ဖို့ရန်အတွက် intuitive way ဖြစ်ပါတယ်။ အခု section မှာ ကျွန်တော်တို့ဟာ a series of small projects တွေကို create or enhance လုပ်ဖို့ရန်အတွက် jQuery ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ simple blog previewer, and a fun and interactive spoiler revealer တို့ကို build လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေ finish up ဖြစ်ဖို့ရန်အတွက် more advanced jQuery methods တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် အဲ့ဒါတွေကို အသုံးပြုပြီးတော့ simple news feed တစ်ခုမှာ some enhancements and functionality တွေကို add လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒါတွေကို မလေ့လာခင်မှာ JavaScript ကိုအသုံးပြုပြီးတော့ DOM နဲ့ interact လုပ်ဖို့ရန်အတွက် CSS selectors တွေနဲ့ familiar ဖြစ်ဖို့လိုပါတယ်။ DOM ဆိုတာကတော့ Document Object Model ဖြစ်ပြီးတော့ သူဟာ ကျွန်တော်တို့ web page ရဲ့ representation တစ်ခုပဲဖြစ်ပါတယ်။ နောက် ဒီ section မှာဆိုရင် jQuery offers လုပ်ထားတဲ့ many of the convenient methods အကြောင်းတွေကိုလည်း လေ့လာသွားမှာဖြစ်ပါတယ်။ နောက် web page တစ်ခုမှာရှိတဲ့ elements တွေကို choose and manipulate လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်တဲ့ different CSS selectors တွေအကြောင်းကိုလည်း introduce လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် events တွေကို ဘယ်လို handle လုပ်ရမယ်ဆိုတာကိုလည်း learn လုပ်သွားမှာဖြစ်ပါတယ်။ Events ဆိုတာကတော့ button clicks, key press, mouse overs စတဲ့ response တွေရဲ့ running code တွေပဲဖြစ်ပါတယ်။ နောက် DOM traversal ကိုလည်း learn လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် jQuery ဟာ elements တစ်ခုရဲ့ specific class or ID ကို မသိဘဲနဲ့ page တစ်ခုမှာရှိတဲ့ element တစ်ခုကနေ တစ်ခုကို move easily ဖြစ်ဖို့ရန်အတွက် ဘယ်လို let လုပ်တယ်ဆိုတာပါ လေ့လာသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>jQuery_History and Relevance Today</h1>
+    <p>
+        jQuery ဟာဆိုရင် mid-2000s မှာ popular ဖြစ်လာပါတယ်။ အဲ့မှာဆိုရင် Internet Explore,  Firefox, Chrome, and Safari handled DOM programming တို့လို browsers တွေကြားထဲမှာ number of differences တွေရှိပါတယ်။ Browser တစ်ခုအလုပ်လုပ်နေတဲ့အခါမှာ နောက် browser တွေမှာ အလုပ်မလုပ်ပါဘူး။ JavaScript programmers အများစုရဲ့ အချိန်တွေဟာ different browsers တွေမှာ testing and fixing code တွေနဲ့ ကုန်သွားတာဖြစ်ပါတယ်။ အဲ့အခါအချိန်မှာ jQuery ဟာ programmers တွေမှာလုပ်ဆောင်ဖို့ရန်မရှိတဲ့ browsers differences အားလုံးကို took လုပ်တဲ့ simple tool တစ်ခုကို provide လုပ်ပေးပါတယ်။ Browsers တွေဟာဆိုရင် recent years တွေမှာ long way တစ်ခုနဲ့ လာပါတယ်။ Every browsers ရဲ့ every version ရဲ့place တွေမှာ JavaScript ကို sure ဖြစ်အောင် လုပ်ဖို့ရန်အတွက် သူ့ရဲ့ အလုပ်တွေဟာ done ဖြစ်ဖို့ရန်အတွက် အများကြီးတော့မလိုပါဘူး။ QuerySelector and querySelectorAll တို့လို new native methods တွေဟာ DOM API ကို elements တွေကို add လုပ်တဲ့နေရာမှာ easy ဖြစ်ဖို့ရန်အတွက် လုပ်ဆောင်ပေးပါတယ်။ jQuery ဟာဆိုရင် နေရာတိုင်းမှာ still ဖြစ်နေတာဖြစ်ပါတယ်။ သူ့ကို millions of active websites တွေမှာ အသုံးပြုနေကြပါတယ်။ ကျွန်တော်တို့ဟာ build simple projects, use plugins, maintain an existing code base, and add interactivity to webpages အဲ့ဒါတွေကို လုပ်ဆောင်ဖု့ိရန်အတွက် jQuery ကို သိရင် လုံလောက်ပါတယ်။ ကျွန်တော်တို့ဟာ complex web applications တွေကို build လုပ်တဲ့နေရာမှာတော့ jQuery ကိုအသုံးပြုမှာအဟုတ်ပါဘူး။ ဒါပေမဲ့ သူဟာ prototyping, or adding features to websites and smaller projects တွေအတွက်တော့ သူဟာ useful ဖြစ်နေပါတယ်။ 
+    </p><hr/>
+    <h1>Compare jQuery and JavaScript</h1>
+    <p>
+        jQuery ဟာဆိုရင် JavaScript function ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ any other function တွေလိုပဲ call လုပ်နိုင်ပါတယ်။  အဲ့မှာဆိုရင် important thing တစ်ခုကတော့ jQuery ဟာ JavaScript ပဲဖြစ်ပါတယ်။ သူဟာ essentially a collection of functions တစ်ခုဖြစ်ပါတယ်။ အဲ့ functions တွေဟာ things တွေကို DOM နဲ့ working လုပ်နေတဲ့အချိန်မှာ code ကို easier and shorter ဖြစ်စေပါတယ်။ ကျွန်တော်တို့ဟာ querySelector function လိုပဲ element ကို CSS selector နဲ့ jQuery function ကို pass လုပ်နိုင်ပါတယ်။ jQuery ဟာဆိုရင် page မှာရှိတဲ့ element တစ်ခုကို select လုပ်ပြီးတဲ့အခါမှာ animate, change, or manipulate that element လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်တဲ့ ton  of special methods တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ Example မှာဆိုရင် hide function ကိုအသုံးပြုတဲ့အခါမှာ .hide() ဆိုပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ jQuery function ကို over and over again calling လုပ်နိုင်ပါတယ်။ နောက် jQuery ဟာ shorthand တစ်ခုကိုလည်း provide လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ dollar sign ပဲဖြစ်ပါတယ်။ Example မှာအသုံးပြုထားတာကိုလေ့လာနို်င်ပါတယ်။ jQuery ရဲ့ click method ဟာဆိုရင် page မှာတွေ့ရတဲ့ action တစ်ခုကို response လုပ်တဲ့နေရာမှာ code တွေကို listen and run လုပ်တဲ့ group of methods တစ်ခုရဲ့ part ပဲဖြစ်ပါတယ်။ Example မှာလေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            //const box = document.querySelector('.box');
+            // box.style.display = 'none';
+            
+            // jQuery('.box').hide();
+            // $('.box').show();
+            //box.addEventListener('click', function(){
+                //alert('You Clicked me!');
+            //});
+            $('.box').click(function(){
+                alert('You clicked me with jQuery');
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/index.html">Test Yourself</a><hr>
+    <h1>Animating Elements with jQuery</h1>
+    <p>
+        jQuery ဟာဆိုရင် DOM ကို manipulate လုပ်တဲ့နေရာမှာ easy ဖြစ်ဖို့ရန်အတွက် ကူညီပေးနိုင်တဲ့ many methods တွေကို offers လုပ်ပေးပါတယ်။ DOM ကို manipulate လုပ်တဲ့ထဲမှာ element ရဲ့ visibility ကို adjusting လုပ်တာတွေ နောက်ကျွန်တော်တို့ သိခဲ့ပြီးသားဖြစ်တဲ့ hide method, ပြီးတော့ adding, deleting, or modifying the contents or attributes of an element and changing and element's styling တု့ိလည်း ပါဝင်ပါသေးတယ်။ အဲ့မှာဆိုရင် web page တစ်ခုမှာရှိတဲ့ elements တွေကို add, remove or reveal လုပ်တဲ့အချိန်မှာ fun animations တွေကို အသုံးပြုနိုင်တဲ့ several built-in methods တွေလည်းရှိပါတယ်။ အဲ့မှာဆိုရင် fadeIn and out ဟာ opacity over time ကို changes လုပ်ပေးတာပဲဖြစ်ပါတယ်။ နောက် slideDown() and slideUp() ဟာ element တစ်ခုကို sliding motion နဲ့ reveal လုပ်တာဖြစ်ပါတယ်။ နောက် delay() ခေါ်တဲ့ method ဟာ animations နှစ်ခုကြားမှာ delay ကို add လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ရဲ့ first jQuery project မှာ simple blog previewer တစ်ခုကို flash message တစ်ခုနဲ့ PREVIEW button ကို pressed လုပ်လိုက်တဲ့အချိန်မှာ appear ဖြစ်ဖို့ရန်အတွက်   ကျွန်တော်ပြောပြခဲ့တဲ့ methods တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Flash message တစ်ခုဟာ warning or confirmation, or alert to a user တစ်ခုလို temporary message တစ်ခုကို show လုပ်ဖို့ရန်အတွက် designed လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် message ဟာဆိုရင် temporary notification တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် အဲ့ message ကို page loads လုပ်တဲ့အချိန်မှာ show လုပ်ပြီးတော့ few seconds delay လုပ်ပြီးတဲ့အခါမှာ hide ဖြစ်သွားမှာဖြစ်ပါတယ်။ နောက်မှာတော့ PREVIEW button ကို click လုပ်လိုက်တဲ့အချိန်မှာ message ဟာ display လုပ်မှာဖြစ်ပါတယ်။ အခု example မှာတော့ အဲ့ message and animation ဟာ page refreshed လုပ်တဲ့အချိန်တိုင်းမှာ show လုပ်မှာဖြစ်ပါတယ်။ jQuery animations တွေအားလုံးဟာ default အရ 400 milliseconds မှာပဲ last ဖြစ်တာဖြစ်ပါတယ်။ သို့သော်လည်း ကျွန်တော်တို့ဟာ jQuery animation method ထဲကို value တစ်ခုကို passing လုပ်ပြီးတော့ time ကို alter လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် 2 second ဟာ 2000 နဲ့ equal ဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ animation methods တွေကို single line မှာပဲ create လုပ်နိုင်သလို separate လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $('#flashMessage').hide().slideDown(1000).delay(3000).slideUp();
+        </code>
+    </pre>
+    <a href="jQueryexample/animate.html">Test Yourself</a><hr>
+    <h1>Changing Contents</h1>
+    <p>
+        Information and messaging တွေကို user ဆီကို providing လုပ်တာဟာ interesting interactive websites တွေကို creating လုပ်တဲ့နေရာမှာ hugely important part တစ်ခုပဲဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် couple of different methods တွေကို offer လုပ်ပေးထားပါတယ်။ သူတို့ဟာ HTML ထဲမှာရှိတဲ့ text တွေကို create, change, update and modify လုပ်တဲ့နေရာမှာ fun and easy ဖြစ်အောင်လုပ်ဆောင်ပေးနိုင်ပါတယ်။ အဲ့ methods ကိုအသုံးပြုပြီးတော့ blog previewer တစ်ခုကို လုပ်ကြည့်ရအောင်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ project ကို finish ဖြစ်သွားတဲ့အခါမှာ user ဟာ form ထဲကို title and blog entry တစ်ခုကို add လုပ်နိုင်ပါတယ်။ Preview button ကို click လုပ်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ type လုပ်လိုက်တဲ့ ဟာတွေကို right ဘက်မှာ display လုပ်ပေးမှာဖြစ်ပါတယ်။ First step အနေနဲ့ text or HTML ကို web page တစ်ခုမှာ get and insert လုပ်ဖို့ရန်အတွက် jQuery ကို ဘယ်လိုအသုံးပြုတယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ jQuery methods တွေဖြစ်တဲ့ HTML and text တို့ကို အသုံးပြုနိုင်ပါတယ်။ Text method ဟာ ကျွန်တော်တို့ select လုပ်လိုက်တဲ့ element အတွင်းမှာဘဲ text တွေကို get, insert or change လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးတာဖြစ်ပါတယ်။ html method ဟာလည်း text method နဲ့ အတူတူပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ သူတို့မှာ မတူတဲ့ အလုပ်လုပ်တစ်ခုရှိပါတယ်။ အဲ့ methods အမျိုးအစားကို getters and setters လို့ခေါ်ကြပါတယ်။ html method ဟာဆိုရင် value တစ်ခုကိုပဲ get လုပ်ပေးတဲ့အတွက်ကြောင့် getter လို့ခေါ်ပြီးတော့ သူ့မှာ arguments မပါပါဘူး။ Example မှာဆိုရင် text method ဟာဆိုရင် ကျွန်တော် add လုပ်ချင်တဲ့ new string ထဲမှာရှိတဲ့ html tags တွေကို interpret လုပ်မပေးနိုင်ပါဘူး။ အဲ့ဒါကြောင့် ကျွန်တော် add လုပ်ချင်တဲ့ string ထဲမှာ html tags တွေပါတဲ့အခါမှာ html method ကိုအသုံးပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>  
+            $('#flashMessage').hide().slideDown(1000).delay(3000).slideUp();
+
+            const title = "My First Blog Post";
+            const content = "This is my <strong>first</strong> post!";
+            
+            $('#blogTitlePreview').text(title);
+            $('#blogContentPreview').html(content);
+        </code>
+    </pre>
+    <a href="jQueryexample/animate.html">Test Yourself</a><hr>
+    <h1>Getting Values from Fields</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ web page တစ်ခုဆီကို plain text or HTML တွေကို get, insert, or change လုပ်ဖို့ရန်အတွက် jQuery ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ blog previewer ကို build လုပ်ထားတာဟာ user တစ်ယောက်ဟာ form ကို fill out လုပ်ပြီးတော့ PREVIEW button ကို click လုပ်လိုက်တဲ့အချိန်မှာ user တွေ fill out လုပ်လိုက်တဲ့ဟာတွေကို right ဘက်မှာ display လုပ်သွားမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာအသုံးပြုခဲ့တဲ့ HTML and text methods တွေဟာ  text inputs and text areas တို့လို form inputs တွေဆီကနေ information တွေကို get လုပ်ဖို့ရန်အတွက် အသုံးပြုလို့မရပါဘူး။ အဲ့ form inputs တွေဆီကနေ information တွေကို get လုပ်ဖို့ရန်အတွက် jQuery ရဲ့ val method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ ကျွန်တော်တို့လုပ်ရမှာက PREVIEW button ကို select လုပ်ပြီးတော့ သူ့ကို click method ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့အဲ့ထဲမှာ ကျွန်တော်ရဲ့text input တွေကို val method တွေကို select လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာလေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+            // $('#flashMessage').hide().slideDown(1000).delay(3000).slideUp();
+            $('#flashMessage').hide();
+            //PREVIEW BUTTON CLICK FUNTION
+            $('#btn').click(function (){
+            
+                const title = $('#areatext').val();
+                const content = $('#nextarea').val();
+                
+                $('#blogTitlePreview').text(title);
+                $('#blogContentPreview').html(content);
+            
+                $('#flashMessage').slideDown(1000).delay(3000).slideUp();
+            
+            
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/animate.html">Test Yourself</a><hr>
+    <h1>Adding jQuery to a project</h1>
+    <p>
+        ဒီ section မှာဆိုရင် simple spoiler reveal alert တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ button ကို press လုပ်လိုက်တဲ့အခါမှာ secret message တစ်ခုကို reveal လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် button ကို click လုပ်ပြီးတဲ့အခါမှာ button ဟာ hidden ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့ project ကို သွားဖို့ရန်အတွက် few concepts တွေကို introduced လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ New elements တွေကို jQuery ကိုအသုံးပြုပြီးတော့ DOM ဆီကို ဘယ်လို create and insert လုပ်ရမယ်ဆိုတာကိုပြောပြပေးသွားမှာဖြစ်ပါတယ်။ နောက် onMethod ကိုအသုံးပြုတဲ့ event handling အကြောင်းကိုနဲ့ DOM traversal ရဲ့ fundamentals အကြောင်းကိုလည်း ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ Project ကိုမသွားခင်မှာ jQuery ကို project တစ်ခုမှာ ဘယ်လို set up လုပ်ရတယ်ဆိုတာကိုပြောပြပေးမှာဖြစ်ပါတယ်။ First အနေနဲ့ jQuery source file ကို လိုအပ်ပါတယ်။  အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် ways တွေအများကြီးရှိပါတယ်။ Simple way တစ်ခုကတော့ jQuery.com ကို သွားပြီးတော့ jQuery file ကို download လုပ်ရမှာဖြစ်ပါတယ်။ ပြီးတော့ အဲ့ download လုပ်ထားတဲ့ file ကို ကျွန်တော်တို့ရဲ့ html file ထဲမှာ script tag နဲ့ခေါ်ပြီးတော့ hook up လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူကို့ html file ထဲမှာ another JavaScript file တွေရဲ့ အပေါ်မှာ hook up လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ရဲ့ html file ဟာ load လုပ်လုပ်တဲ့အခါမှာ faster ဖြစ်စေမှာဖြစ်ပါတယ်။ JavaScript ကို page ရဲ့ bottom မှာထားတာဟာ HTML and CSS တို့ကို first အနေနဲ့ loads လပ်စေဖိုရန်အတွက်ပဲဖြစ်ပါတယ်။ jQuery ကို project တစ်ခုထဲမှာ include ဖြစ်ဖို့ရန်အတွက် another way တစ်ခုကတော့ CDN or content delivery network ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ CDN ကိုအသုံးပြုမယ်ဆိုရင် third party service, အဲ့ file ကို link လုပ်ဖို့ဆိုရင် external URL တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ CDN အကြောင်းကိုတော့ ဒီ course ရဲ့ end မှာ ထပ်ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Spoiler Revealer_Breaking</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ set up တွေဟာ ready ဖြစ်နေပြီဖြစ်ပါတယ်။ Code ကိုသွားကြည့်ရအောင်။ First အနေနဲ့ လုပ်ရမှာက ကျွန်တော်တို့ရဲ့ spoiler ကို page load လုပ်တဲ့အချိန်မှာ hide လုပ်ထားရမှာဖြစ်ပါတယ်။ Second ကတော့ button ကို press လုပ်လိုက်တဲ့အချိန်မှာ spoiler ဟာ show လုပ်ပြီးတော့ button ဟာ hide ဖြစ်သွားရမှာဖြစ်ပါတယ်။ Example မှာရှိတဲ့ html ကိုကြည့်တဲ့အခါမှာ paragraph ဟာ spoiler ဆိုတဲ့ class နဲ့ အလုပ်လုပ်တာဖြစ်ပြီးတော့ သူ့ထဲမှာ span element နဲ့ spoiler text အားလုံး contain ဖြစ်နေတာဖြစ်ပါတယ်။ နောက် သူ့ထဲမှာ button လည်း contain ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ paragraph tag တစ်ခုလုံးကို hide လုပ်ချင်တာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ spoiler class နဲ့ ရှိတဲ့ paragraph ထဲမှာရှိတဲ့ span ကိုပဲ hide လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ jQuery file ထဲမှာ spoiler span ရဲ့ descendant CSS selector ကို pass လုပ်နိုင်ပါတယ်။ အဲ့ selector ဟာ spoiler class ရှိတဲ့ element ရဲ့ descendants, or children တွေဖြစ်တဲ့ any span elements တွေကို select လုပ်မယ်လို့jQuery ကို telling လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ နောက်တစ်မျိုးပြောရရင် spoiler element ထဲမှာ nested ဖြစ်နေတဲ့ any span tags တွေကို select လုပ်တာပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် class or ID တစ်ခုခုကို call လုပ်ပြီးတဲ့နောက်မှာ ကျွန်တော်ဟာ select လုပ်ချင်တဲ့ any html elements တွေကို သူတို့ရဲ့ tag name နဲ့ call လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ ပြီးခဲ့တဲ့ section မှာ အသုံးပြုခဲ့သလိုပဲ click event ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            // Hide the spoiler text
+            $('.spoiler span').hide();
+            // When the button is pressed
+            $('.spoiler button').click(function(){
+                //show the spoiler text 
+                $('.spoiler span').show();
+                // Hide the "Reveal Spoiler" button
+                $('.spoiler button').hide();
+            
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/spoiler.html">Test Yourself</a><hr>
+    <h1>Unobstrusive JavaScript</h1>
+    <p>
+        Spoiler project ထဲကို next feature တွေကို add မလုပ်ခင်မှာ  web pages တွေမှာ JavaScript ကို ဘယ်လို အသုံးပြုတယ်ဆိုတာအတွက် approach တစ်ခုကို introduce လုပ်ချင်ပါတယ်။ အဲ့ဒါကေတာ့ unobstrusive JavaScript ပဲဖြစ်ပါတယ်။ Unobtrusive JavaScript ဟာ basically three principles ဖြစ်ပါတယ်။ First ကတော့ JavaScript ဖြစ်ပါတယ်။ သူဟာ web pages ရဲ့functional layer ဖြစ်ပြီးတော့ structural and presentational layers, the HTML and CSS တို့ကနေ kept separate လုပ်ထားတာပဲဖြစ်ပါတယ်။ Second principle ကတော့ cross-browser inconsistencies ပဲဖြစ်ပါတယ်။ Users တွေမှာ similar experiences တွေရှိသင့်ပြီးတော့ သူတို့ဟာ ဘယ် browser ကို အသုံးပြုတယ်ဆိုတာကို regardless လုပ်ထားပါတယ်။ Third idea ကတော့ progressive enhancement ပဲဖြစ်ပါတယ်။ Progressive enhancement ဟာ idea ဖြစ်ပြီးတော့ JavaScript ဟာ blocked, disabled or not fully supported ဖြစ်နေတဲ့အချိန်မှာဆိုရင်တောင် ကျွန်တော်တို့ website ရဲ့ core content and functionality တွေကို available ဖြစ်သင့်ပါတယ်။ ကျွန်တော်တို့ဟာ JavaScript ကို button and insert it onto the page တွေအတွက် HTML တွေကို dynamically generate လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Adding new Element to the DOM</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ဟာ JavaScript present ဖြစ်နေတဲ့အချိန်မှာ button တစ်ခုကို dynamically အရ create လုပ်ပြီးတော့ jQuery ကို အသုံးပြုပြီးတော့ page ဆီကို ဘယ်လို add လုပ်ရမယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ jQuery မှာ element တစ်ခုကို create လုပ်ဖို့ဆိုရင် jQuery method မှာရှိတဲ့ valid HTML ပါတဲ့ string တစ်ခုအနေနဲ့ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ new DOM element တစ်ခုကို create လုပ်ပြီးတဲ့အခါမှာ အဲ့ element ပေါ်မှာပဲ any jQuery method ကို call လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ button ဆိုတဲ့ variable တစ်ထဲမှာ ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ new element ကို save လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် variable ရဲ့ ရှေ့မှာ $ ကို သတိထားမိမှာပါ။ အဲ့ဒါဟာ ဘာလဲဆိုတော့ jQuery  element တစ်ခုပါတဲ့ variable တစ်ခုကို create လုပ်ပြီးတဲ့အခါ အဲ့ဒါဟာ common convention တစ်ခုဖြစ်ပါတယ်။ ဒါပေမဲ့ name ရဲ့ ရှေ့မှာ $ ဟာ မလိုပါဘူး။ အဲ့ဒါဟာ other types of values တွေပါတဲ့ regular variables တွေနဲ့ jQuery selected elements တွေပါတဲ့ variables တွေကို distinguish လုပ်တဲ့ great way တစ်ခုပဲဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ element တစ်ခုကို create လုပ်ပြီးတဲ့အခါမှာ အဲ့ element ကို page ဆီကို add လုပ်ပေးဖို့လိုပါတယ်။ Page မှာ add လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ အသံုံးပြုနိုင်တဲ့ jQuery methods နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ append and prepend methods တို့ပဲဖြစ်ပါတယ်။ Append method ကိုတော့ element တစ်ခုရဲ့ end မှာ ကျွန်တော်တို့ create လုပ်ထားတဲ့ new element ကို add လုပ်ချင်တဲ့အခါမှာအသုံးပြုနိုင်ပါတယ်။ နောက် prepend method ကိုတော့ element တစ်ခုရဲ့ အစမှာ add လုပ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ နောက်ထပ် အသုံးပြုနိုင်တဲ့ methods တွေကို google မှာရှာကြည့်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example </h2>
+    <pre>
+        <code>
+            // Create "Reveal Spoiler" button
+            const $button = $('&lt;button&gt; Reveal Spoiler &lt;button&gt;');
+            // Append to the page
+            $('.spoiler').append($button);
+            
+            // Hide the spoiler text
+            $('.spoiler span').hide();
+            // When the button is pressed
+            $('.spoiler button').click(function(){
+                //show the spoiler text 
+                $('.spoiler span').show();
+                // Hide the "Reveal Spoiler" button
+                $('.spoiler button').hide();
+            
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/spoiler.html">Test Yourself</a><hr>
+    <h1>Using on() for Event handling </h1>
+    <p>
+        ကျွန်တော်တို့ဟာ click method နဲ့ basic event handling ကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ jQuery မှာဆိုရင် many other methods တွေရှိပါသေးတယ်။ အဲ့ဒါတွေကတော့ mousevoer, keypress, and focus events တွေတို့ပဲဖြစ်ပါတယ်။ သူတို့ဟာဆိုရင် simple applications တွေအတွက် fine ဖြစ်ပါတယ်။ ဒါပေမဲ့ သူတို့မှာ သူတို့ရဲ့ limits တွေရှိပါတယ်။ Example မှာဆိုရင် click event အပြင် အခြား events တွေကို add လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ another event listener ကို add လုပ်နိုင်ပါတယ်။ ပြီးတော့ code တစ်ခုထဲမှာ same code တွေကို repeating လုပ်လို့မရပါဘူး။ အဲ့ problem ကို solve လုပ်ဖို့ရန်အတွက် flexible method တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ အဲ့ method ကတော့ on method ပဲဖြစ်ပါတယ်။ on method ကိုအသုံးပြုတဲ့ အခါမှာ first အနေနဲ့ event ရဲ့ name ထဲမှာ pass လုပ်ပေးရမှာပါ ဥပမာ  click ပြီးတော့မှာ handler ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ on method ကို event handler တစ်ခုမှာ multiple events တွေကို assign လုပ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            // Create "Reveal Spoiler" button
+            const $button = $('&lt;button&gt; Reveal Spoiler &lt;/button&gt;');
+            // Append to the page
+            $('.spoiler').append($button);
+            
+            // Hide the spoiler text
+            $('.spoiler span').hide();
+            // When the button is pressed
+            $('.spoiler button').on('click mouseleave',function(){
+                //show the spoiler text 
+                $('.spoiler span').show();
+                // Hide the "Reveal Spoiler" button
+                $('.spoiler button').hide();
+            
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/spoiler.html">Test Yourself</a><hr>
+    <h1>Using Events with Dynamically Added Elements</h1>
+    <p>
+        on() method မှာရှိတဲ့ common problem တစ်ခုကို ကျွန်တော်တို့ဟာ elements တွေကို dynamically creating လုပ်တဲ့အခါမှာ တွေ့နိုင်ပါတယ်။ Website တစ်ခုရဲ့ code base ဟာ larger ဖြစ်လာတဲ့အချိန် ပြီးတော့ လူတွေအတော်များများဟာ အဲ့ပေါ်မှာအလုပ်လုပ်လာကြတဲ့အခါမှာ ကျွန်တော်ဟာ order ကို အမြဲတမ်းတော့ အာမခံလို့မရပါဘူး။ ကျွန်တော်တို့ ဘာကိုဆိုလိုတယ်ဆိုတာကို example နဲ့အတူကြည့်လိုက်ရအောင်။ Example မှာဆိုရင် click method ကိုပြန်ပြောင်းလိုက်မယ်။ နောက် listener code တွေအားလုံးကို page ရဲ့ top မှာ paste လုပ်လိုက်တဲ့အခါမှာ button ဟာ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ ဘာလို့လဲဆိုတော့ code ရဲ့ first line ကို ကြည့်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ page မှာရှိတဲ့ button ကို select လုပ်ပြီးတော့ spoiler text တွေပါတဲ့ span ကို show လုပ်ဖို့ရန်နဲ့ ပြီးတော့ button ကို hide ဖြစ်ဖို့ရန်အတွက် သူ့ကို event handler ကို apply လုပ်ထားတာဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ရဲ့ script ထဲမှာဆိုရင် button ကို create လုပ်ပြီးသားမရှိပါဘူး။ ပြီးတော့ button ကို page မှာ append လုပ်ထားတာလဲမရှိပါဘူး။ အဲ့ဒါတွေကို အောက်မှာ write လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ problem တစ်ခုကို ကျွန်တော်တို့ ကိုယ်တိုင် running လုပ်တဲ့အခါမှာတွေနိုင်ပါတယ်။ Event delegation ဟာဆိုရင် child element အစား parent element ပေါ်မှာရှိတဲ့ event တစ်ခုကို listen လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ project ထဲမှာ button မှာ click event ကို listening လုပ်မဲ့ အစား button ရဲ့ parent element ဖြစ်တဲ့ spoiler class နဲ့ရှိတဲ့ paragraph ကို listen လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ parent element ပေါ်မှာ event တစ်ခုကို listen လုပ်တာဟာ page load လုပ်တဲ့အချိန်မှာပဲဖြစ်ဖြစ် နောက်မှ add လုပ်တာပဲဖြစ်ဖြစ် DOM ထဲမှာရှိတဲ့ whether descendants ပဲဖြစ်ဖြစ် mater မဖြစ်ပါဘူး။ အဲ့ဒါကို event propagation လို့ခေါ်ပါတယ်။ Event တစ်ခုဟာ child element တစ်ခုကနေ parent element တစ်ခုကို DOM နဲ့ through လုပ်သွားတာကို event propagation လို့ခေါ်တာဖြစ်ပါတယ်။ ဘာလို့လဲဆိုတော့ event ဟာ DOM ကို through လုပ်ပြီးတေော့ propagates or moves လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ button တစ်ခုကနေ event တစ်ခုဟာ parent paragraph တစ်ခုဆီကို pass လုပ်သွာတာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် first လုပ်ရမှာက parent element ဖြစ်တဲ့ spoiler ကို select လုပ်ရမှာဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ဟာ on method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ on method ထဲမှာဆိုရင် first argument ဟာ events ဖြစ်ပါတယ်။ အခု example မှာတော့ click event ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ဟာ second argument ကို add လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ second argument ကတော့ selector တစ်ခုဖြစ်ပြီးတော့ သူဟာ ကျွန်တော်တို့ click အတွက် listen လုပ်ချင်တဲ့ actual element ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ရဲ့selector အတွက် element name ဖြစ်တဲ့ button ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ ပြီးတော့မှ click handler ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            // $('.spoiler button').on('click mouseleave',function(){
+                //     //show the spoiler text 
+                //     $('.spoiler span').show();
+                //     // Hide the "Reveal Spoiler" button
+                //     $('.spoiler button').hide();
+                
+                // });
+                $('.spoiler').on('click', 'button', function(){
+                     //show the spoiler text 
+                    $('.spoiler span').show();
+                   // Hide the "Reveal Spoiler" button
+                    $('.spoiler button').hide();
+                
+                });
+                
+                
+                
+                // Create "Reveal Spoiler" button
+                const $button = $('&lt;button&gt; Reveal Spoiler &/button&gt;');
+                // Append to the page
+                $('.spoiler').append($button);
+                
+                // Hide the spoiler text
+                $('.spoiler span').hide();
+                // When the button is pressed
+                
+        </code>
+    </pre>
+    <a href="jQueryexample/spoiler.html">Test Yourself</a><hr>
+    <h1>Event Objects</h1>
+    <p>
+        တစ်ခါတစ်လေမှာ user တစ်ယောက်ဟာ element တစ်ခုနဲ့ clicks or interacts လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ အဲ့ element ဟာ ဘယ်လို proceed လုပ်တယ်ဆိုတာကို သိဖို့ရန်အတွက် more information တွေကို get လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်ဘာလိုကိုဆိုလိုတာလဲဆိုတာကို အောက်မှာလေ့လာကြည့်ရအောင်။ Example မှာ another Star Wars spoiler တစ်ခုကို add လုပ်ကြည့်လိုက်ပါမယ်။ အဲ့မှာဆိုရင် save ပြီးတော့ run လုပ်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ ဘယ် button ကိုပဲ click လုပ်လုပ် buttons နှစ်ခုလုံးဟာ disappear ဖြစ်ပြီးတော့ spoilers နှစ်ခုဟာ revealed ဖြစ်လာမှာဖြစ်ပါတယ်။ အဲ့ဒါဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့ရဲ့ code ထဲမှာ spoiler class  ရှိတဲ့ any element ထဲမှာ ရှိတဲ့ any button ကို click လုပ်လိုက်တဲ့အချိန်မှာ something ကို အလုပ်လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော်တို့ဟာ second spoiler ကို unique class or ID တစ်ခုခုကို giving လုပ်ခြင်းဖြင့် လွယ်လွယ် ကူကူ fix လုပ်နိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ ဒီ issue ကို fix လုပ်ဖို့ရန်အတွက် event object လို့ခေါ်တဲ့ something ကို အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကို အသုံးပြုထားတာတော့မရှိသေးပါဘူး။ ဒါပေမဲ့ event တစ်ခုချင်းကိုတော့ every time မှာ triggered လုပ်ပြီးသားဖြစ်ပါတယ်။ အဲ့ဒါဟာ event object ကို event handler ထဲကို automatically pass လုပ်ပြီးသားဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ event object ကို access လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ရဲ့ handler ထဲမှာ parameter တစ်ခုကို define လုပ်ပြီးသားရှိရပါမယ်။ နောက် event object တစ်ခုဆိုတာဘာလဲ။ နောက် သူဟာ ဘာကြောင့် useful ဖြစ်နေတာလဲ။ Event object ဟာ event နဲ့ ပါတ်သတ်တဲ့ a bunch of information တွေ contain ဖြစ်ပါတယ်။ ကျွန်တော်တို့ event object တစ်ခုကို pass လုပ်ပြီးတော့ console မှာ အဲ့ event ကို log လုပ်ကြည့်တဲ့အခါမှာ event တစ်ခုကို occur ဖြစ်တဲ့အချိန်မှာ ကျွန်တော်တို့ access လုပ်ထားတဲ့ information တွေအားလုံးကို log လုပ်ပေးမှဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် notice လုပ်မိတာက event object မှာ  couple of key value pairs တစ်ခုပါတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ really useful ဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ ကျွန်တော်တို့ကို သူ တွေ့တဲ့ type of event ကို ပြောပြပေးတာပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ ကျွန်တော်တို့ဟာ click လုပ်လိုက်တယ်။ နောက် သူဟာ ကျွန်တော်တို့ဟာ event ရဲ့ target ကိုလည်း ပြောပြပေးပါတယ်။ အဲ့ဒါဟာ  ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ specific element ဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ console.log မှာ event.target ကို ပြောင်းလိုက်တဲ့အခါမှာ သူဟာဆိုရင် ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ specific button ကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် event.target ဟာ parent spoiler element မဟုတ်ပါဘူး။ ဒါပေမဲ့ အဲ့ဒါဟာ ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ specific button ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို event propagation in action လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ဟာ button ကို hiding လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ event.target ကို အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ဒါဘာကိုပြောတာလဲဆိုတော့ ကျွန်တော်တို့ဟာ button ကို click လုပ်လိုက်တဲ့ချိန်မှာ event ရဲ့ target ကို hide လုပ်တာဖြစ်ပါတယ်။ တစ်နည်းအားဖြင့် ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ချိန်မှာ specific button ကို hide လုပ်လိုက်တာဖြစ်ပါတယ်။Example မှာ note တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ အသုံးပြုထားတာ name event ကို အသုံးပြုထားတာ ဖြစ်ပါတယ်။ Event variables အတွက် developers တွေအသုံးပြုတဲ့ another common names တွေရှိပါသေးတယ်။ အဲ့ဒါတွေကတော့ evt or simply e တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ example ကို run လိုက်တဲ့အခါမှာ spoiler နှစ်ခုလုံးဟာ reveal ဖြစ်နေတာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ .show ဆိုတဲ့ code ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ code ဟာ child span element ရှိတဲ့ spoiler class ရှိတဲ့ any element ကို click ပေါ်မှာ show လုပ်ဖို့ရန်အတွက် programmed လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော် ဒီ issued ကို နောက် section မှာ fix လုပ်သွားမှာဖြစ်ပါတယ်။ အခုတော့ အဲ့ဒါကို comment out လုပ်ထားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို run လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ button ကိုဟာပဲ disappear ဖြစ်သွားတာဖြစ်ပါတယ်။ Event object ဟာ prevent default method ကိုအသုံးပြုတဲ့ default browser behavior preventing အတွက် handy လည်းဖြစ်ပါတယ်။ အဲ့ဒါတွေကို နောက် section တွေမှာလေ့လာသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>event Console</h2>
+    <img src="../javaScriptExample/image/eventobject.png" alt="">
+    <h2>event.taget Console</h2>
+    <img src="../javaScriptExample/image/eventobject1.png" alt="">
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $('.spoiler').on('click', 'button', function(event){
+                console.log(event.target);
+                //show the spoiler text 
+               //$('.spoiler span').show();
+              // Hide the "Reveal Spoiler" button
+               $(event.target).hide();
+            
+            });
+            
+            
+            
+            // Create "Reveal Spoiler" button
+            const $button = $('&lt;button&gt; Reveal Spoiler &lt;/button&gt;');
+            // Append to the page
+            $('.spoiler').append($button);
+            
+            // Hide the spoiler text
+            $('.spoiler span').hide();
+            // When the button is pressed
+            
+        </code>
+    </pre>
+    <a href="jQueryexample/evenobject.html">Test Yourself</a><hr>
+    <h1>What is Traversal</h1>
+    <p>
+        Traversal ဆိုတာ across or through travel လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ အခု jQuery ရဲ့ case မှာဆိုရင် traversal ဆိုတာ DOM ဆီကို traverse လုပ်တာဖြစ်ပါတယ်။ သို့မဟုတ် ကျွန်တော်တို့ရဲ့ page ထဲမှာ element တစ်ခုကနေ တစ်ခုကို move လုပ်တာပဲဖြစ်ပါတယ်။ အခု example မှာဆိုရင် ကျွန်တော်တို့ဟာ jQuery ကို through လုပ်ပြီးတော့ unordered list ကို select လုပ်မယ်ဆိုရင် အဲ့ list items တွေဟာ ul ရဲ့ children တွေအနေနဲ့ describe လုပ်သွားမှာပဲဖြစ်ပါတယ်။ တစ်ကယ်လို ကျွန်တော်ဟာ list ထဲမှာရှိတဲ့ second item ကို select လုပ်မယ်ဆိုရင် ul ဟာ ကျွန်တော် select လုပ်လိုက်တဲ့ second list item ရဲ့ parent ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first, third and fourth list items တွေဟာ ကျွန်တော် select လုပ်လိုက်တဲ့ second item ရဲ့ siblings တွေပဲဖြစ်ပါတယ်။ jQuery မှာရှိတဲ့ EQ or equal method ဟာဆိုရင် set of elements တွေမှာ element တစ်ခုကို index နဲ့ find လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Example အနေနဲ့ list items တွေထဲက တစ်ခုကို သူ့ရဲ့ index ကိုအသုံးပြုပြီးတော့ find လုပ်ဖို့ရန်အတွက် equal method ကိုအသုံးပြုနိုင်ပါတယ်။ ဘာလို့လဲဆိုတော့ list item တစ်ခုချင်းစီဟာ ul ရဲ့ array of children တစ်ခုအနေနဲ့ represented လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Example အနေနဲ့ console မှာထုပ်ပြပေးထားပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ second item ကို select လုပ်ဖို့ရန်အတွက် ကျန်တော်တို့ဟာ jQuery ကိုအသုံးပြုပြီးတော့ page မှာရှိတဲ့ list items တွေကို select အရင်လုပ်ရမှာဖြစ်ပါတယ်။ ပြီးတော့ သူ့ကို equal method ကို call ပေးရမှာပါ။ ပြီးတော့ equal method ထဲမှာ index 1 ကိုထည့်လိုက်မယ်။ အဲ့ index 1 ဟာ second object ကို get ရန်အတွက် pass လုပ်ပေးတာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ elements တွေဟာ normal array တစ်ခုကိုပဲ zero index ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ select လုပ်တာ item ကို demonstrate လုပ်ဖို့ရန်အတွက် another jQuery method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ method ကတော့ CSS ပဲဖြစ်ပြီးတော့ သူ့ကို element ရဲ့ color ကို change လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ CSS method ဟာ style property name နဲ့ object တစ်ကို ယူပြီးတော့ element ကို set လုပ်ချင်တဲ့ value ကို allow လုပ်ပါတယ်။ သို့သော်လည်း jQuery collection ဟာ normal array တစ်ခုလိုတော့ behave မလုပ်ပါဘူး။ ဥပမာ ကျွန်တော်တို့ဟာ equal method ကို array backwards ကို access လုပ်ဖို့ရန်အတွက် သူ့ထဲမှာ negative number ပေးပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ -2 ကို put လုပ်လိုက်တဲ့အခါမှာ list ထဲမှာရှိတဲ့ second to last element ကို select လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ list ထဲမှာရှိတဲ့ second element ကနေ list ထဲမှာရှိတဲ့ first element ကို move or traverse လုပ်ချင်တဲ့အခါမှာ previous method ကိုအသုံးပြုနိုင်ပါတယ်။ Previous method ဟာ selected element အရင် sibling element ကို ချက်ချင်း return ပြန်ပေးတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ second list item ကနေ third list item ကို traverse လုပ်ချင်တဲ့အခါမှာ next method ကိုအသုံးပြုနိုင်ပါတယ်။ နောက် second ကနေ fourth ကို traverse လုပ်ချင်တဲ့အခါမှာတော့ next method ကို နှစ် ကြိမ်အသုံးပြုပြီးတော့ traverse လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Example Output</h2>
+    <img src="../javaScriptExample/image/traverse.png" alt="">
+    <p>
+        အခု ကျွန်တော်တို့ traversal ကို အသုံးပြုပြီးတော့ spoiler revealer ကို fix ဖြစ်အောင်လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာရှိတဲ့ problem ဟာ ကျွန်တော်တို့ဟာ ဘယ် button ကိုပဲ click လုပ်လုပ် spoilers အားလုံးဟာ reveal ဖြစ်နေတာဖြစ်ပါတယ်။ ဒီ problem ကို solve လုပ်ဖို့ရန်အတွက် page ကို refersh လုပ်မယ် ပြီးတော့ dev tools ကို open လုပ်ပြီးတော့ ကျွန်တော်တို့ generate လုပ်ထားတဲ့ HTML ကို ကြည့်လိုက်မယ်ဆိုရင် ကျွန်တော်တို့ဟာ button ကို click လုပ်လိုက်တဲ့အချိန်မှာ သူ့ရဲ့ previous element ကို traverse လုပ်ချင်တာဖြစ်ပါတယ်။ ပြီးတော့ span ကို show လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် code မှာရှိတဲ့ shows the spoiler span ကို delete လိုက်ပါမယ်။ ပြီးတော့ button ကို နောက်တစ်ခါ select လု်ပနေမဲ့အစား event.target ကိုအသုံးပြုပါမယ်။ ပြီးတော့ ကျွန်တော်တို့ဟာ before the button ကို going back လုပ်ချင်တာဖြစ်တဲ့အတွက် previous method ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ event.target ကို အသုံးပြုတာဟာ ဘယ် button ကို click လုပ်မယ်ဆိုတာကို determine လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ ပြီးတော့ နောက်ဆုံးမှာတော့ spoiler text တွေပါတဲ့ span element ကို show လုပ်မှာဖြစ်တဲ့အတွက် show method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first button ကို click လုပ်တဲ့အခါမှာ first spoiler ကိုပဲ revealed လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+
+        <code>
+            $('.spoiler').on('click', 'button', function(event){
+                console.log(event.target);
+                //show the spoiler text 
+               $(event.target).prev().show();
+              // Hide the "Reveal Spoiler" button
+               $(event.target).hide();
+            
+            });
+            
+        </code>
+    </pre>
+    <a href="jQueryexample/evenobject.html">Test Yourself</a><hr>
+    <h1>jQuery Specific Selectors</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ jQuery အကြောင်းကို အတော်များများလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Major elements တွေကို ဘယ်လို select လုပ်ရမယ် ၊ user events ကို ဘယ်လို response လုပ်ရမယ် ၊ နောက် simple animations တွေကို create လုပ်ဖို့ရန်အတွက် jQuery methods တွေကို ဘယ်လို chain လုပ်မယ် ၊ ပြီးတော့ traverse the DOM အကြောင်း ၊ event object နဲ့ အလုပ်လုပ်တဲ့အကြောင်းတွေ ၊ နောက်ဆုံးကတော့ new elements တွေကို ဘယ်လို create and insert လုပ်ရတယ်ဆိုတာတွေကိုလေ့လာခဲ့ကြတာဖြစ်ပါတယ်။ အခု ကျွန်တာ်တို့ဟာ နောက် small jQuery project တစ်ခုကို finish up လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ project အတွက် ကျွန်တော်တို့ဟာ jQuery ကိုအသုံးပြုပြီးတော့ newsfeed application တစ်ခုရဲ့ simple prototype တစ်ခုဆီကို some styling and functionality တွေကို add လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ some status warnings တွေကို type of links ပေါ်မှာ အခြေခံပြီးတော့ dynamically အရ add လုပ်သွားမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ user တစ်ယောက်ဟာ insecure PDF link တစ်ခုကို download လုပ်ဖို့ရန်အတွက် click လုပ်ဖို့ tried လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ သူတို့ကို download ကို triggering မလုပ်ခင်မှာ confirmation message တစ်ခကို present လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ jQuery selectors, events, looping through jQuery collections, jQuery ကိုအသုံးပြုပြီးတော့ elements တွေကို style လုပ်တာတွေ ပြီးတော့ useful jQuery methods ရဲ့ another handful အကြောင်းတွေကို learn လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ အဲ့ links တွေကို some functionality တွေကို next section မှာ add လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <p>
+        အခု ကျွန်တော်တို့ လေ့လာနေသလိုပဲ jQuery ဟာဆိုရင် page တစ်ပေါ်မှာရှိတဲ့ different items တွေကို access လုပ်ဖို့ရန်အတွက် many flexible powerful ways တွေကို ပေးပါတယ်။ ကျွန်တော်တို့ jQuery နဲ့ အသုံးပြုနိုင်တဲ့ two categories selectors နှစ်ခုရှိပါတယ်။ First ကတော့W3C specification က standard CSS selectors ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ element တစ်ခုကို CSS နဲ့ select လုပ်ဖို့ရန်အတွက် any selector ကိုအသုံးပြုနိုင်ပါတယ်။ နောက် element တစ်ခုကို jQuery နဲ့select လုပ်ဖို့ရန်အတွက် အသုံးပြုနိင်ပါတယ်။ အဲ့မှာဆိုရင် a element or collection ro elements တွေကို selecting လုပ်တဲ့နေရာမှာ tag name နဲ့တိုက်ရိုက် select လုပ်နိုင်ပါတယ်။ Example h1, p, image , anchor, etc, or selecting elements by ID or  class တို့ပဲဖြစ်ပါတယ်။ နောက် elements တွေကို selecting လုပ်တဲ့နေရာမှာ some pseudoclass selectors တွေနဲ့လည်း select လုပ်နိုင်ပါသေးတယ်။ Example :first and :last တု့ိပဲဖြစ်ပါတယ်။ သူတို့အားလုံးဟာ jQuery specific selectors တွေပဲဖြစ်ပါတယ်။ Selectors တွေဆိုတာဟာ jQuery ကို add လုပ်ပြီးတော့ some common types of selections တွေကို easy ဖြစ်အောင် လုပ်တာဖြစ်ပါတယ်။ Example radio checkbox or a password field, odd or event elements in a list, or selecting currently visible or hidden elements တွေပဲဖြစ်ပါတယ်။ သူတို့အားလုံးဟာလည်း more jQuery specific selectors တွေဖြစ်ပါတယ်။ 
+    </p> 
+    <p>
+        Example မှာဆိုရင် ကျွန်တော်တို့ဟာ newfeeds app တစ်ခုလုံးကို create လုပ်စရာမလိုပါဘူး။ ကျွန်တော်တို့ဟာ larger and more complex project တစ်ခုရဲ့ part တစ်ခုကို လုပ်ဆောင်နိုင်ဖို့ရန်အတွက် some simple features တွေကို prototype အနေနဲ့ jQuery ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် URLs ဟာ HTTPS နဲ့ စပြီးတော့ any URLs တွေ PDF မှာ locked flag ဖြစ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ jQuery ကို write လုပ်မှာဖြစ်ပါတယ်။ ဘာအတွက်လဲဆိုတော့ user တွေဟာ PDF နဲ့ download လုပ်မယ် မလုပ်ဘူးဆိုတာကို လုပ်ဆောင်မယ်ပြီးတော့ PDF downloads ကို allow မလုပ်ရင် download လုပ်လို့မရတာတွေကို လုပ်ဆောင်မှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကို လုပ်ဆောင်ဖို့ရန်အတွက် jQuery ရဲ့ specific selectors တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ some additional functionality တွေကို next section မှာ add လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Changing Elements Properties</h1>
+    <p>
+        Attribute method ဟာ element တစ်ခုရဲ့ attributes တွေကို checking, adding or changing လုပ်ဖို့ရန်အတွက် handy ဖြစ်ပါတယ်။ Attribute method ဟာ အစောပိုင်းမှာ ကျွန်တော်တို့ လေ့လာခဲ့တဲ့ text and HTML methods တွေလိုပဲ getters and setters နှစ်ခုလုံးမှာ act လုပ်ပါတယ်။ Attribute method ဟာ element တစ်ခုရဲ့ attribute တစ်ခုကို get လုပ်တယ်။ ပြီးတော့ အဲ့ element's attribute တစ်ခုရဲ့ value ကို set လုပ်ပေးပါတယ်။ Attribute တစ်ခုဆိုတာ HTML tag ထဲမှာ ပါတဲ့ additional information တွေရဲ့basically any piece တွေပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် attribute method ကိုအသုံးပြုပြီးတော့ attribute တစ်ခုကို secure links တွေအားလုံးကို add လုပ်သွားမှာဖြစ်ပါတယ်။  အဲ့မှာဆိုရင် click လုပ်လိုက်တဲ့အချိန်မှာ next window တစ်ခုနဲ့ open လုပ်သွားတာကို write လုပ်ထားတာဖြစ်ပါတယ်။ Anchor elements တွေဟာ target attribute နဲ့ သူ့မှာ blank ကို set လုပ်တာဟာ browser ကို link ကို new tab or window တစ်ခုကို open လုပ်ပါလို့ပြောလိုက်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် secure links မှာ attribute method ကို call လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ attribute method ကိုအသုံးပြုတဲ့အခါမှာ arguments နှစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ First argument ဟာ ကျွန်တော်တို့ get or change လုပ်ချင်တဲ့ attribute ဖြစ်ပါတယ်။ Example မှာဆိုရင် target ကို pass လုပ်ထားတာဖြစ်ပါတယ်။ Second argument ဟာ အဲ့ attribute ရဲ့value ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ value ကို string တစ်ခုအနေနဲ့ pass လုပ်လို့ရပါတယ်။ Example မှာတော့ _blank ကို pass လုပ်ထားပါတယ်။ အဲ့ pass မလုပ်ချင်ရင်လည်း ကျွန်တော်တု့ိဟာ HTML ထဲမှာ pass လုပ်လို့ရပါတယ်။ အခုနောက်ထပ် PDF links ကို modify လုပ်ကြည့်ရအောင်။ အဲ့မှာဆိုရင် attribute tag တစ်ခုရဲ့ name ဟာ download ဆိုပြီးတော့ ရှိနိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ PDF ကို click လုပ်လိုက်တဲ့အခါမှာ PDF နဲ့ download လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့လိုဖြစ်ဖို့ဆိုရင် attribute မှာ true ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const $odd = $('a:odd');
+            const $secureLinks = $('a[href^="https://"]');
+            const $pdfs = $('a[href$=".pdf"]');
+            
+            $secureLinks.attr('target', '_blank');
+            $pdfs.attr('download', true);
+        </code>
+    </pre>
+    <a href="jQueryexample/newfeeds.html">Test Yourself</a><hr>
+    <h1>Changing Elemens Styles and Classes</h1>
+    <p>
+        jQuery ကိုအသုံးပြုပြီးတော့ webpage တစ်ခုမှာရှိတဲ့ element တစ်ခုမှာရှိတဲ့ style ကို affect လုပ်ဖို့ရန်အတွက် ways နှစ်ခုရှိပါတယ်။ First ကတော့ element တစ်ခုကို adding or removing  လုပ်ဖို့ရန်အတွက် CSS ကို directly manipulating လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS method ရဲ့ bit တစ်ခုကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါဟာဆိုရင် other manipulation methods တွေလိုပဲ getter and setter တစ်ခုအနေနဲ့ အလုပ်လုပ်ပေးပါတယ်။ jQuery ဟာဆိုရင် element တစ်ခုကနေ classes တွေကို adding or removing အတွက် a few options တွေကို give လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ element တစ်ခုဆီကို class တစ်ခုကို add လုပ်ချင်တဲ့အခါမှာ addClass method ကို ကျွန်တော်တို့ element ကို apply လုပ်ချင်တဲ့ class name နဲ့ အသုံးပြုနိုင်ပါတယ်။ removeClass method ကတော့ addClass method နဲ့ opposite အလုပ်လုပ်ပေးတာဖြစ်ပါတယ်။ toggleClass method ကတော့ element တစ်ခုပေါ်မှာ class ကို adding and removing လုပ်ကြားမှာ toggle လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example </h2>
+    <pre>
+        <code>
+            const $odd = $('a:odd');
+            const $secureLinks = $('a[href^="https://"]');
+            const $pdfs = $('a[href$=".pdf"]');
+            
+            $secureLinks.attr('target', '_blank');
+            $pdfs.attr('download', true); 
+            
+            $odd.css('backgroundColor', 'lightgray');
+            $secureLinks.addClass('secure');
+            $pdfs.addClass('pdf');
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            .secure:after{
+                content: "Safe";
+                color: black;
+                font-size: 10px;
+                padding: 5px 8px;
+                background-color: rgb(37, 233, 112);
+                margin-left: 8px;
+                border-radius: 3px;
+            }
+            .pdf:after{
+                content: "Locked";
+                color: black;
+                font-size: 10px;
+                padding: 5px 8px;
+                background-color: rgb(241, 58, 58);
+                margin-left: 8px;
+                border-radius: 3px;
+            }
+        </code>
+    </pre>
+    <a href="jQueryexample/newfeeds.html">Test Yourself</a><hr>
+    <h1>Stopping the Browser's Behavior</h1>
+    <p>
+        အခု section မှာတော့ project ရဲ့main functionality ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာဘာလဲဆိုတော့ user ဟာ pdf ကို download လုပ်ချင်တဲ့အခါမှာ အောက်မှာရှိတာ Allow PDF downloads ကို checkbox ကို select လုပ်မှာသာ download လုပ်ခွင့်ပြုမှာဖြစ်ပါတယ်။ အဲ့လိုမှမဟုတ်ဘဲ user ဟာ အဲ့ checkbox ကို click မလုပ်ဘဲနဲ့ download လုပ်တဲ့အခါမှာ alert box နဲ့ check box ကို click လုပ်ခိုင်းမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ download ကို prevent လုပ်ထားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ event တစ်ခုကို browser ရဲ့ default behavior ကနေ prevent လုပ်ဖို့ရန်အတွက် preventDefault method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့လိုလုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ဟာ pdfs ကို click handler ကို add လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ jQuery event object ကို  event handler function ဆီကို parameter တစ်ခုကို add လုပ်ပြီးတော့ event တစ်ခုအတွက် call လုပ်နိုင်ပါတယ်။ Parameter ရဲ့ name ကိုတော့ ကျွန်တော်တို့ဟာ ကြိုက်တဲ့ name ကို ပေးနိုင်ပါတယ်။ နောက် user ဟာ PDF link ပေါ်မှာ click လုပ်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ user ဟာ checkbox ကို checked လုပ်တယ် မလုပ်ဘူးဆိုတာကို check လုပ်ရမှာဖြစ်ပါတယ်။ တကယ်လို checked လုပ်မထားဘူးဆိုရင် ကျွန်တော်တို့ဟာ browser ရဲ့ default behavior ကို prevent လုပ်ဖို့လိုပါတယ်။ နောက် user ကို alert လုပ်ပေးဖို့လည်းလိုပါတယ်။ တကယ်လို box ကို checked လုပ်ထားတယ်ဆိုရင် ကျွန်တော်တို့ဟာ ဘာမှလုပ်စရာမလိုပါဘူး။ First step အနေနဲ့ PDF ကို downloading တာကနေ stop လုပ်ရပါမယ်။ အဲ့ဒါပြီးရင် ကျွန်တော်တို့ဟာ checkbox ကို check လုပ်မလုပ်ကို check လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် jQuery ရဲ့ checked pseudo selector ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ array တစ်ခုလိုပဲ elements တွေဘယလောက် checked လုပ်ထားတယ်ဆိုတာကို သိဖို့ရန်အတွက် length property ကို အသုံးပြုနိုင်ပါတယ်။ အခု ကျွန်တော်တို့မှာ checkbox တစ်ခုပဲရှိတာဖြစ်တဲ့အတွက်ကြောင့် တကယ်လို့ ဒါဟာ array တစ်ခုဆိုရင် သူ့မှာ length ဟာ zero ဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် checkboxes တွေဟာ no checked ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ length ဟာ zero ထက်ကြီးတယ်ဆိုရင် checkbox ဟာ check လုပ်ထားပြီးဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const $odd = $('a:odd');
+            const $secureLinks = $('a[href^="https://"]');
+            const $pdfs = $('a[href$=".pdf"]');
+            const $psfCheck = $('<label><input type="checkbox">Allow PDF downloads</label>');
+            
+            $secureLinks.attr('target', '_blank');
+            $pdfs.attr('download', true); 
+            
+            $odd.css('backgroundColor', 'lightgray');
+            $secureLinks.addClass('secure');
+            $pdfs.addClass('pdf');
+            $('#links').append($psfCheck);
+            
+            $pdfs.on('click', function(event){
+                // check if checkboxe has been checked
+                // if zero checkboxes are checked
+                if($(':checked').length === 0)
+                {
+                    // prevent download of document
+                    event.preventDefault();
+                    // alert the user
+                    alert('Please check the box to allow PDF downloads')
+                }
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/newfeeds.html">Test Yourself</a><hr>
+    <h1>Looping through a jQuery collection</h1>
+    <p>
+        အခု section မှာတော့ set of elements တစ်ခုကို traverse လုပ်ဖို့ရန်အတွက် another way တစ်ခုနဲ့ jQuery ဟာ ဘယ်လို ကူညီပေးတယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ looping through a collection of items ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဒီ section မှာဆိုရင် for loop တစ်ခုကို written လုပ်နိုင်ပါတယ်။ သူ့ရဲ့ အသုံးပြုပုံကိုတော့ ကျွန်တော်တို့ဟာ familiar ဖြစ်ပြီးသားဖြစ်ပါတယ်။ ဒါပေမဲ့ အဲ့ ဟာ slightly tedious drill ဖြစ်ပါတယ်။ ဥပမာ let i=0 less than collection.length and so on ။ jQuery မှာဆိုရင် အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် simplified way တစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ each() method ပဲဖြစ်ပါတယ်။ jQuery ရဲ့ each() method ဟာဆိုရင် for loop ရဲ့ much of the complexity ကို remove လုပ်ပေးပါတယ်။ နောက် ကျွန်တော်တို့ဟာ index တစ်ခုရဲ့ track ကို keep လုပ်ဖို့ရန်အတွက် မလိုပါဘူး။ ဒါမှမဟုတ် statements သုံးခုကို line တစ် line ထဲမှာ ရှိနေစရာလည်းမလိုပါဘူး။ အဲ့အစား each() method ဟာ elements အားလုံးကို iterates လုပ်ပေးနိုင်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် collection ထဲမှာရှိတဲ့ element တစ်ခုကိုမှာ act လုပ်ပေးတဲ့ function တစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် link တိုင်းရဲ့ href ကို page မှာ log out လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့အတွက် first အနေနဲ့ လုပ်ရမှာက each() method ကိုအသုံးပြုပြီးတော့ links အားလုံးကို select လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ selection ထဲမှာရှိတဲ့ element တိုင်းကို execute လုပ်ပေးတဲ့ function တစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ဟာ optional arguments နှစ်ကို ယူပါတယ်။ အဲ့ arguments နှစ်ခုအစား this ဆိုတဲ့ key word ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ နောက်အဲ့မှာဆိုရင် anchor tag ရဲ့href ကို get လုပ်ဖို့ရန်အတွက် attribute method ကိုအသုံးပြုပြီးတော့ variable တစ်ခုထဲမှာ save လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ link ရဲ့ parent ကို find လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဖို့ရန်အတွက် parent() method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ parent ဆီကို ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ retrieved လုပ်ထားတဲ့ URL ကို append လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ note တစ်ခုရှိပါတယ်။ အဲ့ဒါဟာ anchor tags အားလုံးဟာ list items တွေထဲမှာ nested ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် list items တွေဟာ anchor ရဲ့ parents တွေပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော် အသုံးပြုထားတဲ့ backticks and dolor sign and two curly braces ကို string interpolation လို့ခေါ်ပါတယ်။ သူ့ကိုအသုံးပြုတာဟာ href ရဲ့ value တွေဟာ parentheses ထဲမှာ ပေါ်ချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ String interpolation ဟာ ES2015 မှာ အသုံးပြုတဲ့ template literals ပဲဖြစ်ပါတယ်။ ကျွန်တော်ရှေ့မှာပြောခဲ့တဲ့ this key word ဟာ this element အတွက် href ကို get လုပ်တာပဲဖြစ်ပါတယ်။ နောက် this ဆိုတာ collection ထဲက current item ပဲဖြစ်ပါတယ်။ ဒါမှမဟုတ် current index နဲ့ associated ဖြစ်နေတဲ့ element ပဲဖြစ်ပါတယ်။ Looping over or iterating over a collection of things ဟာ programming မှာ very common pattern တစ်ခုဖြစ်ပါတယ်။ သူဟာ sequential list of elements တစ်ခုပေါ်မှာ manipulations တွေကို performing လုပ်ဖို့ရန်အတွက် useful ဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+
+            $('a').each(function(){
+                const url = $(this).attr('href');
+                $(this).parent().append('('+url+')');
+            });
+        </code>
+    </pre>
+    <a href="jQueryexample/newfeeds.html">Test Yourself</a><hr>
+    <h1>Conclusion</h1>
+    <p>
+        DOM manipulation, events, and traversal တို့ကို jQuery ကိုအသုံးပြုပြီးတော့ လွယ်လွယ်ကူကူ လုပ်ဆောင်နိုင်တာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာ နောက်ဆုံး thing တစ်ခု ရှိပါသေးတယ်။ အဲ့ဒါကတော့ jQuery ကို ကျွန်တော်တို့ရဲ့ projects တွေမှာ add လုပ်ဖို့ရန်အတွက် potentially better way တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ဟာ jQuery.com ကို သွားပြီးတော့ download page ကိုသွားလိုက်ပါ။ အဲ့မှာဆိုရင် CDNs or Content Delivery Networks section ပဲဖြစ်ပါတယ်။ CDNs ဟာဆိုရင် servers ကနေပြီးတော့ HTML, CSS, images, videos and JavaScript files တွေလို content တွေကို serve လုပ်ဖို့ရန်အတွက် websites and applications တွေကို allow လုပ်ပေးပါတယ်။ CDNs ဟာ globe ကို across လုပ်တဲ့ servers spread ပေါ်မှာ jQuery ကို hosting လုပ်ပြီးတော့ performance benefit တစ်ခုကို offer လုပ်နိုင်ပါတယ်။ နောက် သူဟာ advantage တစ်ခုကိုလည်း offer လုပ်ပေးပါတယ်။ အဲ့ဒါဘာလဲဆိုတော့ ကျွန်တော်တို့ရဲ့ web site ကို visit လုပ်တဲ့အခါမှာ a copy of jQuery ကို same CDNs ကနေပြီးတော့ already download လုပ်ပြီးသားဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ common JavaScript libraries တစ်ခုကို load လုပ်ဖို့ရန်အတွက် CDN တစ်ခုကို အသုံးပြုတဲ့အခါမှာ result ကတော့ webpages တွေ loading လုပ်တဲ့အခါမှာ faster ဖြစ်စေပါတယ်။ နောက် jQuery version တွေထဲကမှ minified ဟာ ကျွန်တော်တို့ unnecessary characters and spaces တွေကို code တွေကနေပြီးတော့ remove လုပ်ပေးပါတယ်။ အဲ့ဒါဟာ humans တွေဟာ read လုပ်ဖို့ရန်အတွက် difficult ဖြစ်ပေမဲ့ computer တစ်လုံးကို faster ဖြစ်စေပါတယ်။ Code ကို minified လုပ်တာဟာ speed and performance ကို improve ဖြစ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ 
+    </p><hr>
+</body> 
+</html>

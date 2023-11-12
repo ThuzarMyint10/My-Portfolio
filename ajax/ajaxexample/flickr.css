@@ -1,0 +1,42 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+.filter-select {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+.filter-select li{
+    width: 100%;
+    padding: 0;
+}
+#photos ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+.filter-select li button{
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+.filter-select li .selected{
+    background-color: rgba(175, 172, 172, 0.808);
+}
+.grid-container{
+    max-width: 100%;
+    margin: 40px auto;
+}
+.grid-100{
+    max-width: 80%;
+    background-color: rgba(247, 242, 242, 0.925);
+    margin: 0 auto;
+    border: 2px solid rgb(36, 35, 35);
+}
+.contained{
+    max-width: 80%;
+    margin: 0 auto;
+}

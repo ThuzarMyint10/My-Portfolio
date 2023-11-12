@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+</style>
+
+<body>
+    <h1>Introduction CSS Basic</h1>
+    <p>
+        ဒီအပိုင်းမှာတော့ ကျွန်တော်တို့ဟာ Cascading Style Sheets လို့ခေါ်တဲ့ CSS ရဲ့ basics တွေကို ပြောပြပေးမှာဖြစ်ပါတယ်။
+        CSS ဟာဆိုရင် web sites တို့ web applications တို့ကို building လုပ်တဲ့ နေရာသုံးတဲ့ core technologies ပဲဖြစ်ပါတယ်။
+        HTML section မှာကျွန်တော်တို့ဟာ CSS အကြောင်းကို အနည်းငယ် ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ဟာ CSS ရဲ့
+        deeper of core concepts အကြောင်းကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ CSS ဟာဆိုရင် stylesheet language
+        တစ်ခုဖြစ်ပြီးတော့ သူဟာ web pages တွေရဲ့ presentation ကို describe လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ CSS
+        ကိုအသုံးပြုပြီးတော့ HTML မှာ colors, backgrounds, font sizes, layout, and more တွေအတွက်အသုံးပြုနိုင်ပါတယ်။
+        ကျွန်တော်တို့ဟာ CSS ကိုအသွားခင်မှာ HTML ရဲ့ basic ကိုနားလည်ရမယ် ပြီးရင် document တစ်ခုရဲ့ structure
+        ကိုလည်းနားလည်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကို သေသေချာချာနားလည်ပြီဆိုမှ CSS lesson ကို လေ့လာတာပိုကောင်းပါတယ်။
+        ကျွန်တော်ဟာ CSS ရဲ့ basics တွေကို ပြောပြနေချိန်မှာ practice တွေလည်းလုပ်ပြသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        ကျွန်တော်တို့ အရင်ကလေ့လာခဲ့သလိုပဲ web page တစ်ခုကို user ဆီကို experience ကို deliver ဖြစ်ဖို့ရန်အတွက် layers ၃
+        ခုနဲ့ ပြုလုပ်ထားတာပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ content layer, presentation layer and behavior layer
+        တို့ပဲဖြစ်ပါတယ်။ Content layer ကိုတော့ HTML နဲ့ create လုပ်ပါတယ် behavior layer ကိုတော့ real-time user တွေအတွက်
+        Javascript နဲ့ create လုပ်ပါတယ်။ CSS ဟာဆိုရင်တော့ web page တစ်ခုရဲ့ presentation layer ကို handles လုပ်ပါတယ်။
+        Developers တွေဟာ ဆိုရင် web page တစ်ခုရဲ့ design ကို control လုပ်ဖို့ရန်အတွက် presentation tags တွေနဲ့
+        attributes တွေကို HTML ထဲကို embed လုပ်ကြပါတယ်။ HTML ဟာဆိုရင် presentation language ကို ဘယ်တော့မှာ intended
+        မလုပ်တဲ့အတွက်ကြောင့် providing support နဲ့ maintaining a consistent ကို presentation ကနေ web sites ကို create
+        လုပ်တဲ့နေရာမှာ ခက်ခဲပါတယ်။ အဲ့နေရာမှာဆိုရင် presentation ကနေ separate လုပ်ထားတဲ့ HTML page တစ်ခုချင်းဆီရဲ့
+        content တွေပဲဖြစ်ပါတယ်။ Imagine မှာဆိုရင် single styling တစ်ခုကို change လုပ်ဖို့ရန်အတွက် tens or hundreds of
+        HTML files တွေရှိပါတယ်။ Presentation ကနေ content တွေကို separating လုပ်ပြီးတော့ CSS ဟာဆိုရင် web sites ကို more
+        efficient ဖြစ်ဖို့ရန်အတွက် development နဲ့ maintenance ကို ပြုလုပ်ပေးပါတယ်။ ဘာကြောင့်လဲဆိုရင် style ကို multiple
+        web pages ကို across လုပ်ပြီးတော့ share လုပ်ထားတဲ့ single CSS file တစ်ခုထဲမှာ ရေးနိုင်တဲ့
+        အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ CSS မှာဆိုရင် web content တွေရဲ့ accessibility ကို improved လည်းဖြစ်စေပါတယ်။
+        ဘာကြောင့်လဲဆိုရင် သူဟာ screen sizes မတူတာတွေ resolutions မတူတဲ့ various devices တွေမှာ ကျွန်တော်တို့ရဲ့ content
+        ကို adapt ဖြစ်ဖို့ရန်အတွက် allow လုပ်ပေးတဲ့တွက်ကြောင့်ပဲဖြစ်ပါတယ်။ CSS3 ဟာဆိုရင် CSS ရဲ့ latest evolution
+        ပြီးတော့ သူ့မှာဆိုရင် rounded corners, box shadows, gradients, animations, and Flexbox ကဲ့သို့ new layout
+        features တွေဖြစ်တဲ့ design features တွေပါပါတယ်။ အဲ့ဒါတွေကြောင့် အခုဆိုရင် designers and developers တွေမှာဆိုရင်
+        web ကို designing and building လုပ်တဲ့နေရာမှာ ပိုပြီးတော့ power and flexibility တွေရှိလာပါတယ်။
+    </p>
+    <hr>
+    <h1>How to add CSS</h1>
+    <p>
+        Page တစ်ခုထဲကို CSS တွေ add လုပ်တဲ့ နေရာမှာ မတူညီတဲ့ နည်းလမ်း ၃ ခုနဲ့ add လုပ်လို့ရပါတယ်။
+        သူတို့တစ်ခုချင်းစီမှာတော့ advantages တွေ disadvantages ရှိကြပါတယ်။ Designers and developers တွေဟာ styles ကို
+        author styles လို့ခေါ်ကြပါတယ်။ အဲ့ author style ကို page ကို add တဲ့နေရာမှာ methods ၃ ခုနဲ့ add လုပ်နိုင်ပါတယ်။
+        အဲ့ methods ခုကတော့ inline styles, internal styles and external styles တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ inline
+        styles ကိုအသုံးပြုချိန်မှာ HTML tags တွေထဲမှာ ကိုယ် apply လုပ်ချင်တဲ့ CSS property ကို style tag
+        ကိုအသုံးပြုပြီးတော့ အသုံးပြုရပါတယ်။ ကျွန်တော်တို့ဟာ ဘယ် methods ကိုပဲ သုံးသုံး သူ့မှာပါနဲ့ semicolon တို့
+        fullcolon တွေကို မကျန်ခဲ့အောင်သေချာ ရေးရမှာဖြစ်ပါတယ်။ Inline style ဟာဆိုရင်တော့ developing websites တွေအတွက်
+        good practice တစ်ခုကိုတော့ consider မလုပ်ပါဘူး။ သူဟာ ဆိုရင် HTML element ကို နောက်ထပ် styles ကို apply
+        လုပ်မယ်ဆိုရင် သူဟာ override ဖြစ်သွားမှာဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ internal styles ပဲဖြစ်ပါတယ်။ သူ့ကိုတော့
+        ကျွန်တော်တို့ ဟာ create လုပ်ချင်တယ်ဆိုရင် head tag ထဲမှာ style tag နဲ့ပဲ apply လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;title&gt;Add method&lt;/title&gt;
+                   &lt;style&gt;
+                        p{
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                        h1{
+                            font-size: 90px;
+                        }
+                        header{
+                            background: brown;
+                        }
+                   &lt;/style&gt;
+               &lt;/head&gt;
+               &lt;body style="background-color: papayawhip;"&gt;
+                   &lt;header&gt;
+                       &lt;span&gt; Journey through the Sierra Nevada Mountains&lt;/span&gt;
+                       &lt;h1 style="color: white;"&gt;Lake Taboe, California&lt;/h1&gt;
+                   &lt;/header&gt;
+                   &lt;p&gt;
+                        Lake Taboe is one of the most breathtaking attractions located in California. It's home to a number of ski resorts, summer outdoor recreation, and tourist attractions.Snow and skiing are a significant part of the area's reputation.
+                   &lt;/p&gt;
+                   &lt;a href="#"&gt;Find out more&lt;/a&gt;
+                
+                   
+                    
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="CSS_Example/addmethod.html">Test Yourself</a>
+    <hr>
+    <h1>External Style</h1>
+    <p> ကျွန်တော်တို့ဟာ inline styles and internal styles တွေရဲ့ အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။
+        သူတို့ကိုအသုံးပြုတာဟာ larger projects တွေကို ရေးတဲ့အခါမှာ beneficial တော့မဖြစ်ပါဘူး။ ဘာလို့လဲဆိုရင် content
+        တွေဟာ presentation ကနေ separate လုပ်တာအဟုတ်တဲ့အတွက်ကြောင့်နဲ့ development and maintenance ကို အနည်းငယ် difficult
+        ဖြစ်တဲ့ ကျွန်တော်တို့ရဲ့ project size ပေါ်မှာ depend ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ CSS file ကို HTML file
+        ထဲမှာ add လုပ်တဲ့ နေရာ common way တစ်ကတော့ external styles ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ external style ကို
+        create လုပ်တဲ့နေရာမှာ file name ပေးပြီးတော့ .css ဆိုတဲ့ extension ခံပေးရမှာဖြစ်ပါတယ်။ အဲ့ .css extension ခံတာဟာ
+        browser ကို file ဟာ style sheet တစ်ခုဖြစ်တယ်ဆိုတာကိုပြောပြတာပဲဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ create လုပ်ထားတဲ့ css ကို
+        HTML file ထဲမှာ link tag ကိုသုံးပြီးတော့ link လုပ်ပေးရမှာဖြစ်ပါတယ်။ Link လုပ်ပေးမှ ကျွန်တော်တို့ရဲ့ css ဟာ HTML
+        မှာ apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့ link tag ကိုတော့ HTML ရဲ့ head ထဲက title tag ရဲ့ အောက်မှာ put
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Link tag ထဲမှာဆိုရင် attributes နှစ်ခုပါပါတယ်။ တစ်ခုကတော့ rel ဖြစ်ပါတယ်။ rel ဟာဆိုရင်
+        important attribute တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ current HTML document နဲ့ link document တို့ရဲ့ relationship ကို
+        specifies လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူထဲမှာထည့်ပေးရမဲ့ value ကတော့ stylesheet ပဲဖြစ်ပါတယ်။ အဲ့ value ကို spelling
+        မှန်အောင် ထည့််ဖို့အရေးကြီးပါတယ်။ အဲ့ value လေးရဲ့ spelling မမှန်ဘူးဆိုရင် browser ဟာ styesheet ကို link
+        လုပ်ပေးမှာမဟုတ်ပါဘူး။
+    </p>
+    <p>
+        နောက် attribute ကတော့ ကျွန်တော်တို့ရဲ့ css file နဲ့ HTML file ကို link လုပ်ပေးမဲ့ href attribute ပဲဖြစ်ပါတယ်။
+        သူထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ file ရဲ့ path လမ်းကို မှန်အောင် put လုပ်ပေးရမှာဖြစ်ပါတယ်။ path လမ်းမမှန်ရင် လည်း
+        css file ဟာ HTML file ကို apply လုပ်မှာမဟုတ်ပါဘူး။ နောက်ထပ် အရေးကြီးတာကတော့ CSS property တစ်ခုချင်စီမှာရှိတဲ့
+        curly braces တွေ semicolon တွေ fullcolon တွေကို မကျန်ခဲ့ အောင်သေချာရေးပေးရမှာဖြစ်ပါတယ်။ Create လုပ်ထားတဲ့ css
+        file ထဲမှာ ကျွန်တော်တို့ apply လုပ်ချင်တဲ့ property တွေကို ရေးပေးရမှာဖြစ်ပါတယ်။ အောက်က example
+        မှာလေ့လာနို်င်ပါတယ်။အရင်ပြောခဲ့တဲ့ methods တွေနဲ့ compare လုပ်လိုက်တဲ့အခါမှာ external stylesheet method ဟာဆိုရင်
+        flexibility ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ stylesheet တစ်ခုထဲကို multiple HTML files တွေကို link လုပ်လို့ရပါတယ်။
+        နောက်ထပ် advantage တစ်ခုကတော့ HTML file ကို first request လုပ်လိုက်တာနဲ့ browser ကနေ cache လုပ်ထားပါတယ်။
+        ဘာလို့လဲဆိုတော့ stylesheet ဟာဆိုရင် download time ဟာ တစ်ကြိမ်ပဲလိုအပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        link tag ကို head section ရဲ့ အပြင်မှာလည်း အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code in HTML </h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="../../CSS/external.css"&gt;
+                &lt;title&gt;External Stylesheet&lt;/title&gt;
+                
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;header&gt;
+                    &lt;span&gt; Journey through the Sierra Nevada Mountains&lt;/span&gt;
+                    &lt;h1&gt;Lake Tahoe, California&lt;/h1&gt;
+                &lt;/header&gt;
+                &lt;p&gt;
+                    Lake Tahoe is one of the most breathtaking attractions located in California. It's home to a number of ski resorts, summer outdoor recreation, and tourist attractions.Snow and skiing are a significant part of the area's reputation.
+                &lt;/p&gt;
+                &lt;a href="#"&gt;Find out more&lt;/a&gt;
+            
+               
+                
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            body{
+                text-align: center;
+            
+            }
+            h1{
+                font-size: 72px;
+                color: white;
+            }
+            header{
+                background-color: orange;
+            }
+            p{
+                font-size: 20px;
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/external.html">Test Yourself</a>
+    <hr>
+    <h1>@import Method</h1>
+    <p>
+        External stylesheet နဲ့ တွဲသုံးတဲ့ နောက်ထပ် method တစ်ခုကတော့ import statement ပဲဖြစ်ပါတယ်။ @import statement
+        ဟာဆိုရင် အခြား stylesheet တွေကို ကျွန်တော်တို့ရဲ့ CSS ထဲကို import လုပ်တာပဲဖြစ်ပါတယ်။ သူ့မှာလည်း external
+        stylesheet လို့ပဲ link လုပ်တဲ့နေရာ တူညီတဲ့ advantages တွေရှိပါတယ်။ @import ကိုရေးတဲ့အခါမှာ @import ဆိုပြီးတော့
+        double quotes ပြီးတော့ semicolon ခံပြီးရေးရမှာဖြစ်ပါတယ်။ ( @import" "; ) ။ အဲ့ double quotes ကြားမှာဆိုရင်
+        ကျွန်တော်တို့ put လုပ်ချင်တဲ့ css file ရဲ့ path ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ @import method ကို HTML
+        မှာလည်းအသုံးပြုနိုင်ပါတယ်။ သူ့ကိုတော့ head section ထဲမှာပဲ အသုံးပြုရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>CSS Selector</h1>
+    <p>
+        အခုကျွန်တော်တို့လေ့လာမှာကတော့ CSS selector ကို မတူညီတဲ့ နည်းလမ်းတွေနဲ့ လေ့လာမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        selectors ကို elements types တွေဖြစ်တဲ့ class တို့ id တို့ အခြေခံပြီးတော့ define လုပ်မှာဖြစ်ပါတယ်။ CSS rules or
+        rule sets ဟာဆိုရင်တော့ browsers ကို HTML elements ဟာ ဘယ်လို background ရှိပါတယ် စသည်အားဖြင့်
+        ပြောပြတာပဲဖြစ်ပါတယ်။ CSS rule တစ်ခုမှာဆိုရင် အပိုင်း ၂ ပိုင်းပါပါတယ် selector ရဲ့ နောက်မှာ declaration block
+        လိုက်ရပါတယ်။ Selector ဆိုတာကတော့ HTML elements ကို target လုပ်တဲ့ CSS rule တစ်ခုပဲဖြစ်ပါတယ်။ declaration block
+        ရဲ့နောက်မှာ ကျွန်တော်တို့ဟာ left curly brace နဲ့ စပြီးတော့ right curly brace နဲ့ ပိတ်ပေးရမယ်။ Declaration
+        တစ်ခုစီမှာဆိုရင် property name တစ်ခုနဲ့ value တစ်ခုပါရပါမယ်။ အဲ့နှစ်ခုကို fullcolon နဲ့ separate လုပ်ပေးရပါမယ်။
+        Property ဆိုတာကတော့ element ရဲ့ change လုပ်ချင်အပိုင်းကို ရေးပေးရပြီး value ဆိုတာကတော့ အဲ့ပိုင်းလေးဟာ ဘယ်လို
+        change လုပ်ချင်လဲဆိုတာကို ရေးပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ declaration တွေအများကြီး semicolon နဲ့ separate
+        လုပ်ပြီးတော့ write လုပ်နိုင်ပါတယ်။ Selectors တွေဟာဆိုရင် CSS ရဲ့ most important and powerful ဖြစ်တဲ့ parts
+        တွေပဲဖြစ်ပါတယ်။ ကျွန်တော်အခု ပြောမဲ့ selector ကတော့ universal selector အကြောင်းပဲဖြစ်ပါတယ်။ ဘာကြောင့် universal
+        selector လို့ ခေါ်တာလဲဆိုတော့ သူဟာ page မှာရှိတဲ့ element တိုင်းကို apply လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        သူဟာဆိုရင် others selectors တွေကို overrides လုပ်နိုင်ပါတယ်။ Universal selector တစ်ခုကို create လုပ်မယ်ဆိုရင်
+        asterisk(' * ') တစ်ခုကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့ရဲ့နောက်မှ ကျွန်တော် ပြောခဲ့တဲ့ curly braces တွေကို put
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+         <code>
+             *{
+                 margin: 0;
+                 padding: 0;
+                 color: white;
+             }
+         </code>
+     </pre>
+    <hr>
+
+    <h1>Type Selector</h1>
+    <p>
+        နောက်ထပ်လေ့လာမှာကတော့ type selectors အကြောင်းပဲဖြစ်ပါတယ်။ A type selector တစ်ခုဟာ page မှာရှိတဲ့ element type
+        ကို select လုပ်ပြီး အသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကို element selectors လို့လဲခေါ်ပါတယ်။ ဘာလို့လဲဆိုရင်
+        ကျွန်တော်တို့ဟာ HTML ရဲ့ elements တွေကို selector အနေနဲ့ အသုံးပြုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+             body
+                 {
+                     color: blue;
+                     margin: 0;
+                 }
+             header{
+                    background-color: orange;
+
+                   }
+                h1{
+                    font-size: 90px;
+                    color: white;
+                }
+                h2{
+                    font-sixe: 50px;
+                }
+        </code>
+    </pre>
+    <hr>
+    <h1>ID Selector</h1>
+    <p>
+        ဒီတစ်ခါမှာတော့ ID selector အကြောင်းကို ပြောပြမှာဖြစ်ပါတယ်။ ID selector ဟာဆိုရင် element တစ်ခုကို assign လုပ်တဲ့
+        unique ID တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ element တစ်ခုရဲ့ ID attribute ပေါ်မှာ အခြေခံပြီးတော့ element ကို target
+        လုပ်ပါတယ်။ ID selector ကို ID name ရဲ့ ရှေ့မှာ pound symbol (#) ကိုအသုံးပြုပြီးတော့ declared လုပ်ပေးရပါတယ်။
+        ကျွန်တော်တို့ HTML element မှာ id attribute ကိုအသုံးပြုပြီးတော့ ပေးခဲ့ name ကို CSS မှာ id(#) ရဲ့နောက်မှာ
+        မှန်အောင်ရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;link rel="stylesheet" href="../../CSS/laketahoe.css"&gt;
+                    &lt;title&gt;Selector&lt;/title&gt;
+                    
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;header id="top"&gt;
+                        &lt;span&gt; Journey through the Sierra Nevada Mountains&lt;/span&gt;
+                        &lt;h1&gt;Lake Taboe, California&lt;/h1&gt;
+                    &lt;/header&gt;
+                    &lt;div id="primary-content"&gt;
+                        &lt;p&gt;
+                            Lake Taboe is one of the most breathtaking attractions located in California. It's home to a number of ski resorts, summer outdoor recreation, and tourist attractions.Snow and skiing are a significant part of the area's reputation.
+                        &lt;/p&gt;
+                        &lt;a href="#"&gt;Find out more&lt;/a&gt;
+                        &lt;h2&gt;Check out al the Wildlife&lt;/h2&gt;
+                        &lt;p&gt;
+                            As spawing season approaches the fish acquire a humpack and protuberant jaw.
+                            After spawing they die and their carcasses provide a feast for gatherings of&lt;a href="#"&gt;mink&lt;/a&gt;, &lt;a href="#"&gt;bears&lt;/a&gt;, and &lt;a href="#"&gt;Bald eagles&lt;/a&gt;.
+                
+                        &lt;/p&gt;
+                        &lt;a href="#"&gt;See the Wildlife&lt;/a&gt;
+                    &lt;/div&gt;
+                        &lt;h3&gt;From Tents to Resorts&lt;/h3&gt;
+                        &lt;p&gt;
+                            Lake Tahoe is full of wonderful places to stay. You have the ability to sleep in the outerdoors in a tent, or relax like a ling at a five star resort. Here are our top three resorts:
+                
+                        &lt;/p&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Lake Tahoe Resort Hotel&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;South Lake Tahoe Resorts&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Tahoe Ski Resort Lodging&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;p&gt;
+                            On of most important things when it comes to traveing through the greatoutdoors is 
+                            packing accordingly. Here are a few tips:
+                        &lt;/p&gt;
+                        &lt;ol&gt;
+                            &lt;li&gt;Bring layers of colthing&lt;/li&gt;
+                            &lt;li&gt;Pack sunscreen&lt;/li&gt;
+                            &lt;li&gt;Carry extra water just in case&lt;/li&gt;
+                            &lt;li&gt;Pack Light&lt;/li&gt;
+                        &lt;/ol&gt;
+                        
+                   
+                    &lt;footer id="main-footer"&gt;
+                        &lt;p&gt;
+                            All right reseved to the state of &lt;a href="#"&gt;California&lt;/a&gt;.
+                        &lt;/p&gt;
+                        &lt;a href="#top"&gt;Back to top &raquo;&lt;/a&gt;
+                    &lt;/footer&gt;
+                
+                   
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                /****************
+                FOR: Lake Tahoe
+                ****************/
+                body
+                {
+                    color: blue;
+                    margin: 0;
+                }
+                header{
+                   background-color: orange;
+                
+                }
+                h1{
+                  font-size: 90px;
+                  color: white;
+                }
+                h2{
+                 font-size: 50px;
+                }
+                h3{
+                    font-size: 20px;
+                    color: #45525d;
+                }
+                #primary-content{
+                    border: 3px solid red;
+                }
+                #main-footer{
+                    padding-top: 60px;
+                    padding-bottom: 60px;
+                    border-bottom: solid orange;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/selector.html">Test Yourself</a>
+    <hr>
+    <h1> Class Selector</h1>
+    <p>
+        အခု ရှင်းပြပေးမှာတော့ class selector အကြောင်းပဲဖြစ်ပါတယ်။ Class selectors ဟာ ID selectors နဲ့ အတူတူပါပဲ သူဟာလည်း
+        element တစ်ခုကို target လုပ်တဲ့အခါ သူ့ရဲ့ class attribute ကို အခြေခံပြီးတော့ target လုပ်ရပါတယ်။ သူတို့
+        နှစ်ခုကြားထဲမှာ ရှိတဲ့ main difference ကတော့ ID selector ဟာ unique ဖြစ်ပြီးတော့ သူ့ကို page ထဲမှာရှိတဲ့ element
+        တစ်ခုကိုပဲ identify လုပ်နိုင်ပါတယ်။ Class selector ဟာဆိုရင် element တစ်ခုထက်ပိုပြီး target လုပ်နိုင်ပါတယ်။ သူဟာ
+        ID ထက် ပိုပြီးတော့ flexible ဖြစ်ပါတယ်။ Class selector ကို define လုပ်တဲ့နေရာမှာ dot character ကို
+        အရင်ရေးပြီးတော့ သူ့ရဲ့ နောက်မှာ HTML မှာ ပေးခဲ့တဲ့ class name ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူ့ရဲ့ advantages
+        ကတော့ သူဟာ class တစ်ခုထဲမှာ multiple elements တွေကို share လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ class name
+        ပေးတဲ့အခါမှာလည်း အဲ့ element ရဲ့ purpose ကိုဖော်ပြတဲ့ name ကို ပေးတာပိုပြီးတော့ သင့်တော်ပါတယ်။Class selector
+        တစ်ခုကို more than one element ပြီးတော့ target လုပ်နိုင်ပါတယ်။ Element တစ်ခုမှာဆိုရင် multiple classes တွေကို
+        assigned လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့သိဖို့လိုတဲ့ class selector ရဲ့ အရေးကြီးတဲ့ thing တွေအများကြီး ရှိပါတယ်
+        တစ်ခုကတော့ element တစ်ခုထဲမှာ class နဲ့ id နှစ်ခုလုံးကို apply လုပ်နိုင်ပါတယ်။
+    </p>
+    <p>
+        Selectors တွေ combine လုပ်တာကို descendant selector လို့ခေါ်ပါတယ်။ အဲ့ဒါဟာ element တစ်ခုထဲမှာ nested ဖြစ်နေတဲ့
+        element ကို apply လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Nested ဖြစ်တယ်ဆိုတာကတော့ ကျွန်တော်တို့ရဲ့ example page မှာဆိုရင် head
+        tag ထဲမှာ span tag ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ ul tag ထဲမှာ li tag တွေအသုံးပြုတာတို့ပဲဖြစ်ပါတယ်။
+        Descendant selectors ဟာဆိုရင် style lists တွေအတွက်ပဲ အသံုံးပြုတာပဲဖြစ်ပါတယ်။ Descendant selectors ကိုအသုံးပြုတဲ့
+        အခါမှာ သတိထားပြီးတော့ အသုံးပြုရမှာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ nested ဖြစ်နေတဲ့ elements တွေကို apply
+        လုပ်ချင်တဲ့အခါမှာ apply လုပ်ချင်တဲ့ element ရှိတဲ့ နေရာကို သေသေချာချာ ရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in HTML </h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;link rel="stylesheet" href="../../CSS/classselector.css"&gt;
+                    &lt;title&gt;Class Selector&lt;/title&gt;
+                    
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;header id="top" class="main-header"&gt;
+                        &lt;span class="title"&gt; Journey through the Sierra Nevada Mountains&lt;/span&gt;
+                        &lt;h1&gt;Lake Taboe, California&lt;/h1&gt;
+                    &lt;/header&gt;
+                    &lt;div class="primary-content"&gt;
+                        &lt;p&gt;
+                            Lake Taboe is one of the most breathtaking attractions located in California. It's home to a number of ski resorts, summer outdoor recreation, and tourist attractions.Snow and skiing are a significant part of the area's reputation.
+                        &lt;/p&gt;
+                        &lt;a href="#"&gt;Find out more&lt;/a&gt;
+                        &lt;h2&gt;Check out al the Wildlife&lt;/h2&gt;
+                        &lt;p&gt;
+                            As spawing season approaches the fish acquire a humpack and protuberant jaw.
+                            After spawing they die and their carcasses provide a feast for gatherings of&lt;a href="#"&gt;mink&lt;/a&gt;, &lt;a href="#"&gt;bears&lt;/a&gt;, and &lt;a href="#"&gt;Bald eagles&lt;/a&gt;.
+                
+                        &lt;/p&gt;
+                        &lt;a href="#"&gt;See the Wildlife&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class="secondary-content"&gt;
+                        &lt;h3&gt;From Tents to Resorts&lt;/h3&gt;
+                        &lt;p&gt;
+                            Lake Tahoe is full of wonderful places to stay. You have the ability to sleep in the outerdoors in a tent, or relax like a ling at a five star resort. Here are our top three resorts:
+                
+                        &lt;/p&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Lake Tahoe Resort Hotel&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;South Lake Tahoe Resorts&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Tahoe Ski Resort Lodging&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;p&gt;
+                            On of most important things when it comes to traveing through the greatoutdoors is 
+                            packing accordingly. Here are a few tips:
+                        &lt;/p&gt;
+                        &lt;ol&gt;
+                            &lt;li&gt;Bring layers of colthing&lt;/li&gt;
+                            &lt;li&gt;Pack sunscreen&lt;/li&gt;
+                            &lt;li&gt;Carry extra water just in case&lt;/li&gt;
+                            &lt;li&gt;Pack Light&lt;/li&gt;
+                        &lt;/ol&gt;
+                    &lt;/div&gt;
+                   
+                    &lt;footer id="main-footer"&gt;
+                        &lt;p&gt;
+                            All right reseved to the state of &lt;a href="#"&gt;California&lt;/a&gt;.
+                        &lt;/p&gt;
+                        &lt;a href="#top"&gt;Back to top &raquo;&lt;/a&gt;
+                    &lt;/footer&gt;
+                
+                   
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                body
+                {
+                    color: blue;
+                    margin: 0;
+                }
+                header{
+                   background-color: orange;
+                
+                }
+                h1{
+                  font-size: 90px;
+                  color: white;
+                }
+                h2{
+                 font-size: 50px;
+                }
+                h3{
+                    font-size: 20px;
+                    color: #45525d;
+                }
+                .primary-content{
+                    text-align: center;
+                }
+                .t-border{
+                    border-top: 2px solid rgb(124, 124, 151);
+                }
+                #main-footer{
+                    padding-top: 60px;
+                    padding-bottom: 60px;
+                    border-bottom: solid orange;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/classselector.html">Test Yourself</a>
+    <hr>
+    <h1>Pseudo-classes</h1>
+    <p>
+        Pseudo-classes ဟာဆိုရင် classes တွေနဲ့ similar ဖြစ်ပါတယ်။ မတူတာကတော့ သူဟာ element တစ်ခုရဲ့ class attribute ကို
+        explicitly define တော့ မလုပ်ပါဘူး။ ဒါပေမဲ့ selectors တွေအားလုံးဟာ user interaction ပေါ်မှာပဲ
+        အခြခံကြတာပဲဖြစ်ပါတယ်။ Pseudo-class ဟာဆိုရင် keyword တစ်ခုဖြစ်ပြီးတော့ element တစ်ခုရဲ့ style ကို selector
+        တစ်ခုအနေနဲ့ အသုံးပြုနိုင်ပါတယ်။ Mozilla Developer Network or MDN docs မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင်
+        pseudo-classes တွေအများကြီးရှိပါတယ်။ အဲ့ထဲကမှ ကျွန်တော် နဲနဲကို အသုံးပြုပုံနဲ့အတူ ဘယ်လို effect ဖြစ်တယ်ဆိုတာကို
+        ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ Link history လို့ခေါ်တဲ့ pseudo-classes ဟာဆိုရင်တော့ click or visited
+        လုပ်လိုက်တဲ့အချိန်မှာ user ဖြစ်ချင်တဲ့ style ကို create လုပ်နိုင်ပါတယ်။ အဲ့ဒါဟာဆိုရင် ကျွန်တော်တို့ရဲ့ page
+        ထဲမှာရှိတဲ့ Links တွေကို style ချတာပဲဖြစ်ပါတယ်။ သူ့ကိုရေးတဲ့အခါမှာ fullcolon ခံပြီးတော့ အဲ့နောက်မှာ pseudo-class
+        ကိုရေးပေးရမှာဖြစ်ပါတယ်။ ဥပမာ("a:link{}") ပြီးရေးရမှာဖြစ်ပါတယ်။ နောက်ထပ် pseudo-class တစ်ခုကတော့ visited
+        ပဲဖြစ်ပါတယ်။ သူဟာ လည်း visited or link လုပ်လိုက်တဲ့အချိန်မှာ style ထည့်ချင်တဲ့အခါမှာအသုံးပြုနိုင်ပါတယ်။
+        သူ့ကိုလည်း link လိုမျိုး create လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင်လည်း user တွေကြိုက်တဲ့ css property
+        ကိုအသုံးပြုနိုင်ပါတယ်။ နောက်တစ်ခုကတော့ active pseudo-classes ပဲဖြစ်ပါတယ်။ သူဟာလည်း user interaction
+        ပေါ်မှာအခြေခံပြီးတော့ apply လုပ်ပါတယ်။ နောက်ထပ်ကတော့ hover pseudo-classes ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ element
+        ပေါ်မှာ hover လုပ်လိုက်တဲ့အချိန်မှာ color တွေ change သွားတဲ့ property တွေကို လုပ်ဆောင်နိုင်ပါတယ်။
+        ကျန်တော်အခုပြောပြခဲ့တဲ့ pseudo-classes တွေကို html ရဲ့ apply လုပ်ချင်တဲ့ element မှာ apply လုပ်နိုင်ပါတယ်။
+    </p>
+    <a href="CSS_Example/classselector.html">Test Yourself</a>
+    <hr>
+    <h1>Understanding Values and Units</h1>
+    <p>
+        CSS property တိုင်းမှာဆိုရင် သူတု့ိကို accept လုပ်တဲ့ values တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ key words တစ်ခုကို
+        သုံးပြုမယ်ဆိုရင် value ကိုလည်း describe လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဥပမာ color ဆိုရင် blue ဆိုပြီးတော့ စသည်အားဖြင့်
+        value ကိုပါထည့်ပေးရမှာဖြစ်ပါတယ်။ Value တစ်ခုကိုဖော်ပြတဲ့အခါမှာ ကျွန်တော်တို့ဟာ number, length, image, or URL
+        တို့နဲ့လည်း ဖော်ပြနိုင်ပါတယ်။ အဲ့ values တွေဟာဆိုရင် categorized လုပ်ထားတဲ့ data types တွေပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ good reference တစ်ခုလိုပါလိမ့်မယ်။ Good reference ဆိုတာ common values တွေကို cover လုပ်ပြီးတော့
+        units CSS properties တွေကို accept လုပ်တာပဲဖြစ်ပါတယ်။ CSS data types တွေကို Mozilla Developer Network docs မှာ
+        လေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် CSS data types တွေကို list နဲ့ဖော်ပြပေးထားပါတယ်။ Data type တစ်ခုဟာ အမှန်တစ်ကယ်တော့
+        CSS value ရဲ့ type တစ်ခုလို့လဲပြောလို့ရပါတယ်။ အခြား data types တွေကတော့ integers, numbers and percentages
+        တို့ပဲဖြစ်ပါတယ်။ သူတို့ဟာလည်း common data types တွေပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် positive or negative integer,
+        number or percentage values တွေကို CSS properties အတွက်အသုံးပြုနိုင်ပါတယ်။ အများအားဖြင့်တော့ integer တု့ိ number
+        တို့ဟာ length unit တစ်ခုနဲ့ တွဲ သုံးတာများပါတယ်။ Length unit ဆိုတာကတော့ length data type ရဲ့ part ပဲဖြစ်ပါတယ်။
+        သူ့ကိုတော့ pixel, ems or rems တို့နဲ့ number value တစ်ခုကို unit တစ်ခုရဲ့ measurement တစ်ခုကို specify
+        လုပ်ဖို့ရန်အတွက်အသုံးပြုပါတယ်။ ဥပမာ ကျွန်တော်တို့ဟာ font-size: 90px ဆိုပြီးပေးလိုက်တယ်ဆိုပါစို့ အဲ့မှာဆိုရင် 90
+        ဆိုတာက number data type ဖြစ်ပြီးတော့ px ဆိုတဲ့ pixel ကတော့ length ပဲဖြစ်ပါတယ်။ အဲ့နှစ်ခုရဲ့ ကြားမှာ space
+        ခံရေးလို့ မရပါဘူး။ နောက်ထပ် CSS data types တွေကတော့ images and gradients ပဲဖြစ်ပါတယ်။ သူတို့ကို element တစ်ခုရဲ့
+        background image or gradient ပေးချင်တဲ့အခါမှာ background-image property နဲ့ တွဲသံုံးရတာပဲဖြစ်ပါတယ်။ background
+        image ကို defined လုပ်တဲ့နေရာမှာ ကျွန်တော်တို့ display လုပ်ချင်တဲ့ image ရဲ့ path or URL ကို
+        ရေးပေးရမှာဖြစ်ပါတယ်။ font-size property မှာဆိုရင်လည်း ကျွန်တော်တို့ဟာ length or percentage data type
+        ကိုအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Relative and Absolute Length Units</h1>
+    <p>
+        Number value တစ်ခုကို define လုပ်တဲ့အချိန်မှာ ကျွန်တော်ဟာ a length or unit of measurement အဲ့ value အတွက်
+        specify လုပ်ပေးဖို့လိုပါတယ်။ CSS မှာဆိုရင် length ကို ဖော်ပြဖို့အတွက် မတူညီတဲ့ units တွေအများကြီးရှိပါတယ်။
+        Length units ဟာဆိုရင် အခြား units တွေထက် ပိုပြီးတော့ flexible ဖြစ်ပါတယ်။ ဥပမာ relative units and percentages
+        units ဟာဆိုရင် အခြား length units တွေနဲ့ ဆက်ဆက် နေတာပဲဖြစ်ပါတယ်။ Developers တွေအတွက်ကတော့ အဲ့ဒါဟာ screen size
+        and resolution ပေါ်မှာ မူတည်ပြီးတော့ content ကို layout ချတဲ့နေရာမှာ ပိုပြီးတော့ လွယ်ကူစေပါတယ်။ Absolute units
+        ဟာဆိုရင် တစ်ခုနဲ့ တစ်ခု relation လုပ်တဲ့နေရာမှာအမြဲတမ်း fixed ဖြစ်ပါတယ်။ Relative မှာတော့ မလုပ်နိုင်ပါဘူး။
+        ကျွန်တော်တို့ဟာ font-size, padding, margin, width တု့ိအတွက် length or percentage တို့ကို CSS properties
+        မှာအသုံးပြုနိုင်တယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Length units မှာဆိုရင် မတူညီတဲ့ several unit types တွေကို
+        အသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါတာတွေဟာဆိုရင် length units နဲ့ length units တို့ရဲ့ relative ပဲဖြစ်ပါတယ်။ Absolute
+        units အကြောင်းကို first အနေနဲ့ပြောပြချင်ပါတယ်။ CSS မှာဆိုရင် absolute unit 6 ခုရှိပါတယ်။ ဒါပေမဲ့
+        အသုံးများတာကတော့ pixel unit ပဲဖြစ်ပါတယ်။ Pixel size ကိုအသုံးပြုတဲ့အခါမှာ screen မှာဘဲဖြစ်ဖြစ် browser window
+        မှာဖြစ်ဖြစ် pixel ဟာအတူတူပဲဖြစ်နေပါမယ်။ CSS pixel ဟာဆိုရင် abstract reference unit တစ်ခုပဲဖြစ်ပါတယ်။ Devise
+        တစ်ခု or hardware pixels တစ်ခုပေါ်မှာ အခြေခံပြီးတော့ CSS pixel ဟာဆိုရင် အဲ့ device ရဲ့ pixel density
+        ထက်ပိုပြီးတော့ သိသိသာသာ လုပ်ဆောင်နိုင်ပါတယ်။ Device တစ်ခုရဲ့ pixel density ဟာဆိုရင် higher ဖြစ်နေတယ်ဆိုရင် pixel
+        values ကို rescales လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Percentage Units</h1>
+    <p>
+        Number values တွေကို percentage units တွေနဲ့ အတူ ပြောင်းလဲပြီးတော့ define လုပ်နိုင်ပါသေးတယ်။ ကျွန်တော်တို့ဟာ
+        percentage unit ကို CSS မှာအသုံးပြုတဲ့အချိန်မှာ percentage value ဟာဆိုရင် element's length တစ်ခုရဲ့ parent ကို
+        measured လုပ်ပေးပါတယ်။ Width, margin, and padding တွေမှာဆိုရင် percentages ကို အသုံးပြုပါတယ်။ သူတို့ကို elements
+        တွေရဲ့ သူတို့ရဲ့ container နဲ့ relative ဖြစ်နေတဲ့ size တွေကို ပြောင်းလဲနိုင်အောင် ပြုလုပ်ဖို့ရန်အတွက်
+        အသုံးပြုပါတယ်။ ကျွန်တော်တို့ဟာ heading ကို wiidth: 50%; ပေးလိုက်တဲ့အခါမှာ heading ဟာဆိုရင် browser window ရဲ့
+        တစ်ဝက် 50% ကိုယူလိုက်မှာဖြစ်ပါတယ်။ Browser ကို resize လုပ်လိုက်ရင်လည်း browser window's width ရဲ့ 50%
+        ပဲယူမှာဖြစ်ပါတယ်။ ပြီးရင် margin-left: 10%; ပေးလိုက်တဲ့အခါမှာဆိုရင် heading ဟာ browser window ရဲ့ left ကနေ 10%
+        ကွာဟ သွားမှာဖြစ်ပါတယ်။ အခုကျွန်တော်ရှင်းပြခဲ့တဲ့ percentage တွေကို ကျွန်တော် example ရဲ့ တစ်ခြား section မှာ
+        အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် class name တွေဖြစ်တဲ့ primary-content နဲ့ secondary-content ကို width: 60%;
+        ပေးပြီးတော့ example အနေနဲ့ လုပ်ပြသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်လည်း browser window's width ရဲ့ 60%
+        ကိုပဲယူမှာဖြစ်ပါတယ်။ Percentage ကို font-size အတွက်လည်းအသုံးပြုနိုင်ပါတယ်။ Text ရဲ့ size ဟာဆိုရင် သူ့ parent ရဲ့
+        font-size နဲ့ directly related ဖြစ်နေပါတယ်။ ကျွန်တော်တို့ဟာ body ထဲမှာ font-size ကို 150% ပေးလိုက်တဲ့အခါမှာ HTML
+        body ထဲမှာရှိတဲ့ text တွေအားလုံးဟာ body ရဲ့ default size ဖြစ်တဲ့ 16 pixels ထက် 1.5 times ကြီးသွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ အခုလိုပဲ font-size ကို ကိုယ်ပြောင်းချင်တဲ့ paragraph တွေမှာလည်း ပြောင်းနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            body
+            {
+                color: blue;
+                margin: 0;
+                font-size: 150%;
+            }
+            .primary-content, .secondary-content{
+
+                width: 60%;
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/classselector.html">Test Yourself</a>
+    <hr>
+    <h1>EMs Units</h1>
+    <p>CSS မှာဆိုရင် relative length units ဟာဆိုရင် other length values တွေနဲ့ relative ဖြစ်ပါတယ်။အသုံးများတဲ့ relative
+        unit ကတော့ em unit ပဲဖြစ်ပါတယ်။ သူ့ကို font relative unit လို့လဲခေါ်ပါတယ် ဘာကြောင့်လဲဆိုရင် parent elements font
+        size တစ်ခုပေါ်မှာ အခြေခံပြီးတော့ calculate လုပ်တဲ့အတွက်အကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ element's property
+        တစ်ခုကို 1em လို့ပေးလိုက်တဲ့အခါမှာ 1em ဟာဆိုရင် 16 pixel နဲ့ ညီမျှပါတယ်။ Browsers တွေရဲ့ default font size
+        ဟာဆိုရင် 16 pixels ရှိကြပါတယ်။ 1em ကို 16 pixels ဆိုရင် 2em ဆိုရင် 32 pixels နဲ့ ညီပါတယ်။ ကျွန်တော်တို့ရဲ့
+        header title ရဲ့ font size ကို 3em လို့ပေးလိုက်တဲ့အခါမှာ သူ့ကို browser default font size ဖြစ်တဲ့ 16 pixels ကို
+        3 နဲ့ multiplying လုပ်ပေးလိုက်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ pixel ကို em value convert လုပ်တဲ့အခါမှာ simple
+        formula အတိုင်းပြောင်းပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ပေးထားတဲ့ element's pixel value ကို parent
+        element's font size in pixels ဖြစ်တဲ့ 16 နဲ့ divided လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် em ဟာဆိုရင် scalable
+        content တွေကို creating လုပ်တဲ့အခါမှာ useful unit ပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ other font sizes
+        တွေကိုလည်း adapt လုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ main header element ရဲ့ font size ကို 2em
+        လို့ပေးကြည့်ပါမယ်။ အဲ့ 2em ဟာဆိုရင် title ရဲ့ heading font size အတွက် new context ဖြစ်လာပါတယ်။ နောက်ပြီးတော့ h1
+        ရဲ့ font size ကို 2em ဆိုပြီးပေးလိုက်တဲ့အခါမှာ 2em ပေါ်မှာပဲ font size ဟာဆိုရင် ပြောင်းသွားမှာဘဲဖြစ်ပါတယ်။ ဒါဟာ
+        compounding effect ကြောင့်ပဲဖြစ်ပါတယ်။ Compounding effect ဟာဆိုရင် ကျွန်တော်တို့ဟာ style sheet ထဲမှာ font sizes
+        တွေကို define လုပ်တဲ့အခါမှာ some trouble တွေတော့ရှိနိုင်တယ်။ အဲ့ compounding problem တွေကို
+        ဘယ်လိုဖြေရှင်းမယ်ဆိုတာကို နောက် lesson မှာပြောပြပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                body
+                {
+                    color: blue;
+                    margin: 0;
+                    font-size: 1em;
+                }
+                header{
+                   background-color: orange;
+                   font-size: 2em;
+                
+                }
+                h1{
+                    font-size: 5.625em;/* 90px/16px */
+                    color: white;
+                  }
+        </code>
+    </pre>
+    <a href="CSS_Example/classselector.html">Test Your</a>
+    <hr>
+    <h1>REMs Units</h1>
+    <p>
+        CSS မှာဆိုရင် another relative unit ဖြစ်တဲ့ REM unit ဆိုတာလည်းရှိပါသေးတယ်။ REM ဆိုကတော့ root-M ပဲဖြစ်ပါတယ်။ သူဟာ
+        em unit နဲ့ similar ဖြစ်ပါတယ်။ သူတို့နှစ်ခုရဲ့ different ကတော့ REM ဟာ page ရဲ့ root element နဲ့ relative
+        ဖြစ်ပြီးတော့ EM လိုတော့ parent element နဲ့ relative လုပ်တာတော့မဟုတ်ပါဘူး။ Root element ဆိုဟာ HTML element ကို
+        referring လုပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ page ရဲ့ h1 title elements ကို em အစား rem ပေးကြည်လိုက်တဲ့အခါမှာ
+        rem ဟာဆိုရင် font sizes ကို ဘယ်လို reset ပြန်လုပ်ပေးတယ်ဆိုတာကို တွေ့ရမှာဖြစ်ပါတယ်။ REMs ဟာဆိုရင် ems ထက်ပြီးတော့
+        predictable လုပ်နိုင်ပါတယ်။ အခုဆိုရင် ကျွန်တော်တို့မှာ value တွေကို length or measurement လုပ်ဖို့ရန်အတွက်
+        different units တွေအကြောင်းနားလည်ပြီ ဖြစ်တဲ့အတွက် particular project တစ်ခုမှာ အဲ့ units တွေကို
+        အသုံးပြုလို့ရပါတယ်။ ကျွန်တော်တို့ဟာ page တစ်ခုကို ကိုယ်ကိုတိုင် create လုပ်ပြီး rem နဲ့ em ကို တစ်လှည့်စီ
+        အသုံးပြုကြည့်တဲ့အခါမှာ ပိုပြီးတော့ မြင်သာပါလိမ့်မယ်။ Pixels တွေဟာဆိုရင် ပိုပြီးတော့ ရှင်းလင်းတိကျပါတယ်။
+        သူတို့ကို နားလည်ဖု့ိလဲ လွယ်ကူသလို predictable လုပ်တဲ့နေရာမှာလည်း လွယ်ကူပါတယ်။ % တို့ rem တို့ em တို့ကို design
+        အတွက်အသုံးပြုမယ်ဆိုရင် different devices and screen sizes တွေကို adapt and scales လုပ်ပေးဖို့လိုပါလိမ့်မယ်။
+        နောက်ထပ် ဒီ units အကြောင်းကို web typography course မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                header{
+                    background-color: orange;
+                 }
+                 .title{
+                    color: white;
+                    font-size: 1.625rem;/* 26px/16px*/
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1> CSS Color</h1>
+    <p>
+        Web design မှာဆိုရင် color ဟာလည်း important role တစ်ခုပဲဖြစ်ပါတယ်။ CSS မှာ color value ကို ဖော်ပြတဲ့အခါမှာ
+        different ways ၃ ခုနဲ့ ဖော်ပြနိုင်ပါတယ်။ အဲ့ဒါတွေကတော့ a keyword, a hexadecimal value, or an RGB function
+        တု့ိပဲဖြစ်ပါတယ်။ CSS data types တွေမှာဆိုရင် keyword values တွေကို predefined လုပ်ထားကြပါတယ်။ ကျွန်တော်တို့ဟာ
+        color တစ်ခုကို describe လုပ်တဲ့အခါမှာ CSS မှာ color တစ်ခုကို represent လုပ်တဲ့ predefined keyword တွေ
+        အများကြီးရှိပါတယ်။ ဥပမာ orange, lightblue, forestgreen, and lightcoral တို့ပဲဖြစ်ပါတယ်။ တစ်ချို့ color name
+        တွေကတော့ ရှင်းပါတယ် black, sliver, grey and white တို့ဖြစ်ပါတယ်။ အခြား colors တွေမှာဆိုရင် combination of words
+        တွေပါပါတယ်။ ဥပမာ cadet-blue, cornflower-blue။ Color keywords တွေရဲ့ ကိုတော့ MDN docs မှာလေ့လာနိုင်ပါတယ်။ Colors
+        တွေကို describe လုပ်တဲ့ အခြားနည်းလမ်းကတော့ RGB model နဲ့ပဲဖြစ်ပါတယ်။ RGB ဆိုတာကတော့ red, green and blue
+        ဖြစ်ပြီးတော့ အဲ့ဒါကို မတူညီတဲ့ formats နှစ်ခုနဲ့ describe လုပ်နိုင်ပါတယ်။ နည်းလမ်းတစ်ခုကတော့ hexadecimal
+        notation နဲ့ဖော်ပြတာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ hex value ကို referred လုပ်ပါတယ်။ Hex value တစ်ခုဟာ red, green and blue
+        values တွေရဲ့ combination ပဲဖြစ်ပါတယ်။ Hex value ကို "#" နဲ့ specified လုပ်ပါတယ်။ "#" ရဲ့နောက်မှာတော့ six
+        hexadecimal characters တွေပါပါတယ်။ အဲ့ six hexadecimal characters တွေဟာ 0-9 အထိ ဖြစ်ပြီးတော့ letters တွေကတော့
+        a-f အထိရှိပါတယ်။ သူ့တို့ကို ရေးတဲ့အခါမှာ double digits numbers ၃ ခု ရေးပေးရမှာဖြစ်ပါတယ်။ ဥပမာ "#ff0033 "။
+        အဲ့မှာဆိုရင် ff ဟာဆို red ကို represent လုပ်ပြီးတော့ 00 ဟာ green ကို represent လုပ်ပါတယ် 33 ကတော့ blue ကို
+        represent လုပ်ကြပါတယ်။ ကျွန်တော်တို့ဟာ shorter three digit notation ကိုလည်းအသုံးပြုလို့ရပါတယ်။ သူကတော့ hex
+        values တွေရဲ့ abbreviation ပဲဖြစ်ပါတယ်။ ဥပမာ "#f03" ။ အခုကျွန်တော်ပြောခဲ့တဲ့ hex values တွေကို page
+        မှာသုံးပြတဲ့အခါပိုပြီးတော့ မြင်လာပါလိမ့်မယ်။
+
+    </p>
+    <p>
+        နောက်ထပ် RGB method တစ်ခုကတော့ a functional notation ပဲဖြစ်ပါတယ်။ RGB function ကိုဖော်ပြတဲ့အခါမှာ
+        ကျွန်တော်တို့ဟာ rgb ဆိုပြီးတော့ သူ့နောက်မှာ set of parenthesis လိုက်ပေးရမှာဖြစ်ပါတယ်။ Parenthesis ထဲမှာဆိုရင်
+        three numerical values တွေကို comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပထမ list ဟာ red , နောက်က list ဟာ green,
+        နောက်ဆုံးကတော့ blue ဆိုပြီးတော့ အသီးသီး represent လုပ်ကြပါတယ်။ဥပမာ "rgb(255, 169, 73)" ဆိုပြီးတော့ RGB
+        functional notation ကို အသုံးရပါတယ်။ နောက်ဆုံးမနေနဲ့ ပြောပြချင်တာကတော့ alpha channel ရဲ့ color ရဲ့ opacity ကို
+        setting လုပ်တဲ့ alpha ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ဒါကို rgba ဆိုပြီးတော့ ရေးပေးရပါတယ်။ a ဆိုတာကတော့ alpha ကို
+        ကိုယ်စားပြုတာပဲဖြစ်ပါတယ်။ သူ့ကိုအသုံးပြုတဲ့အခါမှာ parenthesis ထဲမှာလဲ alpha values ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        Alpha values ကုိ put လုပ္တဲ့ေနရာမွာ point (.)နဲ့ေပးလိရပါတယ္။
+    </p>
+    <h1>CSS Text Properties</h1>
+    <p>
+        Web page တစ်ခုမှာ text ကို ဘယ်လိုကြည့်ရမယ်ဆိုတဲ့ significant effect ရှိပါတယ်။ CSS မှာဆိုရင် text styles ကို
+        defining လုပ်တဲ့နေရာမှာ properties တွေအများကြီးရှိပါတယ်။ အဲ့ဒါတွေဟာ နားလည်ဖို့လွယ်ကူပါတယ်။ First အနေနဲ့
+        ကျွန်တော်တို့ဟာ text-align property ကို text ရဲ့ horizontal alignment ကို ချိန်ဖို့ရန်အတွက်အသုံးပြုပါတယ်။ အဲ့
+        property ကို ကျွန်တော်တို့ရဲ့ page ထဲမှာ primary-content element အတွက် text-align ကို center ဆိုပြီး
+        အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကို main header မှာလည်းအသုံးပြုမှာဖြစ်ပါတယ်။ text-align ရဲ့ default property ဟာ
+        left ပဲဖြစ်ပါတယ်။ သူ့မှာနောက်ထပ် right keyword ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ right keyword ကိုအသုံးပြုလိုက်ရင်တော့
+        ကျွန်တော်တို့ရဲ့ content ဟာ right ဘက်ကို ကပ်သွားမှာဘဲဖြစ်ပါတယ်။ နောက်ထက်သူ့မှာ justify ဆိုတဲ့ keyword
+        ကိုလည်းအသုံးပြုလို့်ရပါတယ်။ အဲ့ keyword ကိုအသုံးပြုလိုက်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ paragraph ဟာဆိုရင် book or
+        magazine တစ်ခုရဲ့ alignment နဲ့ similar ဖြစ်နေမှာဖြစ်ပါတယ်။ နောက်ထပ် text-transform property ကိုသုံးပြုတာကတော့
+        text တွေရဲ့ case ကို change လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ ဥပမာ text ကို uppercase, lowercase or capitalized
+        လုပ်တာတွေပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ page ရဲ့ h1 ကို all uppercase ပြောင်းလိုက်ပါမယ်။
+    </p>
+    <p>
+        နောက်ထပ်ကတော့ text-decoration property ပဲဖြစ်ပါတယ်။ သူ့ကိုအသုံးများတာကတော့ links တွေမှာဆိုရင် underlines တွေကို
+        remove လုပ်တဲ့နေရာ" none" ဆိုတဲ့ values ပေးပြီး အသုံးများတာပဲဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ page ရဲ့ links တွေမှာ
+        အဲ့ property ကို အသုံးပြုမှာပဲဖြစ်ပါတယ်။ text-decoration property ကို ဘယ် elements မှာမဆို အသုံးပြုနိုင်ပါတယ်။
+        အခုကျွန်တော်တို့ဟာ heading text ရဲ့ အောက်မှာ underline လေးတားတာကို လုပ်ပြသွားမှာဖြစ်ပါတယ်။ အဲ့မှာ သုံးတဲ့ value
+        ကတော့ underline ပဲဖြစ်ပါတယ်။ နောက်ထပ် font-weight property ပဲဖြစ်ပါတယ်။ သူ့ကိုတော့ text ရဲ့ weight style ကို
+        ဘယ်လောက် thick or ဘယ်လောက် thin ဖြစ်တာကို set လုပ်ဖို့ရန်အတွက်အသုံးပြုပါတယ်။ သူ့မှာသုံးတဲ့ common values
+        နှစ်ခုကတော့ normal and ်bold ပဲဖြစ်ပါတယ်။ Headings အားလုံးကတော့ default ကကို bold ဖြစ်ပြီးသားဖြစ်ပါတယ်။ normal
+        values ကိုအသုံးပြုတယ်ဆိုရင်တော့ font-weight ဟာ normal ပဲဖြစ်နေပါမယ်။ အခုကျွန်တော်ပြောခဲ့တဲ့ font-weight property
+        ရဲ့ keywords values နှစ်အပြင် နောက်ထပ် values နှစ်ကိုလည်းသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါတွေကတော့ lighter and bolder
+        ပဲဖြစ်ပါတယ်။ အဲ့ values နှစ်ခုဟာ text element တစ်ခုရဲ့ inherited font-weight ပေါ်မှာမူတည်ပါတယ်။ အသုံးများတာကတော့
+        normal and bold ကိုအသုံးများပါတယ်။ ကျွန်တော်တို့ဟာ font-weight property မှာဆိုရင် numeric
+        တွေကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့ numeric တွေဟာ 100 to 900 အထိပဲဖြစ်ပါတယ်။ 100 ဟာဆိုရင် thinnest weight
+        ဖြစ်ပြီးတော့ 900 ဟာ heaviest weight အတွက်ဖြစ်ပါတယ်။ 400 or 500 ကတော့ medium normal weight အတွက်ပဲဖြစ်ပါတယ်။
+        နောက်ထပ် font and text properties အကြောင်းကို web typography မှာ ဆက်လေ့လာလို့ရပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+        <code>
+            h1{
+                font-size: 5.625em;/* 90px/16px */
+                color: rgb(255, 255, 255);
+                text-transform: uppercase;
+                font-weight: normal;
+              }
+              h2{
+               font-size: 53px;
+               text-decoration: underline;
+               font-weight: normal;
+              }
+              h3{
+                  font-size: 20px;
+                  color: #45525d;
+                  text-decoration: underline;
+              }
+              .primary-content, header{
+                  text-align: center;
+              }
+        </code>
+    </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Font-family, Font-size, Font-style</h1>
+    <p>
+        Text properties လိုပဲ font properties မှာဆိုရင်လည်း ကျွန်တော်တို့ appearance of text တွေကို font-family,
+        font-size, font-style and more တွေကို အသုံးပြုပြီးတော့ change လုပ်လို့ရပါတယ်။ First အနေနဲ့ ကျွန်တော်တို့ရဲ့ text
+        font အတွက် font-family property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် specific font family and generic family
+        ဆိုပြီး font-family names နှစ်ခုရှိပါတယ်။ Specific မှာဆိုရင် Verdana, Arial, or Helvetica တို့ရှိပါတယ်။ Generic
+        family မှာဆိုရင် serif, sans serif, or monospace ဆိုပြီးရှိပါတယ်။ Browser ရဲ့ default ဟာ serif font ပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ page မှာ font-family property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ Value ကို san-serif လို့ပေးကြည့်ပါမယ်။
+        သူ့မှာဆိုရင် finishing or ornamentation မရှိပါဘူး။ ကျွန်တော်တို့ဟာ generic font family names တွေကို MND docs
+        မှာလေ့လာနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ font တစ်ခုထဲကိုပဲ သုံးထားမယ်ဆိုရင် ကျွန်တော်တို့ အသုံးပြုလိုက်တဲ့ font ကို
+        browser ကနေ display လုပ်ပေးကအရေးကြီးပါတယ်။ Users တွေဘက်ကကြည့်မယ်ဆိုရင်လည်း ကျွန်တော်တို့ အသုံးပြုလိုက်တဲ့ fonts
+        ကို သူတို့ရဲ့ computer မှာ installed လုပ်ထားဖို့လိုပါလိမ့်မယ်။ Computers တွေမှာတော့ fonts တွေအားလုံးတော့
+        မရှိနိုင်ပါဘူး။ ဒါကြောင့် ကျွန်တော်တို့ဟာ web-safe fonts ခေါ်တဲ့ system အားလုံးမှာရှိနိုင်တဲ့
+        ဟာကိုအသုံးပြုမှာဖြစ်ပါတယ်။ တစ်ချို့ case တွေမှာဆိုရင်တော့ web-safe fonts ကို fall back ဆိုပြီးတော့ define
+        လုပ်ကြပါတယ်။ အဲ့ဒါကို font stack လို့ခေါ်ပါတယ်။ CSS font stack မှာဆိုရင် list of fonts တွေကို
+        ဦးစားပေးထားတာပဲဖြစ်ပါတယ် သူ့ဟာ browser ကနေ user system မှာ install လုပ်ထားတဲ့ fonts ကို အတွေ့မချင်း cycle လို
+        fonts ကို find လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        ကျွန်တော်တို့ဟာ font stack ကို ရေးတဲ့အခါမှာ comma တွေနဲ့ list of fonts ကို separate လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့လိုလုပ်တာဟာ user မှာ list ထဲက ပထမ တစ်ခုဟာ install လုပ်မထားဘူးဆိုရင် browser ဟာ font list ထဲက ဒုတိယ တစ်ခုကို
+        user install လုပ်ထားလားဆိုတာကို ရှာပေးမှာြစ်ပါတယ်။ အဲ့လိုပဲ browser ဟာ alternative အလိုက် try လုပ်ပေးသွားမှာ
+        ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ font stack မှာဆိုရင် font family name နှစ်ခုလုံးကို သုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့
+        တစ်ခုသိထားရမှာက font family name ဟာတစ်ခုထက်ပိုရင် (" ") ထဲမှာရေးပေးဖို့လိုပါတယ်။ web-safe fonts အတွက် neat CSS
+        font stack generator တွေကို cssfontstack.com မှာလေ့လာနိုင်ပါတယ်။ နောက်ထပ် lesson တွေမှာဆိုရင် web fonts တွေကို
+        importing လုပ်ပြီးတော့ ကိုယ်ပိုင် fonts တွေကို ဘယ်လို provide လုပ်ရမယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။
+        နောက်ထပ်ကတော့ font-style property ပဲဖြစ်ပါတယ်။ သူ့မှာပေးလိုက်ရတာကတော့ italic or oblique တို့ပဲဖြစ်ပါတယ်။ သူ့ရဲ့
+        default value ကတော့ normal ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            body
+            {
+                color: rgb(13, 13, 26);
+                margin: 0;
+                font-size: 1em;
+                font-family:"Helvetical", Helvetica, Arial, sans-serif;
+            
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Line-height Property</h1>
+    <p>
+        Line height ဆိုတာကတော့ text ရဲ့ lines ကြားထဲမှာရှိတဲ့ vertical spacing ကို define လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ page မှာ text lines တွေအများကြီးနဲ့ long paragraphs မှာဆိုရင် users တွေအနေနဲ့ read
+        လုပ်ဖို့ရန်အတွက် အခက်အခဲဖြစ်စေပါတယ်။ ပိုပြီးတော့ ကြည့်ကောင်းတဲ့ line spacing တွေဟာ ကျွန်တော်တို့ရဲ့ text ကို
+        read လုပ်တဲ့အချိန်မှာ ပိုပြီးတော့လွယ်ကူစေပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ light-height property
+        ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ property ကိုအသုံးပြုပြီးတော့ text ရဲ့ lines တွေကြားထဲက vertical gaps ကို increase
+        or decrease လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ရဲ့ page မှာ default line height value ပါရှိပြီးသားဖြစ်ပါတယ်။ အဲ့
+        property ကို body element ထဲမှာပဲ page ရဲ့ line height အားလုံးကို set လုပ်ဖို့ရန်အတွက်အသုံးများပါတယ်။
+        line-height property ဟာဆိုရင် မတူညီတဲ့ values တွေကို accept လုပ်နိုင်ပါတယ်။ သူ့ရဲ့ default value ကတော့ normal
+        ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် unit-less number value, pixel or percentage value တွေကို လည်း accept လုပ်နိုင်ပါတယ်။
+        နောက်ထပ် relative units တွေဖြစ်တဲ့ em or rems units ကိုလည်း accept လုပ်နိုင်ပါသေးတယ်။ အကောင်းဆုံးကတော့ unit-less
+        numbers ကို line heights အတွက်အသုံးပြုတာပိုကောင်းပါတယ်။
+    </p>
+    <p>
+        line height ဟာ element တစ်ခုရဲ့ font size နဲ့ သူ့ရဲ့ scales နဲ့ proportional ဖြစ်ပါတယ်။ သူဟာ length values
+        ကိုအသုံးပြုတာထက် ပိုပြီးတော့ predictable ဖြစ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ line-height property ကို unit-less
+        value 1.5 ပေးလိုက်တဲ့အခါမှာ browser ဟာဆိုရင် line height ကို determine လုပ်ဖို့ရန်အတွက် element တစ်ခုချင်းစီရဲ့
+        font size ကို 1.5 နဲ့ multiply လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ နောက်ဆုံးအနေနဲ့ကတော့ CSS မှာဆိုရင် handy shorthand
+        property တစ်ခုရှိပါတယ်။ font properties တစ်ခုထဲမှာ values တွေကို တစ်ခါတည်းထည့်ပြီးတော့အသုံးပြုလို့ရပါတယ်။ ဥပမာ
+        ကျွန်တော်တို့ဟာ font-weight, font-size, line-height and font-family တွေကို တစ်ခုထဲမှာရေးချင်တယ်ဆိုရင် သုံးရမဲ့
+        property က font ဖြစ်ပြီးတော့ နောက်က ကျွန်တော်တို့အသုံးပြုချင်တဲ့ သက်ဆိုင်ရာ values တွေကို ထည့်ပေးရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ font shorthand property ကိုအသုံးပြုတဲ့အချိန်မှာ အရေးကြီးဆုံးအချက်ကတော့ သူ့မှာ font-size နဲ့
+        font-family ကို define ပေးရပါမယ်။ font-style or font-weight value ကိုအသုံးပြုချင်တယ်ဆိုရင်တော့ အဲ့ဒါတွေကို
+        font-size value ရဲ့ ရှေ့မှာ define လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            body
+            {
+                color: rgb(13, 13, 26);
+                margin: 0;
+                font: 1em/1.5 "Helvetical", Helvetica, Arial, sans-serif;/*font-size/line-height font-family*/
+            
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Box Model</h1>
+    <p>
+        Box mode ဟာဆိုရင် CSS layout ရဲ့ basic ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ elements တွေကို ဘယ်လို display လုပ်မယ်
+        ပြီးတော့ အဲ့ elements တွေဟာ တစ်ခုနဲ့ တစ်ခု ဘယ်လို interact လုပ်ပေးတယ်ဆိုတာကို
+        ပြောပြပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Element တစ်ခုချင်းစီကို rectangular box တစ်ခုစီအနေနဲ့ တွေးကြည့်လိုက်ပါ။ Box
+        ရဲ့ space ဟာ content ပေါ်မှာမူတည်ပြီးတော့ ယူပါတယ်။ padding borders and margins တွေဟာ content ကို surround
+        လုပ်ထားပါတယ်။ Box model ဟာဆိုရင် page ပေါ်မှာယူတဲ့ element တစ်ခုချင်းစီရဲ့ amount of space ကို describe
+        လုပ်ပေးပါတယ်။ အလွန်အခြေခံကျတဲ့ designing ဖြစ်တဲ့ CSS ရဲ့ box model concept ကို နားလည်ထားဖို့ရန်လိုပါတယ်။ Box
+        model မှာဆိုရင် element တွေကို naturally displayed လုပ်ဖို့ရန်အတွက် နည်းလမ်း 2 ခုပဲရှိပါတယ်။ Most elements
+        တွေမှာဆိုရင် default ကတော့ block or inline ပဲဖြစ်ပါတယ်။ Block elements ဆိုတာကတော့ parent element ရဲ့ width
+        ကနေပြီးတော့ full width ကိုအပြည့်ယူပေးမှာဖြစ်ပါတယ်။ ပြီးရင် new line တစ်ခုကို element ရဲ့ ရှေ့နဲ့ နောက်မှာ create
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ Example block elements တွေကတော့
+        divs, paragraphs, any heading tag or list item တို့ပဲဖြစ်ပါတယ်။ Inline elements ဆိုတာကတော့ သူဟာ width
+        တွေအများကြီးလိုအပ်ပါတယ်။ သူဟာ new lines တွေကိုတော့ create လုပ်မှာမဟုတ်ပါဘူး သူဟာ ရှိနေတဲ့ content နဲ့အတူ inline
+        ဖြစ်နေမှာဖြစ်ပါတယ်။ Example inline elements တွေကတော့ span tags, images and anchor elements တို့ပဲဖြစ်ပါတယ်။
+        အခုတစ်ခါ discuss လုပ်မှာကတော့ padding, borders and margins တို့ဟာ box တစ်ခုပုံစံံနဲ့ ဘယ်လို interact
+        လုပ်တယ်ဆိုတာကို discuss လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ သူ့တို့ုကို နားလည်ဖို့ အရေးကြီးပါတယ်။ Box model ထဲမှာရှိတဲ့ box
+        ကို သူ့ရဲ့ sizes ကို calculate လုပ်ဖို့ရန်အတွက် ပိုင်း 4 ပိုင်းနဲ့ ခွဲခြားထားပါတယ်။ ပုံမှာပြထားတဲ့ innermost
+        area ဟာဆိုရင် content area အတွက်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် text တို့ image တို့ရဲ့ actual content တွေပါတဲ့ area
+        တစ်ခုပဲဖြစ်ပါတယ်။ Content area ကို surrounding လုပ်ထားတာတော့ padding area ပဲဖြစ်ပါတယ်။ Padding area ဟာဆိုရင်
+        content area အတွက် border area ကနေ surround လုပ်ထားတဲ့ content ကနေ separate ပြီးတော့ breathing room ကို
+        ပေးပါတယ်။ Border area ဟာဆိုရင် box ရဲ့ outermost part ပဲဖြစ်ပါတယ်။ Border ဟာဆိုရင် optional ဖြစ်ပါတယ်။ သူ့ကို
+        style တွေ applied လုပ်နိုင်ပါတယ်။ နောက်ဆုံးကျန်တာကတော့ margin area ပဲဖြစ်ပါတယ်။ သူဟာ box ရဲ့ အပြင်ဘက်မှာ
+        ရှိပါတယ်။ Element တစ်ခုရဲ့ ပါတ်ပါတ်လည် space ကို အခြား elements တွေကနေပြီးတော့ separate လုပ်ပေးနိုင်ပါတယ်။
+        အရေးဆုံးကတော့ padding area ပဲဖြစ်ပါတယ် သူဟာ box ထဲက space ကို create လုပ်ပေးပါတယ်။ Box model မှာဆိုရင် padding,
+        borders and margins တို့ဟာ အရေးကြီးဆုံးအပိုင်းပဲဖြစ်ပါတယ်။
+    </p>
+    <pre>
+       <code>
+           <img src="../image/box.jpg" alt="box_model">
+       </code>
+   </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခုကျွန်တော်တို့ဟာ element တစ်ခုရဲ့ content area ကို padding ဟာ ဘယ်လို effect ဖြစ်တယ်ဆိုတာကို
+        အသုံးပြုမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ page ရဲ့ wildlife class ကို padding apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့မှာ
+        ကျွန်တော်တို့ အရင်လေ့လာခဲ့ပြီးဖြစ်တဲ့ color property နဲ့ background-color property တွေကို အသုံးပြုမှာဖြစ်ပါတယ်။
+        Padding ကို ပေးတဲ့အခါမှာ နည်းလမ်း 2 မျိုးနဲ့ ပေးနိုင်ပါတယ်။ First, padding ကို ( padding-top: 100px; ,
+        padding-right: 120px; , padding-bottom: 100px; , padding-left: 120px;) ဆိုပြီးတော့ ပေးနိုင်ပါတယ်။
+        နောက်တစ်မျိုးကတော့ shorthand property လို့ခေါ်တဲ့ padding ကိုပေးတဲ့အခါမှာ သူဟာ clock လိုမျိုးသွားတဲ့ဖြစ်တဲ့အတွက်
+        ကြောင့် top-rigth-bottom-left ဆိုပြီးသွားတာဖြစ်ပါတယ်။ padding ကိုပေးတဲ့အခါမှာ တစ်ခုထဲပေးထားရင် top အတွက်ကိုပဲ
+        apply လုပ်ပေးမှာဖြစ်ပါတယ်။ values နှစ်ခုပေးတဲ့အခါမှာ top နဲ့ right ကို apply လုပ်ပေးမှာဖြစ်ပါတယ်။ values တွေကို
+        တော့ ကျွန်တော်တို့ကြိုက်သလိုပေးနိုင်ပါတယ်။ အဲ့မှာဆိုရင် pixels နဲ့လည်း ပေးလို့ရသလို % နဲ့လည်းပေးလို့ရပါတယ်။
+
+
+    </p>
+    <p>Code in CSS</p>
+    <pre>
+       <code>
+        .wildlife{
+            color: white;
+            background-color: #434a52;
+            padding: 18% 24%;
+        }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Border Property</h1>
+    <p>
+        အခုကျွန်တော်တို့မှာ padding areas ကို defined လုပ်ပြီးပါပြီ။ ဒီတစ်ခါမှာ ကျွန်တော်တို့ wildlife div မှာ border
+        area ရဲ့ style ကို apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် border width property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ border
+        width ကို value ပေးတဲ့အခါမှာ length or percentage units တို့ကို ကြိုက်တဲ့ units ကိုအသုံးပြုနိုင်ပါတယ်။ နောက်ထပ်
+        thin, medium, and thick ဆိုတဲ့ keywords တွေကိုလည်း အသုံးပြုနိုင်ပါတယ်။ နောက်ပြီးတော့ border style property
+        ကိုအသုံးပြုတာဟာ element ရဲ့ border style ကို ပေးချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ border style property ရဲ့ values
+        ကိုပေးတဲ့အခါမှာ solid, dashed and dotted ဆိုတဲ့ values တွေထဲက ကျွန်တော်တို့ ပေးချင်တဲ့ values
+        ကိုအသုံးပြုနိုင်ပါတယ်။ နောက်ပြီးတော့ border color property ပဲဖြစ်ပါတယ် သူကတော့ကျွန်တော်တို့ create လုပ်လိုက်တဲ့
+        border ရဲ့ color အတွက်သုံးပြုတာပဲဖြစ်ပါတယ်။ color ရဲ့ values တွေကိုတော့ ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ ဥပမာ(
+        border-width: 10px; , border-style: solid; , border-color: #ffa949;) ။ အဲ့ဒါတွေအားလုံးကို shorthand property
+        ကိုအသုံးပြုပြီးတော့ ရေးနိုင်ပါတယ်။ သူ့ကိုအသုံးပြုတဲ့အခါမှာ first က width အတွက်ဖြစ်ပြီးတော့ second ကတော့ style,
+        third ကတော့ border ရဲ့ color အတွက်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ color ကိုပေးတဲ့ နေရာမှာ border ရဲ့ four side
+        လုံးမှာ color တစ်မျိုးစီကိုပေးနိုင်ပါတယ်။ သူဟာလည်း top-right-bottom-left ဆိုပြီးတော့ apply
+        လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ Shorthand မှာကျွန်တော်တို့ဟာ color ကို မပေးခဲ့ဘူးဆိုရင် border ရဲ့ color ဟာ text ရဲ့
+        color ကိုယူပြီးတော့ apply လုပ်သွားမှာပါ။ Border ကိုပေးတဲ့အခါမှာလည်း top-right-bottom-left ကိုလည်း
+        ကျွန်တော်တို့ပေးချင်တဲ့ side တစ်ခုထဲကိုလည်းပေးနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+        .wildlife{
+            color: white;
+            background-color: #434a52;
+            padding: 18% 24%;
+            /* border-width: 10px;
+            border-style: solid;
+            border-color: orangered; */
+            border-top: 10px solid orangered; 
+        }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Margin Property</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ box model အကြောင်းကို discuss လုပ်တဲ့ချိန်မှာ box တစ်ခုရဲ့ side တစ်ခုချင်းစီအတွက် margin ကို
+        define လုပ်နိုင်တဲ့အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ padding property လိုပဲ margin property မှာလည်း values
+        တွေပေးတဲ့အခါမှာ percentage or length values တွေနဲ့ပေးနိုင်ပါတယ်။ padding property မှာဆိုရင် values
+        တွေပေးတဲ့အခါမှာ clockwise သွားတယ်ဆိုတာကို သိပြီးဖြစ်ပါတယ်။ margin property မှာ လည်း အဲ့လိုပဲ သွားပါတယ်။
+        ကျွန်တော်တို့ရဲ့ wildlife မှာ margin ကို apply လုပ်ကြည့်ပါမယ်။ margin ကိုလည်း shorthand property
+        ကိုအသုံးပြုပြီးတော့ values တွေပေးမှာဖြစ်ပါတယ်။ values တွေပေးတဲ့အခါမှာ negative sign နဲ့လည်းပေးလို့ရပါတယ် (
+        -90px) ။ ကျွန်တော်တို့ရဲ့ page မှာ အမှန်တစ်ကယ် apply လုပ်မဲ့ values ကိုပေးတာပိုကောင်းပါတယ်။ margin မှာဆိုရင်
+        value မှာ auto ဆိုပြီးတော့ လည်းပေးနိုင်ပါတယ်။ auto value ကတော့ top-right-bottom-left ကို auto
+        ချိန်ပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+        .wildlife{
+            color: white;
+            background-color: #434a52;
+            padding: 18% 24%;
+            /* border-width: 10px;
+            border-style: solid;
+            border-color: orangered; */
+            border-top: 10px solid orangered; 
+            /* margin-top: 105px;
+            margin-right: 0;
+            margin-bottom: 60px;
+            margin-left: 0;
+             */
+             margin: 105px 0 60px 0;
+        }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Display Property </h1>
+    <p>
+        Display property ဟာဆိုရင်လည်း layout တွေကို control လုပ်ဖို့တဲ့နေရာမှာ CSS ရဲ့ အရေးကြီးတဲ့ properties တွေထဲက
+        တစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ display property ကိုအသုံးပြုပြီးတော့ element တစ်ခုရဲ့ default display ကို
+        override လုပ်နိုင်ပါတယ်။ သူ့မှာဆိုရင် အသုံးများတဲ့ display values တွေကတော့ none, block, inline, and inline block
+        တွေဖြစ်တဲ့ keyword တွေပဲဖြစ်ပါတယ်။ display property မှာ none value ကိုအသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့ရဲ့
+        wildlife div ဟာ sorting လုပ်ထားတာတွေဟာ turned off ဖြစ်သွားမှာဖြစ်ပါတယ်။ value block ဟာဆိုရင် divs, paragraphs,
+        and all headings တွေအတွက် default display ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် parent element ရဲ့ width ကို
+        အပြည့်ယူတာပဲဖြစ်ပါတယ်။ anchor element တွေမှာဆိုရင် inline ဟာဆိုရင် default display ဖြစ်ပါတယ်။ ဒါပေမဲ့
+        ကျွန်တော်တို့ဟာ display property မှာ block ပေးလိုက်တဲ့ အခါမှာ block ဟာဆိုရင် inline ကို override
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ main header ကို display property မှာ inline value
+        ကိုအသုံးပြုလိုက်တဲ့အခါမှာ main herder ရဲ့ h1 ဟာဆိုရင်နဲ့ span element နဲ့ညီသွားမှာဖြစ်ပါတယ်။ ဒါကြောင့် inline
+        value ဟာဆိုရင် elements တွေကို same line မှာ display လုပ်ပေးမှာဖြစ်ပါတယ်။ Display property တွေရဲ့ values
+        တစ်ခုချင်းစီကို ကိုယ်တိုင် အသုံးပြုကြည့်တဲ့အခါမှာ ပိုပြီးတော့နားလည်လာပါလိမ့်မယ်။ ကျွန်တော်တို့ဟာ list items
+        တွေအတွက် display property မှာ inline-block value ကိုအသုံးပြုလိုက်တဲ့အခါမှာ navigation
+        တစ်ခုလိုဖြစ်သွားမှာဖြစ်ပါတယ်။ Navigation တို့ complex layout တု့ိမှာ ဒီ display values ကို အသုံးပြုနိုင်ပါတယ်။
+        ကျွန်တော်တို့ဟာ link elements တွေမှာ padding, border, margin and display style တွေကို အသုံးပြုပြီး သူတို့ဘယ်လို
+        effect ဖြစ်စေတယ်ဆိုတာကို output မှာ လေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+        .callout{
+            font-size: 1.25em;
+            border-bottom: 3px solid;
+            padding: 0 9px 3px;
+            margin-top: 20px;
+            display: inline-block;
+       }
+       
+       </code>
+   </pre>
+    <hr>
+    <h1>Basic Layout</h1>
+    <p>
+        အခုကျွန်တော်တို့ဟာ box model ကို အခြေခံပြီးတော့ basic layout ကို building လုပ်တာကို လေ့လာမှာဖြစ်ပါတယ်။ Elements
+        တစ်ခုရဲ့ width နဲ့ height ပေးတာဟာ ကျွန်တော်တို့ ပေးလိုက်တဲ့ width နဲ့ height မှာ content ကို hold
+        လုပ်ထားတယ်ဆိုပြောပြပေးတာပဲဖြစ်ပါတယ်။ width နဲ့ height ကိုပေးတဲ့နေရာမှာ pixels, ems, or percentages တွေနဲ့
+        ပေးလို့ရပါတယ်။ layout ကို ပေးတဲ့နေရာမှာ pixel နဲ့ပေးတာပိုကောင်းပါတယ်။ ကျွန်တော်ရဲ့ page မှာ SVG image တစ်ခုကို
+        class name "arrow" နဲ့ add လုပ်ထားပါမယ်။ အဲ့ဒါကို ကျွန်တော်တို့ဟာ width နဲ့ height ကို adjust သွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ main header မှာလည်း padding တွေ margin တွေ width တွေ height တွေနဲ့ adjust လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+        .primary-content, .secondary-content{
+
+            width: 860px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: auto;
+        }
+        .arrow{
+            width: 50px;
+        }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Box-sizig and Max-width Properties</h1>
+    <p>
+        Element တစ်ခုရဲ့ expanding total size ကို padding and border တွေအတွက် အကောင်းဆုံးနည်းလမ်းကတော့ CSS ရဲ့ new
+        feature ဖြစ်တဲ့ box-sizing property ပဲဖြစ်ပါတယ်။ box-sizing property နဲ့ ကျွန်တော်တို့ဟာ total width and height
+        ကို calculate လုပ်တဲ့ way ကို ပြောင်းလဲနိုင်ပါတယ်။ သူ့ရဲ့ value တွေကတော့ element တစ်ခုရဲ့ width and height ကို
+        expand လုပ်မဲ့အစား padding and border ကို အသုံးပြုမှာဖြစ်ပါတယ်။ box-sizing property ဟာဆိုရင် side
+        တစ်ခုချင်းစီမှာရှိတဲ့ border and padding တွေကို width and height properties ကနေ subtract
+        လုပ်ပေးလိုက်တာပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် ကျွန်တော်တို့ project ထဲမှာရှိတဲ့ widths and heights ကို define
+        ဖို့ရန်အတွက် flexible ဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ project ထဲမှာ universal selector နဲ့ box-sizing ကို create
+        လုပ်ပေးလိုက်မှာဖြစ်ပါတယ်။ universal selector ဟာဆိုရင် သူ့ကို တလွဲအသုံးပြုမယ်ဆိုရင်တော့ ဆိုးပါတယ်။
+        ကျွန်တော်တို့ဟာ primary and secondary-content values ကို 75% ကိုပြောင်းပေးလိုက်ပါမယ်။ ဘာလို့လဲဆိုရင်
+        ကျွန်တော်တို့ရဲ့ content ကို browser width ရဲ့ 75% ကိုပဲ ယူမှာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        နောက်ထပ်အသုံးပြုမှာကတော့ max-width property ပဲဖြစ်ပါတယ်။ သူ့ကို အသုံးပြုတာဟာ ကျွန်တော်တို့ရဲ့ content ကို
+        ကျွန်တော်တို့ ပေးလိုက်တဲ့ 900px ထက်မကျော်စေချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ browser ကို resize
+        လုပ်တဲ့အခါမှာလည်းပဲ browser ရဲ့ total width အတိုင်း 900px ကိုယူပေးမှာဖြစ်ပါတယ်။ max-width property ကို
+        responsive images တွေကို create လုပ်အခါမှာ အသုံးများပါတယ်။ အခုကျွန်တော်တို့ရဲ့ image မှာ max-width property
+        ကိုအသုံးပြုမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            *{
+                box-sizing: border-box;
+            }
+            
+            img{
+                max-width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .primary-content, .secondary-content{
+
+                width:75%;
+                padding-left: 50px;
+                padding-right: 50px;
+                margin: auto;
+                max-width: 900px;
+            }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Background Image Property</h1>
+    <p>
+        HTML မှာဆိုရင် margin area ကို except လုပ်ပြီးတော့ background layer ကို considered လုပ်ပေးလို့ရပါတယ်။ Element
+        တစ်ခုချင်းစီမှာဆိုရင် transparent လို့ခေါ်တဲ့ browser ကနေ default apply လုပ်ပေးထားတဲ့ background layer
+        တစ်ခုရှိကြပါတယ်။ အချို့ basic background properties တွေဟာဆိုရင် color and images တွေကို apply လုပ်ပေးကြပါတယ်။
+        အခုကျွန်တော်တို့လေ့လာမှာကတော့ element တစ်ခုရဲ့ background ကို နေရာတကျနဲ့ size ကိုလည်း အဆင်ပြေအောင် ဘယ်လို
+        certain properties ကိုအသုံးပြုမယ်ဆိုတာကို လေ့လာကြမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အခု background image property ကို
+        main header မှာ အသုံးပြုမှာဖြစ်ပါတယ်။ background image property မှာ အသုံးပြုတဲ့ value ကတော့ URL ပဲဖြစ်ပါတယ်။ URL
+        ထဲမှာဆိုရင် ကျွန်တော်တို့အသုံးပြုချင်တဲ့ image ရဲ့ path ကို မှန်အောင် put လုပ်ပေးရမှာဖြစ်ပါတယ်။ path ကို
+        parentheses ထဲမှာရေးပေးရမှာဖြစ်တယ်။ အဲ့ parentheses ထဲမှာ path ကို single quotes နှစ်ခုကြားမှာရေးပေးရမှာပါ။
+        အဲ့လို background image ကို put လုပ်တဲ့အချိန်မှာ background image ဟာဆိုရင် default အရ image ဟာ horizontally and
+        vertically နှစ်လုံးမှာ repeat or tiled ဖြစ်နေမှာဖြစ်ပါတယ်။ image ရဲ့ size ဟာ large ဖြစ်နေမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ background size property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ background size
+        ကို 40% ပေးလိုက်တဲ့အခါမှာ percentage value ဟာဆိုရင် element background area ရဲ့ width and height နဲ့ relative
+        ဖြစ်ပါတယ်။ သူဟာ actual image ရဲ့ width and height နဲ့ relative မဖြစ်ပါဘူး။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ image
+        ဟာဆိုရင် background area ရဲ့ 40% ကို ယူတာဖြစ်တဲ့အတွက်ကြောင့် default ဟာ apply လုပ်နေတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        ကျွန်တော်တို့ဟာ background-repeat property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ background-repeat property မှာဆိုရင် value
+        တွေဟာ repeat, no-repeat, repeat မှာဆိုရင် repeat-x, repeat-y ဆိုပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ သူတို့နှစ်ခုဟာ
+        horizontal နဲ့ vertical မှာ repeat ဖြစ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            .main-header{
+                background-color: #ffa949;
+                padding-top: 170px;
+                height: 850px;
+                background-image: url('../image/mountain.jpg');
+                background-size: 40%;
+                background-repeat: no-repeat;
+             
+             }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Background Positon Property</h1>
+    <p>
+        Default ကြောင့် ကျွန်တော်တို့ရဲ့ background image ဟာဆိုရင် top left hand corner မှာ ပေါ်နေတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ အဲ့ဒါကို background position property ကိုအသုံးပြုပြီးတော့ control လုပ်နိုင်ပါတယ်။ သူ့မှာဆိုရင်
+        value ကို keyword နဲ့ပေးလို့ရသလို percentage နဲ့လည်းပေးလို့ရပါတယ်။ ကျွန်တော်တို့ဟာ image တစ်ခုလုံးကို
+        ကျွန်တော်တို့ရဲ့ header မှာ အပြည့်ပေါ်ဖို့ဆိုရင် background-size property မှာလဲ cover ဆိုတဲ့ value
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ background-position property မှာလည်း value ကို center
+        ဆိုပြီးတော့ပေးခဲ့ရမှာဖြစ်ပါတယ်။ ကျွန်တော့်ဟာ background property ရဲ့ values တွေအားလုံးကို shorthand property
+        ကိုအသုံးပြုပြီးတော့ ရေးနိုင်ပါတယ်။ သူ့မှာဆိုရင်တော့ color ပြီးရင် URL ပြီးရင် position ပြီးရင် size
+        တို့ပဲဖြစ်ပါတယ်။ background values တွေကို တစ်ခုချင်းစီရေးတာ ပိုကောင်းပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+            .main-header{
+                background-color: #ffa949;
+                padding-top: 170px;
+                height: 850px;
+                background-image: url('../image/mountain.jpg');
+                /* background-size: 40%; */
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+             }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Float Property</h1>
+    <p>
+        Layouts တွေကို build လုပ်ဖို့ရန်အတွက် page မှာ element တေကို ဘယ်လို position ချရမယ်ဆိုတာကို သိဖို့ အရေးကြီးသလို
+        box model components တွေကိုလည်း နားလည်ဖို့ အရေးကြီးပါတယ်။ အခုကျွန်တော်ပြောပြပေးမှာကတော့ float positioning
+        အကြောင်းပဲဖြစ်ပါတယ်။ သူဟာလည်း CSS မှာ page တစ်ခုကို laying out လုပ်ဖို့ရန်အတွက် အသုံးများတဲ့ method
+        တစ်ခုဖြစ်ပါတယ်။ element တစ်ခုကို floated လုပတယ်ဆိုတာ သူ့ရဲ့ container ထဲမှာ left or right မှာ ကျွန်တော်တို့ရဲ့
+        element ကို နေရာထားတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော်တို့ရဲ့ resorts class နဲ့ tips class
+        မှာအသုံးပြုမှာဖြစ်ပါတယ်။ float property မှာ value ကို left ပေးလိုက်တဲ့အခါမှာ element ဟာ container ရဲ့ left
+        ဘက်မှာနေရာယူမှာဖြစ်ပြီးတော့ right ပေးတဲ့အခါမှာတော့ container ရဲ့ right မှာနေရာယူမှာဖြစ်ပါတယ်။ coding
+        မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+            /* Float Colums*/
+            .resorts,
+            .tips{
+                width: 46.5%;
+            }
+            .tips{
+                float: right;
+            }
+            .resorts{
+                float: left;
+            }
+            .resorts img{
+                height: 252px;
+            }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Overflow and Clearfix</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ float container ကို stretch လုပ်ချင်တဲ့အခါမှာဘဲဖြစ်ဖြစ် float ကို accommodate
+        လုပ်ချင်တဲ့အခါမှာဘဲဖြစ်ဖြစ် overflow property ကိုအသုံးပြုနိုင်ပါတယ်။ သူ့မှာ သုံးရတဲ့ values တွေကတော့ hidden or
+        auto တို့ပဲဖြစ်ပါတယ်။ overflow ကိုအသုံးပြုလိုက်တဲ့အချိန်မှာ browser ဟာဆိုရင် floated columns ရဲ့ height ကို
+        account လုပ်နိုင်သွာမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် float ကို clearing လုပ်တဲ့ simple way တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့
+        overflow value တွေကို set လုပ်တဲ့ပေါ်မှာမူတည်ပြီးတော့ browser မှာ scroll bars တွေပေါ်လာတာတွေ content area ရဲ့
+        parts တွေဟာ cut off ဖြစ်သွားတာတွေဖြစ်နိုင်ပါတယ်။ clearing floats လုပ်ဖို့ရန်အတွက် အကောင်းဆုံး methods ကတော့
+        clearfix ပဲဖြစ်ပါတယ်။ အဲ့ method ကို အသုံးပြုမယ်ဆိုရင် overflow property ကိုအသုံးပြုစရာမလိုပါဘူး။
+        ကျွန်တော်တို့ရဲ့ project ထဲမှာ two floated columns ဖြစ်တဲ့ secondary-content ထဲမှာ class တစ်ခုကို create
+        လုပ်ပြီးတော့ clearfix method ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ clearfix method ဟာဆိုရင် blank pseudo-element ကို generate
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ clearfix ထဲမှာ clear: both; ဆိုပြီးပေးလိုက်တာဟာ container ရဲ့ sides နှစ်ခုလုံးမှာ collapsed
+        space ကို created လုပ်ပေးလိုက်တာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်ဟာ tow columns ကို reverse လုပ်ချင်တဲ့အခါမှာ
+        tips float ကို left ပေးပြီးတော့ resorts float ကို right ပေးပြီးတော့ reverse လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            /*Float Clearfix*/
+            .group::after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>List Style Type Property</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ un-ordered list တွေ order-list တွေကို ရဲ့ appearance ကို control လုပ်ဖို့ရန်အတွက် list
+        properties ကိုသုံးပြုရပါတယ်။ Un-ordered list ရဲ့ browser default display ဟာဆိုရင် bullet or solid dot ဖြစ်ပါတယ်။
+        ordered list ရဲ့ display ကတော့ number တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် list markers တွေကို change
+        လုပ်ချင်တယ်ဆိုရင်တော့ list style type property ကိုအသုံးပြုပါတယ်။ unordered-list ရဲ့ list style type property
+        မှာဆိုရင် disk, circle or square ဆိုတဲ့ values တွေကို accept လုပ်နိုင်ပါတယ်။ order-list အတွက်ဆိုရင် decimal
+        leading zero ဆိုတဲ့ value ဟာ ကျွန်တော်တို့ list တွေဟာ 01:02 ဆိုတဲ့ ပုံစံကိုပြောင်းပေးမှာဖြစ်ပါတယ်။ အဲ့
+        နှစ်ခုလုံးအတွက် values တွေကို MDN doc list style type section မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+            ul,
+            ol{
+                margin: 30px 0;
+            }
+            li{
+                margin-bottom: 10px;
+            }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Text Shadow Property</h1>
+    <p>
+        အခုကျွန်တော်တို့ဟာ CSS ရဲ့ latest features တွေနဲ့ မိတ်ဆက်ပေးမှာဖြစ်ပါတယ်။ New CSS features တွေကတော့
+        ကျွန်တော်တို့ graphic editor မှာ အသုံးပြုနေကြဖြစ်တဲ့ Photoshop တွေကဲ့သို့ tools တွေပဲဖြစ်ုပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ elements ရဲ့ shape တွေ text shadows ကို apply လုပ်တာတွေ box shadows and gradients တွေကို
+        လုပ်ဆောင်နိုပါတယ်။ ကျွန်တော်တို့ဟာ background images တွေကို layer ချချင်တဲ့အခါမှာလည်း elements ကို transitions
+        တွေကို apply လုပ်နိုင်ပါတယ်။ အခုပြောပြပေးမဲ့ CSS property အကြောင်းကတော့ text-shadow property
+        အကြောင်းပဲဖြစ်ပါတယ်။ အဲ့ property မှာဆိုရင် text မှာ drop shadows လေးဖြစ်အောင်လုပ်ဆောင်နိုင်ပါတယ်။ အဲ့ property
+        ကို ကျွန်တော်တို့ရဲ့ main header မှာ ထည့်ကြည့်ကြမယ်။ text-shadow property မှာဆိုရင် color value ရဲ့ ရှေ့မှာ
+        length unit values ၃ ခုကို accept လုပ်နိုင်ပါတယ်။ fist length value ကတော့ horizontal shadow အတွက်ဖြစ်ပါတယ်
+        သူကတော့ left or right မှာ shadow ဟာ ဘယ်လို drop ဖြစ်နေမယ်ဆိုတာကို control လုပ်ပေးတာပဲဖြစ်ပါတယ်။ second value
+        ကတော့ vertical အတွက်ပဲဖြစ်ပါတယ်။ သူကတော့ top or bottom မှာ apply လုပ်ပေးတာဖြစ်ပါတယ်။ third value ကတော့ radius
+        အတွက်ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် text-shadow ရဲ့ blur ကို control လုပ်ပေးတာပဲဖြစ်ပါတယ်။ နောက်ဆံုံးကတော့ color value
+        အကြောင်းပဲဖြစ်ပါတယ်။ သူ့ကိုတော့ keyword နဲ့ ပဲဖြစ်ဖြစ်ပါ hexadecimal or RGB values နဲ့ပဲဖြစ်ဖြစ်ပါပေးလို့ရပါတယ်။
+        ကျွန်တော်တို့ဟာ horizontal and vertical ကိုပေးတဲ့အခါမှာ "-" sign ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ သူ့ကိုတော့ opposite
+        direction ကို ပြောင်းစေချင်တဲ့အခါ အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ text-shadow တွေအများကြီးကို create
+        လုပ်ချင်တယ်ဆိုရင်တော့ text-shadows values တွေကို comma တွေခံပြီးတော့ create လုပ်လို့ရပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+            h1{
+                font-size: 5.625em;/* 90px/16px */
+                color: rgb(255, 255, 255);
+                text-transform: uppercase;
+                font-weight: normal;
+                line-height: 1.3;
+                text-shadow: 0 1px 1px rgba(0,0,0, .8);
+              }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Box Shadow Property</h1>
+    <p>
+        text-shadow property လိုပဲ box-shadow property ဟာလည်း elements ရဲ့ shadow ကို cast လုပ်နိုင်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ wildlife content container ထဲမှာ box-shadow property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ box-shadow
+        property မှာဆိုရင် value set တွေဟာ text-shadow property လိုပဲဖြစ်ပါတယ်။ horizontal နဲ့ vertical ကို set
+        လုပ်နိုင်ပါတယ်။ box-shadow property ကိုအသုံးပြုလိုက်တဲ့ ချိန်မှာ elements ရဲ့ ဘေးမှာရှိတဲ့ layout ကို effect
+        ဖြစ်မှာတော့ မဟုတ်ပါဘူး ဘာလို့လဲဆိုရင် box-shadows and text-shadows တွေဟာ layout ပေါ်မှာ influence
+        မရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ box-shadow property မှာဆိုရင် box-shadow ရဲ့ spread distance ကိုလည်း control
+        လုပ်နိုင်ပါတယ်။ သူဟာ box-shadow property ရဲ့ fourth value ဖြစ်တဲ့ spread value ပဲဖြစ်ပါတယ်။ သူကတော့ element ကနေ
+        shadow ကို moves or spreads လုပ်လိုက်မှာဖြစ်ပါတယ်။ အဲ့ဒါကိုအသုံးလိုက်တဲ့အချိန်မှာတော့ box ရဲ့ direction တွေဟာ
+        ညီနေမှာတော့မဟုတ်ပါဘူး။ အဲ့ခါမှာကျွန်တော်တို့ဟာ box-shadow ရဲ့ size ကို control ပြန်လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျန်တဲ့
+        value တွေကိုတော့ ကျွန်တော်တို့ အဆင်ပြေသလို ပေးနိုင်ပါတယ်။ inset keyword ကို အသုံးပြုတဲ့အချိန်မှာတော့
+        ကျွန်တော်တို့ရဲ့ box-shadow ဟာ အတွင်းထဲမှာ ပေါ်လာမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+        <code>
+                .wildlife{
+                    color: white;
+                    background-color: #434a52;
+                    padding: 18% 24%;
+                    /* border-width: 10px;
+                    border-style: solid;
+                    border-color: orangered; */
+                    border-top: 10px solid orangered; 
+                    /* margin-top: 105px;
+                    margin-right: 0; 
+                    margin-bottom: 60px;
+                    margin-left: 0;
+                     */
+                     margin: 105px 0 60px 0;
+                     background-image: url('../image/panda_bear_sits_117767_1280x720.jpg') ;
+                     background-repeat: no-repeat;
+                     background-size: cover;
+                     box-shadow: 0 0 50px 10px rgba(0,0,0, 1);
+                
+                }
+        </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Border Radius Property</h1>
+    <p>
+        CSS မှာဆိုရင် elements တွေရဲ့ corner ကို create လုပ်ဖို့ရန်အတွက် properties တွေရှိပါတယ်။ border-radius property
+        ဟာဆိုရင် element ရဲ့ corner တွေကို rounded လုပ်နဲ့နေရာမှာ အလွယ်အကူဆုံးပဲဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ရဲ့ wildlife
+        div နဲ့ image တွေမှာ border-radius property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ border-radius property မှာဆိုရင် values 4
+        အခုအတွက် shorthand property ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့ values 4 ခုတော့ border-top-left-radius ၊
+        border-top-right-radius ၊ border-bottom-left-radius ၊ border-bottom-right-radius တို့ပဲဖြစ်ပါတယ်။
+        သူတို့ထဲမှာတော့ values တွေကို length values or percentages တွေကို အသုံးပြုနိုင်ပါတယ်။ သူ့တိုကို shorthand နဲ့
+        ရေးတဲ့ အခါမှာလည်း သူတို့ဟာ clockwise ပုံစံအတိုင်း သွာမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            /* 
+            border-top-left-radius: 30px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 30px; */
+            border-radius: 10px;
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Gradient</h1>
+    <p>
+        Gradient ဟာဆိုရင် CSS ရဲ့ real color တစ်မျိုးတော့မဟုတ်ပါဘူး။ သူ့ကိုတော့ background တို့ header background
+        တို့မှာအသုံးပြုပါတယ်။ သူ့ကို background-image နဲ့အသုံးပြုရမှာဖြစ်ပါတယ်။ linear-gradient နဲ့ radial-gradient
+        ဆိုပြီးတော့ type နှစ်ခုရှိပါတယ်။ အဲ့နောက်မှာတော့ parentheses ထဲမှာ gradient ရဲ့ color ကို define
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့နောက်မှာ comma ခံပြီးတော့ color type ကိုရေးပေးရမှာဖြစ်ပါတယ်။ gradient color
+        ကိုကျွန်တော်ပေါ်စေချင်တဲ့ top, right , bottom , left ကြိုက်တဲနေရာမှာ ပေါ်အောင် to ဆိုတဲ့ keyword ကို
+        အသုံးပြုပြီးတော့ create လုပ်နိုင်ပါ။ radio-gradient မှာ တော့ add ဆိုတဲ့ keyword ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+       <code>
+            background-image: linear-gradient(to top#ffa949,firebrick);
+       </code>
+   </pre>
+    <hr>
+    <h1>Trasparent Color</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ gradients ကို color ရဲ့ value transitions ကို transparent value တွေအဖြစ်ကိုလည်း create
+        လုပ်လို့ရပါတယ်။ ကျွန်တော်အခု transparent linear-gradients နှစ်ခုကို main header ရဲ့ background image မှာ create
+        လုပ်ပြမှာဖြစ်ပါတယ်။ အဲ့ဒါကို background property ပါပဲ shorthand property နဲ့ create လုပ်လို့ရပါတယ်။ CSS3 ရဲ့
+        useful feature ကတော့ ကျွန်တော်တို့ဟာ multiple background image တွေကို layer လုပ်နိုင်ပါတာပဲဖြစ်ပါတယ်။ background
+        value တစ်ခုနဲ့ တစ်ခုကြားထဲမှာတော့ comma တွေနဲ့ separate လုပ်ပေးရပါမယ်။ အဲ့လို create လုပ်တဲ့နေရာမှာ
+        တစ်ခုသတိထားရမှာကတော့ put လုပ်လိုက်တဲ့ first value ဟာ top layer ကို apply လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့
+        color value တွေကို ပေးတဲ့အခါမှာ color ကို content ရဲ့ ဘယ်လောက် % ကိုပဲ apply လုပ်စေချင်ပါတယ်ဆိုတဲ့ comment ကို
+        color value ရဲ့ နောက်မှာ % ကိုအသုံးပြုပြီးတော့ ပေးနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ transparent ကိုပေးတဲ့အခါမှာ bottom
+        မှာပေါ်စေချင်တဲ့အခါမှာ 0deg ဆိုပြီးတော့ အရင်ဆုံးပေးခဲ့ရမှာဖြစ်ပါတယ်။ coding နဲ့ example out ကို
+        တွဲကြည့်တဲ့အခါမှာ ပိုပြီးတော့ မြင်သာပါလိမ့်မယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            background-image: linear-gradient(#ffa949, transparent 90%),
+            linear-gradient(0deg, #fff, transparent 70%),
+            url('../image/sea_lake_island_mountains_118555_1280x720.jpg');
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Import Own Web Fonts</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ site ကို user တွေကကြည့်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ site မှာ add ထားတဲ့ fonts နဲ့ users တွေရဲ့
+        computer မှာရှိတဲ့ fonts နဲ့ ကိုက်ညီဖို့အရေးကြီးပါတယ်။ ကျွန်တော်တို့ဟာ web fonts တွေကို importing လုပ်ပြီးတော့
+        ကျွန်တော်တို့ရဲ့ won fonts တွေကို add လုပ်လို့ရပါတယ်။ web fonts ဆိုတာကတော့ ကျွန်တော်တို့ရဲ့ page ကို external
+        source ကနေ linked လုပ်ထားတဲ့ ပြီးတော့ screen ပေါ်မှာ display လုပ်ဖု့ိရန်အတွက် optimized လုပ်ထားတဲ့ fonts တွေရဲ့
+        special types တစ်ခုပဲဖြစ်ပါတယ်။ web fonts ဟာဆိုရင် user's computer မှာ installed လုပ်ထားတဲ့ fonts ရဲ့ limited
+        number အပေါ်မှာ မူတည်ပြီးတော့ လိုအပ်တာတွေကို eliminate လုပ်ထားတာပဲဖြစ်ပါတယ်။ web font တစ်ခုကို CSS နဲ့ import
+        လုပ်တဲ့နေရာမှာ နည်းလမ်းတွေများကြီးရှိပါတယ်။ အခု @font-face rule အကြောင်းကိုပြောပြသွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ create လုပ်ချင်တဲ့ font တွေကို folder တစ်ခုထဲမှာ ထည့်ခဲ့ရမှာဖြစ်ပါတယ်။ CSS မှာဆိုရင် @font-face
+        property ကိုအသုံးပြုပြီးတော့ folder ထဲက fonts တွေကို ပြန်ခေါ်မှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ font-family
+        ကိုအသုံးပြူရမှာဖြစ်ပါတယ်။ ပြီးရင် ' ' ထဲမှာ fonts ကို name ပေးခဲ့ရမှာဖြစ်ပါတယ် ပြီရင် ကျွန်တော်တို့ folder ထဲမှာ
+        ရှိတဲ့ src နဲ့ link လုပ်ထာတဲ့ font တွေကို copy လုပ်ပြီးတော့ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးရင် အဲ့ fonts ကို
+        ကျွန်တော်တို့အသုံးပြုချင်တဲ့ element မှာ font-family ကိုအသုံးပြုပြီးတော့ ပြန်ခေါ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+            @font-face{ font-family: 'Motion';
+            src:url('../font/RestaurantMenuBook.ttf');
+            }
+            h1,
+            h2{
+                font-family: 'Motion', Helvetica, Arial, sans-serif;
+            }
+
+
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Media Query </h1>
+    <p>
+        ဒီနေ့ခောတ်မှာတော့ web designer or front-end developers တွေဟာဆိုရင် responsibilities ရဲ့ အရေးကြီးတဲ့
+        အချက်တစ်ချက်ဖြစ်တဲ့ different devices တွေမှာ content တွေကို ဘယ်လို presented လုပ်ရမယ်ဆိုတာကို
+        လုပ်ဆောင်နိုင်ကြပြီဖြစ်ပါတယ်။ CSS media queries ဟာဆိုရင် different devices, resolutions, browser dimensions
+        တွေကို target လုပ်တဲ့နေရာမှာ အဆင်ပြေတဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ Media queries နဲ့ ကျွန်တော်တို့ဟာ multiple devices
+        and viewport sizes တွေမှာဆိုရင် websites ရဲ့ browsing experience ကို enhance လုပ်ပေးနိုင်ပါတယ်။
+        အခုကျွန်တော်တို့ရဲ့ page ထဲမှာ media queries အချို့ကို အသုံးပြမှာဖြစ်ပါတယ်။ အဲ့လို အသုံးပြုတဲ့နေရာမှာ common
+        method ဖြစ်တဲ့ CSS ထဲကို media queries ကို directly put လုပ်တာပဲဖြစ်ပါတယ်။ media queries ကို create
+        လုပ်တဲ့နေရာမှာ "@media " ဆိုပြီးတော့ parenthesis() လိုက်ပြီးတော့ curly braces လိုက်ပါမယ်{}။ media types တွေကတော့
+        all, Print, Green ဆို့ပဲဖြစ်ပါတယ်။ all media ဟာဆိုရင် devices အားလုံးကို target လုပ်ပေးတာဖြစ်ပါတယ်။ parenthesis
+        ထဲမှာဆိုရင် true or false conditions ကို check လုပ်ရမှာဖြစ်ပါတယ်။ All ဟာဆိုရင် media queries ရဲ့ default media
+        type ပဲဖြစ်ပါတယ်။ check လုပ်တဲ့နေရာမှာ width and height တို့အသုံးပြုနိုင်ပါတယ်။ အခုကျွန်တောတို့ရဲ့ CSS မှာ
+        max-width ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ max-with media ကိုအသုံးပြုတာဟာ browser's viewport ရဲ့ max-width ကို check
+        လုပ်ပေးတာပဲဖြစ်ပါတယ်။ max-width media ကိုပေးတဲ့အခါမှာ နောက်က full colon ပြီးရင် pixel value, percentage value
+        ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာကျွန်တော် သတိထားရမှာက value ကြေငြာပြီးတဲ့နောက်မှာ semi colon ကို
+        ထည့်ပေးစရာမလိုပါဘူး။semi colon ကို CSS declaration ပြီးတဲ့နောက်မှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ value ပေးတာဟာ
+        ကျွန်တော်တို့ရဲ့ page ဟာ အဆိုပါ value ကို ရောက်တဲ့အခါမှာ color တွေ change သွားတာတွေနဲ့ အခား functions တွေကို
+        လုပ်ဆောင်နိုင်ပါတယ်။ နောက်ထပ် media query တစ်ခုကို CSS မှာအသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ min-width နဲ့
+        max-width ကို တစ်ခါတည်းပေးပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ ဥပမာ အဲ့ media နှစ်ခုရဲ့ values ကို 480px and 700px
+        ဆိုပြီးတော့ ပေးလိုက်တာဟာ ကျွန်တော်တို့ page ရဲ့ viewport ဟာ 480px နဲ့ 700px ကြားမှာ change လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        အခုကျွန်တော်တို့ဟာ media query ရဲ့ အကြောင်းကို သိပြီးပြီးဖြစ်တဲ့ အတွက်ကြောင့် ကျွန်တော်တို့ရဲ့ page မှာ content
+        တွေကို မတူညီတဲ့ devices တွေမှာ ကြည့်ရတာအဆင်ပြေအောင် create လုပ်မှာဖြစ်ပါတယ်။ အဲ့လို create လုပ်ပြီးရင်
+        တစ်ခုသတိထားရမှာကေတော့ browser ရဲ့ developer tools ကနေသွားလိုက်တဲ့အခါမှာ phone shape လေးကို click လုပ်ပြီး device
+        တစ်ခုခုကို ရွေးလိုက်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ page content တွေကို ကြည့်ရတဲ့အခါမှာ smaller
+        ဖြစ်နေတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် modern devices တွေကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့လိုမဖြစ်ဖို့ရန်အတွက်
+        ကျွန်တော်တို့ဟာ meta tag ကိုပေးခဲ့ရမှာဖြစ်ပါတယ်။ သူ့မှာအသုံးပြုတဲ့ attributes နှစ်ခုရှိပါတယ် name and content
+        တို့ပဲဖြစ်ပါတယ်။ သူ့ကို head section ထဲမှာရေးပေးရမှာဖြစ်ပါတယ်။ name attribute မှာဆိုရင် value ကို viewport
+        ကိုထည့်းပေးရပါမယ် content မှာဆိုရင် width-device-width ဆိုတဲ့ value ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+       <code>
+        /****** Media Query*******/
+        @media (max-widht:968px){
+            body{
+                background: royalblue;
+            }
+        }
+        @media(min-width:488px){
+            body{
+                background: darkred;
+            }
+        
+        }
+        @media(min-widht:481px) and (max-width:700px){
+            body{
+                background: seagreen;
+            }
+        }
+        @media(max-width:1024px){
+            .primary-content,
+            .secondary-content{
+                width: 90%;
+            }
+            .wildlife{
+                padding: 10% 12%;
+                margin: 50px 0 20px; 
+            }
+        }
+        @media(max-width:760px){
+            .primary-content,
+            .secondary-content{
+                width: 100%;
+                padding: 20px;
+                border-top: none;
+            }
+            .main-header{
+                max-height: 380px;
+                padding: 50px 25px;
+            }
+            .title{
+                font-size: 1.3rem;
+                border: none;
+            }
+            h1{
+                font-size: 5rem;
+                line-height: 1.1;
+            }
+            .arrow{
+                display: none;
+            }
+            .intro{
+                font-size: 1rem;
+            }
+            .resorts,
+            .tips{
+                float: none;
+                width: 100%;
+            }
+            .main-footer{
+                padding: 20px 0;
+            }
+        }
+       </code>
+   </pre>
+    <a href="CSS_Example/rems.html">Test Yourself</a>
+    <hr>
+    <h1>Fundamental Concepts</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ အခု CSS ရဲ့ core features တွေအတော်များများကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ CSS ရဲ့
+        အရေးကြီးတဲ့ fundamental concepts တွေကို ဆက်လေ့လာကြမှာဖြစ်ပါတယ်။ Style sheets ဟာဆိုရင် CSS ကို write
+        လုပ်ဖို့ရန်အသုံးပြုတဲ့ documents တစ်ခုပဲဖြစ်ပါတယ်။ cascading လုပ်တယ်ဆိုတာကတော့ CSS rules တွေကို browser via ကနေ
+        ဘယ်လို apply လုပ်တယ်ဆိုတာကို သဘောပေါက်တဲ့ CSS learning ရဲ့ important part တစ်ခုပဲဖြစ်ပါတယ်။ cascade ဟာဆိုရင်
+        element တစ်ခုကို ဘယ်လို styles တွေရှိရမယ်ဆိုတာကို assigned လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Cascading မပါဘူးဆိုရင် CSS ရဲ့
+        stand ဟာ Conflicting Style Sheets ပဲဖြစ်ပါတယ်။ Cascade ဟာဆိုရင် declarations တွေကြားမှာရှိတဲ့ conflict ကို
+        resolve လုပ်တဲ့နေရာမှာ ကူညီပေးပါတယ်။ CSS ဟာဆိုရင် element တစ်ခုကို origins ကနေ cascade လုပ်နိုင်ပါတယ် ။
+        အဲ့မှာဆိုရင် style of information မှာ three main steps ရှိပါတယ်။ သူတို့ကတော့ importance, specificity and source
+        order။ importance ဟာဆိုရင် မတူညီတဲ့ source တွေကနေလာတဲ့ style sheet ရဲ့ origin ပေါ်မှာ depends လုပ်ပါတယ်။ source
+        တစ်ခုကတော့ User Agent style sheet ပဲဖြစ်ပါတယ် သူကတော့ browser ကနေ default နဲ့ apply လုပ်လိုက်တဲ့ CSS
+        ပဲဖြစ်ပါတယ်။ အခြား source တစ်ခုကတော့ User style sheet ပဲဖြစ်ပါတယ်။ သူ့မှာတော့ user ကနေ set လုပ်ထားတဲ့ style
+        တွေပါပါတယ်။ နောက်ထပ် source တစ်ခုကတော့ Author style sheet ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် HTML page ကို style
+        ဖို့ရန်အတွက် ကျွန်တော်တို့ရေးထားတဲ့ CSS တွေပါပါတယ်။
+    </p>
+    <p>
+        Importance ပြီးတဲ့နောက်မှာ CSS cascade ရဲ့ နောက်ထပ် step တစ်ခုဖြစ်တဲ့ element တစ်ခုမှာ property တစ်ခုကို assign
+        လုပ်တဲ့ specificity ပဲဖြစ်ပါတယ်။ Specificity ဆိုတာကတော့ style declarations ကြားထဲမှာရှိတဲ့ conflict ကို resolves
+        လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ selector တွေအကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ most specific selectors
+        ဟာဆိုရင် less specific selector မှာ override ဖြစ်ကြပါတယ်။ browser ဟာဆိုရင် selector တွေတစ်ခုချင်းစီကို အရင်ဆုံး
+        considered လုပ်လိုက်တဲ့ ပြီးရင် သူဟာ highest specificity နဲ့ style declaration ကို choose လုပ်ပေးမှာဖြစ်ပါတယ်။
+        importance and specificity ပြီးတဲ့နောက်မှာတော့ final step ကတော့ style sheet ရဲ့ source order တွေကို checking
+        လုပ်တာပဲဖြစ်ပါတယ်။ cascade ဟာဆိုရင် CSS style ကို priority တစ်ခုကို သူတို့ဟာ ဘယ် order
+        မှာပေါ်လာတယ်ဆိုတာကိုအခြေခံပြီးတော့ assign လုပ်ပါတယ်။ cascade အရဆိုရင် style sheet ထဲမှာ later property တစ်ခု ဟာ
+        earlier property ကို override လုပ်ပါတယ်။
+    </p>
+    <hr>
+
+
+</body>
+
+</html>

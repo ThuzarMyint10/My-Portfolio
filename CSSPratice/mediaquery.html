@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Practices</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+    <h1>Practice Media Query</h1>
+    <p>
+            ဒီတစ်ခါမှာတော့ CSS practice ထဲက media query အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Media query ဟာဆိုရင် web design and front end web development ရဲ့ important part တစ်ခုပဲဖြစ်ပါတယ်။Media query ဟာဆိုရင် content ကို specific range of devices နဲ့ screen sizes တွေမှာ content တွေဟာ သူတို့ကိုယ်တိုင် change မလုပ်ဘနဲ့ presentation လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ဒီ practice session မှာဆိုရင် simple web page တစ်ခုရဲ့ layout ကို media queries တွေရေးပြီးတော့ adjust လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာ လေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                /* ================================================= 
+                Practice Media Queries
+             ==================================================== */
+             
+             /* Target viewport sizes less than 576px */
+             
+             @media (max-width: 575px) {
+               header {
+                 text-align: center;
+                 margin-bottom: 2.5rem;
+               }
+               .logo {
+                 margin-bottom: 0;
+               }
+               nav a {
+                 padding: 6px 0;
+                 background: #def1f9;
+                 margin: .2em 0;
+               }
+               img {
+                 display: none;
+               }
+             }
+             
+             /* Target viewport sizes 576px and wider */
+             
+             @media (min-width: 576px) {
+               .logo {
+                 float: left;
+               }
+               nav {
+                 margin-top: 24px;
+               }
+               nav li {
+                 display: inline-block;
+                 margin: 0 0.45em;
+               }
+               h2 {
+                 margin-bottom: 1.5em;
+               }
+             }
+             
+             /* Target a viewport range wider than 575px and narrower than 992px */
+             
+             @media (min-width: 576px) and (max-width: 991px) {
+               nav {
+                 float: left;
+                 margin-left: 20px;
+               }
+             }
+             
+             /* Target viewport sizes 768px and wider */
+             
+             @media (min-width: 768px) {
+               .articles {
+                 float: left;
+                 width: 65%;
+               }
+               aside {
+                 float: right;
+                 width: 30%;
+               }
+             
+               img {
+                 width: 100%;
+               }
+             }
+             
+             /* Target viewport sizes 992px and wider */
+             
+             @media (min-width: 992px) {
+               nav {
+                 float: right;
+               }
+               
+             
+             }
+             
+        </code>
+    </pre>
+    <a href="PraticeExample/index.html">Test Yourself</a><hr>
+    <h1>Practice Grid Layout</h1>
+    <p>
+            အခုတစ်ခါ CSS ထဲမှာ gird template areas ကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ အရင် grid feature ဟာ gird areas နဲ့ grid items ကို name s တွေပေးပြီးတော့ အဲ့ ပေးခဲ့တဲ့ name တွေ items တွေကို grid ထဲမှာ position လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အခု practice မှာတော့ CSS grid  layout course ရဲ့ third stage ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example ထဲက HTML file ထဲမှာ grid items ၇ ခုရှိပါတယ်။ သူတို့ကို grid template areas ကိုအသုံးပြုပြီးတော့ grid layout ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ grid items တစ်ခုချင်းစီကို target လုပ်ပြီးတော့ custom name တွေပေးခဲ့ရမှာဖြစ်ပါတယ်။ နောက် example မှာဆိုရင် top row track အတွက် 100px ကို grid template rows ကိုအသုံးပြုပြီးတော့ 100px ကိုပေးခဲ့ရမှာဖြစ်ပါတယ်။ နောက် column ဟာ 3 ခုရှိတဲ့အတွက်ကြောင့် grid-template-columns ကို values 3 ခု set လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် shorthand property ဖြစ်တဲ့ grid-gap ကို အသုံးပြုထားပါတယ်။ နောက်ဆုံးအနေနဲ့ grid-template-areas property ကိုအသုံးပြုပြီးတော့ gird areas ရဲ့ names တွေကို အသုံးပြုပြီးတော့ items တွေကို နေရာချပေးတာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                .grid
+                {
+                    display: grid;
+                    height: 100vh;
+                    /* Set only the top row to 100px */
+                    grid-template-rows: 100px;
+               
+                    grid-template-columns: 2fr 1fr 1fr;
+                    grid-gap: 10px;
+               
+                    grid-template-areas: 
+               
+                                       "head head head"
+                                       "main about news"
+                                       "main links ads"
+                                       "main foot foot";
+               
+               
+                }
+               header {
+                   grid-area: head;
+               }
+               main {
+                   grid-area: main;
+               }
+               .about {
+                   grid-area: about;
+               }
+               .news {
+                   grid-area: news;
+               }
+               .links {
+                   grid-area: links;
+               }
+               .ads {
+                   grid-area: ads;
+               }
+               footer {
+                   grid-area: foot;
+               }
+        </code>
+    </pre>
+    <a href="PraticeExample/gridlayout.html">Test Yourself</a><hr>
+    <h1>Practice Flexible Grid Layout </h1>
+    <p>
+        Practice ဟာဆိုရင် good thing ပဲဖြစ်ပါတယ်။ Practice ဟာဆိုရင် ကျွန်တော်တို့ကို faster and better developer ဖြစ်ဖို့အတွက် အကူအညီပေးပါတယ်။ အခုတစ်ခါမှာတော့ flexible CSS grid layout ကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ အခုလေ့လာမဲ့ session ဟာဆိုရင် CSS grid layout course ရဲ့ second stage ကို follow လုပ်ထားတာပဲဖြစ်ပါတယ်။ Browser မှာ grid container ထဲမှာ column tracks တွေဟာ automatically fit ဖြစ်အောင်လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် causing the grid မပါဘဲနဲ့ available space မှာ လိုအပ်တဲ့ many columns တွေကို auto generate လုပ်ပေးအောင် grid functions ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <h3>flexiblegrid.css</h3>
+    <pre>
+      <code>
+          * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-size: 1em;
+            margin: 0;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin: 2em auto;
+        }
+        
+        .material-icons {
+            color: rgba(39, 141, 164, 0.8);
+            font-size: 2.1em;
+        }
+        .card {
+            border: 1px solid #e3e3e3;
+            padding: 1.5em 1em;
+            border-radius: 0.5em;
+        }
+        
+        .card h1 {
+            color: #278da4;
+            margin: 0.35em 0 0 ;
+        }
+        p {
+            margin-bottom: 1.25em;
+        }
+        
+        .btn {
+            background: #278da4;
+            border-radius: 0.25em;
+            padding: 0.75em 1.5em;
+            display: block;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            color: #fff;
+            text-decoration: none;
+        }
+      </code>
+    </pre>
+    <h3>gridstyle.css</h3>
+    <pre>
+      <code>
+          .main-content {
+            display: grid;
+            width: 95%;
+            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            grid-gap: 20px;
+        }
+      </code>
+    </pre>
+    <a href="PraticeExample/flexiblegrid.html">Test Yourself</a><hr>
+    <h1>Practice  Selectors</h1>
+    <p>
+        ဒီတစ်ခါမှာတော့ CSS selectors ကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ practice session မှာဆိုရင် web page မှာရှိတဲ့ different elements တွေကို basic selector ကိုအသံုံးပြုပြီးတော့ target လုပ်ပြီးတော့ သူတို့ style ကို apply လုပ်မှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+      <code>
+          /* ====================================================== 
+          Practice CSS Selectors 
+       ========================================================= */
+       
+       /* Change the color of all list items inside an unordered list */
+       
+       ul li {
+         color: lightcoral;
+       }
+       
+       /* Remove the text decoration from navigation links, and change their color when hovered */
+       
+       nav a:link {  
+         text-decoration: none;
+       }
+       
+       nav a:hover {
+         color: skyblue;
+       }
+        
+       /* Create hover and visited styles for all links inside 'main' */
+       
+       main a:hover {
+        color: tomato;
+        text-decoration: none;
+       }
+       
+       main a:visited {
+         color: skyblue;
+       }
+       
+       /* Change the background color of the submit button when active */
+       
+       input[type='submit']:active {
+         background: firebrick;
+       }
+        
+       /* Give the text field a blue border upon focus */
+       
+       input[type="text"]:focus {
+         border: 1px solid #4683af;
+       }
+       
+       /* Give the 'span' tag in the footer a meaningful class name and reduce its font size */
+       
+       .copyright {
+         font-size: 12px;
+       }
+       
+       /* Give the 'img' tag in the header an ID and set its width to 190px */
+       
+       #site-logo {
+        width: 190px;
+       }
+       
+       /* Target all heading tags on the page and set their font family to 'Bree Serif', serif */
+       
+       h1,
+       h2,
+       h3 {
+         font-family: 'Bree Serif', serif;
+       }
+      </code>
+    </pre>
+    <a href="PraticeExample/selector.html">Test Yourself</a><hr>
+    <h1>Practice Columns, Rows and Gaps</h1>  
+    <p>
+        ဒီ practice session မှာဆိုရင် rows, columns and gaps တွေကို Grid ကိုအသုံးပြုပြီးတော့ create လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီမှာဆိုရင် CSS grid layout course ရဲ့ first stage ကို follow လုပ်ထားတာပဲဖြစ်ပါတယ်။ 
+    </p>  
+    <h2>Code in CSS</h2>
+    <h3>grid-page.css</h3>
+    <pre>
+      <code>
+          *{
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-weight: bold;
+            text-align: center;
+            background: #e8e9e9;
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+        
+        .wrapper {
+            background: #fff;
+            border-radius: .285em;
+            box-shadow: 0 0.1em 0 0  rgba(0, 0, 0, 0.1);
+            margin: 2em auto;
+        }
+        
+        div{
+            background: rgb(50, 165, 218);
+            border-radius: 0.285em;
+            color: #fff;
+            text-transform: uppercase;
+            
+        }
+        
+        div:nth-child(2n){
+            background: rgb(11, 89, 126);
+            border-radius: 0.285em;
+        }
+               
+      </code>
+    </pre>
+    <h3>grid.css</h3>
+    <pre>
+      <code>
+          .wrapper {
+            max-width: 990px;
+            /* turn on grid */
+            display: grid;
+        
+            /* declare 3 rows tracks  100px , 400px,  200px */
+            grid-template-rows: 100px 400px 200px;
+        
+            /* declare 3 column tracks each 320px */
+            grid-template-columns: repeat(3,320px);
+        
+            /* apply 20px gutter for row and 15pox for column */
+        
+            /* grid-row-gap: 20px;
+            grid-column-gap: 15px; */
+            grid-gap: 20px 15px;
+        }
+      </code>
+    </pre>
+    <a href="PraticeExample/row-column.html">Test Yourself</a><hr>
+    <h1>Practices CSS Floats</h1>
+    <p>
+        အခုတစ်ခါ CSS floats ကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ Float ဟာဆိုရင် web page တစ်ခုရဲ့ parts တွေကို laying out လုပ်ဖို့အတွက်နဲ့ elements မှာ content ကို wrapping လုပ်ဖို့အတွက် အသုံးများတဲ့ method တစ်ခုပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+      <code>
+          nav li {
+            float: left;
+          }
+          
+          /* 
+            Float '.img-featured' so that content flows around its left side. 
+            Apply a 15 pixel margin to the top, bottom and left sides.
+          */
+          
+          .img-featured {
+            float: right;
+            margin: 15px 0 15px 15px;
+          }
+          
+          /* 
+            Float '.img-article' so that content flows around its right side.
+            Apply a 20 pixel right margin.    
+          */
+          
+          .img-article {
+            float: left;
+            margin-right: 20px;
+          }
+          
+          /*  
+            Float '.article-content' so that it's positioned next to '.img-article'.
+            Adjust the width of '.article-content' so that both elements are laid out side by side.
+          */
+          
+          .article-content {
+            float: right;
+            width: 78%;
+          }
+          
+          /* 
+             The floats collapsed the height of the 'article' containers.
+             Clear -- or open up -- the collapsed space around floated elements.
+          */
+          
+          .group::after {
+            content: '';
+            display: table;
+            clear: both;
+          }
+          
+          /* 
+            Center the navigation inside the header. 
+          */
+          
+          header {
+            text-align: center;
+          }
+          
+          nav {
+            display: inline-block;
+          }
+      </code>
+    </pre>
+    <a href="PraticeExample/float.html">Test Yourself</a><hr>
+    <h1>Practices Box Model</h1>
+    <p>
+        CSS skills ကို တိုးတက်ဖို့ရန်အတွက် practice များများလုပ်ရမှာဖြစ်ပါတယ်။ CSS box model ရဲ့ fundamentals ကျတဲ့ အပိုင်းတွေကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ Box model ဟာ CSS layout ရဲ့ basic ဖြစ်ပါတယ်။ သူဟာဆိုရင် elements တွေကို ဘယ်လို display လုပ်မယ် ပြီးတော့ elements တွေဟာ page မှာ ဘယ်လောက် space ယူမယ်ဆိုတာကို determine လုပ်ပေးတာပါဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS နဲ့ scrolling box component ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့လို လုပ်တဲ့နေရာမှာ content တွေဟာ box ရဲ့အပြင်မှာ overwrite ဖြစ်နိုင်တဲ့အခါမှာ display property မှာ value ကို scroll bar ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+          <code>
+              /* =========================================================== 
+              Practice CSS Box Model 
+           ============================================================== */
+           
+           .box {
+             
+             /* Apply a fluid width of 90% and a height of 300px. 
+             The width of .box should be no wider than 600px. */  
+             width: 90%;
+             height: 300px;
+             max-width: 600px;
+           
+             /* Add 20 pixels of padding on all four sides. */
+             padding: 20px;
+             
+             /* Apply a 2px solid border to each side. */
+             border: 2px solid #8292b1;
+             
+             /* Use margins to center .box on the page. */
+             margin: auto;
+             
+             /* Prevent the contents of .box from overflowing. */
+             overflow-y: scroll;
+             
+             /* Force border-width and padding values into the total width and height of .box */
+             box-sizing: border-box;
+             
+           }
+          </code>
+    </pre>
+    <a href="PraticeExample/boxmodel.html">Test Yourself</a><hr>
+    <h1>Tooltips</h1>
+    <p>
+      အခုလေ့လာမှာကတော့ helper tooltips ကို HTML and CSS တွေကို အသုံးမပြုဘဲနဲ့ ဘယ်လို create လုပ်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Tooltips ဟာဆိုရင် users တွေဆီကို additional information တွေကို provide လုပ်တဲ့ great way တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ အသုံးများတဲ့ design pattern တစ်ခုဖြစ်ပြီးတော့ သူ့ကို bootstrap or foundation တို့လို popular ဖြစ်တဲ့ front end frameworks တွေမှာ တွေ့မြင်နိုင်ပါတယ်။ အဲ့  frameworks တွေဟာ framworks ကို handle လုပ်ဖို့ရန်အတွက် JavaScript ကို အသုံးပြုထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ tooltips ကို CSS ကိုပဲအသုံးပြုပြီးတော့ လွယ်လွယ်ကူကူ create လုပ်နိုင်ပါတယ်။ Create လုပ်တဲ့နေရာမှာ pseudo-elements and custom data attribute ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Data attribute ဟာဆိုရင် tooltip message ကို HTMLထဲမှာ store လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူ့ရဲ့ value ကို tooltip content အနေနဲ့ display လုပ်ပေးမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+      <code>
+          .tool {
+            cursor: help;
+            position: relative;
+        }
+        
+        .tool::before,
+        .tool::after {
+            position: absolute;
+            left: 50%;
+            opacity: 0;
+            z-index: -100;
+        }
+        
+        .tool:hover::before,
+        .tool:focus::before,
+        .tool:hover::after,
+        .tool:focus::after {
+            opacity: 1;
+            z-index: 100;
+            transform: scale(1) translateY(0);
+        
+        }
+        
+        
+        .tool::before {
+            border-style: solid;
+            border-width: 1em .7em 0 .75em;
+            border-color: #3E474F transparent transparent transparent;
+            bottom: 100%;
+            margin-left: -.5em;
+            content: "";
+            transform: scale(.6) translateY(-90%);
+            transition: all .65s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        
+        .tool:hover::before,
+        .tool:focus::before {
+            transition-delay: .2s;
+        }
+        
+        
+        .tool::after {
+            background: #3E474F;
+            border-radius: .25em;
+            bottom: 100%;
+            color: #EDEFF0;
+            width: 17.5em;
+            padding: 1em;
+            margin-left: -8.75em;
+            content: attr(data-tip);
+            transform: scale(.6) translateY(50%);
+            transition: all .65s cubic-bezier(0.165, 0.84, 0.44, 1);  
+        }
+        
+        .tool:hover::after,
+        .tool:focus::after {
+            transition-delay: 0s;
+        }
+      </code>
+    </pre>
+    <a href="PraticeExample/tooltip.html">Test Yorself</a><hr>
+    <h1>Blend Modes</h1>
+    <p>
+        ကျွန်တော်တို့အခု လေ့လာမှာကတော့ favorite graphics editor တွေမှာ မရှိတဲ့ resembles tool ဖြစ်တဲ့ blend modes လို့ခေါ်တဲ့ exciting CSS feature တွေကို ဘယ်လိုအသုံးပြုတယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ CSS blend modes ဟာဆိုရင် two or more layers ကို ဘယ်လို  blend လုပ်တယ်ဆိုတာကို define လုပ်ပေးတာဖြစ်ပါတယ်။ သူဟာဆိုရင် really exciting visual effects တွေကို create လုပ်ပေးပါတယ်။ Blending effects တွေကို graphic design or digital image editing လုပ်တဲ့နေရာမှာ အသုံးပြုကြပါတယ်။ CSS blend modes ကိုအသုံးပြုပြီးတော့ browser မှာ same blending effects တွေကို recreate လုပ်နိုင်ပါတယ်။ Blend modes ဟာ compositing and blending CSS specification ရဲ့ part ပဲဖြစ်ပါတယ်။ Compositing ဆိုတာ element တစ်ခုနဲ့ သူ့ရဲ့ backdrop ကို combine လုပ်တာပဲဖြစ်ပါတယ်။ Blending ဆိုတာ colors တွေရဲ့ mixing ကို calculates လုပ်တဲ့ compositing ရဲ့ form တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါတွေကို အသုံးပြုပြီးတော့ HTML element တစ်ခုရဲ့ background layer or another layer ကို blend လုပ်နိုင်ပါတယ်။  
+    </p>
+    <p>
+        CSS မှာ ဆိုရင် elements တွေကို blend လုပ်ဖို့ရန်အတွက် properties နှစ်ခုရှိပါတယ်။ Property တစ်ခုချင်းစီမှာ blend modes 16 ရှိပါတယ်။ Properties တွေကတော့ background-blend-mode နဲ့ mix-blend-mode တို့ပဲဖြစ်ပါတယ်။ Background-blend-mode property ကို နှစ်ခု (သို့) နှစ်ခုထက်ပိုတဲ့ background layers တွေကို blend လုပ်ချင်တဲ့အခါမှာအသုံးပြုနိုင်ပါတယ်။ Mixed-blend-mode property ကို any HTML or SVG တို့ရဲ့ content တွေနဲ့ blend လုပ်နိုင်ပါတယ်။ Background blend mode property ဟာ element တစ်ခုရဲ့ background image နဲ့ သူ့ရဲ့နောက်ထပ် image or background color တို့ကို blend လုပ်တဲ့နေရာမှာ အသုံးများပါတယ်။ Background-blend-mode property နဲ့blend mode value ကို specify လုပ်တဲ့အခါမှာ သူဟာ background image နဲ့ color ကို ကျွန်တော်တို့ set လုပ်လိုက်တဲ့ blend mode ပေါ်မှာ အခြေခံပြီးတော့ mix လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Background-blend-mode property ရဲ့ default value ကတော့ normal ပဲဖြစ်ပါတယ်။ နောက်ထပ် သုံးနိုင်တဲ့ values တွေရှိပါသေးတယ်။ ကျန်တဲ့ values တွေကို web platform docs မှာ သွားရောက်လေ့လာနိုင်ပါတယ်။ Mix-blend-mode property မှာဆိုရင်လည်း values 16 ခုရှိပါတယ်။ အဲ့ဒါတွေကို web platform docs မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+      <code>
+          html, 
+          body {
+              height: 100%;
+          }
+          
+          div {
+              max-width: 440px;
+              position: absolute;
+              right: 20px;
+          }
+          
+          /********BLEND MODES*******/
+          body {
+              font-size: 1em;
+              font-family: 'Times New Roman', Times, serif;
+              color: #eee;
+              background: url(cascade.jpg) no-repeat, linear-gradient(#6de590, #e67478);
+              background-blend-mode: multiply;
+              background-size: cover;
+          }
+          h1 {
+              font-size: 12em;
+              margin: 0;
+              line-height: 1;
+              letter-spacing: -2rem;
+              color: #6b945d;
+          
+          }
+          span:nth-child(2) {
+              color: #801b3a;
+          }
+          span:nth-child(2) {
+              color: #801b3a;
+          }
+          h1 span {
+              mix-blend-mode: screen;
+          }
+      </code>
+    </pre>
+    <a href="PraticeExample/blend.html">Test Yourself</a><hr>
+    <h1>Masking</h1>
+    <p>
+        အခု exciting CSS design effect တစ်ခုဖြစ်တဲ့ CSS mask အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Masking and clipping တို့ဟာ photoshop and sketch တို့လို graphic editing tools တွေမှာ အသုံးများတဲ့ features တစ်ခုပဲဖြစ်ပါတယ်။ သူတို့ကို element တစ်ခုရဲ့ parts တွေကို hide လုပ်ဖို့ရန်အတွက်အသုံးပြုနိုင်ပါတယ်။ CSS ကို အသုံးပြုပြီးတော့ masks ကို browser မှာ direct apply လုပ်နိင်ပါတယ်။ Masking ဟာ CSS masking specification ရဲ့ part ပဲဖြစ်ပါတယ်။ သူဟာ HTML elements တွေရဲ့ hide ထားတဲ့ portions တွေကို partially or fully အတွက် methods နှစ်ခုကို provide လုပ်ပေးပါတယ်။ Element တစ်ခုကို masking လုပ်တဲ့နေရာမှာ element ရဲ့ visual portions ကို filter လုပ်ဖို့ရန်အတွက် mask image တစ်ခုကို အသုံးရန်လိုအပ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+      <code>
+          * {
+            box-sizing: border-box;
+        }
+        html,
+        body,
+        .wrap {
+            height: 100%;
+            margin: 0;
+        }
+        .wrap {
+            background: url('mask.jpg') no-repeat;
+        }
+        
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            margin: 0;
+            font-size: 10em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
+            -webkit-mask-image: url('texture1.jpg');
+            mask-image: url('texture1.jpg');
+            padding: 60px 0 0 200px;
+        }
+      </code>
+    </pre>
+    <a href="PraticeExample/mask.html">Test Yourself</a><hr>
+</body>
+</html>

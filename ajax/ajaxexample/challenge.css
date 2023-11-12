@@ -1,0 +1,36 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+#photos {
+    width: 100%;
+}
+#photos ul{
+    list-style: none;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+#photos ul li{
+    padding: 10px;
+    background-color: rgba(236, 130, 81, 0.856);
+}
+.grid-container{
+    max-width: 100%;
+    margin: 40px auto;
+}
+.heading{
+    margin-bottom: 20px;
+}
+.grid-100{
+    max-width: 80%;
+    background-color: rgba(247, 242, 242, 0.925);
+    margin: 0 auto;
+    border: 2px solid rgb(36, 35, 35);
+}
+.contained{
+    max-width: 80%;
+    margin: 0 auto;
+}

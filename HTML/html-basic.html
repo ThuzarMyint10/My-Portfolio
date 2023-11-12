@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic HTML </title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+</style>
+<body>
+    <h1>
+           Introduction to HTML
+    </h1>
+    <p>
+        မင်းဟာ website တစ်ခုကို create လုပ်ချင်တယ် ဒါပေမဲ့ မင်းမှာ ဘယ်လိုလုပ်ရမယ်ဆိုတဲ့ idea မရှိခဲ့ဘူး။ ကျွန်တော်တို့ဟာ hypertext markup language ကို learning လုပ်ခြင်းအားဖြင့် စတင်ကြမယ်။ အဲ့ဒါကို ယေဘုယျ အားဖြင့်ခေါ်ဆိုတာကတော့ HTML ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ learning လုပ်တဲ့ တစ်လျှောက်လုံးမှာ ကျွန်တော်တို့ဟာ HTMLရဲ့ ပြည့်စုံတဲ့ technical detail ကိုရရှိပြီးတော့ simple webpages တွေကို build လုပ်ကြည့်ကြရအောင်။ Web design နှင့် web development ရဲ့ ဘယ်အပိုင်းတွေကို လုပ်တယ်ဆိုတာဟာ software development ရဲ့ အခြား forms တွေနဲ့ compare လုပ်လိုက်တဲ့အချိန်မှာ ရယ်စရာဖြစ်နေပါတယ်။ အဲ့ဒါဟာ မင်းနေရတဲ့ မင်း efffots ရဲ့ results တွေပဲဖြစ်ပါတယ်။ မင်းဟာ ဘယ်တော့မှ website တစ်ခုကို မလုပ်နိုင်ဘူးလို့တွေးထားခဲ့တယ်ဆိုရင်တောင်မှ web browser တစ်ခုထဲမှာ မင်းရဲ့ content တွေ ပေါ်လာအောင် ပြုလုပ်တာဟာ ဘယ်လိုလွယ်ကူတယ်ဆိုတာကိုတွေပြီးမင်းကို surprise ဖြစ်စေမှာဖြစ်ပါတယ်။ 
+    </p>
+    <p>
+        HTML forms ဟာ wevsite တိုင်းရဲ့ foundation နှင့် တူပါတယ်၊ ဘယ်လောက်သေးသေး ဘယ်လောက်ကြီးကြီး matter မဖြစ်ပါဘူး။ ဒါကြောင့် HTML အကြောင်းကို learning လုပ်တာ finish ဖြစ်သွားတဲ့ အချိန်မှာ မင်းဟာ အခြား technologies ဖြစ်တဲ့ CSS, Java Script,စသဖြင့် အဲ့ဒါတွေဆီကို move on လုပ်ပြီးသားဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ learn လုပ်ကြမယ် အဲ့မှာ technology or language တစ်ခုချင်းစီဆဆိုတာမရှိပါဘူး၊ အဲ့ဒါတွေဟာ modern website နှင့် web application တို့်ရဲ့ creation ကို လုပ်ဆောင်နိုင်ပါတယ်။ ထိုအရာဟာ technologies တွေရဲ့ broad collection တစ်ခုပဲဖြစ်ပါတယ်၊ အဲ့ဒါဟာ ကျွန်တော်တု့ိကို puzzle တွေ complete ဖြစ်ဖု့ိရန်အတွက် လိုအပ်တဲ့ pieces တွေကိုပေးပါတယ်။ အခုကျွန်တော်ပြောတာတွေကို သေချာလိုက်နားထောင်ပါ။ ကျွန်တော်တို့ဟာ အချိန်တစ်ခုမှာ ပထမအဆင့်အနေနဲ့ အရာတွေကို ယူဖို့သွားကြမယ်။ ဒီ video ပြီးတဲ့နောက်မှာ language တစ်ခုအနေနဲ့ HTML ကို introduction လုပ်နေရာမှာ formal ပိုပြီးကျ လာပါလိမ့်မယ်။ ဒါပေမဲ့ ပထမအနေနဲ့ အဲ့ဒါတွေကို dive right လုပ်လိုက်ပြီး တစ်ဆင့်ပြီးတစ်ဆင့် ကျွန်တော်တို့ရဲ့ first webpage ကို create လုပ်ကြမယ်။ Website တစ်ခုကို create လုပ်ဖို့ဆိုလျှင် text editor တစ်ခုနှင့် web browser တစ်ခု ကျွန်တော်တို့အားလုံးလိုအပ်ပါမယ်။ Text editor နှင့် စလိုက်ကြစို့။ Text editor ဟာ plain text files တွေကို creating or modifying လုပ်နိုင်တဲ့ simply program တစ်ခုဖြစ်ပါတယ်၊ computer တစ်ခုဟာ right ဘက်မှာ built လုပ်ထားတဲ့  text editor တစ်ခုပါပါတယ်။ မင်းဟာ windows သုံးလျှင် ကျွန်တော်တို့ဟာ Notepad ကိုအသုံးပြုပြီး start out လုပ်ရပါမယ်။ တစ်ကယ်လို့မင်းဟာ Mac တစ်ခုကို အသုံးပြုလျှင် မင်းရဲ့ application folder ထဲမှာ ရှိတဲ့ TextEditor ကိုမင်းဟာ အသုံးပြုနိုင်ပါတယ်။ သို့သော်လည်း ဂရုစိုက်ပါ ဘာကြောင့်လဲဆိုတော့ Mac ပေါ်မှာရှိတဲ့ more advanced word processing application တွေဖြစ်တဲ့ Pages, Microsoft Word တို့ဟာ addtional style rules တွေကို တစ်ခါတစ်ရံမှာပေးနိုင်ပြီးတော့ Metadata ကိုလည်း မင်းရဲ့ view မှာ hidden လုပ်ထားနိုင်ပါတယ်။ ဒါဟာ HTML page အတွက်အလုပ်မလုပ်ပါဘူး၊ ဒါကြောင့် မင်းဟာ basic text editor တစ်ခုကို အသုံးပြုနေတယ်ဆိုတာကို သေချာအောင်ပြုလုပ်ပါ။ ကျွန်တော်ပြောခဲ့သလိုပဲ Mac ပေါ်မှာရှိတဲ့ Text Edit or windows ပေါ်မှာရှိတဲ့ Notepad တွေ အလုပ်လုပ်တာကို အခုကြည့်ရအောင်။ မင်းရဲ့ text editor ကို တစ်ကြိမ်ဖွင့်ပြီးတော့ မင်းပုံမှန်ရေးနေကြ text အချို့ကို ရိုက်လိုက်ပါ။ ကျွန်တော်ဟာ "Hello World!" ဆိုတဲ့ phrase တစ်ခုကို ရိုက်လိုက်မယ်၊ အဲ့ phrase ဟာ computer science နှင့် software development တွေကို system working ဖြစ်တဲ့ test လုပ်ဖို့ရန် အသုံးပြုတဲ့ common test phrase တစ်ခုဖြစ်ပါတယ်။ နောက်တစ်ဆင့်ကတော့ မင်းရဲ့ file ကို မင်း save လုပ်ချင်တဲ့ နေရာမှာ save လုပ်ပါမယ်၊ save လုပ်တဲ့ နေရာမှာ သေချာအောင် file extension ကို .html နဲ့ SAVE ခဲ့ရမှာဖြစ်ပါတယ်။ File ရဲ့ name ကိုကြိုက်တာပေးနိုင်ပါတယ်။ မင်းရဲ့ HTML file ကို save လုပ်ပြီးတဲ့ နောက်မှာ မင်းရဲ့ text editor ကနေ ထွက်လိုက်ပါ ဘာကြောင့်လဲဆိုရင် ကျွန်တော်တို့ဟာ အဲ့ဒါကို နောက်လိုအပ်မှာဖြစ်ပါတယ်။ အခု web browser ရဲ့ အပိုင်းပဲဖြစ်ပါတယ်။ Web browser တစ်ခုဟာ မင်းကို webpages တွေကို ကြည့်ဖို့နှင့် web ထဲမှာ browse လုပ်ဖို့ရန် ခွင့်ပြုပေးတဲ့ program တစ်ခုဖြစ်ပါတယ်။ ဒါကြောင့် မင်းရဲ့ computer မှာရှိတဲ့ browser ဖြစ်ဖြစ်၊ firebox ဖြစ်ဖြစ် တစ်ခုခုကိုဖွင့်ပြီး file menu ကိုသွားပြီး open ကို select လုပ်ပါ ပြီးရင် မင်းရဲ့ file ကို ဖွင့်လိုက်ပါ၊ အဲ့လိုမှမဟုတ် မင်းsave ခဲ့တဲ့ file ပေါ်မှာ doubleclick လုပ်ပြီးလည်း open လုပ်လို့ရပါတယ်။ မင်းဖွင့်လိုက်တဲ့ မင်းရဲ့ browser မှာ မင်းရဲ့ text editor မှာ type လုပ်ခဲ့တဲ့ text ကို တွေ့ရမှာဖြစ်ပါတယ်။ အခု ဒါဟာလွယ်လွယ်လေးပါပဲ။ A simple website တစ်ခုဆိုတာ မင်းရဲ့ computer မှာ ရှိတဲ့ တစ်ခြား file တွေနဲ့ similar ဖြစ်တဲ့ HTML file collection တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ web browser ထဲမှာ မင်းရေးထားတဲ့ text ကို select လုပ်ပြီး အဲ့ text ကို edit လုပ်နိုင်ပါတယ်။ မင်းရေးထားတဲ့ text editor သွားပြီးတော့လဲ edit လုပ်နိုင်ပါတယ်။ Edit လုပ်ပြီးတိုင်း save ကို နှိပ်ရပါမယ်။ ပြီးလျှင် web browser မှာ refresh လုပ်ပေးရပါမယ်။ Saving လုပ်တဲ့အချိန်ဟာ စိတ်ဝင်စားစရာပါ၊ အဲ့ဒါဟာ webpage တစ်ခုကို refreshing လုပ်ဖို့အတွက် keyboard shortcut ရဲ့ good idea တစ်ခုဖြစ်ပါတယ်။ မင်းဟာ Windows မှာရှိတဲ့ Internet Explorer ကိုအသုံးပြုလျှင် မင်းဟာ control key နှင့် F5 ကို တွဲနှိပ်ပေးရပါမယ်။ မင်းဟာ Mac ပေါ်မှာရှိတဲ့ Safari ကို အသုံးပြုလျှင် command နှင့် R ကို တွဲနှိပ်ပေးရပါမယ်။ အဲ့လိုလုပ်တာဟာ browser ကို refresh လုပ်တာပဲဖြစ်ပါတယ်။ Web browser မှာ မင်းရဲ့ own custom content appear ဖြစ်လာအောင် လုပ်တာဟာ အမှန်တစ်ကယ်လွယ်ကူတယ်ဆိုတာကို မင်းတွေမြင်ရပါမယ်။ အခု more complex websites တွေကို creating လုပ်ဖို့ရန် အားထုပ်ကြိုးပမ်းမှူတွေအများကြီးလိုအပ်ပါတယ်။ ဒီ series ရဲ့ next video တွေမှာ ပိုပြီးတော့ formal ကျတဲ့ introduction to HTML ကို ရရှိပါလိမ့်မယ်။
+    </p><hr>
+    <h1>
+         Introduction to Markup
+    </h1>
+    <p>
+        အခု web browser တစ်ခုမှာ things တွေ appear ဖြစ်အောင်လုပ်တာဟာ ဘယ်လောက်လွယ်ကူတယ်ဆိုတာကို တွေရပြီဖြစ်တယ်။ ဒါဟာ HTML ကဲ့သို့ markup languages အကြောင်းကို လေ့လာဖို့ရန်အချိန်ပဲဖြစ်ပါတယ်။ HTNL ဟာဆိုရင် hypertext markup language အတွက် stands ဖြစ်နေတဲ့ initilism တစ်ခုဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် hypertext နှင့် markup ဆိုပြီး အပိုင်းနှစ်ပိုင်းရှိပါတယ်။ သို့သော်လည်း ကျွန်တော်တို့ဟာ markup language ရဲ့ အပိုင်းတွေကို ပထမဆုံး focus ထားသွားမှာဖြစ်ပါတယ်။ Markup language ဟာ programming language နှင့် တူညီပါဘူး။ ကျွန်တော်တို့ programming language ကို အသုံးပြုတဲ့ အခါမှာ တစ်ချိ့အရာတွေဟာ ဘယ်လိုပြုမူတယ်ဆိုတာကို ကျွန်တော်တို့ဟာ ဖော်ပြတာပဲဖြစ်ပါတယ်။ ဒါ့အပြင် markup language ကို မှတ်ချက်ပြုဖို့ရန် (သို့) meaning or semantic structure တွေကို text documemt တစ်ခုဆီကို add လုပ်ဖို့ရန်အတွက် အသုံးပြုပါတယ်။ ဒါကြောင့် အခြေခံအားဖြင့် မင်းဟာ web page တစ်ခုအကြောင်းကို top မှာ markup နှင့်အတူ add လုပ်ထားတဲ့ text တွေလို့ မင်းတွေးနိုင်ပါတယ်။ သို့သော်လည်း HTML ဟာ text တွေကို suggest corrections လုပ်တယ်လို့ မရည်ရွယ်ပါဘူး၊ သူရဲ့ text structures and shapes တွေဟာ နားလည်ဖို့ ရန်အရမ်းလွယ်ကူပါတယ်။ HTML ဟာ web browser တစ်ခုကနေ interpret လုပထားတဲ့ markup language တစ်ခုပဲဖြစ်ပါတယ်။ မင်းဟာ  work environment တစ်ခုအတွက် pizza တွေ practice တွေ procedure တွေကို ဘယ်လိုပြုလုပ်ရမယ်ဆိုတဲ့ မင်းရဲ့ favorite shakespear quotes တွေအကြောင်းကို web page တစ်ခုအနေနဲ့ create လုပ်လိုက်ပါ။ အဲ့ဒါတွေကို examine လုပ်ကြည့်ရအောင်။ Top မှာ ကျွန်တို့ page ရဲ့ content တွေကို ဖော်ပြတဲ့ header တစ်ခု ကျွန်တော်တို့မှာ ရှိပါတယ်။ အဲ့အောက်မှာ subject ရဲ့ detail တွေကို ဖော်ပြတဲ့ paragraphs အချို့ရှိပါတယ်။  ဒါဟာ web browser တစ်ခုရဲ့ ဒီ text ရဲ့ ဘယ်အပိုင်းကတော့ header ၊ဘယ်အပိုင်းကတော့ paragrpaph ဆိုတာကို determine လုပ်တဲ့ နည်းလမ်းတော့မဟုတ်ပါဘူး။ ဒီအခြေအနကို ကျွန်တော်တို့်ဟာ "tags" လို့ခေါ်တဲ့ ဟာတွေကို apply လုပ်ပြီးတော့ ဖြေရှင်းကြမယ်။ ဒီလို single tag တစ်ခုကိုကြည့်ပါ ဘယ်လိုလဲဆိုရင် opening angle bracket တစ်ခုရယ် အဲ့ထဲမှာ specific set of text တစ်ခုရယ် ပြီးတော့ closing angle bracket တစ်ခုရယ် ပဲဖြစ်ပါတယ်။ ဒီမှာ အဲ့လို tag  တွေအများကြီးရှိပါတယ်။ &lt;h1&gt; ဒီ tage ကို headline tag လို့ခေါ်ပါတယ်။ နောက် video တွေမှာ headline tag ရဲ့ အကြောင်းကို ပြောပြထားပါတယ်။ ဒါပေမဲ့ ဒီ tag ဟာ large headlines တွေကို ရည်ညွှန်းတယ်ဆိုတာကို အမှန်တကယ်သိထားရပါမယ်။ ဒီမှာဆိုရင် paragraph tag လို့ခေါ်တဲ့ &lt;p&gt;လေးတစ်ခုရှိပါသေးတယ်။ အဲ့ နှစ်ခုကို အသုံးပြုကြည့်ရအောင်။ Header အတွက်ကို ကျွန်တော်တို့ဟာ fist level headline tags ကိုအသုံးပြုပါမယ်။ အခု ကျွန်တော်တို့ရဲ့ headline ကို ရေးပြီးပြီဖြစ်ပါတယ်၊ ဒါပေမဲ့ computer ဟာ အဲ့ headline ဟာ ဘ်ယ်မှာ end တယ်ဆိုတာကို ဘယ်လိုသိနိုင်မလဲဆိုရင် tags တွေဟာ အစုံလိုက်လာကြပါတယ် ကျွန်တော်တို့ဟာ right ဘက်မှာရှိတာကို opening tag လို့ခေါ်ဆိုပြီး အဲ့ tag တွေကို finish လုပ်ဖို့ ရန်တွက် closing tag ကို အသုံးပြုရန်လိုပါတယ်။ Closing tag ဟာ opening tag နှင့် တူပါတယ်။ ဒါပေမဲ့ first angle bracket ပြီးတဲ့နောက်မှာ forward slash တစ်ခုကို add လုပ်ပေးရပါတယ်။ Example &lt;/h1&gt; ကဲ့သို့ ဖြစ်ပါတယ်။ Headlin tag ကဲ့သို့ paragraph tag ကို လည်းအသုံးကြရပါတယ်။ Example &lt;p&gt; any text you want to write &lt;/p&gt;။ အဲ့လိုတွေရေးပြီးတော့ save လုပ်ပြီးတော့ browser မှာ run လုပ်ကြည့်လိုက်ပါ။
+    </p><hr>
+    <h1>
+        Introduction to MarkupandtheWeb
+    </h1>
+    <p>
+        အစောက video ထဲမှာ HTML ဆိုတဲ့ name ထဲမှာ  two major ideas ပါတယ်ဆိုတာကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ idea တွေကတော့ hypertext နှင့် markup languages တွေပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ markup languages အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်၊ ကျွန်တော်တို့ဟာ အခု a little bit တွေအကြောင်းကို နှိုက်နှိုက်ချွတ်ချွတ် သိအောင် ပြောပြသွားမှာဖြစ်ပါတယ်။ HTML ဟာ အထူးသဖြင့် structure of the document တွေကို describe လုပ်ပေးပါတယ်၊ ဆန့်ကျင်ဘက်အနေနဲ့ အဲ့ document တွေဟာ displayed or processed တွေကို ဘယ်လိုလုပ်ဆောင်တယ်ဆိုတာကို  ဖော်ပြပေးသွားမှာဖြစ်ပါတယ်။ HTML ကဲ့သို့ markup language တစ်ခုကို computer တွေ different pieces of text တွေ ဘယ်လို differentiate လုပ်တယ်ဆိုတာကို သိဖို့ရန်အတွက် document တစ်ခုကို markup or annotate လုပ်ဖို့ရန်အတွက် အသုံးပြုပါတယ်။ Example ကျွန်တော်တို့ရဲ့ basic text sentences ကို web browser ကနေ ဖတ်လိုက်တဲ့အချိန်မှာ paragraphs အနေနဲ့ process လုပ်နိုင်အောင် &lt;p&gt; tag ထဲမှာ ထည့်ရေးနိုင်ပါတယ်။ မင်းဟာ web browser ကို document ရဲ့ ဘယ်အပိုင်းတွေကတော့ images တွေပါ ဘယ်အပိုင်းကတော့ tabular data တွေပါဆိုတာကို စသည်အားဖြင့် spreadsheet application တစ်ခုမှာ မြင်ရတဲ့ အတိုင်း မင်းဟာပြောပြနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ tags တွေကို လေးလေးနက်နက် လေ့လာရပါမယ်၊ ပြီးတော့ real HTML code တွေကို next several video မှာပြောပြသွားပါမယ်။ ဒါပေမဲ့ ပထမဆုံးအနေနဲ့ ကျွန်တော်တို့ဟာ ဒီနေရာကို ဘယ်လိုရောက်လာတယ် ပြီးတော့ အဲ့မှာ ဘယ်လိုနည်းလမ်းတွေရှိတယ်ဆိုတာကို နားလည်ထားရပါမယ်။ Markup language အတော်များများကို 1960 ကိုလောက်က information age တွေနဲ့ သွားဖို့ရန် create လုပ်ခဲ့ကြပါတယ်။ သို့သော်လည်း HTML ဟာ ကမ္ဘာမှာ ကျယ်ကျယ်ပြန့်ပြန့်အသုံးပြုနေတဲ့ markup language နှင့် တူပါတယ်။ HTML ကို CERN လို့ခေါ်တဲ့ French ရဲ့ အတိုကောက်ဖြစ်တဲ့ The Europen Organization for Nucler Research မှ originally created လုပ်ထားပါတယ်။ HTML မှာဆိုရင် SGML based language or standard generalized markup language ရဲ့ heavily influenced ရှိပါတယ်။ CREN မှာရှိတဲ့ customized SGML ကို scietific research အတွက် in-house document format တစ်ခုအနနဲ့ အသုံးပြုခဲ့ပါတယ်၊ ပြီးတော့ HTML ကို အဲ့ပေါ်မှာ improvement တစ်ခုအနေနဲ့ conceived လုပ်ခဲ့ပါတယ်။ HTML ကို research papers တွေအတွက် document တစ်ခုအနေနဲ့ ကိုယ်စားပြုခဲ့တယ်။ အဲ့ဒါဟာ page, document, doctype 4, document type စသဖြင့် origin of technical vernacular တွေပဲဖြစ်ပါတယ်။ သူရဲ့ first iteratin မှာ HTML documents တွေဟာ ကျွန်တော်တို့ ယနေ့ သူတို့ကို လိုအပ်သလိုလုပ်ဆောင်နေတဲ့ interactive အနေနဲ့ အမှန်ရည်ရွယ်ထားပါတယ်။ ဒါဟာ စိတ်ကို keep လုပ်ဖို့ရန်အတွက်နှင့် ဘယ်နေရာမှာ remembering history တွေဟာ မင်းကို ကူညီတယ်ဆိုတာတွေရဲ့ key concept ပဲဖြစ်ပါတယ်။ 
+    
+
+    </p>
+    <p>
+        Web technology ဟာ rich web application ကို creating လုပ်တာကို ရည်ညွှန်းပြီးတော့ evolved လုပ်ခဲ့ပါတယ်။ ဒါပေမဲ့ တကယ့်အနှစ်သာရကတော့ ကျွန်တော်တို့ဟာ text document တစ်လျောက်မှာ original idea တွေကို sending လုပ်နေခြင်းမှာ hacking လုပ်နေခြင်းပဲဖြစ်ပါတယ်။ ဒါဟာ ပြီးပြည့်စုံမှုတစ်ခုပါပဲ။ ကျွန်တော်တို့ဟာ web ရဲ့ hypertext အကြောင်းကို မပြောခင် အရေးကြီးတဲ့ distinction တစ်ခုကို ပြုလုပ်ဖို့်ရန်လိုအပ်ပါတယ်။ Internet ဆိုတာဟာ globe ကို spread across လုပ်တဲ့ physical infrastructure ကို ရည်ညွှန်းပါတယ်။ Network of networks မှာဆိုရင် wires, compters, servers, switches, satellites စသည်အားဖြင့် ပါဝင်ပါတယ်။ အဲ့ဒါတွေဟာ ကျွန်တော်တို့ကို ကမ္ဘာပေါ်မှာ data တွေအားလုံးကို incredibly high speeds နဲ့ transport လုပ်ဖို့ရန် ခွင့်ပြုပေးပါတယ်။ Building websites တွေဟာ good တယ်ဆိုတာကို သတိပြုမိတဲ့ အချိန်မှာ အဲ့ဒါတွေဟာ hardware တွေပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ အဲ့ဒါတွေဟာ ကျွန်တော်တို့နှင့် concern မဖြစ်ပါဘူး။ World wide web or web ဟာ one particular use case or application of the internet ပဲဖြစ်ပါတယ်။ အဲ့မှာ voice over IP, online gaming, application stores on the smart phones စသဖြင့် အခြား use cases or protocols တွေလည်း internet ပေါ်မှာရှိပါတယ်။ သို့သော်လည်း software ရဲ့ အခြား pieces တွေဟာ internet ကိုအသုံးပြုကြပါတယ်။ အဲ့ဒါတွေဟာ web ရဲ့ အစိတ်ပိုင်းတွေတော့မဟုတ်ပါဘူး။ သူတို့ဟာ web professionals တွေဖြစ်ပြီး ကျွန်တော်တို့ရဲ့ primary concern ပဲဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ဟာ markup side of things ကို discuss လုပ်ခဲ့ပြီးပါပြီ၊ hypertext ကို ကြည့်ခြင်းအားဖြင့် ကျွန်တော်တို့ရဲ့ historical lesson ဟာ finish ဖြစ်ပြီလို့ယူစလိုက်ပါမယ်။ ဒါဟာ နားလည်ဖို့ရန် အရမ်းကိုလွယ်ကူပါတယ်။  HTML ကို CERN မှ create ထားခဲ့တယ်လို့ ကျွန်တော်တို့ပြောခဲ့တာကို မှတ်မိသလား။ Sir Tim Berners-Lee ဟာဆိုရင် CERN မှာ worldwide web တစ်လျောက်လုံးမှာ HTML ကို inventing လုပ်ခြင်းအားဖြင့် physicist and contractor တစ်ဦးဖြစ်ပါတယ်။ 1980 နောက်ပိုင်းနှင့် 1990 အစောပိုင်းမှာ Internet ပေါ်လာတဲ့အချိန်မှာ ဒါဟာ အစပြုနေဆဲပဲဖြစ်ပါတယ်၊ အဲ့မှာ HTML မရှိပါဘူး၊ web browsers တွေလည်းမရှိပါဘူး။ မင်း ယနေ့သိရှိလိုက်တဲ့ ဘယ် websites မှလည်း မရှိပါဘူး။ Sir Tim Berners-Lee ဟာ 1980 မှာ CERN မှာ အလုပ်လုပ်ခဲ့ပါတယ်။ သူဟာ documents တွေကို sharing လုပ်တဲ့ အခါမှာ ပိုကောင်းတဲ့ နည်းလမ်းကို develop ဖြစ်ချင်ခဲ့ပါတယ်။ ပြီးတော့ drawing inspiration ဖြင့် markup languages ကို create လုပ်လာပါတယ်။ သူဟာ HTMLရဲ့ first version ပေါ်ထွက်လာခဲ့ပါတယ်။ ကျွန်တော်တို့ အရင်ကပြောခဲ့အတိုင်းပဲ HTML ဟာ SGML လို့ခေါ်တဲ့ အခြား markup language တွေနဲ့ similar ဖြစ်ပါတယ်။ ဒါပေမဲ့ Sir Tim Berners-Lee ဟာ key addition of hypertext ကို ပြုလုပ်ခဲ့ပါတယ်။ Hypertext ဟာဆိုရင် documents တွေရဲ့ simply idea ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ အတူတူချိတ်ဆက်နေပါတယ်။ HTML document တစ်ခုမှာရှိတဲ့ a piece of text of an image ဟာ user တွေ reading လုပ်လိုက်တဲ့ material တွေကို access လုပ်နိုင်တဲ့ အခြား HTML document ကို reference လုပ်နိုင်ပါတယ်။ Hypertext ရဲ့ idea ဟာ web ထက် အလွန်စောပါတယ်၊ ဒါပေမဲ့ Sir Tim Berners-Lee ဟာ hypertext and markup languages တွေရဲ့ idea တွေကို connect လုပ်ပြီး HTML specification ကို create လုပ်ခဲ့ပါတယ်။ အဲ့ဒါဟာ web pages တွေရဲ့ structure ကို describe လုပ်ဖို့ရန်အတွက် အသုံးပြုခဲ့ပါတယ်။ 1994 မှာ Sir Tim Berners-Lee ဟာ W3C လို့ခေါ်တဲ့ World Wide Web Consortism ကိုရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ W3C ကို companies တွေနှင့် comprised လုပ်ထားပါတယ်။ အဲ့ဒါဟာ HTML specification ကို maintain လုပ်နေပါတယ်။ ပြီးတော့ နောက်ထပ် web ရဲ့ betterment ကိုလည်း development ဖြစ်အောင်လုပ်ဆောင်ပေးနေပါတယ်။ သို့သော်လည်း မင်းဟာ history of HTML အချို့ကို နားလည်ခြင်းအားဖြင့် အရာတိုင်းရဲ့ ကြီးမားတဲ့ အကြံစည်တွေမှာ HTML ပါဝင်တဲ့ role ကို နားလည်တဲ့နေရာမှာ ပိုကောင်းတဲ့ frame of refrence တွေရရှိမှာပဲဖြစ်ပါတယ်။ နောက် video မှာ coding အကြောင်းကိုပြောကြပါမယ်။
+    </p><hr>
+    <h1>
+         Introduction to Global part1
+    </h1>
+    <p>
+        ဒီ video မှာတော့ real HTML code တွေကို လေ့လာကြမှာဖြစ်ပါတယ်။ ဒီမှာဆိုရင် ကျွန်တော်တို့ရဲ့ content တွေပါတဲ့ HTML page တစ်ခုရဲ့ global structure အကြောင်းကို လေ့လာမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့မှာ history lesson our the way ရှိနေပြီဖြစ်ပါတယ်။ Some HTML tags အကြောင်းကို လေ့လာကြမယ်။ ကျွန်တော်တို့ဟာ HTML documents တွေရဲ့ global structure နှင့် deal ဖြစ်နေတဲ့ tags တွေအကြောင်းကို လေ့လာကြမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်မှာရှိတဲ့ browser chrome ကို open လိုက်မယ်။ ဒါပေမဲ့ မင်းတို့ကတော့ ကြိုက် browser ကိုအသုံးပြုနိင်ပါတယ်။ ပြီးတော့ ကျွန်တော်ဟာ text editor TextMate ထဲမှာ ကျွန်တော်ရဲ့ HTML document ကို create လုပ်လိုက်ပါမယ်။ မင်းဟာလည်း မင်းကြိုက်တဲ့ text editor ကို အသုံးပြုနိုပါတယ်။ အခု ပထမဆုံး ကျွန်တော်ဟာ create လုပ်ဖို့ရန်အတွက် ဘယ်လို doctype ကို ခေါ်မလဲဆိုတာ ကြည့်ကြည့်ပါ။ ကျွန်တော်တို့ဟာ HTML tag ကို ဖွင့်လိုက်မယ် အဲ့ထဲမှာ exclamation point ကို ရိုက်ထည့်ရပါမယ်။ ပြီးရင် ကျွန်တော်တို့ဟာ doctype ဆိုတဲ့ word ကို ရိုက်ထည့်လိုက်မယ် အဲ့နောက်မှာ space ခြားပြီးတော့ html letters ကို ရိုက်ထည့်လိုက်ပါ။ အဲ့ဒါကို document type တစ်ခုလို့ခေါ်ပါတယ်။ အခု အဲ့မှာဆိုရင် မတူညီတဲ့ HTML documents types တွေကို create လုပ်ဖို့ရန်အတွက် မတူညီတဲ့ doctypes အနည်းငယ်ရှိပါသေးတယ်။ သို့သော်လည်း အခုရေးလိုက်တဲ့ doctype ကို HTML5 doctype လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ ဆက်သွားကြမယ် ပြီရင် document ကို save လုပ်မယ်။ ကျွန်တော်ကတော့ ကျွန်တော်ရဲ့ document ကို index.html လို့ save ခဲ့ပါတယ်။ File name ဖြစ်တဲ့ index.html ကို အသုံးများပါတယ်။ မင်းကတော့ မင်းကြီုက်တဲ့ name နှင့် save လုပ်ခဲ့နိုင်ပါတယ် ပြီရင် web server တစ်ခုရဲ့ folder တစ်ခုထဲမှာ အဲ့ဒါကို ထည့်ခဲ့ရမှာဖြစ်ပါတယ်၊ web server ဟာ index.html ကို အခြား file names တွေကိုဖြတ်ပြီးတော့ direct သွားနိုင်ပါတယ်။ အခုကျွန်တော်တို့မှာ ကျွန်တော်တို့ရဲ့ doctype ရှိနေပါပြီ အဲ့တော့ HTML tag ကိုဆက်သွားရအောင်။ ဒါကြောင့် အောက်ကို a little bit skip လုပ်လိုက်မယ် ပြီးရင် HTML ကိုရိုက်မယ်( &lt;html&gt;) အဲ့ထဲမှာ attaribute လု့ိခေါ်တဲ့ဟာကို အသုံးပြုကြမယ်။ အဲ့ဒါကြောင့် lang ဆိုတဲ့ word ကို language အတွက် ရိုက်လိုက်မယ် ပြီးရင် equal sign ကို ရိုက်မယ်။ပြီးရင် quotes ထဲမှာ English အတွက် en ကို put လုပ်လိုက်မယ်။ အဲ့ဒါတွေပြီးရင် HTML tag ကို ပိတ်လိုက်ပါ(&lt;html&gt;)။ အဲ့ HTML tag အတွင်းမှာ ကျွန်တော်တို့ ရေးချင်တဲ့ tag တွေကို ရေးသားပေးရပါမယ်။ ကျွန်တော်တို့ဟာ page ရဲ့ language ကို spedify လုပ်ဖို့ရန်အတွက် language attribute ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကတော့ English ပဲဖြစ်ပါတယ်။ Doctype ဟာဆိုရင် special tag ဖြစ်တဲ့အတွက်ကြောင့် first အနေနဲ့ပဲလာမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ HTML tag ထဲမှာ head tag ကို create လုပ်မှာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ opening head tag လေကို create လုပ်လိုက်ပါမယ် ပြီးတော့ ကျွန်တော်တို့ရဲ့ closing head tag လေးကို create လုပ်ရပါမယ်။ ပြီးလျှင် အဲ့ head tag နှစ်ခုခြားမှာ ကျွန်တော်ရေးချင်တဲ့ အရာတွေထည့်ဖို့အတွက် space ခြားလိုက်ပါ။ Head tag ဟာဆိုရင် document ရဲ့ header ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ page ပေါ်မှာ actually render မလုပ်စေချင်ဘူး၊ ဒါပေမဲ့ meta tags, styles sheet and JavaScript ကဲ့သို့သော် meta information ပါဝင်ဖို့ရန် အသုံးပြုချင်တယ်ဆိုရင် meta tag တစ်ခုကိုအသုံးပြုရပါမယ်။ ဒါကြောင့် meta tag တစ်ခုကို create လုပ်လိုက်မယ် ပြီးရင် အဲ့ထဲမှာ  charet ဆိုတဲ့ attribute တစ်ခုကို အသုံးပြုလိုက်မယ်။ ပြီးရင် equal sign ခံပြီးတော့ အဲ့နောက်မှာ double quotes ထဲမှာ utf 8 လို့ရိုက်လိုက်ပါမယ်။ Charset ဆိုတာဟာ character set ကိုဆိုပါတယ်။ အဲ့ charset ကို မင်းဟာ websites creating လုပ်တဲ့ အချိန်မှာ 99% အထိ မင်းသုံးချင်သလောက်အသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <p>
+        မင်းဟာ အခြား character set ကို အသုံးပြုခဲ့လျှင် အဲ့ဒါကို အသုံးပြုဖို့အတွက် specific reason တစ်ခုတော့ ရှိရပါမယ်။ Character set meta information ဟာ English ကို language setting လုပ်ထားသလို optional ဖြစ်ပါတယ်။ အဲ့ဒါကို save လုပ်လိုက်ပါမယ်။ မင်းဟာ meta tag ဟာ doctype tag နှင့် similar ဖြစ်တယ်ဆိုတာကို notice ဖြစ်လာပြီး အဲ့မှာဆိုရင် အဲ့ tag နှင့်အတူ closing tag မရှိပါဘူး။ ဒါဟာဘာကြောင့်လဲဆိုရင် meta tag ထဲမှာ ဘာမှ put လုပ်လို့မရတဲ့အတွက်ကြောင့်ဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ ကျွန်တော်တို့ရဲ့ global page structure ကို create လုပ်ဖို့ရန် အတွက် လိုအပ်တဲ့ tag အချို့ရှိနေပါပြီ ဒါပေမဲ့ နောက်ထပ်အနည်းငယ် လေ့လာဖို့ရန်လိုအပ်ပါတယ်။ နောက် video မှာ ကျွန်တော်တို့ဟာ ဒီအရာကို finish ဖြစ်အောင် လုပ်ပါမယ်။
+    </p><hr>
+    <h1>
+         Introduction to Global part2
+    </h1>
+    <p>
+        အရင်ကပြခဲ့တဲ့ video မှာဆိုရင် HTML web page တစ်ခုရဲ့ global structure ကို creating လုပ်ခဲ့ကြပါတယ်။ အခုအဲ့ဒါကို finish ဖြစ်အောင် ကျွန်တော်တို့ လုပပါမယ်။ အခုကျွန်တော်တို့ဟာ title tag ကို အသုံးပြုပါမယ်။ ဒါကြောင့် &lt;title&gt; ဆိုပြီးရေးလိုက်မယ် ပြီးရင် ကျွန်တော်တို့ဟာ closing tag ကို create လုပ်လိုက်ပါမယ်။ အဲ့ title tag နှစ်ခုထဲမှာ ကျွန်တော်ပေါ်ချင်တဲ့ page ရဲ့ title ကို put လိုက်ပါ။ ကျွန်တော်ကတော့ My Page လို့ရိုက်လိုက်ပါမယ်။ ဒါဟာကျွန်တော်တို့ ပထမအရာပဲဖြစ်ပါတယ်၊ ကျွန်တော်တို့ရဲ့ HTML page ထဲမှာ ကျွန်တော်တို့ရဲ့ document တွေကို အမှန်တကယ် မြင်ရအောင်လုပ်ပါတော့မယ်။ ဒါကြောင့် ကျွန်တော်တို့ browser ကိုဖွင့်လိုက်မယ် ပြီးရင် refresh လုပ်လိုက်ပါ၊ အဲံ့မှာ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ပေးလိုက်တဲ့ title ကို local host ရဲ့ အပေါ်မှာ တွေ့ရမှာဖြစ်ပါတယ်။ Several other browsers တွေမှာဆိုရင် page ရဲ့ title ဟာ browser ရဲ့ title bar မှာ ပေါ်လာပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ဟာ blody tag တစ်ခုကို add လုပ်ပါမယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ text editor ကို ပြန်ဖွင့်လိုက် ပြီးရင် body tag ကို head tag ရဲ့ နောက်မှာကပ်ပြီး ရေးရပါမယ်၊ head ရဲ့ အတွင်းမှာမရေးရပါဘူး။ body ရဲ့ အတွင်းထဲမှာ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ page ရဲ့ content တွေကို put လုပ်ပါမယ်။ အဲ့ content တွေကတော့ ကျွန်တော်တို့ရဲ့ page ကိုဖြစ်စေချင်တဲ့အရာတွေပဲ ဖြစ်ပါတယ်။ အဲ့နေရာမှာ ကျွန်တော်တို့ဟာ ကျွန်တော်တိ့ုရဲ့ text တွေနှင့်် images စသည့်အရာတွေ put လုပ်လို့ရပါတယ်။ ကျွန်တော်တို့ရဲ့ page ကို ကူညီနိုင်တဲ့ နောက်ထပ် tags တွေရှိပါသေးတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ div tag ကိုအသုံးပါမယ်။ ဒါကြောင့် &lt;div&gt;; ဆိုပြီး ရိုက်လိုက်မယ် ပြီးရင် closing tag ကိုပါရိုက်ပါမယ်။ အဲ့ div tag ထဲမှာ ကျွန်တော်တို့ ထည့်လိုတဲ့ text အချို့ကို ထည့်နိုင်ပါတယ်။ ကျွန်တော်ကတော့ " This is a div" လို့ရိုက်လိုက်ပါမယ်။ Div ဟာဆိုရင် division လို့ခေါ်ပါတယ် (သို့) မင်းရဲ့ document ရဲ့ section တစ်ခုလို့လဲဆိုပါတယ်။ သူ့ကို မင်းpage ရဲ့ styling sections တွေအတွက် အသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါကို logical grouping အတွက်လည်းအသုံးပြုနိုင်ပါတယ်။ မင်းရဲ့ page မှာ div tags တွေအများကြီးရှိနိုင်ပါတယ်။ တစ်ခါတစ်လေမှာ သူတို့ဟာ တစ်ခုချင်းစီထဲမှာ nested ဖြစ်နေနိုင်ပါတယ်။ Div တစ်ခုကို block level element လို့လဲ ခေါ်ဆိုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် block level elements ရဲ့ several other types တွေရှိပါသေးတယ်၊ block level element တစ်ခုဟာ အခြား elements တွေကို push လုပ်နိုင်ပါတယ်။ ဒီအကြောင်းကို CSS ရောက်တဲ့အခါမှ ဆက်လက်လေ့လာကြရအောင်။ အခု မင်းရဲ့ browser ကို ဖွင့်ပြီး refresh လုပ်လိုက်ပါ။ မင်းဟာ page ပေါ်မှာ "This is a div" ဆိုတဲ့ ကျွန်တော်တို့ရေးထားတဲ့ text ကို မြင်ရပါမယ်။ အဲ့ဒါဟာ div tag ထဲမှာ ရှိနေတယ်ဆိုတာ ကျွန်တော်တို့ သိပြီးသားဖြစ်ပါတယ်။ Example အနေနဲ့ ကျွန်တော်တို့ဟာ background color ကို change လုပ်နိုင်ပါတယ်၊ ပြီးတော့ div ထဲမှာ အခြားအရာတွေကိုလည်း style လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့မှာ span tag တစ်ခုရှိပါတယ်။  span tag ဟာ div tag နှင့် similar ဖြစ်ပါတယ်။ အဲ့ span tag ကို text တွေကို divide လုပ်တဲ့အခါလည်းအသုံးပြုနိုင်ပါတယ်။ ဒါအပြင့် website တစ်ခုရဲ့ large sections တွေအတွက်လည်းအသုံးပြုနိုင်ပါတယ်။ span tag ကိုအသုံးပြုတဲ့နေရာမှာ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ text ရဲ့ part မှာ wrap လုပ်ပေးရပါမယ်။ ပြီးရင် အဲ့ဒါကို ကျွန်တော်တို့ div ရဲ့ ဘယ်နေရာမှာမဆို put လုပ်နိုင်ပါတယ်။ span tag တစ်ခုထဲလည်း ကျွန်တော်တို့ ဟာ ရေးသားနိုင်ပါတယ်။ Example &lt;span&gt; &lt;/&gt; ဆိုပြီးရေးသားနိုင်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ အဲ့ span ထဲမှာ "This is a span" ဆိုတဲ့ text အချို့ကို type လုပ်လိုက်ပါမယ်။ ပြီးလျှင် ကျွန်တော်တို့ရဲ့ document ကို save လုပ်လိုက်ပါ ပြီးရင် browser ကို ဖွင့်ပြီး refresh လုပ်လိုက်ပါ။ အခုမင်းဟာ "This is a div" ဆိုတဲ့ text နှင့် "This is a span" ဆိုတဲ့ text ကိုမြင်ရမှာဖြစ်ပါတယ်။ အခု မင်းတို့သိဖို့လိုတာကတော့ in-line element တစ်ခုလို့်ခေါ်တဲ့ span tag တစ်ခုပဲဖြစ်ပါတယ်။ in-line element တစ်ခုဟာ things တွေကို out of the way နှင့် push မလုပ်နိုင်ပါဘူး။ ဒါ့အပြင် သူဟာ flow of elements ကို disrupt မလုပ်နိုင်ပါဘူး။ အခု ကျွန်တော်တို့ဟာ div tag ထဲမှာ ရေးထားတဲ့ span tag ကို div tagလို့ပြောင်းရေးကြည့်ပါမယ်။ ပြီးရင် save လုပ်ပြီး browser ကို ဖွင့်ပြီး refresh လုပ်မယ် အဲ့မှာမင်းဟာ div ဆိုတဲ့ word လေးဟာ next line ကို ဆင်းသွာတာကို မြင်ရမှာဖြစ်ပါတယ်။ ဒါဟာ block level element ကြောင့်ပဲဖြစ်ပါတယ်။ နောက်လာမည့် video မှာ ကျွန်တော်တို့ဟာ text တွေအကြောင်းကို စလေ့လာကြမယ်။
+    </p><hr>
+    <h1>
+         Introduction to Text Paragraphs
+    </h1>
+    <p>
+        Webpages တွေဟာဆိုရင် text  ရဲ့ comprise ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို format လုပ်တယ်ဆိုတာကို ကျွန်တော်တို့ဟာ learn လုပ်ဖို့ရန် အရေးကြီးပါတယ်။ ဒီ video မှာ ကျွန်တော်တို့ဟာ text ရဲ့ format တွေကို ကူညီပေးတဲ့ HTML အကြောင်းကို စပြီးလေ့လာမှာဖြစ်ပါတယ်။ ဒီမှာဆိုရင် ပြီးခဲ့တဲ့ video မှာ ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ markup အချို့ရှိပါတယ်။ ကျွန်တော့်တို့ သိပြီးသားဖြစ်တဲ့ first text-related tag တစ်ခုအကြောင်းကို လေ့လာကြမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ paragraph tag ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ p tag ကိုရိုက်လိုက်မယ် ပြီးရင် closing p tag ကိုလည်းရိုက်မယ်။ မင်းဟာ သတိထားရပါမယ် အဲ့ tags တစ်ခုချင်းစီဟာ a little  bit နှင့် indented လုပ်ထးပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ technical requirement တစ်ခုတော့မဟုတ်ပါဘူး။ ဒါပေမဲ့ အဲ့ဒါဟာ tag တစ်ခုဟာ အခြား tag ထဲမှာ nested ဖြစ်နေတဲ့ အချိန်မှာ လွယ်လွယ်ကူကူ read လုပ်နိုင်ဖို့ရန်အတွက် markup ကို ပြုလုပ်ပေးပါတယ်။ ဥပမာ ကျွန်တော်တို့ရဲ့ &lt;p&gt;ပဲဖြစ်ပါတယ်။ အဲ့ tag ဟာ ကျွန်တော်တို့ရဲ့ body tag ထဲမှာ nested ဖြစ်နေပါတယ်။ ကျွန်တော်တို့ရဲ့ paragraph tag ထဲကို offscreen ကနေ text တစ်ချို့ကို copy and paste လုပ်လိုက်ပါမယ်။ အဲ့ copy and paste လုပ်လိုက်တဲ့ text ဟာဆိုရင် lorem ipsum text လို့ခေါ်ဆိုပါတယ်။ အဲ့ text ရဲ့နေရာမှာ ကျွန်တော်တို့ဟာ ဘယ် text ကိုမဆို ရေးနိုင်ပါတယ်။ အဲ့ text ဟာ placeholder text ပဲဖြစ်ပါတယ်၊ အဲ့ဒါကို print work as well as web design တွေမှာ အသုံးများပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ document ကို save လုပ်လိုမယ် ပြီးရင် browser ကိုဖွင့်ပြီး refresh လုပ်လိုက်မယ်။ အခု ကျွန်တော်တို့ browser ထဲမှာ lorem ipsum ဆိုတဲ့ text ရှိနေပြီဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ ကျွန်တော်တို့လိုချင်သလို paragraphs တွေကို ရေးလို့ရပါပြီ။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ text editor ကိုဖွင့်လိုက်မယ်။ p tag တစ်ခုလုံးကို copy ကူးလိုက်ပြီးတော့ 2 ခုလောက် paste လုပ်ကြည့်လိုက်မယ်။ ပြီးရင် save လုပ်ပြီးတာနဲ့ browser ကို ဖွင့်ပြီး refresh လုပ်လိုက်မယ်။ မင်းဟာ  ကျွန်တော်တို့မှာ 3 paragrahps ရှိသွားတာကို မြင်တွေ့ရမှာဖြစ်ပါတယ်။ မင်းဟာ paragraphs တစ်ခုချင်းစီခြားထဲမှာ a little bit of separation လေးရှိနေတာကို သတိထားမိပါလိမ့်မယ်။ ဒါဟာ ကျွန်တော်တို့ရဲ့ paragraphs ကို browser ကနေ apply လုပ်ပေးတဲ့ default styling အချို့ပဲဖြစ်ပါတယ်။ သို့သော်လည်း CSS ကို သုံးပြီး HTML အကြောင်းကို နောက်မှာ လေ့လာကြမယ်။ အဲ့မှာဆိုရင် မင်းဟာ paragraphs တွေကြားထဲမှာ spacing ကို adjust လုပ်နိုင်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့သိပြီးသားဖြစ်တဲ့ heading line tag အကြောင်းကို လေ့လာကြမှာဖြစ်ပါတယ်။ Headline tag ဟာဆိုရင် document ရဲ့ global structure ရဲ့ အမှန်တစ်ကယ် part တွေပဲဖြစ်ပါတယ်။ သို့သော်လည်း terms of text မှာဆိုရင် အဲ့ဒါရဲ့အကြောင်းဟာ think လုပ်ဖို့ရန် အလွန်လွယ်ကူပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ text editor ကို ဖွင့်လိုက်မယ် body tag ရဲ့ အတွင်းထဲက paragraph tag ရဲ့ အပေါ်မှာ first-level headline ဖြစ်တဲ့ &lt;h1gt; ဆိုပြီးရိုက်လိုက်ပါမယ်။ ပြီးရင် အဲ့ headline tag ထဲမှာ ကိုယ်ရေးချင်တဲ့ head text ကိုရေးနိုင်ပါတယ်။ ကျွန်တော်ကတော့ This is a level 1 headline လို့ရေးလိုက်ပါမယ်။ ပြီးရင် ကျွန်တော်တို့ရဲ့ document ကို save ပြီး browser မှာ refresh လုပ်ကြည့်ပါ။ အခု မင်းဟာ သူ့ရဲ့ အောက်က text တွေထက် အလွန်ကြီးတဲ့ some text ကျွန်တော့်မှာ ရှိတယ်ဆိုတာကို တွေ့ရှိရပါလိမ့်မယ်။ ဒါဟာ ကျွန်တော်တို့ရဲ့ first-level headline ကို apply လုပ်တဲ့ brower ရဲ့ some default styling ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ first-level headline ရဲ့ အောက်မှာ headline တစ်ခုနှင့်တစ်ခု အနည်းငယ်သေးငယ်တဲ့ 5 levels of headlines ရှိပါတယ်။ ကဲအဲ့ဒါကို try လုပ်ကြည့်ရအောင်။ 
+    </p>
+    <p>
+        ကျွန်တော်တို့ရဲ့ text editor ကိုဖွင့်လိုက်ပါ first-level headline ကို copy လုပ်ပါ ပြီးရင်အဲ့ဒါတွေကို 5 ခါ paste လုပ်လိုက်ပါ။ ပြီးလျှင် ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ tags တစ်ခုစီရဲ့ numbers တွေကို change လုပ်ဖို့ရန် လိုအပ်ပါတယ်။ ပြီးရင် ကျွန်တော်တို့ရဲ့ headlines တွေထဲမှာရှိတဲ့ text တွေကိုလည်း change လုပ်ဖို့လိုပါတယ်။ ပြီးရင် save လုပ်ပါ ပြီးရင် browser ကိုဖွင့်ပြီး refresh လုပ်လိုက်ပါ။ အဲ့မှာ မင်းဟာ level of headline တစ်ခုချင်းစီဟာ နောက်ကတစ်ခုနှင့် အနည်းငယ်ပဲ သေးငယ်တယ်ဆိုတာကို တွေ့ရပါလိမ်မယ်။ General အားဖြင့် မင်းဟာ မင်းရဲ့ very semantic ဖြစ်တဲ့ headlines တွေကို keep လုပ်ထားချင်ပါလိမ့်မယ်။ Level 1 headline ဟာ newspaper ရဲ့ name ဖြစ်ပြီးတော့ level 2 headline ကတော့ section တစ်ခုရဲ့ name ပဲဖြစ်ပါတယ်။ Level 3  headline ကတော့ article တစ်ခုရဲ့ name တစ်ခုပဲဖြစ်ပါတယ် စသည်ဖြင့် သဘောတရားတူညီကြပါတယ်။ အခု paragraphs ကဲ့သို့ မင်းမှာ မင်းလိုချင်သလောက် headlines တွေရှိနေပါပြီ။ Paragraphs and headline ဟာဆိုရင် text တွေကို formatting လုပ်တဲ့ အချိန်မှာ အရေးကြီးတဲ့ elements အချို့ပဲဖြစ်ပါတယ်။ နောက် video မှာ ကျွန်တော်တို့ document ရဲ့ တိကျတဲ့ parts တွေကို ဘယ်လိုအသားပေးပြီးလေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>
+         Introduction to Text Emphasis
+    </h1>
+    <p>
+        Emphasis and Strong elements နှစ်ခုလုံးကို words or sentences တွေရဲ့ အရေးကြီးတာတွေကို increase ဖြစ်ဖို့ရန်အတွက်အသုံးပြုပါတယ်။ ဒီ video မှာဆိုရင် ကျွန်တော်တို့ဟာ ဒီ elements တွေဟာ Horizontal Rule Element နှင့် တူတဲ့အကြောင်းကို လေ့လာမှာဖြစ်ပါတယ်။ အခု emphasis tag ရဲ့ အကြောင်းကို လေ့လာမှာဖြစ်ပါတယ်၊ emphasis tag ဟာ span tag နှင့် very similar ဖြစ်ပါတယ်။ အဲ့ဒါဟာ inline element တစ်ခုလည်းဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ paragraph text အချို့ထဲမှာ emphasis tag ကို wrap လုပ်လိုက်ပါမယ်။ Emphasis tag ကို &lt;em&gt; လို့ရေးရပါတယ်။ အခုကျွန်တော်တို့ရဲ့ first paragraph ရဲ့ first 3 words ကို အဲ့ &lt;em&gt; tag ကို wrap လုပ်လိုက်ပါမယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်ပါ။ မင်းဟာ ကျွန်တော်တို့ em tag ခံပြီးတော့ ရေးလိုက်တဲ့ first paragraph ရဲ့ first 3 words ဟာ အခု italicized ဖြစ်သွားတာကို တွေရမှာဖြစ်ပါတယ်။ 
+       
+    </p>
+    <p>
+        ဒါဟာ နဲနဲတော့ ရှုပ်ထွေးပါတယ်။ ဒါကြောင့်မင်းဟာ ဒါကို သေသေချာချာလိုက်လုပ်ပါ။ Emphasis tag ဟာ italicize text ကို ရည်ညွှန်းတာတော့မဟုတ်ပါဘူး။ သို့သော်လည်း ဒါဟာ &lt;em&gt; tag ကို browser ကနေ apply လုပ်တဲ့ default styling ပဲဖြစ်ပါတယ်။ မင်းဟာ CSS မှာ italicize text ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါဟာ HTML ရဲ့ နောက်မှ explore လုပ်ထားတဲ့ topic တစ်ခုပဲဖြစ်ပါတယ်။ သို့သော်လည်း emphasis tag ကို မင်း text ရဲ့ point တစ်ကို emphasis လုပ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ ပြီးတော့ မင်းဟာ အဲ့ text ကို italicize ဖြစ်ဖို့ချင်ဆိုရင်တော့ အဲ့ tag ကိုအလိုအပ်ပါဘူး။ ဒီမှာဆိုရင် &lt;em&gt; tag အတွက် real technical guidlines မရှိပါဘူး။ နောက်ထပ်လေ့လာမှာကတော့ strong tag ပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ text editor ကိုဖွင့်လိုက်မယ် ပြီးရင် ကျွန်တော်တို့ရဲ့ 2nd paragraph မှာ အချို့ text တွေကို strong ဖြစ်အောင်လုပ်မယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ အဲ့ဒီ့မှာ strong tag တစ်ခုကို wrap လုပ်လိုက်မယ်။ အဲ့ဒါဟာ emphasis tag လို shortened မဟုတ်ပါဘူး။ အဲ့ဒါဟာ full word ဖြစ်ပါတယ်(strong)။ ဒါကြောင့် အဲ့ဒါကို save လုပ်ပါမယ် ပြီးရင် browser မှာ refresh လုပ်ပါမယ်။ ကျွန်တော့်ရဲ့ 2 paragraph ရဲ့ first 3 words ကို wrap လုပ်ထားတာဖြစ်တဲ့အတွက်  အခုအဲ့ text တွေဟာ bold ဖြစ်သွားတာကို မင်းတွေ့ရမှာဖြစ်ပါတယ်။ ဒီ tag ဟာ emphasis နှင့် very similar တဲ့အတွက်ကြောင့် မင်းဟာ text တွေကို bold လုပ်ဖို့ရန်အတွက် ဒီ tag ကို အသုံးအပြုချင်ပါဘူး။ မင်းဟာ CSS ကိုအသုံးပြုတဲ့အခါ text ကို bold ဖြစ်အောင်ပြုလုပ်နိုင်ပါတယ်။ နောက်ဆုံးမှာတော့ &lt;hrgt; tag ကို လေ့လာမှာဖြစ်ပါတယ်။ အဲ့ tag ရဲ့ stands for ကတော့ "horizontal rule" ပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ text editor ကို ဖွင့်လိုက်ပါ၊ ပြီးရင် ကျွန်တော်တို့ရဲ့ 1st and 2nd paragraph နစ်ခုကြားမှာ horizontal rule ကို put လုပ်လိုက်ပါမယ်။ အဲ့ tag ကိုရေးတဲ့ အခါ &lt;hr&gt; လို့ရေးရပါတယ်။ အဲ့ဒါကို void element လို့ခေါ်ပါတယ်။ အဲ့ဒါဟာ meta tag or DOCTYPE tag နှင့် similar ဖြစ်ပါတယ်။  အဲံမှာဆိုရင် horizontal rule ထဲကို put လုပ်ဖို့ရန်အတွက် ဘာမှမရှိပါဘူး။ Content and  tag ဟာတစ်ခုထဲဖြစ်ပြီး အတူတူပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ browser ကိုဖွင့်ပြီး refresh လုပ်လိုက်ပါ၊ မင်းဟာ first paragraph နှင့် 2nd paragraph ကြားထဲမှာ line တစ်ဖြစ်သွားတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ horizontal rule ကို refer လုပ်တာပဲဖြစ်ပါတယ်။ အခု မင်းဟာ ဒီလို line တစ်ခုကို CSS မှာ borders ကိုသုံးပြီး create လုပ်နိုင်ပါတယ်။ မင်းဟာ horizontal rule တစ်ခုကို text ကို break up လုပ်ချင်လျှင် အသုံးပြုနိုင်ပါတယ်။ ဒီ tag ဟာဆိုရင် strong and emphasis တို့နှင့် very similar ဖြစ်ပါတယ်၊ အဲ့မှာလည်း technical guidlines မရှိပါဘူး။ ဒါကြောင့် HTML elements အချို့ဟာ မင်းကို မင်းရဲ့ text တွေကို more semantic meaning ဖြစ်အောင်ကူညီပေးပါတယ်။ နောက်ထပ် video တွေမှာ more specific types of text တွေဟာ ဘယ်လို format လုပ်တယ်ဆိုတာကို ကျွန်တော်တို့ဟာ learn လုပ်ကြမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>
+        Introduction to Text Quotes
+    </h1>
+    <p>
+        မကြာသေးခင်က ကျွန်တော်တို့ဟာ အရေးကြီးတဲ့ text elements အချို့ ကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။  အခုကျွန်တော်တို့ဟာ ပိုပြီး specific ဖြစ်တဲ့ text elements တွေအကြောင်းကို လေ့လာကြည့်မှာဖြစပါတယ်။ အဲ့ဒါတွေဟာ မင်းကို book တစ်ခု (သို့) movie တစ်ခုမှ quotes ကဲ့သို့ things တွေကို format လုပ်တဲ့နေရာမှာကူညီနိုင်ပါတယ်။ ပထမတစ်ခုအနေနဲ့ blockquote element ပဲဖြစ်ပါတယ်။ Blockquote or blockquote tag ကို quotes တွေကို wrap လုပ်ဖို့အသုံးပြုပါတယ်။ ကဲအဲ့ဒါကို try လုပ်ကြည့်ရအောင်။ အဲ့ blockquote ကို angle brackets ထဲမှာ အပြည့်အစုံရေးပေးရပါမယ်(&lt;blockquote&gt;)။ ပြီးရင် closing tag ကိုလည်းရေးပေးရပါမယ်။ အဲ့ tag ရဲ့ အတွင်းမှာ ကျွန်တော်တို့ဟာ paragraph tag ကိုအသုံးပြုပါမယ်။ ဘာကြောင့်လဲဆိုရင် ကျွန်တော်တို့ဟာ some tag တွေကို wrapping လုပ်တဲ့ အခုမှာ အဲ့ဒါတွေဟာ quote တစ်ခုဖြစ်သွားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်ကတော့ "The Quick brown fox jumped over the lazy dog. Then the dog chased after the fox." လို့ &lt;p&gt; tag ထဲမှာရေးလိုက်ပါမယ်။ ပြီးရင် browser ကို ဖွင့်ပြီး refresh လုပ်လိုက်ပါ။ အခု မင်းဟာ ကျွန်တော်တို့ရဲ့ web page မှာ quote တသ်ခုရှိတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာ မင်းဟာ အဲ့ text ဟာ normally paper a  little of indentation ဖြစ်နေတာကို သတိပြုမိပါလိမ့်မယ်။ ဒါဟာဘာကြောင့်လဲဆိုရင် ဒီ text ဟာ &lt;blockquote&gt; tag တစ်ခုထဲမှာရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <p>
+        အခုကျွန်တော်တို့ဟာ citations အတွက်အသုံးပြုတဲ့ site attribute အကြောင်းကိုလေ့လာမှာဖြစ်ပါတယ်။ Citations ဆိုတာ URL တစ်ခုပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ blockquote ထဲမှာ site attribute ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ ပြီးရင် equal sign လေးရေးပြီး double quotes ထဲမှာ ကျွန်တော်တို့ရဲ့ URL ကို put လုပ်လိုက်ပါ။  ကျွန်တော်တို့ရဲ့ quote ဟာ ကျွန်တော်တို့ put လုပ်လိုက်တဲ့ URL မှ quote တစ်ခုပဲဖြစ်ပါတယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်ပါ။ အဲ့မှာ ဘာမှမပြောင်းလဲတာကို မင်းတွေ့မြင်ရမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ ရေးလိုက်တဲ့ quote အတွက် citation တစ်ခု ရှိသွားပါပြီ။ss
+    </p>
+    <p>
+        နောက်ထပ်လေ့လာမှာကတော့ Q element or Q tag or quote tag ပဲဖြစ်ပါတယ်။ Q element ဟာဆိုရင် blockquote element နှင့် related ဖြစ်နေပါတယ်။ အဲ့ဒါကို paragraph တွေ breaks လုပ်ဖို့မလိုတဲ့ inline content မှာအသုံးပြုပါတယ်။ တစ်ကယ်တော့ blockquote ကို paragraphs ကို breaks လုပ်တဲ့နေရာမှာလိုတဲ့ block level content တွေအတွက်အသုံးပြုပါတယ်။ Blockquote တစ်ခုပြီးတဲ့နောက် a little bit skip down လုပ်လိုက်ပြီး new paragraph တစ်ခုကို blockquote ရဲ့ အပြင်မှာ create လုပ်လိုက်မယ်။ ကျွန်တော်တို့အဲ့ paragraph tag ထဲကို "A wise man once said ဆိုပြီးရိုက်လိုက်မယ် အဲ့နောက်မှာ &lt;q&gt; tag နှင့် I think, therefore I am" လို့ရေးပြီး &lt;/q&gt; tag နှင့် close လုပ်လိုက်ပါ။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်ပါ။ ကျွန်တော်ရဲ့ paragraph ကိုကြည့်လိုက်ပါ အဲ့မှာ ကျွန်တော်တို့ အဲ့ထဲမှာ quote တစ်ခုရှိနေပါပြီ။ Paragraph ဟာဆိုရင် blockquote element ထဲမှာမရှိပါဘူး၊ ဒါကြောင့်မင်းဟာ blockquote element ကို သုံးထားတဲ့ paragraph နှင့်မတူတာကို သတိထားမိပါလိမ့်မယ်။ သို့သော်လည်း &lt;q&gt; tag နှင့်ရေးထားတဲ့ paragraph မှာဆိုရင် double quotes လေးဖြစ်သွားတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ ကျွန်တော်တို့ဟာ ဒီ quotes တွေကို add လုပ်ဖို့မလိုပါဘူး။ ဘာကြောင့်လဲဆိုတော့ သူတို့ကို browser ကနေ automatic add လုပ်ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အခု blockquote tag လို ကျွန်တော်တို့ဟာ Q tag ထဲကို citation tag တစ်ခုကို add လုပ်မှာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ text editor ကိုဖွင့်လိုက်ပါ &lt;q&gt; tag ထဲကို site attribute တစ်ခုကို add လုပ်လိုက်ပါမယ်။ ပြီးရင် save လုပ်ပြီး browser ကို refresh လုပ်လိုက်ပါ၊ blockquote လိုပဲ ဘာမှမပြောင်းလဲတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့မှာ အဲ့ဒါကို user ကို display လုပ်ချင်တဲ့မှာလုပ်နိုင်ဖို့အတွက် markup တစ်ခု ရှိသွားတာပဲဖြစ်ပါတယ်။ အခြား web page တစ်ခုမှာရှိတဲ့ quoting other works တွေဟာ ဘာမှတော့မဟုတ်ပါဘူး။ ဒါပေမဲ့ အဲဒါကို လုပ်တဲ့အချိန်မှာတော့ မင်းရဲ့ page ကို sematic meaning တွေ add လုပ်တဲ့နေရာဒါကို အသုံးပြုဖို့ရန် အရေးကြီးပါတယ်။
+    </p><hr>
+    <h1>How to use code tag, pre tag, br tag</h1>
+    <p> 
+        အခု သငိခန္းစာ မှာတော့ ကျွန်တော်တို့ဟာ code, pre, br elements တွေအကြောင်းကို လေ့လာမှာဖြစ်ပါတယ်။ ဒီ elements တွေဟာမင်းကို poetry or computer code ကဲ့သို့ things တွေကို format လုပ်တဲ့ရောမှာ ကူညီပေးပါလိမ့်မယ်။ ဒီ code တွေကို လေ့လာကြည့်အောင် ဒီ code element တွေဟာ computer code ရဲ့ fragment တစ်ခုကို represent လုပ်ပါတယ်။ ဒါဟာဆိုရင် XML element name တစ်ခု(သို့) file name တစ်ခု(သို့) computer program တစ်ခု (သို့) computer တစ်လုံးကနေ recognize လုပ်လိုက်တဲ့ any other string တွေ(သို့) computer တစ်လုံးကနေ recognize လုပလိုက်တဲ့ text ရဲ့ any other piece တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော်တု့ိ try ကြည့်ရအောင်။
+    </p>
+    <p>
+        ကျွန်တော်တို့ဟာ new paragraph တစ်ခုကို ရေးလိုက်မယ်။ အဲ့ထဲမှာ ကျွန်တော်တို့ဟာ အဲ့ &lt;p&gt; tag ထဲကို "When we use the drive() function on the vehicle object, it moves forward." ဆိုပြီးရေးလိုက်မယ်။ အဲ့ paragraph မှာဆိုရင် "drive" ဟာ function တစ်ခုရဲ့ name ဖြစ်ပြီး "vehicle" ဟာ object တစ်ခုရဲ့ name ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ computer program တစ်ခုထဲမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ ဘာကိုဆိုလိုလဲဆိုတာ မသိလည်း ဘာမှမဖြစ်ပါဘူူး။ ကျွနတော်တို့ဟာ drive function ကို ဒါဟာ computer code ဖြစ်တယ်ဆိုတာကို browser ကနေသိအောင် code tag ကို wrap လုပ်လိုက်ပါမယ်။ ပြီးလျှင် vehicle ကိုလည်း code tag ထဲမှာ wrap လုပ်လိုက်မယ် ဘာကြောင့်လဲဆိုရင် vehicle ဟာ computer program ထဲမှာရှိတဲ့ object တစ်ခုရဲ့ name ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ပြီးရင် အဲ့ဒါကို save လုပ်ပြီး browser မှာ refresh လုပ်ကြည့်ပါ။ အဲ့ မင်းဟာ normal paragraph တစ်ခုကိုတေေါရမှာဖြစ်တယ် ဒါပေမဲ့ "drive" နှင့် "vehicle" ကိုကြည့်လိုက်ပါ အဲ့နှစ်ခုဟာ special monospaced font တစ်ခုဖြစ်နေတာကို မင်းမြင်ရလိမ့်မယ်။ ဒါဟာဆိုရင် တစ်ယောက်ယောက်က ဒါစာကို ဖတ်လိုက်ရင် "drive" နှင့် "vehicle" ဟာ တစ်ခုခုကို references လုပ်တယ်ဆိုတာ သိရှိမှာဖြစ်ပါတယ်။ Cascading style sheets ကိုအသုံးပြုခြင်းဟာ မင်းကို ဒီ code tag တွေကို အမှန်တကယ် target ဖြစ်စေပြီး မင်းကြိုက်သလို သူတို့ကို style လုပ်နိုင်ပါတယ်။ ဒါပေမဲ့ ဒါဟာ သူရဲ့ ကိုယ်ပိုင်းအရာအားလုံး browser ကနေ applies လုပ်ပေးလိုက်တဲ့ default styling ပဲဖြစ်ပါတယ်။
+    </p>
+    <p>
+        နောက်ထပ်လေ့လာမှာကတော့ code element နှင့် similar ဖြစ်တဲ့ pre element ပဲဖြစ်ပါတယ်။ pre element ဟာဆိုရင် preformatted text ရဲ့ block တစ်ခုကိုခုကို represent လုပ်ပါတယ်။ ကဲ ဒါကို try ကြည့်ရအောင် ကျွန်တော့်တို့ရဲ့ text editor ကိုဖွင့်လိုက်မယ် paragraph tag ရဲ့နောက်မှာ ကျွန်တော်တို့ဟာ pre tag ကိုအသုံးပြုပါမယ်။ ပုံမှာပြထားသလိုကျွန်တော်တို့ဟာ ရိုက်လိုက်မယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်မယ်။ မင်းဟာ ကျွန်တော်တို့ text editor ထဲကို put လုပ်ထားတဲ့ preformatted text တွေဟာ formatting ဖြစ်နေတယ်ဆိုတာပါပဲ။ ဒါဟာ paragraphs ရဲ့ behave နှင့် မတူညီတဲ့ နည်းလမ်းပဲဖြစ်ပါတယ်။ မင်းဟာ ဒီ preformatted text တွေဟာ browser ရဲ့ left side ကနေ slightly indented ဖြစ်နေတယ်ဆိုတာကို မြင်ရမှဖြစ်ပါတယ်။ ဒါဟာ normal ပဲဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ဟာ code element ကို pre element နှင့် combination လုပ်ပြီးအသုံးပြုမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် မင်းဟာ computer code ရိုက်တဲ့အချိန်မှာ formatting ဖြစ်ဖို့ရန် အလွန်အရေးကြီးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကဲအခုဒါကို try လုပ်ကြည့်ရအောင်။&lt;pre&gt;&lt;code&gt; if(!foo) {
+            then bar = 3;
+            }
+            &lt;/code&gt;&lt;/pre&gt;ဆိုပြီးရိုက်လိုက်မယ်။ ပြီးလျှင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်ပါ။ မင်းဟာ preformatted လုပ်ထားတဲ့ nice computer code အချို့ကို မြင်ရမှာဖြစ်ပါတယ်။ code tags တွေဟာဆိုရင် အမှန်တစ်ကယ် excute မလုပ်ကြပါဘူး။ အဲ့ဒါဟာ semantic tag တစ်ခုပဲဖြစ်ပါတယ်။ browser နှင့် user တွေဟာ ဒါတွေဟာ normal text တွေမဟုတ်တဲ့ computer code တွေဖြစ်တယ်ဆိုတာကို သိပါတယ်။
+    </p>
+    <p>
+         နောက်ဆုံးအနေနဲ့  ကျွန်တော်တို့မှာ br element or break element ပဲဖြစ်ပါတယ်။ br element ဆိုတာ line break တစ်ခုကို represent လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ meta tag တစ်ခု(သို့) horizontal rule တစ်ခုနှင့် similar ဖြစ်တဲ့ self-closing tag တစ်ခုပဲဖြစ်ပါတယ်။ ကဲ ဒါကို try လုပ်ကြည့်ရအောင်။ ကျွန်တော်တို့ text editor ကိုဖွင့်လိုက်မယ် ပြီးရင် paragraph element တစ်ခုကို ရိုက်လိုက်မယ် အဲ့ &lt;p&gt; tag ထဲကို ကျွန်တော်ဟာ "This is the first line of the poem.&lt;br&gt;This is the second line." ဆိုပြီးရိုက်ပါမယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်ကြည့်ပါ။ မင်းဟာ ကျွန်တော်တို့မှာ br tag ကိုအသုံးပြုထားတဲ့ line break တစ်ခုရှိတယ်ဆိုတာ။ Next video မှာ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ကို text ရဲ့ specific text တွေကို format လုပ်ရန်ကူညီတဲ့ အခြား elements တွအကြောင်းကို လေ့လာမှာပဲဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>About Text Abbrevitaion and Address element</h1>
+    <p>
+        ဒီ သငိခန္းစာ မှာဆိုရင် abbreviations,physical mailing addresses တွေကို ဘယ်လို format လုပ်တယ်ဆိုတာကို လေ့လာမှာဖြစ်ပါတယ်။ တစ်ခါတစ်လေမှာ မင်းဟာ အချို့အရာတွေကို abbreviate လုပ်ဖို့ရန်လိုပါတယ်။ အဲ့အချိန်မှာမင်းဟာ acronym တစ်ခုအတွက် abbreviation တစ်ခုကို represent လုပ်တဲ့ abbreviation element or &lt;abbr&gt; tag ကိုအသုံးချင်လာပါလိမ့်မယ်။ ကျွန်တော်တို့ဟာ paragraph တစ်ခုကို create လုပ်မယ် အဲ့ထဲမှာ ကျွန်တော်ဟာ "I know how to use SCUBA gear." ဆိုပြီးရေးလိုက်မယ်။ အဲ့မှာဆိုရင် SCUBA ဟာ acronym တစ်ခုဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ အဲ့ acronym မှာ abbreviation tag ကို wrap လုပ်မယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်မယ်။ အဲ့မင်းဟာ ကျွန်တော်တို့ ရေးလိုက်တဲ့ စာကြောင်းကိုတွေ့ရလိမ့်မယ်။ အဲ့ SCUBA မှာ ဘာမှပြောင်းလဲမသွားပါဘူး။ &lt;abbr&gt; tag ဟာ semantics အတွက်ပဲဖြစ်ပါတယ်။ အခုမင်းဟာ &lt;abbr&gt; tag ထဲမှာ title attribute ကိုသုံးပြီး acronym ရဲ့ expansion ကို add လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို try လုပ်ကြည့်ရအောင်။ &lt;abbr title="self-contained underwater breathing apparatus."&gt; SCUBA &lt;/abbr&gt; ဆိုပြီးရေးလိုက်မယ်။ save လုပ်မယ်ပြီးရင် browser မှာ refresh လုပ်လိုက်မယ်။ မင်းဟာ ပထမကလိုပဲ ဘာမှပြောင်းမသွားတာကိုတွေလိမ့်မယ် ဒါပေမဲ့ ကျွန်တော်တို့ဟာ "SCUBA" အပေါ်ကို hover လုပ်ကြည့်လျှင် ကျွန်တော်တု့ိ &lt;title&gt; tag ထဲမှာရေးထားတဲ့ text ကိုမြင်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;p&gt;I know how to use &lt;abbr title="self-contained underwater breathing apparatus"&gt;SCUBA&lt;/abbr&gt;gear.&lt;p&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Example Output</h2>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>I know how to use<abbr title="self-contained underwater breathing apparatus">SCUBA</abbr>gear. <p>
+    </body>
+    </html>
+    <p>
+        နောက်ထပ်ကတော့ address element ပဲဖြစ်ပါတယ်။ Address element ဟာ contact information တွေကို represent လုပ်ပါတယ်။ ကျွန်တော်တို့ဟာ  text editor ဖွင့်လိုက်မယ်၊ address tag ကို ရိုက်လိုက်မယ် ပြီးရင် closing tag ကိုပါရေးလိုက်မယ်။ အဲ့မှာ ကျွန်တော်ဟာ &lt;address&gt;Nick Pettit &lt;br&gt;1234 Example Road&lt;br&gt;Metropolis&lt;/address&gt; ဆိုပြီးရေးလိုက်ပါမယ်။ &lt;br&gt; tag တွေကတော့ line break အတွက်သုံးတယ်ဆိုတာသိပြီးသားဖြစ်ပါတယ်။ ပြီးရင် save လုပ်မယ် ပြီးလျှင် browser မှာ refresh လုပ်လိုက်မယ်။ အဲ့မှာဆိုရင် text တွေ italicized ဖြစ်နေတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့မှာ separate line 3 ခုနဲ့ address ရှိသွားပြီဖြစ်ပါတယ်။ &lt;address&gt; tag ဟာ &lt;body&gt; ရဲ့ direct child တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ &lt;body&gt; tag ရဲ့အောက်မှာ nested ဖြစ်နေတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ အဲ့ထဲမှာ a person or a phase ကို represent လုပ်တဲ့အခြား element ရှိတယ်ဆိုလျှင် address information ဟာ specific element ကို localized လုပ်မှာပဲဖြစ်ပါတယ်။ အခု ကျွန်တော် &lt;cite&gt; tag ကိုသုံးပြမှာဖြစ်ပါတယ်။ ကျွန်တော် &lt;p&gt; My favorite book is &lt;cite&gt;A Tale of Two Cities&lt;/citegt; by Charles Dickens.&lt;/p&gt; ဆိုပြီးရေးလိုက်ပါမယ်။ ပြီးရင် save လုပ်ပြီး browser မှာ refresh လုပ်လိုက်ပါ။ အဲ့မှာမင်းဟာ "A Title of Two Cities" ဟာ italicized ဖြစ်နေတာကိုတွေ့ရပါလိမ့်မယ်။ ဒါဟာ browser ကနေ default အနေနဲ့ add လုပ်လုက်တာပဲဖြစ်ပါတယ်။
+
+    </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;p&gt;think&lt;wbr&gt;vitamin.com&lt;p&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        နောက်ဆုံးအနေနဲ့ကတော့ ကျွန်တော်တို့ဟာ line break opportunity ကို represent လုပ်တဲ့ "wbr" element အကြောင်းပဲဖြစ်ပါတယ်။ "wbr" tag ဟာဆိုရင် အဲ့ word တစ်ခုလုံးမှာ fit ဖြစ်ဖု့ိရန်အတွက် horizontal space ဟာ enough မဖြစ်ဘူးဆိုလျှင် browser ဟာ text ကို မင်း specified လုပ်ထားတဲ့ next line ဆီကို break down လုပ်လိုက်မှာပဲဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;p&gt;think&lt;wbr&gt;vitamin.com&lt;p&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        Expample Output
+    </p>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>think<wbr>vitamin.com<p>
+    </body>
+    </html><hr>
+    <h1>About Ordered and Unordered</h1>
+    <p>
+            ကျွန်တော်တို့ ဒီတစ်ခါလေ့လာမှာကတော့ ကျွန်တော်တို့ list တွေကို create လုပ်တဲ့အခါမှာ ကူညီပေးတဲ့ HTML ရဲ့ element 3 ခုအကြောင်းပဲဖြစ်ပါတယ်။ ပထမတစ်ခုကတော့ OL element or Ordered List element ပဲဖြစ်ပါတယ်။ OL element or &lt;ol&gt; tag ဟာဆိုရင်  specific order ဖြစ်နေတဲ့ a list of items ပဲဖြစ်ပါတယ်။ OL element ကို ကျွန်တော်အောက်မှာ ရေးပြပါထားပါတယ်။ အဲ့ထဲမှာ ကျွန်တော်ဟာ List element or &lt;li&gt; tag ကိုလည်း ထည့်ရေးပြသွားပါမယ်။ အဲ့မှာမင်းဟာ automatic order ဖြစ်သွားတာကိုတွေ့ရမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;ol&gt;
+                    &lt;li&gt;First item&lt;/li&gt;
+                    &lt;li&gt;The next thing&lt;/li&gt;
+                    &lt;li&gt;The third thing&lt;/li&gt;
+                    &lt;li&gt;This one comes last&lt;/li&gt;
+                
+                &lt;ol&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example Output</p>
+    <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Document</title>
+            </head>
+            <body>
+                <ol>
+                    <li>First item</li>
+                    <li>The next thing</li>
+                    <li>The third thing</li>
+                    <li>This one comes last</li>
+                
+                </ol>
+            </body>
+            </html>
+   <p>
+        နောက်ထပ် element တစ်ခုကတော့ Order List element နှင့် similar ဖြစ်တဲ့ Unordered List element or &lt;ul&gt; tag ပဲဖြစ်ပါတယ်။ အဲ့ element ဟာ specific order မရှိတဲ့ list တစ်ခုကို represent လုပ်ပါတယ်။ ကျွန်တော်ဟာ ကျွန်တော်တို့ရေးပြီးသားဖြစ်တဲ့ &lt;ol&gt; နေရာကို &lt;ul&gt; tag ကို change လုပ်လိုက်ပါမယ်။ အဲ့ဒါကိုအောက်မှာ output နဲ့ ပြပေးထားပါတယ်။ အဲ့မှာဆိုရင် numbers တွေကနေ bullet points တွေပြောင်းစသွားတာကိုတွေ့ရမှာဖြစ်ပါတယ်။
+   </p>
+   <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;ol&gt;
+                    &lt;li&gt;First item&lt;/li&gt;
+                    &lt;li&gt;The next thing&lt;/li&gt;
+                    &lt;li&gt;The third thing&lt;/li&gt;
+                    &lt;li&gt;This one comes last&lt;/li&gt;
+                
+                &lt;ol&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+   <p>Example Output</p>
+   <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Document</title>
+            </head>
+            <body>
+                <ul>
+                    <li>First item</li>
+                    <li>The next thing</li>
+                    <li>The third thing</li>
+                    <li>This one comes last</li>
+                
+                </ul>
+            </body>
+            </html>
+    <p>
+            နောက်ဆုံးအနေနဲ့ ကတော့ unordersd lists ဟာ nested ဖြစ်နိုင်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော်ဟာ Example output နှင့်ပြပေးသွမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ first item ရဲ့အောက်မှာ nested list ကို တွေ့ရမှာဖြစ်ပါတယ်။ အခုကျွန်တော်ရေးထားတဲ့ nested list ထဲမှာ နောက်ထပ် nested list တွေကိုလည်းထည့်ရေးနိုင်ပါသေးတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;First item
+                            &lt;ul&gt;
+                                        &lt;li&gt;First item&lt;/li&gt;
+                                        &lt;li&gt;The next thing&lt;/li&gt;
+                                        &lt;li&gt;The third thing&lt;/li&gt;
+                                        &lt;li&gt;This one comes last&lt;/li&gt;
+                                    
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;The next thing&lt;/li&gt;
+                        &lt;li&gt;The third thing&lt;/li&gt;
+                        &lt;li&gt;This one comes last&lt;/li&gt;
+                    
+                    &lt;ul&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <ul>
+            <li>First item
+                <ul>
+                            <li>First item</li>
+                            <li>The next thing</li>
+                            <li>The third thing</li>
+                            <li>This one comes last</li>
+                        
+                </ul>
+            </li>
+            <li>The next thing</li>
+            <li>The third thing</li>
+            <li>This one comes last</li>
+        
+        </ul>
+    </body>
+    </html><hr>
+    <h1>About Definition lists</h1>
+    <p>
+            အခုလေ့လာမှာကတော့ Definition lists ပဲဖြစ်ပါတယ်။ Definition lists or DL element ဟာဆိုရင် a list of definitions or description for various items ကို represent လုပ်ပါတယ်။ ဒီ &lt;dl&gt; tag ဟာ OL element တွေလိုပဲ သူ့ထဲမှာ အခြား tags လိုပါတယ်။ အဲ့ tags တွေထဲကတော့ ပထမတစ်ခုဟာ Definition title လို့ခေါ်တဲ့ &lt;dt&gt; tag ပဲဖြစ်ပါတယ်။ မင်းဟာ အဲ့ tag ကို မင်းရဲ့ list ရဲ့ main parts (သို့) higher-level categories လို့မြင်နိုင်ပါတယ်။ ကျွန်တော်အောက်မှာ example နှင့် သုံးပြမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;dl&gt;
+                        &lt;dt&gt;Video Pros &lt;/dt&gt;
+                        &lt;dt&gt;Teachers&lt;/dt&gt;
+                    &lt;/dl&gt;
+                    
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example Output</p>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <dl>
+            <dt>Video Pros </dt>
+            <dt>Teachers</dt>
+        </dl>
+        
+        
+    </body>
+    </html>
+    <p>နောက်ထပ် ကျွန်တော်တို့ဟာ အဲ့ထဲကို Description or Definition element လို့ခေါ်တဲ့ DD element  ကို add လုပ်မှာပဲဖြစ်ပါတယ်။ အဲ့ tag ကိုလည်း &lt;dt&gt; tag ပြီးလျှင် &lt;dl&gt; tag ထဲမှာပဲ ရေးပေးရမှာဖြစ်ပါတယ်။ Definition list ဟာ ကြည့်လိုက် confusing ဖြစ်နိုင်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် အဲ့မှာ မင်း expect လုပ်လိုက်သလို indentation အများကြီးမရှိတဲ့ အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ DD elements တွေဟာ DT elements တွေနှင့် related ဖြစ်နေပါတယ်။ ဒါပေမဲ့ သူတို့ဟာ tags တွေထဲမှာ nested မဖြစ်ပါဘူး။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ ဘယ် indentation ကိုမှ အသုံးပြုစရာမလိုပါဘူး။ Indentation ကို elements တွေဟာ another element ထဲမှာ nested ဖြစ်နေတဲ့အချိန်မှသာလျှင် အသုံးပြုနိုင်ပါတယ်။ ဒါတွေကို  ကျွန်တော် Expample နှင့် ပြထားပါတယ်။
+
+    </p>
+    <pre>
+            <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                        &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                        &lt;title&gt;Document&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;dl&gt;
+                        &lt;dt&gt;Video Pros &lt;/dt&gt;
+                        &lt;dd&gt;Jon&lt;/dd&gt;
+                        &lt;dd&gt;Mi chale&lt;/dd&gt;
+                        &lt;dt&gt;Teachers&lt;/dt&gt;
+                        &lt;dd&gt;Thu Zar Myint&lt;/dd&gt;
+                        &lt;dd&gt;Alice&lt;/dd&gt;
+                        &lt;dd&gt;Jim&lt;/dd&gt;
+                        &lt;/dl&gt;
+                        
+                        
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+            </code>
+        </pre>
+        <p>Example Output</p>
+        <!DOCTYPE html>
+        <html lang="en">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <title>Document</title>
+     </head>
+      <body>
+        <dl>
+            <dt>Video Pros </dt>
+            <dd>Jon</dd>
+            <dd>Mi chale</dd>
+            <dt>Teachers</dt>
+            <dd>Thu Zar Myint</dd>
+            <dd>Alice</dd>
+            <dd>Jim</dd>
+        </dl>
+        
+        
+     </body>
+     </html><hr>
+    <h1>About Anchor Element</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ page ရဲ့ various parts တွေကို connect လုပ်ဖို့ရန်လိုပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ အခု anchor element အကြောင်းကို လေ့လာကြမယ်။ anchor element ကို &lt;a&gt; လို့ရေးရပါမယ်။ anchor tag ဟာဆိုရင် page တစ်ခုရဲ့ parts တွေကို link ပေးရုံမကဘဲ separate HTML page တွေကိုလည်း link လုပ်ပေးပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ ID attribute ကိုလည်း element တစ်ခုကို identifies လုပ်ဖို့န်အတွက် အသုံးပြုပါမယ်။ အဲ့ ID  attribute ကို ကျွန်တော်တို့ရဲ့ anchor တွေ combination လုပ်တဲ့ နေရာမှာ အသုံးပြုပါမယ်။ နောက်ထပ် ကျွန်တော်တို့ဟာ H-ref or hyperlink reference attribute ကို အသုံးပြုပါမယ်။ အဲ့ဒါကို a pound sign or a hash sign တွေခံပြီးအသုံးပြုလို့လဲရပါတယ်။ အဲ့ဒါတွေရဲ့ နောက်မှာ ကျွန်တော်သွားချင်တဲ့ page or various part of page ရဲ့ ID နှင့်တူရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို ကျွန်တော် Example out တွေနှင့် လုပ်ပြပေးသွားမှာဖြစ်ပါတယ်။ Example မှာ back link ကိုပါ ရေးပြပေးမှာဖြစ်ပါတယ်။ 
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+               &lt;head&gt;
+                 &lt;meta charset="UTF-8"&gt;
+                 &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                 &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                 &lt;title&gt;Document&lt;/title&gt;
+             &lt;/head&gt;
+             &lt;body&gt;
+                &lt;a href="#some_text" id="my_page"&gt;My page&lt;/a&gt;
+                &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+                
+                &lt;p id="some_text"&gt;This is another page&lt;/p&gt;
+                &lt;a href="#my_page"&gt;GoBack&lt;/a&gt;
+                
+             &lt;/body&gt;
+             &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example Output</p>
+    <!DOCTYPE html>
+    <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+ </head>
+ <body>
+    <a href="#some_text" id="my_page">My page</a>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <p id="some_text">This is another page</p>
+    <a href="#my_page">GoBack</a>
+    
+ </body>
+ </html><hr>
+ <h1>How to Link Websites part 1</h1>
+ <p>
+        ကျွန်တော်အခု ပြောပြမည့်အကြောင်းအရာကတော့  Web page တစ်ခုနှင့် တစ်ခု link လုပ်တဲ့အကြောင်းပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ another page တစ်ခုကို create လုပ်ရပါမယ်။ အဲ့နေရာမှာ ကိုယ်ပေးချင် web page  name ရဲ့ နောက်မှာ .html ကိုထည့်ပေးရပါမယ်။ ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ web page နှစ်ခုဟာ same folder ထဲမှာ ရှိရပါမယ်။ အဲ့ဒါမှ link လုပ်လို့ရမှာဖြစ်ပါတယ်။ page တစ်ခုချင်းစီမှာ link tag ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့ page တွေထဲမှာမင်းဟာ ကြိုက်နှစ်သက်သလို HTML tags တွေကိုသုံးနိုင်ပါတယ်။ အဲ့ link tag တွေကို သုံးတဲ့အခါမှာ href ရဲ့နောက်က link name ဟာ ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ .html ရဲ့ရှေ့က name ဖြစ်ရပါမယ် အဲ့ဒါမှ link tag ဟာ အလုပ်လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ index.html ဆိုတဲ့ page တစ်ခုရယ် another_page.html ဆိုတဲ့ page တစ်ခုရှိတယ်ဆိုပါစို့။အဲ့ page နှစ် တစ်ခုနှင့် တစ်ခု ဘယ်လို link လုပ်တယ်ဆိုတာကို  ကျွန်တော် အောက်မှာရေးပြထားပါတယ်။ နောက်မှာ ကျွန်တော်တို့ဟာ Relative and Absolute links အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+ </p>
+ <p>For index.html </p>
+ <pre>
+     <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+           &lt;head&gt;
+             &lt;meta charset="UTF-8"&gt;
+             &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+             &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+             &lt;title&gt;Document&lt;/title&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+             &lt;p&gt;This is first Page&lt;/p&gt;
+            &lt;a href="another_page.html"&gt;My page&lt;/a&gt;
+         &lt;/body&gt;
+         &lt;/html&gt;
+     </code>
+ </pre>
+ <p>For another_page.html</p>
+ <pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;p&gt;This is another page&lt;/p&gt;
+               &lt;a href="index.html"&gt;Go Back&lt;/a&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre><hr>
+
+<h1>How to Link Websites part 2</h1>
+<p>
+        ကျွန်တော်တို့ဟာ file path နှစ်ခုကို hyperlink တစ်ခုမှာ အသုံးပြုနိုင်ပါတယ်။ တစ်ခုကတော့ Absolute link နောက်တစ်ခုကတော့ Relative link ပဲဖြစ်ပါတယ်။ မတူညီတဲ့ folder တွေမှာ saveလုပ်ထားတဲ့ html file တွေကို link လုပ်ချင်တယ်ဆိုရင် အဲ့ html file save ထားတဲ့ file name ကိုပါ hyperlink မှာ ထည့်ပေးရပါမယ်။အဲ့ name ကိုတော့ အရင်ဆုံးရေးရမှာဖြစ်ပြီး အဲ့နောက်မှာ / ခံပြီး html file name ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ another_page.html ကို my_directry ဆိုတဲ့ file name နှင့် save လုပ်ထားတယ်ဆိုပါစို့။ နောက်ထပ် index.html file ကို link ဆိုတဲ့ file name နှင့် save လုပ်ထားတယ်ဆိုပါစို့။ အဲ့ link file ဟာ my_directory  file ရဲ့ အပေါ်မှာရှိလို့ hyperlink ထဲမှာ "../" နှင့်လည်းခေါ်လို့ရပါတယ်။ အခုလို page တွေ link လုပ်တာကို Relative link လို့ခေါ်ပါတယ်။ Absolute link ဟာဆိုရင် complete file path ကိုအသုံးပြုပါတယ်။ Absolute link ကိုသုံးလျှင် full URL ကို put လုပ်ပေးရပါမယ်။ URL အစား Uniform Resource Identifier ကိုလည်းအသုံးပြုနိုင်ပါတယ်။အဲ့နှစ်ခုရဲ့ different ကတော့ URL ဟာ URI ရဲ့ specific type ဖြစ်တယ်ဆိုတာပါပဲ။ Absolute and Relative links နှစ်ခုကို ကျွန်တော်အောက်မှာ ရေးပြသွားမှာဖြစ်ပါတယ်
+</p>
+<p>For Relative Link </p>
+<pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+               &lt;a href="my_directory/another_page.html"&gt;My page&lt;/a&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+</pre>
+<p>For Absolute Link</p>
+<pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+               &lt;a href="my_directory/another_page.html"&gt;My page&lt;/a&gt;
+               &lt;a href="http://google.com"&gt;To Google&lt;/a&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+ </pre><hr>
+ <h1>About Image Tag </h1>
+ <p>
+    HTML ကိုသုံးပြီးတော့ manipulate လုပ်ဖို့ရန်အတွက် မတူညီတဲ့ နည်းလမ်းတွေနဲ့ လေ့လာခဲ့ပြီးပါပြီ။ အခုအခါမှာတော့ ကျွန်တော်တို့ရဲ့ Web pages ထဲကို images တွေ ဘယ်လို add လုပ်တယ်ဆိုတာကိုလေ့လာကြမှာဖြစ်ပါတယ်။ ကျွန်တော်ဆီမှာ "flowers.jpeg" ဆိုတဲ့ image file တစ်ခုရှိပါတယ်။ Image file တွေကို JPEG, PNG, GIF ဆိုတဲ့ မင်းကြိုက်တဲ့ file format တွေနဲ့ save လုပ်နိုင်ပါတယ်။ Images တွေကို add လုပ်တဲ့ နေရာမှာ relative path or absolute path ကိုအသုံးပြုနိုင်ပါတယ်။ Image add လုပ်တဲ့ရောမှာ &lt;img&gt; tag လို့ရေးသုံးရပါမယ်။ အဲ့ tag ထဲမှာ src or SOURCE attribute ကို သုံးရပါတယ်။ အဲ့ src ထဲမှာ ကျွန်တော်တို့ရဲ့ image file name ကိုထည့်ရမှာဖြစ်ပါတယ်။ အဲ့ image tag ထဲမှာ ALT လို့ခေါ်တဲ့ alternate attribute ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ နောက်ထပ် ALT အစား title attribute ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့ title attribute ကိုသုံးခြင်းဟာ image ပေါ်မှာ pointer ထောက်လိုက်တဲ့ image ရဲ့ title ပေါ်မှာပဲဖြစ်ပါတယ်။
+ </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+             &lt;meta charset="UTF-8"&gt;
+             &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+             &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+             &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;img src="flowers.jpg" alt="Flowers blooming in the warm sumlight." title="Flowers blooming in the warm sumlight."&gt;
+            
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+            
+        </code>
+    </pre>
+ <p>Example Output</p>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Document</title>
+ </head>
+ <body>
+    <img src="../flowers.jpg" alt="Flowers blooming in the warm sumlight." title="Flowers blooming in the warm sumlight.">
+
+ </body>
+ </html><hr>
+
+ <h1>About Objects and Embedded Elements</h1>
+ <p>
+        OBJECT element ကို HTML 4 specification မှာ introduce လုပ်ပြီးသားဖြစ်ပါတယ်။ သူရဲ့ purpose ကတော့ general media elemets တွေကို embedded ဖြစ်ဖို့ allow လုပ်ပေးတာပဲဖြစ်ပါတယ်။ OBJECT element မှာဆိုရင် unify multimedia တွေကို web ပေါ်မှာ embedding လုပ်ဖို့ဖြစ်ပါတယ်။ ဒီ &lt;object&gt; tag ဟာ Web browser တိုင်း အလုပ်လုပ်ပုံကမတူပါဘူး။ &lt;object&gt; tag မှာဆိုရင် video ရဲ့ width နှင့် height ကို pixels နှင့် setting လုပ်တဲ့ width and height ဆိုတဲ့ attribute နှစ်ခုပါဝင်ပါတယ်။ အဲ့နှစ်ခုဟာ &lt;embed&gt; tag မှာလဲပါဝင်ပါတယ်။ နောက်ထပ် &lt;object&gt; tag မှာ &lt;param&gt; or &lt;parameter&gt; tag လည်းပါဝင်ပါတယ်။ အဲ့ tag ဟာဆိုရင် OBJECT element ရဲ့ various properties  တွေကို set လုပ်ပါတယ်။ အဲ့ param tag ထဲမှာဆိုရင် name and value ဆိုတဲ့ attribute နှစ်ခုပါဝင်ပါတယ်။ အဲ့မှာဆိုရင် value attribute ဟာ URL တစ်ခုကို set လုပ်ပေးပါတယ်။ နောက်ထပ်ကတော့ &lt;embed&gt; tag ပဲဖြစ်ပါတယ်။ အဲ့ tag ဟာဆိုရင် W3C standard တစ်ခုတော့မဟုတ်ပါဘူး။ ဒါပေမဲ့ သူ့မှာ exception of Internet Explorer နှင့်အတူ cross-browser ကို ကောင်းကောင်းsupport လုပ်ပေးနိုင်ပါတယ်။ OBJECT tag ထဲမှာ Internet Explore and other browsers တို့ အလုပ်လုပ်ဖို့အတွက် param tag နှင့် အခု embed tag တို့ရှိဖို့လိုပါတယ်။ &lt;embed&gt; tag မှာလည်း src, type,width, height, ဆိုတဲ့ attribute တွေပါဝင်ပါတယ်။ OBJECT element ရဲ့ ရေးပုံကို ကျွန်တော်အောက်မှာရေးပြမှာဖြစ်ပါတယ်။
+ </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                 &lt;meta charset="UTF-8"&gt;
+                 &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                 &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                 &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;object width="222" height="555"&gt;
+                      &lt;param name="movie" value=""&gt;
+                      &lt;param name="allowfullscreen" value="true"&gt;
+                      &lt;param name="allowscriptaccess" value="always"&gt;
+                      &lt;embed src="" type="" width="222"height="555"&gt;&lt;embed&gt;
+                    &lt;/object&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                      
+             
+        </code>
+    </pre><hr>
+    <h1>About Link and Scripts and Iframe</h1>
+    <p>
+        ဒီတစ်ခါကျွန်တော်ပြောပြတဲ့ HTML tag တွေကတော့ Link tag , Script tag and Iframe တို့ပဲဖြစ်ပါတယ်။ ပထမ link tag အကြောင်းကိုပြောချင်ပါတယ်။ Link tag ကို body tag ထဲမှာရေးလို့မရပါဘူး။ သူ့ကို head tag အတွင်းမှာဘဲရေးရမှာဖြစ်ပါတယ်။ Link tag မှာဆိုရင် page ရဲ့ other resources တွေပါဝင်ပါတယ်။ သူ့မှာ ဒါဟာ stylesheet တစ်ခုဖြစ်တယ်ဆိုတာကို ပြောပြဖို့အတွက် rel attribute or relative attribute ကို အသုံးပြုပါတယ်။ သူ့မှာ type attribute လဲပါဝင်ပါတယ်။ ပြီးတော့ href or hyperlink reference လည်းပါဝင်ရပါမယ်။ ဒီ link tag ကို CSS ကို learn လုပ်တဲ့ အခါမှာ ပိုပြီးသိရှိမှာဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ Script tag ပဲဖြစ်ပါတယ်။ သူ့ကို Javascript ပါဝင်ဖို့အတွက် အသုံးပြုပါတယ်။ သူ့မှာ ဆိုရင်လည်း attibute တွေပါဝင်ပါတယ်။ အဲ့ဒါတွေကတော့ type attibute နဲ့ source attribute တို့ပဲဖြစ်ပါတယ်။ သူ့မှာ closing tag ပါရပါမယ်။ အဲ့ tag နှစ်ခုကို အောက်မှာကျွန်တော်ရေးပြသွေားပါမယ်။ အဲ့မှာဆိုရင် Javascript ရဲ့ alert box ကို လည်း ထည့်ရေးပြသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <pre><code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+             &lt;meta charset="UTF-8"&gt;
+             &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+             &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+             &lt;title&gt;Document&lt;/title&gt;
+             &lt;link rel="stylesheet" type="text/css" href="application.css"&gt;
+             &lt;script type="text/JavaScript"&gt;alert('Hello World')&lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+             
+            &lt;/body&gt;
+            &lt;/html&gt;
+           
+    </code></pre><br>
+    <a href="../Example/mm.html">Output>>>>></a><br><br>
+   
+    <p>
+        နောက်ဆုံးအနေနဲ့ကတော့ Iframe ကိုဘယ်လိုအသုံးသလဲဆိုတာကိုပြောပြသွားမှာဖြစ်ပါတယ်။ Iframe မှာလည်း attribute တွေနဲ့သုံးရပါတယ်။ Another page မှာ ရေးထားတဲ့အရာတွေကို indext page ပေါ်ချင်ရင် Iframe ကိုအသုံးပြုလို့ရပါတယ်။ ကျွနတော် HTML comment လေးကို လည်းရေးပြသွားမှာဖြစ်ပါတယ်။ အဲ့ comment ကိုတော့ browser မှာ right click လုပ်ပြီး view page source ကိုနှိပ်မှာသာမြင်ရမှာဖြစ်ပါတယ်။
+
+    </p>
+    <p>For Indexpage</p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;iframe src="another_page.html" frameborder="20"&gt;&lt;/iframe&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <p>For Another_page</p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;!-- This is a HTML comment --&gt;
+                    &lt;p&gt;This another see inside iframe&lt;/p&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/iframe.html">Output>>>>></a><br>
+    <hr>
+    <h1>About Table Rows and Cells</h1>
+    <p>
+            အခုကျွန်တော်ပြောမဲ့အကြောင်းအရာကတော့ Table တစ်ခုရဲ့ rows တွေ data တွေကို ဘယ်လို create လုပ်ရယ်ဆိုတာပဲဖြစ်ပါတယ်။ Table တစ်ခုရဲ့ header ကို &lt;tr&gt; tag ထဲမှာ &lt;th&gt; tag ကိုအသုံးပြုရပါတယ်။ နောက်ထပ်ကျွန်တော်ပြောချင်တာကတော့ Table header ရှိသလောက် အဲ့ header နဲ့ဆိုင်တဲ့ data တွေတစ်ခုချင်းစီးကို &lt;tr&gt; tag ထဲမှာ &lt;td&gt; tag နဲ့ ထည့်ပေးရပါမယ်။ Table header နှစ်ခုရှိတာကို မင်းဟာ data ကို နောက်က header ထဲမှာပဲထည့်ချင်ရင် &lt;td&gt; tag ရဲ့ first tag ထဲမှာ empty ထည့်ခဲ့ရပါမယ်။ ကျွန်တော်အောက်မှာ example ရေးပြသွားပါမယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                        &lt;table border="1" &gt;
+                              
+                                    &lt;tr&gt;
+                                        &lt;th&gt; Fruits  &lt;/th&gt;
+                                        &lt;th&gt;Vegetables&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Orange&lt;/td&gt;
+                                        &lt;td&gt;Carrots&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Apples&lt;/td&gt;
+                                        &lt;td&gt;Broccoli&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Strawberrie&lt;/td&gt;
+                                        &lt;td&gt;Aspatagus&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;&lt;/td&gt;
+                                        &lt;td&gt;Potatos&lt;/td&gt;
+                                    &lt;/tr&gt;
+                        
+                                    
+                        
+                               
+                        
+                            &lt;/table&gt;
+                            
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/rowandcell.html">Output>>>>></a><br>
+    <hr>
+    <h1>About Table and Header and Footer</h1>
+    <p>
+            နောက်ထပ်ကျွန်တော်ပြောပြချင်တဲ့အကြောင်းကတော့ Table ကိုဘယ်လို create လုပ်တယ်၊ table header တွေကို ဘယ်လို align တွေချိန်ပြီး သူ့ထဲမှာ ပါဝင်တဲ့ table data တွေ table cell တွေကို attribute တွေကိုသုံးပြီး ဘယ်လို create လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။  Table tag ထဲမှာ cellpadding တွ cellspacing ဆိုတဲ့ attribute တေကိုအသုံးပြုနိုင်ပါတယ်။ Table header တွေကို thread tag ထဲမှာ ရေးပေးရပါမယ်။ Table foote ကို table ရဲ့ အောက်မှာ ကိုယ်ဖော်ပြချင်တဲ့ အကြောင်းအရာကို ဖော်ပြဖို့ သုံးနိုင်ပါတယ်။ &lt;th&gt; tag ထဲမှာ valign ဆိုတဲ့ attribute ကိုအသုံးပြုနိုင်ပါတယ်။ အခုကျွန်တော်ပြောပြခဲ့တဲ့ tag တွေ attribute တွေကို ကျွန်တော်အောက်မှာ Example နှင့်အတူ သုံးပြသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;title&gt;Document&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                   &lt;table border="5" cellpadding="5" cellspacing="5"&gt;
+                       &lt;thead&gt;
+                           &lt;tr&gt;
+                               &lt;th&gt;These Are&lt;br&gt;My Favorite Fruits
+                               &lt;/th&gt;
+                               &lt;th valign="middle"&gt;Vegetables&lt;/th&gt;
+                           &lt;/tr&gt;
+                           &lt;tfoot&gt;
+                               &lt;tr&gt;
+                                   &lt;td colspan="2" align="center"&gt;Thanks for reading&lt;/td&gt;
+                               &lt;/tr&gt;
+                           &lt;/tfoot&gt;
+                           &lt;tr&gt;
+                               &lt;td&gt;Orange&lt;/td&gt;
+                               &lt;td&gt;Carrots&lt;/td&gt;
+                           &lt;/tr&gt;
+                           &lt;tr&gt;
+                               &lt;td&gt;Apples&lt;/td&gt;
+                               &lt;td&gt;Broccoli&lt;/td&gt;
+                
+                           &lt;/tr&gt;
+                
+                       &lt;/thead&gt;
+                
+                   &lt;/table&gt;
+                    
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/table.html">Output>>>>></a><br>
+    <hr>
+    <h1>How to create Form and inside of it tag and attribute</h1>
+    <p>
+            ဒီတစ်ခါကျွန်တော်ပြောပြမှာကတော့ Form တစ်ခုကို ဘယ်လို create လုပ်ရတယ်။ပြီးတော့ သူ့ထဲမှာ ဘယ်လို tag တွေနဲ့ attribute တွေပါတယ်ဆိုတာပဲဖြစ်ပါတယ်။ &lt;form&gt; tag တစ်ခုမှာဆိုရင် action, method, name ဆိုတဲ့ attribute တွေပါဝင်ပါတယ်။ Action attribute ဟာ မင်း load လုပ်ချင်တဲ့ page ကို point လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Method attribute မှာဆိုရင် web programming concept လို့ခေါ်တဲ့ GET ကို double quotes ထဲမှာထည့်ရေးရပါမယ်။ အဲ့ထဲမှာ POST ကိုလည်းအသုံးပြနိုင်ပါတယ်။ ပြီးလျှင် form ရဲ့ name ကိုလည်း name ဆိုတဲ့ attribute ထဲမှာထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ form tag ထဲမှာ Input tag ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Input tag မှာဆိုရင် type, name ဆိုတဲ့ attribute တွေကိုသုံးပေးရမှာဖြစ်ပါတယ်။ Type attribute ထဲမှာ ကိုယ်ပေါ်ချင်တဲ့ အရာတွေကို ရေးနိုင်ပါတယ်။ ဥပမာ text တစ်ခုကို create လုပ်ချင်ရင် text လို့ရေးပေးရမယ်။ Checkbox ဆိုရင် checkbox, radio button ဆိုရင် radio, password ဆိုရင် password, submit ဆိုရင် submit လို့ရေးပေးရမှာမယ်။ အဲ့ဒါတွေရဲ့ နောက်မှာ name ဆိုတဲ့ attribute တွေပါဝင်တယ်။ တစ်ချို့မှာ value ဆိုတဲ့ attribute ကိုလည်းသုံးပေးရပါတယ်။ အဲ့ဒါတွေကတော့ radio button တစ်ခုကို create လုပ်တဲ့နေရာမှာ button ပဲ create လုပ်လုပ် name ဟာတူရပါမယ်။ မတူညီရင် browser ဟာ button အားလုံးကို select လုပ်သွားမှာဖြစ်ပါတယ်။ သူရဲ့ label ကိုတော့ input type ရဲ့ အပြင်မှာ value attribute ထဲက name ကို ရေးပေးရပါမယ်။ Check box ကို create လုပ်တဲ့ နေရာမှာလည်း radio button နဲ့ အတူတူပါပဲ။ Submit ကို create လုပ်တဲ့ အခါမှာတော့ name attribute ကိုသုံးစရာမလိုပါဘူး။ ကိုယ်ပေါ်ချင်တဲ့ name ကို value attribute ထဲမှာ ရေးပေးရမှာဖြစ်ပါတယ်။ အခုကျွန်တော်ရှင်းပြခဲ့တာတွေကို အောက်က example ထဲမှာ လေ့လာကြည့်နိုင်ပါတယ်။ 
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;form action="#" method="POST"&gt;
+                        &lt;input type="text" name="username"&gt;&lt;br&gt;
+                        &lt;input type="password" name="passdword"&gt;&lt;br&gt;
+                        &lt;input type="radio" name="gender" value="Male"&gt;Male &lt;br&gt;
+                        &lt;input type="radio" name="gender" value="Female"&gt;Female&lt;br&gt;
+                        &lt;input type="checkbox" name="foods" value="Apple"&gt;Apple&lt;br&gt;
+                        &lt;input type="checkbox" name="foods" value="Orange"&gt;Orange &lt;br&gt;
+                        &lt;input type="checkbox" name="foods" value="Bananas"&gt;Bananas &lt;br&gt;
+                        &lt;input type="submit" value="Onwards!"&gt;
+                
+                
+                
+                    &lt;/form&gt;
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/form.html">Output>>>>></a><br>
+    <hr>
+    <h1>How to create TextArea and Select Element</h1>
+    <p>
+            နောက်ထပ်ကျွန်တော်ပြောပြချင်တဲ့ HTML tag တွေအကြောင်းကတော့ Textarea နဲ့ Select element အကြောင်းပဲဖြစ်ပါတယ်။ Textarea ဟာဆိုရင် ကျွန်တော်တို့ရေးချင်တဲ့အကြောင်းအရာတွေကို ရေးနိုင်ဖို့အတွက် အသုံးပြုထားတာဘဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ Note လိုသဘောပဲဖြစ်ပါတယ်။ ပြီးလျှင် Select element ပဲဖြစ်ပါတယ်။ Select tag မှာဆိုရင် option tag ကိုအသုံးပြုပေးရပါမယ်။ အဲ့ option tag ကို group ခွဲချင်လျှင် &lt;optgroup&gt; tag ကိုအသုံးပြုပေးရပါမယ်။အဲ့ tag ထဲမှာ label attribute ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်ပြောပြခဲ့တာတွေကို အောက်က example မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;title&gt;Document&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                   &lt;form action="#" method="POST"&gt;
+                       &lt;input type="text" name="username"&gt;&lt;br&gt;
+                       &lt;input type="password" name="passdword"&gt;&lt;br&gt;
+                       &lt;input type="radio" name="gender" value="Male"&gt;Male&lt;br&gt;
+                       &lt;input type="radio" name="gender" value="Female"&gt;Female&lt;br&gt;
+                       &lt;input type="checkbox" name="foods" value="Apple"&gt;Apple&lt;br&gt;
+                       &lt;input type="checkbox" name="foods" value="Orange"&gt;Orange&lt;br&gt;
+                       &lt;input type="checkbox" name="foods" value="Bananas"&gt;Bananas&lt;br&gt;
+                       &lt;textarea name="area" id="" cols="30" rows="10"&gt;&lt;/textarea&gt;&lt;br&gt;
+                       &lt;select name="city" id="city"&gt;
+                           &lt;optgroup label="Americas"&gt;
+                               &lt;option&gt;North America&lt;/option&gt;
+                               &lt;option&gt;South America&lt;/option&gt;
+                           &lt;/optgroup&gt;
+                           &lt;optgroup label="Eurasia"&gt;
+                                &lt;option&gt;Europe&lt;/option&gt;
+                                &lt;option&gt;Africa&lt;/option&gt;
+                           &lt;/optgroup&gt;
+                           &lt;option&gt;Asia&lt;/option&gt;
+                           &lt;option&gt;Australia&lt;/option&gt;
+                           &lt;option&gt;Antractica&lt;/option&gt;
+                       &lt;/select&gt;&lt;br&gt;
+                       &lt;input type="submit" value="Onwards!"&gt;
+                
+                
+                
+                   &lt;/form&gt;
+                    
+               &lt;/body&gt;
+               &lt;/html&gt;
+         </code>
+    </pre>
+    <a href="../Example/textandselect.html">Output>>>>></a><hr>
+    <h1>How to use Fieldset and Label</h1>
+    <p>
+            အခုကျွန်တော်ပြောပြမည့်အကြောင်းကတော့ Fieldsets and Labels တွေအကြောင်းပဲဖြစ်ပါတယ်။ Fieldset tag ကို separate လုပ်ချင်တဲ့အပိုင်းတွေကို လုပ်ဖို့အတွက်အသုံးပြုနိုင်ပါတယ်။ အဲ့ tag ထဲမှာ separate လုပ်လိုက်တဲ့ ပိုင်းကို name လေးထည့်ချင်တယ်ဆိုရင် အဲ့ tag ထဲမှာ legend tag ကိုအသုံးပြုနိုင်ပါတယ်။ ပြီးရင် label tag အကြောင်းကိုရှင်းပြပါမယ်။ Label tag ကို ကိုယ် create လုပ်လိုက်တဲ့ ကောင်ရဲ့ ရှေ့မှာ name ပေးတာပဲဖြစ်ပါတယ်။ Label tag ထဲမှာ for ဆိုတဲ့ attribute ကိုသုံးပေးရပါမယ်။ အဲ့ attribute ထဲမှာ ကျွန်တော်တို့ဟာ ကိုယ်ပေါ်စေချင်တဲ့ကောင်ရဲ့ id ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ဒါကြောင့် ကျွန်တော်တို့ပေါ်ချင်တဲ့ကောင်ကို id ပေးခဲ့ဖို့လိုပါတယ်။ အခုကျွန်တော်ရှင်းပြခဲ့တာတွေကို အောက်က example နဲ့ output မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;form action="#" method="POST"&gt;
+                        &lt;fieldset&gt;
+                            &lt;legend&gt;The Important Information&lt;/legend&gt;
+                            &lt;label for="username"&gt;Username:&lt;/label&gt;
+                            &lt;input type="text" name="username" id="username"&gt;&lt;br&gt;
+                            &lt;label for="passdword"&gt;Password:&lt;/label&gt;
+                            &lt;input type="password" name="passdword" id="passdword"&gt;&lt;br&gt;
+                            &lt;input type="radio" name="gender" value="Male" id="Male"&gt;&lt;label for="Male"&gt;Male&lt;/label&gt;&lt;br&gt;
+                            &lt;input type="radio" name="gender" value="Female" id="Female"&gt;&lt;label for="Female"&gt;Female&lt;/label&gt;&lt;br&gt;
+                            &lt;input type="checkbox" name="foods" value="Apple"&gt;Apple&lt;br&gt;
+                            &lt;input type="checkbox" name="foods" value="Orange"&gt;Orange &lt;br&gt;
+                            &lt;input type="checkbox" name="foods" value="Bananas"&gt;Bananas &lt;br&gt;
+                        &lt;/fieldset&gt;
+                        &lt;fieldset&gt;
+                                &lt;legend align="center"&gt;Optional Items&lt;/legend&gt;
+                           &lt;label for="textarea"&gt;We want to know more about.&lt;br&gt;Write a short essay about yourself! &lt;/label&gt;&lt;br&gt;
+                           &lt;textarea name="area" id="textarea" cols="30" rows="10"&gt;&lt;/textarea&gt;&lt;br&gt;
+                        
+                            &lt;label for="city"&gt;Where are you from.&lt;/label&gt;&lt;br&gt;
+                            &lt;select name="city" id="city"&gt;
+                                &lt;optgroup label="Americas"&gt;
+                                   &lt;option&gt;North America&lt;/option&gt;
+                                   &lt;option&gt;South America&lt;/option&gt;
+                                &lt;/optgroup&gt;
+                                &lt;optgroup label="Eurasia"&gt;
+                                   &lt;option&gt;Europe&lt;/option&gt;
+                                   &lt;option&gt;Africa&lt;/option&gt;
+                                &lt;/optgroup&gt;
+                                   &lt;option&gt;Asia&lt;/option&gt;
+                                   &lt;option&gt;Australia&lt;/option&gt;
+                                   &lt;option&gt;Antractica&lt;/option&gt;
+                             &lt;/select&gt;
+                            &lt;/fieldset&gt;&lt;br&gt;
+                        &lt;input type="submit" value="Onwards!"&gt;
+                
+                
+                
+                    &lt;/form&gt;
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/fieldsetandlabel.html">Output>>>>></a><hr>
+
+   
+  
+
+    
+                      
+            
+    
+
+
+
+
+</body>
+</html>

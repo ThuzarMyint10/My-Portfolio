@@ -1,0 +1,9 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+img{
+    transition: transfrom .2s;
+}
+img:hover{
+    transform: translate(50%, 80px);
+}

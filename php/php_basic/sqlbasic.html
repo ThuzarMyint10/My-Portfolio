@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Introduction to SQL Basic</h1>
+    <p>
+        အခု section မှာတော့ databases အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ နောက် SQL or SQl basic
+        အကြောင်းကိုလည်းလေ့လာသွားမှာဖြစ်ပါတယ်။ SQL ဆိုတာ information တွေကို databases ကနေပြီးတော့ get လုပ်တဲ့နေရာမှာ
+        အသုံးပြုတဲ့
+        specialized programming language ဖြစ်ပါတယ်။ ဒီ section မှာတော့ databases ကနေပြီးတော့ information တွေအတွက်
+        querying or
+        searching လုပ်တဲ့ process တွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Databases with SQL</h1>
+    <p>
+        Database ကနေ data ကို get လုပ်ဖို့ရန်အတွက် SQL လို့ခေါ်တဲ့ special purpose programming language တစ်ခုလိုပါတယ်။
+        SQL ကတော့
+        Structured Query Language ပဲဖြစ်ပါတယ်။ Database တစ်ခုကနေ data တွေကို reading လုပ်တာကို querying လု့ိခေါ်ပါတယ်။
+        SQL ကို
+        နားလည်ကြတဲ့ many databases တွေရှိပါတယ်။ Example MySQL, PostgrreSQL, MS SQL, Oracle and SQLite တို့ပဲဖြစ်ပါတယ်။
+        ဒီ
+        database တစ်ခုချင်းစီဟာ SQL programming language ကိုအသုံးပြုပြီးတော့ read or queried လုပ်နိုင်ပါတယ်။ နောက် အခြား
+        types
+        of databases တွေရှိပါသေးတယ်။ သူတို့ဟာ more special methods တွေကို အသုံးပြုကြပါတယ်။ Example MongoDB, CouchBase
+        and Redis
+        တို့ပဲဖြစ်ပါတယ်။ သူတို့ကို NoSQL Databases လု့ိလည်းခေါ်ကြပါတယ်။ ကျွန်တော်တို့ဟာ SQL ကို လေ့လာထားမယ်ဆိုရင် SQL
+        ကို
+        အသုံးပြုပြီးတော့ ဒီ databases တွေအားလုံးကို across လုပ်နိုင်ပါတယ်။ သူတို့ဟာ a few areas တွေမှာတော့ differences
+        တွေရှိပါတယ်။ အခု course မှာတော့ SQL programming language ကို information တွေကို database ကနေ retrieve လုပ်တဲ့
+        simple
+        queries ကို write လုပ်ဖို့ရန်အတွက် အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Organizing Data with Databases</h1>
+    <p>
+        Database တစ်ခုချင်းစီမှာ အရေးကြီးတဲ့ components နှစ်ခုရှိပါတယ်။ First သူ့ထဲမှာ store လုပ်ထားတဲ့ data လို့ခေါ်တဲ့
+        information တွေနဲ့ အဲ့ data တွေကို ဘယ်လို organized လုပ်ထားတယ်ဆိုတဲ့ schema တို့ပဲဖြစ်ပါတယ်။ Schema ကို data
+        တွေကို
+        ဘယ်လို stored လုပ်သင့်တယ် ပြီးတော့ different sections အနေနဲ့ divided လုပ်သင့်ပါတယ်တာတွေနဲ့ establishes
+        လုပ်ထားတာဖြစ်ပါတယ်။ Schema ကို နောက် determines လုပ်လိုက်မယ်ဆိုရင် sections တစ်ခုချင်းစီဟာ other sections တွေနဲ့
+        relates
+        ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့ sections တွေကို tables လို့ခေါ်ပါတယ်။ သူတို့ဟာ large grid composed of columns and rows
+        နဲ့
+        တူပါတယ်။ Table မှာရှိတဲ့ rows တွေဟာ left to right horizontally သွားကြတာဖြစ်ပါတယ်။ ပြီးတော့ columns တွေကတော့ top
+        to
+        bottom vertically သွားကြတာဖြစ်ပါတယ်။ Typically, table တစ်ခုချင်းစီ်မှာ specific type of thing တစ်ခုအတွက် data
+        ပါဝင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Types of Data</h1>
+    <p>
+        Schema ထဲမှာ define လုပ်ထားတဲ့ table columns တွေမှာ certain data types တွေရှိပါတယ်။ Data type တစ်ခုဆိုတာ stored
+        လုပ်မဲ့
+        value ကို ဖော်ပြပေးတာဖြစ်ပါတယ်။ Several data types တွေရှိပါတယ်။ သူတို့ကတော့ text types, numeric types and date
+        types
+        တို့ပဲဖြစ်ပါတယ်။ Text types တွေတော့ name or description of things အတွက် အကောင်းဆုံးဖြစ်ပါတယ်။ နောက် numeric
+        types
+        တွေကတော့ storing prices, ages, and quantities of things တွေအတွက် အကောင်းဆုံးဖြစ်ပါတယ်။ Dates ကတော့ anything time
+        related
+        အတွက်အကြောင်းဆုံးဖြစ်ပါတယ်။ Column data types တွေကို နားလည်ထားတာဟာ data တွေကို ဘယ်လို retrieved
+        လုပ်ရမယ်ဆိုတာအတွက်
+        affect ဖြစ်ပြီးတာ့ ကျွန်တော်တို့အတွက် database အတွက် schema ကို design ဆွဲတဲ့နေရာမှာ အကူမညီဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>First SQL Statement</h1>
+    <p>
+        Spoken languages တွေလိုပဲ programming languages တွေမှာ သူတို့ရဲ့ ကိုယ်ပိုင် vocabulary and grammatical structure
+        ရှိကြပါတယ်။ Programmers တွေဟာ ဒီ vocabulary and grammar တွေကို syntax အနေနဲ့ refer လုပ်ကြပါတယ်။ Programming
+        languages
+        အများစုမှာဆိုရင် spoken languages တွေထက် vocabulary တွေအများကြီးရှိပါတယ်။ Programming မှာရှိတဲ့ vocabulary ဟာ
+        အရေးကြီးပါတယ်။ ကျွန်တော်တို့ ခေါ်ကြတာကတော့ key words တွေလို့ပဲ ခေါ်ကြပါတယ်။ Key word တစ်ခုဆိုတာ ကျွန်တော်တို့
+        computer
+        တစ်ခုကို certain thing တစ်ခုကို လုပ်ဆောင်ဖို့ရန်အတွက် issue လုပ်တဲ့ command တစ်ခုပဲဖြစ်ပါတယ်။ SQL မှာလည်း သူ့ရဲ့
+        ကိုယ်ပိုင် sets of keywords တွေရှိပါတယ်။ SQL code ရဲ့ lines တွေကို Statement or Query တစ်ခုလို့ခေါ်ကြပါတယ်။ SQL
+        မှာရှိတဲ့ statement တွေဟာဆိုရင် English မှာရှိတဲ့ sentence တစ်ခုနဲ့ တူပါတယ်။ Query ဟာဆိုရင်တော့ English
+        မှာရှိတဲ့
+        question တစ်ခုနဲ့ တူပါတယ်။ အခု section မှာတော့ common SQL query တစ်ခုကို လေ့လာသွားမှာဖြစ်ပါတယ်။ သူ့ကို
+        ကျွန်တော်တု့ိ
+        table ကနေပြီးတော့ information တွေကို retrieve လုပ်ချင်တဲ့အခါမှာအသုံးပြုနိုင်ပါတယ်။ Table ဆိုတာ database
+        တစ်ခုထဲမှာ rows
+        and columns တွေနဲ့ ပြုလုပ်ထားတဲ့ structures နဲ့ တူနဲ့ one of the spreadsheet ပဲဖြစ်ပါတယ်။ Query ကို
+        ရေးတဲ့အခါမှာတော့
+        "SELECT * FORM books ;" ကို upper case words နဲ့ ရေးပေးရမှာဖြစ်ပါတယ်။ Select ဆိုတာကတော့ database ကို particular
+        table
+        ကနေပြီးတော့ some of the information တွေကို select or retrieve လုပ်ဖို့ရန်အတွက် asking လုပ်လိုက်တာဖြစ်ပါတယ်။
+        နောက်
+        သူတို့နှစ်ခုကြားမှာရှိတဲ့ asterisk or the star character လေးဟာတော့ table ထဲက information တွေအားလုံးကို bring
+        လုပ်မယ်လို့ပြောလိုက်တာဖြစ်ပါတယ်။ နောက်ကတော့ ကျွန်တော်တို့ bring လုပ်ချင်တဲ့ information တွေရှိတဲ့ table ရဲ့ name
+        ပဲဖြစ်ပါတယ်။ Query ရဲ့ အဆုံးမှာရှိတဲ့ semicolon ကတော့ database ကို statement ဟာ ဘယ်နေရာမှာ ends or terminates
+        ဖြစ်သွားပြီဆိုတာကို သိရှိစေတာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Retrieving Specific Columns of Information</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာဆိုရင် ကျွန်တော်တု့ိဟာ "SELECT * FORM &lt;table name&gt;" ဆိုပြီးတော့ table
+        တစ်ခုထဲမှာရှိတဲ့
+        information
+        တွေအားလုံးကို retrieve လုပ်ဖို့ရန်အတွက်အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ table ထဲမှာရှိတဲ့ small
+        subset
+        of information တွေကို retrieve လုပ်ဖို့ရန်အတွက် query ကို ဘယ်လို ရေးရတယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တု့ိပြီးခဲ့ section မှာအသုံးပြုခဲ့တဲ့ " * " လေးဟာ table ထဲမှာရှိတဲ့ information တွေအားလုံးကို bring
+        လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် subset of information တွေကို bring လုပ်ချင်တဲ့အခါမှာ အဲ့ " * " နေရာမှာ
+        ကျွန်တော်တို့ bring လုပ်ချင်တဲ့ table ထဲမှာရှိတဲ့ column name ကိုထည့်ရေးပေးရမှာဖြစ်ပါတယ်။ တစ်ခုထက်ပိုတဲ့
+        columns
+        တွေဆိုရင်တော့ comma နဲ့ separate လုပ်ပြီးတော့ ထည့်ရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Categorizing Our Output with 'AS'</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ bring လုပ်လိုက်တဲ့ columns names တွေကို custom name တွေအဖြစ်လည်း ပြောင်းလဲလို့ရပါတယ်။
+        အဲ့နေရာမှာတော့
+        "AS" ဆိုတဲ့ keyword ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ "AS" ဆိုတဲ့ keyword ရဲ့ နောက်မှာ column name ကို
+        ကျွန်တော်တို့
+        change လုပ်ချင်တဲ့ name ကို ရေးပေးရှာမှာဖြစ်ပါတယ်။ " _ " တွေ column name မှာပါလာတဲ့အခါမှာ သူတို့ရဲ့ name ကို
+        change
+        လုပ်ချင်တဲ့ခါမှာ ကျွန်တော်တို့အသုံးပြုတဲ့ database ပေါ်မှာမူတည်ပြီးတော့ single quote, square brackets and double
+        quotes
+        တို့ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Searching Tables with 'WHERE'</h1>
+    <p>
+        Table တစ်ခုကနေပြီးတော့ data တွေအားလုံးကို retrieving လုပ်တဲ့ syntax မှာဆိုရင် SELECT statement နဲ့
+        နောက်ထပ်လုပ်လို့ရတာတွေရှိပါသေးတယ်။ ကျွန်တော်တု့ိဟာ လိုချင်တဲ့ information တွေကို WHERE clause
+        ကိုအသုံးပြုပြီးတော့
+        retrieve လုပ်နိုင်ပါတယ်။ WHERE clause ကို create လုပ်တဲ့နေရာမှာ WHERE keyword နဲ့ သူ့ရဲ့နောက်က condition
+        တစ်ခုကို
+        လိုက်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ ဘယ်နေရာကကောင်တွေကို retrieve လုပ်ချင်ပါတယ်ဆိုတာပဲဖြစ်ပါတယ်။
+        Query ကတော့
+        "SELECT &lt;columns&gt; FROM &lt;table&gt; WHERE &lt;condition&gt;" ပဲဖြစ်ပါတယ်။ အဲ့ "&lt;condition&gt;"
+        မှာဆိုရင် "&lt;column&gt;
+        &lt;operator&gt;
+        &lt;value&gt;" တို့ပဲဖြစ်ပါတယ်။ "&lt;operator&gt;" မှာဆိုရင် "=" or "!=" တို့ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Filtering by Comparing Values</h1>
+    <p>
+        SQL ဟာ exact matches တွေပေါ်မှာ finding or filtering လုပ်ဖို့ရန်အတွက် အသုံးပြုလို့ရတာမဟုတ်ပါဘူး။ သူ့ကို
+        relational
+        operators တွေကို အသုံးပြုပြီးတော့ values တွေကို compare လုပ်ဖို့ရန်အတွက်လည်းအသုံးပြုနိုင်ပါတယ်။ Relational
+        operators ရဲ့
+        name ဟာတော့ values နှစ်ခုကြားမှာရှိတဲ့ comparing the relationship မှာရှိတဲ့ သူတို့ရဲ့ usage ကနေပြီးတော့ လာပါတယ်။
+        အဲ့
+        operators တွေကတော့ "=", "!=", ">", "&lt;", ">=" and "&lt;=" တို့ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Filtering on More than One Condition</h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ တစ်ခုထပ်ပိုတဲ့ condition ကို အသုံးပြုချင်တဲ့အခါမှာ "AND" keyword or "OR" keyword
+        ကိုအသုံးပြုနိုင်ပါတယ်။
+        အဲ့နှစ်ခုကိုတော့ ကျွန်တော်တို့ ask လုပ်ချင်တဲ့ query ပေါ်မှာခြေခံပြီးတော့ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example
+        "SELECT
+        &lt;columns&gt; FROM &lt;table&gt; WHERE &lt;condition 1&gt; AND &lt;condition 2&gt;; " and "SELECT
+        &lt;columns&gt; FROM &lt;table&gt; WHERE &lt;condition 1&gt;
+        AND &lt;condition 2&gt;; " တို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် "AND" ကိုအသံုံးပြုမယ်ဆိုရင်သူဟာ condition
+        နှစ်ခုလုံး true ဖြစ်တယ်မှသာ row ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ "OR" ကတော့ condition
+        တစ်ခု true ဖြစ်တယ်ဆိုတာနဲ့ row ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။
+        Comparison operators တွေကို date types တွေနဲ့လည်း အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တို့ "WHERE" clause ကိုအသုံးပြုပြီးတော့ column တစ်ခုထဲမှာရှိတဲ့ values တစ်ခုချင်းစီကို check
+        လုပ်ချင်တဲ့အခါမှာ
+        column ရဲ့ နောက်မှာ "IN" ဆိုတဲ့ keyword ကိုအသုံးပြုနိုင်ပါတယ်။ နောက် သူ့ရဲ့ opposite အနေနဲ့တော့ "NOT IN " ဆိုတဲ့
+        keyword
+        ကိုအသုံးပြုနိုင်ပါတယ်။ Example "SELECT &lt;columns&gt; FORM &lt;table&gt; WHERE &lt;column&gt; IN ( &lt;value
+        1&gt;, &lt;value 2&gt;, &lt;value
+        3&gt;);" and
+        "SELECT &lt;columns&gt; FORM &lt;table&gt; WHERE &lt;column&gt; NOT IN ( &lt;value 1&gt;, &lt;value 2&gt;,
+        &lt;value 3&gt;
+        );"
+        တု့ိပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>BETWEEN Keyword</h1>
+    <p>
+        ကျွန်တော်တု့ိ column တစ်ခုမှာရှိတဲ့ values တစ်ခုနဲ့ တစ်ခုကြားထဲမှာရှိတဲ့ row တွေကို retrieve လုပ်ချင်တဲ့အခါမှာ
+        "BETWEEN"
+        ဆိုတဲ့ keyword ကိုအသုံးပြုနိုင်ပါတယ်။ Example "SELECT &lt;columns&gt; FROM &lt;table&gt; WHERE &lt;column&gt;
+        BETWEEN &lt;minimum&gt;
+        AND
+        &lt;maximum&gt;;" ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>LIKE Keyword</h1>
+    <p>
+        ကျွန်တော်တို့ WHERE clause ကိုအသုံးပြုပြီးတော့ search လုပ်တဲ့အခါမှာ "=" အစား "LIKE" keyword
+        ကိုအသုံးပြုနိုင်ပါတယ်။ LIKE
+        keyword ကိုအသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့လိုချင်တာကို operate လုပ်ဖို့ရန်အတွက် အနည်းဆုံး one wildcard
+        တစ်ခုလိုအပ်တယ်။
+        Wildcard ဆိုတာကတော့ ကျွန်တော်တို့ဟာ condition ကို check လုပ်တဲ့အခါမှာ value ရဲ့ text အပြည့်အစုံကို အသိတဲ့အခါမှာ
+        အသုံးပြုတဲ့ substitute character တစ်ခုပဲဖြစ်ပါတယ်။ သူ့ကို condition ရဲ့ ဘယ်နေရာမှာမဆိုထားပြီးတော့
+        အသုံးပြုနိုင်ပါတယ်။
+        LIKE keyword ကိုအသုံးပြုအတွက်ကြောင့် ကျွန်တော်တု့ိဟာ text ရဲ့ upper case or lower case ကို ထည့်ပြီးတော့
+        စဉ်းစားစရာမလိုပါဘူး။ Wildcard ကတော့ percent sign ပဲဖြစ်ပါတယ်။ Percent sign ဟာ any numb er of character ကို
+        ဆိုလိုတာဖြစ်ပါတယ်။ Example "SELECT title FROM books WHERE title LIKE "Harry Potter%"; ။
+    </p>
+    <hr>
+    <h1>IS Keyword</h1>
+    <p>
+        SQL မှာဆိုရင် missing value ကို "NULL" နဲ့ ဖော်ပြပါတယ်။ ကျွန်တော်တု့ိ condition check လုပ်တဲ့အခါမှာ NULL ဖြစ်တဲ့
+        column
+        ကို check လုပ်ချင်တဲ့အခါမှာ IS keyword နဲ့ သူ့ရဲ့နောက်က NULL ကို type လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် IS NOT NULL
+        ကတော့
+        column ထဲမှာ null မဖြစ်တဲ့အကောင်ကို retrieve လုပ်ချင်တဲ့အခါမှာ အသုံးပြုတာဖြစ်ပါတယ်။ Example "SELECT
+        &lt;columns&gt;
+        FROM
+        &lt;table&gt; WHERE &lt;column&gt; IS NULL;" and "SELECT &lt;columns&gt; FROM &lt;table&gt; WHERE &lt;column&gt;
+        IS NOT NULL;" ။
+    </p>
+    <hr>
+    <h1>Review</h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ number of different ways မှာ results ကို ဘယ်လို filter and search လုပ်ရမယ်ဆိုတာတွေကို
+        လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Filtering ရဲ့ general pattern တစ်ခုဖြစ်တဲ့ WHERE keyword နဲ့ သူ့ရဲ့နောက်မှာ condition
+        တစ်ခုလိုက်ရမယ်ဆိုတာကိုလည်းလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Review အနေနဲ့ တစ်ခုထပ်ပိုတဲ့ condition တွေကို check
+        လုပ်ချင်တဲ့အခါမှာ
+        "AND" or "OR" ဆိုတဲ့ keyword တို့ကို အသုံးပြုနိုင်ပါတယ်။
+        အဲ့မှာဆိုရင် AND keyword ဟာ particular row တစ်ခုအတွက် conditions အားလုံးကို compare လုပ်ဖို့ရန်အတွက်
+        အသုံးပြုပါတယ်။
+        နောက် OR ကိုတော့ conditions တွေအားလုံးထဲမှ တစ်ခုဟာ true ဖြစ်မဖြစ်ကို test လုပ်ချင်တဲ့အခါမှာအသုံးပြုပါတယ်။
+        Conditions
+        တွေဟာ others form တွေလည်းရှိပါသေးတယ်။ Common condition တစ်ခုကတော့ values တွေကို compare လုပ်ဖို့ရန်အတွက်
+        operator
+        တစ်ခုကိုအသုံးပြုကြတာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ Equality(=), inequality(!=), and greater than(>) and less
+        than(&lt;)
+        တို့ပဲဖြစ်ပါတယ်။ နောက် IN keyword ကို column တစ်ခုထဲမှာရှိတဲ့ values တွေကို check လုပ်ချင်တဲ့အခါမှာ
+        အသုံးပြုရပါတယ်။ Values တွေကို comma နဲ့ separate လုပ်ပြီးတော့ ထည့်ပေးရမှာဖြစ်ပါတယ်။ နောက် values ရဲ့ ranges
+        အတွင်းမှာ search လုပ်ဖု့ိရန်အတွက် BETWEEN ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် LIKE keyword ကို values တွေကို
+        search လုပ်ဖို့ရန်အတွက် combinations of search patterns and wildcard တို့နဲ့ အသုံးပြုပေးရပါတယ်။
+        နောက်ဆုံးကတော့ missing values တွေအတွက် NULL ကိုအသုံးပြုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် NULL နဲ့
+        conjunction မှာ IS or IS NOT keywords တစ်ခုခုကို သင့်လျော်နဲ့ keyword ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Databases
+        တွေထဲမှာရှိတဲ့ data တွေဟာ တစ်ခုနဲ့တစ်ခု related ဖြစ်နေကြပါတယ်။ ကျွန်တော်တို့ဟာ tables နှစ်ခုကတော့
+        တစ်ကြိမ်ထဲမှာ information တွေကို bring လုပ်ဖို့ရန်အတွက် query ကို create လုပ်တဲ့အခါမှာ FROM ရဲ့နောက်မှာ
+        first table name နဲ့ သူ့ရဲ့နောက်မှာ comma ခံပြီးတော့ second table name ကို ရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+
+
+</body>
+
+</html>

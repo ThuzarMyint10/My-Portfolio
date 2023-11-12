@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Contex</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p {
+            font-family: Myanmar3, Yunghkio;
+        }
+
+        img {
+            width: 80%;
+            margin: 0 0 50px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What is the Context API</h1>
+    <p>
+        Typical React data flow မှာဆိုရင် via props ကနေ components တွေဟာ တစ်ခုနဲ့တစ်ခု communicate လုပ်ကြပါတယ်။
+        Components
+        တစ်ခုဟာ component tree ထဲမှာ several levels မှာ deep nested ဖြစ်နေခဲ့မယ်ဆိုရင် သူဟာ top level component ကနေ data
+        တွေကို
+        pass လုပ်ဖို့ လိုပါတယ်။ Oftentime တွေမှာဆိုရင် intermediary components တွေဟာ အဲ့ passed လုပ်လိုက်တဲ့ data တွေကို
+        need or
+        care လုပ်ဖို့မလိုပါဘူး။ ဒါပေမဲ့ သူတို့ဆီကို props ကနေ pass လုပ်နေတာပဲဖြစ်ပါတယ်။ ဒီ cascade of props ကို prop
+        drilling
+        လို့ခေါ်ပါတယ်။ Prop drilling ဟာဆိုရင် manage and error prone အတွက် difficult and tedious ဖြစ်လာပါတယ်။ Prop
+        drilling ကို
+        prevent လုပ်ဖို့အတွက် developers တွေဟာ MobX or Redux တို့လို third party libraries တွေကို turn လုပ်ကြပါတယ်။
+        သူတို့
+        နှစ်ခုလုံးဟာ application state တစ်ခုကို more scalable and predictable way တစ်ခုမှာ maintain and manage လုပ်ဖို့
+        ကူညီပေးပါတယ်။ Some cases တွေမှာတော့ prop drilling ကို avoid လုပ်ဖို့ Redux တို့လို library တစ်ခုကို
+        အသုံးပြုခြင်းဟာ
+        overkill ဖြစ်သွားတာတွေရှိပါတယ်။ အဲ့ဒါကြောင့် React ဟာ state management tool တစ်ခုအတွက် reach မပါဘဲနဲ့ built in
+        way
+        တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ အခု section မှာတော့ React app ရဲ့ components အားလံးကို data တွေကို pass
+        လုပ်တဲ့ more
+        efficient and maintainable way တစ်ခုဖြစ်တဲ့ Context API အသုံးပြုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Context API ဟာဆိုရင်
+        data
+        တွေကို components တွေဆီကို pass လုပ်ဖို့ every single level မှာ props ကို manually အရ pass မလုပ်ရတဲ့ way
+        တစ်ခုကို
+        provide လုပ်ပေးထားပါတယ်။ Context ဟာ older versions of React မှာ experimental feature တစ်ခုဖြစ်ပါတယ်။ သူဟာ React
+        16.3 မှာ
+        stable feature တစ်ခုဖြစ်လာတာပဲဖြစ်ပါတယ်။ တကယ်တော့ Redux and React Router တို့လို libraries တွေဟာ scenes နောက်မှာ
+        context
+        ကို components တွေကြားထဲမှာ communicate လုပ်ဖို့ အသုံးပြုကြပါတယ်။ နောက် section မှာတော့ context ကို leverage
+        လုပ်ဖို့
+        ဘယ်နေရာဟာ အကောင်းဆုံးလဲဆိုတာကို determining လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>How Context Works</h1>
+    <p>
+        အခု section မှာတော့ React basic မှာ လုပ်ခဲ့တဲ့ scoreboard application ကို example အနေနဲ့
+        လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+        First အနေနဲ့ project dependencies ကို install လုပ်ဖို့အတွက် npm install ဆို command ကို run လုပ်ရမှာဖြစ်ပါတယ်။
+        Scoreboard App ထဲမှာဆိုရင် player state and event handlers တွေဟာ main app component ထဲမှာရှိတာဖြစ်ပါတယ်။ နောက်
+        child
+        components တွေဖြစ်တဲ့ Player, Counter, Stats, and AddPlayerForm တို့ဟာ player state ကို access လုပ်ဖို့လိုပါတယ်။
+        Currently, player state ဟာဆိုရင် component တစ်ခုကနေ တစ်ခုကို series of props နဲ့ component tree ကို through
+        လုပ်ပြီးတော့
+        distributed လုပ်ပါတယ်။ အဲ့မှာဆိုရင် props ဟာ callbacks အနေနဲ့ လုပ်ဆောင်ပေးတဲ့ functions တွေကို passing
+        လုပ်ပေးပါတယ်။
+        အဲ့မှာဆိုရင် some prop drilling ရှိပါတယ်။ PlayerList, Header, and Player တွေဟာ aware of data တွေကို receive
+        လုပ်ဖို့မလိုအပ်ပါဘူး။ သူတို့ဟာ children ဆီကို data တွေကို passing လုပ်ဖို့အတွက်ပဲ ဖြစ်ပါတယ်။ Player component
+        ဟာဆိုရင်
+        score state ကို receive လုပ်ဖို့မလိုပါဘူး။ ဒါပေမဲ့ example မှာဆိုရင် via props နဲ့ counter ဆီကို pass လုပ်ဖို့
+        receive
+        လုပ်ထားပါတယ်။ Header ဟာလည်း data တွေကို stats component ဆီကို pass လုပ်ဖို့ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့
+        avoid
+        လုပ်ချင်တာပဲဖြစ်ပါတယ်။ အဲ့လို လုပ်တာဟာ app ရဲ့ size and complexity ကို grows ဖြစ်စေပါတယ်။ အဲ့ဒါကြောင့် React's
+        context
+        API ဟာ prop drilling ကို prevent လုပ်ဖို့ ပေါ်လာတာဖြစ်ပါတယ်။ Context ကို mainly အသုံးပြုကြတာကတော့ some data
+        တွေကို
+        different nesting levels မှာရှိတဲ့ many components တွေမှာ accessible လုပ်ချင်တဲ့အခါမှာအသုံးပြုပါတယ်။ Context API
+        မှာ
+        essential parts 3 ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ context method, provider, and consumer တို့ပဲဖြစ်ပါတယ်။ First အနေနဲ့
+        context
+        ကို create လုပ်ပေးရပါမယ်။ React.createContext ဟာ context တစ်ခုကို sets up လုပ်ပြီးတော့ object တစ်ခုကို provider
+        တစ်ခု
+        and consumer တစ်ခုနဲ့ returns ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့နှစ်ခုဟာ context API ရဲ့ main components နှစ်ခုပဲဖြစ်ပါတယ်။
+        Single
+        provider component တစ်ခုကို tree ထဲမှာ highest possible အနေနဲ့ အသုံးပြုပါတယ်။ သူဟာ consuer component ကို context
+        changes
+        ကို subscribe လုပ်ဖို့ allows လုပ်ပေးပါတယ်။ Consumers တွေဟာ သူတို့လိုအပ်တဲ့ any data ကို ရဖို့ provide ကို
+        access
+        လုပ်ကြပါတယ်။ ဒါဟာဆိုရင် props several levels deep ဖြစ်တာကို avoid လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ Providers and
+        consumers တို့ဟာ
+        constantly communicating လုပ်နေကြတာဖြစ်ပါတယ်။ အဲ့နှစ်ခုကြားမှာရှိတဲ့ communication ဟာ context work ကို
+        လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ နောက် section မှာတော့ new context တစ်ခုကို create လုပ်ပြီးတော့ သူ့ကို app ထဲကို
+        providing
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Create Context</h1>
+    <p>
+        Example မှာဆိုရင် first အနေနဲ့ Context ဆိုတဲ့ new folder တစ်ခုကို create လုပ်ပေးထားပါတယ်။ နောက် Context folder
+        ထဲမှာ
+        inex.js ဆိုတဲ့ new file ကို create လုပ်ပေးထားပါတယ်။ နောက် create context method ကိုအသုံးပြုပြီးတော့ new context
+        တစ်ခုကို
+        initialize လုပ်ရပါမယ်။ Example မှာဆိုရင်တော့ context ကို variable တစ်ခုထဲမှာ assign လုပ်ပေးထားပါတယ်။ ဒါဟာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ provider and consumer ကို setup လုပ်လိုက်တာဖြစ်ပါတယ်။ နောက် provider ကို variable တစ်ခုထဲမှာ
+        assign
+        လုပ်ပေးထားပါတယ်။ နောက် consumer ကိုလည်း Consumer ဆိုတဲ့ variable name ထဲမှာ store လုပ်ပေးထားပါတယ်။ နောက်
+        provider and
+        consumer ကို export လုပ်ဖို့လိုပါတယ်။ နောက် အခု ကျွန်တော်တု့ိ set up လုပ်လိုက်တဲ့ context ကို parent component
+        ထဲမှာ
+        အသုံးပြုမှာဖြစ်ပါတယ်။ First အနေနဲ့ provider ကို import လုပ်ရပါမယ်။ နောက် import path ထဲမှာ provide ရှိတဲ့ folder
+        name
+        ကိုပဲ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် app ရဲ့ children အားလုံးကို context ကို provide လုပ်ဖို့ရန်အတွက် return
+        statement
+        ကို Provider tag ထဲမှာ wrap လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် section မှာဆိုရင် entire app မှာ player state ကို
+        provide
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const ScoreboardContext = React.createContext();
+            
+            export const Provider = ScoreboardContext.Provider;
+            export const Consumer = ScoreboardContext.Consumer;
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Provide and Consume State</h1>
+    <p>
+        Provider ဟာ app ရဲ့ top level မှာပဲ usually lives လုပ်တာဖြစ်ပါတယ်။ Provider component ဟာဆိုရင် data တွေကို share
+        လုပ်ဖို့အတွက် value prop တစ်ခုလိုအပ်ပါတယ်။ Value ဟာ anything ဖြစ်နိုင်ပါတယ်။ များသောအားဖြင့်တော့ application
+        state and
+        any action or components တွေကြားမှာ shared လုပ်မဲ့ event handlers တွေဖြစ်ကြပါတယ်။ Example မှာဆိုရင်တော့ player
+        state ကို
+        value prop အနေနဲ့ pass လုပ်ပေးထားပါတယ်။ နောက် provider ရဲ့ descendant တစ်ခုဖြစ်တဲ့ any component တွေဟာ value
+        prop
+        ကနေပေးတဲ့ data တွေကို access လုပ်လို့ရပြီဖြစ်ပါတယ်။ အဲ့ data တွေကို consumer တစ်ခုနဲ့ access လုပ်ရမှာဖြစ်ပါတယ်။
+        Provider
+        ဟာ context ကို provides လုပ်လိုက်ပြီးတော့ consumer ဟာ အဲ့ context ကို consumes and subscribes လုပ်တာဖြစ်ပါတယ်။
+        Single
+        provider တစ်ခုဟာ many consumers နဲ့ connected လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ Stats component မှာ context
+        ကို add
+        လုပ်ပေးထားပါတယ်။ First အနေနဲ့ Stats.js ထဲမှာ consumer ကို import လုပ်ပေးရပါမယ်။ နောက် function ရဲ့ return
+        statement
+        ထဲမှာ Consumer component ကို opening and closing Consumer tags နဲ့ add လုပ်ပေးရပါမယ်။ Consumer ထဲမှာ anything
+        ကို render
+        လုပ်ဖို့အတွက် React မှာရှိတဲ့ Render Prop လို့ခေါ်တဲ့ pattern တစ်ခုကို အသုံးပြုပေးရပါတယ်။ Render Prop ဟာဆိုရင်
+        prop
+        တစ်ခုကိုအသုံးပြုပြီးတော့ React components တွေကြားမှာ code တွေကို sharing လုပ်ဖို့အတွက် method တစ်ခုကို refers
+        လုပ်ပါတယ်။
+        Component ဟာ React element တစ်ခုကို return ပြန်တဲ့ function တစ်ခုကို ယူတဲ့ prop တစ်ခုကို provided
+        လုပ်ပေးထားပါတယ်။ အဲ့
+        pattern ကို child တစ်ခုအနေနဲ့ function လို့လည်းခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ prop တစ်ခုကို passing မလုပ်ဘဲနဲ့
+        opening
+        and closing Consumer tags ထဲမှာ function တစ်ခုကို write လုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Function ဟာဆိုရင်
+        ကျွန်တော်တု့ိ render လုပ်ချင်တဲ့ part of UI ကို returns ပြန်ပေးပါတယ်။ Example မှာဆိုရင်တော့ Consumer ထဲမှာ stats
+        UI ကို
+        returns ပြန်တဲ့ function တစ်ခုကိုအသုံးပြုထားပါတယ်။ အဲ့ function ကို JSX expression ထဲမှာ placed
+        လုပ်ဖို့လိုပါတယ်။
+        Function ဟာဆိုရင် current context value ကို parameter အနေနဲ့ ယူပြီးတော့ JSX ကို returns ပြန်ပေးပါတယ်။ အဲ့
+        parameter name
+        ကိုတော value or context ဆိုပြီးအသုံးပြုကြပါတယ်။ Function ထဲမှာ passed လုပ်ထားတဲ့ context ဟာ provider ရဲ့ value
+        prop နဲ့
+        equal ဖြစ်ပါတယ်။ နောက် consumer ဟာ any context changes ကို subscribed လုပ်နိုင်ပြီဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်တော့ Stats
+        component ထဲကနေ player's data တွေကို တိုက်ရိုက် access လုပ်လို့ရပြီဖြစ်ပါတယ်။အဲ့ဒါကြောင့် function ထဲက return
+        ထဲမှာ
+        stats တစ်ခုလုံးကို move လုပ်ပေးထားပါတယ်။ နောက် total players and total points variables တွေကို consumer ထဲမှာ
+        move
+        လုပ်ပေးရပါမယ်။ နောက် prop.players.lenght နေမှာ context.lenght ကို replace လုပ်လို့ရပါပြီ။ နောက် prop parameter
+        ကိုလည်း
+        move လုပ်လို့ပါပြီ။ နောက် prop types အားလုံးကိုလည်း remove လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် Header.js ထဲမှာလည်း Stats
+        component ဆီကို passed လုပ်ထားတဲ့ players prop ကိုလည်း delete လုပ်လို့ရပါပြီ။ နောက် PlayerList component
+        ထဲမှာဆိုရင်
+        React.Fragment tags ကို return statement ထဲမှာတွေ့ရပါလိမ့်မယ်။ React.Fragment တစ်ခုဟာ list of sibling elements
+        or
+        components တွေကို add လုပ်ဖို့ရန်အတွက် unnecessary reaper element မပါဘဲနဲ့ group လုပ်ဖို့ခွင့်ပြုပေးထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Stats.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import { Consumer } from './Context';
+            
+            const Stats = () =&gt; {
+            
+            return (
+            &lt;Consumer&gt;
+            {
+            context =&gt; {
+            const totalPlayers = context.length;
+            const totalPoints = context.reduce((total, player) =&gt; {
+            return total + player.score;
+            }, 0);
+            return (
+            &lt;table className="stats"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Players:&lt;/td&gt;
+            &lt;td&gt;{totalPlayers}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Total Points:&lt;/td&gt;
+            &lt;td&gt;{totalPoints}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            );
+            }}
+            &lt;/Consumer&gt;
+            );
+            }
+            
+            export default Stats;
+        </code>
+    </pre>
+    <hr>
+    <h1>The Provider and Consumer Solution</h1>
+    <p>
+        အခု section မှာတော့ PlayerList component ကို modify လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ consumer ကို import
+        လုပ်ပေးရပါမယ်။ နောက် return statement ထဲမှာ consumer component ကို add လုပ်ပေးရပါမယ်။ Consumer ဟာဆိုရင် render
+        prop or
+        function ကို လိုအပ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ return ပြန်ချင်တဲ့ part of the UI ပဲဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်လည်း
+        context ဆိုတဲ့ parameter ကိုပဲ အသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်တော့ implicit return ကိုအသုံးပြုထားပါတယ်။
+        အဲ့ဒါကတော့
+        return keyword ကို omit လုပ်ပြီးတော့ JSX ကို parenthesis ထဲမှာ wrap လုပ်တာဖြစ်ပါတယ်။ နောက် section မှာတော့
+        functions
+        တွေကို consumer တစ်ခုထဲမှာ access and invoke လုပ်နိုင်ဖို့အတွက် function တစ်ခုချင်းစီကို provider ဆီကို pass
+        လုပ်ပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>PlayerList.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import { Consumer } from './Context';
+            import Player from './Player';
+            
+            const PlayerList = (props) =&gt; {
+            return (
+            &lt;Consumer&gt;
+            {
+            context =&gt; (
+            &lt;React.Fragment&gt;
+            {context.map((player, index) =&gt;
+            &lt;Player
+            {...player}
+            key={player.id.toString()}
+            index={index}
+            changeScore={props.changeScore}
+            removePlayer={props.removePlayer}
+            /&gt;
+            )}
+            &lt;/React.Fragment&gt;
+            )}
+            &lt;/Consumer&gt;
+            );
+            }
+            
+            PlayerList.propTypes = {
+            changeScore: PropTypes.func.isRequired,
+            removePlayer: PropTypes.func.isRequired,
+            };
+            
+            export default PlayerList;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တို့ဟာ context ကနေ provided လုပ်ထားတဲ့ state ကို ဘယ်လို read လုပ်ရမယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ state ကို modify လုပ်တဲ့ functions တွေကိုလည်း pass လုပ်နိုင်ပါတယ်။ အဲ့ way ဟာ consumers တွေဟာ
+        state
+        updates နဲ့ user interactions တွေကို respond လုပ်နိုင်မှာဖြစ်ပါတယ်။ Provider's value prop မှာရှိတဲ့ object
+        တစ်ခုမှာဆိုရင် state မှာရှိတဲ့ multiple properties တွေကို store လုပ်နိုင်ပါတယ်။ နောက် any event handlers or
+        actions
+        တွေကိုလည်း store လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် event handlers ဟာ child components တွေဆီကို via props နဲ့
+        distributed
+        လုပ်ထားတာဖြစ်ပါတယ်။ အခု section မှာတော့ handleScoreChange function ကို providing လုပ်သွားမှာဖြစ်ပါတယ်။ App.js
+        ထဲမှာဆိုရင် Provider's value prop ကို object တစ်ခုအနေနဲ့ pass လုပ်ရပါမယ်။ အဲ့ object ထဲမှာ set of properties
+        နှင့် data
+        တွေ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ property name ဟာ players ဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရှေ့ဆက်မသွားခင်မှာ
+        PlayerList ထဲမှာရှိတဲ့ map function and reduce method တို့မှာ change လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင်
+        context.players.map နှင့် context.players.reduce ကိုပြောင်းပေးရမှာဖြစ်ပါတယ်။ နောက် Stats.js ထဲမှာလည်း
+        လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ နောက် object ထဲမှာ function တစ်ခုကို down ကို pass လုပ်ဖို့အတွက် new property
+        တစ်ခုကို add
+        လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ actions ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာဆိုရင် changeScore နဲ့ handleScoreChange function ကို
+        store
+        လုပ်ပေးထားပါတယ်။ အဲ့မှာရှိတဲ့ value ဟာ function ရဲ့ reference တစ်ခုဖြစ်ရပါမယ်။ နောက် Counter.js ထဲမှာ action ကို
+        consume
+        လုပ်ဖို့ first အနေနဲ့ Consumer ကို import လုပ်ပေးရပါတယ်။ နောက် return statement ထဲမှာ consumer component ကို add
+        လုပ်ပေးရပါမယ်။ သူ့ထဲမှာဆိုရင် context ဆိုတဲ့ parameter နဲ့ function တစ်ခုပါဝင်ပါတယ်။ အဲ့မှာဆိုရင်လည်း implicit
+        return
+        ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့ parameter ထဲမှာရှိတဲ့ actions ကို call လုပ်ဖို့အတွက် context.actions.changeScore
+        ကို
+        ပြောင်းရေးပေးရပါမယ်။ နောက် changeScore ကို pass လုပ်ထားတာတွေကို remove လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import { Consumer } from './Context';
+            
+            const Counter = ({ index, score }) =&gt; {
+            return (
+            &lt;Consumer&gt;
+            {
+            context =&gt; (
+            &lt;div className="counter"&gt;
+            &lt;button className="counter-action decrement" onClick={() =&gt; context.actions.changeScore(index, -1)}&gt; -
+            &lt;/button&gt;
+            &lt;span className="counter-score"&gt;{score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={() =&gt; context.actions.changeScore(index, 1)}&gt; +
+            &lt;/button&gt;
+            &lt;/div&gt;
+            )}
+            &lt;/Consumer&gt;
+            );
+            }
+            
+            Counter.propTypes = {
+            index: PropTypes.number,
+            score: PropTypes.number,
+            };
+            
+            export default Counter;
+        </code>
+    </pre>
+    <hr>
+    <h1>Provide Remaining Actions to Child Components</h1>
+    <p>
+        ကျွန်တော်တု့ိ actions တွေကို context ကနေ ဘယ်လို pass လုပ်ရတယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့
+        remaining functions တွေဖြစ်တဲ့ handleAddPlayer and handleRemovePlayer တို့ကို provide လုပ်သွားမှာဖြစ်ပါတယ်။ Fist
+        အနေနဲ့
+        handleRemovePlayer function ကို player component ထဲမှာ add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် provider ထဲမှာ
+        action
+        object ထဲမှာ removePlayer ဆိုတဲ့ new property တစ်ခုကို add လုပ်ပေးရပါမယ်။ အဲ့ property ဟာ handleRemovePlayer ကို
+        referencing လုပ်တာပဲဖြစ်ပါတယ်။ နေက် Player.js ထဲမှာ ပြီးခဲ့တဲ့ section ကလိုပဲ လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        AddPlayerForm.js ထဲမှာ consumer ကို add လုပ်တဲ့အခါမှာ အဲ့မှာဆိုရင် handleSubmit function ဟာ handleAddPlayer ကို
+        invokes
+        လုပ်တာဖြစ်ပါတယ်။ အဲ့ function ကို consume လုပ်ဖို့ context ထဲမှာ အဲ့ function ကို passed လုပ်ပေးရပါမယ်။
+        အဲ့ဒါကြောင့်
+        handleSubmit function ကို consumer ထဲကို move လုပ်ထားတာဖြစ်ပါတယ်။ နောက် section မှာတော့ components cleaner and
+        more
+        maintainable ဖြစ်ဖို့ app ရဲ့ parts တွေကို refactor လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React, { PureComponent } from 'react';
+            import PropTypes from 'prop-types';
+            import Counter from './Counter';
+            import { Consumer } from './Context';
+            
+            class Player extends PureComponent {
+            
+            static propTypes = {
+            changeScore: PropTypes.func.isRequired,
+            name: PropTypes.string.isRequired,
+            score: PropTypes.number.isRequired,
+            id: PropTypes.number.isRequired,
+            index: PropTypes.number.isRequired
+            };
+            
+            render() {
+            
+            const {
+            name,
+            id,
+            score,
+            index
+            } = this.props;
+            
+            return (
+            &lt;div className="player"&gt;
+            &lt;Consumer&gt;
+            {
+            context =&gt; (
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; context.actions.removePlayer(id)}&gt;✖&lt;/button&gt;
+            {name}
+            &lt;/span&gt;
+            )}
+            &lt;/Consumer&gt;
+            
+            
+            &lt;Counter
+            score={score}
+            index={index}
+            /&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            
+            export default Player;
+        </code>
+    </pre>
+    <h3>AddPlayerForm.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import { Consumer } from './Context';
+            
+            const AddPlayerForm = (props) =&gt; {
+            
+            const playerInput = React.createRef();
+            
+            
+            return (
+            &lt;Consumer&gt;
+            {
+            context =&gt; {
+            const handleSubmit = (e) =&gt; {
+            e.preventDefault();
+            context.actions.addPlayer(playerInput.current.value);
+            e.currentTarget.reset();
+            }
+            return (
+            &lt;form onSubmit={handleSubmit}&gt;
+            &lt;input
+            type="text"
+            ref={playerInput}
+            placeholder="Enter a player's name"
+            /&gt;
+            
+            &lt;input
+            type="submit"
+            value="Add Player"
+            /&gt;
+            &lt;/form&gt;
+            );
+            }
+            }
+            &lt;/Consumer&gt;
+            );
+            }
+            
+            AddPlayerForm.propTypes = {
+            addPlayer: PropTypes.func
+            };
+            
+            export default AddPlayerForm;
+        </code>
+    </pre>
+    <hr>
+    <h1>Refactor the Provider</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ app မှာဆိုရင် some improvements တွေရှိပါသေးတယ်။ အခု section မှာတော့ provider ကို state and
+        actions
+        တွေပါတဲ့ separate higher order component တစ်ခုအဖြစ် move လုပ်သွားမှာဖြစ်ပါတယ်။ Result အနေနဲ့ ကျွန်တော်တို့ရဲ့
+        main app
+        component ဟာ less coding responsibilities ရှိလာမှာဖြစ်ပါတယ်။ First အနေနဲ့ index.js ထဲမှာရှိတဲ့ provider
+        component ကို
+        class တစ်ခုအနေနဲ့ create လုပ်ပေးရပါတယ်။ Example မှာဆိုရင် provider variable ကို exporting လုပ်မဲ့အစား class
+        component
+        တစ်ခုကို export လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် class ထဲမှာ render method နဲ့ နောက် return keyword တစ်ခုကို add
+        လုပ်ရမှာဖြစ်ပါတယ်။ Provider class component ဟာ higher-order component တစ်ခုဖြစ်ပါတယ်။ JavaScript မှာဆိုရင်
+        higher-order
+        function ဟာဆိုရင် another function တစ်ခုကို argument တစ်ခုအနေနဲ့ accepts လုပ်တဲ့ function တစ်ခုဖြစ်ပါတယ်။
+        Higher-order
+        component ဟာ existing component ကို ယူတဲ့ wrapper တစ်ခုကို accepts လုပ်ပြီးတော့ new component တစ်ခုကို returns
+        ပြန်ပေးတာဖြစ်ပါတယ်။ Higher-order component ဟာ ကျွန်တော်တို့ကို multiple components တွေကို across လုပ်ပြီးတော့
+        functionality ကို share လုပ်ဖို့ ခွင့်ပြုပေးထားပါတယ်။ သူဟာ React မှာ component logic ကို reusing လုပ်ဖို့အတွက်
+        common
+        technique တစ်ခုဖြစ်ပါတယ်။ နောက် App component ထဲမှာရှိတဲ့ state object တစ်ခုလုံးကို provider component ထဲကို
+        move
+        လုပ်ပေးရပါမယ်။ နောက် functions တွေအားလုံးကိုလည်း move လုပ်ပေးရပါမယ်။ Higher-order component ဟာ useful
+        functionality နဲ့
+        wraps လုပ်ထားတဲ့ new component တစ်ခုကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် render method ထဲမှာ higher-order
+        component ရဲ့ children အားလုံးကို context ကို provider လုပ်ဖို့ provider component ကို include လုပ်ပေးရပါတယ်။
+        အဲ့မှာရှိတဲ့ provider tag ဟာ no longer exits ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူ့ကို ကျွန်တော်တို့ဟာ class
+        တစ်ခုနဲ့replaced
+        လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ provider ကို ScoreboardContext ကနေ တိုက်ရိုက် access
+        လုပ်ဖို့လိုပါတယ်။ နောက် အဲ့ component ထဲမှာ this.props.children ဆိုတဲ့ returns ကို JSX ထဲနဲ့ add
+        လုပ်ပေးထာားပါတယ်။
+        အဲ့မှာဆိုရင် Children ဟာ React မှာ special prop တစ်ခုဖြစ်ပါတယ်။ သူဟာ components တွေကို data အနေနဲ့ other
+        components
+        တွေဆီကို pass လုပ်ဖို့ခွင့်ပြုပေးပါတယ်။ နောက် app တစ်ခုလုံးကို new component ထဲမှာ wrap လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင်
+        provider ဟာ top level component ဖြစ်သွားပါတယ်။ App component ဟာ provider ဆီကို child တစ်ခုအနေနဲ့ pass
+        လုပ်ပေးထားတာဖြစ်ပါတယ်။ နောက် app ဟာဆိုရင် simple stateless component တစ်ခုဖြစ်သွားပါတယ်။ အဲ့ဒါကြောင့် သူ့ကို
+        function
+        တစ်ခုအနေနဲ့ simplify လုပ်နိုင်ပါတယ်။ နောက် section မှာတော့ consumer ထဲမှာရှိတဲ့ some of the code ကို refactoring
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+
+const ScoreboardContext = React.createContext();
+
+export class Provider extends Component {
+    state = {
+        players: [
+            {
+                name: "Guil",
+                score: 0,
+                id: 1
+            },
+            {
+                name: "Treasure",
+                score: 0,
+                id: 2
+            },
+            {
+                name: "Ashley",
+                score: 0,
+                id: 3
+            },
+            {
+                name: "James",
+                score: 0,
+                id: 4
+            }
+        ]
+    };
+
+    // player id counter
+    prevPlayerId = 4;
+
+    handleScoreChange = (index, delta) => {
+        this.setState(prevState => ({
+            score: prevState.players[index].score += delta
+        }));
+    }
+
+    handleAddPlayer = (name) => {
+        this.setState(prevState => {
+            return {
+                players: [
+                    ...prevState.players,
+                    {
+                        name,
+                        score: 0,
+                        id: this.prevPlayerId += 1
+                    }
+                ]
+            };
+        });
+    }
+
+    handleRemovePlayer = (id) => {
+        this.setState(prevState => {
+            return {
+                players: prevState.players.filter(p => p.id !== id)
+            };
+        });
+    }
+    render() {
+        return (
+            &lt;Provider value={{
+                players: this.state.players,
+                actions: {
+                    changeScore: this.handleScoreChange,
+                    removePlayer: this.handleRemovePlayer,
+                    addPlayer: this.handleAddPlayer
+                }
+            }
+            }
+            >
+
+            &lt;/Provider >
+        );
+    }
+}
+export const Consumer = ScoreboardContext.Consumer;
+        </code>
+    </pre>
+    <h3>index.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import { Provider } from './components/Context';
+            
+            import App from './components/App';
+            import './index.css';
+            
+            ReactDOM.render(
+            &lt;Provider&gt;
+                &lt;App /&gt;
+            &lt;/Provider&gt;,
+            document.getElementById('root')
+            );
+        </code>
+    </pre>
+    <hr>
+    <h1>Refactor the Consumers</h1>
+    <p>
+        Props နဲ့ အလုပ်လုပ်ခဲ့သလိုပဲ ကျွန်တော်တို့ဟာ ES 2015 destructuring ကို provider ကနေ receive လုပ်ထားတဲ့ value
+        object ကနေ
+        state and actions တွေကို extract လုပ်ဖို့အတွက် အသုံးပြုနိုင်ပါတယ်။ First အနေနဲ့ PlayerList.js ထဲမှာ player
+        property ကို
+        consumer function မှာ object တစ်ခုကို players ဆိုတဲ့ variable နဲ့ passing လုပ်ပြီးတော့ unpack
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် context.players နေရာမှာ players ကို replace လုပ်ပေးရပါမယ်။ နောက် players.js ထဲမှာ actions property ကို
+        consumer
+        function မှာ actions ဆိုတဲ့ variable နဲ့ object တစ်ခုကို passing လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် context.actions
+        နေရာမှာ
+        actions ကို replace လုပ်ပေးရပါမယ်။ နောက် Counter.jsထဲမှာဆိုရင် player state ကို consumer ကနေ access
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် counter ထဲမှာ score ကို တိုက်ရိုက် access and display လုပ်ဖို့အတွက် modify လုပ်နိုင်ပါတယ်။
+        အဲ့ဒါအတွက်
+        consumer function မှာ players ဆိုတဲ့ object တစ်ခုကို add လုပ်ပေးရပါမယ်။ နောက် score နေရာမှာ players[index].score
+        ဆိုပြီးတော့ replace လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>PlayerList.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import { Consumer } from './Context';
+            import Player from './Player';
+            
+            const PlayerList = () => {
+            return (
+            &lt;Consumer&gt;
+                {
+                ({ players }) =&gt; (
+                &lt;React.Fragment&gt;
+                    {players.map((player, index) =&gt;
+                    &lt;Player key={player.id.toString()} index={index} /&gt;
+                    )}
+                &lt;/React.Fragment&gt;
+                )}
+            &lt;/Consumer&gt;
+            );
+            }
+            export default PlayerList;
+        </code>
+    </pre>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import { Consumer } from './Context';
+            
+            const Counter = ({ index }) => {
+            return (
+            &lt;Consumer&gt;
+                {
+                ({ actions, players }) =&gt; (
+                &lt;div className="counter"&gt;
+                    &lt;button className="counter-action decrement" onClick={()=&gt; actions.changeScore(index, -1)}&gt; - &lt;/button&gt;
+                    &lt;span className="counter-score"&gt;{players[index].score}&lt;/span&gt;
+                    &lt;button className="counter-action increment" onClick={()=&gt; actions.changeScore(index, 1)}&gt; + &lt;/button&gt;
+                &lt;/div&gt;
+                )}
+            &lt;/Consumer&gt;
+            );
+            }
+            
+            Counter.propTypes = { index: PropTypes.number, };
+            
+            export default Counter;
+        </code>
+    </pre>
+    <a href="http://www.contextapi.itvisionlab.com" target="_blank">Test Yourself</a>
+</body>
+
+</html>

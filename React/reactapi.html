@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Fetchig API</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p {
+            font-family: Myanmar3, Yunghkio;
+        }
+
+        img {
+            width: 80%;
+            margin: 0 0 50px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fetching Data with the Fetch API</h1>
+    <p>
+        အခု section မှာတော့ React နဲ့ external data တွေကို fetch လုပ်တဲ့ ways နှစ်ခုကို လေ့လာသွားမှာဖြစ်ပါတယ်။ နောက် အဲ့
+        data
+        တွေကို ဘယ်လို display လုပ်ရမယ်ဆိုတာကိုလည်း လေ့လာသွားမှာဖြစ်ပါတယ်။ Example မှာတော့ Giphy API ကိုအသုံးပြုပြီးတော့
+        fun GIF
+        searching app ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် users တွေဟာ reaction GIFs တွေကို search
+        လုပ်နိုင်ပါတယ်။
+        React ဟာဆိုရင် view library တစ်ခုဖြစ်ပါတယ်။ သူဟာ components တွေထဲကို state and properties တွေကို passed
+        လုပ်ပြီးတော့
+        simple renders လုပ်တာဖြစ်ပါတယ်။ React ကိုယ်တိုင်တော့ server တစ်ခုကနေ data တွေကို fetch လုပ်နိုင်တဲ့ built in way
+        မရှိပါဘူး။ React ဟာ rendering views ဖြစ်တဲ့အတွက်ကြောင့် server တစ်ခုအကြောင်းကို သိစရာမလိုပါဘူး။ ဒါပေမဲ့ React
+        app
+        တစ်ခုထဲမှာ data တွေကို fetch လုပ်နိုင်တဲ့ several JavaScript methods and tools တွေရှိပါတယ်။ အခု section မှာတော့
+        methods
+        နှစ်ခုကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ Fetch API လို့ခေါ်တဲ့ data fetching interface နဲ့ axios
+        တို့ပဲဖြစ်ပါတယ်။
+        Axios ဟာဆိုရင် popular tool တစ်ခုဖြစ်ပါတယ်။ သူဟာ Fetch နဲ့ similar ဖြစ်ပါတယ်။ ဒါပေမဲ့ a few key differences and
+        advantages တွေရှိပါတယ်။ သူတို့နှစ်ခုလုံးဟာ Promised-based approaches တွေဖြစ်ကြပါတယ်။ ဆိုလိုတာကတော့ server ကနေ
+        results
+        တွေကို handle လုပ်ပြီးတော့ ကျွန်တော်တို့ဆီကို get back လုပ်ဖို့အတွက် JavaScript Promises
+        ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။
+        Example မှာဆိုရင် data fetching code တွေကို App component ထဲမှာ write လုပ်ရပါမယ်။ အဲ့ app component ဟာဆိုရင် app
+        ရဲ့
+        main container ဖြစ်ပါတယ်။ သူဟာ list of GIFs လို app ရဲ့ child components တွေကို rendering လုပ်ဖို့ responsible
+        ဖြစ်ပါတယ်။ နောက် external data state တွေကို props နဲ့ pass လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ လုပ်ဆောင်ရမှာကတော့
+        class
+        ထဲမှာ initial state ကို define လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် state ကို initialize လုပ်ဖို့ constructor
+        တစ်ခုရှိပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် super ကိုလည်း call လုပ်ပေးထားပါတယ်။ နောက် App ထဲမှာရှိတဲ့ state
+        ဟာကျွန်တော်တို့
+        display လုပ်ချင်တဲ့ GIF data တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် state ထဲမှာ collection of objects ကို represents
+        လုပ်တဲ့ gif
+        state ကို pass လုပ်ပေးထားတာဖြစ်ပါတယ်။ နောက် React's componentDidMount lifecycle method ထဲမှာ data fetching
+        တွေအားလုံးကို
+        set up လုပ်ရမှာဖြစ်ပါတယ်။ ComponentDidMount ဟာ component တစ်ခုကို DOM ကို added လုပ်ပြီးနောက် ချက်ချင်း call
+        လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် အဲ့ method ထဲမှာ fetching data process ကို start လုပ်ဖို့ fetch method ကို add
+        လုပ်ရပါမယ်။
+    </p>
+    <p>
+        Fetch ဟာ browser ထဲမှာ web requests တွေကို လုပ်ဆောင်တဲ့ simple way တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ အဲ့ fetch
+        method
+        ထဲမှာ ကျွန်တော်တု့ိ fetch လုပ်ချင်တဲ့ resource ကိုသွားတဲ့ path or URL ကို define လုပ်ပေးရပါမယ်။ အဲ့ထဲမှာ path or
+        URL ကို
+        string တစ်ခုအနေနဲ့ pass လုပ်ပေးရပါမယ်။ Fetch API ဟာ results ကို handle လုပ်ဖို့ JavaScript promises ကို
+        အသုံးပြုတာဖြစ်တဲ့အတွက်ကြောင့် promises တွေဟာ methods တွေကို sequential order တစ်ခုမှာ chain လုပ်ဖို့
+        ခွင့်ပြုပေးထားပါတယ်။ Fetch method ဟာ သူကိုယ်တိုင် promise တစ်ခုကို returns ပြန်ပြီးတော့ ကျွန်တော်ုတို့ဟာ then
+        method ကို
+        call backs အနေနဲ့ chain လုပ်နိုင်ပါတယ်။ အဲ့ then method ဟာ sequentially အရ fetch promise ကို fulfilled ဖြစ်အောင်
+        executed လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် fetch ဆီကို then methods နှစ်ခု chain
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        သူတို့ တစ်ခုချင်းစီဟာ fetch ကနေ created လုပ်ထားတဲ့ promise ကိုအသုံးပြုပြီးတော့ သူတု့ိရဲ့ ကိုယ်ပိုင် promise
+        တစ်ခုကို
+        return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် first callback ကတော့ result ကို JSON format နဲ့ return
+        ပြန်ပေးဖို့ဖြစ်ပါတယ်။
+        နောက် call back ကတော့ gif state ကို update လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် data တွေ loading လုပ်တာ finishes
+        ဖြစ်တဲ့အချိန်မှာ fetch ဟာ response ပါတဲ့ response object တစ်ခုကို return ပြန်ပေးပြီးတော့ သူ့ကို callbacks ထဲမှာ
+        access
+        လုပ်နိုင်ပါတယ်။ အဲ့ဒါကြောင့် first then method ထဲမှာ response object ကို ယူပြီးတော့ JSON format နဲ့ data
+        တွေပါတဲ့ object
+        တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ JSON data တွေကို React မှာရှိတဲ့ state ကို setting လုပ်ပြီးတော့ app
+        ထဲမှာ
+        available ဖြစ်အောင် လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် second then method ထဲမှာဆိုရင် JSON data တွေကို ယူတဲ့
+        responseData
+        ဆိုတဲ့ parameter တစ်ခုပါတဲ့ function တစ်ခုကို passing လုပ်ပြီးတော့ gif state ကို update လုပ်သွားမှာဖြစ်ပါတယ်။
+        နောက် new
+        state တစ်ခုကို this.setState နဲ့ return ပြန်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် method ထဲမှာ parentheses ထဲကို
+        responseData
+        ကို set လုပ်ပေးထားပါတယ်။ နောက် array ထဲမှာရှိတဲ့ data တွေကို access လုပ်ဖို့အတွက် gif state မှာ
+        responseData.data
+        ဆိုပြီးတော့ set လုပ်ပေးရပါမယ်။ နောက် promises အားလုံးဟာ fulfilled မဖြစ်တာတွေ fetch gets rejected or return in a
+        failed
+        state ဖြစ်တတ်ပါတယ်။ Example offline or API server is down ဖြစ်သွားတဲ့အခါမျိုးတွေမှာ ကျွန်တော်တို့ဟာ catch and
+        any errors
+        ကို handle လုပ်ဖို့ catch method ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါကြောင့် catch method ကို chain
+        လုပ်ပေးထားတာဖြစ်ပါတယ်။
+        Example မှာဆိုရင်တော့ errors တွေကို console log ကနေ display လုပ်ထားတာဖြစ်ပါတယ်။ Fetch method and JavaScript
+        Promises တွေဟာ latest generation of most browsers တွေမှာပဲ available ဖြစ်တာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ older browsers တွေမှာပါ data fetching ကိုလုပ်ဆောင်ချင်တဲ့အခါမှာ fetch polyfill ကို install
+        လုပ်ပေးရပါမယ်။ သူ့ကို GitHub ကနေ developed လုပ်ထားတာဖြစ်ပါတယ်။ နောက် section မှာတော့ axio အကြောင်းကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ သူဟာ tool တစ်ခုဖြစ်ပြီးတော့ fetch API နဲ့ similar ဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            import './App.css';
+            import SearchForm from './compnents/SearchForm';
+            import GiftList from './compnents/GiftList';
+            
+            class App extends Component {
+            constructor() {
+            super();
+            this.state = {
+            gifs: []
+            }
+            }
+            
+            
+            componentDidMount() {
+            fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+            .then(response =&gt; response.json())
+            .then(responseData =&gt; {
+            this.setState({ gifs: responseData.data });
+            })
+            .catch(error =&gt; {
+            console.log('Error fetching and parsing data', error)
+            });
+            }
+            
+            render() {
+            console.log(this.state.gifs);
+            return (
+            &lt;div&gt;
+            &lt;div className="main-header"&gt;
+            &lt;div className="inner"&gt;
+            &lt;h1 className="main-title"&gt;GiftSearch&lt;/h1&gt;
+            &lt;SearchForm /&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="main-content"&gt;
+            &lt;GiftList /&gt;
+            &lt;/div&gt;
+            &lt;/div &gt;
+            );
+            }
+            
+            }
+            
+            export default App;
+        </code>
+    </pre>
+    <hr>
+    <h1>Fetching Data with Axios</h1>
+    <p>
+        အခု section မှာတော့ React မှာ Axios ကိုအသုံးပြုပြီးတော့ server requests တွေကို ဘယ်လို လုပ်ဆောင်ရတယ်ဆိုတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ သူဟာ promise-based library တစ်ခုဖြစ်ပြီးတော့ Fetch API နဲ့ similar ဖြစ်ပါတယ်။ Axios
+        မှာဆိုရင်
+        stronger browser support ရှိပါတယ်။ နောက် Axios မှာဆိုရင် useful built in features တွေရှိပါတယ်။ အဲ့ထဲကတစ်ခုကတော့
+        သူဟာ
+        data တွေကို JSON ကို automatically converts လုပ်ပေးတာဖြစ်ပါတယ်။ Axios ကိုအသုံးပြုမယ်ဆိုရင် first အနေနဲ့ သူ့ကို
+        project
+        dependency အနေနဲ့ install လုပ်ပေးရပါမယ်။ နောက် axios ကို import လုပ်ပေးရပါမယ်။ Axios documentation မှာဆိုရင်
+        performing
+        a request အတွက် config options အားလုံးကို provides လုပ်ပေးထားပါတယ်။ အဲ့မှာရှိတဲ့ get method ဟာ fetch method
+        လိုပဲ
+        request တစ်ခုကို လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ Axios ဟာ JSON format ကို automatically convert
+        လုပ်ပေးတာဖြစ်တဲ့အတွက်ကြောင့်
+        အဲ့ step ကို skip လုပ်ရပါမယ်။ နောက် updating state ကိုလုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ နောက် Axios response schema
+        မှာဆိုရင်
+        request တစ်ခုအတွက် response တွေပါတဲ့ information တွေရှိပါတယ်။ Example အတွက်ဆိုရင် server ကနေ provided
+        လုပ်လိုက်တဲ့
+        response တွေအတွက်ဆိုရင် data ကိုအသုံးပြုပေးရပါမယ်။ နောက် section မှာတော့ JavaScript ကိုအသုံးပြုပြီးတော့ returned
+        results
+        တွေပေါ်မှာ map လုပ်ဖို့အသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် သူတို့ကို DOM ဆီကို render လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            componentDidMount() {
+            axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+            .then(responseData => {
+            this.setState({ gifs: responseData.data.data });
+            })
+            .catch(error => {
+            console.log('Error fetching and parsing data', error)
+            });
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Displaying the Data</h1>
+    <p>
+        အခု section မှာတော့ result ကို list of animated GIF အနေနဲ့ display လုပ်သွားမှာဖြစ်ပါတယ်။ App component
+        ထဲမှာဆိုရင် main
+        component ဟာ markup of app ကို rendering လုပ်ပေးရတာဖြစ်ပါတယ်။ နောက် GifList.js ထဲမှာဆိုရင် wrapping UL element
+        ပါဝင်ပါတယ်။ သူဟာ list of gifs ကို via gif component နဲ့ display လုပ်ပေးတာဖြစ်ပါတယ်။ Gif component ဟာ gif
+        တစ်ခုချင်းစီကို
+        display လုပ်တဲ့ template ပါဝင်တဲ့ presentational component တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် App component ဟာ
+        data
+        တွေကို သူ့ရဲ့ child components တွေဆီကို provide လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် App component ထဲက GifList
+        ထဲမှာ data
+        တွေရဲ့ prop တစ်ခုကို provide လုပ်ပေးရပါမယ်။ အဲ့ prop ဟာ gif state ကို GifList component ဆီကို pass
+        လုပ်ပေးဖို့လိုပါတယ်။
+        နောက် GIF objects တစ်ခုချင်းစီကို map လုပ်ပေးဖို့လိုပါတယ်။ Example မှာဆိုရင်တော့ GifList.js ထဲမှာ data တွေကို
+        results
+        ဆိုတဲ့ constant ထဲမှာ store လုပ်ပေးထားပါတယ်။ နောက် array ပေါ်မှာ map လုပ်ဖို့ map method ကိုအသုံးပြုပေးရပါမယ်။
+        သူဟာ
+        array ထဲမှာရှိတဲ့ object တစ်ခုချင်းစီအတွက် gif component တစ်ခုကို return ပြန်ပေးပါတယ်။ Example မှာဆိုရင်တော့
+        gifs ဆိုတဲ့
+        variable ထဲမှာ store လုပ်ပေးထားပါတယ်။ အဲ့ function ထဲမှာဆိုရင် gif ကို parameter အနေနဲ့ ယူပြီးတော့ gif component
+        တစ်ခုကို returns ပြန်ပေးထားပါတယ်။ Example အတွက်ဆိုရင်တော့ array ထဲမှာရှိတဲ့ object တစ်ခုချင်းစီနဲ့ associated
+        ဖြစ်တဲ့
+        URL property ကို access လုပ်ပေးရပါမယ်။ နောက် Gif component ဟာဆိုရင် API ကနေ return ပြန်လာတဲ့ gif
+        တစ်ခုချင်းစီအတွက် list
+        item တစ်ခုထဲမှာ image element တစ်ခုကို rendering လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် image တစ်ခုချင်းစီအတွက် key
+        တစ်ခုကို
+        ပေးရမှာဖြစ်ပါတယ်။ နောက် section မှာတော့ app ထဲကို search feature ကိုဘယ်လို add လုပ်ရမယ်ဆိုတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>GifList.js</h3>
+    <pre>
+        <code> 
+            import React from 'react';
+            import Gif from './Gif';
+            
+            const GiftList = props =&gt; {
+            const results = props.data;
+            let gifs = results.map(gif =&gt;
+            &lt;Gif url={gif.images.fixed_height.url} key={gif.id} /&gt;
+            );
+            return (
+            &lt;ul className="gif-list"&gt;
+            {gifs}
+            &lt;/ul&gt;
+            );
+            }
+            export default GiftList;
+
+        </code>
+    </pre>
+    <h3>Gif.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const Gif = props =&gt; (
+            &lt;li className="gif-wrap"&gt;
+            &lt;img src={props.url} alt="" /&gt;
+            &lt;/li&gt;
+            );
+            
+            export default Gif;
+        </code>
+    </pre>
+    <hr>
+    <h1>Building a Search Feature</h1>
+    <p>
+        Giphy API ဟာ search endpoint တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ အဲ့ဒါဟာ word or phrase တစ်ခုခုကို
+        အသုံးပြုပြီးတော့ GIFs
+        အတွက် search လုပ်ဖို့အတွက် ခွင့်ပြုပေးပါတယ်။ အခု section မှာ အဲ့ endpoint ကိုအသုံးပြုပြီးတော့ search feature
+        တစ်ခုကို
+        create လုပ်သွားမှားဖြစ်ပါတယ်။ Users တွေဟာ text field ထဲမှာ typing လုပ်ပြီးတော့ GIFs တွေကို search
+        လုပ်နိုင်အောင်လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ First အနေနဲ့ App component ထဲမှာ called လုပ်တဲ့အချိန်မှာ data တွေကို
+        fetches
+        လုပ်ပြီးတော့ GIF state ကို updates လုပ်တဲ့ function တစ်ခုကို create လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့
+        performSearch
+        ပဲဖြစ်ပါတယ်။ ကျွနေ်တော်တို့ဟာ code တွေကို componentDidMount ထဲမှာ ရေးပြီးဖြစ်ပါတယ်။ အဲ့ဒါကို အဲ့ code တွေကို
+        copy and
+        paste လုပ်ပေးရပါမယ်။ နောက်ကျွန်တော်တို့ဟာ get method ထဲမှာရှိတဲ့ URL ကို change လုပ်ပေးဖို့လိုပါတယ်။
+        အဲ့မှာဆိုရင် search
+        query ကို returns ပြန်ပေးတဲ့ endpoint ကို change လုပ်ပေးရပါမယ်။ အဲ့ endpoint မှာဆိုရင် several parameters
+        တွေရှိပါတယ်။
+        အဲ့ဒါတွေကို term or phrase, limite the number of results return, offset the result and more တို့ကို search
+        လုပ်ဖို့
+        အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ရဲ့ URL မှာဆိုရင် q or query parameter လိုအပ်ပါတယ်။ Endpoint URL မှာဆိုရင်
+        parameter q
+        ဟာ ပါပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် value ဟာ dynamic ဖြစ်ဖို့လိုပါတယ်။ q ဟာ users တွေ search result ထဲမှာ typed
+        လုပ်လိုက်တဲ့ text နဲ့ equal ဖြစ်ရပါမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် function မှာ query ဆိုတဲ့ parameter ကို pass
+        လုပ်ပေးရပါမယ်။ နောက် get method ထဲမှာ URL ကို string ကနေ template literal ကို change လုပ်ပေးရပါမယ်။ နောက်
+        အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ results တွေကို 24 GIFs ပဲ limit လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် URL မှာ limit ဆိုတဲ့ parameter
+        ကို
+        pass လုပ်ပြီးတော့ equal to 24 ကို pass လုပ်ရပါမယ်။ နောက် search form component ဆီကို function ကို wired up
+        လုပ်ပေးရပါမယ်။ နောက် searchForm component ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် component ကို specific လုပ်တဲ့
+        searchText
+        state တစ်ခုရှိပါတယ်။ သူဟာဆိုရင် onSearchChange function ထဲမှာ users တွေ input filed ထဲမှာ type လုပ်လိုက်တဲ့ text
+        နဲ့
+        update လုပ်ပါတယ်။ နောက် form မှာပေးထားတဲ့ onSubmit handler ဟာ submitted လုပ်လိုက်တဲ့တာနဲ့ handlesubmit function
+        ကို
+        called လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် handleSubmit ဟာ preventDefault ကို calls လုပ်ပြီးတော့
+        currentTarget.reset နဲ့
+        input filed onSubmit ကို resets လုပ်ပေးပါတယ်။ အဲ့ function ထဲမှာဆိုရင် data တွေကို fetches လုပ်တဲ့ performSearch
+        ကို
+        invoke လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိဟာ function ကို call လုပ်ဖို့လိုပါတယ်။ performSearch ဟာ
+        argument
+        တစ်ခုယူပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            import axios from 'axios';
+            import './App.css';
+            import SearchForm from './compnents/SearchForm';
+            import GiftList from './compnents/GiftList';
+            
+            class App extends Component {
+            constructor() {
+            super();
+            this.state = {
+            gifs: [],
+            loading: true
+            }
+            }
+            
+            componentDidMount() {
+            this.performSearch();
+            }
+            
+            performSearch = (query = 'cats') =&gt; {
+            axios.get(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+            .then(response =&gt; {
+            this.setState({
+            gifs: response.data.data,
+            loading: false
+            });
+            })
+            .catch(error =&gt; {
+            console.log('Error fetching and parsing data', error)
+            });
+            }
+            
+            
+            render() {
+            console.log(this.state.gifs);
+            return (
+            &lt;div&gt;
+            &lt;div className="main-header"&gt;
+            &lt;div className="inner"&gt;
+            &lt;h1 className="main-title"&gt;GiftSearch&lt;/h1&gt;
+            &lt;SearchForm onSearch={this.performSearch} /&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="main-content"&gt;
+            {
+            (this.setState.loading)
+            ? &lt;p&gt;Loading....&lt;/p&gt;
+            : &lt;GiftList data={this.state.gifs} /&gt;
+            }
+            &lt;/div&gt;
+            &lt;/div &gt;
+            );
+            }
+            
+            }
+            
+            export default App;
+
+        </code>
+    </pre>
+    <h3>searchForm.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react'
+            
+            
+            class SearchForm extends Component {
+            
+            state = {
+            searchText: ''
+            }
+            
+            onSearchChange = e =&gt; {
+            this.setState({ searchText: e.target.value });
+            }
+            
+            
+            handleSubmit = e =&gt; {
+            e.preventDefault();
+            this.props.onSearch(this.query.value);
+            e.currentTarget.reset();
+            }
+            
+            render() {
+            return (
+            &lt;form className="search-form" onSubmit={this.handleSubmit}&gt;
+            &lt;input
+            onChange={this.onSearchChange}
+            type="text"
+            name="search"
+            ref={(input) =&gt; this.query = input}
+            placeholder="Search..."
+            /&gt;
+            &lt;button type="submit" id="submit" className="search-button"&gt;&lt;i className="fa
+            fa-search"&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;/form&gt;
+            );
+            }
+            
+            }
+            export default SearchForm;
+        </code>
+    </pre>
+    <hr>
+    <h1>Displaying the Search Results</h1>
+    <p>
+        Example မှာဆိုရင် searchText ဟာဆိုရင် searchform component အတွက် local ဖြစ်ပါတယ်။ Input ရဲ့ value ရဲ့ type ဟာ
+        application state ရဲ့ really part တော့အဟုတ်ပါဘူး။ သူဟာဆိုရင် component အလုပ်လုပ်ဖို့အတွက် လိုအပ်တဲ့ state
+        ပဲဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင် smaller app မှာဆိုရင်တော့ အဆင်ပြေပါတယ်။ Larger app တွေမှာဆိုရင် searchText ဟာ app ရဲ့ other parts ကနေ
+        အသုံးပြုလာနိုင်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ ref ကို input ကနေ value ကို access လုပ်ဖို့အတွက် အသုံးပြုနိုင်ပါတယ်။
+        React
+        မှာဆိုရင် ref ဟာဆိုရင် ကျွန်တော်တို့ကို reference လုပ်ဖို့ခွင့်ပြုပေးပါတယ်။ နောက် DOM element တစ်ခုဆီကို direct
+        access
+        ကို ရဖို့လည်း ခွင့်ပြုပေးပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် input ထဲမှာ ref attribute ကို ပေးထားတာဖြစ်ပါတယ်။
+        HTML
+        element ပေါ်မှာ ref attribute ကို callback function တစ်ခုအနေနဲ့ takes လုပ်ပေးရပါမယ်။ သူဟာ underlying DOM element
+        ကို
+        သူ့ရဲ့ arguments အနေနဲ့ receives လုပ်ပေးပါတယ်။ အဲ့ call back ဟာဆိုရင် DOM မှာ component ကို mounted
+        လုပ်ပြီးပြီးချင်း
+        call လုပ်ပေးမှာဖြစ်ပါတယ်။ Page မှာ input rendered လုပ်တဲ့အချိန်မှာ သူဟာ this.query နဲ့ access လုပ်နိုင်တဲ့
+        reference
+        တစ်ခုကို input ဆီကို returns ပြန်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် input filed ရဲ့ value ကို access လုပ်ဖို့အတွက်
+        onSearch
+        မှာ this.query.value ဆိုတဲ့ argument ကို pass လုပ်ပေးရပါမယ်။ နောက် example မှာရှိတဲ့ app ကို little more fun and
+        interesting ဖြစ်အောင်လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် app loads လုပ်တဲ့အချိန်မှာ default list of gifs ကို
+        displaying
+        လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် performSearch function ထဲမှာ query parameter အတွက် default value
+        တစ်ခုကို
+        providing လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် componentDidMount method ထဲမှာ performSearch ကို call လုပ်ပေးရပါမယ်။
+        နောက်ဆုံးကတော့ nogifs ကို returned ပြန်လာတဲ့အခါမှာ icon တစ်ခုနဲ့ no GIFs match your search ဆိုတဲ့ error message
+        ကို
+        display လုပ်ပေးရမှာဖြစ်ပါတယ်။ First အနေနဲ့ NoGifs.js ကို GifList.js ထဲမှာ import လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်အဲ့မှာဆိုရင်
+        returned results ပေါ်မှာအခြေခံပြီးတော့ some conditional လိုအပ်ပါတယ်။ results ဟာ returned ပြန်လာတယ်ဆိုရင် list of
+        gifs
+        ကို render လုပ်ပေးပြီးတော့ returned ပြန်မလာဘူးဆိုရင် NoGifs component ကို render လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်ပြီးတဲ့အခါမှာ one small glitch တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါကတော့ app first loads လုပ်တဲ့အချိန်မှာ NoGifs
+        component ရဲ့
+        quick flash တစ်ခုကို တွေ့ရပါလိမ်မယ်။ ဘာကြောင့်လဲဆိုတော့g git state ရဲ့ initial value ဟာ empty array
+        ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် loading indicator ကို indicate လုပ်တဲ့ conditional rendering ကို
+        အသုံးပြုနိုင်ပါတယ်။ Application ရဲ့ state ပေါ်မှာအခြေခံပြီးတော့ ကျွန်တော်တို့ဟာ list of gifts or loader တစ်ခုကို
+        render
+        လုပ်နိုင်ပါတယ်။ First အနေနဲ့ App.js ထဲမှာ loading state တစ်ခုကို initialize လုပ်ရပါမယ်။ အဲ့မှာဆိုရင် default အရ
+        true ကို
+        set လုပ်ခဲ့ရပါမယ်။ နောက် performSearch function ထဲမှာ loading state ကို false ကို update လုပ်ပေးရပါမယ်။
+        ဘာကြောင့်လဲဆိုတော့ အဲ့မှာဆိုရင် data တွေဟာ fetched လုပ်ပြီးဖြစ်တဲ့အတွက်ကြောင့်ဖြစ်ပါတယ်။ နောက် အဲ့ loading state
+        ကို
+        အသုံးပြုပြီးတော့ loading indicator တစ်ခုကို render လုပ်နိုင်ပါတယ်။ အဲ့ဒါကြောင် return statement ထဲမှာ true and
+        false
+        states ကို evaluate လုပ်ပေးတဲ့ ternary operator တစ်ခုကို အသုံးပြုပေးထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>NoGifs.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const NoGifs = props => (
+            &lt;li className="no-gifs">
+            &lt;i class='fas fa-frown'>&lt;/i>
+            &lt;h3>Sorry, no GIFs match your search.&lt;/h3>
+            &lt;/li>
+            );
+            
+            export default NoGifs;
+        </code>
+    </pre>
+    <a href="http://www.datafetching.itvisionlab.com" target="_blank">Test Yourself</a>
+    <hr>
+
+</body>
+
+</html>

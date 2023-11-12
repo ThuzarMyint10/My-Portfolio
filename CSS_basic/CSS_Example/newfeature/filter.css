@@ -1,0 +1,18 @@
+img {
+    max-width: 100%;
+}
+
+body {
+    padding-top: 80px;
+    background: #262626;
+    text-align: center;
+}
+
+img {
+    border: 5px dashed #fff;
+    /* -webkit-filter: grayscale(100%); */
+    /* -webkit-filter: opacity(50%); */
+    /* -webkit-filter: blur(6px); */
+    /* -webkit-filter: hue-rotate(100deg); */
+    -webkit-filter: drop-shadow(20px 20px 10px #000);
+}

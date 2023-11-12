@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p {
+            font-family: Myanmar3, Yunghkio;
+        }
+
+        img {
+            width: 80%;
+            margin: 0 0 50px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Understanding React Components</h1>
+    <p>
+        React basic မှာ scoreboard application ကို basic functionality တွေနဲ့ building လုပ်ပြီးတော့ React ရဲ့
+        fundamentals ကို
+        လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် key concepts and features of React ကို explore လုပ်ခဲ့ပါတယ်။ အဲ့မှာဆိုရင်
+        React
+        elements တွေကို JSX နဲ့ create လုပ်တယ် ပြီးတော့ components တွေနဲ့ pieces of UI ကို create လုပ်ခဲ့တာဖြစ်ပါတယ်။
+        ပြီးတော့
+        state, interactivity ကို app ထဲကို add လုပ်ဖို့ event handlers တွေကိုလည်း အသုံးပြုခဲ့ပါတယ်။ Components တွေဟာ
+        ကျွန်တော်တို့ လေ့လာခဲ့သလိုပဲ React ရဲ့ heart ပဲဖြစ်ပါတယ်။ React မှာရှိတဲ့ everything ဟာ component
+        တစ်ခုပဲဖြစ်ပါတယ်။
+        Component တစ်ခုဆိုတာ function or class တစ်ခုဖြစ်ပြီးတော့ သူဟာ inputs and render a part of UI ကို accepts
+        လုပ်ပေးပါတယ်။
+        အခု stage မှာတော့ different approaches and components တွေဟာ တစ်ခုတစ်ခုနဲ့ ဘယ်လို communicate
+        လုပ်တယ်ဆိုတာတွေကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ First, ကျွန်တော်တို့ဟာ professional built system ကိုအသုံးပြုပြီးတော့
+        React app
+        ကို set up and run လုပ်ရမှဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Setting up with Create React App</h1>
+    <p>
+        React basic မှာ React project တစ်ခုကို ways နှစ်ခုနဲ့ set up လုပ်တာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် CDN
+        links ကနေ
+        set up လုပ်တာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ Create React App ဆိုတဲ့ tool
+        ကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+        Developers တွေဟာ normally အားဖြင့် Create React App ကိုအသုံးပြုကြပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ React apps
+        တွေကို
+        configuration မပါဘဲနဲ့ quickly create and run လုပ်ဖို့ ခွင့်ပြုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Project ကို
+        စဖို့အတွက်
+        ကျွန်တော်တို့ရဲ့ computer မှာ Node an NPM, or Yarn လိုအပ်ပါတယ်။ အဲ့မှာဆိုရင် React project ကို စဖို့အတွက် tools
+        and
+        files တွေကို set up လုပ်ဖို့ command တစ်ခုကို run လုပ်ဖို့လိုပါတယ်။ NPX ဟာဆိုရင် version 5.2 တစ်ခုအနေနဲ့ NPM
+        ပါတဲ့ tool
+        တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် packages တွေကို install and run လုပ်တဲ့အခါမှာ easy ဖြစ်စေပါတယ်။ NPX ကို run
+        လုပ်လိုက်တဲ့အခါမှာ package တွေကို download and execute လုပ်သွားမှာဖြစ်ပါတယ်။ Project file ကို downloading
+        လုပ်ပြီးတဲ့နောက်မှာ terminal မှာ npm install ဆိုတဲ့ command ကို run လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ project
+        အတွက်
+        လိုအပ်တဲ့ dependencies တွေကို install လုပ်တာဖြစ်ပါတယ်။ နောက် npm start လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် section
+        မှာတော့
+        components တွေကို modules တွေအဖြစ် ဘယ်လို break up လုပ်မယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Separating Function Components Into Modules</h1>
+    <p>
+        New project files ထဲမှာဆိုရင် few things ကို notice ဖြစ်ပါလိမ့်မယ်။ First အနေနဲ့ JavaScript file တစ်ခုချင်းစီရဲ့
+        top မှာ
+        import statement ပဲဖြစ်ပါတယ်။ နောက် file ရဲ့ bottom မှာ export statement ပဲဖြစ်ပါတယ်။ Create React App ဟာ ES
+        modules
+        ကိုအသုံးပြုတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ရဲ့ code တွေကို individual JavaScript files တွေထဲမှာ break up
+        လုပ်ခွင့်ပြုပါတယ်။ Modules တွေဟာဆိုရင် ကျွန်တော်တို့ရဲ့ code ကို organize and maintain လုပ်ဖို့ better way
+        တစ်ခုကို
+        provide လုပ်ပေးပါတယ်။ နောက် variables, functions and classes တွေအတွက် scope ကိုလည်း provide လုပ်ပေးပါတယ်။
+        အဲ့မှာဆိုရင်
+        components တွေအားလုံးဟာ file တစ်ခုထဲမှာပဲ defined လုပ်ထားတာဖြစ်ပါတယ်။ Over time မှာဆိုရင် components and logic
+        တွေအားလုံးကို monolithic file တစ်ခုထဲမှာ putting လုပ်တာဟာ manage လုပ်တဲ့အခါမှာ difficult ဖြစ်နိုင်ပါတယ်။ React
+        မှာဆိုရင်
+        component တစ်ခုချင်းစီဟာ independent module အဖြစ်နဲ့ think လုပ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာတော့ component
+        တစ်ခုချင်းစီကို သူ့တို့ရဲ့ own file ထဲကကို move လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ header ကို move
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါအတွက် Header.js ဆိုတဲ့ new folder တစ်ခုကို create လုပ်ရပါမယ်။ အဲ့မှာဆိုရင် name ရဲ့ first letter ဟာ
+        uppercase
+        ဖြစ်ရပါမယ်။ အဲ့လို module ခွဲလိုက်တဲ့အခါမှာ first thing အနေနဲ့ လုပ်ရမှာတော့ React ကို import လုပ်ရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကို
+        file ရဲ့ top မှာ import statement တစ်ခုနဲ့ write လုပ်ရပါမယ်။ Module တစ်ခုချင်းစီမှာ own scope ရှိတဲ့အတွက်ကြောင့်
+        React
+        ကို file ထဲကို import အမြဲလုပ်ပေးရပါမယ်။ အဲ့ဒါမှ React's API and JSX လို features တွေကို
+        အသုံးပြုလို့ရမှာဖြစ်ပါတယ်။
+        နောက် header function ကို Header.js ထဲကို paste လုပ်ပေးရပါမယ်။ နောက် header component ကို export
+        လုပ်ဖို့လိုပါတယ်။
+        အဲ့ဒါမှ သူ့ကို other components တွေကနေ အသုံးပြုလို့ရမှာဖြစ်ပါတယ်။ နောက် App ဟာ ဆိုရင် fail to compile error ကို
+        ပေးပါလိမ့်မယ်။ ဘာကြောင့်လဲဆိုတော့ App.js ထဲမှာ Header component ကို header tag နဲ့ referencing
+        လုပ်ထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် Player component ကိုလည်း header component လိုပဲ own module ထဲမှာ place
+        လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် another failed to compile error ကို ပေးပါလိမ့်မယ်။ အဲ့ဒါကတော့ counter is not defined
+        in
+        Player.js ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို next section မှာ solve လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Header.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            function Header(props) {
+            return (
+            &lt;header&gt;
+            &lt;h1&gt;{props.title}&lt;/h1&gt;
+            &lt;span className="stats"&gt;Players: {props.totalPlayers}&lt;/span&gt;
+            &lt;/header&gt;
+            );
+            }
+            export default Header;
+        </code>
+    </pre>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const Player = (props) =&gt; {
+            return (
+            &lt;div className="player"&gt;
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; props.removePlayer(props.id)}&gt;x&lt;/button&gt;
+            {props.name}
+            &lt;/span&gt;
+            &lt;Counter score={props.score} /&gt;
+            &lt;/div&gt;
+            );
+            }
+            export default Player;
+        </code>
+    </pre>
+    <hr>
+    <h1>Separating Function Components Into Modules</h1>
+    <p>
+        Counter ကိုလည်း Header and Player components တွေလိုပဲ new file တစ်ခု create လုပ်ပြီးတော့ paste လုပ်ရပါမယ်။
+        အဲ့မှာဆိုရင်
+        Counter component ကို Player component မှာပဲ import လုပ်ပေးရမှာဖြစ်ပါတယ်။ App component မှာလုပ်စရာမလိုပါဘူး။
+        ဘာလို့လဲဆိုတော့ Counter component ဟာ Player component ရဲ့ dependency တစ်ခုဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့
+        class components တွေ အလုပ်လုပ်တဲ့အခါမှာ React ကို import လုပ်တဲ့အခါမှာ "import React, { Component } from 'react'
+        "ဆိုပြီးတော့ တွေ့ရပါလိမ်မယ်။ အဲ့ဒါဟာဆိုရင် React package ကနေ Component ကိုရော import လုပ်လိုက်တာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        class ကို extending လုပ်တဲ့အခါမှာ React.Component ကိုရေးစရာမလိုပဲနဲ့ Component တစ်ခုပဲရေးလို့ရပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class Counter extends Component {
+            
+            state = {
+            score: 0
+            };
+            
+            
+            incrementScore = () =&gt; {
+            this.setState(prevState =&gt; ({
+            score: prevState.score + 1
+            }));
+            }
+            
+            decrementScore = () =&gt; {
+            this.setState(prevState =&gt; ({
+            score: prevState.score - 1
+            }));
+            }
+            
+            render() {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" onClick={this.decrementScore}&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{this.state.score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={this.incrementScore}&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            export default Counter;
+        </code>
+    </pre>
+    <hr>
+    <h1>Unidirectional Data Flow</h1>
+    <p>
+        Previous course မှာဆိုရင် components တွေထဲမှာ new state တစ်ခုကို ဘယ်လို initialize
+        လုပ်ရတယ်ဆိုတာကိုလေ့လာခဲ့ကြပြီးဖြစ်ပါတယ်။ Stateful components တွေဟာ powerful ဖြစ်ပါတယ်။ ဒါပေမဲ့ app ဆီကို lot of
+        complexity ကို bring လုပ်လာနိုင်ပါတယ်။ React basic မှာဆိုရင် different types of state ကို လေ့လာခဲ့ကြပါတယ်။
+        အဲ့ဒါတွေကတော့
+        application state and component state တို့ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် application state ဟာ main app component
+        ထဲမှာရှိပါတယ်။ သူ့ရဲ့ child components တွေအားလုံးကို dataတွေပေးနိုင်ပါတယ်။ Counter component ဟာ local state
+        ရှိပါတယ်။
+        သူဟာ outside of the component မှာ share or visible မလုပ်ပါဘူး။ React မှာဆိုရင် data တွေဟာ top level component
+        ကနေပြီးတေ့
+        child components တွေကို props နဲ့ pass လုပ်ပါတယ်။ ဒါကို unidirectional data flow လို့ခေါ်ပါတယ်။ Next section
+        မှာတော့
+        ကျွန်တော်တို့ရဲ့ state and data flow ကို ပိုပြီးတော့ unidirectional ဖြစ်အောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Lifting State Up</h1>
+    <p>
+        React မှာဆိုရင် two or more components တွေဟာ same state ကို share လုပ်နိုင်ပါတယ်။ Example မှာ App ဟာ players
+        တွေကို
+        Header and Player ဆီကို props ကို through လုပ်ပြီးတော့ share လုပ်ထားပါတယ်။ Example မှာဆိုရင် app and counter
+        ဆိုတဲ့
+        stateful components နှစ်ခုရှိပါတယ်။ Counter ရဲ့ sate ဟာဆိုရင် player's score ပဲဖြစ်ပါတယ်။ သူဟာ currently local
+        ဖြစ်ပါတယ်။ အဲ့ state ကို app ထဲမှာရှိတဲ့ other components တွေမှာတော့ available မဖြစ်ပါဘူး။ အဲ့ဒါဟာ application
+        ရဲ့ other
+        parts ကနေ player scores ကို access and use လုပ်ဖို့ difficult ဖြစ်ပါတယ်။ အခု တစ်ခါမှာတော့ အဲ့ state ကို header
+        မှာ
+        highest score and total score count ကို display လုပ်ဖို့အတွက် access လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကောင့် အဲ့ state ကို
+        common
+        parent ဆီကို move လုပ်ဖို့လိပါတယ်။ ဒါကို lifting state up လို့ခေါ်ပါတယ်။ အဲ့ဒါကြောင့် counter ထဲက state ကို
+        delete
+        လုပ်ပေးရပါမယ်။App ထဲက state ထဲမှာ score ကို add လုပ်ရပါမယ်။ နောက် counter ကို functional component ကို convert
+        ပြန်လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            const Counter = (props) =&gt; {
+            
+            // incrementScore = () =&gt; {
+            // this.setState(prevState =&gt; ({
+            // score: prevState.score + 1
+            // }));
+            // }
+            
+            // decrementScore = () =&gt; {
+            // this.setState(prevState =&gt; ({
+            // score: prevState.score - 1
+            // }));
+            // }
+            
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" &gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{props.score}&lt;/span&gt;
+            &lt;button className="counter-action increment" &gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            export default Counter;
+        </code>
+    </pre>
+    <hr>
+    <h1>Communicating Between Components</h1>
+    <p>
+        Main app component ထဲမှာရှိတဲ့ state ကို restructured လုပ်ရပါတယ်။ အဲ့မှာဆိုရင် counter ရဲ့ functionality ဟာ lost
+        ဖြစ်နေပြီဖြစ်ပါတယ်။ Counter buttons ဟာ score ကို modify လုပ်လို့မရပါဘူး။ Counter ထဲမှာရှိတဲ့ buttons တွေဟာ app
+        component
+        ထဲမှာ lives ဖြစ်နေတဲ့ pieces of state လိုအပ်ပါတယ်။ React မှာ data flow ဟာ down ဖြစ်ပါတယ်။ Counter လို child
+        component ဟာ
+        သူ့ရဲ့ ancestor component ဆီကို ဘယ်လို information တွေကို get လုပ်မလဲဆိုတာပဲဖြစ်ပါတယ်။ Child component
+        တစ်ခုဆီကို state
+        ကို passing မလုပ်ဘဲနဲ့ parent ဟာ call back function တစ်ခုကို pass down လုပ်နိုင်ပါတယ်။ Call back ဟာဆိုရင် data
+        upwards
+        ထဲမှာ events and changes တွေကို communicate လုပ်ဖို့ allow လုပ်ပေးပါတယ်။ နောက် counter's event handlers ကိုလည်း
+        refactor
+        လုပ်သွားရမှာဖြစ်ပါတယ်။ ပီးတော့ new props တစ်ခုကို player ထဲမှာ implement လုပ်ပြီးတော့ counter components ဟာ
+        callback
+        function အနေနဲ့ လုပ်ဆောင်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်counter event handler ကို up component ဆီကို move
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ functions နှစ်ခုလုံးကို handleScoreChange function တစ်ခုထဲမှာ refactor
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် increasing or decreasing အတွက် +1 of -1 ဖြင့် specifying မလုပ်ဘဲနဲ့ function
+        ဟာဆိုရင်
+        change or delta and score ကို specifies လုပ်ပေးတဲ့ argument တစ်ခုကို accepts လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်
+        handleScoreChange function ကို counter component ဆီကို props နှင့် pass လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Update State Based on a Player's Index</h1>
+    <p>
+        အခု section မှာ ဘယ် player's score ဟာ onClick မှ updated ဖြစ်ဘယ်မယ်ဆိုတာကို distinguish လုပ်ပေးမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကို
+        handle လုပ်ဖို့အတွက် first အနေနဲ့ delta parameter ရဲ့ရှေ့မှာ ဘယ် score ဟာ change ဖြစ်မယ်ဆိုတာကို လုပ်ဆောင်ပေးမဲ့
+        player
+        ရဲ့ index ကို accespt လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ index ကို player component ထဲမှာလည်း pass လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင် arrow function ဟာ more than one parameter ကို takes လုပ်ပါတယ်။ သူတို့ကို parentheses ထဲမှာ add
+        လုပ်ဖို့လိုပါတယ်။ နောက် index ကို level တစ်ခုကွာတဲ့ player.js ထဲက counter tag ထဲမှာ pass လုပ်ပေးရပါမယ်။
+        နောက်ဆုံးကတော့
+        index ကို button တစ်ခုချင်းစီမှာ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ ကျွန်တော်တု့ိရဲ့ player's score ကို
+        previous
+        score ပေါ်မှာအခြေခံပြီးတော့ update လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>App.js</h3>
+    <pre>
+        <code>
+            handleScoreChange = (index, delta) => {
+            this.setState(prevState => ({
+            score: prevState.players[index].score += delta
+            }));
+            }
+        </code>
+    </pre>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            &lt;Counter score={props.score} index={props.index} changeScore={props.changeScore} /&gt;
+        </code>
+    </pre>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" onClick={() =&gt; props.changeScore(index, -1)}&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{props.score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={() =&gt; props.changeScore(index, 1)} &gt;+&lt;/button&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Building the Statistics Component</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ scoreboard functions တွေဟာ same ဖြစ်နေပါတယ်။ အဲ့မှာရှိတဲ့ problem ကတော့ score data တွေကို
+        counter
+        component state ထဲမှာ locally kept လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်အခု section မှာ total score of all players
+        ကို header
+        ကို pass လုပ်ဖို့လိုပါတယ်။ အခု example အရဆိုရင် score data တွေကို အသုံးပြုဖို့ way မရှိပါဘူး။
+        ဘာကြောင့်လဲဆိုတော့ာ score
+        ဟာ counter ထဲမှာ trapped ဖြစ်နေတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ score state ကို top of
+        the
+        application ဆီကို lifted up လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာဆိုရင် scoreboard ပေါ်မှာ total
+        number of
+        players နှင့် total number of points တွေကို display လုပ်ဖို့ရန်အတွက် statistic component တစ်ခုကို build
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် state ထဲမှာ number of players ကို determine လုပ်ဖို့ player state
+        ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် total score ကို calculate လုပ်ဖို့ player.score state ကိုလည်း
+        အသုံးပြုသွားရမှာဖြစ်ပါတယ်။ First အနေနဲ့ component ကို create လုပ်ရပါမယ်။ သူဟာဆိုရင် stateless functional
+        component
+        တစ်ခုဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် stats ကို good old HTML table တစ်ခုကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ new
+        stats component ကို header component ထဲမှာ import လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ player state ကနေ
+        Stats
+        component ထဲကို total score and player count ကို calculate လုပ်ဖို့ data တွေကို get လုပ်ရပါတယ်။ Header ထဲမှာ
+        Stats
+        component ရှိတာကြောင့် first အနေနဲ့ ကျွန်တော်တို့ player state ကို Stats ဆီကို pass down လုပ်ဖို့လိုပါတယ်။
+        အဲ့ဒါကြောင့်
+        App component ထဲက header ထဲက total player prop ကို player state တစ်ခုလုံးကို pass လုပ်ပေးရပါမယ်။ နောက်
+        အဲ့မှာရှိတဲ့
+        players state ကို Header component ဆီကို pass လုပ်ပေးရပါမယ်။ နောက် stats ကို plain JavaScript
+        ကိုအသုံးပြုပြီးတော့
+        calculate လုပ်သွားရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် length property ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ total
+        points ကို
+        calculate လုပ်တာဟာ little more complex ဖြစ်ပါတယ်။ Total number of points ကို get လုပ်ဖို့အတွက် player and state
+        တစ်ခုချင်းစီကို iterate လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့ player's score and total up the scores ကို value ကို
+        produce
+        လုပ်ဖို့ရန်အတွက် get လုပ်ရပါမယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် Reduce method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Reduce
+        ဟာဆိုရင်
+        array တစ်ခုထက် value တစ်ခုနဲ့ end up လုပ်ချင်တဲ့အခါမှာ useful ဖြစ်ပါတယ်။ Reduce method ဟာဆိုရင် array
+        ထဲမှာရှိတဲ့
+        element တစ်ခုချင်းစမှာ executed လုပ်ဖို့ callback function တစ်ခုကို takes လုပ်ပါတယ်။ Callback function ဟာ
+        parameters
+        နှစ်ခုယူပါတယ်။ First, return values ကို adds up လုပ်တဲ့ accumulator တစ်ခုနဲ့ နောက် array ထဲမှာ processed လုပ်တဲ့
+        current
+        item ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ accumulator အတွက် total score ဖြစ်ပြီးတော့ current item အတွက် player
+        ဖြစ်ပါတယ်။
+        နောက် ကျွန်တော်တို့ဟာ accumulator ရဲ့ initial value ကို reduce method ရဲ့ second argument အနေနဲ့ set
+        လုပ်နိုင်ပါတယ်။
+        Example မှာဆိုရင်တော့ 0 ကို set လုပ်ထားပါတယ်။ player တစ်ယောက်ချင်းစီ processed အတွက် သူတို့ရဲ့ score ကို total
+        accumulator ဆီကို add လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Stats.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const Stats = (props) =&gt; {
+            const totalPlayers = props.players.length;
+            const totalPoints = props.players.reduce((total, player) =&gt; {
+            return total + player.score;
+            }, 0);
+            return (
+            &lt;table className="stats"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Players:&lt;/td&gt;
+            &lt;td&gt;{totalPlayers}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Total Points:&lt;/td&gt;
+            &lt;td&gt;{totalPoints}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            );
+            }
+            export default Stats;
+        </code>
+    </pre>
+    <hr>
+    <h1>Controlled Components</h1>
+    <p>
+        အခု section မှာ scoreboard ဆီကို players တွေကို adding လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့အတွက် naming the new player
+        အတွက် text
+        filed တစ်ခုနဲ့ formSubmit မှာ player ကို add လုပ်တဲ့ button တစ်ခုပါဝင်ပါတယ်။ React မှာဆိုရင် form element ဟာ
+        regular
+        HTML form elements တွေနဲ့ မတူပါဘူး။ Example မှာ new component တစ်ခုဖြစ်တဲ့ addPlayerForm ကို create
+        လုပ်ပေးထားပါတယ်။
+        သူဟာ stateful component တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် သူဟာ class တစ်ခုလိုပါတယ်။ နောက် အဲ့ form ကို main app component
+        ထဲမှာ
+        display လုပ်ပေးရမှာဖြစ်ပါတယ်။ React မှာဆိုရင် form elements တွေဟာ အခြား elements တွေနဲ့
+        အလုပ်လုပ်ပုံချင်းမတူပါဘူး။
+        ဘာကြောင့်လဲဆိုတော့ form elements တွေဟာ some internal state ကို naturally keep လုပ်ထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        အဲ့
+        form input မှာရှိတဲ့ value ဟာ user input ပေါ်မှာအခြေခံပြီးတော့ update ဖြစ်သွားမှာဖြစ်ပါတယ်။ React မှာဆိုရင် form
+        element
+        state တစ်ခုကို handle လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့ဟာ input field state ကို manage လုပ်ဖို့ controlled
+        component
+        တစ်ခုကို build လုပ်ဖို့လိုပါတယ်။ Controlled component တစ်ခုဟာ subsequence user input မှာ form ထဲမှာ
+        ဘာတွေဖြစ်တယ်ဆိုတာကို
+        controls လုပ်ပေးတဲ့ form တစ်ခုကို renders လုပ်ပါတယ်။ Input element တစ်ခုအတွက် control component တစ်ခုကို
+        creating
+        လုပ်တာဟာ first, input ရဲ့ value အတွက် state တစ်ခုကို create လုပ်ပေးရမယ်။ နောက် value ဟာ updated
+        ဖြစ်သွားတဲ့အချိန်မှာ
+        detect လုပ်ဖို့ input ပေါ်က changes တွေကို listen လုပ်ဖို့လိုပါတယ်။ နောက် new value တစ်ခုကို updates လုပ်ပေးတဲ့
+        event
+        handler တစ်ခုကို create လုပ်ရပါမယ်။ အဲ့ handle အတွက် input မှာ react built in ဖြစ်တဲ့ onChange event
+        ကိုအသုံးပြုပေးရပါမယ်။ နောက် event handler မှာဆိုရင် event object ဟာ target property ကို provides လုပ်ပေးပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>AddPlayerForm.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class AddPlayerForm extends Component {
+            
+            state = {
+            value: ''
+            }
+            
+            handleValueChange = (e) =&gt; {
+            this.setState({
+            value: e.target.value
+            });
+            }
+            render() {
+            return (
+            &lt;form&gt;
+            &lt;input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleValueChange}
+            placeholder="Enter a player's name"
+            /&gt;
+            &lt;input
+            type="submit"
+            value="Add Player"
+            /&gt;
+            &lt;/form&gt;
+            );
+            }
+            }
+            export default AddPlayerForm;
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Items to State</h1>
+    <p>
+        အခု section မှာတော့ players တွေကို scoreboard ထဲကို add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် example မှာဆိုရင်
+        player names
+        တွေကို submit လုပ်ဖို့အတွက် add player form ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် form ကို submit
+        လုပ်လိုက်တဲ့အခါမှာ
+        name နှင့် initial score and player ID တု့ိပါဝင်ပါတယ်။ First အနေနဲ့ users တွေကို form ကို submit လုပ်ဖို့ allow
+        လုပ်ဖို့ရန်အတွက် event handler တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် function တစ်ခုဟာ new player ကို state
+        ဆီကို
+        add လုပ်ပြီးတော့ scoreboard မှာ display လုပ်ပေးမှာဖြစ်ပါတယ်။ Currently, AddPlayerForm component ဟာ app component
+        ထဲမှာ
+        maintained လုပ်ထားတဲ့ player state ကို access လုပ်ထားတာမရှိပါဘူး။ နောက် AddPlayerForm ထဲမှာရှိတဲ့ state ဟာ local
+        state
+        ပဲဖြစ်ပါတယ်။ State ဆီကို new player တစ်ခုယောက်ကို add လုပ်ဖို့အတွက် player state ကို access လုပ်ဖို့လိုပါတယ်။
+        သူဟာ
+        submitted data တွေနဲ့ update လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့အတွက် callback function တစ်ခုကို up the
+        component tree ဆီကို data တွေကို send လုပ်ဖို့ အသုံးပြုနိုင်ပါတယ်။ State ထဲမှာ new player ကို creating
+        လုပ်ဖို့အတွက်
+        AddPlayerForm component ဟာ call back function တစ်ခုကို accept လုပ်ုဖို့လိုပါတယ်။ အဲ့ function ဟာ even handler
+        တစ်ခုထဲမှာ
+        called လုပ်ပါမယ်။ နောက် form submits လုပ်လိုက်တဲ့အချိန်မှာ new player name တစ်ခုကို pass လုပ်ပေးမှာဖြစ်ပါတယ်။
+        Call back
+        function ထဲမှာ form default behavior ကို prevent လုပ်ဖု့ိလိုပါတယ်။ အဲ့ဒါကတော့ event object ပေါ်မှာ prevent
+        Default ကို
+        calling လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ form ရဲ့ default submit behavior ကို prevent လုပ်ထားတာမရှိဘူးဆိုရင်
+        result
+        အနေနဲ့ browser posting a request တစ်ခုကို server ဆီကို ပြန်ပို့ပေးမှာဖြစ်ပါတယ်။ နောက် function ကို call
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် function call back ကို value state ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် form submit
+        event
+        ကို bind လုပ်ဖို့အတွက် React's built in onSumbit property ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ onSubmit event ဟာ
+        handleSubmit function ကို form ကို submitted လုပ်လိုက်တဲ့အချိန်မှာ execute လုပ်မှာဖြစ်ပါတယ်။ နောက် player state
+        ထဲကို
+        new player တစ်ယောက်ကို add လုပ်တဲ့ function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ handleSubmit ထဲမှာဆိုရင်
+        information
+        တွေကို addPlayer ဆိုတဲ့ via a prop တစ်ခုကိုနဲ့ function ဆီကို passing လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် App
+        component
+        ထဲမှာ addPlayer ဆိုပြီးတော့ handleAddPlayer ဆိုတဲ့ function တစ်ခုကို pass လုပ်ပေးရပါမယ်။ နောက် handleAddPlayer
+        ဆိုတဲ့
+        function ကို create လုပ်ပေးရပါမယ်။ function ဟာဆိုရင် submitted လုပ်လိုက်တဲ့ player ရဲ့ name အတွက် name ဆိုတဲ့
+        parameter
+        ကို ယူပါမယ်။ နောက် player object တစ်ခုချင်းစီမှာဆိုရင် name, score, and ID ဆိုတဲ့ properties 3 ခုရှိပါတယ်။
+        အဲ့မှာဆိုရင်
+        new player တစ်ယောက်ချင်းစီအတွက် unique ID တစ်ခုကို generate လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖု့ိရန်အတွက်
+        many
+        different ways တွေရှိပါတယ်။ Example မှာဆိုရင်တော့ counter property တစ်ခုကို create လုပ်ထားပါတယ်။ အဲ့မှာဆိုရင်
+        player
+        တစ်ယောက်ကို state ဆီကို add လုပ်တဲ့အခါတိုင်းမှာ ID ရဲ့ value ဟာ 1 တိုးသွားရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ state
+        ထဲမှာရှိတဲ့ existing player objects အားလုံးကို bring လုပ်ဖို့လိုပါတယ်။ ပြီးတော့ သူ့ကို new player object နဲ့
+        combine
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် spread operator ကိုအသုံးပြုပေးရပါမယ်။ အဲ့ဒါကတော့ player array ထဲမှာ
+        ...this.state.players ဆိုတာပဲဖြစ်ပါတယ်။ နောက် user ဟာ name တစ်ခုကို submit လုပ်လိုက်တဲ့အခါမှာ text field ဟာ
+        clear
+        ဖြစ်သွားရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် AddPlayerForm ထဲမှာရှိတဲ့ handle submit function ထဲမှာ value
+        ကို
+        empty string ကို update လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            handleSubmit = (e) => {
+            e.preventDefault();
+            this.props.addPlayer(this.state.value);
+            this.setState({
+            value: ''
+            }
+        }
+        handleAddPlayer = (name) => {
+        this.setState(prevState => {
+        return {
+        players: [
+        ...prevState.players,
+        {
+        name,
+        score: 0,
+        id: this.prevPlayerId = +1
+        }
+        ]
+        };
+        
+        });
+        }
+        </code>
+    </pre>
+    <hr>
+    <h1>Designing the Stopwatch</h1>
+    <p>
+        အခု section မှာတော့ stopwatch တစ်ခုကို scoreboard app ထဲမှာ build လုပ်သွားမှာဖြစ်ပါတယ်။ သူဟာ stateful component
+        တစ်ခုဖြစ်ပြီးတော့ seconds ကို counts လုပ်ပြီးတော့ users တွေကို start, stop, and reset the time ကို allow
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် stopwatch component ကို building လုပ်ရပါမယ်။ နောက် State ကိုအသုံးပြုပြီးတော့
+        stopwatch
+        time run ကို လုပ်ဆောင်ပေးရပါမယ်။ နောက် users တွေကို start, stop, and reset the stopwatch လုပ်ဖို့ functions
+        တွေကို write
+        လုပ်ရပါမယ်။ နောက် section မှာဆိုရင် stop watch logic ကို implementing လုပ်သွားမှာဖြစ်ပါတယ်။ Stop watch component
+        ဟာ
+        unique challenge တစ်ခုကို presents လုပ်ပါတယ်။ Stopwatch ဟာ running လုပ်နေတဲ့အချိန်မှာ seconds ကို count
+        လုပ်ဖု့ိလိုမယ်။
+        နောက် time ကို update လုပ်ပြီးတော့ second တစ်ခုချင်းစီကို display လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StopWatch.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class StopWatch extends Component {
+            render() {
+            return (
+            &lt;div className="stopwatch"&gt;
+            &lt;h2&gt;Stopwatch&lt;/h2&gt;
+            &lt;span className="stopwatch-time"&gt;0&lt;/span&gt;
+            &lt;button&gt;Start&lt;/button&gt;
+            &lt;button&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            export default StopWatch;
+        </code>
+    </pre>
+    <hr>
+    <h1>Stopwatch State</h1>
+    <p>
+        Stopwatch မှာ user ဆီကို visible လုပ်မဲ့ main states နှစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ running state or a stop state
+        ပဲဖြစ်ပါတယ်။ Buttons ရဲ့ interface ဟာ running state ပေါ်မှာ အခြေခံပြီးတော့ change ဖြစ်သွားပါမယ်။ First အနေနဲ့
+        stopwatch
+        component ထဲမှာ state ကို initialize လုပ်ပေးရပါမယ်။ အဲ့ state object ထဲမှာ isRunning ဆိုတဲ့ Boolean တစ်ခုကို add
+        လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ သူဟာ true ဖြစ်တယ်ဆိုရင် Stopwatch ဟာ running လုပ်မှာဖြစ်ပြီးတော့ false ဆိုရင် stop
+        ဖြစ်နေမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ buttons ထဲမှာ some conditional ကို rendering လုပ်ရပါမယ်။ အဲ့ဒါကြောင့်
+        ကျွန်တော်တို့ဟာ isRunning ရဲ့ value ပေါ်မှာ အခြေခံပြီးတော့ start or stop button တစ်ခုကို render
+        လုပ်ဖို့လိုပါတယ်။
+        ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် number of different ways တွေရှိပါတယ်။ Example, if, else statement တစ်ခုကို render
+        method
+        ထဲမှာအသုံးပြုတာပဲဖြစ်ပါတယ်။ အခု section မှာ more concise way တစ်ခုနှင့် write လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        JavaScript conditional or ternary operator ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Ternary expression ဟာဆိုရင် isRunning
+        ရဲ့ value
+        ကို read လုပ်ပြီးတော့ button's text ကို set လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် button မှာ onClick event ကို add
+        လုပ်ပေးရပါမယ်။
+        နောက် onClick ထဲမှာ call လုပ်ထားတဲ့ function ကို create လုပ်ပေးရပါမယ်။ အဲ့ function ထဲမှာ isRunning state ကို
+        update
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက် section မှာတော့ timer ဟာ seconds မှာ tick လုပ်ပြီးတော့ reset button အတွက် event handler
+        တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StopWatch.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class StopWatch extends Component {
+            state = {
+            isRunning: false
+            };
+            
+            handleStopwatch = () =&gt; {
+            this.setState({
+            isRunning: !this.state.isRunning
+            });
+            }
+            
+            render() {
+            return (
+            &lt;div className="stopwatch"&gt;
+            &lt;h2&gt;Stopwatch&lt;/h2&gt;
+            &lt;span className="stopwatch-time"&gt;0&lt;/span&gt;
+            &lt;button onClick={this.handleStopwatch}&gt;{
+            this.state.isRunning ? 'Stop' : 'Start'
+            }&lt;/button&gt;
+            &lt;button&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            export default StopWatch;
+        </code>
+    </pre>
+    <hr>
+    <h1>Update the Stopwatch State with componentDidMount()</h1>
+    <p>
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ first အနေနဲ့ လုပ်ဆောင်ရမှာကတော့ tick လို့ခေါ်တဲ့ new function တစ်ခုကို create
+        လုပ်ပေးရပါမယ်။
+        ဒါဟာဆိုရင် stopwatch ရဲ့ most essential piece ဖြစ်ပါတယ်။ Tick function ထဲမှာ second after second သွားတဲ့ timer
+        tick ကို
+        involves လုပ်ပေးတဲ့ code အားလုံးကို written လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့ second နှင့် updates or ticks လုပ်တဲ့
+        timer
+        တစ်ခုကို produce လုပ်ဖို့ tick function ဟာ stopwatch component ဟာ DOM မှာ mounted လုပ်နေတဲ့အထိ called
+        လုပ်ပေးဖို့လိုပါတယ်။ Tick ကို over and over again ဘယ်လို call လုပ်မလဲဆိုတာကြည့်ရအောင်။ အဲ့မှာဆိုရင် React's
+        built in
+        lifecycle method ကိုအသုံးပြုနိုင်ပါတယ်။ React မှာဆိုရင် component အားလုံးဟာ cycle တစ်ခုကို follows လုပ်ကြပါတယ်။
+        ဒါဟာ
+        component lifecylce ကို refer လုပ်ပါတယ်။ React ဟာ lifecycle ထဲမှာ point တစ်ခုချင်းစီကို called လုပ်တဲ့ lifecycle
+        methods
+        တွေကို provides လုပ်ပေးထားပါတယ်။ Lifecycyle methods တွေဟာ ကျွန်တော်တို့ရဲ့ component's lifecycle ထဲရဲ့ key times
+        မှာ
+        code တွေကို run လုပ်နိုင်တဲ့ hooks အနေနဲ့ လုပ်ဆောင်ပေးပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တု့ိကို component တစ်ခု mounts
+        လုပ်နေချိနမှာ ဘာဖြစ်မယ် ၊ updates and unmounts လုပ်မယ်ဆိုတာကို control လုပ်နိုင်တဲ့ ability ကို ပေးပါတယ်။ အခု
+        section
+        မှာအသုံးပြုမဲ့ lifecycle method ကတော့ componentDidMount() ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အဲ့ method ကို Stopwatch
+        component
+        ထဲမှာ implement လုပ်ပေးထားတာဖြစ်ပါတယ်။ Usually, any custom methods or functions တွေဟာ somewhere ကနေ called
+        လုပ်ပေးဖို့လိုပါတယ်။ Lifecycle methods တွေဟာ lifecycle hooks အနေနဲ့လည်း refer လုပ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့
+        သူတို့ဟာ
+        component's lifecycle ရဲ့ certain part ကို hooks ကို provides လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက်
+        componentDidMount ဟာ
+        component mounts ပြီးနောက်မှာချက်ချင်း call လုပ်တာဖြစ်ပါတယ်။ ဒါဟာ setting up timers, fetching data တွေအတွက်
+        convenient
+        hook တစ်ခုဖြစ်ပါတယ်။ Timer ကို set up လုပ်ဖို့အတွက် JavaScript set interval method ကိုအသုံးပြုပေးရပါမယ်။ Set
+        interval ဟာ
+        function တစ်ခု or call တစ်ခုချင်းစီ ကြားထဲမှာ time delay ကို fixed ဖြစ်တာနှင့် some code ကို executes လုပ်တာကို
+        repeatedly calls လုပ်ပါတယ်။ သူဟာ interval ကို uniquely identifies လုပ်တဲ့ interval ID တစ်ခုကို returns
+        လုပ်ပေးပါတယ်။
+        နောက် setInterval ထဲမှာ execute လုပ်မဲ့ function နဲ့ time delay ကို pass လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် tick
+        function
+        နှင့် 100 millisecods ကို pass လုပ်ပေးထားပါတယ်။ Stopwatch မှာဆိုရင် အမြဲတမ်း counting up လုပ်တဲ့ counter
+        တစ်ခုပါဝင်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ data တွေကို elapsedTime ဆိုတဲ့ property တစ်ခုနဲ့ state ထဲမှာ store
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Tick ကို called လုပ်တဲ့အချိန်တိုင်းမှာ count ကို increase ဖြစ်ဖို့အတွက် ကျွန်တော်တို့ဟာ
+        amount of
+        time ကို calculate လုပ်ဖို့လိုပါတယ်။ First, ticks ကြားက time interval ကို ရဖို့အတွက် previous tick happened မှာ
+        track of
+        the time ကို keep လုပ်ပေးဖို့ပါတယ်။ ကျွန်တော်တု့ိ အဲ့ information ကိုလည်း previousTime ဆိုတဲ့ property name
+        တစ်ခုနဲ့
+        store လုပ်ပေးရပါမယ်။ Handle Stopewatch function ဟာ time ကို starts လုပ်တဲ့အခါမှာ isRunning ဟာ true
+        ဖြစ်သွားလေးပဲမဟုတ်ဘဲနဲ့ JavaScript's date now method ကိုအသုံးပြုပြီးတော့ previous time state ကိုလည်း update
+        လုပ်မှာဖြစ်ပါတယ်။ Date.now() ဟာဆိုရင် exact number of milliseconds ကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ နောက် tick
+        function
+        ထဲမှာ isRunning ဟာ true ဖြစ်တယ်ဆိုရင် elapsed time state ကို update လုပ်ပေးဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StopWatch.js</h3>
+    <pre>
+        <code>
+            state = {
+            isRunning: false,
+            elapsedTime: 0,
+            previousTime: 0
+            };
+            
+            
+            componentDidMount() {
+            this.intervalID = setInterval(() => this.tick(), 100);
+            }
+            
+            
+            tick = () => {
+            if (this.state.isRunning) {
+            const now = Date.now();
+            this.setState({
+            previousTime: now,
+            elapsedTime: this.state.elapsedTime + (now - this.state.previousTime)
+            });
+            }
+            }
+            
+            handleStopwatch = () => {
+            this.setState({
+            isRunning: !this.state.isRunning
+            });
+            if (!this.state.isRunning) {
+            this.setState({
+            previousTime: Date.now()
+            });
+            
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Resetting the Stopwatch</h1>
+    <p>
+        ကျွန်တော်တု့ိရဲ့ stop watch ကို seconds မှာ display လုပ်ဖို့အတွက် final calculation တစ်ခုဖြစ်တဲ့ elapsedTime ကို
+        seconds
+        ကို converts လုပ်ပေးဖို့ပဲဖြစ်ပါတယ်။ အနီးဆုံး integer ကိုယူတဲ့ Math.floor ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်
+        reset
+        button အတွက် function ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် elapsedTime ကို 0 ကို set back
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StopWatch.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class StopWatch extends Component {
+            state = {
+            isRunning: false,
+            elapsedTime: 0,
+            previousTime: 0
+            };
+            
+            
+            componentDidMount() {
+            this.intervalID = setInterval(() =&gt; this.tick(), 100);
+            }
+            
+            
+            tick = () =&gt; {
+            if (this.state.isRunning) {
+            const now = Date.now();
+            this.setState({
+            previousTime: now,
+            elapsedTime: this.state.elapsedTime + (now - this.state.previousTime)
+            });
+            }
+            }
+            
+            handleReset = () =&gt; {
+            this.setState({
+            elapsedTime: 0
+            });
+            }
+            
+            handleStopwatch = () =&gt; {
+            this.setState({
+            isRunning: !this.state.isRunning
+            });
+            if (!this.state.isRunning) {
+            this.setState({
+            previousTime: Date.now()
+            });
+            
+            }
+            }
+            
+            render() {
+            const seconds = Math.floor(this.state.elapsedTime / 1000);
+            return (
+            &lt;div className="stopwatch"&gt;
+            &lt;h2&gt;Stopwatch&lt;/h2&gt;
+            &lt;span className="stopwatch-time"&gt;{seconds}&lt;/span&gt;
+            &lt;button onClick={this.handleStopwatch}&gt;{
+            this.state.isRunning ? 'Stop' : 'Start'
+            }&lt;/button&gt;
+            &lt;button onClick={this.handleReset}&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            export default StopWatch;
+        </code>
+    </pre>
+    <hr>
+    <h1>Prevent Memory Leaks with componentWillUnmount()</h1>
+    <p>
+        ကျွန်တော်တို့ setInterval method ကို componetDidMount ထဲမှာ call လုပ်ဖို့ အသုံးပြုပါတယ်။ နောက် tick function ကို
+        over
+        and over again execute လုပ်ပါတယ်။ Some reason ကြောင့် ကျွန်တော်တို့ဟာ Stopwatch component ကို DOM ကနေ unmount or
+        remove
+        လုပ်ခဲ့မယ်ဆိုရင် setInterval ဟာ tick function ကို repeatedly calling လုပ်တာကို keep လုပ်ထားမှာဖြစ်ပါတယ်။
+        ဘာကြောင့်လဲဆိုတော့ setInterval ဟာ cleared မလုပ်ခဲ့တဲ့အတွက်ကြောင့် သူဟာ memory leak ကို ဖြစ်စေပါတယ်။ Components
+        တွေဟာ DOM
+        ထဲမှာ အမြဲတမ်းရှိမနေကြတာကြောင့် React ဟာဆိုရင် componentWillUnmount ဆိုတဲ့ life cycle method ကို provides
+        လုပ်ပေးထားပါတယ်။ အဲ့ဒါကြောင့် Stopwatch component ထဲမှာ componentWillUnmount ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        သူဟာဆိုရင်
+        component instance တစ်ခု unmounted and destroyed မဖြစ်ခင်မှာ invoked လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် component
+        တစ်ခု
+        DOM ကနေ remove ဖြစ်သွားတဲ့အချိန်မှာ cleared လုပ်ဖို့ လိုတာတွေကို clear လုပ်ဖို့ အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StopWatch.js</h3>
+    <pre>
+        <code>
+            componentWillMount() {
+            clearInterval(this.intervalID);
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Optimize Performance with PureComponent</h1>
+    <p>
+        အခု section မှာတော့ React components တွေထဲမှာ အသုံးပြုနိုင်တဲ့ useful patterns ကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင်
+        ကျွန်တော်တို့ကို writing messy and overcomplicated code ကနေ prevent လုပ်ပေးရုံမဟုတ်ဘဲနဲ့ flexible more
+        performance
+        components တွေကို create လုပ်တဲ့အခါမှာလည်း ကူညီပေးပါတယ်။ Example မှာရှိတဲ့ Player.js ထဲမှာ console.log နှင့်
+        player ရဲ့
+        name ကို output လုပ်ကြည့်တဲ့အခါမှာ players 4 ယောက်လုံးရဲ့ names တွေ console မှာထုပ်ပေးပါလိမ့်မယ်။ နောက် player
+        တစ်ယောက်ရဲ့ score ကို update လုပ်ကြည့်တဲ့အခါမှာ React ဟာဆိုရင် player component ကို rerenders
+        လုပ်ပေးလိုက်တာဖြစ်ပါတယ်။
+        ဒါကို wasted render လို့ခေါ်ပါတယ်။ အဲ့ဒါကြောင့် React ဟာ special type component တစ်ခုကို provides
+        လုပ်ပေးထားပါတယ်။
+        အဲ့ဒါကတော့ PureComponent ပဲဖြစ်ပါတယ်။ သူဟာ အခုလို wasted render ကနေ prevent လုပ်တဲ့နေရာမှာ အသုံးပြုနိုင်ပါတယ်။
+        အဲ့ဒါကြောင့် Player component ကို PureComponent ကို change လုပ်ပေးဖို့လိုပါတယ်။ PureComponent တစ်ခုကို class
+        တစ်ခုလိုပဲ
+        define လုပ်ပြီးတော့ extends PurComponent from React ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Destructuring Props</h1>
+    <p>
+        အခု section မှာကျွန်တော်တို့ဟာ patterns တွေကို လေ့လာနေကြတာဖြစ်ပါတယ်။ ES 2015 ဟာ destructuring assignment
+        လု့ိခေါ်တဲ့
+        feature တစ်ခုကို introduced လုပ်ခဲ့ကြပါတယ်။ အဲ့ဒါဟာ syntax ရဲ့ special kind တစ်ခုဖြစ်ပြီးတော့ သူ့ကို arrays ကနေ
+        unpack
+        or extract values ကို လုပ်ချင်တဲ့အခါမှာအသုံးပြုနိုင်ပါတယ်။ ဒါမှမဟုတ် objects ကနေ properties တွေကို distinct
+        variables
+        အဖြစ်လည်းပြောင်းသုံးတဲ့အနေရာမှာအသုံးပြုနိုင်ပါတယ်။ Developers တွေဟာ React မှာ destructuring ကို သူတို့ရဲ့
+        components
+        တွေကို cleaner and easier to understand ဖြစ်အောင်လုပ်ဖို့ အသုံးပြုကြပါတယ်။ သူဟာ props ကို write လုပ်တဲ့ အခါမှာ
+        more
+        concise way ကို provides ပေးပါတယ်။ Example မှာဆိုရင် prop.propname or this.props.propname တွေဟာ over and over
+        ဖြစ်နေပါတယ်။ Props ဟာ object တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် component's props ကို individual variables တွေအဖြစ်နဲ့
+        destructure
+        လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် stateless functional component မှာ destructure လုပ်နိုင်တဲ့ two ways ရှိပါယ်။
+        အဲ့ဒါကတော့
+        variable assignment တစ်ခု or functions parameters တု့ိပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ ways နှစ်ခုကိုလုံးကို
+        လုပ်ပြထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Header.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import Stats from './Stats';
+            import StopWatch from './StopWatch';
+            
+            function Header({ players, title }) {
+            return (
+            &lt;header&gt;
+            &lt;Stats players={players} /&gt;
+            &lt;h1&gt;{title}&lt;/h1&gt;
+            &lt;StopWatch /&gt;
+            &lt;/header&gt;
+            );
+            }
+            export default Header;
+        </code>
+    </pre>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React, { PureComponent } from 'react';
+            import Counter from './Counter';
+            
+            class Player extends PureComponent {
+            render() {
+            const {
+            name,
+            id,
+            index,
+            score,
+            removePlayer,
+            changeScore
+            } = this.props;
+            return (
+            &lt;div className="player"&gt;
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; removePlayer(id)}&gt;x&lt;/button&gt;
+            {name}
+            &lt;/span&gt;
+            &lt;Counter
+            score={score}
+            index={index}
+            changeScore={changeScore}
+            /&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            }
+            export default Player;
+        </code>
+    </pre>
+    <hr>
+    <h1>Refs and the DOM</h1>
+    <p>
+        React မှာဆိုရင် ကျွန်တော်တို့ဟာ elements တွေကို တိုက်ရိုက် target လုပ်တာမဟုတ်ပါဘူး။ Screen ပေါ်မှာ displays
+        လုပ်ထားတဲ့
+        React component or element တွေကို modify လုပ်ဖို့ရန်အတွက် state and props ကိုအသုံးပြုခဲ့ပြပါတယ်။ ကျွန်တော်တို့ဟာ
+        state
+        change တစ်ခုကို triggered လုပ်ပြီးတော့ new props တစ်ခုနဲ့ component ကို re-render လုပ်ပေးတာဖြစ်ပါတယ်။ Local
+        state နှင့်
+        component တစ်ခု or a controlled component တစ်ခုဆိုရင် state ထဲမှာ update တစ်ခုချင်းစီကို re-render
+        လုပ်ပေးရပါတယ်။
+        အဲ့ဒါကြောင့် React ဟာ refs နှင့် escape hatch တစ်ခုကို provides လုပ်ပေးထာပါတယ်။ Refs ဟာဆိုရင် ကျွန်တော်တို့ကို
+        DOM nodes
+        or React elements created in the render method ကို access and modify လုပ်ဖို့ခွင့်ပြုပေးထားပါတယ်။ သူ့ကို form
+        elements
+        တွေရဲ့ values ကို access လုပ်ချင်တဲ့အခါမှာအသုံးပြုပါတယ်။ Example မှာဆိုရင် input field တစ်ခုရဲ့ value ကို state
+        ကိုအသုံးပြုပြီးတော့ update လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် text field value တစ်ခုကို update လုပ်ဖို့ရန်အတွက်
+        code
+        တွေအများကြီးရေးရပါတယ်။ အဲ့ဒါကြောင့် refs ဟာဆိုရင် form elements တွေကို control လုပ်တဲ့နေရာမှာ React way
+        တစ်ခုအနေနဲ့
+        recommend လုပ်ထားပါတယ်။ အဲ့ဒါကိုတော့ real time မှာ user input ကို validate လုပ်ချင်တဲ့အခါမျိုးမှာအသုံးပြုပါတယ်။
+        သို့သော်လည်း form တစ်ခုကို building လုပ်မယ်ဆိုရင် internal state မလိုအပ်ပါဘူး။ ကျွန်တော်တို့ state update
+        တစ်ခုချင်းစီအတွက် event handler တစ်ခုကို writing လုပ်စရာမလိုပဲနဲ့ ref attribute ကိုအသုံးနိုင်ပါတယ်။ အဲ့ဒါကြောင့်
+        example
+        မှာ player text field ကို access လုပ်တဲ့ ref တစ်ခုကို create လုပ်ပြထားပါတယ်။ Ref ကို create လုပ်တဲ့အခါမှာ
+        React.createRef method ကိုအသုံးပြုပေးရပါမယ်။ နောက် ref ကို react element မှာ attach လုပ်ပေးရပါမယ်။ ref ဟာဆိုရင်
+        input
+        element ကို referencing လုပ်တာဖြစ်ပါတယ်။ နောက် သူ့ရဲ့ current property ကို access လုပ်နိုင်ပါတယ်။ နောက် handle
+        submit
+        function ထဲမှာ addPlayer callback ထဲမှာ value state ကို passing လုပ်မဲ့အစား ref ကို this နဲ့ passing
+        လုပ်နိုင်ပါတယ်။
+        နောက် ref ဟာ form element တစ်ခုဆိုရင် သူ့ရဲ့ value ကို ref နှင့် .current.value ဆိုပြီးတော့ get လုပ်နိုင်ပါတယ်။
+        နောက်
+        state object ကိုလည်း delete လုပ်ရပါမယ်။ နောက် handleValueChange function ကိုလည်း delete လုပ်ပေးရပါမယ်။ နောက်
+        handleSubmit ထဲမှာရှိတဲ့ setState method ကိုလည်း remove လုပ်ပေးရပါမယ်။ နောက် form ထဲက input element မှာရှိတဲ့
+        value and
+        onChange ကိုလည်း remove လုပ်ပေးရပါမယ်။ နောက် form input ကို reset လုပ်နိုင်တဲ့ way ကတော့ reset ()
+        ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ref ဟာ input field တစ်ခုရဲ့ value ကို get လုပ်ဖို့အတွက် easier and
+        quicker way
+        တစ်ခုကို provide လုပ်ပေးနိုင်ပါတယ်။ ဒါပေမဲ့ form တစ်ခုကို building လုပ်တဲ့အချိန်မှာ creating refs အစား
+        controlled
+        component ကို အသုံးပြုသင့်ပါတယ်။ Controlled components တွေမှ internal state ရှိပြီးတော့ state ကို update
+        လုပ်ဖို့လိုအပ်တဲ့ function လည်းရှိပါတယ်။ သူဟာ user input ကို modify or validate လုပ်ဖို့ easier ဖြစ်ပါတယ်။
+        နောက်ဆုံးကတော့ refs တွေဟာ class components မှာပဲ limited လုပ်ထားတာမဟုတ်ပါဘူး။ သူ့တို့ကို functional components
+        တွေမှာလည်း အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Validate Props with PropTypes</h1>
+    <p>
+        Props ဟာဆိုရင် React မှာ huge role တစ်ခုအနေနဲ့ ပါဝင်ပါတယ်။ Typical React dataflow မှာဆိုရင် props ဟာဆိုရင်
+        components
+        တွေဟာ other components တွေနဲ့ interact လုပ်နိုင်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် data တွေကို pass
+        down to
+        components ကို through out လုပ်ဖို့ props ကို အသုံးပြုကြပါတယ်။ တစ်ကယ်လို့ component တစ်ခုဟာ certain prop
+        တစ်ခုကို
+        expects လုပ်တယ်ဆိုရင် component ဆီကို pass လုပ်ဖို့ forgot လုပ်မယ်ဆိုရင် ဘာဖြစ်တာလဲဆိုတော့ some cases မှာတော့
+        ဘာမှမဖြစ်ပါဘူး။ ကျွန်တော်တို့ဟာ usually အားဖြင့် numbers, strings, arrays, and functions တွေဖြစ်တဲ့ different
+        types of
+        data တွေကို components တွေဆီကို props အနေနဲ့ pass လုပ်ပါတယ်။ အခု section ဟာဆိုရင် component တစ်ခုဟာ props ကနေ
+        receives
+        လုပ်တဲ့ data တွေကို type check or validate လုပ်ဖို့အတွက် good practice တစ်ခုပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် right type
+        of data
+        တွေကို sure ဖြစ်အောင်လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ Type checking ဟာ development ထဲမှာ a lot of bugs ကို catch
+        လုပ်တဲ့အခါမှာ
+        help လုပ်နိုင်ပါတယ်။ Type checking ကို handle လုပ်ဖို့အတွက် React မှာ popular ways 3 ခုရှိပါတယ်။ Prop Types,
+        Type Script
+        and Flow တို့ပဲဖြစ်ပါတယ်။ အခု section မှာတော့ Prop Types library နှင့် props ကို ဘယ်လို validate
+        လုပ်ရမယ်ဆိုာတကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Prop Types တွေဟာ React မှာ အသုံးများပါတယ်။ သူဟာ separate package
+        တစ်ခုအနေနဲ့
+        moved လုပ်ခဲ့ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ type checking ဟာ optional ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ App ထဲမှာ Prop
+        Types
+        ကိုအသုံးပြုဖို့ရန်အတွက် သူ့ကို install and import လုပ်ဖို့လိုပါတယ်။ Run ရမဲ့ command ကတော့ npm install --save
+        prop-types
+        ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ counter components props ကို validating လုပ်တာနဲ့ စတင်ပေးထားပါတယ်။
+        အဲ့မှာဆိုရင် first
+        အနေနဲ့ Prop Types ကို import လုပ်ပေးရပါမယ်။ Component တစ်ခုအတွက် props ပေါ်မှာ type checking ကို run
+        လုပ်ဖို့အတွက်
+        component ထဲမှာ PropTypes property ကို assign လုပ်ရပါမယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် Counter.propTypes
+        ဆိုပြီးတော့
+        writing လုပ်ထားတာဖြစ်ပါတယ်။ နောက် object တစ်ခုအနေနဲ့ set လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ propTypes object ထဲမှာဆိုရင်
+        component ထဲကို သူ့ရဲ့ keys တွေအနေနဲ့ passed လုပ်ထားတဲ့ props တွေပါဝင်ပါတယ်။ Example မှာဆိုရင်တော့ props 3 ခုကို
+        accepts
+        လုပ်ထားပါတယ်။ React docs မှာဆိုရင် type validators တွေအားလုံးကို list လုပ်ထားတာရှိပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const Counter = ({ index, score, changeScore }) =&gt; {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" onClick={() =&gt; changeScore(index, -1)}&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={() =&gt; changeScore(index, 1)} &gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            Counter.PropTypes = {
+            index: PropTypes.number,
+            score: PropTypes.number,
+            changeScore: PropTypes.func
+            }
+            
+            export default Counter;
+        </code>
+    </pre>
+    <hr>
+    <h1>Static PropTypes and Default Props</h1>
+    <p>
+        အခု section မှာတော့ player class အတွက် another PropTypes ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section
+        ကလို class
+        ရဲ့ outside မှာ define လုပ်ခဲ့သလိုမဟုတ်ဘဲနဲ့ class components နဲ့ အလုပ်လုပ်တာဖြစ်တဲ့အတွက်ကြောင့် class ထဲမှာ
+        prop types
+        ကို defines လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် render method ထဲမှာ static keyword နဲ့ define လုပ်ပေးရပါတယ်။
+        Static
+        ဟာဆိုရင် class ပေါ်မှာ prop types ကို define လုပ်တဲ့ another way ကို provides လုပ်ပေးပါတယ်။ Static method နဲ့
+        other
+        method တွေနဲ့ main different ကတော့ static ကိုအသုံးပြုတဲ့အခါမှာ PropTypes ကို access လုပ်ဖို့ class ကို initiate
+        လုပ်စရာမလိုပါဘူး။ ကျွန်တော်တို့ဟာ prop type လို့ခေါ်လိုက်ရင်ရပါတယ်။ PropTypes ကို defining လုပ်တဲ့ one advantage
+        ကတော့
+        သူဟာ prop validation ကို class ရဲ့ top မှာ every one ကနေ immediately visible ဖြစ်ပါတယ်။ နောက် prop အတွက် default
+        value
+        ကို define လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ default props property နဲ့ပဲဖြစ်ပါတယ်။ အဲ့ defaultProps ထဲမှာ title prop
+        ကို pass
+        လုင်္ပပေးထားပါတယ်။ DefaultProps ဟာ props.title ကို value "Scoreboard" ရှိတယ်ဆိုတာကို sure
+        ဖြစ်အောင်လုပ်ဆောင်ပေးတာပဲဖြစ်ပါတယ်။ Title ကို parent app component ကနေ specified မလုပ်ဘူးဆိုရင်တော့ သူက title
+        မှာ value
+        "Scoreboard" ရှိတယ်ဆိုတာကို သေချာအောင်လုပ်ပေးတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React, { PureComponent } from 'react';
+            import PropTypes from 'prop-types';
+            import Counter from './Counter';
+            
+            class Player extends PureComponent {
+            static propTypes = {
+            changeScore: PropTypes.func,
+            removePlayer: PropTypes.func,
+            name: PropTypes.string.isRequired,
+            score: PropTypes.number.isRequired,
+            id: PropTypes.number,
+            index: PropTypes.number
+            };
+        </code>
+    </pre>
+    <h3>Header.js</h3>
+    <pre>
+        <code>
+            Header.defaultProps = {
+            title: 'Scoreboard'
+            }
+        </code>
+    </pre>
+    <a href="http://www.scoreboard.itvisionlab.com">Test Yorself</a>
+    <hr>
+    <h1>Introducing the Practice</h1>
+    <p>
+        အခု section မှာတော့ practice လုပ်သွားမှာဖြစ်ပါတယ်။ React ဟာဆိုရင် user interfaces တွေကို building လုပ်ဖို့အတွက်
+        JavaScript library တစ်ခုဖြစ်ပါတယ်။ Example မှာဆိုရင် React ကို အသုံးပြုပြီးတော့ awesome planet cards ကို create
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် app.js ထဲမှာ constant planets ကို assigned လုပ်ထားတဲ့ objects ရဲ့ array
+        တစ်ခုရှိပါတယ်။ အဲ့ array ရဲ့အောက်မှာ ကျွန်တော်တို့ဟာ components နှစ်ခုကို create လုပ်ပေးရပါမယ်။ First, planet
+        card
+        တစ်ခုကို render လုပ်တဲ့ planet component နဲ့ planet's array ကို iterates လုပ်မဲ့ container component
+        ဖြစ်ပြီးတော့ array
+        ထဲမှာရှိတဲ့ object တစ်ခုချင်းစီအတွက် planet component တစ်ခုကို renders လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ
+        planet's data တွေကို main container ဆီကို pass လုပ်ဖို့လိုပြီးတော့ နောက် အဲ့ data တွေကို planet card ဆီကို props
+        ကိုအသုံးပြုပြီးတော့ pass လုပ်ပေးရပါမယ်။ နောက်ဆုံးကတော့ planet cards တွေကို display လုပ်ဖို့ ကျွန်တော်တို့ဟာ DOM
+        ဆီကို
+        main container component ကို render လုပ်ပေးဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const planets = [
+            {
+            id: '1',
+            name: 'Mercury',
+            diameter: '3,031.67 mi',
+            moons: 'none',
+            desc: 'Mercury is the closest planet to the Sun. Due to its proximity, it\'s not easily seen except during twilight. For
+            every two orbits of the Sun, Mercury completes three rotations about its axis. Up until 1965 it was thought that the
+            same side of Mercury constantly faced the Sun.',
+            url: 'img/mercury.jpg'
+            },
+            {
+            id: '2',
+            name: 'Venus',
+            diameter: '7,521 mi',
+            moons: 'none',
+            desc: 'Venus is the second planet from the Sun and is the second brightest object in the night sky after the Moon. Venus
+            is the second largest terrestrial planet and is sometimes referred to as the Earth’s sister planet due the their similar
+            size and mass.',
+            url: 'img/venus.jpg'
+            },
+            {
+            id: '3',
+            name: 'Earth',
+            diameter: '7,917.5 mi',
+            moons: '1',
+            desc: 'Earth is the third planet from the Sun and is the largest of the terrestrial planets. The Earth is the only
+            planet in our solar system not to be named after a Greek or Roman deity. The Earth was formed approximately 4.54 billion
+            years ago and is the only known planet to support life.',
+            url: 'img/earth.jpg'
+            },
+            {
+            id: '4',
+            name: 'Mars',
+            diameter: '4,212 mi',
+            moons: '2',
+            desc: 'The fourth planet from the Sun and the second smallest planet in the solar system. Mars is often described as the
+            "Red Planet" due to its reddish appearance. It\'s a terrestrial planet with a thin atmosphere composed primarily of
+            carbon dioxide.',
+            url: 'img/mars.jpg'
+            },
+            {
+            id: '5',
+            name: 'Jupiter',
+            diameter: '86,881.4 mi',
+            moons: '79',
+            desc: 'The planet Jupiter is the fifth planet out from the Sun, and is two and a half times more massive than all the
+            other planets in the solar system combined. It is made primarily of gases and is therefore known as a "gas giant".',
+            url: 'img/jupiter.jpg'
+            },
+            {
+            id: '6',
+            name: 'Saturn',
+            diameter: '72,367.4 mi',
+            moons: '62',
+            desc: 'Saturn is the sixth planet from the Sun and the most distant that can be seen with the naked eye. Saturn is the
+            second largest planet and is best known for its fabulous ring system that was first observed in 1610 by the astronomer
+            Galileo Galilei.',
+            url: 'img/saturn.jpg'
+            },
+            {
+            id: '7',
+            name: 'Uranus',
+            diameter: '31,518 mi',
+            moons: '27',
+            desc: 'Uranus is the seventh planet from the Sun. While being visible to the naked eye, it was not recognised as a
+            planet due to its dimness and slow orbit. Uranus became the first planet discovered with the use of a telescope.',
+            url: 'img/uranus.jpg'
+            },
+            {
+            id: '8',
+            name: 'Neptune',
+            diameter: '30,599 mi',
+            moons: '14',
+            desc: 'Neptune is the eighth planet from the Sun making it the most distant in the solar system. This gas giant planet
+            may have formed much closer to the Sun in early solar system history before migrating to its present position.',
+            url: 'img/neptune.jpg'
+            },
+            ];
+            
+            // =============================================================
+            // WRITE YOUR CODE BELOW
+            // =============================================================
+            
+            // 1: Create a 'Planet' component that renders a planet card
+            const Planet = (props) =&gt; {
+            return (
+            &lt;div className="card"&gt;
+            &lt;div&gt;
+            &lt;img src={props.url} alt={props.name} /&gt;
+            &lt;/div&gt;
+            &lt;h2&gt;{props.name}&lt;/h2&gt;
+            &lt;p&gt;{props.desc}&lt;/p&gt;
+            &lt;h3&gt;Planet Profile&lt;/h3&gt;
+            &lt;ul&gt;
+            &lt;li&gt;&lt;strong&gt;Diameter:&lt;/strong&gt; {props.diameter}&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Moons:&lt;/strong&gt; {props.moons}&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            // 2: Create a container component that iterates over the planets array
+            // and renders a 'Planet' component for each object in the array
+            const PlanetList = (props) =&gt; {
+            return (
+            &lt;div className="container"&gt;
+            {props.planets.map(planet =&gt;
+            &lt;Planet
+            {...planet}
+            key={planet.id}
+            /&gt;
+            )}
+            &lt;/div&gt;
+            );
+            }
+            
+            // 3: Render the container component to the DOM
+            ReactDOM.render(
+            &lt;PlanetList planets={planets} /&gt;,
+            document.getElementById('root')
+            );
+        </code>
+    </pre>
+    <a href="planet-cards/index.html">Test Yorself</a>
+    <hr>
+    <h1>Introducing the Practice</h1>
+    <p>
+        အခု section မှာတော့ components တွေထဲမှာ state ကို ဘယ်လို initialize, use, and manage လုပ်ရတယ်ဆိုတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ Example အနေနဲ့ users တွေ course ကို rate လုပ်နိုင်တဲ့ star rating feature ကို build
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Project ကိုတော့ Create React App tool ကိုအသုံးပြုပြီးတော့ set up လုပ်ထားတာဖြစ်ပါတယ်။
+        Project files
+        ထဲက course-data.js ထဲမှာ courses ဆိုတဲ့ name နဲ့ array တစ်ခုပါဝင်ပါတယ်။ အဲ့ array ဟာ course တစ်ခုချင်းစီကို
+        display
+        လုပ်ဖို့ အသုံးပြုတဲ့ course objects တွေပါဝင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ write လုပ်ရမှာကတော့ StartRating.js
+        ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာ class တစ်ခုအနေနဲ့ component ကို set up လုပ်ပြီးဖြစ်ပါတယ်။ သူထဲမှာဆိုရင် rating state
+        တစ်ခုကို
+        ယူပြီးတော့ set of selected or highlighted stars အဖြစ်နဲ့ rating တစ်ခုကို renders လုပ်ပေးရပါမယ်။ အဲ့ဒါကြောင့်
+        StarRating
+        component ဟာ သူ့ရဲ့ own state ကို manage လုပ်သွားတာဖြစ်ပါတယ်။ First အနေနဲ့ rating state တစ်ခုကို initialize
+        လုပ်ပေးရမယ်။
+        နောက် stars တွေကို renders လုပ်ပေးတဲ့ function တစ်ခုကို write လုပ်ပေးရမယ်။ အဲ့မှာဆိုရင် course တစ်ခုချင်းစီကို
+        five
+        stars ကို rate လုပ်နိုင်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် component ဟာ five star components ကို render လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင် number value တစ်ခုပေါ်မှာအခြေခံပြီးတော့ array တစ်ခုကို stars တွေကို add လုပ်ဖို့ loop and push
+        method
+        ကိုအသုံးပြုနိုင်ပါတယ်။ နောက် event handler တစ်ခုကို write လုပ်ပေးရပါမယ်။ သူဟာ user clicks တဲ့ star ပေါ်မှာ
+        အခြေခံပြီးတော့ rating state ကို updates လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ function ဟာ props နဲ့ Star component
+        တစ်ခုချင်းစီကို
+        passed down လုပ်ပေးပါတယ်။
+    </p>
+    <hr>
+    <h1>Rendering the Stars</h1>
+    <p>
+        Example မှာဆိုရင် StarRating component မှာဆိုရင် internally controlled state ရှိပါတယ်။ ဆိုလိုတာကတော့ သူ့ရဲ့ own
+        state
+        ကို instance တစ်ခုချင်းစီဟာ manage လုပ်တာဖြစ်ပါတယ်။ First, အနေနဲ့ rating state တစ်ခုကို StarRating class ထဲမှာ
+        initialize လုပ်ပေးရပါမယ်။ သူ့ကို default အရ 0 assign လုပ်ခဲ့ရပါမယ်။ နောက် stars တွေကို renders လုပ်တဲ့ function
+        ကို
+        write လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ renderStars ပဲဖြစ်ပါတယ်။ နောက် max rating ဟာ five stars ဖြစ်ရပါမယ်။
+        အဲ့ဒါကြောင့် five star components ကို render လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက် function ထဲမှာ for loop တစ်ခုကို
+        number of
+        value ပေါ်မှာအခြေခံပြီးတော့ array တစ်ခုထဲကို star components တွေကို push လုပ်ဖို့ အသုံးပြုပေးရပါမယ်။ First,
+        empty array
+        တစ်ခုကို assign လုပ်ပေးရမယ်။ နောက် for loop ကို maxRating ရဲ့ value ပေါ်မှာ အခြေခံပြီးတော့ stars array ထဲကို
+        star
+        components တွေကို add လုပ်ဖို့ အသုံးပြုပေးရပါမယ်။ နောက် သူ့ထဲမှာ alteration တစ်ခုချင်းစီအတွက် block of code
+        တွေကို run
+        လုပ်ဖို့အတွက် stars.push ကိုအသုံးပြုပေးရပါမယ်။ နောက် Star component ကို add လုပ်ပေးရပါမယ်။ နောက် Star component
+        ကို JSX
+        tag ကိုအသုံးပြုပြီးတော့ push method ထဲမှာ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Time rendering star components တွေဟာ loop
+        တစ်ခုနှင့် value တစ်ခုပေါ်မှာ iterating လုပ်တာဖြစ်တဲ့အတွက်ကြောင့် Star component မှာ unique key တစ်ခုကို pass
+        လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ value အနေနဲ့ iterator or counter variable ကို pass လုပ်ပေးထားပါတယ်။
+        renderStars
+        function ဟာ stars array ကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် for loop ရဲ့ အောက်မှာ stars ကို return
+        ပြန်ပေးထားတာဖြစ်ပါတယ်။ React ဟာဆိုရင် သူ့ရဲ့ render method ထဲမှာ for loops တွေကို allow မလုပ်ပါဘူး။ နောက် render
+        method
+        ထဲမှာ renderStars function ကို call လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StarRating.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from "react";
+            import Star from './Star';
+            
+            class StarRating extends Component {
+            
+            // Initialize a 'rating' state
+            state = {
+            rating: 0
+            }
+            
+            // Write a function that returns 5 Star components
+            renderStars = () =&gt; {
+            let stars = [];
+            let maxRating = 5
+            
+            for (let i = 0; i &lt; maxRating; i++) {
+            stars.push(
+            &lt;Star
+            key={i}
+            /&gt;
+            );
+            }
+            return stars
+            }
+            
+            // Write an event handler that updates the rating state.
+            // Pass the function to a Star component via props
+            
+            
+            render() {
+            return (
+            &lt;ul className="course--stars"&gt;
+            {this.renderStars()}
+            &lt;/ul&gt;
+            );
+            }
+            }
+            export default StarRating;
+        </code>
+    </pre>
+    <hr>
+    <h1>Update the Rating State</h1>
+    <p>
+        အခု section မှာတော့ star or user clicks ပေါ်မှာ အခြေခံပြီးတော့ rating state ကို updates လုပ်တဲ့ event handler
+        တစ်ခုကို
+        create လုပ်ပေးရပါမယ်။ Example မှာဆိုရင်တော့ handleSetRating function ပဲဖြစ်ပါတယ်။ သူ့ထဲမှာ parameter အနေနဲ့
+        rating ကို
+        pass လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် rating state and rating value ပါတဲ့ object တစ်ခုကို setState ထဲမှာ pass
+        လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင property value ကို assigning လုပ်တဲ့အခါမှာ သူဟာ property name နဲ့ matches
+        ဖြစ်တဲ့အခါမှာ
+        property value ကို omit လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ ES 2015 ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ ဒီ function ဟာ Star
+        component
+        တစ်ခုချင်းစီကို props နှင့် pass down လုပ်ပေးပါတယ်။ နောက် star တစ်ခုပေါ်မှာ user click လုပ်လိုက်တဲ့အခါမှာ called
+        လုပ်ပေးပါတယ်။ အဲ့ဒါကြောင့် Star component ထဲမှာ callback prop ကို ပေးရပါမယ်။ နောက် function တစ်ခုကို passing
+        လုပ်ပြီးတဲ့နောက်မှာ အဲ့ function ကို onClicks event တစ်ခု trigger လုပ်တဲ့အချိန်မှာ called လုပ်ပေးရပါမယ်။ User ဟာ
+        star
+        ပေါ်မှာ click လုပ်လိုက်တဲ့အခါမှာ star clicked အရ rating state ဟာ update ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် for
+        loop
+        မှာရှိတဲ့ counter variable ကိုအသုံးပြုပေးရပါမယ်။ သူဟာ index တစ်ခုကို လုပ်ဆောင်ပေးပါတယ်။ နောက် အဲ့မှာ i ဟာ 0 ကနေ
+        စတာဖြစ်တဲ့အတွက်ကြောင့် rating state updated ဖြစ်တယ်ဆိုတာကိုသေချာအောင် 1 ပေါင်းပေးရပါမယ်။ နောက် Star.js ထဲက li
+        မှာ
+        onClick event ကို add လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။ သူ့ထဲမှာတော့ handleSetRating function ကို passed လုပ်ပေးထားတဲ့
+        setRating
+        ကို props ကိုအသုံးပြုပြီးတော့ calls လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StarRating.js</h3>
+    <pre>
+        <code>
+            renderStars = () => {
+            let stars = [];
+            let maxRating = 5
+            
+            for (let i = 0; i &lt; maxRating; i++) { stars.push( &lt;Star setRating={()=> this.handleSetRating(i + 1)}
+                key={i}
+                />
+                );
+                }
+                return stars
+                }
+            
+                // Write an event handler that updates the rating state.
+                // Pass the function to a Star component via props
+            
+                handleSetRating = (rating) => {
+                this.setState({ rating });
+                }
+        </code>
+    </pre>
+    <hr>
+    <h1>Select Stars Based on Rating</h1>
+    <p>
+        အခု section မှာတော့ selected stars highlighted ကို dark blue နဲ့ fill လုပ်တာကို display လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကို
+        list item တစ်ခုအတွက် conditionally rendering a class attribute ဖြင့် လုပ်ဆောင်ပေးရပါမယ်။ ဒါကိုလုပ်ဆောင်လို့ရတဲ့
+        several
+        different ways တွေရှိပါတယ်။ အခု section မှာတော့ isSelected ဆိုတဲ့ prop ကို star component ထဲမှာ pass
+        လုပ်ပေးပြီးတော့
+        လုပ်ထားတာဖြစ်ပါတယ်။ နောက် သူ့ရဲ့ value အနေနဲ့ true or false ကို returns ပြန်ပေးတဲ့ expression တစ်ခုကို pass
+        လုပ်ပေးရပါမယ်။ အဲ့ဒါဟာ true ကို return ပြန်တယ်ဆိုရင် rating value ဟာ counter variable ရဲ့ value ထက် greater than
+        ဖြစ်ပြီးတော့ false ဆိုရင်တော့ မဟုတ်ပါဘူး။ အဲ့ value ပေါ်မှာ အခြေခံပြီးတော့ star component ဟာ class attribute
+        တစ်ခုကို
+        render or not ကို determine လုပ်ရတာဖြစ်ပါတယ်။ နောက် users တွေအတွက် သူတို့ရဲ့ star rating ကို deselect or reset
+        လုပ်နိုင်တဲ့ way တစ်ခုကိုလည်းဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် handleSetRating function ထဲမှာ
+        conditional statement တစ်ခုကို add လုပ်ပေးရပါမယ်။ အဲ့ conditional statement ဟာ updated rating state ရဲ့ value ဟာ
+        previous value နဲ့ same ဖြစ်မဖြစ်ကို check လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာ value ဟာ same ဖြစ်ခဲ့တယ်ဆိုရင် rating
+        state ဟာ 0
+        ကို reset ပြန်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>StarRating.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from "react";
+            import Star from './Star';
+            
+            class StarRating extends Component {
+            
+            // Initialize a 'rating' state
+            state = {
+            rating: 0
+            }
+            
+            // Write a function that returns 5 Star components
+            renderStars = () =&gt; {
+            let stars = [];
+            let maxRating = 5
+            
+            for (let i = 0; i &lt; maxRating; i++) {
+            stars.push(
+            &lt;Star
+            isSelected={this.state.rating &gt; i}
+            setRating={() =&gt; this.handleSetRating(i + 1)}
+            key={i}
+            /&gt;
+            );
+            }
+            return stars
+            }
+            
+            // Write an event handler that updates the rating state.
+            // Pass the function to a Star component via props
+            
+            handleSetRating = (rating) =&gt; {
+            if (this.state.rating === rating) {
+            this.setState({ rating: 0 })
+            } else {
+            this.setState({ rating });
+            }
+            }
+        </code>
+    </pre>
+    <h3>Star.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            
+            const Star = (props) =&gt;
+            // 1. Call the function that updates the rating state each time a list item is clicked
+            // 2. Give the &lt;li&gt; the class 'selected' if it's one of the selected stars
+            &lt;li className={props.isSelected ? 'selected' : null} onClick={props.setRating}&gt;
+            &lt;svg x="0px" y="0px"
+            viewBox="0 0 16 15" className="star"&gt;
+            &lt;path
+            d="M8.5,0.3l2,4.1c0.1,0.2,0.2,0.3,0.4,0.3l4.6,0.7c0.4,0.1,0.6,0.6,0.3,0.9l-3.3,3.2c-0.1,0.1-0.2,0.3-0.2,0.5l0.8,4.5
+            c0.1,0.4-0.4,0.8-0.8,0.6l-4.1-2.1c-0.2-0.1-0.3-0.1-0.5,0l-4.1,2.1c-0.4,0.2-0.9-0.1-0.8-0.6l0.8-4.5c0-0.2,0-0.4-0.2-0.5L0.2,6.2
+            C-0.2,5.9,0,5.4,0.5,5.3L5,4.7c0.2,0,0.3-0.1,0.4-0.3l2-4.1C7.7-0.1,8.3-0.1,8.5,0.3z"/&gt;
+            &lt;/svg&gt;
+            &lt;/li&gt;;
+            
+            export default Star;
+        </code>
+    </pre>
+    <a href="http://www.practicestate.itvisionlab.com" target="_blank">Test Yorself</a>
+    <hr>
+
+</body>
+
+</html>

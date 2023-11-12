@@ -1,0 +1,75 @@
+ ul{
+    list-style: none;
+}
+ul li a{
+    text-decoration: none;
+    color: black;
+
+}
+#main{
+    width: 30%;
+    padding-top: 200px;
+}
+
+#main ul li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border:  2px solid;
+    margin: 7px;
+    padding: 10px;
+    background-color: springgreen;
+}
+#main ul li:hover{
+   background: rgb(148, 235, 223);
+}
+/*HRADER*/
+header {
+    float: left;
+    margin: 0 5px;
+    padding: 0 ; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%; 
+    background: #7ac7df;
+} 
+header a{
+    text-decoration: none;
+    
+}
+h1{
+    font-size: 2em;
+    padding-right: 50%;
+    
+}
+h2{
+    font-size: 1.5em;
+    padding-right: 50%;
+}
+#logo{
+    width: 50%;
+    display: inline-block;
+
+}
+nav{
+    float: right;
+    padding-top: 50px;
+    font-size: 1.4em;
+
+}
+nav ul{
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+}
+nav a{
+    font-weight: 800;
+    padding: 15px 10px; 
+}
+nav a,nav a:visited{
+    color:blue;
+}
+nav a:hover{
+    color: rgb(2, 18, 22);
+}

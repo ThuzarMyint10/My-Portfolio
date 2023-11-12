@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Basic Website</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Types of Persistence</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ application ကို user ဟာ ဘယ်လို အသုံးပြုနိုင်မလဲဆိုတာကို စတင်ဖို့ရန်အတွက် ဘာနဲ့ စတင်ရမလဲဆိုတော့
+        အဲ့ဒါကတော့ data persistence ပဲဖြစ်ပါတယ်။ HTTP ဟာဆိုရင် stateless protocol တစ်ခုဖြစ်ပြီးတော့ internet ပေါ်မှာ
+        data တွေကို
+        exchanging လုပ်ဖို့ရန်အတွက် protocol တစ်ခုလည်း ဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ web servers တွေဟာ normally အရတော့ site
+        တစ်ခုရဲ့
+        page တစ်ခုချင်းစီကို ဘယ်သူက visiting လုပ်တယ်ဆိုတာကို keep လုပ်ထားမှာမဟုတ်ပါဘူး။ Servers တွေဟာ visitors တွေရဲ့
+        page to
+        page click လုပ်တဲ့ track ကိုလည်း keep လုပ်ထားမှာမဟုတ်ပါဘူး။ Persistent data တွေနဲ့ အလုပ်လုပ်ဖို့ရန်အတွက် number
+        of
+        different options တွေရှိပါတယ်။ တစ်ကယ်လို ကျွန်တော်တု့ိဟာ database နှင့် အလုပ်လုပ်တာပဲဖြစ်ဖြစ် ဒါမှမဟုတ် any
+        file-based
+        data storage နှင့် အလုပ်လုပ်တာပဲဖြစ်ဖြစ် ကျွန်တော်တို့မှာ persistent data နှင့်
+        အလုပ်လုပ်တာဟာရှိနေပြီးသားဖြစ်ပါတယ်။
+        Multiple pages တွေဟာ same information အကြောင်းကို access and know လုပ်နိုင်ပြီးဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        users
+        browser တစ်ခုရဲ့ use ကို specific information တွေနှင့် tailor the users experience ကို keep လုပ်ဖို့ရန်အတွက်
+        လုပ်ဆောင်ပေးနိုင်ပါတယ်။ ဒီ course မှာဆိုရင် browser-based persistence ရဲ့ different types ကို utilize လုပ်တဲ့
+        story
+        building game တစ်ခုကို put လုပ်သွားမှာဖြစ်ပါတယ်။ Game ဟာဆိုရင် specific words အတွက် ask လုပ်တဲ့ multiple pages
+        တွေကို
+        user ဟာ through လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Using Forms for Persistence</h1>
+    <p>
+        Browser based persistence ရဲ့ type ကို အသုံးများတာကတော့ forms တွေကို through လုပ်ပြီးတော့ အသုံးပြုကြတာဖြစ်ပါတယ်။
+        Forms တွေဟာဆိုရင် information တွေကို page တစ်ခုကနေ next ကို information တွေကို share လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးပါတယ်။ နောက် သူတို့ဟာ application ကနေ utilized လုပ်နိုင်တဲ့ user input တွေကိုလည်း capture
+        လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တု့ိ next page ရဲ့ content တွေ change လုပ်ဖို့ရန်အတွက်
+        data တွေကို အသုံးပြုချင်တဲ့ အခါမှာ great ဖြစ်ပြီးတော့ sending an email လိုပဲ server ပေါ်မှာ some action ကို
+        perform လုပ်ဖို့ရန်အတွက်လည်း great ဖြစ်ပါတယ်။ နောက်ထပ် benefit တစ်ခုကတော့ form တစ်ခုမှာ get method
+        ကိုအသုံးပြုတဲ့အချိန်မှာ constructed URL ဟာ ဒီ results တွေနဲ့ others ကို share လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးပါတယ်။ Persisting data ဟာ multiple users ပေါ်မှာ ဖြစ်နိုင်ပါတယ်။ Example မှာဆိုရင် user input တွေကို
+        accept လုပ်ဖို့ရန်အတွက် jပြီးတော့ game ကိုလည်း ဘယ် word ကို requested
+        လုပ်သင့်ပါတယ်ဆိုတာကိုလည်းလုပ်ဆောင်ပေးဖို့အတွက် form တစ်ခုကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် page 3
+        ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ Welcome page, a game page, and a story page တို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် welcome page
+        ကနေပြီးတော့ play ကို click လုပ်တဲ့အချိန်မှာ ကျွန်တော်တု့ိဟာ step one to five ကို လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ first word ကို enter လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ဟာ get
+        request တစ်ခုကို submit လုပ်ဖို့ရန်အတွက် form တစ်ခုကို အသုံးပြုဖို့လိုအပ်တာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ query
+        string ကို browser မှာ enter လုပ်နိုင်ပါတယ်။ Form ရဲ့ method ထဲမှာရှိတဲ့ post ဟာဆိုရင် things တွေကို
+        unintenionally အရ လုပ်ဆောင်တဲ့အခါမှာ page ကို refreshing လုပ်တဲ့အချိန်မှာ warning လုပ်ခြင်းဖြင့် users တွေကို
+        prevent လုပ်တဲ့အနေရာမှာ help ဖြစ်ပါတယ်။ Post ဆိုရင် secure လည်း ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ values တွေကို
+        browser history မှာ directory stored မလုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် some browsers တွေဟာ path link ကို
+        over 2000 characters ဆိုပြီးတော့ enforce လုပ်ကြပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ဟာ get method ကိုအသုံးပြုထားမယ်ဆိုရင်
+        ကျွန်တော်တို့ဟာ အဲ့ limit ကို ရောက်ဖို့ရန်အတွက် လွယ်ကူပါတယ်။ Long path of files, long field names, many field
+        names, or large amount of user input တွေမှာဆိုရင် some of data တွေဟာ warning မပါဘဲနှင့် ignored
+        ဖြစ်သွားနိုင်ပါတယ်။ Good news ကတော့ posted form တစ်ခုနှင့် URL parameter တစ်ခုကို pass လုပ်နိုင်ပါတယ်။ Forms
+        တွေနဲ့ ရဲ့ limitations တွေထဲက တစ်ခုကေတော့ သူကိုယ်တိုင်ပဲဖြစ်ပါတယ်။ သူတို့ဟာ one request ပေါ်မှာပဲ data တွေ pass
+        လုပ်နိုင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ data တွေကို another page ပေါ်မှာ available ဖြစ်ချင်တဲ့အခါမှာ
+        ကျွန်တော်တို့ဟာ အဲ့ data တွေကို another form or in the query string ကို through လုပ်ပြီးတော့ send
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Browser based persistence ရဲ့ type ကို အသုံးများတာကတော့ forms တွေကို through လုပ်ပြီးတော့
+        အသုံးပြုကြတာဖြစ်ပါတယ်။ Forms
+        တွေဟာဆိုရင် information တွေကို page တစ်ခုကနေ next ကို information တွေကို share လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးပါတယ်။
+        နောက် သူတို့ဟာ application ကနေ utilized လုပ်နိုင်တဲ့ user input တွေကိုလည်း capture လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးပါတယ်။
+        ဒါဟာဆိုရင် ကျွန်တော်တု့ိ next page ရဲ့ content တွေ change လုပ်ဖို့ရန်အတွက် data တွေကို အသုံးပြုချင်တဲ့ အခါမှာ
+        great
+        ဖြစ်ပြီးတော့ sending an email လိုပဲ server ပေါ်မှာ some action ကို perform လုပ်ဖို့ရန်အတွက်လည်း great ဖြစ်ပါတယ်။
+        နောက်ထပ် benefit တစ်ခုကတော့ form တစ်ခုမှာ get method ကိုအသုံးပြုတဲ့အချိန်မှာ constructed URL ဟာ ဒီ results
+        တွေနဲ့ others
+        ကို share လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Persisting data ဟာ multiple users ပေါ်မှာ ဖြစ်နိုင်ပါတယ်။ Example
+        မှာဆိုရင် user input တွေကို accept လုပ်ဖို့ရန်အတွက် jပြီးတော့ game ကိုလည်း ဘယ် word ကို requested
+        လုပ်သင့်ပါတယ်ဆိုတာကိုလည်းလုပ်ဆောင်ပေးဖို့အတွက် form တစ်ခုကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် page 3
+        ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ Welcome page, a game page, and a story page တို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် welcome page
+        ကနေပြီးတော့ play ကို click လုပ်တဲ့အချိန်မှာ ကျွန်တော်တု့ိဟာ step one to five ကို လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ first word ကို enter လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ဟာ get request
+        တစ်ခုကို
+        submit လုပ်ဖို့ရန်အတွက် form တစ်ခုကို အသုံးပြုဖို့လိုအပ်တာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ query string ကို browser
+        မှာ enter
+        လုပ်နိုင်ပါတယ်။ Form ရဲ့ method ထဲမှာရှိတဲ့ post ဟာဆိုရင် things တွေကို unintenionally အရ လုပ်ဆောင်တဲ့အခါမှာ
+        page ကို
+        refreshing လုပ်တဲ့အချိန်မှာ warning လုပ်ခြင်းဖြင့် users တွေကို prevent လုပ်တဲ့အနေရာမှာ help ဖြစ်ပါတယ်။ Post
+        ဆိုရင်
+        secure လည်း ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ values တွေကို browser history မှာ directory stored
+        မလုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် some browsers တွေဟာ path link ကို over 2000 characters ဆိုပြီးတော့
+        enforce
+        လုပ်ကြပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ဟာ get method ကိုအသုံးပြုထားမယ်ဆိုရင် ကျွန်တော်တို့ဟာ အဲ့ limit ကို
+        ရောက်ဖို့ရန်အတွက်
+        လွယ်ကူပါတယ်။ Long path of files, long field names, many field names, or large amount of user input တွေမှာဆိုရင်
+        some of
+        data တွေဟာ warning မပါဘဲနှင့် ignored ဖြစ်သွားနိုင်ပါတယ်။ Good news ကတော့ posted form တစ်ခုနှင့် URL parameter
+        တစ်ခုကို
+        pass လုပ်နိုင်ပါတယ်။ Forms တွေနဲ့ ရဲ့ limitations တွေထဲက တစ်ခုကေတော့ သူကိုယ်တိုင်ပဲဖြစ်ပါတယ်။ သူတို့ဟာ one
+        request
+        ပေါ်မှာပဲ data တွေ pass လုပ်နိုင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ data တွေကို another page ပေါ်မှာ available
+        ဖြစ်ချင်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ အဲ့ data တွေကို another form or in the query string ကို through လုပ်ပြီးတော့
+        send
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>header.php</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Header&lt;/title&gt;
+            &lt;link rel="stylesheet" href="../css/index.css"&gt;
+            &lt;link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet"&gt;
+            &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"&gt;
+            &lt;style&gt;
+            *{
+            font-family: 'Oswald', sans-serif;
+            }
+            &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;div class="container text-center pt-4"&gt;
+        </code>
+    </pre>
+    <h3>play.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            $total = 5;
+            $page = filter_input(INPUT_GET,'p',FILTER_SANITIZE_NUMBER_INT);
+            if (empty($page)){
+            $page = 1;
+            }
+            if ($page > $total) {
+            header('location: story.php');
+            exit;
+            }
+            
+            include '../inc/header.php';
+            
+            echo '&lt;div class="row">';
+            echo '&lt;div class="col-lg-6 offset-lg-3 text-center">';
+            echo "&lt;h1>Step $page of $total&lt;/h1>";
+            echo '&lt;form action="play.php?p='. ($page + 1).'" method="post">';
+            echo '&lt;div class="form group form-group-lg">';
+            switch ($page) {
+            case 2:
+            echo '&lt;label for="word" class="control-label h3">Enter a name&lt;/label>';
+            echo '&lt;input type="text" class="form-control mb-3" id="word" name="word" placeholder="Name">';
+            break;
+            
+            case 3:
+            echo '&lt;label for="word" class="control-label h3">Enter a verb ending in- ing&lt;/label>';
+            echo '&lt;input type="text" class="form-control" id="word" name="word" placeholder="Verb-ing">';
+            echo '&lt;span class="d-block pb-3">An verb is a word used to describe an action, state, or occurence.&lt;/span>';
+            break;
+            
+            case 4:
+            echo '&lt;label for="word" class="control-label h3">Enter a verb&lt;/label>';
+            echo '&lt;input type="text" class="form-control" id="word" name="word" placeholder="verb">';
+            echo '&lt;span class="d-block pb-3">An verb is a word used to describe an action, state, or occurence.&lt;/span>';
+            break;
+            
+            case 5:
+            echo '&lt;label for="word" class="control-label h3">Enter a noun&lt;/label>';
+            echo '&lt;input type="text" class="form-control" id="word" name="word" placeholder="noun">';
+            echo '&lt;span class="d-block pb-3">An noun is a word(other than a pronoun) used to identify any of a class of people,
+            places, or things.&lt;/span>';
+            break;
+            
+            default:
+            echo '&lt;label for="word" class="control-label h3">Enter a adjective&lt;/label>';
+            echo '&lt;input type="text" class="form-control" id="word" name="word" placeholder="Adjective">';
+            echo '&lt;span class="d-block pb-3">An adjective is a word or phrase naming an attribute, added to a noun to modify or
+            describe it.&lt;/span>';
+            break;
+            }
+            echo '&lt;input type="submit" value="Submit" class="btn btn-outline-secondary btn-lg">';
+            echo '&lt;/div>';
+            
+            echo '&lt;/div>';
+            echo '&lt;/div>';
+            
+            include '../inc/footer.php';
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Reading, Writing and Destroying Sessions</h1>
+    <p>
+        Session ဟာဆိုရင် user's time browsing a website ကို referring လုပ်တဲ့ tern တစ်ခုပဲဖြစ်ပါတယ်။ ဆိုလိုတာကတော့
+        user's first
+        page ကို particular site တစ်ခုပေါ်မှာ view လုပ်တဲ့အချိန်နှင့် user ဟာ အဲ့ site မှာ finished
+        ဖြစ်သွားတဲ့ချိန်နှစ်ခုကြားမှာရှိတဲ့ time ကို represent လုပ်တာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် userဟာ site တစ်ခုနဲ့ done
+        ဖြစ်သွားတဲ့အချိန်မှာ သိဖို့ရန်အတွက် မဖြစ်နိုင်ပါဘူး။ အဲ့အစား session ဟာဆိုရင် ways နှစ်ခုထဲက တစ်ခုနှင့်
+        terminated
+        လုပ်နိုင်ပါတယ်။ User ဟာ browser ကို close လုပ်လိုက်တာဖြစ်စေ request တစ်ခုဟာ certain amount of time မှာ
+        မပြုလုပ်တဲ့အချိန်မှာ session ဟာဆိုရင် time out ဖြစ်သွားမှာဖြစ်ပါတယ်။ Default အရ PHP session ဟာဆိုရင် time out
+        လုပ်ဖို့ရန်အတွက် 1440 seconds or 24 minutes ကြာပါတယ်။ PHP ဟာဆိုရင် duration of a user's session အတွက် available
+        ဖြစ်တဲ့
+        variables တွေကို set လုပ်နိုင်တဲ့ ability ကို offers လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ session variables ပဲဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင် user input ပေါ်မှာ အခြေခံပြီးတော့ some session variables တွေကို set လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ sessions ကို access လုပ်ဖို့ရန်အတွက် session ကို start လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါအတွက်
+        session_start
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူ့ကို file ရဲ့ top မှာပဲ ထားပေးရမှာဖြစ်ပါတယ်။ နောက် story.php ထဲမှာဆိုရင်
+        variables 5
+        ခုကို session variable ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိဟာ session variables တွေကို removing
+        ပြန်လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် user ဟာ Play Again ကို choose လုပ်လိုက်တဲ့အချိန်မှာ current session
+        variables ဟာ clear ဖြစ်ရမှာဖြစ်ပါတယ်။ play.php ထဲမှာဆိုရင် page ဟာဆိုရင် empty ဖြစ်တဲ့အချိန်မှာ session variable
+        ကို
+        clear လုပ်မှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် session_destroy method ကိုအသုံးပြုနိုင်ပါတယ်။ နောက် example မှာဆိုရင်
+        required
+        session variable ဟာ story ကို write လုပ်ဖို့ရန်အတွက် attempting မလုပ်ခင်မှာ သေချာအောင်ပြုလုပ်ဖို့ရန်အတွက် some
+        more
+        logic တွေကို add လုပ်ဖို့လိုပါသေးတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>play.php</h3>
+    <pre>
+        <code>
+            session_start();
+            $total = 5;
+            $page = filter_input(INPUT_GET,'p',FILTER_SANITIZE_NUMBER_INT);
+            if (empty($page)){
+            $page = 1;
+            }
+            if (isset($_POST['word'])){
+            $_SESSION['word'][$page-1] = filter_input(INPUT_POST,'word', FILTER_SANITIZE_STRING);
+            }
+
+        </code>
+    </pre>
+    <h3>story.php</h3>
+    <pre>
+        <code>
+            session_start();
+            $word1 = htmlspecialchars($_SESSION['word'][1]);
+            $word2 = htmlspecialchars($_SESSION['word'][2]);
+            $word3 = htmlspecialchars($_SESSION['word'][3]);
+            $word4 = htmlspecialchars($_SESSION['word'][4]);
+            $word5 = htmlspecialchars($_SESSION['word'][5]);
+        </code>
+    </pre>
+    <a href="../phpexample/browserpersistent/index.php">Test Yourself</a>
+    <hr>
+    <h1>Writing Cookies</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ often times မှာဆိုရင် longer period of time အတွက် available ဖြစ်တဲ့ some information တွေကို keep
+        လုပ်ချင်ကြပါတယ်။ အဲ့ information တွေကတော့ storing a zip code reference for based searches or to calculate
+        shipping
+        တို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေအားလုံးကို user's session တစ်ခုထက် longer ဖြစ်တာတွေအတွက် data persistent ကို keep
+        လုပ်ချင်တဲ့အခါမှာ cookies ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Cookies တစ်ခုဆိုတာ website ကနေ sent လုပ်လိုက်တဲ့ a piece
+        of data
+        ပဲဖြစ်ပါတယ်။ ပြီးတော့ အဲ့ဒါကို user's web browser ကနေပြီးတော့ user's computer ပေါ်မှာ stored လုပ်ပေးပါတယ်။
+        Example
+        မှာဆိုရင် story တစ်ခုကို save လုပ်ဖို့ရန်အတွက် ability ကို adding လုပ်ခြင့်းဖြင့် PHP ဟာ cookies ကို ဘယ်လို
+        access
+        လုပ်တယ်ဆိုတာကိုလုပ်ဆောင်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် cookies.php ဆိုတဲ့ new file တစ်ခုကို create
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ session variables တွေကို grab လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် file ရဲ့ top မှာ
+        session_start() ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ file ကိုအသုံးပြုပြီးတော့ cookie တစ်ခုကို read
+        and
+        delete လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိဟာ ဘယ် action ကို ကျွန်တော်တို့ performing
+        လုပ်မယ်ဆိုတာကို
+        သိဖို့လိုပါတယ်။ တစ်ကယ်လို့ cookie တစ်ခုကို saving လုပ်မယ်ဆိုရင် အဲ့ cookie အတွက် unique name တစ်ခုကို come up
+        လုပ်ပေးဖို့လိုပါတယ်။ တစ်ကယ်လို့ name ဟာ unique မဖြစ်ဘူးဆိုရင် exits ဖြစ်တဲ့ cookie ကို write
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ timestamp တစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ နောက် setcookie ထဲမှာဆိုရင် first parameter ဟာ name
+        ဖြစ်ပြီးတော့
+        နောက် second parameter ကတော့ value ဖြစ်ရပါမယ်။ အဲ့ value ကို string တစ်ခုအနေနဲ့ stored လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင်
+        array တစ်ခုရဲ့ serialized version ဖြစ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ cookie တစ်ခုကို turn လုပ်ဖို့ဆိုရင်
+        ကျွန်တော်တို့
+        name ရဲ့ နောက်ဆုံးမှာ square brackets ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ရဲ့ session
+        variables
+        ကနေပြီးတော့ string တစ်ခုကို create လုပ်ဖို့ရန်အတွက် implode ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် third parameter
+        ဟာဆိုရင်
+        expiration time တစ်ခုပဲဖြစ်ပါတယ်။ တစ်ကယ်လို third parameter ကို set လုပ်မထားဘူးဆိုရင် session closed
+        ဖြစ်သွားတဲ့အချိန်မှာ cookie ဟာ expire ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် string to time ဟာဆိုရင် time stamp
+        တစ်ခုထဲမှာ
+        string ကို turn လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် fourth parameter ဟာ cookie ကို available ဖြစ်တဲ့ server ပေါ်မှာရှိတဲ့
+        path
+        ပဲဖြစ်ပါတယ်။ Default အရတော့ current path ကို အသုံးပြုကြပါတယ်။ Example မှာဆိုရင် cookie ဟာ inc folder ထဲကနေပဲ
+        accessible
+        လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိ site ရဲ့ root ကို set လုပ်ပေးဖို့လိုပါတယ်။ နောက်ထပ် parameter 3
+        ခုရှိပါသေးတယ်။ အဲ့ဒါတွေကို documentation မှာ check out လုပ်နိုင်ပါတယ်။ အဲ့ဒါတွေဟာ securing the cookie ကို help
+        လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် fifth parameter ဟာ domain ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ဘယ် domain and subdomains တွေဟာ
+        cookie
+        ကို access လုပ်နိုင်တယ်ဆိုတာကို allow လုပ်ပေးပါတယ်။ Sixth parameter ဟာ secure connection တစ်ခုပေါ်မှာပဲ
+        available
+        ဖြစ်တဲ့ cookie ကို set လုပ်နိုင်ရန်အတွက် help လုပ်နိုင်ပါတယ်။ Final parameter ကတော့ ကျွန်တော်တို့ရဲ့ cookie ကို
+        set
+        လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးတဲ့ HTTPonly ပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ cookie ဟာ JavaScript လို scripting languages
+        တွေနှင့်
+        accessible မလုပ်နိုင်ဘူး။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+                if (isset($_COOKIE)){
+                foreach($_COOKIE as $key =&gt; $value){
+                echo '&lt;div class="form-group"&gt;';
+                echo '&lt;a class="btn btn-info" href="inc/cookie.php?read='
+                . urlencode($key) . '"&gt;';
+                echo substr($key, 0, -10);
+                echo ' ';
+                echo date('d M Y H:i:s',(int) substr($key, -10));
+                echo '&lt;/a&gt;';
+                echo '&lt;a class="btn btn-danger" href="inc/cookie.php?delete='
+                . urlencode($key) . '"&gt;';
+                echo 'X&lt;/a&gt;';
+                echo '&lt;/div&gt;';
+                }
+                }
+        </code>
+    </pre>
+    <h3>cookie.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            session_start();
+            if (isset($_GET['save'])){
+                $name = urlencode($_SESSION['word'][2]) . time();
+                setcookie($name, implode(':', $_SESSION['word']), strtotime('+30 days'), '/');
+                header('location:../index.phhp');
+                exit;
+            }
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Reading and Deleting Cookies</h1>
+    <p>
+        အခုဆိုရင် cookie ကို save လုပ်နိုင်ပြီဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ cookie ကို read လုပ်ပြီးတော့ welcome page မှာ
+        name ကို
+        show လုပ်ပေးဖို့ဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် index.php ထဲမှာ cookie ဟာဆိုရင် session variable လို့ပဲ
+        အလုပ်လုပ်တာဖြစ်တဲ့အတွက်ကြောင့် array ကို through လုပ်ပေးဖို့လိုပါတယ်။ Example မှာဆိုရင် cookie ဟာဆိုရင်
+        condition
+        ဟာဆိုရင် COOKIE ကို set လုပ်ခဲ့ရင် foreach နဲ့ cookie တစ်ခုချင်းစီကို key and value အနေနဲ့ set
+        လုပ်ပေးမှာတာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် သူဟာ PHPSESSID ဆိုတဲ့ cookie တစ်ခုကို show လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် PHP ဟာ sessions ကို
+        browser
+        တစ်ခုမှာ ဘယ်လို ties လုပ်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် cookie တစ်ခုကို set လုပ်ဖို့ရန်အတွက် ability ကို add
+        လုပ်ပြီးတော့ story ကို rewrite လုပ်သွားမှာဖြစ်ပါတယ်။ Fist အနေနဲ့ ကျွန်တော်တို့ဟာ PHPSESSID ကို read
+        လုပ်ချင်တာဖြစ်ပါတယ်။
+        အဲ့ ဒါကြောင့် condition မှာဆိုရင် key ဟာ PHPSESSID မညီဘူးဆိုရင် အဲ့ link ကို style လုပ်တဲ့ div တစ်ခုကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ link တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ link ကတော့
+        သူတို့ကို
+        cookie file ကိုပြန်ပြီးတော့ sent လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် file ကို set လုပ်ဖို့အတွက် read parameter
+        ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ cookie ရဲ့ end မှာ timestamp ကို add လုပ်မှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        name
+        ကို display လုပ်ပြီးတော့ timestamp အစား formatted date တစ်ခုကို display လုပ်ထားပါတယ်။ ကျွန်တော်တို့ဟာ name ပဲ
+        get
+        လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် substring ကိုအသုံးနိုင်ပါတယ်။ နောက်အဲ့မှာဆိုရင် tmestamp ဟာ ten characters
+        ဖြစ်တဲ့အတွက်ကြောင့် 0 ကစပြီးတော့ -10 မှာ end လုပ်ပေးထားတာဖစ်ပါတယ်။ နောက် data ကို format လုပ်ဖို့အတွက် data
+        function
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ substring ဟာ string ဖြစ်ပါတယ်။ နောက်ဆုံးက 10 characters ဟာ
+        numbers
+        တွေကိုပဲ pulling လုပ်ပေးမှာဖြစ်ပါတယ်။ Date function ဟာ timestamp တစ်ခုလိုအပ်တဲ့အတွက်ကြောင့် timestamp string ကို
+        int
+        တစ်ခုအနေနဲ့ cast လုပ်ဖို့လိုပါတယ်။ အခုဆိုရင်ကျွန်တော်တို့ရဲ့ cookie script ဟာ cookie's value ကို read
+        လုပ်လို့ရပါပြီ။
+        အဲ့ဒါကြောင့် cookie.php ထဲမှာ elseif နဲ့ read ကို check လုပ်ပေးရရမှာဖြစ်ပါတယ်။ Cookie ကို read လုပ်ဖို့ရန်အတွက်
+        cookie
+        string ကို values တစ်ခုချင်းအဖြစ် split လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ session variables ကို update
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် condition ထဲက code ဟာ word array တစ်ခုကို ပေးမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ သူဟာ zero
+        index
+        ကနေ စတာဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ အသုံးပြုချင်တဲ့ keys ကို specify လုပ်ဖို့ရန်အတွက် array_combine
+        ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် first parameter ဟာ keys ဖြစ်ပါတယ်။ Second parameter ကတော့ values
+        တွေပဲဖြစ်ပါတယ်။
+        နောက် ကျွန်တော်တို့ရဲ့ story page ကို redirect လုပ်ပေးရမှာဖြစ်ပါယတယ်။ နောက်ထပ် ကျွန်တော်တု့ိဟာ cookie ကို delete
+        လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါအတွက် cookie file ထဲမှာ delete အတွက် another else if တစ်ခုကို add
+        လုပ်နိုင်ပါတယ်။
+        Cookie ကို delete လုပ်ဖို့ရန်အတွက် past မှာ expires ဖြစ်နေတဲ့ empty string တစ်ခုအနေနဲ့ cookie ကို set
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ index.php ထဲမှာ delete အတွက် link တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            session_start();
+            if (isset($_GET['save'])){
+                $name = urlencode($_SESSION['word'][2]) . time();
+                setcookie($name, implode(':', $_SESSION['word']), strtotime('+30 days'), '/');
+            
+            } else if(isset($_GET['read'])){
+                $_SESSION['word'] = array_combine(range(1,5), explode(':', $_COOKIE[$_GET['read']]));
+                header('location: ../js/story.php');
+                exit;
+            } else if (isset($_GET['delete'])){
+                setcookie($_GET['delete'], '', time() - 3600, '/');
+            }
+            header('location:../index.php');
+            exit;
+            ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/browserpersistent/index.php">Test Yourself</a>
+    <hr>
+</body>
+
+</html>

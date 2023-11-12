@@ -1,0 +1,26 @@
+.col a {
+    background: #4a89ca;
+    margin: 2em auto;
+}
+
+.main-photo {
+    position: relative;
+    line-height: 0;
+    margin-bottom: 2em;
+}
+.photo-overlay{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: absolute;
+    top: 50%;
+    color: aliceblue;
+    left: 0;
+    font-size: 17px;
+    text-align: center;
+}
+.main-photo img {
+    transform-origin: 0 0;
+}
+.main-photo:hover img {
+    transform: scale(1.2);
+}
+/* .photo-overlay{} */

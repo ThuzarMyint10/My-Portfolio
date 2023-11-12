@@ -1,0 +1,177 @@
+body{
+    box-sizing: border-box;
+    margin: 0 !important;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px !important;
+    font-weight: 700;
+}
+header{
+    position: relative;
+    background-color: rgb(17 18 20);
+    color: cornsilk;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    border-bottom: 2px solid #f8eaea
+}
+header::after{
+    clear: both;
+}
+
+header h1{
+    padding: 10px;
+    display: inline-block;
+}
+header .stats{
+    left: 35%;
+    display: inline-block;
+}
+
+/* Player */
+.player{
+    color: cornsilk;
+    background: rgba(0, 0, 0, 0.849);
+    font-size: 1em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid;
+}
+.player .counter{
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: 50px 60px 50px;
+}
+.player .player-name{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* For counter buttons */
+.counter .counter-action{
+    padding: 10px;
+    font-size: 1.65em;
+    border-radius: 5px;
+}
+.counter .counter-score{
+    padding: 20px;
+    font-size: 1.45em;
+}
+.player-name .remove-player{
+    color: #0d0a0a;
+    margin-right: 10px;
+    background: red;
+    opacity: 0;
+}
+/*Add Player Form*/
+form{
+    display: flex;
+    background: rgb(17 18 20);
+}
+form input{
+    border-radius: 5px;
+    color: cornsilk;
+    letter-spacing: 2px;
+    font-size: 1em;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.849);
+    padding: 5px;
+    margin: 10px;
+}
+form input[type="text"]{
+    width: 100%;
+}
+form input[type="submit"]{
+    margin-left: auto;
+    transition: .3s;
+}
+form input[type="submit"]:hover{
+    background: cornsilk;
+    color: black;
+}
+.fas.fa-crown{
+    font-size:24px;
+    color: lightgray;
+    margin-right: 5px;
+}
+/*Botton Hover*/
+.counter .increment{
+    
+    background: rgb(11, 236, 11);
+    transition: .5s;
+}
+.counter .decrement{
+    background: rgb(238, 8, 8);
+    transition: .3s;
+}
+.counter .decrement:hover{
+    background: rgb(248, 69, 69);
+    transition: .3s;
+}
+.counter .increment:hover{
+    background: rgb(122, 248, 122);
+    transition: .5s;
+}
+.player-name:hover .remove-player{
+    opacity: 1;
+}
+
+/*StopWatch*/
+h2{
+    margin-bottom: 0;
+    font-size: 1em;
+}
+
+.stopwatch .stopwatch-time{
+    display: block;
+    position: relative;
+}
+.stopwatch button{
+    margin: 0 8px;
+    padding: 2px 5px;
+    text-transform: uppercase !important;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.849);
+    color: cornsilk;
+    transition: .5s;
+}
+.stopwatch button:hover {
+    background: cornsilk;
+    color: black;
+}
+.stopwatch span{
+    padding: 5px;
+}
+.player-detail{
+    background: rgba(0, 0, 0, 0.849);
+    padding: 20px;
+    text-align: left;
+    color: rgba(255, 248, 220, 0.842);
+    border-radius: 0 0 20px 20px;
+}
+.player-detail p{
+    margin: 0;
+    text-align: left;
+}
+/*Media Query*/
+@media(min-width: 569px){
+    .scoreboard{
+    width: 50%;
+    margin: auto;
+    top: 25%;
+    position: absolute;
+    left: 25%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.stopwatch{
+    float: right;
+    background: rgba(0, 0, 0, 0.849);
+    padding: 0 8px 14px;
+    border-radius: 0 10px 0 0;
+}
+header .stats{
+    padding: 20px;
+    float: left;
+}
+}

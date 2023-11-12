@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP File Handling</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Directory and File Structures</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ file systems တွေဟာ ဘယ်လို communicate လုပ်တယ်ဆိုတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။
+        Computer တစ်ခုမှာရှိတဲ့ everything ဟာဆိုရင် some sort of file ထဲမှာ stored လုပ်ထားတာဖြစ်ပါတယ်။ ဒီလို files တွေ
+        ဘယ်လို
+        manipulate and read လုပ်တယ်ဆိုတာကို နားလည်ထားတာဟာ system ကို controlling လုပ်ဖို့ရန်အတွက် very powerful tool
+        တစ်ခုကို
+        provide လုပ်ပေးပါတယ်။ File handling ဟာဆိုရင် any application ရဲ့ important part တစ်ခုပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ
+        different tasks တွေဖြစ်တဲ့ reading and config တို့ကို လုပ်ဆောင်ဖို့ရန်အတွက် file တစ်ခုကို open and process
+        လုပ်ပေးဖို့လိုပါတယ်။ အခု section မှာတော့ file structure တစ်ခုဟာ သူကိုယ်တိုင် ဘယ်နေရာမှာရှိတယ်ဆိုတာကို exploring
+        လုပ်ကို
+        စတင်လုပ်ဆောင်သွားဖြစ်ပါတယ်။ နောက် အဲ့ files တွေကို reading and writing လုပ်တဲ့ different ways တွေကို
+        ဆက်လေ့လာသွားမှာဖြစ်ပါတယ်။ Next section မှာဆိုရင် some common data types တွေနဲ့ အဲ့ data တွေကို PHP ကို
+        သုံးပြုပြီးတော့
+        something တွေထဲကို ဘယ်လို parse လုပ်တယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ files တွေကို read or
+        write
+        လုပ်ဖို့ရန်အတွက် biggest issues တွေထဲက တစ်ခုကတော့ permissions တွေပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် scandir ဆိုတဲ့
+        function
+        ဟာ ပေးထားတဲ့ directory ကနေပြီးတော့ directory ကို scans ဖက်ပြီးတော့ files ရဲ့ array တစ်ခုအနေနဲ့ return
+        ပြန်ပေးတာဖြစ်ပါတယ်။ Example မှာဆိုရင် data ဆိုတဲ့ directory ကို process လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် files
+        တွေကို
+        list တစ်ခုအနေနဲ့ display လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် single dot ဟာဆိုရင် current directory ကို represents
+        လုပ်တာဖြစ်ပြီးတော့ double dots ဟာဆိုရင် path ရဲ့ up one level ကို represent လုပ်တာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;File Handling Example&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            &lt;?php
+            function readFolderFiles($dir){
+            $files = scandir($dir);
+            echo '&lt;ul&gt;';
+            foreach ($files as $file){
+            if (substr ($file, 0 ,1) != '.'){
+            echo '&lt;li&gt;';
+            if (is_dir($dir . '/' .$file)){
+            echo $file;
+            readFolderFiles($dir . '/' . $file);
+            } else {
+            echo '&lt;a href="' .$dir . '/' .$file .'"&gt;' .$file . '&lt;/a&gt;';
+            }
+             echo '&lt;/li&gt;';
+            }
+            }
+            echo '&lt;/ul&gt;';
+            }
+            readFolderFiles('data');
+            ?&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/filehandling/index.php">Test Yourself</a>
+    <hr>
+    <h1>Including and Opening files</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ files တွေကို reading လုပ်တဲ့အခါမှာ include and require statements နှစ်ခုဟာ current file ထဲမှာ
+        additional
+        files တွေကို read လုပ်ပေးတဲ့အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ files တွေနဲ့ something ကို
+        လုပ်ဆောင်နိုင်တာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာဆိုရင် other files တွေကနေ country and
+        state
+        drop-downs form နဲ့ form တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် အဲ့ file အတွက် state_formed.php
+        ဆိုတဲ့
+        new file တစ်ခုကို create လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် form tag တစ်ခုနဲ့ country drop down တစ်ခုကို
+        create
+        လုပ်ပေးထာပါတယ်။ အဲ့မှာဆိုရင် fopen function ကိုအသုံးပြုပြီးတော့ file ကို reading လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ
+        function
+        ဟာဆိုရင် file တစ်ခုရဲ့ connection တစ်ခုကို open လုပ်ပေးထားတာဖြစ်ပြီးတော့ file နဲ့ connect လုပ်နိုင်တဲ့ file
+        handler
+        တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါနှင့်လည်း ကျွန်တော်တို့ဟဟာ database connection တစ်ခုကို set up
+        လုပ်နိုင်ပါတယ်။
+        အဲ့မှာဆိုရင် connection တစ်ခုကို open လုပ်ဖို့ရန်အတွက် first အနေနဲ့ ကျွန်တော်တို့ဟာ ဘယ် file ကို ကျွန်တော်တို့
+        open
+        လုပ်ချင်ပါတယ်ဆိုတာကို ပြောပြပေးရမယ်။ ပြီးတော့ ဘယ် mode ကို ကျွန်တော်တို့ အသုံးပြုချင်ပါတယ်ဆိုတာကို
+        ပြောပြပေးရမှာဖြစ်ပါတယ်။ နောက် line တစ်ခုကို ချင်းစီကို read လုပ်ဖို့ရန်အတွက် fgets function ကို
+        အသုံးပြုနိုင်ပါတယ်။ အဲ့
+        function ဟာဆိုရင် current line ကို string တစ်ခုအနေနဲ့ returns ပြန်ပေးပြီးတော့ next line ကို pointer ဟာ moves
+        လုပ်ပေးတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;form&gt;
+            &lt;label for="country"&gt;Country&lt;/label&gt;
+            &lt;select name="country" id="country"&gt;
+            &lt;?php
+            include 'data/html/countries.html';
+            ?&gt;
+            &lt;/select&gt;
+            &lt;label for="state"&gt;State&lt;/label&gt;
+            &lt;select name="state" id="state"&gt;
+            &lt;?php
+            if ($fh = fopen('data/html/states.html', 'r')){
+            while (!feof($fh)){
+            $line = fgets($fh);
+            if (strpos($line, 'Oregon')){
+            echo str_replace('&gt;Oregan', ' selected&gt;Oregan', $line);
+            } else {
+            echo $line;
+            }
+            }
+            fclose($fh);
+            }
+            ?&gt;
+            &lt;/select&gt;
+            &lt;/form&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/filehandling/state_form.php">Test Yourself</a>
+    <hr>
+    <h1>Reading Files Into a String or Array</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ HTML directory ထဲမှာ territories တွေရဲ့ list ရှိနေပြီဖြစ်ပါတယ်။ အခု section မှာတော့
+        အဲ့ list
+        တွေကို သူတို့ရဲ့ own group ထဲကို input လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ file တစ်ခုလုံးကို
+        single
+        string တစ်ခုအနေနဲ့ အလုပ်လုပ်ချင်တဲ့အခါမှာ "file_get-contents" ဆိုတဲ့ function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        နောက် အဲ့
+        function ထဲမှာ file ကို သွားတဲ့ path ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် file တစ်ခုလုံးကို lines
+        တစ်ချင်းစီရဲ့ array တစ်ခုအနေနဲ့ pull လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် Armed Forces locations
+        တွေကို
+        add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ လေ့လာခဲ့တာဆိုရင် ကျွန်တော်တို့ရဲ့ system ပေါ်မှာ file တစ်ခုနဲ့
+        interact
+        လုပ်နိုင်တဲ့ three basic ways ကို လေ့လာခဲ့တာဖြစ်ပါတယ်။ အဲဒါတွေကတော့ first အနေနဲ့ file ကို သွားတဲ့ connection ကို
+        open
+        လုပ်ပြီးတော့ သူ့ကို closing မလုပ်ခင်မှာ သူ့ကို line-by-line နှင့် handle လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second, file
+        တစ်ခုလုံးကို
+        string အနေနဲ့ အလုပ်လုပ်တယ်။ နောက်ဆုံးကတော့ file တစ်ခုကိုလုံးကို object or array တစ်ခုအနေနဲ့
+        အလုပ်လုပ်ပေးတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            echo '&lt;optgroup label="US Outlying Territories"&gt;';
+                $states = file_get_contents('data/html/territories.html');
+                echo strtolower($states);
+                echo '&lt;/optgroup&gt;';
+            echo '&lt;optgroup label="Armed Forces"&gt;';
+                $state_array = file('data/html/armed_forces.html');
+                foreach ($state_array as $line){
+                echo str_replace('Armed Forces ', '', $line);
+                }
+            echo '&lt;/optgroup&gt;';
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing Files Line by Line</h1>
+    <p>
+        Files တွေကို reading လုပ်တာဟာ ကျွန်တော်တို့ကို manipulation ကနေပြီးတော့ data တွေကို retrieve လုပ်တဲ့နေရာမှာ
+        allow
+        လုပ်ပေးပါတယ်။ Files တွေကို writing လုပ်တာဟာဆိုရင် ကျွန်တော်တို့ any changes တွေကို ပြုလုပ်တဲ့အခါမှာ save
+        လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ နောက် application details တွေကို settings and update application details
+        တွေကို
+        change လုပ်ဖို့ရန်အတွက်လည်း allow လုပ်ပေးပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့ရဲ့ states တွေကို single file
+        တစ်ခုထဲမှာ
+        combine လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် writing လုပ်ဖို့ရန်အတွက် new file တစ်ခုကို opening
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့အတွက်လည်း fopen ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်တော့ ကျွန်တော်တို့ဟာ write
+        လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် mode
+        ကို "w" ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် file ကို writing လုပ်ဖို့ရန်အတွက် fwrite function
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ fopen statement ထဲမှာ handle ကို pass
+        လုပ်ပေးမှာဖြစ်ပါတယ်။
+        နောက် ကျွန်တော်တို့ write လုပ်ချင်တဲ့ string ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် states.html
+        ထဲကဟာတွေကို
+        ပြန်ပြီးတော့ write လုပ်ပေးထားတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ file တစ်ခခုကို line breaks လုပ်ချင်တဲ့အခါမှာ
+        PHP_EOL
+        ဆိုတဲံ predefined constant ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            
+            if ($fh = fopen('data/html/combine.html', 'w')){
+            fwrite($fh, file_get_contents('data/html/states.html'));
+            
+            fwrite($fh, PHP_EOL. '&lt;optgroup label="US Outlying Territories"&gt;');
+            fwrite($fh, PHP_EOL.file_get_contents('data/html/territories.html'));
+            fwrite($fh, PHP_EOL.'&lt;/optgroup&gt;');
+            
+            fwrite($fh, PHP_EOL. '&lt;optgroup label="US Outlying Territories"&gt;');
+            fwrite($fh, PHP_EOL.file_get_contents('data/html/territories.html'));
+            fwrite($fh, PHP_EOL.'&lt;/optgroup&gt;');
+            
+            fclose($fh);
+            }
+            
+            echo '&lt;select&gt;';
+            include 'data/html/combine.html';
+            echo '&lt;/select&gt;';
+            
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing Files All at Once</h1>
+    <p>
+        အခု section မှာတော့ territories and the armed forces and states တို့ကို alphabetical order အရ order
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် အဲ့အတွက် combine sort ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပေးထားပါတယ်။
+        အဲ့မှာဆိုရင် options အားလုံးရဲ့ master array တစ်ခုကို create လုပ်ပေးထားပါတယ်။ နောက် အဲ့မှာဆိုရင် ကျွန်တော်တို့
+        အသုံးပြုချင်တဲ့ files တစ်ခုချင်းစီကို merge လုပ်ဖို့ရန်အတွက် array merge function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        နောက်
+        line တစ်ခုချင်းစီကို array ထဲမှာရှိတဲ့ separate item တစ်ခုအဖြစ် retrieve လုပ်ဖို့ရန်အတွက် file function ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် function ကို new line characters တွေကို ignore လုပ်ဖို့ရန်အတွက်
+        ပြောပြချင်တဲ့အခါမှာ file function ကို option တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ items တွေကို sort
+        လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် display name ဖြင့် any of the HTML tags တွေမပါဘဲနဲ့ sort လုပ်ထားတာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့်
+        tags မပါဘဲနဲ့ values တွေကို compare လုပ်ဖို့ရန်အတွက် function တစ်ခုကို create လုပ်ပေးဖို့လိုပါတယ်။ နောက် string
+        case
+        compare ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် binary safe case-insensitive string comparison
+        တစ်ခုပဲဖြစ်ပါတယ်။ နောက်
+        strip_tags function ကို အသုံးပြုပေးထားပါတယ်။ အဲ့ဒါဟာဆိုရင် compare လုပ်ဖို့ရန်အတွက် display text ကို leave
+        လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် user sort function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် array ကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် ကျွန်တော်တို့အသုံးပြုချင်တဲ့ function ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ဒါကို file တစ်ခုထဲကို
+        directly အရ
+        write လုပ်ချင်တဲ့အခါမှာ file_put_contents ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ File_put_contents ဟာဆိုရင် ပြီးခဲ့တဲ့
+        section
+        မှာအသုံးပြုခဲ့တဲ့ same write mode ကိုပဲ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် implode ကို array ကို string တစ်ခုအနေနဲ့
+        join
+        လုပ်ဖို့ရန်အတွက် အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ parsing component တစ်ခုကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        နောက် အဲ့မှာဆိုရင် some of the most common data types တွေကိုလည်း အသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် data driven
+        တစ်ခု ၊
+        personal recommendation site တစ်ခုကို create လုပ်ဖို့ရန်အတွက် အဲ့ files တွေကို parse လုပ်နိုင်တယ်ဆိုတာကို show
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            
+            $states = array_merge(
+            file('data/html/states.html', FILE_IGNORE_NEW_LINES),
+            file('data/html/territories.html', FILE_IGNORE_NEW_LINES),
+            file('data/html/armed_forces.html', FILE_IGNORE_NEW_LINES)
+            );
+            
+            function compareStrings($a, $b){
+            return strcasecmp(strip_tags($a), strip_tags($b));
+            }
+            
+            usort($states, 'compareStrings');
+            file_put_contents('data/html/sorted.html', implode(PHP_EOL, $states));
+            echo '&lt;select&gt;';
+            include 'data/html/sorted.html';
+            echo '&lt;/select&gt;';
+            
+            
+            
+            ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/filehandling/combine_sort.php">Test Yourself</a>
+    <hr>
+    <h1>Personal Recommendations Project</h1>
+    <p>
+        အခု section မှာတော့ CSV, JSON and XML တွေပါဝင်တဲ့ some common data types တွေကို handling လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် function ဟာဆိုရင် ပြီးခဲ့တဲ့ section က files တွေကို reading and writing လုပ်ခဲ့သလိုပဲ
+        အလုပ်လုပ်သွားမှာဖြစ်ပါတယ်။ မတူတာတစ်ခုကတော့ ကျွန်တော်တို့ code ထဲမှာ အသုံးပြတဲ့ arrays and objects တွေထဲကို data
+        files
+        တွေကို parsing လုပ်ပေးတာပဲဖြစ်ပါတယ်။ ဒီ different data types တွေကိုအသုံးပြုပြီးတော့ personal recommendations
+        တစ်ခုကို
+        create လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Reading CSV</h1>
+    <p>
+        CSV ဟာဆိုရင် data တွေကို database and spreadsheet တို့ကနေပြီးတော့ importing and exporting လုပ်ဖို့ရန်အတွက် very
+        popular
+        format တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ files တွေမှာဆိုရင် များသောအားဖြင့် header row တစ်ခုပါရှိပြီးတော့ အဲ့အောက်မှာ comma
+        နဲ့
+        separated လုပ်ထားတဲ့ values တွေရဲ့ column တစ်ခုချင်းစီနဲ့ multiple rows တွေရှိပါတယ်။ အခု section မှာတော့ CSV
+        data တွေကို
+        array တစ်ခုအနေနဲ့ read and write လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် PHP built in function ကို
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ first section မှာ လုပ်ခဲ့သလိုပဲ reading လုပ်ဖို့ရန်အတွက် file ကို open လုပ်ပေးဖို့လိုပါတယ်။ File
+        ကို
+        read လုပ်တဲ့အခါမှာ fgetcsv ဆိုတဲ့ function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ဟာ columns ရဲ့ array
+        တစ်ခုကို
+        return ပြန်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာဆိုရင် delimiter ကို specify လုပ်ပေးတဲ့ number of optional parameters တွေ
+        ပါဝင်ပါတယ်။ Default အရဆိုရင် comma တစ်ခုကို အသုံးပြုပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် tab delimited files
+        ကိုလည်းအသုံးပြုနိုင်ပါတယ်။
+        Example မှာဆိုရင် first အနေနဲ့ array ကို flip လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူဟာဆိုရင် key ကို key သတ်သတ် value ကို
+        value သတ်သတ်
+        ခွဲခြားပေးတာဖြစ်ပါတယ်။ နောက် keys တွေကို သူတို့ရဲ့ own variable ထဲကို put လုပ်ဖို့ရန်အတွက် extract ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>people.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $title = "People";
+            require ('../header.php');
+            
+            if (($fh = fopen('../data/csv/people.csv', 'r')) !== false){
+            $header = fgetcsv($fh);
+            extract(array_flip($header));
+            echo "&lt;div class='container-fluid'&gt;";
+            echo "&lt;h1&gt;People Recommendations&lt;/h1&gt;";
+            echo "&lt;hr&gt;";
+            echo "&lt;div class='row'&gt;";
+            while (($contact = fgetcsv($fh)) !== false ){
+            echo "&lt;div class='col-xs-6 col-md-3'&gt;";
+            echo "&lt;div class='thumbnail'&gt;";
+            echo '&lt;img src="'. $contact[$img] .'"&gt;';
+            echo "&lt;div class='caption'&gt;";
+            echo '&lt;h4 class="media-heading"&gt;' .$contact[$first];
+            echo ' ' . $contact[$last] .'&lt;/h4&gt;';
+            echo '&lt;a href="http://' . $contact[$website] . '" target="_blank"&gt;'. $contact[$website] . '&lt;/a&gt;';
+            echo '&lt;br&gt;';
+            echo 'Twitter: &lt;a href="https://twitter.com/'. $contact[$twitter] . '" target="_blank"&gt;@'. $contact[$twitter] .
+            '&lt;/a&gt;';
+            echo "&lt;/div&gt;";
+            echo "&lt;/div&gt;";
+            echo "&lt;/div&gt;";
+            
+            }
+            echo "&lt;/div&gt;";
+            echo "&lt;/div&gt;";
+            
+            fclose($fh);
+            
+            }
+            
+            require ('../footer.php');
+            ?&gt;
+             
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing CSV</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ csv file ထဲကို additional line တစ်ခုကို add လုပ်သွားတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် new contact အတွက် array တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ form
+        data တွေကို
+        အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် website and image တို့ဟာ actually URLs တွေဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် URL ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ CSV file ကို open လုပ်ဖို့ရန်အတွက် fopen ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ csv file ထဲကို new line ကို add လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် a mode ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် fputcsv ဆိုတဲ့ function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် new array ကို
+        passed
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် file writing လုပ်တာပြီးတဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ people page မှာ file
+        ကို
+        redirecting ပြန်လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် name ကို add လုပ်တဲ့အခါမှာ first အနေနဲ့ read လုပ်သလိုပဲ write
+        လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါအတွက် plus တစ်ခုကို mode မှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ fputcsv ကို
+        call
+        မလုပ်ခင်မှာ fseek function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် file pointer ကို move လုပ်ပေးမှာဖြစ်ပါတယ်။
+        fseek
+        function ဟာဆိုရင် parameters 3 ခုကို accepts လုပ်ပါတယ်။ အဲ့ဒါတွေကတော့ file handler, offset and နောက်ထပ်ကတော့
+        ကျွန်တော်တို့ ဘယ်တစ်ခုကို move လုပ်ချင်တာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>write_csv.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            $new_person =[
+            filter_input(INPUT_POST, 'first', FILTER_SANITIZE_STRING),
+            filter_input(INPUT_POST, 'last', FILTER_SANITIZE_STRING),
+            filter_input(INPUT_POST, 'website', FILTER_SANITIZE_URL),
+            filter_input(INPUT_POST, 'twitter', FILTER_SANITIZE_STRING),
+            filter_input(INPUT_POST, 'img', FILTER_SANITIZE_URL),
+            ];
+            
+            if (($fh = fopen('../data/csv/people.csv', 'a+')) !== false){
+            fseek($fh, -1, SEEK_END);
+            if (fgets($fh) != PHP_EOL) {
+            fputs($fh, PHP_EOL);
+            }
+            $fputcsv($fh,$new_person);
+            fclose($fh);
+            }
+            header ('location: /pepople.php');
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Reading JSON</h1>
+    <p>
+        ကျွန်တော်တို့ web ပေါ်မှာ ဘာတွေကိုပဲ build လုပ်ချင်လုပ်ချင် ကျွန်တော်တို့ဟာ JSON data တွေနဲ့ run
+        လုပ်ရမှာဖြစ်ပါတယ်။
+        တစ်ခါတစ်လေမှာဆိုရင် API တစ်ခုကနေပြီးတော့ data တွေကို requesting လုပ်တဲ့အချိန်မှာ JSON နဲ့ response တစ်ခုကို
+        receive
+        လုပ်ရမှာဖြစ်ပါတယ်။ JSON ဟာဆိုရင် files တွေ configuration အတွက် common format တစ်ခုလည်းဖြစ်ပါတယ်။ JSON ဟာ
+        ဘာကြောင့်
+        popular ဖြစ်လာတာလဲဆိုတော့ JSON ဟာဆိုရင် structured data တွေကို encode လုပ်ဖို့ရန်အတွက် easy way တစ်ခုကိုဖြစ်သလို
+        အဲ့
+        data တွေကို systems တွေကြားမှာ transfer လုပ်ဖို့ရန်အတွက်လည်း easy way တစ်ခုဖြစ်ပါတယ်။ JSON ဟာ JavaScript Object
+        Notation
+        ပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ ဘယ် JavaScript ကိုမှ ရေးစရာမလိုပါဘူး။ PHP မှာဆိုရင် JSON objects တွေကို PHP
+        objects
+        and arrays တွေအဖြစ်ကို turning လုပ်ဖို့ရန်အတွက် handy function တစ်ခုရှိပါတယ်။ နောက် ကျွန်တော်တို့ဟာ PHP ကနေ
+        object တစ်ခု
+        ဒါမှမဟုတ် array တစ်ခုကို JSON ဆီကို turn လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် top programming books တွေကို share
+        လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ ကျွန်တော်တို့ လုပ်ရမှာက JSON file ရဲ့ contents တွေကို get
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက် အဲ့ contents တွေကို object တစ်ခုအနေနဲ့ turn လုပ်ဖို့ရန်အတွက် json_decode ဆိုတဲ့
+        function ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>books.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $title = "Books";
+            require ('../header.php');
+            
+            echo "&lt;div class='container-fluid'&gt;";
+            echo "&lt;h1&gt;Books Recommendations&lt;/h1&gt;";
+            echo "&lt;hr&gt;";
+            
+            $books = json_decode(file_get_contents('../data/json/top_programming_books.json'));
+            if(is_object($books-&gt;collection-&gt;books[0])){
+            foreach ($books-&gt;collection-&gt;books as $book){
+            echo '&lt;div class="panel panel-default"&gt;';
+            echo '&lt;div class="panel-heading"&gt;';
+            echo '&lt;h3 class="panel-title"&gt;' .$book-&gt;title . '&lt;/h3&gt;';
+            echo 'by ' . $book-&gt;author_name;
+            echo '&lt;/div&gt;';
+            echo '&lt;div class="panel-body media"&gt;';
+            echo '&lt;div class="media-left media-top"&gt;';
+            echo '&lt;img class="media-object" src="' . $book-&gt;book_image_url . '"&gt;';
+            echo '&lt;/div&gt;';
+            echo '&lt;div class="media-body"&gt;';
+            if (strlen($book-&gt;book_description) &lt; 50){
+            echo $book-&gt;book_description;
+            } else {
+            echo substr($book-&gt;book_description, 0 , strpos($book-&gt;book_description,' ', 50)) . '...';
+            }
+            echo $book-&gt;book_description;
+            echo '&lt;br /&gt;';
+            echo '&lt;a href="' . $book-&gt;link . '" target="_blank"&gt;Learn more...&lt;/a&gt;';
+            echo '&lt;/div&gt;';
+            echo "&lt;/div&gt;";
+            echo "&lt;/div&gt;";
+            }
+            }
+            echo "&lt;/div&gt;";
+            
+            require ('../footer.php');
+            ?&gt;
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing JSON</h1>
+    <p>
+        JSON နှင့် အလုပ်လုပ်ရခြင်းအကြောင်းကတော့ web ပေါ်မှာ data တွေကို sharing လုပ်တဲ့အခါမှာ popular format တစ်ခုကို
+        ဖြစ်လာတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ ဘယ်လို object or array ကို PHP ကနေ ယူနိုင်ပြီးတော့
+        particular
+        language တစ်ခုကို rely မလုပ်ဘဲနဲ့ shared လုပ်ထားတဲ့ JSON object တစ်ခုဆီကို turn လုပ်နိုင်ပါတယ်။ Example
+        မှာဆိုရင် new
+        book တွေအတွက် array တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ Add book form FormData
+        တွေကို
+        အသုံးပြုမှာဖြစ်ပါတယ်။ နောက် example မှာဆိုရင် JSON file ရဲ့ contents တွေကို get လုပ်ဖို့လိုအပ်ပါတယ်။ အဲ့ဒါအတွက်
+        JSON
+        decode function ကို object တစ်ခုအနေနဲ့ turn လုပ်ဖို့ရန်အတွက် အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ရရှိလာတဲ့ object
+        ကို JSON
+        file ထဲကို turn လုပ်ဖို့ရန်အတွက် json_encode function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>write_json.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $new_book = [
+            
+            'title' =&gt; filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING),
+            'link'=&gt; filter_input(INPUT_POST, 'link', FILTER_SANITIZE_URL),
+            'book_image_url' =&gt; filter_input(INPUT_POST, 'book_image_url', FILTER_SANITIZE_URL),
+            'book_description' =&gt; filter_input(INPUT_POST, 'book_description', FILTER_SANITIZE_STRING),
+            'num_pages' =&gt; filter_input(INPUT_POST, 'num_pages', FILTER_SANITIZE_NUMBER_INT),
+            'author_name' =&gt; filter_input(INPUT_POST, 'author_name', FILTER_SANITIZE_STRING),
+            'book_published' =&gt; filter_input(INPUT_POST, 'book_published', FILTER_SANITIZE_NUMBER_INT)
+            
+            ];
+            
+            $file = '../data/json/top_programming_books.json';
+            $books = json_decode(file_get_contents($file));
+            if (is_object($books-&gt;collection-&gt;books[0])){
+            $books-&gt;collection-&gt;book[] = $new_book;
+            }
+            
+            $json = json_encode($books, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+            file_put_contents($file, $json);
+            header('location: ../js/books.php');
+            ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/filehandling/personalrecommendation/inc/index.php">Test Yorself</a>
+    <hr>
+    <h1>Reading XML</h1>
+    <p>
+        XML ဟာဆိုရင် web ပေါ်မှာ data ကို sharing လုပ်ဖို့ရန်အတွက် အသုံးပြုပါတယ်။ XML ဟာဆိုရင် more complicated
+        ဖြစ်ပါတယ်။
+        လူတွေဟာဆိုရင်တော့ ease of use of JSON ကိုပဲ appreciate လုပ်ကြပါတယ်။ နောက် XML ဟာဆိုရင် lot more detailed
+        လည်းဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ simple object တစ်ခုထက်ပိုတာတွေကို convey လုပ်နိုင်ပါတယ်။ သူတု့ိဟာ မတူညီတဲ့ uses
+        တွေရှိတဲ့အတွက်ကြောင့်
+        သူတို့ဟာ မတူညီကြပါဘူး။ XML အသုံးပြုတာကို blogs or podcasts တွေအတွက်အသုံးပြုပါတယ်။ Example မှာဆိုရင် some
+        podcasts တွေကို
+        လုပ်ပြထားတာဖြစ်ပါတယ်။ နောက် XML နှင့် အလုပ်လုပ်ဖို့ရန်အတွက် PHP's built in functionality အချို့ကိုလည်း
+        အသုံးပြုထားတာဖြစ်ပါတယ်။ XML ဟာဆိုရင်လည်း HTML လိုပဲ tags တွေကို အသုံးပြုတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ tags တွေ
+        visible
+        ဖြစ်ဖို့ရန်အတွက် htmlspecialchars function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်podcasts
+        တစ်ခုချင်းစီအတွက်
+        multiple XML files တွေပါဝင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ XML directory ကနေပြီးတော့ files တွေကို read
+        လုပ်ပေးရမှာဖြစ်ပြီးတော့ သူတို့ကို array တစ်ခုထဲကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် empty array တစ်ခုကို
+        create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် XML file ရဲ့ directory ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ XML file
+        ကို
+        object တစ်ခုထဲကို parse လုပ်ဖို့ရန်အတွက် simplexml load file function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ episode တိုင်းကို show မလုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ random item ကို pull
+        လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် refresh လုပ်တဲ့အချိန်တိုင်းမှာ different episode ကို podcast
+        တစ်ခုချင်းစီအတွက်
+        display လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ နောက်ထပ် တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါဟာဆိုရင်တော့ external files
+        ကို
+        pulling လုပ်ပြီးတော့ demonstrate လုပ်ပေးဖို့ရန်အတွက်ပဲ ဖြစ်ပါတယ်။ ဒါဟာ ဘယ် files တွေကို read လုပ်တဲ့ any of the
+        functions ဟာ ဘယ်နေရာမှာရှိတဲ့ any file ကို read လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့မှာ access and correct
+        permission ရှိနေတဲ့အချိန်ထိ အလုပ်လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် files တွေဟာဆိုရင် local or local network or
+        somewhere on
+        the web မှာပဲရှိရှိ ပြသာနာမရှိပါဘူး။
+    </p>
+    <h2>Code Example</h2>
+    <h3>podcasts.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $title = "Podcasts";
+            require ('../header.php');
+            
+            echo "&lt;div class='container-fluid'&gt;";
+            echo "&lt;h1&gt;Podcasts Recommendations&lt;/h1&gt;";
+            echo "&lt;hr&gt;";
+            
+            $files = array();
+            $dir = '../data/xml';
+            
+            if ($fh = opendir($dir)){
+            while (($entry = readdir($fh) !== false)) {
+            if (substr($entry, 0, 1) != '.') {
+            $files[] = $dir . '/' . $entry;
+            }
+            }
+            closedir($fh);
+            }
+            
+            if (!empty($files)){
+            foreach ($files as $file){
+            $xml = simplexml_load_file($file);
+            
+            echo '&lt;div class="panel panel-default"&gt;';
+            echo '&lt;div class="panel-heading"&gt;';
+            echo '&lt;h3 class="panel-title"&gt;&lt;a href="' .$xml-&gt;channel-&gt;link .'" target="_blank"&gt;'
+            .$xml-&gt;channel-&gt;title .'&lt;/a&gt;&lt;/h3&gt;';
+            echo '&lt;/div&gt;';
+            echo '&lt;div class="panel-body"&gt;';
+            echo '&lt;p&gt;' .$xml-&gt;channel-&gt;description .'&lt;/p&gt;';
+            $random = rand(0, count($xml-&gt;channel-&gt;itme) -1);
+            echo '&lt;p&gt;&lt;stroung&gt;Sample: ' .$xml-&gt;channel-&gt;item[$random]-&gt;title .'&lt;/strong&gt; - ';
+            echo $xml-&gt;channel-&gt;item[$random]-&gt;description .'&lt;/p&gt;';
+            echo '&lt;audio controls&gt;';
+            echo '&lt;source src="' .$xml-&gt;channel-&gt;item[$random]-&gt;enclosure-&gt;attributes()-&gt;url .'"
+            type="audio/mpeg"&gt;';
+            echo 'Your browser does not support the audio element.';
+            echo '&lt;/audio&gt;';
+            echo '&lt;p&gt;&lt;a href="' .$xml-&gt;channel-&gt;link .'" target="_blank"&gt;Learn more and
+            subscribe&lt;/a&gt;&lt;/p&gt;';
+            echo '&lt;/div&gt;';
+            echo '&lt;/div&gt;';
+            }
+            }
+            echo "&lt;/div&gt;";
+            require ('../footer.php');
+            ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/filehandling/personalrecommendation/inc/index.php">Test Yorself</a>
+    <hr>
+
+</body>
+
+</html>

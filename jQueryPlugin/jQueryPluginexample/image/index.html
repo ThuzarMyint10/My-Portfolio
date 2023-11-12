@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../js/Animsition/animsition.min.css">
+    <link rel="stylesheet" href="../js/slick/slick.css">
+    <link rel="stylesheet" href="../js/slick/slick-theme.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>jQuery Plugin Example</title>
+</head>
+<body>
+
+  <div class="header animsition">
+      <div class="main_nav">
+          <a href="#" class="logo">AGENCY</a>
+      </div>
+      <div class="main_nav">
+          <h1 class="description">We build apps</h1>
+      </div>
+      <nav class="main_nav">
+          <ul>
+            <li><a href ="#" class="animsition-link"> Home </a></li>
+            <li><a href ="../work.html" class="animsition-link"> Work </a></li>
+            <li><a href ="../team.html" class="animsition-link"> Team </a></li>
+        </ul>
+      </nav>
+  </div>
+      <div class="row">
+        <div class="slides">
+            <div class="slide bule">
+                <div class="grid-half">
+                    <h2>DalilyFeed</h2>
+                  <p>Your number one podcast app</p>
+                  <a href="#" class="button">Check it out</a>
+                 </div>
+                    <div class="grid-half">
+                        <img src="app1.png" alt="">
+                    </div>
+            </div>
+                <div class="slide orange">
+                    <div class="grid-half">
+                        <h2>DalilyFeed</h2>
+                        <p>Your number one podcast app</p>
+                        <a href="#" class="button">Check it out</a>
+                    </div>
+                    <div class="grid-half">
+                        <img src="app2.png" alt="">
+                    </div>
+                </div>
+                <div class="slide green">
+                    <div class="grid-half">
+                        <h2>DalilyFeed</h2>
+                        <p>Your number one podcast app</p>
+                        <a href="#" class="button">Check it out</a>
+                    </div>
+                    <div class="grid-half">
+                        <img src="app3.png" alt="">
+                    </div>
+                </div>
+                <div class="slide yellow">
+                    <div class="grid-half">
+                        <h2>DalilyFeed</h2>
+                        <p>Your number one podcast app</p>
+                        <a href="#" class="button">Check it out</a>
+                    </div>
+                    <div class="grid-half">
+                        <img src="app4.png" alt="">
+                    </div>
+                </div>
+        
+        </div>
+      </div>
+  <div class="main-row animsition">
+    <div class="grid">
+        <img src="team-4.jpg" alt="">
+        <p>United we stand diveded we fail. Meet the all star team behind the agency.</p>
+        <a href="#" class="link">Meet the Team</a>
+    </div>
+    <div class="grid">
+        <img src="images.png" alt="">
+        <p>Check our last apps build or download them in the App Store</p>
+        <a href="#" class="link"> Last Projects</a>
+    </div>
+    <div class="grid">
+        <img src="contact.jpg" alt="">
+        <p>Have questions or sequests? Feel free to contact us, we'd love to you.  </p>
+        <a href="#" class="link">Contact Us</a>
+    </div>
+</div>
+</div>
+
+      
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <script src="../js/Animsition/animsition.min.js"></script>
+    <script src="../js/stikyjs/jquery.sticky.js"></script>
+    <script src="../js/slick/slick.js"></script>
+    <script src="../js/slick/slick.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        $('.slides').slick({
+            fade: true,
+            autoplay: true,
+            autoplaySpeed: 100,
+            arrows: false,
+            dots: true
+        });
+    </script>
+</body>
+</html>

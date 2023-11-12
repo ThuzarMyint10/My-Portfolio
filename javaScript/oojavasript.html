@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Oriented JavaScript </title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to Object Oriented JavaScript</h1>
+    <p>
+            အခု section မှာတော့ object oriented JavaScript အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ သူဟာ ကျွန်တော်တို့ရဲ့ technical skills ကို more advanced ဖြစ်ဖို့ရန်အတွက် bridge ဖြစ်ပါတယ်။ ဒီ section ကို လေ့လာပြီးတဲ့အခါမှာ object တစ်ခုဟာ ဘာလဲဆိုတာကို နားလည်းရုံမဟုတ်ဘဲ object oriented programming ရဲ့ many advantages တွေကိုလည်း နားလည်သွားမှာဖြစ်ပါတယ်။ ပြီးတော့ JavaScript development မှာရှိတဲ့ career တစ်ခုအတွက် အထောက်အကူဖြစ်စေပါတယ်။ ဒီ section ကိုမလေ့လာခင်မှာ loops, arrays and objects တွေနဲ့ ပါတ်သတ်တဲ့ foundational concepts တွေကိုနားလည်ထားဖို့လိုပါတယ်။ နောက် အခု section မှာ new terms တွေဖြစ်တဲ့ class, property, and method တို့အကြောင်းကို လေ့လာကြမှာဖြစ်ပါတယ်။ 
+    </p>
+    <p>
+            Object တစ်ခုဆိုတာ ကျွန်တော်တို့ရဲ့ code ထဲ အသုံးပြုချင်တဲ့ something ရဲ့ neat and tidy package of information ပဲဖြစ်ပါတယ်။ အဲ့ package မှာဆိုရင် group of properties and  functions တွေပါပါတယ်။ သူတို့ဟာ program ထဲက something ကို represent လုပ်ဖို့ရန်အတွက် အတူတူ အလုပ်လုပ်ကြတာဖြစ်ပါတယ်။ Object တစ်ခုရဲ့ properties တွေဟာ အဲ့ object နဲ့ ပါတ်သတ်တဲ့ information တွေကို hold လုပ်ထားတဲ့ series of key value pairs တစ်ခုပဲဖြစ်ပါတယ်။ Object တစ်ခုရဲ့ functions တွေကို methods လု့ိလဲခေါ်ပါတယ်။ Methods တွေဆိုတာ object ကို something လုပ်ဖို့ခွင့်ပြုပါတယ်။ Object oriented programming term ဟာဆိုရင် programming paradigm တစ်ခုကို describing လုပ်တာပဲဖြစ်ပါတယ်။ A lot of developers တွေဟာ အဲ့ဒါကို code တစ်ခုထဲမှာ သူဟာ real life objects ကို model လုပ်ဖို့ရန်အတွက် way တစ်ခုအနေနဲ့ ရှာဖွေတွေ့ရှိခဲ့တာဖြစ်ပါတယ်။ Real life objects မှာ JavaScript objects တွေလိုပဲ states and behaviors တွေရှိပါတယ်။ JavaScript states တွေဟာ objects properties တွေကို represent လုပ်ပြီးတော့ JavaScript behaviors တွေဟာ objects methods တွေကို represent လုပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ code ထဲမှာ states တွေကို objects properties ကို updating လုပ်ပြီးတော့ change လုပ်နိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>JavaScript Objects</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ object ဟာဘာလဲ ပြီးတော့ object ကို ကျွန်တော်တို့ရဲ့ code ထဲမှာဘယ်လိုအသုံးပြုရမယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။  အခု section မှာတော့ အဲ့ပေါ်မှာပဲ build လုပ်နိုင်ဖို့ရန်တွက် JavaScript မှာရှိတဲ့ objects တွေကိုကြောင်းကို ထပ်လေ့လာမှာဖြစ်ပါတယ်။ ဥပမာ DOM ဆိုတဲ့ document object model ဟာဆိုရင် object ပဲဖြစ်ပါတယ်။ သူဟာ JavaScript နဲ့ interacts လုပ်တဲ့ HTML document ကို represent လုပ်တာဖြစ်ပါတယ်။ DOM elements တွေဟာ objects တွေဖြစ်ပြီးတော့ သူ့မှာဆိုရင် properties and methods တွေရှိပါတယ်။ Example element style တစ်ခုကို get လုပ်ချင်တဲ့အခါမှာ element.style ဆိုပြီးတော့ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် arrays ဟာလည်း JavaScript object ရဲ့ another example ပဲဖြစ်ပါတယ်။ Arrays မှာဆိုရင် properties တွေရှိပါတယ်။ Example,  array.length, array.push, array.pop and array.concat တို့ပဲဖြစ်ပါတယ်။ Objects တွေကို JavaScript ရဲ့နေရာတိုင်းမှာတွေ့နိုင်ပါတယ်။
+    </p><hr>
+    <h1>Object Literals</h1>
+    <p>
+        အခုဆိုရင် ဒီ section ရဲ့ first stage ဟာ finished ဖြစ်တော့မှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာတုန်းက objects ဟာ ဘာတွေလဲ ပြီးတော့ သူတို့ကို ဘယ်လိုအသုံးပြုရမယ်ဆိုတာကို စတင်လေ့လာခဲ့တာဖြစ်ပါတယ်။ ဒီ section မှာတော့ object literals အကြောင်းကိုပြောပြပြီးတော့ ဆက်လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်ပြောပြခဲ့သလိုပါပဲ objects တွေဟာ ကျွန်တော်တို့ရဲ့ code ထဲမှာ အသုံးပြုချင်တဲ့ something အကြောင်းရဲ့ information ကို package လုပ်နိုင်တဲ့ way တစ်ခုကိုပေးပါတယ်။ အဲ့ package ဟာဆိုရင် a group of properties and methods လု့ိခေါ်တဲ့ functions တွေနဲ့ပြုလုပ်ထားတာဖြစ်ပါတယ်။ Properties တွေဆိုတာ object specific variables လိုပဲ information တွေကို a series of key values pairs မှာ store လုပ်ထားတာဖြစ်ပါတယ်။ Methods ဆိုတာကတော့ object specific functions တွေဖြစ်ပြီးတော့ သူတို့ဟာ object do something ကို ခွင့်ပြုပေးတာဖြစ်ပါတယ်။ Object literals ဟာ object တစ်ခုကို create လုပ်တဲ့ way တစ်ခုဖြစ်ပါတယ်။ သူဟာ single specific thing တစ်ခုမှာ modeling လုပ်တဲ့အချိန်မှာ really great ဖြစ်ပါတယ်။ Object ကို declare လုပ်တဲ့နေရာမှာ equal sign ရဲ့ နောက်မှာ curly braces လိုက်ရမှာဖြစ်ပါတယ်။ Package or variable တစ်ခုထဲကို properties and methods တွေအားလုံကို putting လုပ်ခြင်းကို encapsulation လို့ခေါ်ပါတယ်။ 
+    </p><hr>
+    <h1>Dot Notation & Breaket Notation</h1>
+    <p>
+        Object တစ်ခုကို encapsulating လုပ်တာဟာ great first step တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ ဘာတွေကို create လုပ်ပြီးတော့ ဘယ်လိုအသုံးပြုရမယ်ဆိုတာကို သိသေးပါဘူး။ နောက် object တစ်ခုရဲ့ properties တွေကို ဘယ်လို access လုပ်ရမယ်ဆိုတာလည်းမသိသေးပါဘူး။ ပြီးတော့ methods တွေကလည်းဘယ်လို ခေါ်ရမယ်ဆိုတာကိုမသိသေးပါဘူး။ အဲ့ဒါတွေအားလုံးကို အခု section မှာလေ့လာသွားမှာဖြစ်ပါတယ်။ Object တစ်ခုရဲ့ properties တွေကို access လုပ်တဲ့နေရာမှာ နည်းလမ်းနှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ dot notation and bracket notation တို့ပဲဖြစ်ပါတယ်။ First, အနေနဲ့ dot notation ကို လေ့လာမှာဖြစ်ပါတယ်။ ဒါဟာ ကျွန်တော်တို့နဲ့ familiar ဖြစ်ပြီးသားဖြစ်ပါတယ်။ Example မှာဆိုရင် length property ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် length property ဟာဆိုရင် သူဟာ array ထဲမှာရှိတဲ့ number of elements ကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့လိုပဲ ကျွန်တော်တို့ဟာ object တစ်ခုရဲ့ properties တွေကို access လုပ်တဲ့နေရာမှာ dot notation ကိုအသုံးပြုနို်င်ပါတယ်။ Properties လိုပဲ methods ကိုလည်း dot notation ကို အသုံးပြုပြီးတော့ call လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် bark ဆိုတဲ့ method ကို call လုပ်ပြီးတော့ console မှာ ထုပ်ပြထားတာဖြစ်ပါတယ်။ Method တစ်ခုကို calling လုပ်တာဟာ simple ဖြစ်ပါတယ်။ အဲ့မှာ ကျွန်တော်တို့ဟာ regular functions တွေကို calling လုပ်တဲ့နေရာမှာ open and close parentheses ကို add လုပ်ပေးဖို့လိုပါတယ်။ နောက် objects ရဲ့ properties တွေကို bracket notation နဲ့လည်း access လုပ်နို်င်ပါသေးတယ်။ သူဟာဆိုရင် dot notation လိုတော့ read လုပ်တဲ့နေရာမှာ မလွယ်ကူပါဘူး။ ကျွန်တော်တို့ bracket notation ကို arrays နဲ့ အလုပ်လုပ်တဲ့အချိန်မှာလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ သူ့ကို create လုပ်တဲ့အခါမှာ array name ပြီးတော့ opening square bracket ကိုထည့်ပေးပြီးတော့ ကျွန်တော်တို့ access လုပ်ချင်တဲ့ array element ကိုထည့်ပေးပြီးတော့ closing square bracket ကို followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const ernie = {
+                animai: 'dog',
+                age: '1',
+                breed: 'pug',
+                bark: function () {
+                    console.log('Woof!');
+                }
+            }
+            console.log(ernie.age);
+            console.log(ernie.breed);
+            console.log(ernie['age']);
+            console.log(ernie['breed']);
+            
+            ernie['bark']();
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/doandbreacket.png" alt=""><hr>
+    <h1>Chaninig and Adding Properties</h1>
+    <p>
+        အခု section မှာတော့ changing properties တွေအကြောင်းနဲ့ သူတို့ကို object literals ထဲကို adding လုပ်တာတွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Object literals ဟာ objects တွေကို create လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ basics တွေကို learn လုပ်ဖို့ရန်အတွက် great way တစ်ခုလည်းဖြစ်ပါတယ်။ Object oriented programming ဟာ program ရဲ့ primary logic တွေအတွက် အသုံးပြုတဲ့ objects တွေကို အသုံးပြုတဲ့ designing programs အကြောင်းပဲဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ဆိုရင် ကျွန်တော်တို့မှာ objects ကို ဘယ်လို create လုပ်မယ် ပြီးတော့သူနဲ့ ဘယ်လို interact လုပ်မယ်ဆိုတာတွေအတွက် syntax ရဲ့ good grasp တစ်ခုရှိရပါမယ်။ အခုကျွန်တော်တို့မှာ properties တွေကို dot and bracket notation ကိုအသုံးပြုပြီးတော့ ဘယ်လို access လုပ်ရမယ်ဆိုတာကို သိရှိခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ အဲ့ဒါပေါ်မှာ အခြေခံပြီးတော့ change or manipulate properties တွေကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ နောက် အဲ့ဒါကိုအသုံးပြုပြီးတော့ new properties တွေကို object literals တွေကိုလည်း add လုပ်သွားမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ example ထဲက age property ကို dot and bracket notation ကိုအသုံးပြုပြီးတော့ update လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင်လည်း new color property ကို dot and bracket notation ကိုအသုံးပြုပြီးတော့ add လုပ်သွားမှာဖြစ်ပါတ်ယ။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const ernie = {
+                animai: 'dog',
+                age: '1',
+                breed: 'pug',
+                bark: function () {
+                    console.log('Woof!');
+                }
+            }
+            ernie.age = 2;
+            ernie['age'] = 2;
+            ernie.color = 'black';
+            console.log(ernie);
+            /*
+            console.log(ernie.age);
+            console.log(ernie.breed);
+            console.log(ernie['age']);
+            console.log(ernie['breed']);
+            
+            ernie['bark']();
+            */
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/changingandaddding.png" alt=""><hr>
+    <h1> Introduction to Class Syntax</h1>
+    <p>
+        အခု JavaScript မှာ objects တွေကို create လုပ်ဖို့ရန်နဲ့ သူတို့နဲ့ အလုပ်လုပ်ဖို့ရန်အတွက် another way တစ်ခုဖြစ်တဲ့ classes တွေအကြောင်းကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Object literals တွေဟာ data  တွေကို encapsulate လုပ်ဖို့ရန်အတွက် handy way တစ်ခုဖြစ်ပါတယ်။ JavaScript class syntax ကိုသွားကြည့်ရအောင်။ Class တစ်ခုဟာ object တစ်ခုအတွက် sort of blueprint တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ class တစ်ခုကို base set of properties and methods တွေနဲ့ တွဲပြီးတော့ provide လုပ်ပေးရမှာဖြစ်ပါတယ်။ Properties and methods တွေကို class type ကို create လုပ်ထားတဲ့ ဘယ် object ပေါ်မှာမဆို available လုပ်နိုင်ပါတယ်။ နောက်သူတို့ကို developers တွေက syntactic sugar လု့ိခေါ်ပါတယ်။ Class syntax ဟာဆိုရင် object oriented JavaScript ကို လွယ်လွယ်ကူကူနားလည်ဖို့ရဲ့အတွက် develop ဖြစ်လာတာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            const ernie = {
+                animal: 'dog',
+                age: 1,
+                breed: 'pug',
+                bark: function() {
+                console.log('Woof!');
+                }
+            }
+            const ernie = {
+                animal: 'dog',
+                age:8,
+                breed: 'Border Collie',
+                bark: function() {
+                console.log('Woof!');
+                }
+            }
+            const ernie = {
+                animal: 'dog',
+                age: 6,
+                breed: 'Doberman',
+                bark: function() {
+                console.log('Woof!');
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Writing a Class</h1>
+    <p>
+        အခု lesson ဟာ aren't object literals လို့ခေါ်တဲ့ pets တစ်ခုချင်းစီအတွက် objects တွေကို create လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ class တစ်ခုကို write လုပ်ရပါမယ်။ ပြီးတော့ animals အတွက် class type ရဲ့ object တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် object literals 4 ခုရှိပါတယ်။ သူတို့မှာဆိုရင် same properties တွေရှိပါတယ်။ နောက်သူတို့မှာ bark ဆိုတဲ့ same method လည်းရှိပါတယ်။ အဲ့မှာဆိုရင် animal property ရဲ့ value ဟာ common ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ class ရဲ့ name or type အတွက် viable option တစ်ခုဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ Pet ဆိုတဲ့ class name တစ်ခုကို declare လုပ်လိုက်မယ်။ အဲ့မှာဆိုရင် class name တစ်ခုရဲ့ first letter ကို capitalizing လုပ်တာဟာ programming မှာ common convention တစ်ခုဖြစ်ပါတယ်။ ပြီးတော့သူ့နောက်မှာ open and close curly braces လိုက်ပေးရပါတယ်။ အဲ့ထဲမှာ ကျွန်တော်တို့ဟာ constructor method တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Constructor method တစ်ခုဟာ class တစ်ခုရဲ့ top မှာ create လုပ်ပေးရပါတယ်။ သူဟာ special method တစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ class ကနေပြီးတော့ object တစ်ခုကို နောက်မှ create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့လုပ်ဆောင်ရမှာက အဲ့ constructor method ကို invoking လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ regular method လို့ပဲ parameters နဲ့ pass လုပ်နိုင်ပါတယ်။ Constructor method တစ်ခုကို create လုပ်တဲ့အခါမှာ ကျွန်တော်ဟာ regular function declaration လု့ိပဲ parentheses ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် open and close curly braces ကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ Technically အရ အဲ့ဒါတွေဟာ class တစ်ခု working လုပ်ဖို့ရန်အတွက် လိုအပ်တာတွေဖြစ်ပါတယ်။ အခု constructor method ဟာ empty ဖြစ်နေတာဖြစ်ပါတယ်။ နောက် section မှာ ကျွန်တော်တို့ရဲ့ constructor method ကို ဆက်ပြီးတော့ ရေးသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor () {
+            
+                }
+            }
+        </code>
+    </pre><hr>
+    <h1>Adding Properties to a Class</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ Pet class တစ်ခုကို declare လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ ပြီးတော့ သူ့ရဲ့ constructor method ကိုလည်း create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခုတစ်ခါမှာတော့ ဘယ် properties တွေဟာ ဒီ class type တစ်ခုရဲ့ objects တွေဟာ available ဖြစ်တယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်ရဲ့ object literals မှာဆိုရင် properties 3 ခုရှိပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကို Pet class မှာအသုံးပြုမှာဖြစ်ပါတယ်။ Constructor method တစ်ခုမှာ property တစ်ခုပါဖို့ဆိုရင် this ဆိုတဲ့ keyword ကို write လုပ်ရပါမယ်။  ပြီးတော့သူ့နောက်မှာ dot ခံပြီးတော့ property ရဲ့ name ကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ Recall လုပ်ရမယ်ဆိုရင် object literal တစ်ခုထဲကို property တစ်ခုကို add လုပ်ချင်တဲ့အခါမှာ syntax ဟာ object literal ရဲ့ name ဖြစ်ပြီးတော့ dot တစ်ခုကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့မှ new property ကို ရေးပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ pattern ကို constructor method ထဲမှာအသုံးပြုလို့ရပါတယ်။ This keyword နေရမှာတော့ အခြားတစ်ခုကို အသုံးပြုလို့မရပါဘူး။ ဘာလို့လဲဆိုတော့ constructor method တစ်ခုထဲမှာရှိတဲ့ this keyword ဟာဆိုရင် object တစ်ခုကို create လုပ်တယ်ဆိုတာကို referring လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ this keyword မှာဆိုရင် သူ့ကို အသုံးပြုတဲ့နေရာအလိုက် different meanings တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ property တစ်ခုရဲ့ value ကို set လုပ်တဲ့အခါမှာ  သူ့ကို parameter တစ်ခုအနေနဲ့ constructor method ထဲမှာ set လုပ်ပေးရပါတယ်။ ပြီးမှာ equal sign နဲ့ အဲ့ value ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                }
+            }
+        </code>
+    </pre><hr>
+    <h1>Instantiating an Object</h1>
+    <p>
+        အခု ကျွန်တော်တို့ရဲ့ constructor method ဟာ finished ဖြစ်ပြီဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ pet object တစ်ခုကို create or instantiate လုပ်ဖို့ရန်အတွက် ready ဖြစ်နေပြီးဖြစ်ပါတယ်။ Class တစ်ခုရဲ့ instance တစ်ခုကို creating လုပ်တာဟာ easy ဖြစ်ပါတယ်။ First အနေနဲ့ object ကို hold လုပ်ဖို့ရန်အတွက် variable တစ်ခုကို declare လုပ်ရမှာဖြစ်ပါတယ်။ နောက် equal ကို set လုပ်ပြီးတော့ new keyword ကို အသုံးပြုပြီးတော့ class name နဲ့ followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ class ထဲမှာ correct parameters တွေကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာ လေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                }
+            }
+            const arnie = new Pet('dog', 1, 'pug');
+            const vera = new Pet('dog', 8, 'border collie');
+            console.log(arnie);
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/write.png" alt=""><hr>
+    <p>
+        Classes တွေထဲကို methods တွေကို adding လုပ်ခြင်းဟာ pretty straightforward ဖြစ်ပါတယ်။ တစ်ကယ်တော့ class methods တွေအတွက် syntax ဟာ class constructor တစ်ခုရဲ့ syntax နဲ့ similar ဖြစ်ပါတယ်။ Method တစ်ခုကို add လုပ်တဲ့နေရာမှာ constructor method ရဲ့ end မှာ add လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ object literals တွေမှာ bark ဆိုတဲ့ method တစ်ခုရှိပါတယ်။ ကျွန်တော်တို့ရဲ့ pet class မှာဆိုရင် similar method တစ်ခုရှိပါတယ်။ Pet အတွက် some way ကတော့ sound တစ်ခုကို express လုပ်ဖို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ speak ဆိုတဲ့ method တစ်ခုကို create လုပ်လိုက်တာဖြစ်ပါတယ်။ အဲ့ဒါကို create လုပ်တဲ့အခါမှာ parentheses ကို set လုပ်ပြီးတော့ open and close  curly braces ကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ Class တစ်ခုထဲကို methods တွေ add လုပ်တဲ့အခါမှာ function keyword ကို အသုံးပြုစရာမလိုပါဘူး။ နောက်ထပ် လိုအပ်တာကတော့ sound property ကို constructor method ထဲမှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် sound property ကို accessing လု့ပ်တဲ့နေရာမှာ ကျွန်တော်တို့ဟာ object name အစား this keyword ကိုအသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed, sound) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                    this.sound = sound;
+                }
+            
+                speak(){
+                    console.log(this.sound);
+                }
+            }
+            const arnie = new Pet('dog', 1, 'pug','yip yip');
+            const vera = new Pet('dog', 8, 'border collie', 'woof woof');
+            // console.log(arnie);
+            arnie.speak();
+            vera.speak();
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/addmethod.png" alt=""><hr>
+    <h1>Getter Method</h1>
+    <p>
+        JavaScript မှာဆိုရင် special methods နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ getter and setter methods တို့ပဲဖြစ်ပါတယ်။ ဒီ methods တွေဟာ object properties တစ်ခုချင်းစီကို create and retrieve or update လုပ်ဖို့ခွင့်ပြုပေးပါတယ်။ အရင် section မှာ dot and bracket notations ကိုအသုံးပြုပြီးတော့ object properties တွေကို ဘယ်လို access and update လုပ်တယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Get method ကို create လုပ်တဲ့အခါမှာ get ဆိုတဲ့ keyword ကို ရိုက်ပေးရမှာဖြစ်ပါတယ်။ သူ့ရဲ့နောက်မှာ method name ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ သူတို့ရဲ့နောက်မှာမှ parentheses နဲ့ curly braces ကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ curly braces ထဲမှာ ကျွန်တော်တို့ values တွေကို compute and return လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ hour value ပေါ်မှာ မူတည်ပြီးတော့ place activity ကို if statement ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed, sound) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                    this.sound = sound;
+                }
+                get activity() {
+                    const today = new Data();
+                    const hour = today.getHours();
+            
+                    if (hour > 8 && hour <= 20){
+                        return 'playing';
+                    } else {
+                        return 'sleeping';
+                    }
+                }
+            
+                speak(){
+                    console.log(this.sound);
+                }
+            }
+            const arnie = new Pet('dog', 1, 'pug','yip yip');
+            const vera = new Pet('dog', 8, 'border collie', 'woof woof');
+            // console.log(arnie);
+            
+            console.log(arnie);
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/get.png" alt=""><hr>
+    <h1>Setter Method</h1>
+    <p>
+        အရင် section မှာ လေ့လာခဲ့တာကတော့ getter method လို့ခေါ်တဲ့ property value တစ်ခုကို computed and returned လုပ်ခဲ့တာဖြစ်ပါတယ်။ Setter method ကတော့ value တစ်ခုကို receive လုပ်ပြီးတော့ လိုအပ်တယ်ဆိုရင် အဲ့ value ပေါ်မှာ logic တွေကို perform လုပ်တာဖြစ်ပါတယ်။ ပြီးတော့ existing property တစ်ခုကို အဲ့ value နဲ့ updates လုပ်တယ် ပြီးတော့ value ကို new property တစ်ခုမှာ store လုပ်တယ်။ Example မှာဆိုရင် pet class အတွက် owner property ကို setter method ကို add လုပ်ပြီးတော့ set လုပ်ထားတာဖြစ်ပါတယ်။ Setter method ကို create လုပ်တဲ့အခါမှာ keyword set ကို type လုပ်ပြီးတော့ သူ့ရဲ့နောက်မှာ property name ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ပြီးတော့ get method လိုပဲ parentheses နဲ့ curly braces ကို follow လုပ်ပေးရမှာဖြစ်ပါတယ်။ Setters တွေဟာ one parameter ကို receive လုပ်တာဖြစ်ပါတယ်။ အဲ့ parameter ဟာ ကျွန်တော်တို့ set လုပ်ချင်တဲ့ property ရဲ့ value ပဲဖြစ်ပါတယ်။ Example မှာတော့ owner's name ကိုပဲ add လုပ်ထားတာဖြစ်ပါတယ်။ Method ထဲမှာဆိုရင် owner property ဟာ ကျွန်တော်တို့ pass လုပ်လိုက်တဲ့ parameter နဲ့ equal ဖြစ်နေတာဖြစ်ပါတယ်။ Property တစ်ခုရဲ့ name ဟာ getter or setter ရဲ့ name နဲ့ တူလို့တော့မရပါဘူး။ အဲ့မှာဆိုရင် owner ရဲ့ value ကို hold လုပ်ဖို့ရန်အတွက် different owner ကနေ property name တစ်ခုကို create လုပ်ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကို backing property လို့ခေါ်ပါတယ်။ Setter method ကိုအသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့ set လုပ်ချင်တဲ့ owner property ရဲ့ object name ကို type လုပ်ပြီးတော့ သူ့နောက်က dot ကို follow လုပ်မယ်။ ပြီးတော့ setter method ရဲ့ name ကို type လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ equal sign ခံပြီးတော့ owner's name ရဲ့ value ကို add ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed, sound) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                    this.sound = sound;
+                }
+                get activity() {
+                    const today = new Data();
+                    const hour = today.getHours();
+            
+                    if (hour > 8 && hour <= 20){
+                        return 'playing';
+                    } else {
+                        return 'sleeping';
+                    }
+                }
+                get owner() {
+                    return this._owner;
+                }
+                set owner(owner){
+                    this._owner = owner ;
+                    console.log('setter called: ${owner}');
+                }
+            
+                speak(){
+                    console.log(this.sound);
+                }
+            }
+            const arnie = new Pet('dog', 1, 'pug','yip yip');
+            const vera = new Pet('dog', 8, 'border collie', 'woof woof');
+            // console.log(arnie);
+            // console.log(arnie);
+            arnie.owner = 'Ashley';
+            console.log(arnie.owner);
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/set.png" alt=""><hr>
+    <h1>Objects Interaction</h1>
+    <p>Object's property တစ်ခုရဲ့ value ဟာ another object ရဲ့ value မဖြစ်လဲအသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ object oriented programming အကြောင်းပြောခဲ့တဲ့အခါမှာ OOP ဟာဆိုရင် objects တွေကိုအသုံးပြုတဲ့ programming paradigm တစ်ခုဖြစ်တယ်ဆိုတာကို ပြောခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ object တွေကတော့ designed ချထားတာဖြစ်ပြီးတော့ another တစ်ခုနဲ့ interact လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ setter function ထဲကို owner ရဲ့ name ကို represent လုပ်တဲ့ string တစ်ခုကို passing လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် pet's owner ရဲ့ name ဟာ great ဖြစ်တယ်ဆိုတာလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါထက် ပိုတဲ့ more information တွေရှိဖို့ရန်အတွက် good idea တစ်ခုရှိပါသေးတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ဟာ owner's ရဲ့ phone number နဲ့ address တို့ကို store လုပ်နိုင်တဲ့ way တစ်ခုကို add လုပ်ချင်တဲ့အခါမှာ helpful ဖြစ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒါတွေကို additional properties တွေအနေနဲ့ pet object ထဲကို add လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် new class တစ်ခုကို create လုပ်ရပါမယ်။ Example မှာဆိုရင် owner ဆိုတဲ့ class ကို create လုပ်ထားတာဖြစ်ပါတယ်။ ပြီးတော့ string နဲ့ equal ဖြစ်တဲ့ owner property ကို setting လုပ်နေမဲ့အစား owner class ရဲ့ new class နဲ့ equal ဖြစ်တဲ့ဟာကို set လုပ်မှာဖြစ်ပါတယ်။ First, class ကို create လုပ်မယ်။ ပြီးတော့ name and address properties တို့ကို initialize လုပ်ဖို့ရန်အတွက် constructor method တစ်ခုကို  create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Phone number အတွက်ဆိုရင် setter method တစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ recall လုပ်တဲ့အခါမှာ value တစ်ခုကို some kind of logic တွေကို attach လုပ်ချင်တဲ့အခါမှာ ဒါမှမဟုတ် coding processes ကို simplify လုပ်ချင်တဲ့အခါမှာ setters ဟာ great ဖြစ်ပါတယ်။ အဲ့မှာ phone number အတွက် setter method ကိုအသုံးပြုတာဟာ သူ့ကို set လုပ်တဲ့ဘယ်အချိန်မှာဘဲဖြစ်ဖြစ် non numeric characters တွေဖြစ်တဲ့ spaces, hyphens, and parentheses တို့ကို automatically removing လုပ်ပြီးတော့ phone number ကို normalize လုပ်နိုင်ပါတယ်။ Setter method ဟာဆိုရင် parameter တစ်ခုကို set လုပ်တာဖြစ်ပါတယ်။ အဲ့ parameter ဟာဆိုရင် phone number property  အတွက် set လုပ်ထားတဲ့ value ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ phone number ကို set မလုပ်ခင်မှာ normalize လုပ်ဖို့ရန်အတွက် string method ကို regular expression တစ်ခုအဖြစ် replace လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် normalized phone number ကို store လုပ်ဖို့ရန်အတွက် variable တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ Phone number parameter ဟာ string တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် သူ့ပေါ်မှာ string method replace ကို အသုံးပြုနိုင်ပါတယ်။ အဲ့ method ဟာ parameters နှစ်ခုကို ယူပါတယ်။ Replace လုပ်ဖို့ရန်အတွက် characters တွေနဲ့ သူတို့နဲ့ ဘယ်ဟာတွေ replace လုပ်မယ်ဆိုတာပဲဖြစ်ပါတယ်။ First parameter ဟာဆိုရင် non numeric characters တွေအားလုံးကို identify လုပ်ဖို့ရန်အတွက် regular expression တစ်ခုကို အသုံးပြုရမှာဖြစ်ပါတယ်။ Second parameter ကတော့ any non numeric characters တွေဟာ empty string နဲံ replaced လုပ်သင့်တယ်ဆိုတာကို indicate လုပ်တဲ့ empty string တစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် setter method ကို complete ဖြစ်ဖို့ရန်အတွက် normalized phone number ကို phone number backing property ဆီကို store လုပ်နိုင်ပါတယ်။ အဲ့ဒါပြီးတဲ့နောက်မှာ phone number အတွက် associated getter method ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အခုဆိုရင် owner class မှာ အား့လုံးကို set လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကို အသုံးပြုဖို့ရန်အတွက် previous example မှာရှိတဲ့ arnie.owner property မှာ owner class ရဲ့ new instance တစ်ခုကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် name and address parameters နှစ်ခုကိုပဲ passing လုပ်ထားတာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ arine.owner ဟာ object တစ်ခုကို represent လုပ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ အဲ့ object ရဲ့ properties တွေကို access or set လုပ်ဖို့ရန်အတွက် သူ့ပေါ်မှာ dot or bracket notation ကို အသုံးပြုနိုင်တဲ့ အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ပြီးတော့ setter method ကိုအသုံးပြုပြီးတော့ owner ရဲ့ phone number ကို set လုပ်မှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် phone number ထဲမှာ some extra parentheses နဲ့ hyphens တွေကို add လုပ်တာဟာ ကျွန်တော်တို့ရဲ့ normalizer ဟာ working properly ဖြစ်အောင်လုပ်လိုက်တာဖြစ်ပါတယ်။ </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            class Pet {
+                constructor ( animal, age, breed, sound) {
+                    this.animal = animal;
+                    this.age = age;
+                    this.breed = breed;
+                    this.sound = sound;
+                }
+                get activity() {
+                    const today = new Data();
+                    const hour = today.getHours();
+            
+                    if (hour > 8 && hour <= 20){
+                        return 'playing';
+                    } else {
+                        return 'sleeping';
+                    }
+                }
+                get owner() {
+                    return this._owner;
+                }
+                set owner(owner){
+                    this._owner = owner ;
+                    console.log('setter called: ${owner}');
+                }
+            
+                speak(){
+                    console.log(this.sound);
+                }
+            }
+            class Owner {
+                constructor(name, address){
+                    this.name = name;
+                    this.address = address;
+                }
+                set phone(phone){
+                    const phoneNormalized = phone.replace(/^0-9]/g,'');
+                    this._phone = phoneNormalized;
+                }
+                get phone(){
+                    return this._phone;
+                }
+            }
+            const arnie = new Pet('dog', 1, 'pug','yip yip');
+            const vera = new Pet('dog', 8, 'border collie', 'woof woof');
+            // console.log(arnie);
+            // console.log(arnie);
+            arnie.owner = new Owner('Ashley', '23 Main Street');
+            arnie.owner.phone = '555 555 5555';
+            console.log(arnie.owner.name);
+            console.log(arnie.owner.phone);
+            // console.log(arnie.owner);
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/interaction.png" alt=""><hr>
+    
+</body>
+</html>

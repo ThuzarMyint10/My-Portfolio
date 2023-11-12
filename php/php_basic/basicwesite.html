@@ -1,0 +1,3041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Basic Website</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Setting Up the Project</h1>
+    <p>
+        ဒီ course မှာတော့ basic PHP website တစ်ခုကို build လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် PHP template files တွေကို
+        အအသုံးပြုပြီးတော့ website ကို maintain လုပ်ဖို့ရန်အတွက် easier ဖြစ်အောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ template
+        files
+        တွေဟာ ကျွန်တော်တို့ကို multiple pages တွေမှာ same code and content တွေကို အသုံးပြုဖို့ ခွင့်ပြုပေးပါတယ်။ နောက်
+        PHP ကို
+        အသုံးပြုပြီးတော့ visitors တွေကို collection of media ကို through လုပ်ပြီးတော့ browse လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ ပြီးတော့ specific item ရဲ့ details တွေကို easy, customizable and scalable way
+        မှာကြည့်လို့ရအောင်
+        ပြုလုပ်သွားမှာဖြစ်ပါတယ်။ နောက်ဆုံးမှာတော့ PHP ကို အသုံးပြုပြီးတော့ email တစ်ခုကို ကျွန်တော်တို့ဆီကို send
+        လုပ်တဲ့
+        suggestion form တစ်ခုကိုလည်း create လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Using PHP Code on Our Site</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ media library ကို build လုပ်တဲ့နေရာမှာ ကျွန်တော်တို့ library ရဲ့ pages အားလုံးထဲမှာပါဝင်တဲ့
+        header အတွက်
+        separate file တစ်ခုနဲ့ setting up လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် maintain လုပ်ဖို့ရန်အတွက် easier
+        ဖြစ်အောင်လုပ်ပေးပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တု့ိရဲ့ file ဟာ .html extension နဲ့ဆိုရင် browser ဟာ read
+        လုပ်ပေးမှာမဟုတ်ပါဘူး။ .php extension နဲ့ file ကို save လုပ်ခဲ့ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="css/style.css"&gt;
+                &lt;title&gt;&lt;?php echo "Personal Medial Library"; ?&gt;&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="header"&gt;
+                    &lt;div class="wrapper"&gt;
+                        &lt;h1 class="branding-title"&gt;&lt;a href="#"&gt;Personal Media Library&lt;/a&gt;&lt;/h1&gt;
+                        &lt;ul class="nav"&gt;
+                            &lt;li class="books"&gt;&lt;a href="#"&gt;Books&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="movies"&gt;&lt;a href="#"&gt;Movies&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="music"&gt;&lt;a href="#"&gt;Music&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="suggest"&gt;&lt;a href="#"&gt;Suggest&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div id="content"&gt;
+                    &lt;div class="section catalog random"&gt;
+                        &lt;div class="wrapper"&gt;
+                            &lt;h2&gt;May we suggest something&lt;/h2&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="" alt="Forrest Gump"&gt;
+                                        &lt;p&gt;View Details&lt;/p&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="footer"&gt;
+                    &lt;div class="wrraper"&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="httt://twitter.com"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="https://www.facebook.com"&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;p&gt;&copy; &lt;?php echo date("Y"); ?&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+            
+                &lt;/div&gt;
+            
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Including the Header</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ဟာ php files တွေကို separate လုပ်ပြီး php ရဲ့ include method ကို
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် header အတွက် php file တစ်ခု၊ suggest အတွက် php file
+        တစ်ခုကို
+        create လုပ်ထားတာဖြစ်ပါတယ်။ Header file ထဲမှာဆိုရင် index.php မှာပါတဲ့ header တစ်ခုလုံးပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog random"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h2&gt;May we suggest something&lt;/h2&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/tom.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/princes.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/black.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/garth.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/pan.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/geminiman.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/Time.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/movie.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--end content--&gt;
+            &lt;div class="footer"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="httt://twitter.com"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="https://www.facebook.com"&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;&copy; &lt;?php echo date("Y"); ?&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            
+            &lt;/div&gt;
+            
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h3>header.php</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="css/style.css"&gt;
+                &lt;title&gt;&lt;?php echo "Personal Medial Library"; ?&gt;&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="header"&gt;
+                    &lt;div class="wrapper"&gt;
+                        &lt;h1 class="branding-title"&gt;&lt;a href="#"&gt;Personal Media Library&lt;/a&gt;&lt;/h1&gt;
+                        &lt;ul class="nav"&gt;
+                            &lt;li class="books"&gt;&lt;a href="#"&gt;Books&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="movies"&gt;&lt;a href="#"&gt;Movies&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="music"&gt;&lt;a href="#"&gt;Music&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="suggest"&gt;&lt;a href="suggest.php"&gt;Suggest&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div id="content"&gt;
+        </code>
+    </pre>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php include("inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+                &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Including the Footer and Adding Additional Pages</h1>
+    <p>
+        အခု section ကျွန်တော်တို့ဟာ footer အတွက် new file တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် header နဲ့footer
+        တွေပါတဲ့
+        catalog listing page ကိုလည်း create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် index.php file ထဲမှာရှိတဲ့ footer section
+        ကို cut
+        လုပ်ပြီးတော့ new file ထဲမှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် new file ကို index.php ထဲမှာ include method
+        ကိုအသုံးပြုပြီးတော့ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် catalog.php file ထဲမှာ header.php နဲ့ footer.php ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+             &lt;?php include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog random"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h2&gt;May we suggest something&lt;/h2&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/tom.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/princes.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/black.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/garth.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/pan.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/geminiman.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/Time.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="#"&gt;
+                                &lt;img src="image/media/movie.jpg" alt="Forrest Gump"&gt;
+                                &lt;p&gt;View Details&lt;/p&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--end content--&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+            &lt;?php include("inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+                &lt;h1&gt;Full Catalog&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>footer.php</h3>
+    <pre>
+        <code>
+            &lt;div class="footer"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="httt://twitter.com"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="https://www.facebook.com"&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;&copy; &lt;?php echo date("Y"); ?&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            
+            &lt;/div&gt;
+            
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Using Variables for the Title Tag</h1>
+    <p>
+        ကျွန်တော်တို့ PHP basic course မှာ လေ့လာခဲ့သလိုပဲ variable တစ်ခုဆိုတာ some data တွေကို references လုပ်တဲ့ a
+        piece of
+        code တစ်ခုပဲဖြစ်ပါတယ်။ PHP မှာဆိုရင် several type of variables တွေရှိပါတယ်။ Example strings, integers, arrays
+        တို့ပဲဖြစ်ပါတယ်။ အခု section မှာတော့ page တစ်ခုကနေ တစ်ခုမှာ title tag ကို change လုပ်ဖို့ရန်အတွက် string
+        variable
+        တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် same variable ကို different values နဲ့ ကျွန်တော်တို့ရဲ့ pages
+        တွေမှာ add
+        လုပ်လို့ရပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php 
+            $pageTitle = "Personal Media Library";
+            include("inc/header.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+           &lt;?php 
+            $pageTitle = "Full Catalog";
+            include("inc/header.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php 
+            $pageTitle = "Suggest a Media Item";
+            include("inc/header.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Working with _GET Variables</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ media categories ကို same catalog.php page ဆီကို link ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        ဘယ်
+        category the catalog ကို display လုပ်သင့်ပါတယ်ဆိုတာကို specify လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါ accomplish
+        ဖြစ်ဖို့ရန်အတွက်
+        URL ရဲ့ end မှာ string တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ File name ပြီးတဲ့အခါမှာ question mark တစ်ခုကို type
+        လုပ်ပြီးတော့ any name နဲ့ variable တစ်ခုလည်း type လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာတော့ cat လို့
+        ပေးထားတာဖြစ်ပါတယ်။
+        ပြီးတော့ equal sign နဲ့ books တွေရဲ့ specify value တစ်ခုကို type လုပ်ပေးရမှာဖြစ်ပါတယ်။ URL မှာ variables တွေကို
+        added
+        လုပ်တာဟာ server ဆီကို get sent လုပ်လိုက်တာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ special PHP variable တစ်ခုဖြစ်တဲ့ _GET
+        ပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ element ကို square brackets ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် element cat ဟာ URL
+        ထဲမှာ
+        ကျွန်တော်တို့ရဲ့ variable နဲ့ အတူတူပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဘယ် category ကို displayed လုပ်သင့်တယ်ဆိုတာကို
+        check
+        လုပ်ဖို့ရန်အတွက် conditional တစ်ခုကို ဒီ value ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ Example အတွက်ဆိုရင်တော့ options 4
+        ခုရှိပါတယ်။
+        အဲ့ဒါကတော့ books, movies, and music, and the full catalog တု့ိပဲဖြစ်ပါတယ်။ ကျွန်ာတော်တို့ check လုပ်ချင်တာကေတာ့
+        get
+        variable cat ဟာ ဒီ specific categories 3 ခုထဲက တစ်ခုကို set လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါမှမဟုတ်ရင်တော့ the full
+        catalog ကို
+        show လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>catalog.php</h3>
+    <pre>
+        <code> 
+            &lt;?php 
+            $pageTitle = "Full Catalog";
+            if (isset($_GET["cat"])){
+                if ($_GET["cat"] == "books") {
+                    $pageTitle ="Books";
+                } else if($_GET["cat"] == "movies") {
+                    $pageTitle = "Movies";
+                } else if($_GET["cat"] == "music") {
+                    $pageTitle = "Music";
+                }
+            }
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+                &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>header.php</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="css/style.css"&gt;
+                &lt;title&gt;&lt;?php $pageTitle; ?&gt;&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="header"&gt;
+                    &lt;div class="wrapper"&gt;
+                        &lt;h1 class="branding-title"&gt;&lt;a href="#"&gt;Personal Media Library&lt;/a&gt;&lt;/h1&gt;
+                        &lt;ul class="nav"&gt;
+                            &lt;li class="books"&gt;&lt;a href="catalog.php?cat=books"&gt;Books&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="movies"&gt;&lt;a href="catalog.php?cat=movies"&gt;Movies&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="music"&gt;&lt;a href="catalog.php?cat=music"&gt;Music&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="suggest"&gt;&lt;a href="suggest.php"&gt;Suggest&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div id="content"&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Active States to the Navigation</h1>
+    <p>
+        အခု section မှာ final thing တစ်ခုဖြစ်တဲ့ ကျွန်တော်တို့ရဲ့ navigation bar မှာ add လုပ်ဖို့ပဲဖြစ်ပါတယ်။ အဲ့အတွက်
+        header
+        file ထဲမှာ conditional ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ ပြီးတော့ appropriate link ကို underlined လုပ်ပေးမှာဖြစ်ပါတယ်။
+        Underline
+        လုပ်ဖို့ရန်အတွက် on ဆိုတဲ့ class ကို example မှာ add ထားတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ ဘယ် section
+        ထဲမှာရှိတယ်ဆိုတာကို
+        tells လုပ်ပေးဖို့ variable တစ်ခုလိုအပ်ပါတယ်။ Example ကျွန်တော်တို့ book section ထဲမှာဆိုရင် on class ကို books
+        link မှာ
+        add လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>header.php</h3>
+    <pre>
+        <code>
+            &lt;div class="header"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h1 class="branding-title"&gt;&lt;a href="index.php"&gt;Personal Media Library&lt;/a&gt;&lt;/h1&gt;
+                    &lt;ul class="nav"&gt;
+                        &lt;li class="books &lt;?php if ($section == "books") { echo "on";} ?&gt;"&gt;&lt;a href="catalog.php?cat=books"&gt;Books&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="movies &lt;?php if ($section == "movies") { echo "on";} ?&gt;"&gt;&lt;a
+                                href="catalog.php?cat=movies"&gt;Movies&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class="music &lt;?php if ($section == "music") { echo "on";} ?&gt;"&gt;&lt;a href="catalog.php?cat=music"&gt;Music&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="suggest &lt;?php if ($section == "suggest") { echo "on";} ?&gt;"&gt;&lt;a href="suggest.php"&gt;Suggest&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+            &lt;?php 
+            $pageTitle = "Full Catalog";
+            $section = "null";
+            if (isset($_GET["cat"])){
+                if ($_GET["cat"] == "books") {
+                    $pageTitle ="Books";
+                    $section = "books";
+                } else if($_GET["cat"] == "movies") {
+                    $pageTitle = "Movies";
+                     $section = "movies";
+                } else if($_GET["cat"] == "music") {
+                    $pageTitle = "Music";
+                     $section = "music";
+                }
+            }
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+                &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating the Catalog Array</h1>
+    <p>
+        ဒီ project ထဲမှာဆိုရင် ကျွန်တော်တို့ရဲ့ media items တွေရဲ့ information တွေအားလုံးကို store လုပ်ဖို့ရန်အတွက်
+        array
+        တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ catalog အားလုံးအတွက် array တစ်ခုရှိပါတယ်။ အဲ့ array
+        မှာဆိုရင်
+        multiple elements တွေရှိပြီးတော့ element တစ်ခုဟာ item တစ်ခုချင်းစီအတွက် ဖြစ်ပါတယ်။ Main catalog page မှာတော့ PHP
+        ရဲ့
+        foreach command ကို အသုံးပြုပြီးတော့ items တွေအားလုံးကို loop through လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် array
+        name ဟာ
+        catalog ဖြစ်ပါတယ်။ သူ့ထဲမှာရှိတဲ့ set of value တစ်ခုနဲ့တစ်ခုကို comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            &lt;?php 
+            
+            $catalog = array ("Design Patterns", "Forrest Gump", "Beethoven");
+            
+            $pageTitle = "Full Catalog";
+            $section = "null";
+            if (isset($_GET["cat"])){
+                if ($_GET["cat"] == "books") {
+                    $pageTitle ="Books";
+                    $section = "books";
+                } else if($_GET["cat"] == "movies") {
+                    $pageTitle = "Movies";
+                     $section = "movies";
+                } else if($_GET["cat"] == "music") {
+                    $pageTitle = "Music";
+                     $section = "music";
+                }
+            }
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog page"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+                    &lt;ul&gt;
+                        &lt;?php foreach($catalog as $items){
+                            echo "&lt;li&gt;". $items ."&lt;/li&gt;";
+                        }
+                        ?&gt;
+                    &lt;/ul&gt;
+            
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Elements and Specifying a Key</h1>
+    <p>
+        Array တစ်ခုထဲကို new elements တွေကို adding လုပ်တဲ့နေရာမှာ another syntax ရှိပါသေးတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ရဲ့
+        catalog
+        larger and more complex နှစ်ခုလုံးမှာ grows ဖြစ်လာစေဖို့ရန်အတွက် maintain လုပ်တဲ့နေရာမှာ လွယ်ကူပါတယ်။ Example
+        မှာဆိုရင်
+        catalog ဆိုပြီးတော့ array name ရဲ့ နောက်မှာ square brackets လိုက်ပြီးတော့ new element တစ်ခုကို add
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        Some cases တွေမှာ particular item တစ်ခုအတွက် specific key တစ်ခုရှိစေချင်ကြပါတယ်။ အဲ့ဒါဟာ item ကို သူ့ရဲ့ key
+        leader နဲ့
+        reference ဖြစ်စေချင်ဲတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ PHP ဟာဆိုရင် element ်တစ်ခုချင်းစီအတွက် specific key ကို square
+        brackets ထဲမှာ add လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $catalog = array ();
+            $catalog[101] = "Design Patterns";
+            $catalog[201] = "Forrest Gump";
+            $catalog[301] = "Beethoven";
+            $catalog[102] = "Clean Code";
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Multidimentional Arrays</h1>
+    <p>
+        catalog.php ထဲမှာ ကျွန်တော်တို့ရဲ့ catalog ကို simple indexed array တစ်ခုထဲမှာ stored လုပ်ထားတာဖြစ်ပါတယ်။ PHP
+        assign the
+        key ကို letting လုပ်နေမဲ့အစား key အတွက် ကျွန်တော်တို့ရဲ့ own item ID ကို specified လုပ်လို့ရပါတယ်။ Main catalog
+        array
+        ထဲမှာရှိတဲ့ element တစ်ခုချင်းစီဟာ item တစ်ခုကို represents လုပ်ပါတယ်။ ကျွန်တော်တို့ array ထဲမှာရှိတဲ့ elements
+        တွေကို
+        another array ထဲမှာ value လုပ်မှာဖြစ်ပါတယ်။ Example မှာဆိုရင် new file တစ်ခုထဲမှာ create လုပ်ထားတာဖြစ်ပါတယ်။
+        တစ်နည်းပြောရရင်တော့ ဒါဟာ multidimentional array တစ်ခုကို create လုပ်လိုက်တာဖြစ်ပါတယ်။ Associative array
+        အကြောင်းကို
+        ကျွန်တော်တို့ဟာ လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>data.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $catalog = [];
+            $catalog[101] = [
+                "title" => "A Design Patterns: Elements of Reusable Object-Oriented Software",
+                "img" => "image/media/books.jpg",
+                "format" => "Tech",
+                "year" => 1995,
+                "categeory" => "Books",
+                "authors" => [
+                    "Erich Gamma",
+                    "Richard Helm",
+                    "Ralph Johson",
+                    "John Vlissides"
+                ],
+                "publisher" => "Prentice Hall",
+                "isbn" => '978-75465357'
+            ];
+            $catalog [102] =[
+                "title" => "Clean Code: A Hankbook of Agile Software Craftsmanship",
+                "img" => "image/media/books1.jpg",
+                "genre" => "Tech",
+                "format" => "Ebook",
+                "year" => 2008,
+                "categeory" => "Books",
+                "authors" => [
+                    "Robert C Martin"
+                ],
+                "publisher" => "Prentice Hall",
+                "isbn" => '978-0987767467'
+            ];
+            $catalog [103] =[
+                "title" => "Refactoring: Improving the Design of Existing Code",
+                "img" => "image/media/books2.jpg",
+                "genre" => "Tech",
+                "format" => "Hardcover",
+                "year" => 1999,
+                "categeory" => "Books",
+                "authors" => [
+                    "Martin Fowler",
+                    "Kent Beck"
+                ],
+                "publisher" => "Addison-Wesley Professional",
+                "isbn" => '987-999887545'
+            ];
+            $catalog [104] =[
+                "title" => "The Clean Coder: A Code of Conduct for Professional Programmers",
+                "img" => "image/media/books3.jpg",
+                "genre" => "Tech",
+                "format" => "Audio",
+                "year" => 2011,
+                "categeory" => "Books",
+                "authors" => [
+                    "Robert C Martin"
+                ],
+                "publisher" => "Prentice Hall",
+                "isbn" => '978-75465357',
+                "artist" => "Nat King Cole"
+            ];
+            $catalog [201] =[
+                "title" => "Forrest Gump",
+                "img" => "image/media/music.jpg",
+                "genre" => "Tech",
+                "format" => "DVD",
+                "year" => 1994,
+                "categeory" => "Books",
+                "director" => "Rob Reiner",
+                "writers" => [
+                    "Willian Goldman"
+                ],
+                "stars" => [
+                    "Cary Elwes",
+                    "Mandy Patinkin",
+                    "Robin Wright"
+                ]
+            ];
+            $catalog [202] =[
+                "title" => "The Lord of the Rings: The Fellowship of the Ring",
+                "img" => "image/media/music1.jpg",
+                "genre" => "Drama",
+                "format" => "Blu-ray",
+                "year" => 1994,
+                "categeory" => "Movies",
+                "director" => "Peter-Jackson",
+                "writers" => [
+                    "Willian Goldman",
+                ],
+                "stars" => [
+                    "Cary Elwes",
+                    "Mandy Patinkin",
+                    "Robin Wright"
+                ]
+            ];
+            $catalog [203] =[
+                "title" => "Forrest Gump",
+                "img" => "image/media/music2.jpg",
+                "genre" => "Tech",
+                "format" => "DVD",
+                "year" => 2001,
+                "categeory" => "Books",
+                "director" => "Rob Reiner",
+                "writers" => [
+                    "Willian Goldman"
+                ],
+                "stars" => [
+                    "Cary Elwes",
+                    "Mandy Patinkin",
+                    "Robin Wright"
+                ]
+            ];
+            $catalog [204] =[
+                "title" => "Forrest Gump",
+                "img" => "image/media/music3.jpg",
+                "genre" => "Drama",
+                "format" => "Blu-ray",
+                "year" =>  1997,
+                "categeory" => "Books",
+                "director" => "Rob Reiner",
+                "writers" => [
+                    "J.R.R Tolkien",
+                    "Fran Walsh"
+                ],
+                "stars" => [
+                    "Cary Elwes",
+                    "Mandy Patinkin",
+                    "Robin Wright"
+                ]
+            ];
+            // Music
+            $catalog [301] =[
+                "title" => "Beethoven: Complete Symphonies",
+                "img" => "image/media/movies1.jpg",
+                "genre" => "Classical",
+                "format" => "CD",
+                "year" => 2012,
+                "categeory" => "Music",
+                "artist" => "Nat King Cole"
+            ];
+            $catalog [302] =[
+                "title" => "Elvis Forever",
+                "img" => "image/media/movies2.jpg",
+                "genre" => "Rock",
+                "format" => "Vinyl",
+                "year" => 2015,
+                "categeory" => "Music",
+                "artist" => "Elvis Presley"
+            ];
+            $catalog [303] =[
+                "title" => "No Fences",
+                "img" => "image/media/movies3.jpg",
+                "genre" => "Country",
+                "format" => "Cassette",
+                "year" => 1990,
+                "categeory" => "Music",
+                "artist" => "Garth Brooks"
+            ];
+            $catalog [304] =[
+                "title" => "The Very Thought of You",
+                "img" => "image/media/movies4.jpg",
+                "genre" => "Jaz",
+                "format" => "MP3",
+                "year" => 2008,
+                "categeory" => "Music",
+                "artist" => "Nat King Cole"
+            ];
+            ?>
+            ?>
+        </code>
+    </pre>
+    <hr>
+    <h1>Displaying All Items</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ multidimensional array ကို updated လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု
+        section
+        မှာ အဲ့ဒါတွေကို page မှာ display လုပ်မှာဖြစ်ပါတယ်။ အဲ့အခါမှာတော့ include method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include("Inc/data.php");
+            
+            $pageTitle = "Full Catalog";
+            $section = "null";
+            if (isset($_GET["cat"])){
+                if ($_GET["cat"] == "books") {
+                    $pageTitle ="Books";
+                    $section = "books";
+                } else if($_GET["cat"] == "movies") {
+                    $pageTitle = "Movies";
+                     $section = "movies";
+                } else if($_GET["cat"] == "music") {
+                    $pageTitle = "Music";
+                     $section = "music";
+                }
+            }
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog page"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+                    &lt;ul class="items"&gt;
+                        &lt;?php foreach($catalog as $items){
+                            echo "&lt;li&gt;&lt;a href='#'&gt;&lt;img src='"
+                            . $items["img"] . "' alt='"
+                            . $items["title"] . "'/&gt;"
+                            . "&lt;p&gt; View Details"
+                            ."&lt;/a&gt;&lt;/li&gt;";
+                        }
+                        ?&gt;
+                    &lt;/ul&gt;
+            
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating the Display Function</h1>
+    <p>
+        index.php and catalog.php နှစ်ခုလုံးမှာ item တစ်ခုရဲ့ list view ကို display လုပ်ဖို့ရန်အတွက် အသုံးပြုမဲ့
+        function ကို
+        create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ function ရဲ့ name ကတော့ get_item_html ပဲဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် parameters
+        အနေနဲ့
+        item ID နဲ့ single item တစ်ခုအတွက် interior array တို့ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ multiple
+        parameters
+        တွေကို function တစ်ခုအတွက် comma နဲ့ separate လုပ်ပြီးတော့ pass လုပ်နိုင်ပါတယ်။ New function ထဲမှာ
+        ကျွန်တော်တို့ရဲ့ list
+        view ထဲမှာ item ကို display လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ HTML နဲ့ string တစ်ခုကို build လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ return value အဖြစ်နဲ့ HTML ကို pass back လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် example မှာဆိုရင် new
+        file
+        တစ်ခုကို create လုပ်ထားတာဖြစ်ပါတယ်။ Example မှာဆိုရင် ကျွန်တော်တို့မှာ list ထဲမှာရှိတဲ့ single item တစ်ခုအတွက်
+        HTML
+        output ကို builds လုပ်ထားတဲ့ code ရှိပြီးဖြစ်တဲ့အတွက်ကြောင့် အဲ့ဒါကို function ထဲမှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်ကျွန်တော်တို့ဟာ function ကို catalog.php ထဲမှာ call လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် foreach loop ဟာ item ID
+        ကိုရဖို့ရန်အတွက် modify လုပ်ဖို့လိုပါတယ်။ အဲ့ ID ဟာ ကျွန်တော်တို့ variable ထဲကို loaded လုပ်ပြီးသားဖြစ်တဲ့
+        single item
+        တစ်ခုအတွက် key ပဲဖြစ်ပါတယ်။ အဲ့ဒါပြီးတဲ့နောက် function page ကို include method ကိုအသုံးပြုပြီးတော့ add
+        လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php 
+            include("Inc/data.php");
+            include("Inc/function.php");
+            $pageTitle = "Personal Media Library";
+            $section = "null";
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog random"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h2&gt;May we suggest something&lt;/h2&gt;
+                    &lt;ul&gt;
+                        &lt;?php foreach($catalog as $id =&gt; $item){
+                                    echo get_item_html($id,$item);
+                                }
+                                ?&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--end content--&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            function get_item_html($id,$item){
+                 $outpu = "&lt;li&gt;&lt;a href='#'&gt;&lt;img src='"
+                            . $item["img"] . "' alt='"
+                            . $item["title"] . "'/&gt;"
+                            . "&lt;p&gt; View Details"
+                            ."&lt;/a&gt;&lt;/li&gt;";
+                    return $outpu;
+            }
+            ?&gt;
+        </code>
+    </pre>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include("Inc/data.php");
+            include("Inc/function.php");
+            $pageTitle = "Full Catalog";
+            $section = "null";
+            if (isset($_GET["cat"])){
+                if ($_GET["cat"] == "books") {
+                    $pageTitle ="Books";
+                    $section = "books";
+                } else if($_GET["cat"] == "movies") {
+                    $pageTitle = "Movies";
+                     $section = "movies";
+                } else if($_GET["cat"] == "music") {
+                    $pageTitle = "Music";
+                     $section = "music";
+                }
+            }
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog page"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+                    &lt;ul class="items"&gt;
+                        &lt;?php foreach($catalog as $id =&gt; $item){
+                           echo get_item_html($id,$item);
+                        }
+                        ?&gt;
+                    &lt;/ul&gt;
+            
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Random Fun with Arrays</h1>
+    <p>
+        Currently အရ home page ဟာ catalog ထဲမှာရှိတဲ့ items တစ်ခုချင်းစီကို loops through လုပ်မှာဖြစ်ပါတယ်။ Catalog
+        တစ်ခုလုံးမှ
+        ကျွန်တော်တို့ရဲ့ user ကို suggest လုပ်ဖို့ရန်အတွက် four random products ကို pull လုပ်မှာဖြစ်ပါတယ်။
+        အဲ့ဒါကိုလုပ်ဖို့ရန်အတွက် PHP ရဲ့ built-in function တစ်ခုကို အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ function ကတော့ array_rand
+        function
+        ပဲဖြစ်ပါတယ်။ Array_rand function ဟာ parameters နှစ်ခုကို ယူပြီးတော့ value တစ်ခုကို return ပြန်ပေးတာဖြစ်ပါတယ်။
+        First
+        parameter ဟာ array ဖြစ်ပြီးတော့ second parameter ကတော့ ကျွန်တော်တို့ grab လုပ်ချင်တဲ့ number of elements
+        ပဲဖြစ်ပါတယ်။
+        နောက် return values ကိုကြည့်တဲ့အခါမှာ item တစ်ခုကိုပဲ return ပြန်မှာဆိုရင် သူဟာ single key element ကို return
+        ပြန်ပေးတာဖြစ်ပါတယ်။ Multiple items တွေကို return ပြန်တယ်ဆိုရင်တော့ သူဟာ key ကို array ထဲကို puts
+        လုပ်လိုက်တာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ example မှာဆိုရင်တော့ first parameter ဟာ catalog ဖြစ်ပြီးတော့ second parameter ကတော့ 4
+        ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php 
+            include("Inc/data.php");
+            include("Inc/function.php");
+            $pageTitle = "Personal Media Library";
+            $section = "null";
+            include("inc/header.php"); ?&gt;
+            &lt;div class="section catalog random"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h2&gt;May we suggest something&lt;/h2&gt;
+                    &lt;ul&gt;
+                        &lt;?php 
+                                $random = array_rand($catalog,4);
+                                foreach($random as $id){
+                                    echo get_item_html($id,$catalog[$id]);
+                                }
+                                ?&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--end content--&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/index.php">Test Yourself</a>
+    <h1>Creating the Display Function</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ array_rand လု့ိခေါ်တဲ့ PHP built-in function ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        books,
+        movies, and music စတဲ့ category နဲ့ corresponding ဖြစ်တဲ့ items တွေကို display လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကို
+        လုပ်ဆောင်ဖု့ိရန်အတွက် array_rand function လို အလုပ်လုပ်ပုံတူတဲ့ own function ကို create လုပ်ရမှာဖြစ်ပါတယ်။
+        အဲ့ထဲမှာဆိုရင် parameters နှစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပြီးတော့ keys ရဲ့ array တစ်ခုကို return
+        ပြန်ပေးမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ catalog page အတွက် category keys တွေကိုပဲ pull လုပ်ချင်တာဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        function.php ထဲမှာ
+        array_category ဆိုတဲ့ function ကို add လုပ်ထားတာဖြစ်ပါတယ်။ Parameters အတွက် catalog array ကို လိုအပ်တာဖြစ်ပါတယ်။
+        နောက်
+        category ကို ကျွန်တော်တို့ဟာ return ပြန်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ array ကို return
+        ပြန်ချင်တာဖြစ်တဲ့အတွက်ကြောင့်
+        empty array တစ်ခုကို creating လုပ်ပေးဖို့လိုပါတယ်။ နောက် catalog array ကို loop through လုပ်ဖို့လိုပါတယ်။
+        အဲ့ဒါကြောင့်
+        foreach loop တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် item တစ်ခုချင်းအတွက် category ဟာ ကျွန်တော်တို့ရဲ့ matches
+        ဖြစ်တယ်
+        မဖြစ်ဘူးဆိုတာကို check လုပ်ပေးဖို့လိုပါတယ်။ နောက် data.php file ထဲမှာ category ရဲ့ value ဟာ capitalized
+        ဖြစ်တဲ့အတွက်ကြောင့် အဲ့ string values တွေကို lowercase ကို convert လုပ်ဖို့ရန်အတွက် built-in function တစ်ခုကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Function ကတော့ strtolower ပဲဖြစ်ပါတယ်။ ဒီ function ဟာ string ကို lowercase ကို convert
+        လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ passed လုပ်လိုက်တဲ့ category ဟာ current item ရဲ့ category နဲ့ matches
+        ဖြစ်တယ်ဆိုရင်
+        ကျွန်တော်တို့ဟာ looping through လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် id ကို output array ထဲကို add လုပ်ပေးဖို့လိုပါတယ်။
+        နောက်
+        function ကို catalog page ကနေ call လုပ်ပေးဖို့လိုပါတယ်။ Full catalog အတွက်လည်း ကျွန်တော်တို့ဟာ if statement
+        တစ်ခုကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ category ဟာ null ညီတဲ့အခါမှာ catalog ကို return
+        ပြန်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>catalog.php</h3>
+    <pre>
+        <code>
+            $section = "";
+            
+            if (isset($_GET["cat"])){
+            if ($_GET["cat"] == "books") {
+            $pageTitle ="Books";
+            $section = "books";
+            } else if($_GET["cat"] == "movies") {
+            $pageTitle = "Movies";
+            $section = "movies";
+            } else if($_GET["cat"] == "music") {
+            $pageTitle = "Music";
+            $section = "music";
+            }
+            }
+            include("inc/header.php"); ?>
+            &lt;div class="section catalog page"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;h1&gt;&lt;?php echo $pageTitle; ?&gt;&lt;/h1&gt;
+                    &lt;ul class="items"&gt;
+                        &lt;?php   
+                        $categories = array_category($catalog, $section);
+                        foreach($categories as $id){
+                            echo get_item_html($id,$catalog[$id]);
+                        }
+                        ?&gt;
+                    &lt;/ul&gt;
+            
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function array_category($catalog,$category){
+            
+            if($category == null){
+            return array_keys($catalog);
+            }
+            $output = array();
+            foreach ($catalog as $id => $item) {
+            if(strtolower($category) == strtolower($item["category"])){
+            $output[] = $id;
+            }
+            }
+            return $output;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Sorting Array Items</h1>
+    <p>
+        အခု section မှာ array ထဲမှာရှိတဲ့ items တွေကို title အရ sorting လုပ်ပြီးတော့ show လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါအတွက်
+        function.php ထဲမှာ array category function ထဲက item ဟာ match ဖြစ်မဖြစ်ကို check လုပ်ပြီးတဲ့အောက်မှာ sorting
+        အတွက်
+        variable တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ sort လုပ်ဖို့ရန်အတွက် any element ကို choose
+        လုပ်နိုင်ပါတယ်။ ဒါပေမဲ့ title ဟာ most useful ဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် array ထဲကို key ကို adding
+        လုပ်တဲ့အစား sort
+        ထဲကို value ကို assign လုပ်ထားတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ output ကို return မပြန်ခင်မှာ two things
+        ကိုလုပပ်ဆောင်ရမှာဖြစ်ပါတယ်။ First, array ကို asort ဆိုတဲ့ built-in function ကိုအသုံးပြုပြီးတော့ sort
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second, asort ကို output ထုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိရဲ့ array ကို
+        change
+        လုပ်ထားတာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် typically အရ items တွေဟာ alphabetized ဖြစ်ကြပါတယ်။ Title ရဲ့ အစမှာရှိတဲ့
+        Preposition တွေဖြစ်တဲ့ a, and ,the တို့ကို ignored လုပ်လိုက်မှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် another built-in function
+        တစ်ခုဖြစ်တဲ့ Ltrim ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ left ကနေ trim လုပ်တာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function array_category($catalog,$category){
+            
+            if($category == null){
+            return array_keys($catalog);
+            }
+            $output = array();
+            foreach ($catalog as $id => $item) {
+            if(strtolower($category) == strtolower($item["category"])){
+            $sort = $item["title"];
+            $sort = ltrim($sort, "The ");
+            $sort = ltrim($sort, "a ");
+            $sort = ltrim($sort, "and ");
+            $output[$id] = $sort;
+            }
+            }
+            asort($output);
+            return array_keys($output);
+        </code>
+    </pre>
+    <hr>
+    <h1>Item Details and Redirection</h1>
+    <p>
+        အခု section မှာ last thing ဖြစ်တဲ့ item တစ်ခုချင်းစီရဲ့ details ကို display လုပ်ဖု့ိအတွက်ပဲဖြစ်ပါတယ်။ အဲ့အတွက်
+        new file
+        တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ site ရဲ့ root ထဲမှာ other pages တွေဆီကိုသွားတာကို sure
+        ဖြစ်အောင်လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် catalog.php ရဲ့ top code တစ်ခုကိုလုံးကို header အထိ copy
+        လုပ်ပြီးတော့
+        detail.php ထဲမှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ changes တွေပြုလုပ်ရပါမယ်။ Specific
+        item
+        တစ်ခုအတွက် detail ကို pull လုပ်ဖို့ရန်အတွက် get variable ကို utilize လုပ်ရမှာဖြစ်ပါတယ်။ "cat" အစား "id" ကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ဒါနဲ့ ကျွန်တော်တို့ဘာကိုလုပ်ဆောင်မယ်ဆိုတာကိုလည်း changes လုပ်ရမှာဖြစ်ပါတယ်။
+        တစ်ကယ်လို ID
+        ဟာ passed ဖြစ်ခဲ့တယ်ဆိုရင် အဲ့ ID ကို ကျွန်တော်တို့ရဲ့ catalog ထဲမှာ check လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        variable
+        တစ်ခုကို create လုပ်ပြီးတော့ အဲ့ထဲမှာ GET id ဆိုတဲ့ value ကို assign လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိဟာ
+        catalog
+        ထဲမှာရှိတဲ့ အဲ့ ID အတွက် check လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါအတွက် isset ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် example
+        မှာဆိုရင် အဲ့ ID နဲ့ item ကို တွေ့တယ်ဆိုရင် အဲ့ item ရဲ့ value ကို item variable တစ်ခုထဲကို hit
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        တစ်ကယ်လို့ မတွေ့ခဲ့ဘူးဆိုရင် variable ကို passing မလုပ်ပါဘူး။ ပြီးတော့ ကျွန်တော်တို့ရဲ့ item variable ထဲမှာ set
+        လုပ်မှာမဟုတ်ပါဘူး။ ပြီးတော့သူ့ကို full catalog တစ်ခုဆီကို redirect လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် another if
+        statement တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာရှိတဲ့ command ကတော့ header ပဲဖြစ်ပါတယ်။ သူဟာ
+        ကျွန်တော်တို့ရဲ့
+        header file နဲ့ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ သူဟာ HTTP ရဲ့ part တစ်ခုပဲဖြစ်ပါတယ်။ HTTP ဟာ any HTML ကို gets passed
+        မလုပ်ခင်မှာ server and browser နဲ့ communicate လုပ်တာကို define လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်header field ဟာ
+        location
+        ကို define လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ browser ကို different page တစ်ခုကို ကြည့်မယ်လို့ tells
+        လုပ်လိုက်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ redirect မတိုင်ခင်မှာ anything ကို send မလုပ်ဖို့
+        သေချာအောင်လုပ်ဖို့လိုပါတယ်။
+        File တစ်ခုရဲ့ အစမှာရှိတဲ့ blank line တစ်ခုဟာ redirect ကို fail ဖြစ်စေပါတယ်။ ဘာကြောင့်လဲဆိုတော့ blank line
+        ကြောင့်ဖြစ်ပါတယ်။ အဲ့ဒါဟာ header response ကို requesting computer ဆီကို sent back လုပ်စေပါတယ်။ နောက်ထပ် သူ့ထဲမှာ
+        exit
+        command ကိုလည်း put လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ exit ဟာ redirect ဖြစ်နေချိန်မှာ ဘာမှကို processed
+        မလုပ်ပါဘူးဆိုတာကိုသေချာအောင်လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ Last thing ကတော့ ကျွန်တော်တို့ file ရဲ့ top section ထဲမှာ
+        page
+        title ကို redirect ရဲ့ အောက်မှာ move လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ detail.php အတွက် content ကို add
+        လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ content ထဲမှာ first အနေနဲ့ image ကို add လုပ်ထားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>detial.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include("Inc/data.php");
+            include("Inc/function.php");
+            
+             
+            if (isset($_GET["id"])){
+                $id = $_GET["id"];
+                if(isset($catalog[$id])){
+                    $item = $catalog[$id];
+                }
+            }
+            if(!isset($item)){
+                header("location:catalog.php");
+                exit;
+            }
+            $pageTitle = $item["title"];
+             $section = "";
+            include("inc/header.php"); ?&gt;
+            
+            &lt;div class="section page"&gt;
+                &lt;div class="wrapper"&gt;
+                    &lt;div class="media-picture"&gt;
+                        &lt;span&gt;
+                            &lt;img src="&lt;?php echo $item["img"];?&gt;" alt="&lt;?php echo $item["title"];?&gt;" /&gt;
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Displaying Item Details</h1>
+    <p>
+        အခု section မှာတော့ image နဲ့ ပါတ်သတ်တဲ့ detail ကို display လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် detail အတွက်
+        media-details ဆိုတဲ့ div တစ်ခုကို create လုပ်ပေးထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ h1 tag နဲ့ title ကို
+        add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် item details အတွက် table တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာ categories
+        တစ်ချင်းစီဟာ some specific attributes တွေရှိပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ category ကို check
+        လုပ်ဖို့ရန်အတွက်
+        conditional တစ်ခုကိုအသုံးပြုပြီးတော့ category တစ်ချင်းစီနဲ့ associated ဖြစ်တဲ့ attributes တွေကို display
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် first အနေနဲ့ categories match ဖြစ်တာကို ပြုလုပ်ဖို့ရန်အတွက် string to lower
+        function
+        ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် item category ဟာ" books " နဲ့ ညီခဲ့တယ်ဆိုရင် authors, publishers and
+        ISBN
+        တု့ိကို display လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် authors ဟာ ကျွန်တော်တို့ရဲ့ item ထဲမှာ nested ဖြစ်နေတဲ့
+        array
+        ဖြစ်နေတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ print out လုပ်ချင်တာက authors တစ်ယောက်ချင်းစီကို comma နဲ့ separated
+        လုပ်ပြီးတော့ print
+        out လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် foreach loop ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့အတါွက် PHP
+        မှာ
+        implode ဆိုတဲ့ function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Implode ဟာ parameters နှစ်ခုယူပါတယ်။ ပြီးတော့ array pieces
+        တွေကို
+        string တစ်ခုအနေနဲ့ joins လုပ်ပေးတာဖြစ်ပါတယ်။ First parameter ဟာ elements တွေကို separate လုပ်ဖို့ရန်အတွက်
+        အသုံးပြုချင်တဲ့ string ပဲဖြစ်ပါတယ်။ Second parameter ကတော့ array ပဲဖြစ်ပါတယ်။ String separator ကတော့ anything or
+        group
+        of things ဖြစ်နိုင်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ HTML ထဲမှာ list of items တွေကို ပြုလုပ်ချင်တဲ့အခါမှာ really
+        useful
+        ဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>detail.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include("Inc/data.php");
+            include("Inc/function.php");
+            
+            
+            if (isset($_GET["id"])){
+            $id = $_GET["id"];
+            if(isset($catalog[$id])){
+            $item = $catalog[$id];
+            }
+            }
+            if(!isset($item)){
+            header("location:catalog.php");
+            exit;
+            }
+            $pageTitle = $item["title"];
+            $section = "";
+            include("inc/header.php"); ?&gt;
+            
+            &lt;div class="section page"&gt;
+            &lt;div class="wrapper detail"&gt;
+            &lt;div class="media-picture"&gt;
+            &lt;span&gt;
+            &lt;img src="&lt;?php echo $item["img"];?&gt;" alt="&lt;?php echo $item["title"];?&gt;"/&gt;
+            &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="media-detail"&gt;
+            &lt;h1&gt;&lt;?php echo $item["title"]; ?&gt;&lt;/h1&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Category&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["category"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Genre&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["genre"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Format&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["format"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Year&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["year"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php if(strtolower($item["category"]) == "books"){?&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Authors&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo implode(", " ,$item["authors"]); ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Publisher&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["publisher"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;ISBN&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["isbn"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php } elseif(strtolower($item["category"]) == "movies"){?&gt;
+            
+            &lt;tr&gt;
+            &lt;th&gt;Director&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["director"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Writers&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo implode(", ",$item["writers"]); ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Stars&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo implode(", ",$item["stars"]); ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php } elseif(strtolower($item["category"]) == "music"){?&gt;
+            &lt;tr&gt;
+            &lt;th&gt;Artist&lt;/th&gt;
+            &lt;td&gt;&lt;?php echo $item["artist"]; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;?php } ?&gt;
+            
+            &lt;/table&gt;
+            
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/index.php">Test Yourself</a>
+    <hr>
+    <h1>Breadcrumbs</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ media library မှာ some breadcrumbs ဟာ missing ဖြစ်နေတာဖြစ်ပါတယ်။ Breadcrumbs ဟာ ကျွန်တော်တို့
+        current
+        page ကနေပြီးတော့ path ကို show လုပ်ချင်တဲ့အခါမှာ အသုံးပြုတဲ့ terms တွေဖြစ်ပါတယ်။ PHP ဟာ ဒီ breadcrumbs တွေကို
+        specify
+        လုပ်ဖို့ရန်အတွက် variables တွေကို တစ်ကြိမ်ပဲ အသုံးပြုခွင့်ပေးထားပါတယ်။ Example မှာဆိုရင် breadcrumbs အတွက် div
+        တစ်ခုကို
+        create လုပ်ထားတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>detail.php</h3>
+    <pre>
+        <code>
+                &lt;div class="wrapper detail"&gt;
+                    &lt;div class="breadcrumbs"&gt;
+                        &lt;a href="catalog.php"&gt;Full Catalog&lt;/a&gt;
+                        &gt; &lt;a href="catalog.php?cat=&lt;?php echo strtolower($item["category"]); ?&gt;"&gt;
+                            &lt;?php echo $item["category"]; ?&gt;&lt;/a&gt;
+                        &gt; &lt;?php echo $item["title"]; ?&gt;
+                
+                    &lt;/div&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/detail.php">Test Yourself</a>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ form ထဲကို fields တွေကို add လုပ်သွားမှာဖြစ်ပါတယ်။ Form မှာဆိုရင် multiple
+        fields
+        တွေရှိပါတယ်။ အဲ့အတွက် HTML table element ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု section မှာ someone ဟာ contact form ကို submits လုပ်လိုက်တဲ့အချိန်မှာ
+        ဘာတွေဖြစ်သွားမလဲဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+        First အနေနဲ့ ဘယ်လိုအလုပ်လုပ်ဆိုတာကိုလေ့လာကြည့်ရအောင်။ Someone ဟာ သူတို့ရဲ့ information တွေကို fill လုပ်ပြီးတော့
+        Send ကို
+        click လိုက်တဲ့အခါမှာ browser ဟာ အဲ့ request တွေကို web server ဆီကို sends လုပ်လိုက်ပါတယ်။ အဲ့ request
+        ထဲမှာဆိုရင်
+        visitor တွေ form fields ထဲမှာ entered လုပ်လိုက်တဲ့ values တွေအားလုံးပါဝင်ပါတယ်။ နောက် server ဟာဆိုရင် အဲ့ values
+        တွေကို
+        access လုပ်ပြီးတော့ ကျွန်တော်တို့ရဲ့ PHP code တွေကို executes လုပ်ပေးတာဖြစ်ပါတယ်။ Example မှာဆိုရင် suggest ကို
+        edit
+        ပြန်လုပ်ပေးရမှာဖြစ်ပါတယ်။ Visitors တွေဟာ Send ကို click လိုက်တဲ့အချိန်မှာ form ထဲမှာရှိတဲ့ information တွေကို
+        particular
+        PHP file တစ်ခုထဲကို browser ဟာ send လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့အတွက်ကျွန်တော်တို့ဟာ browser ကို ဘယ်နေရာကနေ send
+        လုပ်လိုက်ပါတယ်ဆိုတာကို ကျွန်တော်တို့ရဲ့ form ထဲမှာ action attribute ကို specifying လုပ်ပြီးတော့ tell
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ action attribute ထဲမှာ ကျွန်တော်တို့ရဲ့ information တွေကို access လုပ်ပေးတဲ့ php file
+        တစ်ခုကို
+        example အနေနဲ့ လုပ်ပြထားတာဖြစ်ပါတယ်။ Visitor ဟာ Send ကို click လုပ်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ form ထဲကနေ some
+        variables တွေနဲ့ information တွေကို browser ဟာ sends လုပ်လိုက်တာဖြစ်ပါတယ်။ အဲ့ variables တွေကို accessing
+        လုပ်ဖို့ရန်အတွက် $_GET ကို အသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ Post method နှင့် form တစ်ခုဟာ PHP file တစ်ခုကို submitted
+        လုပ်လိုက်တဲ့အချိန်မှာ အဲ့ form က information တွေကို stored လုပ်ဖို့ရန်အတွက် "$_POST"
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Suggest.php</h3>
+    <pre>
+        <code>
+             
+        </code>
+    </pre>
+    <h3>process.php</h3>
+    <pre>
+        <code>
+            <?php
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $details = $_POST["details"];
+            echo $name;
+            echo $email;
+            echo $details;
+            ?>
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု section မှာတော့ echo out လိုက်လိုက်တဲ့ text တွေကို concatenation ကို အသုံးပြုပြီးတော့ describe
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        နောက် line breaks ကိုလည်း အသုံးပြုသွားမှာဖစ်ပါတယ်။ Echo statements တွေဟာဆိုရင် separate lines
+        တွေမှာရှိပြီးသားဖြစ်ပါတယ်။
+        ဒါပေမဲ့ သူတို့မှာ line break မရှိပါဘူး။ ကျွန်တော်တို့ဟာ line breaks ကို escape sequence တစ်ခုကို
+        အသုံးပြုပြီးတော့ add
+        လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ code ထဲမှာ line break character တစ်ခုကို type လုပ်လို့မရပါဘူး။ Sequence of
+        characters
+        တစ်ခုကိုအသုံးပြုမှသာ PHP ဟာ line break တစ်ခုအနေနဲ့ interpret လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကို end မှာ add
+        လုပ်နိုင်ပါတယ်။
+        Sequence ကတော့ "\n" ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ line break ကို browser ထဲမှာ display လုပ်ဖို့ရန်အတွက်
+        break tag
+        တစ်ခုကို line break ကို achieve လုပ်ဖု့ိရန်အတွက် အသုံး့ပြုပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ code ကို change
+        မလုပ်ဘူး
+        ဒါပေမဲ့ plain text formatting နဲ့ မြင်ချင်တဲ့အခါမှာ couple ways ရှိပါတယ်။ First ကတော့ view source မှာ
+        မြင်နိုင်ပါတယ်။
+        Second ကတော့ pre-formatted text element or pre-tag ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို browser မှာ white space display
+        လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Process.php</h3>
+    <pre>
+        <code>
+            <?php
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $details = $_POST["details"];
+            
+            echo "&lt;pre&gt;";
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            echo $email_body;
+            echo "&lt;/pre&gt;";
+            ?>
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+    <h1></h1>
+    <p>
+        PHP မှာဆိုရင် ကျွန်တော်တို့ အသုံးပြုနိင်တဲ့ mail function တစ်ခုရှိပါသေးတယ်။ ဒါပေမဲ့ သူဟာ every server
+        configuration
+        တွေနဲ့တော့ အလုပ်မလုပ်ပါဘူး။ ကျွန်တော်တို့ဟာ sent လုပ်လိုက်တဲ့ email ကို gets ဖြစ်ပြီးတဲ့နောက်မှာ thank you page
+        ကို form
+        ကို complete ဖြစ်သွားတဲ့ site visitor တွေဆီကို display လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် problem တစ်ခုရှိပါတယ်။
+        ကျွန်တော်တို့ thank you message ကို display လုပ်ပြီးတဲ့အချိန်မှာ page ကို refreshed လုပ်လိုက်တဲ့အခါမှာ server ဟာ
+        another
+        email တစ်ခုကို resend လုပ်ပါတယ်။ Some browsers တွေကတော့ warning တစ်ခုကို pop up လုပ်ကြတာဖြစ်ပါတယ်။ အဲ့ဒါကတော့
+        user တွေဟာ
+        form ကို resubmits လုပ်ချင်လားဆိုပြီးတော့ မေးတာပဲဖြစ်ပါတယ်။ Form ဟာ resubmitted ဖြစ်တဲ့အခါ ကျွန်တော်တို့ရဲ့
+        email ဟာ
+        နောက်တစ်ခါ sent ဖြစ်လာမှာဖြစ်ပါတယ်။ အဲ့ဒါကို solve လုပ်ဖို့ရန်အတွက် best way တစ်ခုကတော့ first အနေနဲ့ PHP မှာ
+        send the
+        email ရှိရမှာဖြစ်ပါတယ်။ ပြီးတော့ visitor ကို မတူညီတဲ့ thank you page တစ်ခုနဲ့ redirect လုပ်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>process.phhp</h3>
+    <pre>
+        <code>
+            <?php
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $details = $_POST["details"];
+            
+            echo "&lt;pre&gt;";
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            echo $email_body;
+            echo "&lt;/pre&gt;";
+            
+            //To Do: Send email
+            header("location:thanks.php");
+            ?>
+        </code>
+    </pre>
+    <h3>thanks.php</h3>
+    <pre>
+        <code>
+        &lt;?php 
+        $pageTitle =" Thank you";
+        $section = null;
+        include("Inc/header.php");
+        ?>
+        &lt;div class="section page"&gt;
+            &lt;h1&gt; Thank You &lt;/h1&gt;
+            &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;?php include("Inc/footer.php");?&gt;
+        ?&gt;
+             
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yorself</a>
+    <hr>
+    <h1>Checking the Request Method</h1>
+    <p>
+        ကျွန်တော်တို့မှာ form process မတွက် PHP files 3 ခုကို create လုပ်ပြီးသားဖြစ်ပါတယ်။ နောက် ဒီ activities 3
+        ခုလုံးကို
+        single PHP file နဲ့ create လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ file တစ်ခုထဲမှာ different circumstance တစ်ခုမှာ
+        activity
+        တစ်ခုချင်းစီအတွက် code တွေကို execute လုပ်ဖို့ conditionals ကိုအသုံးပြုနိုင်ပါတယ်။ Example မှာဆိုရင် အဲ့ဒါအတွက်
+        suggest.php file ထဲမှာ changes တွေပြုလုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒီ file ကို suggest form ကိုပဲ displays
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ Form's submission ကို handle လုပ်ဖို့ရန်အတွက် အဲ့ဒါကို modify လုပ်သွားမှာဖြစ်ပါတယ်။ First
+        အေနနဲ့
+        form မှာရှိတဲ့ action attribute မှာ suggest.php ကို change လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါမှ information တွေဟာ suggest
+        .php file
+        ထဲကို get sent back ဖြစ်မှာဖြစ်ပါတယ်။ တစ်ကယ်တော့ ဒါဟာ default behavior တစ်ခုဖြစ်ပါတယ်။ နောက် form submission ကို
+        handle
+        လုပ်ဖို့ရန်အတွက် ဒီ file ကို setup လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့်example မှာဆိုရင် process.php ထဲက code တွေကို
+        သူ့ထဲကို
+        move လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် အဲ့ code တွေကို around လုပ်ပြီးတော့ conditional တစ်ခုကို write
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ form values တွေဟာ submitted လုပ်ပြီးတဲ့အချိန်မှာ execute လုပ်ချင်တာဖြစ်ပါတယ်။ Web page အတွက်
+        regular
+        requests မှာဆိုရင် method ဟာ get ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ $_server ဆိုတဲ့ special PHP variable ကို
+        အသုံးပြုပြီးတော့
+        request method ကို check လုပ်ုနိုင်ပါတယ်။ သူဟာ $_post and $_get တို့လိုပါပဲ။ $_server ဟာ သူ့ထဲမှာ multiple
+        elements
+        တွေပါတဲ့ array တစ်ခုပဲဖြစ်ပါတယ်။ Element ဟာဆိုရင် ကျွန်တော်တို့ check လုပ်ချင်တဲ့ request method ပဲဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင် request method ဟာ post မဟုတ်ဘူးဆိုရင် entire block of code ကို skip လုပ်ပြီးတော့ suggest form ကို
+        display
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ request method ဟာ post ဖြစ်တယ်ဆိုရင် submitted form ကနေ information တွေကို read
+        လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ email တစ်ခုကို send လုပ်ပြီးတော့ HTTP header ကို set လုပ်မှာဖြစ်ပါတယ်။ အဲ့
+        HTTP header
+        ဟာ browser ကို thank you page ဆီကို redirect လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ code ဟာ email ကို sends
+        လုပ်ပြီးတဲ့နောက်မှာ သူဟာ thank you page ကို redirect လုပ်ဖို့ရန်အတွက် HTTP header တစ်ခုကို အသုံးပြုပါတယ်။ အဲ့
+        header ထဲက
+        thanks.php နေရာမှာ suggest.php ကို direct လုပ်ဖို့လိုပါတယ်။ ဒါပေမဲ့ server ကို form အစား thank you message ကို
+        display
+        လုပ်မယ်ဆိုတာကို သိဖို့အတွက် လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် get variable တစ်ခုကို အသုံးပြုဖို့လိုပါတယ်။
+        Header
+        ထဲမှာ file name ရဲ့နောက်မှာ ?stauts=thanks ဆိုပြီးတော့ write လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဒီ value ကို
+        ကျွန်တော်တု့ိ form or thank you message ကို show လုပ်သင့်တယ်ဆိုတာကို check လုပ်ဖို့ရန်အတွက် conditional
+        တစ်ခုထဲမှာအသုံးပြုနိုင်ပါတယ်။ နောက် request method ဟာ post ဖြစ်တဲ့အချိန်မှာ executed လုပ်ဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $details = $_POST["details"];
+            
+            echo "&lt;pre&gt;";
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            echo $email_body;
+            echo "&lt;/pre&gt;";
+            
+            //To Do: Send email
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+    <h1>Validating Form Data</h1>
+    <p>
+        ကျွန်တော်တို့ visitor ဟာ suggest form ကို fill လုပ်လိုက်တတဲ့အချိန်မှာ form က values တွေပေါ်မှာ some validation
+        ကို
+        လုပ်ဆောင်ပေးဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့ဟာ sending ကို handle လုပ်ဖို့ရန်အတွက် third party library
+        တစ်ခုကိုလည်း
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရှိတဲ့ suggest.php ဟာ three steps of the suggest form process ကို
+        handles
+        လုပ်တာဖြစ်ပါတယ်။ Form ကို display လုပ်တယ် ၊ submission ကို handling လုပ်တယ် ၊ and thank you message ကို display
+        လုပ်တာတွေပဲဖြစ်ပါတယ်။ suggest.php ရဲ့ top မှာရှိတဲ့ code ဟာ REQUEST_METHOD ဟာ POST ဖြစ်တယ်တာကို check
+        လုပ်ထားတာဖြစ်ပြီးတော့ အဲ့ဒါဟာ form ဟာ submitted လုပ်လိုက်တဲ့အချိန်မှာ ကျွန်တော်တို့ကို tell s လုပ်တာဖြစ်ပါတယ်။
+        Visitor
+        တစ်ယောက်ဟာ fields 3 ခုလုံးကို blank လုပ်နိုင်ပြီးတော့ form ကို submit လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ emails ကို
+        address
+        တစ်ခုမပါဘဲနဲ့ လိုချင်တာမဟုတ်ပါဘူး။ အဲ့ဒါကြောင့် name, email, address, and details fields တွေမှာ values
+        တွေရှိအောင်လုပ်ပေးရမှာဖြစ်ပါတယ်။ First မနေနဲ့name variable မှာ value တစ်ခုရှိမရှိကို checks လုပ်တဲ့ condition
+        တစ်ခုကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တု့ိဟာ error message ကို name, email, and details တွေဟာ empty
+        string နဲ့
+        ညီတယ်ဆိုရင် display လုပ်မှာဖြစ်ပါတယ်။ PHP မှာဆိုရင် trim functions 3 ခုရှိပါတယ်။ ltrim ဟာ left trim အတွက်၊ rtrim
+        ဟာ
+        right trim အတွက်၊ trim ကတော့ left and right နှစ်ခုလုံးအတွက်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် array category functions
+        အတွက်ဆိုရင် ltrim function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် characters တွေကို string ရဲ့ အစကနေ trimming
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ trim လုပ်ချင်တဲ့ string ကို specified လုပ်ပေးရမှာဖြစ်ပါတယ်။ Default အရ
+        white
+        space ကို trimming လုပ်နေမဲ့အစား ဒီ trim functions တစ်ခုချင်းစီဟာ piece of text ရဲ့ beginning and end မှာ white
+        space
+        ကို trim လုပ်တာဖြစ်တယ်။ အဲ့ white space မှာဆိုရင် spaces, tabs, and hard returns တွေပါဝင်ပါတယ်။ နောက်
+        အဲ့မှာဆိုရင် two
+        core principles ရှိပါသေးတယ်။ အဲ့ဒါကတော့ filter input and escape output တို့ပဲဖြစ်ပါတယ်။ PHP မှာဆိုရင် address
+        ကို help
+        လုပ်တဲ့ built-in function တစ်ခုရှိပါသေးတယ်။ Form fields ကို ကျွန်တော်တို့ရဲ့ _POST array ကနေ တိုက်ရိုက်
+        accepting
+        လုပ်နေမဲ့အစား ကျွန်တော်တု့ိဟာ filter_input ဆိုတဲ့ function ကို အသုံးပြုနိုင်ပါတယ်။ သူဟာ input ကို filters
+        လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်user input တေကို filter input function နဲ့ filtering လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        Filter input
+        function မှာရှိတဲ့ first argument ဟာဆိုရင် type of input ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် INPUT_POST
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Second argument ကတော့ variable ရဲ့ name ပဲဖြစ်ပါတယ်။ Third argument ကတော့
+        ကျွန်တော်တို့ရဲ့
+        filter ပဲဖြစ်ပါတယ်။ First, name ကို ကျွန်တော်တို့ဟာ any tags or code တွေကို allow မလုပ်တဲ့အတွက်ကြောင့်
+        "FILTER_SANITIZE_STRING" ကိုအသံုံးပြုပေးရမှာဖြစ်ပါတယ်။ Email အတွက်ဆိုရင်တော့ "FILTER_SANITIZE_EMAIL"
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Details အတွက်ဆိုရင် "FILTER_SANITIZE_SPECIAL_CHARS" ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+            $email =trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_EMAIL));;
+            $details = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS));;
+            if ( $name == "" || $email == "" || $details == ""){
+            echo "Please fill in the required fields: Name, Email and Details";
+            exit;
+            }
+            if($_POST["address"] != "") {
+            echo "Bad form input";
+            exit;
+            }
+            echo "&lt;pre&gt;";
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            echo $email_body;
+            echo "&lt;/pre&gt;";
+            
+            //To Do: Send email
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+             
+        </code>
+    </pre>
+    <hr>
+    <h1>Using A Third-Party Library</h1>
+    <p>
+        အခု section မှာ third party library တစ်ခုကို email ကို send လုပ်ဖို့ရန်အတွက် အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Third
+        party
+        library တစ်ခုဟာ basically အရတော့ other people တွေ maintain လုပ်တဲ့ set of include files တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ
+        သူတို့ရဲ့ code တွေကို ကျွန်တော့်ရဲ့ project ထဲမှာ အသုံးပြုနိုင်တဲ့ way တစ်ခု write လုပ်ပေးတာဖြစ်ပါတယ်။ ပြီးတော့
+        သူတို့ရဲ့ variables and functions တွေကို reference လုပ်ပေးထားပါတယ်။ Sending email အတွက် PHPMailer library ကို
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ library ကို GitHub မှာ download လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် a few files
+        တွေရှိပါတယ်။
+        အဲ့ထဲမှာ example folder လည်းပါဝင်ပါတယ်။ အဲ့ထဲမှာရှိတဲ့ simple_contact_form.php file ကိုကြည့်မယ်ဆိုရင် သူဟာ basic
+        usecase
+        တစ်ခုကို shows လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့လေ့လာမှာကတော့ use statement and require
+        တို့ပဲဖြစ်ပါတယ်။ Use
+        statement ဟာဆိုရင် PHPMailer class ကို directly access လုပ်ဖို့ရန်အတွက်ခွင့်ပြုပေးပါတယ်။ Require command ဟာ
+        include နဲ့
+        similar ဖြစ်ပါတယ်။ တစ်ကယ်တော့ ကျန်တော်တို့အသုံးပြုရမဲ့ commands 4 ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ include,
+        include_once,
+        require, and require_once တို့ပဲဖြစ်ပါတယ်။ Include and require ကြားထဲမှာရှိတဲ့ different ကတော့ ကျွန်တော်တို့ဟာ
+        include
+        command ကိုအသုံးပြုတဲ့အချိန်မှာ file ဟာ doesn't exist ဖြစ်တဲ့အခါမှာ PHP ဟာ warning တစ်ခုကို throw
+        လုပ်ပေးမှာဖြစ်ပြီးတော့
+        သူဟာ ကျန်တဲ့ code တွေကို execute ဆက်လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ require command
+        ကိုအသုံးပြုတဲ့အချိန်မှာ file
+        doesn't exist ဖြစ်တဲ့ခါမှာ PHP ဟာ error ပြမှာဖြစ်ပြီးတော့ သူဟာ code တွေကို ဆက်ပြီးတော့ execute
+        လုပ်မှာမဟုတ်ပါဘူး။ နောက်
+        သူတို့ကြားထဲမှာရှိတဲ့ different ကတော့ same file မှာ ကျွန်တော်တို့ include or require ကို many times
+        အသုံးပြုမယ်ဆိုရင်
+        သူဟာ file ကို multiple times load လုပ်လုပ်ပေးမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် PHPMailer file နဲ့ Exception file
+        တို့ကို
+        import လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            use PHPMailer\PHPMailer\PHPMailer;
+            
+            require 'vendor/phpmailer/src/PHPMailer.php';
+            require 'vendor/phpmailer/src/Exception.php';
+        </code>
+    </pre>
+    <hr>
+    <h1>Using Object and Validating Email</h1>
+    <p>
+        အခု section မှာတော့ object တစ်ခုဆိုတာဘာလဲ သူတို့ကို ဘယ်လို အသုံးပြုမယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+        ဘာကြောင့်လဲဆိုတော့
+        PHPMailer ဟာ objects တွေကို အသုံးပြုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Object တစ်ခုဆိုတာ pretty robust type of variable
+        တစ်ခုဖြစ်ပါတယ်။ သူဟာ basically အရတော့ variables and functions တွေရဲ့ collection တစ်ခုပဲဖြစ်ပါတယ်။ Variables
+        တွေဟာ object
+        အကြောင်း information တွေကို sorting လပ်ထားတာဖြစ်ပါတယ်။ နောက် functions တွေဟာဆိုတာကတော့ actions တွေကို perform
+        လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ Variables and functions တွေလိုပဲ ကျွန်တော်တို့ဟာ own kinds of objects တွေကို create
+        လုပ်နိုင်ပါတယ်။ ်အခု section မှာ object တစ်ခုကို ဘယ်လိုအသုံးပြုတယ်ဆိုတာကို သိဖို့လိုပါတယ်။ PHP code ထဲမှာ
+        PHPMailer
+        library ပါဝင်တဲ့အခါမှာ ကျွန်တော်တို့မှာ new PHPMailer object ကို create လုပ်ဖို့ရန်အတွက်ရှိရပါမယ်။ အဲ့ဒါဟာ
+        သူ့ရဲ့
+        properties and methods တွေကို reference လုပ်တာဖြစ်ပါတယ်။ သူ့ရဲ့ properties ဆိုတာကတော့ from and to ၊ ပြီးတော့
+        methods
+        တွေဆိုတာ actions တွေကို perform လုပ်တာဖြစ်ပါတယ်။ ဥပမာ send the email ။ကျွန်တော်တို့ PHPMailer object နဲ့ ကျန်တဲ့
+        mailer
+        script တို့ကို add မလုပ်ခင်မှာ some email validation ကို add လုပ်ရမှာဖြစ်ပါတယ်။ PHPMailer object မှာ method
+        တစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ validateAddress ပဲဖြစ်ပါတယ်။ သူဟာ email ကို valid ဖြစ်မဖြစ်လုပ်ဆောင်တဲ့နေရာမှာ easy
+        ဖြစ်စေပါတယ်။ Example မှာဆိုရင် validateAddress method ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ Static methods လို့ခေါ်တဲ့
+        special
+        methods တွေဟာ object တစ်ခုကို creating မလုပ်ဘဲနဲ့ methods တစ်ခုကို အသုံးပြုဖို့ရန်အတွက် ခွင့်ပြုပေးထားပါတယ်။
+        အဲ့ဒါကြောင့် class name and the method name နှစ်ခုကို two colons နဲ့ separate လုပ်ပြီးတော့ အသုံးပြုနိုင်ပါတယ်။
+        Methods
+        အများစုနဲ့ properties အများစုဟာဆိုရင် object တစ်ခုကို create လုပ်ပြီးသားရှိမှသာ called လုပ်လို့ရတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ object တစ်ခုရဲ့ method and properties ကို access လုပ်ဖို့ဆိုရင် first အနေနဲ့ objects name ကို
+        specifying
+        လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့နောက်မှာ characters နှစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ hyphen and greater
+        than sign
+        တို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ single arrow နဲ့ တူပါတယ်။ Double arrow, equal sign နှင့် greater than sign တို့ဟာ
+        arrays and
+        သူတို့ရဲ့ keys တွေနဲ့ related ဖြစ်ပါတယ်။ ဒီ single arrow ဟာ objects တွေနဲ့ သူတို့ရဲ့ properties and methods
+        တွေနဲ့
+        related ဖြစ်ပါတယ်။ Method တစ်ခုဟာ function တစ်ခုနဲ့ တူပါတယ်။ အဲ့မှာဆိုရင် single arrow ပြီးတဲ့နောက်မှာ method
+        name ကို
+        specify လုပ်နိုင်ပါတယ်။ Method name ရဲ့နောက်မှာ parentheses ကို followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ parentheses
+        ထဲမှာ
+        လိုအပ်တဲ့ arguments ကို pass လုပ်နိုင်ပါတယ်။ Functions တွေလိုပဲ method တစ်ခုဟာ return value တစ်ခုကို
+        ပေးနိုင်ပါတယ်။
+        ကျွန်တော်တို့ဟာ validateAddress method ကို ဒီ ways နှစ်နဲ့ access လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် method ရဲ့
+        return
+        value ကို check လုပ်ဖို့ရန်အတွက် conditional တစ်ခုကို အသုံးပြုထားပါတယ်။ Function or method တစ်ခုကို conditional
+        တစ်ခုရဲ့
+        check ထဲမှာ call လုပ်မယ်ဆိုရင် PHP ဟာ function or method ကို first execute လုပ်ပေးမှာဖြစ်ပါတယ်။ ပြီးတော့ အဲ့
+        function or
+        method က return value ကို check ရဲ့ part အနေနဲ့ အသုံးပြုတာဖြစ်ပါတယ်။ Example မှာဆိုရင် validateAddress method ဟာ
+        email
+        address ဟာ valid ဖြစ်မဖြစ်ကို checks လုပ်ပေးတာဖြစ်ပါတယ်။ Email ဟာ valid ဖြစ်တယ်ဆိုရင် true ကို return
+        ပြန်ပေးမှာဖြစ်ပြီးတော့valid မဖြစ်ရင် false ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            //Import the PHPMailer class into the global namespace
+            use PHPMailer\PHPMailer\PHPMailer;
+            
+            require 'vendor/phpmailer/src/PHPMailer.php';
+            require 'vendor/phpmailer/src/Exception.php';
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+            $email =trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_EMAIL));;
+            $details = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS));;
+            if ( $name == "" || $email == "" || $details == ""){
+            echo "Please fill in the required fields: Name, Email and Details";
+            exit;
+            }
+            if($_POST["address"] != "") {
+            echo "Bad form input";
+            exit;
+            }
+            if(!PHPMailer::validateAddress($email)){
+            echo "Invalid Email Address";
+            exit;
+            }
+            echo "&lt;pre&gt;";
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            echo $email_body;
+            echo "&lt;/pre&gt;";
+            
+            //To Do: Send email
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+    <h1>Utilizing Object Properties and Methods</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့မှာ third party library တစ်ခုရှိနေပြီဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် PHP mailer object ကို
+        သွားကြည့်ရအောင်။ အခု section မှာ email ကို send လုပ်ဖို့ရန်အတွက် PHP mailer object ကို create
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        Example မှာဆိုရင် SMIP information ကို remove လုပ်ထားရှာဖြစ်ပါတယ်။ First line ကို method လု့ိခေါ်ပြီးတော့ Form
+        email
+        address and name ကို sets လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ form ကို filled out လုပ်လိုက်တဲ့ person ကို
+        လိုချင်တာဖြစ်ပါတယ်။ ဒါပေမဲ့ example မှာရှိတဲ့ message ဟာဘာလဲဆိုတော့ အဲ့ mail ဟာ outside email address
+        တစ်ခုကနေလာတယ်ဆိုရင် အဲ့ဒါဟာ forgery ကို considered လုပ်ပေးတာဖြစ်ပြီးတော့ နောက် mail server နဲ့ problems ကို
+        ရရှိမှာဖြစ်ပါတယ်။ အဲ့အစား mail server ကနေ email address ကို example မှာအသုံးပြုထားတာဖြစ်ပါတယ်။ နောက်
+        အဲ့မှာရှိတဲ့ name
+        parameter မှာ ကျွန်တော်တို့ထားချင်တဲ့ name ကို set လုပ်နိုင်ပါတယ်။ နောက် ReplyTo မှာဆိုရင် ကျွန်တော်တို့ set
+        လုပ်ချင်တာကို set လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့ user's email and name ကို set လုပ်ထားတာဖြစ်ပါတယ်။ Next
+        line
+        မှာဆိုရင် recipient တစ်ယောက်ကို ဘယ်လို add လုပ်ဖို့ရန်အတွက် shows လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် email address
+        တစ်ခုကို specify လုပ်ကိုလုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် name ကတော့ optional ဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဒီ PHP mailer
+        object ဟာ
+        email တစ်ခုကို send out လုပ်လိုက်တဲ့အခါအချိန်မှာ သူ့မှာ subject တစ်ခုရှိပါတယ်။ ပြီးခဲ့တဲ့ line ဟာ object methods
+        တွေကို
+        အသုံးပြုထားတာဖြစ်ပါတယ်။ သူတို့ဟာ functions တွေလိုပဲ parentheses ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Subject တစ်ခုဆိုတာ
+        property တစ်ခုပဲဖြစ်ပါတယ်။ သူ့မှာဆိုရင် parentheses ကို အသုံးပြုစရာမလိုပါဘူး။ အဲ့အစား ကျွန်တော်တု့ိဟာ single
+        equal sing
+        တစ်ခုတဲ့ value တစ်ခုကို assign လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့နောက်မှာဆိုရင် user's name ကို concatenate
+        လုပ်ပေးထားပါတယ်။
+        အဲ့ဒါဟာ email clients တစ်ခုအတွက် messages တွေကို conversations အဖြစ် group လုပ်တဲ့နေရာမှာ helpful ဖြစ်ပါတယ်။
+        တစ်ကယ်လို့
+        form submissions ဟာ same subject ရှိတယ်ဆိုရင် အဲ့ subjects တွေကို one conversation တစ်ခုအနေနဲ့ group
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ Next line ကတော့ another property တစ်ခုဖြစ်ပါတယ်။ သူဟာ email ရဲ့ body ပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့မှာ
+        email body ရဲ့ body email ရှိပြီးသားဖြစ်ပါတယ်။ Example မှာရှိတဲ့ last block of code ဟာ sending email ကို
+        လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ သူဟာ object's send method ကို calls လုပ်ပေးပါတယ်။ နောက် သူဟာ method name ကို
+        conditional
+        တစ်ခုထဲမှာ call လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာဆိုရင် Thank You Message နဲ့ Suggest page တစ်ခုကို redirected
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့မှာ mail ရှိတယ်ဆိုတာကို ပြောသင့်ပါတယ်။ အဲ့မှာဆိုရင် local mail mail
+        server
+        မရှိပါဘူး။ အဲ့ဒါကြောင့် email ဟာ actually send out မလုပ်နိုင်ပါတယ်။ Example မှာရှိတဲ့ code တွေဟာ
+        ကျွန်တော်တို့ရဲ့ local
+        dev server ပေါ်မှာ local mail server ကို set up မလုပ်ဘဲနဲ့ အလုပ်မလုပ်ပါဘူး။ ဒါဟာ good chance တစ်ခုဖြစ်ပါတယ်။
+        အဲ့ဒါဟာ
+        ကျွန်တော်တို့ရဲ့ production server မှာ အလုပ်လုပ်ပါလိမ့်ပါတယ်။ ကျွန်တော်တို့ဟာ ဒါကို deploy လုပ်ရပါမယ်။ နောက်
+        သေချာအောင်
+        test လုပ်ဖို့အတွက် find out လုပ်ရပါမယ်။ တစ်ကယ်လို့ ဒါဟာ အလုပ်မလုပ်ဘူးဆိုရင် အဲ့ဒါဟာ best idea မဟုတ်ပါဘူး။ Email
+        providers တွေဟာ spam ကို take လုပ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ရဲ့ server ဟာ spam server တစ်ခုအနေနဲ့ get flagged
+        ဖြစ်နိုင်ပါတယ်။ ဒါဟာအထူးသဖြင့်တော့ shared hosting accounts တွေမှာ common ဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ရဲ့
+        server
+        ဟာ get flagged ဖြစ်တယ်ဆိုရင် ကျွန်တော်တို့ရဲ့ form submission emails ဟာ blocked ကို get လုပ်နိုင်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ရဲ့ inbox ကို skip လုပ်ပြီးတော့ spam folder ကို သွားမှာဖြစ်ပါတယ်။ Most modern websites တွေဟာ
+        separate mail
+        server တစ်ခုပေးပေါ်မှာ sending email အတွက် rely လုပ်ကြတာဖြစ်ပါတယ်။ နောက် SMTP ကို ဖြတ်ပြီးတော့ application ကို
+        connected
+        လုပ်တာဖြစ်ပါတယ်။ Next section မှာ SMTP ကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            //Import the PHPMailer class into the global namespace
+            use PHPMailer\PHPMailer\PHPMailer;
+            
+            require 'vendor/phpmailer/src/PHPMailer.php';
+            require 'vendor/phpmailer/src/Exception.php';
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+            $email =trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_EMAIL));;
+            $details = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS));;
+            if ( $name == "" || $email == "" || $details == ""){
+            echo "Please fill in the required fields: Name, Email and Details";
+            exit;
+            }
+            if($_POST["address"] != "") {
+            echo "Bad form input";
+            exit;
+            }
+            if(!PHPMailer::validateAddress($email)){
+            echo "Invalid Email Address";
+            exit;
+            }
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            
+            $mail = new PHPMailer;
+            //It's important not to use the submitter's address as the from address as it's forgery,
+            //which will cause your messages to fail SPF checks.
+            //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+            $mail-&gt;setFrom('lwinmoe260lm@gmail.com', $name);
+            $mail-&gt;addReplyTo($email, $name);
+            $mail-&gt;addAddress('lwinmoe260lm@gmail.com', 'Lwinmoe');
+            $mail-&gt;Subject = 'Library suggestion form' . $name;
+            $mail-&gt;Body = $email_body;
+            if (!$mail-&gt;send()) {
+            echo 'Mailer Error: ' . $mail-&gt;ErrorInfo;
+            exit;
+            }
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <h1>SMTP with Google</h1>
+    <p>
+        SMTP ကိုလေ့လာဖို့ရန်အတွက် README ကို ပြန်သွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် testing email sending အကြောင်းကို
+        ပြောပြထားပါတယ်။ Hosting serves အများစုဟာ local mail server တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ ဒါပေမဲ့
+        တစ်ခါတစ်လေမှာတော့
+        ကျွန်တော်တို့ရဲ့ personal development environment မှာတော့ provide မလုပ်ပါဘူး။ Workspaces ဆိုတာ development
+        environment
+        တစ်ခုဖြစ်ပါတယ်။ ပြီးတော့ သူဟာ outgoing mail အတွက် local mail server တစ်ခုကို provide မလုပ်ပါဘူး။ အဲ့ဒါကြောင့်
+        SMTP ကို
+        set up လုပ်ပေးရမှာဖြစ်ပါတယ်။ SMTP ဆိုတာကတော့ Simple Mail Transfer Protocol ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ application ကို
+        separate
+        email server တစ်ခုနဲ့ connect လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ဥပမာ Google or Yahoo ။ Many email providers
+        တွေဟာ
+        SMTP အတွက် special setup လိုပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိရဲ့ email provider ကို ကျွန်တော်တို့ရဲ့ specific
+        needs
+        တွေအတွက် check လုပ်ပေးရမှာဖြစ်ပါတယ်။ အခု section မှာ Google မှာ ဘယ်လို set up လုပ်ရမယ်ဆိုတာ
+        လေ့လာသွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် ဒါဟာဆိုရင် အသုံးများတဲ့ services တစ်ခုဖြစ်ပြီးတော့ different options တွေကိုလည်း offers
+        လုပ်ပေးထားပါတယ်။
+        အဲ့မှာဆိုရင် same steps တွေဟာ Gmail and any Google apps domain တွေမှာ အလုပ်လုပ်ပါတယ်။ အဲ့ဒါအတွက်
+        ကျွန်တော်တို့ရဲ့ Google
+        account ကို setting up အရင် လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် myaccount.google.com or ကျွန်တော်တို့ရဲ့ account
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် Sign-in & security ကို သွားပြီးတော့ ကျွန်တော်တို့ဟာ two-factor
+        authentication ကို
+        turned on မလုပ်ရသေးဘူးဆိုရင် ကျွန်တော်တို့ဟာ Apps with account access ကိုသွားရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် Allow
+        less
+        secure apps ကို turn on လုပ်နိုင်ပါတယ်။ Security concerns ကြောင့် ကျွန်တော်တို့ route ကို သွားဖို့ suggest
+        မလုပ်ပါဘူး။
+        နောက် Google ဟာ other options နှစ်ခုကို provides လုပ်ပေးထားပါတယ်။ Token တစ်ခုကို အသုံးပြုဖို့ရန်အတွက် OAuth or
+        two-factor authentication ကို enabling လုပ်ပြီးတဲ့နောက်မှာ app password တစ်ခုကို setting
+        လုပ်ပေးတာတို့ပဲဖြစ်ပါတယ်။ နောက်
+        Sign-in & security ကိုပြန်သွားပြီးတော့ 2-Step Verification ကိုသွားပြီးတော့ အဲ့မှာဆိုရင် ကျွန်တော်တု့ိရဲ့
+        password ကို
+        verify လုပ်ဖို့ရန်အတွက် ask လုပ်မှာဖြစ်ပါတယ်။ Next ကျွန်တော်တို့ဟာ phone number ကို add လုပ်ရမှာဖြစ်ပါတယ်။ နောက်
+        text
+        message or phone call ကို choose လုပ်ရမှာဖြစ်ပါတယ်။ Code ကို verify လုပ်ပြီးပြီဆိုရင် ကျွန်တော်တို့ဟာ 2-Step
+        Verification ကို turn on လုပ်လို့ရပါပြီ။ ကျွန်တော်တို့ အဲ့ဒါကိုလုပ်ဆောင်ပြီးတဲ့အခါမှာ Sign-in & security
+        ကိုပြန်လာပြီးတော့ အဲ့မှာ App passwords အတွက် new option တစ်ခုကို တွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့
+        ကျွန်တော်တို့ရဲ့ password ကို verify လုပ်ဖို့ရန်အတွက် asked လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ verified
+        လုပ်ထာတာမရှိဘူးဆိုရင်တော့ ကျွန်တော်တို့ရဲ့ two-step verification ကို asked လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ရဲ့ app
+        password
+        ကို set up လုပ်ဖို့ရန်အတွက် our app ကို select လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် Mail ကို choose လုပ်မယ်။ အဲ့ဒါဟာ
+        service
+        ကိုပဲ access လုပ်နိုင်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ generate လုပ်လိုက်တဲ့ password ဟာ any other Google services
+        တွေမှာ
+        access လုပ်လို့တော့မရပါဘူး။ နောက် Custom name ကို choose လုပ်ပြီးတော့ meaningful ဖြစ်တဲ့ name တစ်ခုကို add
+        လုပ်နိုင်ပါတယ်။ အဲ့ဒါဟာ unique password တစ်ခုကို ကျွန်တော်တို့ application အတွက် ပေးပါတယ်။ အဲ့ဒါပြီးတဲ့နောက်မှာ
+        GitHub
+        ကိုသွားပြီးတော့ gmail.phps ထဲကို သွားရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာ PHPMailer ရဲ့ အောက်မှာရှိတဲ့ code တွေကို password
+        အထိ copy
+        ကူးပြီးတော့ PHPMailer object ကို create လုပ်ထားတဲ့ အောက်မှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ code ရဲ့ first line
+        ဟာ
+        PHPMailer ဟာ SMTP ကို အသုံးပြုမယ်ဆိုပြီးတော့ ပြောလိုက်တာဖြစ်ပါတယ်။ နောက် debug level ကို set လုပ်ထားပါတယ်။
+        Development
+        အတွက် details ကို ကျွန်တော်တို့ ရနိုင်သလောက်လိုချင်တာဖြစ်ပါတယ်။ Gmail setting ဟာဆိုရင် filled in
+        လုပ်ပြီးသားဖြစ်ပါတယ်။
+        Host,Port and SMTPSecure တို့ပဲဖြစ်ပါတယ်။ SMTPAuth ဟာဆိုရင် true ကို set up လုပ်ပြီးတော့ Username and Password
+        ရှိပေးတာဖြစ်ပါတယ်။ Email နေရာမှာ ကျွန်တော်တို့ရဲ့ email ကို add လုပ်ပြီးတော့ password ကို AppPassword က password
+        ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် run တဲ့အခါမှာ SMTP ကို find လုပ်လို့မရဘူးဆိုတဲ့ fatal error ကို တွေ့ရပါလိမ့်မယ်။
+        ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့မှာ "autoload" ကို အသုံးမပြုရသေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Workspaces
+        မှာသွားပြီးတော့
+        SMTP.php ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>suggest.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            //Import the PHPMailer class into the global namespace
+            use PHPMailer\PHPMailer\PHPMailer;
+            require 'vendor/phpmailer/src/PHPMailer.php';
+            require 'vendor/phpmailer/src/Exception.php';
+            require 'vendor/phpmailer/src/SMTP.php';
+            
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+            $email =trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
+            $details = trim(filter_input(INPUT_POST, "details", FILTER_SANITIZE_SPECIAL_CHARS));
+            if ( $name == "" || $email == "" || $details == ""){
+            echo "Please fill in the required fields: Name, Email and Details";
+            exit;
+            }
+            if($_POST["address"] != "") {
+            echo "Bad form input";
+            exit;
+            }
+            if(!PHPMailer::validateAddress($email)){
+            echo "Invalid Email Address";
+            exit;
+            }
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "Details " . $details . "\n";
+            
+            $mail = new PHPMailer;
+            $mail-&gt;isSMTP();
+            
+            //Enable SMTP debugging
+            // SMTP::DEBUG_OFF = off (for production use)
+            // SMTP::DEBUG_CLIENT = client messages
+            // SMTP::DEBUG_SERVER = client and server messages
+            $mail-&gt;SMTPDebug = 2;
+            
+            //Set the hostname of the mail server
+            $mail-&gt;Host = 'smtp.gmail.com';
+            // use
+            // $mail-&gt;Host = gethostbyname('smtp.gmail.com');
+            // if your network does not support SMTP over IPv6
+            
+            //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+            $mail-&gt;Port = 587;
+            
+            //Set the encryption mechanism to use - STARTTLS or SMTPS
+            $mail-&gt;SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            
+            //Whether to use SMTP authentication
+            $mail-&gt;SMTPAuth = true;
+            
+            //Username to use for SMTP authentication - use full email address for gmail
+            $mail-&gt;Username = 'lwinmoe260lm@gmail.com';
+            
+            //Password to use for SMTP authentication
+            $mail-&gt;Password = 'dwwprxuoeplkqkyq';
+            //It's important not to use the submitter's address as the from address as it's forgery,
+            //which will cause your messages to fail SPF checks.
+            //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+            $mail-&gt;setFrom('lwinmoe260lm@gmail.com', $name);
+            $mail-&gt;addReplyTo($email, $name);
+            $mail-&gt;addAddress('lwinmoe260lm@gmail.com', 'Lwinmoe');
+            $mail-&gt;Subject = 'Library suggestion from' . $name;
+            $mail-&gt;Body = $email_body;
+            if (!$mail-&gt;send()) {
+            echo 'Mailer Error: ' . $mail-&gt;ErrorInfo;
+            exit;
+            }
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="title"&gt;Title&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="title" name="title" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Requesting Specific Information</h1>
+    <p>
+        User အကြောင်းနဲ့ ပါတ်သတ်တဲ့ information အပြင် ကျွန်တော်တို့မှာ field တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါကတော့ user တွေကို
+        သူတို့
+        suggest လုပ်ချင်တဲ့ item အကြောင်း details ကို ကျွန်တော်တို့ကို ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် specific
+        information အတွက်
+        user ကို ask လုပ်ဖို့ရန်အတွက် some extra field တွေကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် different
+        formats တွေကို
+        group လုပ်ဖို့ရန်အတွက် main strategies နှစ်ခုရှိပါတယ်။ First, category တစ်ခု ပေါ်မှာအခြေခံပြီးတော့ format drop
+        down ကို
+        change လုပ်တာတွေ or option group တစ်ခုကို အသုံးပြုပြီးတော့ options တွေကို group လုပ်တာတွေပဲဖြစ်ပါတယ်။ အခု
+        section
+        မှာတော့ second strategy ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="category"&gt;Category&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="category" name="category"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;option value="Books"&gt; Books&lt;/option&gt;
+            &lt;option value="Movies"&gt; Movies&lt;/option&gt;
+            &lt;option value="Music"&gt; Music &lt;/option&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="title"&gt;Title&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="title" name="title" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="format"&gt;Format&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="format" name="format"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;option value="Books"&gt; Books&lt;/option&gt;
+            &lt;option value="Movies"&gt; Movies&lt;/option&gt;
+            &lt;option value="Music"&gt; Music &lt;/option&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Grouping Options for More Detail</h1>
+    <p>
+        အခု section မှတော့ option တစ်ချင်းစီမှာ အခြား options တွေကို add လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက်
+        ကျွန်တော်တို့ဟာ
+        optgroup ဆိုတဲ့ tag ကိုအသုံးပြုပေးမှာဖြစ်ပါတယ်။ နောက် အဲ့ optgroup tag ထဲမှာ option tag ကို
+        ထည့်ရေးပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="category"&gt;Category&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="category" name="category"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;option value="Books"&gt; Books&lt;/option&gt;
+            &lt;option value="Movies"&gt; Movies&lt;/option&gt;
+            &lt;option value="Music"&gt; Music &lt;/option&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="title"&gt;Title&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="title" name="title" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="format"&gt;Format&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="format" name="format"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Audio"&gt;Audio&lt;/option&gt;
+            &lt;option value="Ebook"&gt;Ebook&lt;/option&gt;
+            &lt;option value="Hardback"&gt;Harback&lt;/option&gt;
+            &lt;option value="Paperback"&gt;Paperback&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Blu-ray"&gt;Blu-ray&lt;/option&gt;
+            &lt;option value="DVD"&gt;DVD&lt;/option&gt;
+            &lt;option value="Streaming"&gt;Streaming&lt;/option&gt;
+            &lt;option value="VHS"&gt;VHS&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Cassette"&gt;Cassette&lt;/option&gt;
+            &lt;option value="CD"&gt;CD&lt;/option&gt;
+            &lt;option value="MP3"&gt;MP3&lt;/option&gt;
+            &lt;option value="Vinly"&gt;Vinly&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;label for=genre&gt; Genre&lt;/label&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+            &lt;select name="genre" id="genre"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Comedy"&gt;Comedy&lt;/option&gt;
+            &lt;option value="Fanstasy"&gt;Fanstasy&lt;/option&gt;
+            &lt;option value="Historical"&gt;Historical&lt;/option&gt;
+            &lt;option value="Historical Fiction"&gt;Historical Fiction&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Magical Realism"&gt;Magical Realism&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Paranoid"&gt;Paranoid&lt;/option&gt;
+            &lt;option value="Philosophical"&gt;Philosophical&lt;/option&gt;
+            &lt;option value="Political"&gt;Political&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Saga"&gt;Saga&lt;/option&gt;
+            &lt;option value="Satire"&gt;Satire&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Tech"&gt;Tech&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="Urban"&gt;Urban&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Animation"&gt;Animation&lt;/option&gt;
+            &lt;option value="Biograpghy"&gt;Biograpghy&lt;/option&gt;
+            &lt;option value="Comed"&gt;Comed&lt;/option&gt;
+            &lt;option value="Crime"&gt;Crime&lt;/option&gt;
+            &lt;option value="Documentary"&gt;Documentary&lt;/option&gt;
+            &lt;option value="Drama"&gt;Drama&lt;/option&gt;
+            &lt;option value="Family"&gt;Family&lt;/option&gt;
+            &lt;option value="Fantasy"&gt;Fantasy&lt;/option&gt;
+            &lt;option value="History"&gt;History&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Musical"&gt;Musical&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Sport"&gt;Sport&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="War"&gt;War&lt;/option&gt;
+            &lt;option value="Western"&gt;Biograpghy&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Blues"&gt;Blues&lt;/option&gt;
+            &lt;option value="Classical"&gt;Classical&lt;/option&gt;
+            &lt;option value="Country"&gt;Country&lt;/option&gt;
+            &lt;option value="Dance"&gt;Dance&lt;/option&gt;
+            &lt;option value="Easy Listening"&gt;Easy Listening&lt;/option&gt;
+            &lt;option value="Electronic"&gt;Electronic&lt;/option&gt;
+            &lt;option value="Folk"&gt;Folk&lt;/option&gt;
+            &lt;option value="Hip Hop/Rap"&gt;Hip Hop/Rap&lt;/option&gt;
+            &lt;option value="Insirational/Gospel"&gt;Insirational/Gospel&lt;/option&gt;
+            &lt;option value="Jazz"&gt;Jazz&lt;/option&gt;
+            &lt;option value="Latin"&gt;Latin&lt;/option&gt;
+            &lt;option value="New Age"&gt;New Age&lt;/option&gt;
+            &lt;option value="Opera"&gt;Opera&lt;/option&gt;
+            &lt;option value="Pop"&gt;Pop&lt;/option&gt;
+            &lt;option value="R&B/Soul"&gt;R&B/Soul&lt;/option&gt;
+            &lt;option value="Reggae"&gt;Reggae&lt;/option&gt;
+            &lt;option value="Rock"&gt;Rock&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="year"&gt;Year&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="year" name="year" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Specifying Required Fields</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့လိုချင်တဲ့ information တွေကို collecting လုပ်နိုင်တဲ့ form တစ်ခုရှိနေပြီးဖြစ်ပါတယ်။ နောက်
+        အဲ့မှာဆိုရင် ဘယ် field က form process မလုပ်ခင်မှာ required ဖြစ်တယ်။ နောက် ဘယ် fields တွေဟာ optional
+        ဖြစ်တယ်ဆိုတာကို
+        လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာရှိတာတွေကတော့ name, email, category, title, format, genre, year and
+        additional details တု့ိပဲဖြစ်ပါတယ်။ သူတို့ထဲမှဆိုရင် name, email, category and title တို့ဟာ required
+        တွေဖြစ်ပြီးတော့
+        ကျန်တာတွေကတော့ optional တွေဖြစ်ပါတယ်။ ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် many different ways တွေရှိပါတယ်။ အခု section
+        မှာတော့
+        user ဆီကို ဘယ် fields တွေက filled out လုပ်ဖို့ရန်အတွက် လိုအပ်တယ်ဆိုတာကို form process မလုပ်ခင်မှာ signify
+        လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် required ဆိုတဲ့ word ကို required element တစ်ခုချင်းစီမှာ add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ရဲ့ form ဟာ ဒီ new fields ဖြစ်တဲ့ required fields တွေကို processing
+        လုပ်တာကိုသေချာအောင်လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက် suggest.php ထဲမှာ ကျွန်တော်တို့ added လုပ်လိုက်တဲ့ new fields
+        တွေအားလုံးအတွက် variables တွေကို setup လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် first conditional မှာဆိုရင် name, email and
+        details
+        တွေကို filled out လုပ်တာကို check လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် details ကို remove လုပ်ပြီးတော့ category and
+        title
+        တို့ကို conditional ထဲမှာ check လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ additional fields တွေကို ကျွန်တော်တို့ရဲ့
+        email
+        ဆီကို add လုပ်ပေးဖို့ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            //Import the PHPMailer class into the global namespace
+            use PHPMailer\PHPMailer\PHPMailer;
+            require 'vendor/phpmailer/src/PHPMailer.php';
+            require 'vendor/phpmailer/src/Exception.php';
+            require 'vendor/phpmailer/src/SMTP.php';
+            
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+            $email =trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
+            $category = trim(filter_input(INPUT_POST, "category", FILTER_SANITIZE_STRING));
+            $title = trim(filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING));
+            $format = trim(filter_input(INPUT_POST, "format", FILTER_SANITIZE_STRING));
+            $year = trim(filter_input(INPUT_POST, "year", FILTER_SANITIZE_NUMBER_INT));
+            $genre = trim(filter_input(INPUT_POST, "genre", FILTER_SANITIZE_STRING));
+            $details = trim(filter_input(INPUT_POST, "details", FILTER_SANITIZE_SPECIAL_CHARS));
+            if ( $name == "" || $email == "" || $category == "" || $title=""){
+            echo "Please fill in the required fields: Name, Email and Category and Title";
+            exit;
+            }
+            if($_POST["address"] != "") {
+            echo "Bad form input";
+            exit;
+            }
+            if(!PHPMailer::validateAddress($email)){
+            echo "Invalid Email Address";
+            exit;
+            }
+            $email_body = "";
+            $email_body .= "Name " . $name . "\n";
+            $email_body .= "Email " . $email . "\n";
+            $email_body .= "\n\nSuggested Item \n\n";
+            $email_body .= "Category " . $category . "\n";
+            $email_body .= "Title " . $title . "\n";
+            $email_body .= "Format " . $format . "\n";
+            $email_body .= "Genre " . $format . "\n";
+            $email_body .= "Year " . $year . "\n";
+            $email_body .= "Details " . $details . "\n";
+            
+            $mail = new PHPMailer;
+            $mail-&gt;isSMTP();
+            
+            //Enable SMTP debugging
+            // SMTP::DEBUG_OFF = off (for production use)
+            // SMTP::DEBUG_CLIENT = client messages
+            // SMTP::DEBUG_SERVER = client and server messages
+            $mail-&gt;SMTPDebug = 2;
+            
+            //Set the hostname of the mail server
+            $mail-&gt;Host = 'smtp.gmail.com';
+            // use
+            // $mail-&gt;Host = gethostbyname('smtp.gmail.com');
+            // if your network does not support SMTP over IPv6
+            
+            //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+            $mail-&gt;Port = 587;
+            
+            //Set the encryption mechanism to use - STARTTLS or SMTPS
+            $mail-&gt;SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            
+            //Whether to use SMTP authentication
+            $mail-&gt;SMTPAuth = true;
+            
+            //Username to use for SMTP authentication - use full email address for gmail
+            $mail-&gt;Username = 'lwinmoe260lm@gmail.com';
+            
+            //Password to use for SMTP authentication
+            $mail-&gt;Password = 'dwwprxuoeplkqkyq';
+            //It's important not to use the submitter's address as the from address as it's forgery,
+            //which will cause your messages to fail SPF checks.
+            //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+            $mail-&gt;setFrom('lwinmoe260lm@gmail.com', $name);
+            $mail-&gt;addReplyTo($email, $name);
+            $mail-&gt;addAddress('lwinmoe260lm@gmail.com', 'Lwinmoe');
+            $mail-&gt;Subject = 'Library suggestion from' . $name;
+            $mail-&gt;Body = $email_body;
+            if (!$mail-&gt;send()) {
+            echo 'Mailer Error: ' . $mail-&gt;ErrorInfo;
+            exit;
+            }
+            header("location:suggest.php?status=thanks");
+            }
+            $pageTitle = "Suggest a Media Item";
+            $section = "suggest";
+            include("Inc/header.php"); ?&gt;
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{ ?&gt;
+            &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="category"&gt;Category (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="category" name="category"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;option value="Books"&gt; Books&lt;/option&gt;
+            &lt;option value="Movies"&gt; Movies&lt;/option&gt;
+            &lt;option value="Music"&gt; Music &lt;/option&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="title"&gt;Title (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="title" name="title" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="format"&gt;Format&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="format" name="format"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Audio"&gt;Audio&lt;/option&gt;
+            &lt;option value="Ebook"&gt;Ebook&lt;/option&gt;
+            &lt;option value="Hardback"&gt;Harback&lt;/option&gt;
+            &lt;option value="Paperback"&gt;Paperback&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Blu-ray"&gt;Blu-ray&lt;/option&gt;
+            &lt;option value="DVD"&gt;DVD&lt;/option&gt;
+            &lt;option value="Streaming"&gt;Streaming&lt;/option&gt;
+            &lt;option value="VHS"&gt;VHS&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Cassette"&gt;Cassette&lt;/option&gt;
+            &lt;option value="CD"&gt;CD&lt;/option&gt;
+            &lt;option value="MP3"&gt;MP3&lt;/option&gt;
+            &lt;option value="Vinly"&gt;Vinly&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;label for=genre&gt; Genre&lt;/label&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+            &lt;select name="genre" id="genre"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Comedy"&gt;Comedy&lt;/option&gt;
+            &lt;option value="Fanstasy"&gt;Fanstasy&lt;/option&gt;
+            &lt;option value="Historical"&gt;Historical&lt;/option&gt;
+            &lt;option value="Historical Fiction"&gt;Historical Fiction&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Magical Realism"&gt;Magical Realism&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Paranoid"&gt;Paranoid&lt;/option&gt;
+            &lt;option value="Philosophical"&gt;Philosophical&lt;/option&gt;
+            &lt;option value="Political"&gt;Political&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Saga"&gt;Saga&lt;/option&gt;
+            &lt;option value="Satire"&gt;Satire&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Tech"&gt;Tech&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="Urban"&gt;Urban&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Animation"&gt;Animation&lt;/option&gt;
+            &lt;option value="Biograpghy"&gt;Biograpghy&lt;/option&gt;
+            &lt;option value="Comed"&gt;Comed&lt;/option&gt;
+            &lt;option value="Crime"&gt;Crime&lt;/option&gt;
+            &lt;option value="Documentary"&gt;Documentary&lt;/option&gt;
+            &lt;option value="Drama"&gt;Drama&lt;/option&gt;
+            &lt;option value="Family"&gt;Family&lt;/option&gt;
+            &lt;option value="Fantasy"&gt;Fantasy&lt;/option&gt;
+            &lt;option value="History"&gt;History&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Musical"&gt;Musical&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Sport"&gt;Sport&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="War"&gt;War&lt;/option&gt;
+            &lt;option value="Western"&gt;Biograpghy&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Blues"&gt;Blues&lt;/option&gt;
+            &lt;option value="Classical"&gt;Classical&lt;/option&gt;
+            &lt;option value="Country"&gt;Country&lt;/option&gt;
+            &lt;option value="Dance"&gt;Dance&lt;/option&gt;
+            &lt;option value="Easy Listening"&gt;Easy Listening&lt;/option&gt;
+            &lt;option value="Electronic"&gt;Electronic&lt;/option&gt;
+            &lt;option value="Folk"&gt;Folk&lt;/option&gt;
+            &lt;option value="Hip Hop/Rap"&gt;Hip Hop/Rap&lt;/option&gt;
+            &lt;option value="Insirational/Gospel"&gt;Insirational/Gospel&lt;/option&gt;
+            &lt;option value="Jazz"&gt;Jazz&lt;/option&gt;
+            &lt;option value="Latin"&gt;Latin&lt;/option&gt;
+            &lt;option value="New Age"&gt;New Age&lt;/option&gt;
+            &lt;option value="Opera"&gt;Opera&lt;/option&gt;
+            &lt;option value="Pop"&gt;Pop&lt;/option&gt;
+            &lt;option value="R&B/Soul"&gt;R&B/Soul&lt;/option&gt;
+            &lt;option value="Reggae"&gt;Reggae&lt;/option&gt;
+            &lt;option value="Rock"&gt;Rock&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="year"&gt;Year&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="year" name="year" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု ကျွန်တော်တို့မှာ errors တွေနဲ့ related ဖြစ်တဲ့ loading messages တွေကို variable တစ်ခုထဲမှာ encounter
+        လုပ်ထားခဲ့ပြီးဖြစ်ပါတယ်။ Next step ကတော့ suggest form ပေါ်မှာ error message ကို display လုပ်သွားရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ REQUEST_METHOD == 'POST ဆိုတာနဲ့ စထားတာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ ဒီ conditional code ကို go
+        through
+        လုပ်မယ်ဆိုရင် possible outcomes ဟာ နှစ်ခုရှိပါတယ်။ First ကတော့ data တွေဟာ valid ဖြစ်နိုင်ပြီးတော့ email ဟာ
+        successfully
+        sent ဖြစ်သွားတာတို့ပဲဖြစ်ပါတယ်။ REQUEST_METHOD ဟာဆိုရင် POST ပဲမဖြစ်နိုင်ပါဘူး။ အဲ့လို POST မဖြစ်တဲ့အချိန်မှာ
+        သူ့ရဲ့
+        code block တစ်ခုလုံးကို skipped လုပ်သွားမှာဖြစ်ပါတယ်။ Second ကတော့ error_message variable တစ်ခုဟာ checks 4
+        ခုထဲမှ
+        suggest page ပေါ်မှာ get လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;div class="section page"&gt;
+            &lt;h1&gt;Suggest a Media Items&lt;/h1&gt;
+            &lt;?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
+            echo " &lt;p&gt;Thanks for the email! I&rsquo;ll check out your suggestion shortly!&lt;/p&gt;";
+            } else{
+            if (isset($error_message)){
+            echo '&lt;p class="message"&gt;' .$error_message . '&lt;/p&gt;';
+            } else {
+            echo " &lt;p&gt;If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an
+            email.&lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;form method="post" action="suggest.php"&gt;
+            &lt;table&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Name (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="name" name="name" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Email (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="email" name="email" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="category"&gt;Category (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="category" name="category"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;option value="Books"&gt; Books&lt;/option&gt;
+            &lt;option value="Movies"&gt; Movies&lt;/option&gt;
+            &lt;option value="Music"&gt; Music &lt;/option&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="title"&gt;Title (require)&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="title" name="title" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="format"&gt;Format&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;select id="format" name="format"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Audio"&gt;Audio&lt;/option&gt;
+            &lt;option value="Ebook"&gt;Ebook&lt;/option&gt;
+            &lt;option value="Hardback"&gt;Harback&lt;/option&gt;
+            &lt;option value="Paperback"&gt;Paperback&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Blu-ray"&gt;Blu-ray&lt;/option&gt;
+            &lt;option value="DVD"&gt;DVD&lt;/option&gt;
+            &lt;option value="Streaming"&gt;Streaming&lt;/option&gt;
+            &lt;option value="VHS"&gt;VHS&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Cassette"&gt;Cassette&lt;/option&gt;
+            &lt;option value="CD"&gt;CD&lt;/option&gt;
+            &lt;option value="MP3"&gt;MP3&lt;/option&gt;
+            &lt;option value="Vinly"&gt;Vinly&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;label for=genre&gt; Genre&lt;/label&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+            &lt;select name="genre" id="genre"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;optgroup label="Books"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Comedy"&gt;Comedy&lt;/option&gt;
+            &lt;option value="Fanstasy"&gt;Fanstasy&lt;/option&gt;
+            &lt;option value="Historical"&gt;Historical&lt;/option&gt;
+            &lt;option value="Historical Fiction"&gt;Historical Fiction&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Magical Realism"&gt;Magical Realism&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Paranoid"&gt;Paranoid&lt;/option&gt;
+            &lt;option value="Philosophical"&gt;Philosophical&lt;/option&gt;
+            &lt;option value="Political"&gt;Political&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Saga"&gt;Saga&lt;/option&gt;
+            &lt;option value="Satire"&gt;Satire&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Tech"&gt;Tech&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="Urban"&gt;Urban&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Movies"&gt;
+            &lt;option value="Action"&gt;Action&lt;/option&gt;
+            &lt;option value="Adventure"&gt;Adventure&lt;/option&gt;
+            &lt;option value="Animation"&gt;Animation&lt;/option&gt;
+            &lt;option value="Biograpghy"&gt;Biograpghy&lt;/option&gt;
+            &lt;option value="Comed"&gt;Comed&lt;/option&gt;
+            &lt;option value="Crime"&gt;Crime&lt;/option&gt;
+            &lt;option value="Documentary"&gt;Documentary&lt;/option&gt;
+            &lt;option value="Drama"&gt;Drama&lt;/option&gt;
+            &lt;option value="Family"&gt;Family&lt;/option&gt;
+            &lt;option value="Fantasy"&gt;Fantasy&lt;/option&gt;
+            &lt;option value="History"&gt;History&lt;/option&gt;
+            &lt;option value="Horror"&gt;Horror&lt;/option&gt;
+            &lt;option value="Musical"&gt;Musical&lt;/option&gt;
+            &lt;option value="Mystery"&gt;Mystery&lt;/option&gt;
+            &lt;option value="Romance"&gt;Romance&lt;/option&gt;
+            &lt;option value="Sci-Fi"&gt;Sci-Fi&lt;/option&gt;
+            &lt;option value="Sport"&gt;Sport&lt;/option&gt;
+            &lt;option value="Thriller"&gt;Thriller&lt;/option&gt;
+            &lt;option value="War"&gt;War&lt;/option&gt;
+            &lt;option value="Western"&gt;Biograpghy&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label="Music"&gt;
+            &lt;option value="Blues"&gt;Blues&lt;/option&gt;
+            &lt;option value="Classical"&gt;Classical&lt;/option&gt;
+            &lt;option value="Country"&gt;Country&lt;/option&gt;
+            &lt;option value="Dance"&gt;Dance&lt;/option&gt;
+            &lt;option value="Easy Listening"&gt;Easy Listening&lt;/option&gt;
+            &lt;option value="Electronic"&gt;Electronic&lt;/option&gt;
+            &lt;option value="Folk"&gt;Folk&lt;/option&gt;
+            &lt;option value="Hip Hop/Rap"&gt;Hip Hop/Rap&lt;/option&gt;
+            &lt;option value="Insirational/Gospel"&gt;Insirational/Gospel&lt;/option&gt;
+            &lt;option value="Jazz"&gt;Jazz&lt;/option&gt;
+            &lt;option value="Latin"&gt;Latin&lt;/option&gt;
+            &lt;option value="New Age"&gt;New Age&lt;/option&gt;
+            &lt;option value="Opera"&gt;Opera&lt;/option&gt;
+            &lt;option value="Pop"&gt;Pop&lt;/option&gt;
+            &lt;option value="R&B/Soul"&gt;R&B/Soul&lt;/option&gt;
+            &lt;option value="Reggae"&gt;Reggae&lt;/option&gt;
+            &lt;option value="Rock"&gt;Rock&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="year"&gt;Year&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="year" name="year" /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th&gt;
+            &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="display: none;"&gt;
+            &lt;th&gt;
+            &lt;lable for="email"&gt;Address&lt;/lable&gt;
+            &lt;/th&gt;
+            &lt;td&gt;&lt;input type="text" id="address" name="address" /&gt;
+            &lt;p&gt;Please leave this field blank&lt;/p&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" id="send" value="Send"&gt;
+            &lt;/form&gt;
+            &lt;?php } ?&gt;
+            &lt;/div&gt;
+            &lt;?php include("Inc/footer.php"); ?&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+    <h1>Error Message Priority</h1>
+    <p>
+        Example မှာဆိုရင် first check ဟာ values တွေရှိတဲ့ required fields တွေကို checks လုပ်ထားတာဖြစ်ပါတယ်။ ဒါပေမဲ့
+        example
+        မှာဆိုရင်တော့ သူတို့ဟာ အလုပ်မလုပ်ပါဘူး။ အဲ့ဒါကြောင့် error message ဟာ sent ဖြစ်သွားမှာဖြစ်ပါတယ်။ Code ဟာဆိုရင်
+        email
+        address ဟာ valid ဖြစ်တယ်ဆိုရင် example မှာဆိုရင် သူဟာ blank ဖြစ်ပြီးတော့ သူဟာ valid မဖြစ်ပါဘူး။ Example
+        မှာဆိုရင် email
+        ကို validateAddress နဲ့ check လုပ်ထားတာကို ကြည့်မယ်ဆိုရင် error_message variable ထဲကို different value တစ်ခုကို
+        puts
+        လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ essentially အရ earlier message တွေကို overriding လုပ်သွားတာဖြစ်ပါတယ်။ အခု section
+        မှာလုပ်ဆောင်မှာကတော့ error တစ်ခုကို တွေ့တဲ့အခါမှာ နောက် checks တွေကို ဆက်ပြီးတော့ အလုပ်လုပ်တာကို
+        လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            if(!isset($error_message) && $_POST["address"] != "") {
+            $error_message = "Bad form input";
+            }
+            if(!isset($error_message) && !PHPMailer::validateAddress($email)){
+            $error_message = "Invalid Email Address";
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Re-Displaying the Submission</h1>
+    <p>
+        Visitor တစ်ယောက်ဟာ site ကို invalid data နှင့် suggest form ကို completes ဖြစ်တဲ့အချိန်မှာ ကျွန်တော်တို့ဟာ form
+        ရဲ့ပေါ်မှာ error message ကို display လုပ်မှာဖြစ်ပါတယ်။ Visitor ဟာ form ကို submitted လုပ်လိုက်တဲ့အခါမှာ error
+        message ဟာ
+        ဘာဖြစ်တယ်ဆိုတာကို သူတို့သိဖို့လိုအပ်ပါတယ်။ အခု ကျွန်တော်တို့ရဲ့ code ဟာဆိုရင် page requested
+        လုပ်တဲ့အချိန်တိုင်းမှာ
+        blank form ကို displays လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ users တွေ form fields ထဲမှာ submitted လုပ်လိုက်တဲ့ values
+        တွေကို
+        re-display လုပ်ဖို့ရန်အတွက် some effort ကို လုပ်ဆောင်ပေးဖို့လိုပါတယ်။ REQUEST_METHOD ဟာ POST ဖြစ်တယ်ဆိုရင် name,
+        email
+        address and other fields တွေကို variables တွေထဲမှာ load လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ variables တွေကို form ထဲမှာ
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ တစ်ယောက်ယောက်ဟာ input field ထဲမှာ သူ့ရဲ့ name ကို enter လုပ်လိုက်တဲ့အခါမှာ input
+        element မှာ
+        Type, ID and name ဆိုတဲ့ HTML attributes 3 ခုရှိပါတယ်။ နောက် ကျွန်တော်တို့ဟာ default အရ input field ထဲမှာ
+        appears
+        ဖြစ်လာတဲ့ text ကို set လုပ်ဖို့ရန်အတွက် value ဆိုတဲ့ attribute တစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ အဲ့ value အတွက်
+        ကျွန်တော်တို့ဟာ name variable ထဲမှာရှိတဲ့ဟာကို echo လုပ်ချင်တာဖြစ်ပါတယ်။
+    </p>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+    <h1>Escaping Output</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ form ထဲက additional details ထဲမှာ HTML tags တွေကို type လုပ်ပြီးတော့ form ကို submit
+        လုပ်လိုက်တဲ့အချိန်မှာ အဲ့ code တွေကို HTML tags တွေအနေနဲ့ ကျွန်တော်တို့ရဲ့ form ထဲမှာ ပေါ်လာမှာဖြစ်ပါတယ်။
+        အဲ့လိုမဖြစ်ဖို့ရန်အတွက် htmlspecialchares ဆိုတဲ့ function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူဟာ filter input လိုပဲ
+        အလုပ်လုပ်ပုံဟာ တူပါတယ်။ သူတို့နှစ်ခုလုံးဟာ special characters တွေကို HTML entities တွေဆီကို convert
+        လုပ်ပေးကြတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;tr&gt;
+                &lt;th&gt;
+                    &lt;lable for="name"&gt;Suggest Item Details&lt;/lable&gt;
+                &lt;/th&gt;
+                &lt;td&gt;&lt;textarea name="details" id="deatils"&gt;&lt;?php
+                            if(isset($details)) echo htmlspecialchars($POST['details']); ?&gt;&lt;/textarea&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/basicwebsiteexample/suggest.php">Test Yourself</a>
+    <hr>
+</body>

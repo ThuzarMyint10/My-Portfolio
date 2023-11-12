@@ -1,0 +1,8 @@
+li:nth-child(-n+3){
+    background: #52bab3;
+    color: white;
+}
+li:nth-child(3n+3){
+    background: palegoldenrod;
+    color: black;
+}

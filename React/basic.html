@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Introducing React</h1>
+    <p>
+        အခု section မှာတော့ React ရဲ့ fundamental concepts တွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ React ဆိုတာ user interfaces
+        တွေကို
+        building လုပ်တဲ့ JavaScript library တစ်ခုဖြစ်ပါတယ်။ React ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ UI code တွေကို building,
+        organizing
+        and maintaining လုပ်ဖို့အတွက် more efficient and flexible way တစ်ခုကို introduces လုပ်ပေးထားပါတယ်။ React နဲ့
+        အလုပ်လုပ်တဲ့ခါမှာ main benefits ရှိပါတယ်။ အဲ့ထဲကတစ်ခုကတော့ ကျွန်တော်တို့ application's user interface ကို
+        building
+        လုပ်တဲ့နေရာမှာ components လို့ခေါ်တဲ့ small reusable pieces of code တွေအဖြစ် breaking လုပ်ပြီးတော့ building
+        လုပ်ဖို့
+        ခွင့်ပြုပေးထားပါတယ်။ React ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ own custom components တွေကို create
+        လုပ်ဖို့ခွင့်ပြုပေးထားပါတယ်။
+        နောက် complex interactive UIs ကို build လုပ်ဖို့ရန်အတွက် သူတို့ကို quickly compose or combine လုပ်နိုင်ပါတယ်။
+        ဆိုလိုတာကတော့ ကျွန်တော်တု့ိဟာ component တစ်ခုကို တစ်ခါပဲ test လုပ်ရင်တောင် သူ့ကို ကျွန်တော်တို့ရဲ့ application
+        ထဲမှာ
+        လိုအပ်တဲ့အခါမှာ reuse လုပ်နိုင်ပါတယ်။ အခြား React ရဲ့ big benefit တစ်ခုကတော့ application's data or state and UI
+        in-sync
+        ဖြစ်ခဲ့မယ်ဆိုရင် data တွေ changes ဖြစ်သွားတဲ့အချန်မှာ ကျွန်တော်တို့ရဲ့ UI ကို update and keep လုပ်ပေးထားပါတယ်။
+        ဒါဟာဆိုရင် interactive user interfaces ကို building လုပ်တာရဲ့ most difficult parts တွေထဲက တစ်ခုဖြစ်ပါတယ်။ React
+        မှာဆိုရင် clever features တွေရှိပါတယ်။ အဲ့ဒါတွေဟာ UI ကို building လုပ်နေတဲ့အချိန်မှာ much of the complexity ကို
+        remove
+        လုပ်ပေးပါတယ်။ နောက်ကျွန်တော်တို့ဟာ components, applications state, organizing and managing UI code တွေနဲ့ other
+        core
+        features of React အကြောင်းတွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် React ဟာဆိုရင် JavaScript language ကို
+        အသုံးပြုပြီးတော့ ပြုလုပ်ထားတာဖြစ်ပါတယ်။ သူဟာ modern JavaScript principles ပေါ်မှာ rely ဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Add React to a Project</h1>
+    <p>
+        ကျွန်တော်တု့ိ React ကို အသုံးပြုဖို့နဲ့ install လုပ်ဖို့ရန်အတွက် few ways ရှိပါတယ်။ အဲ့ဒါကို React's
+        documentation မှာ
+        read လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် React ကို install လုပ်နိုင်တဲ့ common ways နှစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ Create
+        React App
+        နဲ့ Content Delivery Network(CDN) Links တို့ပဲဖြစ်ပါတယ်။ Create React App ဟာဆိုရင် Facebook မှာရှိတဲ့ developers
+        တွေကနေပြီးတော့ built လုပ်ထားတာဖြစ်ပါပြီးတော့ သူဟာဆိုရင် react ကို building လုပ်တဲ့အခါမှာ time consuming setup
+        and
+        configuration လုပ်တာနေ save ဖြစ်ဖို့ ကူညီပေးပါတယ်။ Create React App ဟာဆိုရင် React နဲ့ get up and running
+        လုပ်ဖို့ရန်အတွက် most common way တစ်ခုဖြစ်ပါတယ်။ သူဟာဆိုရင် build system တစ်ခုကို automatically sets up
+        လုပ်ပေးပြီးတော့
+        files တွေကိုလည်း creates လုပ်ပေးပါတယ်။ နောက် သူ့ကိုအသုံးပြုမယ်ဆိုရင် Node and NPM တွေကို ကျွန်တော်တို့ရဲ့
+        computer မှာ
+        installed လုပ်ထားဖို့လိုပါတယ်။ အခု section မှာတော့ CDN links ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် React မှာ web
+        application ကို building လုပ်တဲ့အချိန်မှာ libraries နှစ်ခုကို အသုံးပြုပေးရပါမယ်။ အဲ့ဒါကတော့ react and react-dom
+        ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Create a React Element</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ UI ကို create လုပ်တဲ့အချိန်မှာ individual self contained components တွေနဲ့ create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ဒါပေမဲ့ အခု section မှာတော့ components တွေကို writing လုပ်မှာမဟုတ်ပါဘူး။ React ဟာ ကျွန်တော်တို့ရဲ့ UI ထဲမှာ HTML
+        elements တွေကို creating and updating လုပ်ဖို့ရန်အတွက် library တစ်ခုဖြစ်ပါတယ်။ React ဟာဆိုရင် elements တွေကို
+        create and
+        return လုပ်ဖို့ရန်အတွက် createElement function တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ CreateElement ဟာဆိုရင်
+        arguments 3
+        ခုကို accept လုပ်ပါတယ်။ သူတို့ဟာ ကျွန်တော်တို့ create လုပ်ချင်တဲ့ element ကို define လုပ်ပေးတာဖြစ်ပါတယ်။ First
+        argument
+        ကတော့ ကျွန်တော်တို့ create လုပ်ချင်တဲ့ argument ရဲ့ type ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ HTML element or a tag ကို
+        represent
+        လုပ်တဲ့ string တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ h1 element ကို create လုပ်ထားတာဖြစ်ပါတယ်။ နောက် second
+        argument
+        ကတော့ ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ element ကို ပေးချင်တဲ့ attribute and value ပဲဖြစ်ပါတယ်။ အဲ့နေရာမှာ null
+        ကို
+        ထည့်နိုင်ပါတယ်။ Third argument ကတော့ အဲ့ element ရဲ့ contents or children ပဲဖြစ်ပါတယ်။ အဲ့လို create လုပ်တာဟာ
+        DOM node
+        ကို describes လုပ်တဲ့ object တစ်ခုကို create လုပ်တာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const title = React.createElement(
+            'h1',
+            { id: 'main-title', title: 'This is a title.' },
+            'My First React Element!'
+            );
+        </code>
+    </pre>
+    <hr>
+    <h1>Render an Element</h1>
+    <p>
+        React ဟာဆိုရင် real DOM nodes ကို create လုပ်တာမဟုတ်ပါဘူး။ React ဟာဆိုရင် DOM nodes ကို describes လုပ်တဲ့ plain
+        JavaScript objects ကို creates လုပ်တာဖြစ်ပါတယ်။ React ဟာဆိုရင် DOM specific methods ကို provides
+        လုပ်ပေးထားပါတယ်။
+        အဲ့ဒါကတော့ ReactDOM.render() ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် React elements တွေကို DOM ဆီကို render လုပ်ပေးတာဖြစ်ပါတယ်။
+        သူဟာ
+        arguments 2 ခုကို accepts လုပ်ပါတယ်။ First, ကျွန်တော်တို့ render လုပ်ချင်တဲ့ element ကို describes လုပ်တဲ့ React
+        element
+        or JavaScript object နှင့် ကျွန်တော်တို့ သူ့ထဲကို update လုပ်ချင်တဲ့ actual HTML element ပဲဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်တော့ plain JavaScript ဖြစ်တဲ့ document.getElementById method ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        description ဆိုတဲ့ p element ကို create လုပ်ပေးထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const title = React.createElement(
+            'h1',
+            { id: 'main-title', title: 'This is a title.' },
+            'My First React Element!'
+            );
+            
+            const desc = React.createElement(
+            'p',
+            null,
+            'I just learned how to create a React node and render it into the DOM.'
+            );
+            
+            const header = React.createElement(
+            'header',
+            null,
+            title,
+            desc
+            );
+            ReactDOM.render(
+            header,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>Understanding JSX</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ application's UI ကို React.createElement method ကို over and over again အသုံးပြုပြီးတော့
+        describe
+        လုပ်နိုင်ပါတယ်။ ဒါဟာဆိုရင် convenient မဖြစ်ပါဘူး။ ဒါဟာဆိုရင် a lot o extra typing ဖြစ်ပြီးတော့
+        React.createElement calls
+        အားလုံးဟာ larger apps တွေနဲ့ အလုပ်လုပ်တဲ့အခါမှာ pretty confusing ဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် JSX ဟာ
+        ပေါ်လာတာဖြစ်ပါတယ်။ JSX
+        ဆိုတာ JavaScript language ကို extension တစ်ခုဖြစ်ပါတယ်။ သူ့ကို UI ထဲမှာ elements တွေကို describe လုပ်ဖို့ React
+        နဲ့
+        အသုံးပြုပါတယ်။ သူဟာ React elements တွေကို create လုပ်ဖို့ရန်အတွက် mark-up-like syntax ကိုအသုံးပြုပါတယ်။ Most
+        React
+        developers တွေဟာ သူတို့ရဲ့ UI ကို JSX ကို အသုံးပြုပြီးတော့ write လုပ်ကြပါတယ်။ JSX ကို အသုံးပြုပြီးတော့ elements
+        တွေကို
+        create လုပ်လိုက်တာဟာ real HTML တော့မဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ actual JavaScript syntax ကို writing
+        လုပ်တာဖြစ်ပါတယ်။
+        အဲ့ဒါတွေဟာ JSX ဖြစ်ပြီးတော့ syntax တစ်ခုဟာ JavaScript ကို extension လုပ်ပါတယ်။ အဲ့လို run လိုက်တဲ့အခါမှာ syntax
+        error
+        တစ်ခုရရှိမှာဖြစ်ပါတယ်။ JSX ဟာဆိုရင် valid JavaScript မဟုတ်ပါဘူး။ အဲ့ဒါကြောင့် browser ဟာ သူ့ကို interpret
+        မလုပ်နိုင်ပါဘူး။ JSX နှင့် React elements တွေကို create လုပ်ဖို့အတွက် react.createElement calls အဖြစ်ကို
+        transfiled
+        လုပ်ဖို့လိုပါတယ်။ Example မှာဆိုရင်တော့ အဲ့ဒါကို လုပ်ဆောင်ဖု့ိ Babel compiler ကိုအသုံးပြုပေးထားပါတယ်။ Babel
+        ကိုအသုံးပြုဖို့ရန်အတွက် example မှာဆိုရင် Babel stand alone ကို points လုပ်တဲ့ script tag တစ်ခုကို add
+        လုပ်ပေးရပါတယ်။
+        သူဟာဆိုရင် built step တစ်ခုမပါဘဲနဲ့ JSX ကိုအသုံးပြုတာကို allow လုပ်ပေးပါတယ်။ နောက် JavaScript file ကို add
+        လုပ်ထားတဲ့
+        script tag ထဲမှာ type="text/babel" ကို pass လုပ်ပေးရပါမယ်။ အဲ့ဒါဟာဆိုရင် babel script ကို JavaScript and app.js
+        တို့ကို
+        executed မလုပ်ခင်မှာ compiled လုပ်ပါမယ်ဆိုတာကိုပြောလိုက်တာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const title = &lt;h1&gt;My First React Element&lt;/h1&gt;;
+            
+            const desc = &lt;p&gt;I just learned how to create a React node and render it into the DOM.&lt;/p&gt;;
+            
+            const header = React.createElement(
+            'header',
+            null,
+            title,
+            desc
+            );
+            ReactDOM.render(
+            header,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <h3>index.html</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Scoreboard Application&lt;/title&gt;
+            &lt;link rel="stylesheet" href="app.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            &lt;div id="root"&gt;
+            
+            &lt;/div&gt;
+            
+            &lt;script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"&gt;&lt;/script&gt;
+            &lt;script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
+            &lt;script type="text/babel" src="app.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Embed JavaScript Expressions in JSX</h1>
+    <p>
+        JSX tags တွေမှာဆိုရင် children or nested elements တွေပါဝင်နိုင်ပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် parent
+        header
+        element ကို convert လုပ်ဖို့ရန်အတွက် parentheses နှင့် surround လုပ်ထားပါတယ်။ အဲ့မှာဆိုရင် JSX across multiple
+        lines ကို
+        surround လုပ်ဖို့ရန်အတွက် parentheses ကိုအသုံးပြုတာဖြစ်ပါတယ်။ ဒါဟာ good code style and readability
+        အတွက်ပဲဖြစ်ပါတယ်။ JSX
+        ဟာ JavaScript language ရဲ့ extension တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် သူဟာ any valid JavaScript expressions ကို curry
+        braces
+        ထဲမှာ written လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် JSX ကို more dynamic ဖြစ်စေပါတယ်။ ကျွန်တော်တို့ဟာ JSX မှာ curly
+        braces
+        ကို အသုံးပြုတာကို JSX expression လို့ခေါ်ပါတယ်။ JSX expression ကို curly braces နဲ့ surrounded လုပ်ပေးရပါတယ်။
+        အဲ့ထဲမှာ
+        ကျွန်တော်တု့ိထည့်ချင်တဲ့ attribute ရဲ့ value ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ React ကို JSX နှင့် အလုပ်လုပ်တဲ့အခါမှာ a
+        few
+        other rules and conventions တွေရှိပါတယ်။ Main တစ်ခုကတော့ attribute names ပဲဖြစ်ပါတယ်။ React ဟာဆိုရင် camel case
+        property
+        naming convention ကို အသုံးပြုပါတယ်။ Example မှာဆိုရင်တော့ ကျွန်တော်တို့ဟာ element တစ်ခုရဲ့ class
+        ကိုပေးချင်တဲ့အခါမှာ
+        className ဆိုပြီးတော့ နောက်က JSX expression ကိုလိုက်ပေးရမှာဖြစ်ပါတယ်။ JSX ဟာ HTML မဟုတ်ပါဘူး။ ဘာကြောင့်လဲဆိုတော့
+        code
+        တွေဟာ JavaScript နဲ့ compiled လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ React ဟာဆိုရင် class ကိုအသုံးမပြုပါဘူး။ နောက် JSX
+        မှာရှိတဲ့ comments တွေဟာဆိုရင် JavaScript မှာရှိတဲ့ comments တွေနဲ့ different ဖြစ်ပါတယ်။ JSX မှာဆိုရင် comments
+        တွေကို
+        curly braces ထဲမှာ ရေးပေးရမှာဖြစ်ပါတယ်။ React နဲ့ JSX ကို အသုံးပြုတာဟာ optional ဖြစ်ပါတယ်။ သူဟာဆိုရင် JavaScript
+        မှာရှိတဲ့ functions တွေကို calling လုပ်ဖိုံ alternative syntax တစ်ခုပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const name = 'Alex'
+            const title = 'My First React Element';
+            const desc = 'I just learned how to create a React node and render it into the DOM.';
+            const myTitleID = 'main-title';
+            
+            const header = (
+            &lt;header&gt;
+            &lt;h1 id={myTitleID}&gt;{name}'s First React Element&lt;/h1&gt;
+            &lt;p className="main-desc"&gt;{desc}&lt;/p&gt;
+            &lt;/header&gt;
+            );
+            ReactDOM.render(
+            header,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>What is a Component</h1>
+    <p>
+        ပြီးခဲ့တဲ့ stage မှာ React elements တွေကို ဘယ်လို create လုပ်ရမယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section
+        မှာတော့
+        React ရဲ့ heart ဖြစ်တဲ့ components ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ React မှာရှိတဲ့ everything တွေကို component
+        တစ်ခုနဲ့
+        considered လုပ်ပါတယ်။ Component တစ်ခုဆိုတာ ကျွန်တော်တို့ reuse လုပ်နိုင်တဲ့ piece of UI ပဲဖြစ်ပါတယ်။ Component
+        တစ်ခုဟာ
+        code တွေကို reuse လုပ်ပြီးတော့ UI ရဲ့ part တစ်ခုမှာ renders လုပ်ဖို့ ခွင့်ပြုပေးထားပါတယ်။ အခု stage မှာတော့
+        scoreboard
+        application တစ်ခုကို building လုပ်သွားမှာဖြစ်ပါတယ်။ သူ့မှာဆိုရင် game ကနေပြီးတော့ players တွေကို add and remove
+        လုပ်နိုင်ပါတယ်။ Player တစ်ယောက်ချင်းစီရဲ့ score ကို increasing and decreasing a score counter တစ်ခုရှိပါတယ်။
+        နောက်
+        dynamic information တွေလည်းပါဝင်ပါတယ်။ နောက် track of turn time ကို keep လုပ်နိုင်တဲ့ stopwatch တစ်ခုပါဝင်ပါတယ်။
+        နောက်
+        score leader ဟာဆိုရင် သူ့ရဲ့ name နောက်မှာ crown icon တစ်ခုပါရှိပါတယ်။ အခု section မှာတော့ scoreboard ရဲ့
+        certain parts
+        တွေကို build လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ player display, score counter and total player's status
+        တို့ပဲဖြစ်ပါတယ်။ နောက် board ကနေ players တွေကို remove လုပ်ဖို့လည်းအတွက်ရောပါဝင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Create a Component</h1>
+    <p>
+        React ဟာဆိုရင် other front end frameworks and libraries တွေလုပ်သလို special templating language တစ်ခုကို
+        အသုံးမပြုပါဘူး။
+        React components တွေဟာ JSX နှင့် plain JavaScript ထဲမှာ ရေးရတာဖြစ်ပါတယ်။ ပြီးတော့ small part of UI ကို display
+        လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ logic တွေပါဝင်ပါတယ်။ React component တစ်ခုကို create လုပ်တဲ့အခါမှာ step process 2
+        ခုရှိပါတယ်။
+        First, ကျွန်တော်တို့ဟာ JavaScript function or class တွေလို component ကို define လုပ်ရပါမယ်။ နောက် component ကို
+        JSX tag
+        တစ်ခုနှင့် use and display လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ main pieces တစ်ခုဖြစ်တဲ့ header ကို create
+        လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် React components တွေဟာ upper ase နဲ့ စဖို့လိုပါတယ်။ နောက် header မှာဆိုရင်
+        react
+        elements တွေကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ Return ရဲ့ နောက်မှာ parenthesis ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့
+        parenthesis ထဲမှာ ကျွန်တော်တု့ိရဲ့ UI မှာ appear ဖြစ်ချင်တဲ့ elements တွေကို JSX ကိုအသုံးပြုပြီးတော့ add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Next section မှာ header component ကို JSX ကိုအသုံးပြုပြီးတော့ page မှာ render
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            function Header() {
+            return (
+            &lt;header&gt;
+                &lt;h1&gt;Scoreboard&lt;/h1&gt;
+                &lt;span className="stats"&gt;Players: 1&lt;/span&gt;
+            &lt;/header&gt;
+            );
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Use a Component with JSX</h1>
+    <p>
+        JSX ဟာဆိုရင် ကျွန်တော်တို့ကို own tags တွေကို create လုပ်ဖို့ ခွင့်ပြုပါတယ်။ JSX ဟာဆိုရင် HTML element
+        တစ်ခုကိုပဲ
+        represent လုပ်တာမဟုတ်ပါဘူး။ သူဟာ user defined component ကိုလည်း represent လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင်တော့
+        header
+        component ကို creating လုပ်ပြီးတော့ ကျွန်တော်တို့ဟာ header tag ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တု့ိ
+        အသုံးပြုချင်သလောက်
+        header အသုံးပြုနိုင်ပါတယ်။ သူ့ထဲမှာ children or nested element တွေမရှိဘူးဆိုရင် self-closing header tag နဲ့
+        replace
+        လုပ်နိုင်ပါတယ်။ နောက် tag name ဟာဆိုရင် function name နဲ့ match ဖြစ်ရပါမယ်။ နောက် ကျွန်တော်တို့ သိထားသင့်တဲ့
+        react
+        component ကို refer လုပ်တဲ့ JSX tags ရဲ့ a few important details တွေရှိပါသေးတယ်။ First, tag name မှာဆိုရင်
+        capital
+        letter ဖြစ်ဖို့လိုပါတယ်။ ဘာကြောင့်လဲဆိုတော့ custom components ကို native DOM elements ကနေ differentiate
+        လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ JSX မှာဆိုရင် lowercase tag names တွေဟာ HTML tags ကို considered လုပ်ပါတယ်။ နောက်
+        self-closing
+        JSX tag မှာ single space တစ်ခုလိုပါတယ်။ နောက်ဆုံးကတော့ component's JSX tag တစ်ခုဟာ function called
+        တစ်ခုဖြစ်ပါတယ်။ React
+        မှာဆိုရင် UI တစ်ခုလုံးဟာ composition of functions တစ်ခုပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            function Header() {
+            return (
+            &lt;header&gt;
+            &lt;h1&gt;Scoreboard&lt;/h1&gt;
+            &lt;span className="stats"&gt;Players: 1&lt;/span&gt;
+            &lt;/header&gt;
+            );
+            }
+            ReactDOM.render(
+            &lt;Header /&gt;,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>Components as Arrow Functions</h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ components တွေကို arrow functions တွေနဲ့ တွေ့ရပါတယ်။ Simple function မှာဆိုရင် JSX ကို return
+        ပြန်ပေးဖို့လိုပါတယ်။ ဒါပေမဲ့ arrow function မှာဆိုရင်တော့ return keyword မပါပါဘူး။ နောက် curly braces ကိုလည်း
+        omit
+        လုပ်ပေးရပါမယ်။ နောက် စောပိုင်းမှာ လေ့လာခဲ့သလိုပဲ JSX မှာရှိတဲ့ parentheses ဟာ optional ဖြစ်တဲ့အတွက်ကြောင့်
+        အဲ့ဒါမပါလည်း
+        ရပါတယ်။ ဒီလို arrow function နဲ့ writing လုပ်တာဟာ more concise syntax တစ်ခုကို ပေးပါတယ်။
+    </p>
+    <hr>
+    <h1>Create the Player Component</h1>
+    <p>
+        အခု section မှာတော့ scoreboard app ရဲ့ player component ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ component မှာဆိုရင်
+        player's
+        name and score ကို change လုပ်ဖို့ရတဲ့ buttons တွေနဲ့ player's score ကို displays လုပ်တဲ့ counter
+        တို့ပါဝင်ပါတယ်။ First
+        အနေနဲ့ Player ဆိုတဲ့ function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် return keyword နဲ့ JSX ကို hold
+        လုပ်တဲ့
+        parenthesis ကို followed လုပ်ပေးရပါမယ်။ သူတို့ထဲမှာ ကျွန်တော်တို့ လိုချင်တဲ့ UI ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const Player = () =&gt; {
+            return (
+            &lt;div className="player"&gt;
+            &lt;sapn className="player-name"&gt;
+            Alex
+            &lt;/sapn&gt;
+            &lt;div className="counter"&gt;
+            &lt;button className="counter-action decrement"&gt;-&lt;/button&gt;
+            &lt;sapn className="counter-score"&gt;90&lt;/sapn&gt;
+            &lt;button className="counter-action increment"&gt;+&lt;/button&gt;
+            
+            &lt;/div&gt;
+            &lt;/div&gt;
+            );
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Composing Components</h1>
+    <p>
+        အခု section မှာတော့ counter component ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ Counter ဆိုတဲ့ new function
+        တစ်ခုကို
+        create လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် return keyword နဲ့ JSX ကို hold လုပ်တဲ့ parentheses ကို set လုပ်ပေးရပါမယ်။
+        နောက်
+        Player function ထဲမှာရှိတဲ့ counter div ကို paste လုပ်ပေးရပါမယ်။ Counter ကို create လုပ်ပြီးတဲ့နောက်မှာ သူ့ကို
+        Player
+        component ထဲမှာ display လုပ်ပေးဖို့လိုပါတယ်။ React components တွေဟာ other React components တွေကို use of refer
+        လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် Counter component ကို Player component ထဲမှာ render လုပ်နိုင်တာပဲဖြစ်ပါတယ်။
+        အဲ့မှာဆိုတော့ Counter tag ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Component တစ်ခုထဲမှာ another component တစ်ခုပါဝင်တာကို
+        composition လို့ခေါ်ပါတယ်။ အဲ့မှာဆိုရင် parent components တွေရှိပြီးတော့ အဲ့ parent မှာ child components
+        တွေအများကြီးရှိပါတယ်။ ဒါဟာဆိုရင် parent component ကို သူ့ရဲ့ child components တွေကို ဘယ်လို render
+        လုပ်မယ်ဆိုတာကို
+        control လုပ်နိုင်တဲ့ ability ကိုပေးပါတယ်။ Typically, React applications တွေမှာဆိုရင် single top level component
+        တစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ entire application ကို main components ထဲမှာအတူတူ composes လုပ်ပြီးတော့ wraps
+        လုပ်ကြတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် App ဆိုတဲ့ new function တစ်ခုကို create လုပ်ပေးထားပါတယ်။
+        အဲ့ထဲမှာကျွန်တော်တို့ရဲ့ Header
+        and Player components နှစ်ခုကို scoreboard div ထဲမှာ render လုပ်ပေးထားပါတယ်။ နောက် ReactDOM.render ဟာ DOM ထဲမှာ
+        top
+        level element ကို renders လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ App components ကို ReactDOM.render
+        ထဲမှာ JSX
+        tag ကိုအသုံးပြုပြီးတော့ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            function Header() {
+            return (
+            &lt;header&gt;
+            &lt;h1&gt;Scoreboard&lt;/h1&gt;
+            &lt;span className="stats"&gt;Players: 1&lt;/span&gt;
+            &lt;/header&gt;
+            );
+            }
+            
+            const Player = () =&gt; {
+            return (
+            &lt;div className="player"&gt;
+            &lt;sapn className="player-name"&gt;
+            Alex
+            &lt;/sapn&gt;
+            &lt;Counter /&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            const Counter = () =&gt; {
+            return (
+            &lt;div className="counter"&gt;
+            &lt;button className="counter-action decrement"&gt;-&lt;/button&gt;
+            &lt;sapn className="counter-score"&gt;90&lt;/sapn&gt;
+            &lt;button className="counter-action increment"&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            const App = () =&gt; {
+            return (
+            &lt;div className="scoreboard"&gt;
+            &lt;Header /&gt;
+            &lt;Player /&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            ReactDOM.render(
+            &lt;App /&gt;,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>React Developer Tools</h1>
+    <p>
+        React နဲ့ ဆိုရင် ကျွန်တော်တို့ဟာ actual DOM ကို တိုက်ရိုက် touch လုပ်လို့မရပါဘူး။ React ဟာဆိုရင် DOM မှာ ဘာကို
+        rendered
+        လုပ်တယ် ဘာတွေ screen ပေါ်မှာ appear ဖြစ်သင့်တယ်ဆိုတာကို manages လုပ်ပေးတာဖြစ်ပါတယ်။ Facebook မှာရှိတဲ့ engineers
+        တွေဟာ
+        React Developer tools extension ကို create လုပ်ခဲ့ကြပါတယ်။ ဒါဆိုရင် ကျွန်တော်တို့ကို React နဲ့
+        အလုပ်လုပ်တဲ့အခါမှာ big
+        productivity boost ကို ပေးပါတယ်။ React Dev tools ဟာဆိုရင် Chrome and Firefox developer tools မှာ React component
+        hierarchy ကို inspect လုပ်ဖို့ခွင့်ပြုပေးတဲ့ extension တစ်ခုပဲဖြစ်ပါတယ်။ First အနေနဲ့ သူ့ကို download
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ သုံးတဲ့ browser မှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် React Dev tools
+        ကို
+        ကျွန်တော်တို့ browser မှာ inspect လုပ်ပြီးတော့ အသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Setting and Using Props</h1>
+    <p>
+        React ဟာဆိုရင် HTML elements တွေကို creating and updating လုပ်ဖို့အတွက် library တစ်ခုပဲဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ
+        scoreboard ကို ဘယ်လို customize လုပ်တာတွေဖြစ်တဲ့ new players and modify scores တွေကို ဘယ်လို add လုပ်ဆိုတော့
+        properties
+        or props ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ React ဟာဆိုရင် components တွေကို customize လုပ်ဖို့နဲ့ components တွေထဲကို
+        dynamic
+        information တွေကို pass လုပ်ပေးပါတယ်။ HTML elements မှာဆိုရင် attributes တွေကို accept လုပ်ပါတယ်။ Attributes ဟာ
+        element's ID, class name or image's alt တို့လို extra bits of information တွေကို browser ကို provide လုပ်ပါတယ်။
+        React
+        component and element အားလုံးဟာ HTML elements လိုပဲ list of attributes တွေကို receive လုပ်နိုင်ပါတယ်။ React
+        မှာဆိုရင် ဒီ
+        list ကို properties, or props လို့ခေါ်ပါတယ်။ Props ဟာ React မှာ core concept တစ်ခုဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့
+        component တစ်ခုထဲကို data တွေကို ဘယ်လိုရတယ်ဆိုတာကို ပြောတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ UI မှာရှိတဲ့
+        most of
+        the components တွေဟာ props နဲ့ configured လုပ်ထားတာဖြစ်ပါတယ်။ Component တစ်ခုထဲမှာ props ကိုအသုံးပြုတဲ့နေရာမှာ
+        main
+        steps နှစ်ခုရှိပါတယ်။ First, ကျွန်တော်တို့ဟာ props ကို component's JSX tag တစ်ခုထဲမှာ attribute syntax
+        တစ်ခုကိုအသုံးပြုပြီးတော့ write လုပ်ပေးပါမယ်။ နောက် component ဟာ အဲ့ information ကို take လုပ်နိုင်ဖို့လိုပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ရဲ့ UI ကို browser ရဲ့ console မှာကြည့်တဲ့အခါမှာ props ဆိုတဲ့ name နဲ့ built-in property
+        တစ်ခုရှိပါတယ်။
+        သူ့ရဲ့ value ဟာ သူနှင့် သူ့ရဲ့ children ကို passed လုပ်ပေးထားတဲ့ attributes တွေပါတဲ့ object တစ်ခုပဲဖြစ်ပါတယ်။
+        React
+        element and component အားလုံးမှာ သူ့ကို ပေးထားတဲ့ list of props ပါတဲ့ props object တစ်ခုရှိပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ
+        props of a element and a component ကို React DevTools မှာလည်း inspect လုပ်နိုင်ပါတယ်။ အခု section မှာတော့ props
+        ကိုအသုံးပြုပြီးတော့ Header component ရဲ့ content ကို dynamically display လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာရှိတဲ့
+        header
+        မှာဆိုရင် pieces of content နှစ်ခုကို display လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကတော့ title and total player count
+        တို့ပဲဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် props ကို component တစ်ခုဆီကို pass လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် header tag ဟာ App component
+        ထဲမှာ
+        အသုံးပြုထားတာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        အဲ့ဒါကြောင့် သူ့ထဲမှာ title and totalPlayers ဆိုတဲ့ attributes နှစ်ခုကို add
+        လုပ်ပေးထားပါတယ်။
+        Attributes name ကို ကျွန်တော်တို့ကြိုက်တဲ့ name ကိုပေးလု့ိရပါတယ်။ နောက် props တစ်ခုကို value or string, or
+        number or
+        variable ဖြစ်ဖြစ် pass လုပ်လို့ရပါတယ်။ အဲ့ဒါကိုတော့ JSX expression"{}" ထဲမှာရေးပေးရပါမယ်။ Example မှာဆိုရင်တော့
+        value 1
+        ကို pass လုပ်ပေးထားပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ Header function ကို props ကိုအသုံးပြုပြီးတော့ update
+        လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် component တစ်ခုကို function ကိုအသုံးပြုပြီးတော့ define လုပ်တဲ့အချိန်မှာ
+        function
+        ဟာဆိုရင် React ကနေပြီးတော့ default argument တစ်ခုကို gets လုပ်ပါတယ်။ Example မှာတော့ component ကို ပေးထားတဲ့
+        list of
+        props တွေပါတဲ့ props object တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် Header component ထဲမှာ props
+        ကိုအသုံးပြုပေးတာဖြစ်ပါတယ်။ အဲ့
+        parameter နေရာမှာ ကျွန်တော်တို့ ကြိုက်တဲ့ name ကို ပေးနိုင်ပါတယ်။ ဒါပေမဲ့ props ကတော့ အသုံးများပါတယ်။ နောက် အဲ့
+        props
+        ကို console မှာ ထုပ်ကြည့်တဲ့အခါမှာ title မှာ "Scoreboard" value နှင့် totalPlayers မှာ value "1" ကို တွေ့ရပါတယ်။
+        အဲ့ဒါကြောင့် အဲ့ values တွေရှိတဲ့ props ကို h1 and span ထဲမှာ place လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ
+        props ရဲ့ title and totalPlayers properties တွေကို access လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် "."
+        notation
+        ကိုအသုံးပြုနိုင်ပါတယ်။ Example props.title and props.totalPalyers ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ
+        အဲ့ဒါကို
+        simply type လုပ်ဖို့မရပါဘူး။ ကျွန်တော်တို့ဟာ JSX ဟာ JavaScript expressions တွေကို accepts
+        လုပ်တယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် သူတို့ကို JSX expression"{}" ထဲမှာ pass လုပ်ပေးရပါတယ်။ JSX ဟာ
+        JavaScript expressions တွေကို curly braces ထဲမှာ write လုပ်ခွင့်ပြုထားတဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ math
+        operations
+        ကို လုပ်ဆောင်နိုင်ပါတယ်။ Example props.totalPlayers + 1။ နောက်ကျွန်တော်တို့ဟာ literal values တွေဖြစ်တဲ့ string
+        or
+        numbers and concatenate strings တွေလည်း attributes ထဲမှာ pass လုပ်လို့ရသလို function တစ်ခုကိုလည်း call
+        လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            function Header(props) {
+            return (
+            &lt;header&gt;
+            &lt;h1&gt;{props.title}&lt;/h1&gt;
+            &lt;span className="stats"&gt;Players: {props.totalPlayers}&lt;/span&gt;
+            &lt;/header&gt;
+            );
+            }
+            const App = () =&gt; {
+            return (
+            &lt;div className="scoreboard"&gt;
+            &lt;Header title="Scoreboard" totalPlayers={1} /&gt;
+            &lt;Player /&gt;
+            &lt;/div&gt;
+            );
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Use Props to Create Reusable Components</h1>
+    <p>
+        အခု section မှာတော့ props အကြောင်းကို အခြေခံပြီးတော့ ဘယ် react components တွေဟာ share information တွေနဲ့
+        အချင်းချင်း
+        talk လုပ်ကြတယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Props ဟာဆိုရင် parent component ကနေ data တွေကို down to a child
+        component
+        အထိ pass လုပ်ပေးပါတယ်။ ပြီးခဲ့တဲ့ section မှာ APP component ထဲမှာ data တွေကို header component ထဲကို passing
+        လုပ်ထားတာဖြစ်ပါတယ်။ အခု section မှာတော့ player and counter components အတွက် props ကို write
+        လုပ်ပေးသွားမှာဖြစ်ပါတယ်။
+        Player component မှာ player's name ကို display လုပ်မှာဖြစ်ပြီးတော့ counter components ဟာဆိုရင် buttons အတွေအရ
+        score ကို
+        display လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် player component ဟာ props နှစ်ခုကို get လုပ်ရပါမယ်။ တစ်ခုက name
+        နောက်တစ်ခုက
+        score ပဲဖြစ်ပါတယ်။ နောက် Player ဟာဆိုရင် score အတွက် prop ကို counter component ဆီကို passes
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        Example မှာဆိုရင် player ဟာ counter ရဲ့ parent ဖြစ်တဲ့အတွက်ကြောင့် သူဟာ player's name and score နှစ်ခုလုံးအတွက်
+        props
+        ကို define လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် app component ထဲက player component ဆီကို props နှစ်ခုကို pass
+        လုပ်ပေးရပါမယ်။
+        အဲ့ဒါတွေကတော့ name and score တို့ပဲဖြစ်ပါတယ်။ နောက် ဒီ props ကို Player component မှာ အသုံးပြုဖို့ allow
+        လုပ်ဖို့လိုပါတယ်။ နောက် score ကို counter ထဲမှာ ဘယ်လို display လုပ်မလဲဆိုတော့ Player components ထဲမှာ header
+        ဆီကို pass
+        လုပ်သလိုပဲ လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် one level deep ဖြစ်နေတဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ child
+        counter
+        component ကို prop of score တစ်ခုကို give လုပ်လိုက်မယ်။ နောက် သူ့ထဲမှာ props.score ကို pass
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်ကျွန်တော်တို့ဟာ multiple player tags တွေကိုအသုံးပြုနင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const App = () =&gt; {
+            return (
+            &lt;div className="scoreboard"&gt;
+            &lt;Header title="Scoreboard" totalPlayers={1} /&gt;
+            &lt;Player name="Alex" score={12} /&gt;
+            {/* Players List */}
+            &lt;Player name="John" score={21} /&gt;
+            &lt;Player name="Smith" score={34} /&gt;
+            &lt;Player name="Thour" score={33} /&gt;
+            &lt;Player name="Rock" score={45} /&gt;
+            &lt;/div&gt;
+            );
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Iterating and Rendering with map()</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ app ထဲမှာအသုံးပြုတဲ့ players တွေကိုဘယ်လို အသုံးပြုမယ်ဆိုတာကို improve လုပ်ဖို့လိုပါတယ်။ Example
+        မှာဆိုရင် App component ထဲမှာ four hard-coded Player components တွေရှိပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ app
+        မှာ
+        players တွေရဲ့ array တစ်ခုရှိရပါမယ်။ ပြီးတော့ array ထဲမှာရှိတဲ့ player တစ်ယောက်ချင်းစီကို Player component ထဲမှာ
+        render
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာတော့ list of elements ကို produce လုပ်ဖို့ရန်အတွက် data
+        ပေါ်မှာ ဘယ်လို
+        iterate လုပ်ရမယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ players array ကို define လုပ်ရပါမယ်။ သူဟာဆိုရင်
+        objects ရဲ့
+        array တစ်ခုဖြစ်ပြီးတော့ object တစ်ခုချင်းစီမှာ name and score property ပါပါတယ်။ Example မှာဆိုရင်တော့ objects 4
+        ခုရှိပါတယ်။ နောက် main App component မှာ Players array ကို pass လုပ်ဖို့လိုပါတယ်။ နောက် ဒီ props ကို App
+        function
+        ထဲမှာအသုံးပြုဖို့အတွက် parameter props ကို App component ထဲမှာ pass လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့ဟာ အဲ့ array ကို
+        iterate
+        လုပ်ပြီးတော့ array ထဲက object တစ်ခုချင်းစီအတွက် Player component တစ်ခုကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ အဲ့အတွက်
+        map
+        iteration method ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ React မှာဆိုရင် data တွေကို loop လုပ်ဖို့ရန်အတွက် Map
+        ကိုအသုံးပြုပါတယ်။
+        နောက် JavaScript expression အားလုံးဟာ JSX ရဲ့ curly braces ထဲမှာ place လုပ်ဖို့လိုပါတယ်။ Map ဟာဆိုရင် callback
+        function
+        တစ်ခုကိုယူပါတယ်။ အဲ့ function ကတော့ array ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီကို one by one receive and processes
+        လုပ်ပြီးတော့
+        processed items တွေရဲ့ new array ကို returns ပြန်ပေးပါတယ်။ Example မှာဆိုရင် callback အနေနဲ့ arrow function
+        ကိုအသုံးပြုပြီးတော့ player ဆိုတဲ့ parameter ကို pass လုပ်ပေးထားပါတယ်။ အဲ့ player ဟာ array ထဲမှာရှိတဲ့ processed
+        လုပ်တဲ့
+        current item ကို represent လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် function ဟာ Player component ကို return ပြန်ပေးပါတယ်။
+        Example
+        မှာဆိုရင် header component ဟာ number 1 ကိုပဲ display လုပ်နေတာဖြစ်တဲ့အတွက်ကြောင့် သူ့အတွက် length property
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် React ဟာ console မှာ warning တစ်ခုကိုပေးပါတယ်။ အဲ့ဒါကတော့ "Each child in an
+        array or
+        iterator should have a unique "key" prop" ဆိုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကို next section မှာ ဘယ်လို solve
+        လုပ်ရမယ်ဆိုတာနဲ့
+        ဘာကြောင့် ရှိနေတယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const players = [
+            {
+            name: "Alex",
+            score: "22"
+            },
+            {
+            name: "John",
+            score: "21"
+            },
+            {
+            name: "Smith",
+            score: "44"
+            },
+            {
+            name: "Thour",
+            score: "33"
+            },
+            {
+            name: "Rock",
+            score: "77"
+            },
+            ];
+            const App = (props) =&gt; {
+            return (
+            &lt;div className="scoreboard"&gt;
+            &lt;Header
+            title="Scoreboard"
+            totalPlayers={props.initialPlayers.length}
+            /&gt;
+            
+            {/* Players List */}
+            {props.initialPlayers.map(player =&gt;
+            &lt;Player
+            name={player.name}
+            score={player.score}
+            /&gt;
+            )}
+            &lt;/div&gt;
+            );
+            }
+            
+            ReactDOM.render(
+            &lt;App initialPlayers={players} /&gt;,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>Use Keys to Keep Track of Elements</h1>
+    <p>
+        Most apps တွေမှာဆိုရင် updated, removed, added and reordered on the page လုပ်နိုင်တဲ့ list of sibling elements
+        တွေရှိပါတယ်။ React ဟာဆိုရင် DOM မှာ ဘာတွေကို render လုပ်ပြီးတော့ screen ပေါ်မှာ display လုပ်မယ်ဆိုတာကို manages
+        လုပ်ပေးတာဖြစ်ပါတယ်။ React ဟာဆိုရင် ဘယ် item ဟာ changed, added, or removed ဖြစ်သွားတယ်ဆိုတာကို သိဖို့ way
+        တစ်ခုလိုပါတယ်။
+        အဲ့ဒါအတွက် React ဟာ key လို့ခေါ်တဲ့ special built-in prop တစ်ခုကို elements တွေဆီကို ပေးထားပါတယ်။ Key ဟာ unique
+        identifier တစ်ခုဖြစ်ပြီးတော့ list ထဲမှာရှိတဲ့ element တစ်ခုကို quickly and reliably identify လုပ်ဖို့ way
+        တစ်ခုကို
+        ပေးထားပါတယ်။ Warning ဟာဆိုရင် map function ကနေ return လုပ်လိုက်တဲ့ item or player တစ်ခုချင်းစီမှာ unique key
+        prop
+        တစ်ခုပေးသင့်တယ်ဆိုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် players array ထဲမှာ player တစ်ယောက်ချင်းစီမှာ unique key
+        တစ်ခုကို
+        ပေးထားပါတယ်။ နောက်အဲ့ key ကို App component ထဲမှာ pass လုပ်ပေးဖို့လိုပါတယ်။ React docs မှာဆိုရင် key value
+        တစ်ခုဟာ
+        string ကိုအသုံးပြုရမယ်ဆိုတာကို recommend လုပ်ထားတဲ့အတွက်ကြောင့် သူ့ကို toString() ဆိုတဲ့ method
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Key ဟာဆိုရင် unique ဖြစ်ရပါမယ်။ သူ့ကို reused လုပ်လို့မရပါဘူး။ React element
+        အားလုံးကတော့
+        key prop တစ်ခုလိုတာမဟုတ်ပါဘူး။ သူ့ကို array items တစ်ခုကို iterate လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ UI ကို
+        rearranged,
+        added or deleted အတွက် key prop ကို pass လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် player's display ဟာ changes
+        မဖြစ်ပါဘူး။
+        ဘာလို့လဲဆိုတော့ app ထဲကို static list of players ကို passing လုပ်ထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် counter
+        ဟာလည်း
+        player's score ဟာ changes ဖြစ်မသွားပါဘူး။ Dynamic behavior and interactions တွေကို add လုပ်ဖို့ရန်အတွက်
+        ကျွန်တော်တို့ရဲ့
+        app ဟာ data တွေ change လုပ်နိုင်ဖို့လိုပါတယ်။ Next stage မှာတော့ React component တစ်ခုမှာရှိတဲ့ concept of state
+        ကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ State ကို component တစ်ခုဟာ over time မှာ change လုပ်သွားနိုင်တဲ့ information တွေကို
+        store
+        လုပ်ဖို့ အသုံးပြုပါတယ်။ နောက် components, props, and state တို့ဟာ ဘယ်လို အတူတူအလုပ်လုပ်သလဲဆိုတာကိုလည်း
+        လေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const players = [
+            {
+            name: "Alex",
+            score: "22",
+            id: "1"
+            },
+            {
+            name: "John",
+            score: "21",
+            id: "2"
+            },
+            {
+            name: "Smith",
+            score: "44",
+            id: "3"
+            },
+            {
+            name: "Thour",
+            score: "33",
+            id: "4"
+            },
+            {
+            name: "Rock",
+            score: "77",
+            id: "5"
+            },
+            ];
+
+        </code>
+    </pre>
+    <hr>
+    <h1>What is State_</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ scoreboard app ဟာဆိုရင် important functionality တစ်ခုကို missing ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့ဒါကတော့
+        any of
+        the data ကို update လုပ်ဖို့မရသလို player အတွက် score ကို change လုပ်ဖို့မရပါဘူး။ နောက် player ကို add လို့လည်း
+        မရသလို
+        remove လုပ်လို့လဲမရပါဘူး။ ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့ ရဲ့ data တွေဟာ static ဖြစ်နေတဲ့အတွက်ကြောင့် UI ဟာလည်း
+        static
+        ဖြစ်နေတာဖြစ်ပါတယ်။ Data တွေကို handle လုပ်တဲ့ ways နှစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ props and state ပဲဖြစ်ပါတယ်။
+        ပြီးခဲ့တဲ့
+        section တွေမှာ ကျွန်တော်တို့ဟာ function တွေကိုအသုံးပြုပြီးတော့ props ကို ယူပြီးတော့ React elements တွေကို return
+        ပြန်ပေးတာဖြစ်ပါတယ်။ ဒါပေမဲ့ props တွေဟာ read-only or immutable ဖြစ်ပါတယ်။ Component တစ်ခုဟာ သူ့ကိုပေးထားတဲ့
+        props ကိုပဲ
+        read လုပ်နိုင်တာဖြစ်ပြီးတော့ သူတို့ကို change လုပ်ဖို့မရပါဘူး။ အဲ့ဒါကြောင့် components တွေ dynamically change
+        ဖြစ်သွားဖို့အတွက် ဘယ်လို လုပ်မလဲဆိုတော့ state ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ React မှာဆိုရင် state ဟာ
+        ကျွန်တော်တို့ app
+        ထဲမှာ track လုပ်ချင်တဲ့ data တွေပဲဖြစ်ပါတယ်။ State ဟာဆိုရင် over time မှာ changes လုပ်နိုင်တဲ့ data တွေပါတဲ့
+        dynamic or
+        interactive components တွေကို create လုပ်ဖို့ allow လုပ်ပါတယ်။ State ကိုအသုံးမပြုခင်မှာ app ထဲမှာ a few changes
+        ကို
+        ပြုလုပ်ရပါမယ်။ State ဟာဆိုရင် class components တွေမှာပဲ available ဖြစ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့
+        function component ကို class component တွေအဖြစ် ပြောင်းပေးဖို့လိုပါတယ်။
+    </p>
+    <hr>
+    <h1>Create a Component as a Class</h1>
+    <p>
+        ဒီမှာဆိုရင် function and class components တစ်ခုခုကို create လုပ်ဖို့ ways နှစ်ခုရှိပါတယ်။ ပြီးခဲ့တဲ့ section
+        တွေမှာ
+        ကျွန်တော်တို့ဟာ function components တွေကို create လုပ်ခဲ့ကြတာဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ stateless functional
+        components
+        တွေပဲဖြစ်ပါတယ်။ Class components တွေဟာ components တွေကို build လုပ်ဖို့ more powerful way တစ်ခုကို offer
+        လုပ်ပါတယ်။
+        ဘာကြောင့်လဲဆိုတော့ သူတို့ရဲ့ component type တစ်ခုပဲ state ကိုအသုံးပြုခွင့်ပြုထာတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ State
+        ကို app
+        ထဲမှာအသုံးမပြုခင် some components တွေကို classes ကို convert လုပ်ဖို့လိုပါတယ်။ Example မှာဆိုရင်တော့ counter
+        function
+        ကို class ကို convert လုပ်ပြထားပါတယ်။ First အနေနဲ့ class keyword ကိုအသုံးပြုပေးရပါမယ်။ နောက်မှာ name
+        ထည့်ပေးရပါတယ်။
+        နောက် extends React.Component ကို ထည့်ပေးမှာဖြစ်ပါတယ်။ JavaScript classesတွေမှာဆိုရင် extends keyword ဟာ
+        subclass or a
+        child of another class တစ်ခုကို create လုပ်တဲ့အခါမှာ အသုံးပြုတာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ React.Component
+        ကနေ
+        ပြီးတော့ extending လုပ်ထားတာဖြစ်ပါတယ်။ သူဟာ component class definition အတွက် part of React's API တစ်ခုဖြစ်ပါတယ်။
+        နောက်
+        class component ထဲမှာ define လုပ်ဖို့လိုတဲ့ method တစ်ခုကတော့ render ပဲဖြစ်ပါတယ်။ နောက် return statement ကို
+        render
+        method ထဲမှာ pass လုပ်ပေးရပါမယ်။ Class component တစ်ခုကို functional component တစ်ခုလိုပဲ JSX tag တွေနဲ့ သူ့ကို
+        လိုချင်တဲ့အခါမှာ display လုပ်ဖို့ အသုံးပြုနိုင်ပါတယ်။ ဒါပေမဲ့ သူ့ထဲမှာတော့ JSX expression ကို change
+        လုပ်ဖို့လိုပါတယ်။
+        Example မှာဆိုရင် props.score ကို accessing မလုပ်ဘဲနဲ့ classes တွေမှာဆိုရင် props ကို this.props နှင့် access
+        လုပ်ပေးဖို့လိုပါတယ်။ Class component မှာဆိုရင် props ဟာ functional components တွေမှာလို arguments ကို through
+        လုပ်ပြီးတော့ accessed မလုပ်ပါဘူး။ Props ဟာဆိုရင် component ရဲ့ property တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် this
+        ဟာ
+        component instance ကို refer လုပ်ပါတယ်။ ဘယ်အချိန်မှာ functional components တွေကို အသုံးပြုမလဲဆိုတော့ component
+        တစ်ခုဟာ
+        props ကို through လုပ်ပြီးတော့ input ကို receiving လုပ်ပြီးတော့ UI ကို rendering လုပ်တဲ့အခါမှာ
+        အသုံးပြုနိုင်ပါတယ်။
+        အဲ့အချိန်မှာ function or stateless functional component ကိုအသုံးပြုတာအကောင်းဆုံးဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        stateless components တွေကို classes တွေအဖြစ် create လုပ်နိုင်ပါသေးတယ်။ ဒီ approach ရဲ့ benefit တစ်ခုကတော့
+        ကျွန်တော်တို့ဟာ component ကို stateless ကနေ stateful ကို convert လုပ်ပေးဖို့လိုတာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            class Counter extends React.Component {
+            render() {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement"&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{this.props.score}&lt;/span&gt;
+            &lt;button className="counter-action increment"&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Create a Stateful Component</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တု့ိဟာ counter class ထဲမှာ initial state တစ်ခုကို defining လုပ်ခြင်းဖြင့် stateful
+        component တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ React state ဟာဆိုရင် over time မှာ changes လုပ်နိုင်ပါတယ်။
+        များသောအားဖြင့်တော့ users action တွေမှာပဲ changes ဖြစ်သွားပါတယ်။ Example မှာဆိုရင် score ဟာ buttons တွေရဲ့ click
+        ပေါ်မှာ
+        မူတည်ပြီးတော့ increase or decrease ဖြစ်သွားဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် score ဟာ ကျွန်တော်တို့ရဲ့ state ပဲဖြစ်ပါတယ်။
+        State ဟာ
+        object တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် constructor method ထဲမှာ class တစ်ခုနဲ့ state ကို create and initialize
+        လုပ်ပေးရပါမယ်။
+        First, constructor ကို set up လုပ်ရမယ်။ Constructor ထဲမှာ ကျွန်တော်တို့ extending လုပ်ထားတဲ့ component ရဲ့
+        constructor
+        ကို call လုပ်ဖို့အတွက် super ကို call လုပ်ပေးရပါမယ်။ နောက် this keyword ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့
+        component
+        state ကို initialize လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် this နောက်က name ကို state ဆိုပြီးတော့ပဲ ပေးရပါမယ်။
+        အခြား name
+        တွေဆို အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ State ဟာ over time မှာ changes ဖြစ်သွားတဲ့ data တွေဖြစ်တဲ့အတွက်ကြောင့် initial
+        state or
+        state of the component တစ်ခုကို set လုပ်ပေးဖို့လိုပါတယ်။ Example မှာဆိုရင် state ဟာ player တစ်ယောက်ချင်းစီအတွက်
+        display
+        လုပ်ချင်တဲ့ score ပဲဖြစ်ပါတယ်။ Counter ဟာ own score state ကို maintaining လုပ်နေပြီဖြစ်တဲ့အတွက်ကြောင့် parent
+        player
+        component ထဲမှာ score information ကို မလိုအပ်တော့ပါဘူး။ Props ကို access လုပ်သလိုပဲ state ကို access
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် counter component ထဲမှာဆိုရင် this.props.score နေရာမှာ this.state.score ကို
+        change
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ React component ထဲမှာ state ကို initialize လုပ်နိုင်တဲ့ another way တစ်ခုရှိပါသေးတယ်။
+        အဲ့ဒါကတော့
+        often မှာတော့ state ကို initialize လုပ်တဲ့အခါမှာ first way ကို တွေ့ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ state ကို
+        class
+        definition ထဲမှာ တိုက်ရိုက် initialize လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ class property ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ ဒီ
+        class
+        properties syntax ဟာ JavaScript feature တစ်ခုဖြစ်ပါတယ်။ သူ့ကို currently အရတော့ browsers အားလုံးမှာ supported
+        လုပ်ထားတာတောမဟုတ်ပါဘူး။ Example မှာဆိုရင် app ထဲမှာ Babel transpiler ကိုအသုံးပြုထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            class Counter extends React.Component {
+            state = {
+            score: 0
+            };
+            render() {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement"&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{this.state.score}&lt;/span&gt;
+            &lt;button className="counter-action increment"&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Handling Events</h1>
+    <p>
+        React မှာဆိုရင် ကျွန်တော်တို့ရဲ့ UI ဟာ state တစ်ခုကနေ တစ်ခုကို changes ဖြစ်သွားပါတယ်။ State ဟာ component
+        တစ်ခုကို local
+        ဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ component တစ်ခုဟာ သူ့ရဲ့ own state ကို maintain လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        example
+        မှာ counter interactive ကို လုပ်ဆောင်ဖို့အတွက် state ထဲမှာ data တွေကို changes ဖြစ်ဖို့ trigger
+        လုပ်ဖို့လိုပါတယ်။
+        Example မှာဆိုရင် score ဟာ user တွေ plus or minus button ကို clicks တဲ့အခါမှာ changes ဖြစ်သွားမှာဖြစ်ပါတယ်။
+        First,
+        ကျွန်တော်တို့ဟာ React's built in set state method ကိုအသုံးပြုပြီးတော့ state ကို updates လုပ်တဲ့ function or
+        event
+        handler ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် buttons တွေမှာ click လုပ်လိုက်တဲ့အချိန်မှာ event handler ကို
+        calls
+        လုပ်တဲ့ onClick event ကို ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် common pattern ဟာ class တစ်ခုမှာ event handler ကို
+        method
+        တစ်ခုအနေနဲ့ create လုပ်တာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ method ကို test လုပ်ထားတာဖြစ်ပါတယ်။ နောက် button
+        တစ်ခုပေါ်မှာ
+        click event ကို listen လုပ်ဖို့ React ကို instruct လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက် React's built-in onClick event
+        ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ React events တွေဟာ JavaScript events တွေအတူတူပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် inline မှာ
+        written
+        လုပ်နိုင်ပြီးတော့ CamelCase ကိုအသုံးပြုပြီးတော့ named ပေးနိုင်ပါတယ်။ အဲ့မှာဆိုရင်လည်း event handler ကို JSX
+        expression
+        ထဲမှာ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ parentheses ကို အသုံးမပြုပါဘူး။ ဘာလို့လဲဆိုတော့
+        ကျွန်တော်တို့ဟာ method ဆီကို reference တစ်ခုကိုပဲ passing လုပ်တာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            class Counter extends React.Component {
+            state = {
+            score: 0
+            };
+
+            incrementScore {
+            console.log('Hi, from inside incrementScore!');
+            }
+
+            render() {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement"&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{this.state.score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={this.incrementScore}&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Updating State</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ increment button ဟာ incrementScore event handler ကို wired up လုပ်ပြီးဖြစ်ပါတယ်။ နောက်
+        incrementSocore
+        method ထဲမှာ score state ကို update လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user ဟာ plus button ကို click
+        လုပ်တဲ့အချိန်တိုင်းမှာ
+        counter score ဟာ increase by one ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာ အရေးကြီးတာကတော့ state ဟာ တိုက်ရိုက် modified
+        လုပ်ဖို့မရပါဘူး။ React ဟာ component state တစ်ခုကို update လုပ်ဖို့ရန်အတွက် way တစ်ခုပဲရှိပါတယ်။ အဲ့ဒါကတော့
+        သူ့ရဲ့
+        built-in setstate method ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ နောက် react ဟာဆိုရင် state changes ဖြစ်သွားတဲ့အချိန်မှာ told
+        လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် React ဟာ state changed ဖြစ်သွားတယယ်ဆိုတာကို သိဖို့နဲ့ ပြီးတော့ render လုပ်မယ်
+        နောက် state
+        change ဖြစ်သွားတဲ့ပေါ်မှာမူတည်ပြီးတော့ component changes ဖြစ်တာကို သိဖို့လည်း လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        setstate
+        ကို ကျွန်တော်တို့ update လုပ်ချင်တဲ့ part of the state နဲ့ ကျွန်တော်တို့ သူ့ကို update လုပ်ချင်တဲ့ value
+        တို့ပါတဲ့
+        object တစ်ခုကို pass လုပ်ရပါမယ်။ အဲ့မှာဆိုရင် setState ဟာ အလုပ်နှစ်ခုလုပ်ပါတယ်။ First, score state ရဲ့ value ကို
+        update
+        လုပ်ပြီးတော့ UI မှာ everything ဟာ up to date ဖြစ်တယ်ဆိုတာကို သေချာဖို့ component ဟာ re-render လုပ်မယ်ဆိုတာကို
+        React ကို
+        tell လုပ်တာပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ player's score ကို increment လုပ်လိုက်တဲ့အခါမှာ nothing happens
+        ကိုတွေ့ရပါလိမ့်မယ်။
+        Console မှာ "Cannot read property 'setState' of undefined" ဆိုတဲ့ error ကိုရမှာဖြစ်ပါတယ်။ Next section မှာတော့
+        ဘာကြောင့်ဖြစ်တယ် ဘယ်လို fix ဖြစ်အောင်လုပ်မယ်ဆိုကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            incrementScore() {
+            this.setState({
+            score: this.state.score + 1
+            });
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Bind Event Handlers to Components</h1>
+    <p>
+        အခု section မှာတော့ ပြီးခဲ့တဲ့ section က error ကို fix ဖြစ်အောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ issue ကတော့
+        incrementScore method ထဲက this.setState ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် this ဟာ method ထဲမှာ actually undefined
+        ဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် this ကို console မှာ ထုပ်ကြည့်တဲ့အခါမှာ "undefined" ဆိုပြီးတော့ထွက်လာမှာဖြစ်ပါတယ်။ Objects or
+        classes
+        တွေမှာ this ဟာ method ကိုပိုင်တဲ့ parent ကိုပဲ refers လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် example မှာ this ဟာ counter
+        class
+        ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် method ဟာ this.setState ကို access မလုပ်နိုင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        React.Component ကနေ
+        extends လုပ်တဲ့ class component တစ်ခုကို create လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ create
+        လုပ်လိုက်တဲ့ any
+        custom methods တွေဟာ component ကို default အရ bound မလုပ်ကြပါဘူး။ အဲ့ဒါကတော့ ကျွန်တော်တု့ိဟာ component ကို
+        binding
+        လုပ်ဖို့ lost ဖြစ်နေတာဖြစ်ပါတယ်။ Example မှာဆိုရင် custom methods တွေကို bind လုပ်ဖို့လိုပါတယ်။ React မှာ
+        thisContext
+        ကို bind လုပ်တဲ့ ways တွေအများကြီးရှိပါတယ်။ Common way ကတော့ render method ထဲမှာ bind ကို call လုပ်တာဖြစ်ပါတယ်။
+        Other
+        common way ကတော့ event handlers ကို arrow function တစ်ခုနဲ့ bind လုပ်တာပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ arrow
+        function ဟာ
+        lexical this binding လု့ိခေါ်ပြီးတော့ ဆိုလိုတာကတော့ သူဟာ this ကို scope ဆီကို automatically bind
+        လုပ်ပေးတာဖြစ်ပါတယ်။
+        နောက်ထပ် more ways တွေရှိပါသေးတယ်။ Most common way ကတော့ event handler ကို React မှာ arrow function နဲ့ define
+        လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Example မှာလေ့လာနိုင်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ decrementScore အတွက်လည်း event handler
+        ကို define
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            incrementScore = () => {
+            this.setState({
+            score: this.state.score + 1
+            });
+            }
+            
+            decrementScore = () => {
+            this.setState({
+            score: this.state.score - 1
+            });
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Update State Based on Previous State</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ counter ဟာ update correctly ဖြစ်နေပါပြီ။ သို့သော်လည်း ကျွန်တော်တို့မှာ mutating or altering
+        state
+        directly ဖြစ်အောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် component score state ကို directly accessing
+        this.state.score ကနေ updating လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် setState ဟာ သူ့ထဲကို updated state နှင့် object
+        ကို takes
+        လုပ်တယ်။ နောက် အဲ့ဒါကို component's current state ထဲမှာ merges လုပ်ပါတယ်။ React docs အရ state တစ်ခုဟာ
+        asynchronous
+        ဖြစ်ပါတယ်။ နောက်ထပ်ပြောရရင် တစ်ခါတစ်ရံမှာ DOM ဆီကို updates လုပ်တာဟာ this.setState ကို call လုပ်တဲ့အချိန်မှာ
+        ချက်ချင်းဖြစ်မသွားတာတွေရှိတတ်ပါတယ်။ ကျွန်တော်တို့ event handler ထဲမှာ multiple setState calls တွေရှိတဲ့အခါမှာ
+        React ဟာ
+        single update တစ်ခုထဲကို အတူတူ updates တွေကို batch, or bundle လုပ်လိုက်မှာဖြစ်ပါတယ်။ State ဟာ asynchronously
+        updated
+        ဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တို့ဟာ state ကို previous state ပေါ်မှာအခြေခံပြီးတော့ update လုပ်ဖို့လိုပါတယ်။
+        Object
+        တစ်ခုအစား setState ဟာဆိုရင် call back function တစ်ခုကို accepts လုပ်နိုင်ပါတယ်။ အဲ့ function ဟာ previous state
+        ပေါ်မှာအခြေခံပြီးတော့ state ကို produces လုပ်ပေးပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိရဲ့ increment and decrement
+        ထဲမှာ call
+        back function တစ်ခုကို take လုပ်ထားပါတယ်။ Call back function ဟာဆိုရင် သူ့ရဲ့ first argument အဖြစ် previous state
+        ကို
+        receives လုပ်ပေးထားပါတယ်။ နောက် သူ့ရဲ့နောက်မှာ arrow နဲ့ score property ကို return တစ်ခုထဲမှာ wrap
+        လုပ်ပေးရပါမယ်။ နောက်
+        this.state.score နေရာမှာ prevState.score ်ဆိုပြီးတော့ replace လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာ call back ကို more
+        concise
+        ဖြစ်အောင်လုပ်လို့ရပါတယ်။ အဲ့ဒါကတော့ return keyword and curly braces ကိုဖြုတ်ပြီးတော့ function ရဲ့ body ကို
+        parentheses
+        ထဲမှာ wrapping လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            incrementScore = () => {
+            this.setState(prevState => ({
+            score: prevState.score + 1
+            }));
+            }
+            
+            decrementScore = () => {
+            this.setState(prevState => ({
+            score: prevState.score - 1
+            }));
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Creating the Application State</h1>
+    <p>
+        အခု section မှာတော့ remove players ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ User ဟာ close icon ကို click
+        လုပ်လိုက်တဲ့အချိန်မှာ
+        player ဟာ scoreboard ကနေ deleted ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် ကျွန်တော်တို့ဟာ app component ထဲမှာ state ကို
+        initialize လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ player ကို click လုပ်လိုက်တဲ့အခါမှာ removes ဖြစ်သွားတဲ့ event handler
+        တစ်ခုကိုလည်း create and wire up လုပ်ပေးရမှာဖြစ်ပါတယ်။ App component ဟာ player component rendering အတွက်
+        responsible
+        ဖြစ်တဲ့အတွက်ကြောင့် အဲ့ဒါကြောင့် player state ကို own and maintain လုပ်ရမှာဖြစ်ပါတယ်။ First အနေနဲ့ App ကို
+        stateful
+        component ကို လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် သူ့ကို function ကနေ class ကို converting လုပ်ရမှာဖြစ်ပါတယ်။
+        State ဟာ
+        အဲ့ component ကနေ လိုအပ်တဲ့ data တွေအားလုံးကို stores လုပ်ထားတဲ့ object တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ data တွေဟာ သူ့ရဲ့
+        children
+        တွေဆီကို passed down လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် app component ထဲမှာ class property ကိုအသုံးပြုပြီးတော့
+        player
+        state ကို initialize လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ map function ကို change လုပ်ဖို့လိုပါတယ်။
+        အဲ့မှာဆိုရင်
+        props.initialPlayers အစား this.state.players ဆိုပြီး replace လုပ်ပေးရမှာဖြစ်ပါတယ်။ Different types of state
+        ကိုနားလည်
+        ဖို့အတွက် important concept တစ်ခုကတော့ state types နှစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ application state and component
+        state
+        တို့ပဲဖြစ်ပါတယ်။ Application state ဆိုတာကတော့ main state ဖြစ်ပြီးတော့ data တွေအားလုံးဟာ app တစ်ခုလုံးမှာ
+        available
+        ဖြစ်တာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ App component ပဲဖြစ်ပါတယ်။ Component state ဆိုတာကတော့ state ရှိပါတယ်။
+        ဒါပေမဲ့
+        သူဟာ visible out of the component ကို share မလုပ်ပါဘူး။ Example မှာဆိုရင်တော့ Counter component ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            class App extends React.Component {
+            
+            state = {
+            players: [
+            {
+            name: "Alex",
+            id: "1"
+            },
+            {
+            name: "John",
+            id: "2"
+            },
+            {
+            name: "Smith",
+            id: "3"
+            },
+            {
+            name: "Thour",
+            id: "4"
+            },
+            {
+            name: "Rock",
+            id: "5"
+            },
+            ]
+            };
+            render() {
+            return (
+            &lt;div className="scoreboard" &gt;
+            &lt;Header
+            title="Scoreboard"
+            totalPlayers={this.state.players.length}
+            /&gt;
+            
+            {/* Players List */}
+            {this.state.players.map(player =&gt;
+            &lt;Player
+            name={player.name}
+            key={player.id.toString()}
+            /&gt;
+            )}
+            &lt;/div &gt;
+            );
+            }
+            }
+            
+            ReactDOM.render(
+            &lt;App /&gt;,
+            document.getElementById('root')
+            )
+        </code>
+    </pre>
+    <hr>
+    <h1>Remove Items From State</h1>
+    <p>
+        အခု section မှာတော့ delete player feature ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ App class ထဲမှာ
+        handleRemovePlayer လို့ခေါ်တဲ့ new function တစ်ခုကို write လုပ်ရပါမယ်။ Function မှာဆိုရင် state ကနေ player ကို
+        remove
+        လုပ်ဖို့ရန်အတွက် id parameter ကို takes လုပ်ရပါမယ်။ အဲ့မှာဆိုရင် state ကိုတိုက်ရိုက် modify or mutate
+        လုပ်ဖို့မရပါဘူး။
+        အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ players array ကနေ player ကို remove လုပ်ဖို့အတွက် ကျွန်တော်တို့ remove လုပ်ချင်တဲ့
+        player
+        object မပါတဲ့ new array တစ်ခုကို produces လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် several ways
+        တွေရှိပါတယ်။
+        ဒါပေမဲ့ common and reliable way ကတော့ filter array iteration method ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ Filter ကို
+        elements တွေကို
+        array တစ်ခုကနေ original array ကို affecting မဖြစ်ဘဲနဲ့ remove လုပ်ချင်တဲ့အခါမှာ အသုံးပြုပါတယ်။ Map method လိုပဲ
+        filter
+        method ဟာ call back function တစ်ခုကို takes လုပ်ပါတယ်။ အဲ့ call back ရဲ့ first parameter ကတော့ array ထဲမှာ
+        processed
+        လုပ်တဲ့ current item ကို represent လုပ်ပါတယ်။ နောက် ကျွန်တော်တို့ remove လုပ်ချင်တဲ့ တစ်ခုကလွဲလို့ all players
+        and state
+        ကို return ပြန်ပေးဖို့လိုပါတယ်။ နောက် Player component ဟာ App ရဲ့ child တစ်ခုဖြစ်တဲ့အတွက်ကြောင့် App class
+        ထဲမှာရှိတဲ့
+        function ကို Player ထဲမှာ ဘယ်လို access လုပ်မလဲဆိုတာကြည့်ရအောင်။ အဲ့ဒါကတော့ props ကနေ through လုပ်ရမှာဖြစ်ပါတယ်။
+        Props
+        ဟာဆိုရင် data တွေကို component တစ်ခုကနေ တစ်ခုကို pass လုပ်ဖို့အတွက်အသုံးပြုတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် function
+        ကို props
+        ကနေ through လုပ်ပေးရပါမယ်။ နောက် handleRemovePlayer function ကို Player component ထဲမှာ supply လုပ်ဖို့လိုပါတယ်။
+        နောက်
+        player component ထဲမှာ delete button ကို add လုပ်ပေးရပါမယ်။ နောက်သူ့ထဲမှာ function ကို call လုပ်ဖို့အတွက် arrow
+        function
+        ကိုအသုံးပြုပေးရပါမယ်။ နောက် call တစ်ခုကို function ဆီကို return ပြန်ပေးရမှာဖြစ်ပါတယ်။ နောက် player id ကို pass
+        လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါမှ ဘယ် player ကို remove လုပ်ချင်ပါတယ်ဆိုတာကိုသိမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>app.js</h3>
+    <pre>
+        <code>
+            const Player = (props) =&gt; {
+            return (
+            &lt;div className="player"&gt;
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; props.removePlayer(props.id)}&gt;x&lt;/button&gt;
+            {props.name}
+            &lt;/span&gt;
+            &lt;Counter score={props.score} /&gt;
+            &lt;/div&gt;
+            );
+            }
+            class App extends React.Component {
+            
+            state = {
+            players: [
+            {
+            name: "Alex",
+            id: "1"
+            },
+            {
+            name: "John",
+            id: "2"
+            },
+            {
+            name: "Smith",
+            id: "3"
+            },
+            {
+            name: "Thour",
+            id: "4"
+            },
+            {
+            name: "Rock",
+            id: "5"
+            },
+            ]
+            };
+            
+            
+            handleremovePlayer = (id) =&gt; {
+            this.setState(prevState =&gt; {
+            return {
+            players: prevState.players.filter(p =&gt; p.id !== id)
+            };
+            });
+            }
+            
+            render() {
+            return (
+            &lt;div className="scoreboard" &gt;
+            &lt;Header
+            title="Scoreboard"
+            totalPlayers={this.state.players.length}
+            /&gt;
+            
+            {/* Players List */}
+            {this.state.players.map(player =&gt;
+            &lt;Player
+            name={player.name}
+            id={player.id}
+            key={player.id.toString()}
+            removePlayer={this.handleremovePlayer}
+            /&gt;
+            )}
+            &lt;/div &gt;
+            );
+            }
+            }
+        </code>
+    </pre>
+    <a href="scoreboard/index.html">Test Yourself</a>
+
+
+</body>
+
+</html>

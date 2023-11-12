@@ -1,0 +1,9 @@
+/************************
+SCALE FUNCTION
+************************/
+img{
+    transition: transform .5s;
+}
+img:hover{
+    transform: SCALE(1.1);
+}

@@ -1,0 +1,266 @@
+/* Main Sytles---------------------------*/
+
+*{
+    box-sizing: border-box;
+}
+ @font-face{ font-family: 'Motion';
+            src:url('../font/RestaurantMenuBook.ttf');
+ }
+
+body
+{
+    color: rgb(13, 13, 26);
+    margin: 0;
+    font: 1em/1.5 "Helvetical", Helvetica, Arial, sans-serif;/*font-size/line-height font-family*/
+
+}
+.main-header{
+   background-color: #ffa949;
+   padding-top: 170px;
+   height: 600px;
+   background-image: linear-gradient(#ffa949, transparent 50%),
+                     linear-gradient(0deg, #fff, transparent 20%),
+                     url('../image/sea_lake_island_mountains_118555_1280x720.jpg');
+   /* background-size: 40%; */
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   /* background-image: linear-gradient(to top#ffa949,firebrick); */
+}
+
+img{
+    max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+h1,
+h2{
+    font-family: 'Motion', Helvetica, Arial, sans-serif;
+}
+
+h1{
+  font-size: 5.625em;/* 90px/16px */
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1.3;
+  text-shadow: 0 1px 1px rgba(0,0,0, .8);
+  margin-top: 12px;
+}
+h2{
+ font-size: 53px;
+ text-decoration: underline;
+ font-weight: normal;
+ margin-bottom: .5em;
+}
+h3{
+    font-size: 20px;
+    color: #45525d;
+    text-decoration: underline;
+    margin-bottom: 1.7em;
+}
+
+/* li{
+    display: inline-block;
+    padding: 0 12px;
+    border-right: solid 1px;
+    margin: 80px 0;
+} */
+ul,
+ol{
+    margin: 30px 0;
+}
+li{
+    margin-bottom: 10px;
+}
+
+.primary-content, header{
+    text-align: center;
+}
+.primary-content, .secondary-content{
+
+    width:75%;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+    max-width: 900px;
+}
+.primary-content{
+    margin-top: 25px;
+    padding-bottom: 95px;
+}
+.secondary-content{
+    padding-top: 80px;
+    padding-bottom: 70px;
+    border-bottom: 2px solid #dfe2e6;
+    overflow: auto;
+}
+
+.primary-content,
+.main-header,
+.main-footer{
+    text-align: center;
+}
+
+.title{
+    color: white;
+    font-size: 1.625rem;/* 26px/16px*/
+    letter-spacing: .065em;
+    font-weight: 200;
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+}
+ol li{
+    
+    margin-bottom: 5px;
+}
+.t-border{
+    border-top: 2px solid rgb(124, 124, 151);
+    
+}
+
+.callout{
+     font-size: 1.25em;
+     border-bottom: 3px solid;
+     padding: 0 9px 3px;
+     margin-top: 20px;
+     display: inline-block;
+}
+
+
+.main-footer{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid orange;
+    
+    
+}
+a:link{
+    color: rgb(255,169,73);
+    text-decoration: none;
+}
+a:visited{
+    color: lightblue;
+}
+a:hover{
+    color: rgba(255, 169, 73, .4);
+}
+a:active{
+    color: lightcoral;
+}
+/*class wildlife*/
+.wildlife{
+    color: white;
+    background-color: #434a52;
+    padding: 18% 24%;
+    /* border-width: 10px;
+    border-style: solid;
+    border-color: orangered; */
+    border-top: 10px solid orangered; 
+    /* margin-top: 105px;
+    margin-right: 0; 
+    margin-bottom: 60px;
+    margin-left: 0;
+     */
+     margin: 105px 0 60px 0;
+     background-image: url('../image/panda_bear_sits_117767_1280x720.jpg') ;
+     background-repeat: no-repeat;
+     background-size: cover;
+     box-shadow: 1px 1px 5px 5px rgba(0,0,0, 1);
+/* 
+     border-top-left-radius: 30px;
+     border-top-right-radius: 10px;
+     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 30px; */
+     border-radius: 10px;
+
+}
+.arrow{
+    width: 50px;
+    margin-top: 150px;
+}
+/* Float Colums*/
+.resorts,
+.tips{
+    width: 46.5%;
+}
+.tips{
+    float: left;
+}
+.resorts{
+    float: right;
+}
+.resorts img{
+    height: 225px;
+}
+/*Float Clearfix*/
+.group::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+/****** Media Query*******/
+/* @media (max-width:968px){
+    body{
+        background: royalblue;
+    }
+    p{
+        color: white;
+}
+}
+@media(max-width:480px){
+    body{
+        background: darkred;
+    }
+
+}
+@media(min-width:481px) and (max-width:700px){
+    body{
+        background: seagreen;
+    }
+} */
+@media(max-width:1024px){
+    .primary-content,
+    .secondary-content{
+        width: 90%;
+    }
+    .wildlife{
+        padding: 10% 12%;
+        margin: 50px 0 20px; 
+    }
+}
+@media(max-width:760px){
+    .primary-content,
+    .secondary-content{
+        width: 100%;
+        padding: 20px;
+        border-top: none;
+    }
+    .main-header{
+        max-height: 380px;
+        padding: 50px 25px;
+    }
+    .title{
+        font-size: 1.3rem;
+        border: none;
+    }
+    h1{
+        font-size: 5rem;
+        line-height: 1.1;
+    }
+    .arrow{
+        display: none;
+    }
+    .intro{
+        font-size: 1rem;
+    }
+    .resorts,
+    .tips{
+        float: none;
+        width: 100%;
+    }
+    .main-footer{
+        padding: 20px 0;
+    }
+}

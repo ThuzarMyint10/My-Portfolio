@@ -1,0 +1,45 @@
+body {
+    color: #484848;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 85%;
+    padding: 45em 2.65rm;
+    line-height: 1.5;
+}
+body {
+    display: block;
+    margin: 8px auto;
+}
+ul {
+    width: 100%;
+    list-style: none;
+}
+li {
+    margin: 20px auto;
+}
+input {
+    padding: 8px;
+}
+button {
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+    background-color: rgb(22, 43, 233);
+    border-radius: 9px;
+}
+.list ul li  .remove{
+    padding: 6px;
+    background-color: rgb(5, 137, 146);
+    float: right;
+
+}
+
+.list ul li  .up{
+    padding: 6px;
+    background-color: rgb(23, 151, 72);
+    float: right;
+}
+.list ul li  .down{
+    padding: 6px;
+    background-color: rgb(247, 96, 104);
+    float: right;
+}

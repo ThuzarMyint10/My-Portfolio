@@ -1,0 +1,128 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font: 1em/1.5 'Open Sans', sans-serif;
+	color: #373737;
+	background: #eaeaea;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+h1,
+h2,
+h3 {
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 1.125em;
+	color: #4a89ca;
+	font-weight: 600;
+	margin: 0;
+}
+h3 {
+	font-size: 1.3em;
+	line-height: 1.25em;
+	margin-top: 0;
+    margin-bottom: .5em;
+    text-align: center;
+    padding: .6em;
+}
+p {
+	font-size: .875em;
+	line-height: 1.4;
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+
+.container {
+	width: 94.02985075%;
+	max-width: 1260px;
+	background: #fff;
+	margin: auto;
+}
+.main-header {
+	text-align: center;
+	padding: 2.8em 0;
+}
+
+/* ---- Page Elements ---- */
+
+.name {
+	font-size: 1.65em;
+	font-weight: 800;
+	margin: 0 0 1.5em;
+	line-height: 1;
+}
+.name span {
+	font-weight: 300;
+	margin-left: -7px;
+}
+.logo {
+	width: 45px;
+	margin-bottom: .4em;
+	cursor: pointer;
+}
+
+.col a {
+	color: #fff;
+    width: 75%;
+    font-weight: 700;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 0;
+    /* border-radius: .5em; */
+    /* margin: .3em 0 0; */
+    text-align: center;
+    margin: auto;
+}
+
+/* ---- Photo Overlay ---- */
+
+
+img {
+    width: 100%;
+}
+.col {
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-bottom: 3.5em;
+}
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+    .row {
+        display: flex;
+    }
+    .col {
+        flex: 1 50%;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+}
+ 
+@media (min-width: 1025px) {
+
+   .col {
+       /* flex: 1 30%; */
+       flex-grow: 1;
+       flex-basis: 30%;
+   }
+
+}

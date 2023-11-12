@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition and Transform</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+    <h1>New Feautre in CSS</h1>
+    <p>
+            အခုလေ့လာမှာကေတာ့ CSS မှာရှိတဲ့ filter effects, new Calc function, flex block and multi-column layout တို့လို latest features တွေအကြောင်းပဲဖြစ်ပါတယ်။ နောက်ထပ် Level 4 features တွေနဲ့ media queries တွေအကြောင်းပဲဖြစ်ပါတယ်။ First အနေနဲ့ CSS filter effect အကြောင်းကို လေ့လာသွားမှာသွားဖြစ်ပါတယ်။ Filter ဟာဆိုရင် variety of photoshop ကို apply လုပ်နိုင်ပါတယ်။ Filter property နဲ့ ဆိုရင် blurs and drop shadows and other effects တွေဖြစ်တဲ့ gray scale and contrast တွေလို hardware accelerated effects တွေကို create လုပ်နိုင်ပါတယ်။ Filter property ဟာ အဲ့ effects တွေအားလုံးကို single line တစ်ခုထဲမှာ adjustment လုပ်နိုင်ပါတယ်။ အဲ့ဒါတွေကို လေ့လာချင်တယ်ဆိုရင်တော့ W3C filter 1.0 မှာလေ့လာနိုင်ပါတယ်။ Filter ဟာ  images,  texts, video and canvas elements တွေကဲ့သို့သော် any DOM element တွေကို apply လုပ်နိုင်ပါတယ်။ Filter ဟာ page ကို rendered မလုပ်ခင်မှာ ကျွန်တော်တို့ ဘာလုပ်မယ်ဆိုတာကို လုပ်ဆောင်ပေးတာပဲဖြစ်ပါတယ်။ Filter ဟာဆိုရင် Chrome and Safari တို့လို browsers တွေကို အခြေခံပြီးတော့ webkit မှာ implement လုပ်ထားတာပဲဖြစ်ပါတယ်။ webkit vendor prefix ကိုအသုံးပြုပြီးတော့  Sepia filter ကိုအသုံးပြုကြည့်တဲ့အခါမှာ Sepia filter ဟာ image ကို apply လုပ်တဲ့ sepia tone တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ filter property တစ်ခုပဲဖြစ်ပါတယ်။ သူ့ရဲ့ value ကို percentage နဲ့ပေးနိုင်တဲ့ argument တစ်ခုကိုပဲ accept လုပ်နိုင်တာဖြစ်ပါတယ်။ နောက်ထပ် filter property မှာဆိုရင် gray scale ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ Opacity filter နဲ့ဆိုရင် ကျွန်တော်တို့ဟာ image ကို semi-transparent ဖြစ်အောင်လုပ်ဆောင်နိုင်ပါတယ်။ နောက် blur ဟာဆိုရင် pixel နဲ့ ပေးလို့ရတဲ့ argument ကိုပဲ accept လုပ်ပေးတာပဲဖြစ်ပါတယ်။ နောက် cool feature တစ်ခုဟာဆိုရင် Hue Rotate ပဲဖြစ်ပါတယ်။ Hue Rotate ဟာဆိုရင် image ရဲ့ origin color နဲ့ color wheel ကြားထဲက angle ကို အခြေခံပြီးတော့ adjust လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Drop Shadow ဟာဆိုရင်လည်း filter effect တစ်ခုပဲဖြစ်ပါတယ်။  သူ့မှာဆိုရင် values ၄ ခုကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ First က X အတွက်ဖြစ်ပြီးတော့ second ကတော့ Y အတွက်ပဲဖြစ်ပါတယ်။ နောက် third ကတော့ blur radius အတွက်ဖြစ်ပြီးတော့ အဲ့ဒါတွေရဲ့ နောက်မှာတော့ drop shadow color ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ Drop shadow ဟာဆိုရင် CSS Box Shadow ထက်ပိုပြီးတော့ powerful ဖြစ်ပါတယ်။ Values တွေကိုတော့ pixel တွေနဲ့ပဲ set လုပ်ပေးရမှာဖြစ်ပါတယ်။ Rest of filters တွေကို W3C spec မှာ check out လုပ်နိုင်ပါတယ်။ သူတို့ဟာဆိုရင် Chrome, Safari and IOS Safari တို့လို webkit-based browsers တွေကို support လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+
+                img {
+                    max-width: 100%;
+                }
+                
+                body {
+                    padding-top: 80px;
+                    background: #262626;
+                    text-align: center;
+                }
+                
+                img {
+                    border: 5px dashed #fff;
+                    /* -webkit-filter: grayscale(100%); */
+                    /* -webkit-filter: opacity(50%); */
+                    /* -webkit-filter: blur(6px); */
+                    /* -webkit-filter: hue-rotate(100deg); */
+                    -webkit-filter: drop-shadow(20px 20px 10px #000);
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/newfeature/filter.html">Test Yourself</a><hr>
+    <h1>Calc Method</h1>
+    <p>
+             နောက်ထပ်ပြောပြပေးမှာကတော့ Calc function ပဲဖြစ်ပါတယ်။ Calc CSS method ဟာဆိုရင် mathematical expressions တွေနဲ့ length units အတွက် values ကို calculate လုပ်တဲ့နေရာမှာ အသုံးပြုနိုင်ပါတယ်။ Calc ကို ဘယ်နေရာမှာပဲဖြစ်ဖြစ် pixel or percentage တွေနဲ့ လိုအပ်သလို expressions နဲ့ တွဲပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ sizing units ရဲ့ mixture ကို အသုံးးပြုပြီးတော့ HTML elements တွေရဲ့ size ကို specify လုပ်နိုင်ပါတယ်။ Calc ကိုအသုံးပြုလိုက်တဲ့အခါမှာ browser ဟာဆိုရင် correct sizes ကို output ထုပ်ပေးမှာဖြစ်ပါတယ်။ Mix percentages and absolute values and mixing sizing units တွေဟာ layouts ကို ပိုပြီးတော့ flexible ဖြစ်စေပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                html {
+                    height: 100%;
+                }
+                
+                body {
+                    margin: 0;
+                    height: 100%;
+                    color: #fff;
+                }
+                
+                .wrapper {
+                    background: #1e90ff;
+                    height: -webkit-calc(80% - 100px);
+                    /* width: -webkit-calc(50% - 120px); */
+                    width: -webkit-calc(100%/3 + 2em);
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/newfeature/calc.html">Test Yourself</a><hr>
+    <h1>FlexBox Property</h1>
+    <p>
+            နောက်ထပ်ကတော့ Flexible layout or Flex box feature ပဲဖြစ်ပါတယ်။ Floats ဟာဆိုရင် common layout method တစ်ခုဖြစ်ပါတယ်။ သူဟာဆိုရင် complicates box model တစ်ခုဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ elements တွေကို normal document flow မှာ နေရာယူပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ New flex box feature ဟာဆိုရင် powerful ဖြစ်ပါတယ်။ သူဟာဆိုရင် layout အတွက် CSS ကို more efficient ဖြစ်အောင်လုပ်ဆောင်နိုင်ပါတယ်။ Layout issues တွေကိုလည်း solve လုပ်ပေးပါတယ်။ Flex box ဟာဆိုရင် 1 dimensional CSS layout ကို handle လုပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ elements ကို directions အမျိုးမျိုးနဲ့ lay out လုပ်နိုင်ပါတယ်။ Boxes grow, shrink, and autofill space တွေကိုလည်း လုပ်ဆောင်နိုင်ပါတယ်။ Flex box ရဲ့ default laid out ဟာဆိုရင် column ပဲဖြစ်ပါတယ်။ Flex box ကိုအသုံးပြုမယ်ဆိုရင် flex formatting context ကို establish လုပ်ဖို့လိုပါတယ်။ Flex box ကို အသုံးပြုဖို့ဆိုရင် display property ကို add လုပ်ပေးဖို့လိုပါတယ်။သူ့နောက်မှာ value ကို webkit vendor prefix နဲ့ follow by flex ဆိုပြီးတော့ ရေးပေးရမှာဖြစ်ပါတယ်။ 
+
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                /********************
+                FLEX BOX EXAMPLE
+                **************************************/
+                ul {
+                    display: -webkit-flex;
+                    -webkit-flex-flow:row;
+                    -webkit-flex-wrap : wrap;
+                }
+                
+                li {
+                    -webkit-flex-grow: 1;
+                    height: 300px;
+                }
+                li:nth-child(3)
+                {
+                    -webkit-flex-grow: 5;
+                    -webkit-order: -1;
+                    height: 75px;
+                    -webkit-align-self: flex-end;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/newfeature/flexbox.html">Test Yourself</a><hr>
+    <h1>Multi-column Property</h1>
+    <p>
+            အခုလေ့လာမှာကတော့ layout feature ဖြစ်တဲ့ multi-column layout အကြောင်းပဲဖြစ်ပါတယ်။ Multi-column layout ဟာဆိုရင် flex box ကို resemble လုပ်တာဖြစ်ပြီးတော့ layout flexibility ကိုလည်း ပေးပါတယ်။ သူ့ကို multiple text columns တွေကို create လုပ်တဲ့ခါမှာအသုံးပြုနိုင်ပါတယ်။ သူဟာ new section တစ်ခုကိုတော့ create လုပ်ပေးတာမဟုတ်ပါဘူး။ သူဟာ same box ထဲမှာ box's content တွေကို multiple columns တွေနဲ့ flow ခြင်းဖြင့် block layout mode ကို extends လုပ်ပေးတာပဲဖြစ်ပါတယ်။ နောက်ထပ် သူဟာ column widths, gaps, and rules တို့ကိုလည်း determine လုပ်ပေးနိုင်ပါတယ်။ Multi-column layout ဟာာ box container ရဲ့ new type of column ကို introduces ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် column count property ကိုအသုံးပြုတဲ့ အခါမှာ number of columns ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ Column rule property ဟာ border property နဲ့ အမျိုးအစားတူတူ ပဲဖြစ်ပါတယ်။ နောက်ထပ် cloumn span property တစ်ခုကတော့ element တစ်ခုအတွက် several columns ကို across လုပ်ပြီးတော့ span အနေနဲ့ ဖြစ်အောင်ပြုလုပ်ပေးနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                body{
+                    font: 100%/1.5 sans-serif;
+                    padding: 8% 5%;
+                }
+                div {
+                    -webkit-column-count: 4;
+                    -webkit-column-gap: 3em;
+                    -webkit-column-rule: 1px dotted;
+                    -webkit-column-width: 250px;
+                }
+                h2 {
+                    -webkit-column-span: all;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/newfeature/multi-column.html">Test Yourself</a><hr>
+    <h1>Level 4 Selector</h1>
+    <p>
+            New level 4 features ကို မလေ့လာခင်မှာ CSS "4" အကြောင်းကို misconception မဖြစ်ဖို့လိုအပ်ပါတယ်။ Level 4 selectors မှာဆိုရင် location pseudo-classes လို့ခေါ်တဲ့ pseudo-classes ရဲ့ new class တွေရှိပါတယ်။ ဥပမာ local link pseudo-class ဟာဆိုရင် current page မှာရှိတဲ့ link ရဲ့ navigation styling လုပ်တဲ့အခါမှာအသုံးပြုတဲ့ useful selector တစ်ခုပဲဖြစ်ပါတယ်။ နောက်ထပ် new media queries proposals အကြောင်းပဲဖြစ်ပါတယ်။ သူဟာ input types တွေကို design responsive ကိုပြုလုပ်ဖို့ရန်အတွက် more precise targeting ကို ပေးပါတယ်။ နောက်သူဟာ certain scripts တွေမရှိတဲ့ users တွေအတွက် ကျွန်တော်တို့ရဲ့ content တွေကို more accessible ဖြစ်အောင်လုပ်ဆောင်ပေးပါဘူး။ First, Script media feature ဟာဆိုရင် JavaScript ကို support လုပ်ပေးတဲ့ အခါ query လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Next, Pointer media feature ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် pointing device တွေရဲ့ presence and accuracy ကို query လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Next, Hover media feature အကြောင်းပဲဖြစ်ပါတယ်။ သူဟာ primary pointing system ဟာ hover state ကို create လုပ်တဲ့အခါမှာ detect လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Safari ရဲ့ WebKit ကို Safari's WebKit Rendering Engine ရဲ့ latest version ကို test လုပ်ဖို့ရန်အတွက် build လုပ်ထားတာပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် နေ့စဉ် update လုပ်နေတာပဲဖြစ်ပါတယ်။ Update လုပ်တဲ့အချိန်မှာလည်း Safari ရဲ့ current installment ဟာ ပြောင်းသွားမှာမဟုတ်ပါဘူး။ Safari ကို တစ်ခါဘဲ install လုပ်ရုံနဲ့ ကျွန်တော်တို့ရဲ့ Safari browser ထဲမှာ WebKit Render Engine ရဲ့ more advanced versions ဟာ ရှိနေပြီးသားဖြစ်ပါတယ်။ Nightly.WebKit.org မှာ check out လုပ်နိုင်ပါတယ်။ CanIUse.com ဟာဆိုရင် CSS and HTML 5 features တွေအားလုံးရဲ့browser support အတွက် comprehensive compatibility tables ကို ပေးပါယ်။ 
+    </p>
+</body>
+</html>

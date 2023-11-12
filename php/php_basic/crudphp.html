@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Basic Website</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+
+<body>
+    <h1>Introduction to CRUD</h1>
+    <p>
+        Dynamic application တစ်ခုရဲ့ heart ဟာဆိုရင် database တစ်ခုပဲဖြစ်ပါတယ်။ Example an e-commerce, sports team, or
+        social
+        network site or a productivity app on our phone တို့မှာဆိုရင် data တွေကို over time မှာ change
+        လုပ်ဖို့လိုအပ်ပါတယ်။
+        Database တစ်ခုထဲမှာရှိတဲ့ data တွေပေါ်မှာ perform လုပ်ဆောင်ဖို့ရန်အတွက် operation 4 ခုရှိပါတယ်။ First,
+        ကျွန်တော်တု့ိဟာ
+        data တွေကို database တစ်ခုဆီကို create or add လုပ်နိုင်တာဖြစ်ပါတယ်။ Second ကတော့ data တွေကို read
+        လုပ်ချင်တာဖြစ်ပါတယ်။
+        Reading မှာဆိုရင် searching and filtering result set တွေပါဝင်ပါတယ်။ Third ကတော့ any of the tables ထဲမှာ rows
+        တွေကို
+        update or edit လုပ်နိုင်တာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ data တွေကို remove or delete လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ ဒီ
+        operations 4
+        ခုကို CRUD နဲ့ shorthand ဖြင့် ခေါ်ကြပါတယ်။ ဒီ course မှာဆိုရင် database tables တွေကနေပြီးတော့ inserting,
+        updating and
+        delete rows of data ကို focus လုပ်သွားမှာဖြစ်ပါတယ်။ CRUD operations တစ်ခုချင်းစီမှာ သူတို့နဲ့ associated ဖြစ်တဲ့
+        SQL
+        keyword တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ SELECT keyword ကိုအသုံးပြုပြီးတော့ database ကနေ data တွေကို reading
+        လုပ်တာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Adding a Row to a Table</h1>
+    <p>
+        CRUD operation တစ်ခုချင်းစီမှာဆိုရင် သူတို့ရဲ့ ကိုယ်ပိုင် SQL keyword တွေရှိကြပါတယ်။ ကျွန်တော်တို့ဟာ database
+        ကနေ
+        reading လုပ်အတွက် SELECT keyword ကို သိခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ row တစ်ခုကို create
+        လုပ်ဖို့ရန်အတွက်
+        အသုံးပြုတဲ့ INSERT keyword အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ စရမဲ့ keyword ကတော့
+        INSERT INTO
+        table name ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် database ကို particular table တစ်ခုထဲကို some data တွေ inset
+        လုပ်ချင်ပါတယ်ဆိုတာကို
+        shows လုပ်တာဖြစ်ပါတယ်။ နောက် VALUES keyword ကိုလည်း ထည့်ပေးရမှာဖြစ်ပါတယ်။ သူ့ရဲ့နောက်မှာ ကျွန်တော်တို့ insert
+        လုပ်ချင်တဲ့ values တွေကို comma နဲ့ separate လုပ်ပြီးတော့ ထည့်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ values တွေကို
+        parentheses နဲ့
+        surrounded လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ values တွေရဲ့ order ဟာ အရေးကြီးပါတယ်။ ကျွန်တော်တို့ဟာ same order schema
+        ထဲမှာ values
+        တွေကို inserted လုပ်မှာ columns တွေကို describes လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ table name ရဲ့
+        နောက်မှာ
+        parentheses နှင့် ကျွန်တော်တို့ insert လုပ်ချင်တဲ့ columns တွေကို comma နှင့် separate လုပ်ပြီးတော့ add
+        လုပ်နိုင်ပါတယ်။
+        နောက် အဲ့ table name ရဲ့နောက်မှာ ထည့်မပေးလိုက်တဲ့ column မှာဆိုရင်တော့ values ဟာ null အဖြစ်နှင့် insert
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Adding Multiple Rows to a Table</h1>
+    <p>
+        နောက် ကျွန်တော်တို့ဟာ တစ်ကြိမ်ထဲမှာ multiple values တွေကို insert လုပ်ချင်တဲ့အခါမှာ query တွေကို over and over
+        again
+        ရေးနေမဲ့အစား ကျွန်တော်တို့ insert လုပ်ချင်တဲ့ values တွေကို comma နဲ့ separate လုပ်ပြီးတော့ အသုံးပြုနိုင်ပါတယ်။
+        Example
+        INSERT INTO table name (&lt;column 1&gt;, &lt;column 2&gt;, ....) VALUES (&lt;value 1&gt;, &lt;value 2&gt;,
+        .....), (&lt;value 1&gt;, &lt;value
+        2&gt;,
+        .....),
+        (&lt;value 1&gt;, &lt;value 2&gt;, .....)
+    </p>
+    <hr>
+    <h1>Updating All Rows in a Table</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ database ထဲမှာ row တစ်ခုကို INSERT keyword ကိုအသုံးပြုပြီးတော့ ဘယ်လို create
+        လုပ်ရတယ်ဆိုတာကိုလေ့လာ
+        ခဲ့ပြီးဖြစ်ပါတယ်။ Information တွေကို reading လုပ်ဖို့ရန်အတွက် SELECT keyword ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ Update
+        မှာဆိုရင်လည်း ရှေ့ကကျွန်တော်တို့လေ့လာခဲ့တာတွေနဲ့မတူဘဲ အသုံးပြုရမဲ့ keyword ကတော့ UPDATE keyword ပဲဖြစ်ပါတယ်။
+        UPDATE
+        statement ကို write လုပ်တဲ့အခါမှာ ရှေ့ဆုံးက UPDATE keyword နဲ့ နောက် ကျွန်တော်တို့ရဲ့ table name ပြီးတော့ SET
+        keyword
+        နှင့် သူ့ရဲ့နောက်မှာ ကျွန်တော်တု့ိ update လုပ်ချင်တဲ့ column name နဲ့ နောက် equal sign ခံပြီးတော့ နောက်
+        ကျွန်တော်တို့
+        update လုပ်ချင်တဲ့ value ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ Example UPDATE &lt;table&gt; SET &lt;column&gt; =
+        &lt;value&gt; ပဲဖြစ်ပါတယ်။
+        နောက်
+        ကျွန်တော်တို့ဟာ တစ်ခုထက်ပိုတဲ့ columns တွေကို update လုပ်ချင်တဲ့အခါမှာ comma နဲ့ separate
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example UPDATE &lt;table&gt; SET &lt;column 1&gt; = &lt;value 1&gt;, &lt;column 2&gt; =
+        &lt;value 2&gt;
+        ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Updating Specific Rows</h1>
+    <p>
+        အခု ကျွန်တော်တို့ဟာ row တစ်ခုမှာရှိတဲ့ data တွေကို change လုပ်ဖို့ရန်အတွက်လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section
+        မှာတော့
+        specific rows ကို target လုပ်ပြီးတော့ data တွေကို update လုပ်တာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါဆိုရင် ပိုပြီးတော့
+        useful
+        ဖြစ်ပါတယ်။ ဒါဟာဆိုရင် SELECT statement မှာ WHERE clause ကိုအသုံးပြုခဲ့သလိုပဲ UPDATE statements WHERE conditions
+        ကို
+        အသုံးပြုနိုင်ပါတယ်။ WHERE ရဲ့ conditions ဟာဆိုရင် shapes and sizes အားလုံးနဲ့ လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင်
+        operators
+        တွေပါနိုင်ပါတယ်။ နောက် sets of values ထဲမှာ searching လုပ်တဲ့ IN keyword နဲ့လည်းလာနိုငပါတယ်။ နောက် BETWEEN
+        keyword and
+        AND keyword တို့လည်း အသုံးပြုနိုင်ပါတယ်။ နောက်ထပ်ကတော့ LINK keyword ကိုလည်းအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Removing Data from All Rows in a Table</h1>
+    <p>
+        Four CRUD operations ဆိုတာကတော့ create, read, update, and delete တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တု့ိ first three
+        keywords
+        အကြောင်းကို လေ့လာခဲ့ကြပြီးဖြစ်ပါတယ်။ Update လိုပဲ delete's keyword ဟာဆိုရင် action ဟာ အတူတူပဲဖြစ်ပါတယ်။ Delete
+        statement
+        ကို DELETE FROM &lt;table&gt; ပဲဖြစ်ပါတယ်။ Delete keyword ဟာဆိုရင် table တစ်ခုကနေပြီးတော့ rows တွေကို removes
+        လုပ်ပေးတာဖြစ်ပါတယ်။ သူဟာ empty ဖြစ်တဲ့ row's values တွေကိုလည်း removes လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာ
+        ကျွန်တော်တို့သိထားရမှာကတော့ ကျွန်တော်တု့ိဟာ undo လုပ်လို့ရမှာမဟုတ်ပါဘူး။ နောက် ကျွန်တော်တို့ရဲ့ data တွေကို
+        backup
+        လုပ်မထားဘူးဆိုရင် ကျွန်တော်တို့ဟာ အဲ့ data တွေကို restore လုပ်နိုင်မှာမဟုတ်ပါဘူး။
+    </p>
+    <hr>
+    <h1>Removing Specific Rows</h1>
+    <p>
+        အခု section မှာတော့ specific rows ကို target လုပ်ပြီးတော့ delete လုပ်တာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါဆိုရင်
+        ပိုပြီးတော့
+        useful ဖြစ်ပါတယ်။ ဒါဟာဆိုရင် SELECT and UPDATE statements မှာ WHERE clause ကိုအသုံးပြုခဲ့သလိုပဲ DELETE
+        statements WHERE
+        conditions ကိုအသုံးပြုနိုင်ပါတယ်။ WHERE ရဲ့ conditions ဟာဆိုရင် shapes and sizes အားလုံးနဲ့ လာနိုင်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        operators တွေပါနိုင်ပါတယ်။ နောက် sets of values ထဲမှာ searching လုပ်တဲ့ IN keyword နဲ့လည်းလာနိုငပါတယ်။ နောက်
+        BETWEEN
+        keyword and AND keyword တို့လည်း အသုံးပြုနိုင်ပါတယ်။ နောက်ထပ်ကတော့ LINK keyword ကိုလည်းအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Introduction to Transactions</h1>
+    <p>
+        အခု section မှာတော့ commitment အကြောင်းကို ပြောကြည့်ရအောင်။ ကျွန်တော်တို့ဟာ database တစ်ခုနဲ့ relationship
+        တစ်ခုထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ committed လုပ်ဖို့လိုပါတယ်။ Especially အရတော့ ကျွန်တော်တို့ဟာ data တွေကို
+        modifying
+        လုပ်တဲ့အချန်မှာပဲဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ CRUD operations ရဲ့ တစ်ခုကို performs လုပ်တဲ့ statement တစ်ခုကို
+        write
+        လုပ်တဲ့အချိန်မှာ အဲ့ SQL statement ဟာ certain ဖြစ်ဖို့လိုပါတယ်။ Production environment တစ်ခုမှာဆိုရင် ဒါဟာ
+        earlier state
+        ကို revert လုပ်ဖို့ရန်အတွက် difficult ဖြစ်နိုင်ပါတယ်။ ဒါဟာဘာကြောင့်လဲဆိုတော့ most circumstances ရှိတဲ့
+        ကျွန်တော်တို့ရဲ့
+        statements ဟာ autocommit mode မှာ run လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Most database တွေမှာဆိုရင် default အရ
+        autocommit
+        switched ဟာ ရှိနေပြီးသားဖြစ်ပါတယ်။ ကျွန်တော်တို့ အခု section မှာလုပ်ဆောင်ခဲ့တဲ့ operations တွေဟာဆိုရင်
+        autocommit
+        တွေဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ ကျွန်တော်တို့ statements ရဲ့ results တွေကို disk ထဲမှာ saved
+        လုပ်ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Real world မှာဆိုရင် database seed scripts ဟာ hundreds and more of statements
+        တွေပါဝင်နိုင်ပါတယ်။ Crashes and other interruption တွေမှာတွေ့ရနိုင်တဲ့ issues တွေနဲ့ deal လုပ်ဖို့ရန်အတွက်
+        trying
+        လုပ်တာဟာ pain တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် aucommit ကို disable လုပ်နိုင်တဲ့ way တစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့
+        transactions ကို အသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် နားလည်ဖို့ရန်အတွက် important concept တစ်ခုကတော့
+        ကျွန်တော်တို့ရဲ့
+        statements ရဲ့ အစမှာ BEGIN TRANSACTION; ဆိုပြီးတော့ စပေးရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် database ကို ကျွန်တော်တို့ရဲ့
+        statements တွေအားလုံးဟာ တစ်ခုထဲမှာ အားလုံးကို commited လုပ်သင့်ပါတယ်ဆိုတာကို instructs လုပ်ပေးတာဖြစ်ပါတယ်။
+        တစ်ခါတစ်လေမှာတော့ shorthand ဖြစ်တဲ့ BEGIN keyword ကိုလည်းအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Databases with Frameworks</h1>
+    <p>
+        Many developers တွေဟာ သူတို့ရဲ့ data တွေကို store လုပ်ဖို့ရန်အတွက် database ကို အသုံးပြုကြပါတယ်။
+        ဒါဟာဘာကြောင့်လဲဆိုတော့
+        ORMs ဆိုတဲ့ special software libraries ကိုအသုံးပြုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ common programming
+        languages
+        မှာ အသုံးများပါတယ်။ ORM ဆိုတာကတော့ Object-Relational Mapping ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် database နှင့် CRUD
+        operations
+        တွေကို perform လုပ်တာနှင့် SQL ကို interface လုပ်တာထက် another programming language ကို အသုံးပြုဖို့ရန်အတွက်
+        developers
+        တွေအတွက် way တစ်ခုပဲဖြစ်ပါတယ်။ Developers တွေအတွက် transactions ကို ROMs ဟာ handle လုပ်နိုင်ပါတယ်။ သူတို့ဟာ
+        developers
+        တွေအတွက် robust applications ကို build လုပ်တဲ့နေရာမှာ ကူညီပေးပါတယ်။ ORM ဟာလည်း SQL ကို အသုံးပြုနေတာပဲဖြစ်ပါတယ်။
+        ORMs ရဲ့
+        some example တွေကတော့ Hibernate for Java, CoreData for Objective-C and Swift, Django ORM for Python, and
+        ActiveRecord
+        for Ruby တို့ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Introduction to the Project</h1>
+    <p>
+        အခု section မှာဆိုရင် projects တွေပေါ်မှာ time spent ရဲ့ track ကို keep လုပ်ဖို့ရန်အတွက် time tracker တစ်ခုကို
+        create
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ project ဟာဆိုရင် ကျွန်တော်တို့ spending လုပ်တဲ့ time ရဲ့ track ကို keep
+        လုပ်ဖို့ရန်အတွက်
+        helpful ဖြစ်ပါတယ်။ Example project ထဲက Time Tracker app ရဲ့ home page မှာဆိုရင် options 3 ခုရှိပါတယ်။
+        အဲ့ဒါတွေကတော့ Add
+        Task, Add Project and View Report တု့ိပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ Add Task ကို click လုပ်လိုက်တဲ့အချိန်မှာ
+        required
+        information တွေအားလုံးကို fill out လုပ်နိုင်တဲ့ form တစ်ခုကို ပေါ်လာမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် projects တွေကို
+        drop down
+        တစ်ခုထဲမှာ populated လုပ်ထားပြီးတော့ date field ထဲမှာဆိုရင် valid date and format ဖြစ်ဖို့လိုပါတယ်။
+        ကျွန်တော်တို့ add
+        လုပ်ပြီးတဲ့အခါမှာ ကျွန်တော်တို့ add လုပ်လိုက်တဲ့ new task နဲ့ task အားလုံးကို display လုပ်ပေးမှာဖြစ်ပြီးတော့
+        task
+        တစ်ခုကို select လုပ်ပြီးတော့ edit လုပ်လို့ရသလို task တစ်ခုကိုလည်း delete လုပ်လို့ရပါတယ်။ အဲ့ page ကို top
+        မှာရှိတဲ့
+        navigation ကနေပြီးတော့လည်း click လုပ်လို့ရပါတယ်။ နောက် navigation မှာရှိတဲ့ Projects ကို click
+        လုပ်လိုက်တဲ့အချိန်မှာ
+        project list page ကို ယူလာပေးမှာဖြစ်ပါတယ်။ အဲ့ page မှာဆိုရင် ကျွန်တော်တို့ဟာ new project ကို add
+        လုပ်နိုင်ပြီးတော့
+        project ကို edit လုပ်လို့ရသလို delete လုပ်လို့လည်းရပါတယ်။ နောက် Report page မှာဆိုရင်တော့ over time အတွက် report
+        တစ်ခုကို ပေးပါတယ်။ ဒါဟာဆိုရင် fairly basic application တစ်ခုကို့ဖြစ်ပါတယ်။ ပြီးတော့ အဲ့မှာ many more features
+        တွေရှိပါတယ်။
+    </p>
+    <hr>
+    <h1>Connecting to the Database</h1>
+    <p>
+        အခု section မှာတော့ projects and test data တွေကို accessing လုပ်ဖိုရန်အတွက် ကျွန်တော်တို့ရဲ့ application ကို
+        database
+        နဲ့ connect လုပ်ဖို့ရန်အတွက် PHPs data object or PDO ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် PDO class ကနေ
+        object
+        တစ်ခုရဲ့ instance တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ ဒီ object variable ဟာဆိုရင် ကျွန်တော်တို့ database နှင့်
+        interact လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ attributes and actions တွေအားလုံးကို ပေးပါတယ်။ Class တစ်ခုကနေ object
+        တစ်ခုကို create
+        လုပ်ဖို့ဆိုရင် first အနေနဲ့ ကျွန်တော်တို့ရဲ့ create လုပ်ချင်တဲ့ object အတွက် variable name တစ်ခုကို အရင်ဆုံး
+        create
+        လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ $db ပဲဖြစ်ပါတယ်။ New object တစ်ခုကို create လုပ်ဖို့ရန်အတွက် new
+        keyword
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် class name ကို specify လုပ်ဖို့ရန်အတွက် parenthesis နဲ့ followed
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် array function လို့ပဲ new object တစ်ခုကို create လုပ်တဲ့အခါမှာ arguments
+        တွေကို pass
+        လုပ်နိုင်ပါတယ်။ PDO object နှင့်ဆိုရင် database နှင့် connect လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ information တွေကို pass
+        လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ SQLite ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ PDO SQLite ဟာ PHP data object ကို
+        SQLite 3
+        databases ကို access လုပ်နိုင်ဖို့ရန်အတွက် implements လုပ်ပေးတဲ့ driver တစ်ခုပဲဖြစ်ပါတယ်။ Driver ဆိုတာ one thing
+        to
+        another ကို connects လုပ်ပေးတဲ့ piece of software တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် PDO driver ဟာ PHP data
+        object
+        ကိုအသုံးပြုပြီးတော့ SQL နဲ့ PHP ကို connects လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် အဲ့ contents မှာဆိုရင် PDO SQLite DSN
+        အတွက်ပဲဖြစ်ပါတယ်။ PDO ဟာ SQLite database ကိုအသုံးပြုဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ data source name ကို pass
+        လုပ်ဖို့လိုပါတယ်။
+    </p>
+    <hr>
+    <h1>Handling Exceptions</h1>
+    <p>
+        ကျွန်တော်ရဲ့ code ဟာ သူ့ရဲ့ external system ပေါ်မှာ relies ဖြစ်နေပါစေ အဲ့မှာဆိုရင် something ဟာ wrong
+        ဖြစ်နိုင်ပါတယ်။
+        Database ဟာ down ဖြစ်သွားတဲ့အချိန်မှာ ကျွန်တော်တို့ရဲ့ code ဟာ ဘယ်လို respond ပြန်မယ်ဆိုတာပဲဖြစ်ပါတယ်။ ဒါကို
+        exceptions
+        လို့ခေါ်ပါတယ်။ နောက် external system နဲ့ connecting လုပ်ထားတဲ့ any code ကို handle လုပ်ဖို့လိုပါတယ်။ Managing
+        errors
+        ဟာဆိုရင် any application တွေမှာ very important ဖြစ်ပါတယ်။ Exceptions တွေဟာ exceptional တွေဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့
+        code ဟာ something ကို encounters လုပ်လိုက်တဲ့အခါမှာ အဲ့ဒါဟာ function ကို intended
+        လုပ်ဖို့ရန်အတွက်ခွင့်မပြုတာဖြစ်ပါတယ် ၊
+        ကျွန်တော်တို့ဟာ အဲ့ဒါကို catch လုပ်ထားရမှာဖြစ်ပါတယ်။ External system နှင့် connects လုပ်ထားတဲ့ any code ဟာ
+        exception
+        တွေကို handle လုပ်နိုင်ပါတယ်။ PHP မှာဆိုရင် exceptions တွေကို handling လုပ်ဖို့ရန်အတွက် block of code ကို
+        try-catch
+        block လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ execute လုပ်မဲ့ code မတိုင်ခင်မှာ try command ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ code ကို set of curly braces နဲ့ surround လုပ်ပေးထားရမှာဖြစ်ပါတယ်။ နောက် try block ရဲ့ နောက်မှာ
+        catch
+        command ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ Exceptions ကို တွေ့ရှိတဲ့အခါမှာ exception ဟာ catch block ထဲကို passed
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Catch ပြီးနောက်မှာ set of parentheses လိုက်ပြီးတော့ သူ့ထဲမှာ Exception $e ကို put
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Exception တွေ့တဲ့အခါမှာ details ကို အဲ့ variable e ထဲကို put လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက်
+        another
+        set of curly braces ကို လိုက်ပေးရမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ exception တစ်ခုတွေ့ခဲ့မယ်ဆိုရင် curly braces
+        ထဲမှာရှိတဲ့ code
+        ကို executed လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် detail massage ကို display လုပ်တဲ့အခါမှာ getMessage method
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဘယ် error ကိုပဲ တွေ့တွေ့ PDO မှာ exception တစ်ခုကို throw လုပ်ချင်တာဖြစ်ပါတယ်။
+        အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် set attribute ကို ကျွန်တော်တို့ရဲ့ new PDO object ပေါ်မှာ calling
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        setAttribute ရဲ့နောက်မှာရှိတဲ့ parentheses ထဲမှာ PDO::ATTR_ERRMODE ဆိုတဲ့ attribute ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက်ကတော့ ကျွန်တော်တို့ set လုပ်ချင်တဲ့ value ပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ PDO::ERRMODE_EXCEPTION ပဲဖစ်ပါတယ်။
+        ဒါဟာဆိုရင်
+        PDO ကို errors အားလုံးကို exception တစ်ခုကိုအနေနဲ့ handled လုပ်ထားသင့်တယ်ဆိုတာကို ပြောပြပေးတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            try{
+                $db = new PDO("sqlte:".__DIR__."/database.sql");
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+            var_dump($db);
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Reading Project Data</h1>
+    <p>
+        ကျွန်တော်တို့ web site ကို data တွေနဲ့ connecting မလုပ်ခင်မှာ ဘယ် data တွေကို ကျွန်တော်တို့ အသုံးပြုမယ်ဆိုတာကို
+        နားလည်ထားရမှာဖြစ်ပါတယ်။ Example က database ထဲမှာဆိုရင် tables နှစ်ခုပါဝင်ပါတယ်။ First ကတော့ Projects table
+        ဖြစ်ပြီးတော့
+        သူ့မှာ project_id ဆိုတဲ့ unique key တစ်ခုရှိပါတယ်။ ပြီးတော့ title and category fields တွေရှိပါတယ်။ Second table
+        ကတော့
+        Tasks table ပဲဖြစ်ပါတယ်။ သူ့မှာဆိုရင် task_id ဟာ unique key ဖြစ်ပြီးတော့ title, date, and time fields
+        တို့လည်းပါဝင်ပါတယ်။ နောက် task တစ်ခုချင်းစီကို specific project တစ်ခုနဲ့ links လုပ်ပေးတဲ့ project-id
+        လည်းပါဝင်ပါတယ်။
+        ကျွန်တော်တို့ဟာ database ထဲကနေ specific data တွေကို pull လုပ်ဖို့ရန်အတွက် functions တွေကို create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ functions တွေကို အသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ application ထဲမှာ throughout လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင်တော့ ကျွန်တော်တို့ဟာ database ကနေပြီးတော့ projects တွေကို pull လုပ်ဖို့ရန်အတွက် function ကို create
+        လုပ်ထားတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            
+            function get_project_list(){
+                include ("connection.php");
+                try {
+                    return $db->query("SELECT project_id, title,category FROM projects");
+                } catch (Exception $e){
+                    echo "Error!:" .$e->getMessage(). "&lt;/br&gt;";
+                }
+            }
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Accepting User Data</h1>
+    <p>
+        အခု section မှာတော့ list ထဲကို new projects တွေကို add လုပ်သွားမှာစြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် form
+        တစ်ခုကနေပြီးတော့ data တွေကို accept လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တု့ိ code ရဲ့ အပြင်မှာ values တွေကို handling
+        လုပ်တဲ့အချိန်မှာ အရေးကြီးတာကတော့ filter input and escape output လုပ်ဖို့ပဲဖြစ်ပါတယ်။ ကျှွန်တော်တို့ ဒီ
+        principles
+        နှစ်ခုကို two places မှာအသုံးဲပြုသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ incoming form data တွေကို filter
+        လုပ်တဲ့အချိန်မှာ data
+        တွေကို ကျွန်တော်တို့ လိုချင်တဲ့ format ဖြစ်ဖို့လိုပါတယ်။ နောက် database နဲ့ interacting လုပ်တဲ့အချိန်မှာ SQL
+        injection
+        ကို prevent လုပ်ဖို့ရန်အတွက် prepare statement ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ SQL injection ဆိုတာ query တစ်ခုဟာ
+        run
+        လုပ်ဖို့ရန်အတွက် never intended ဖြစ်တဲ့အချိန်ပဲဖြစ်ပါတယ်။ အခု section မှာတော့ form data တွေကို accepting
+        လုပ်ပြီးတော့
+        အဲ့ results တွေကို filtering လုပ်သွားမှာဖြစ်ပါတယ်။ Form submission အတွက် method နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့
+        GET and
+        POST တို့ပဲဖြစ်ပါတယ်။ General မရတော့ GET ကို form ကို submission လုပ်တဲ့အချိန်မှာ data တွေကို merely retrieving
+        or
+        getting လုပ်တဲ့အခါမှာအသုံးပြုတာဖြစ်ပါတယ်။ GET ရဲ့ nice thing ကတော့ values တွေဟာ web address ရဲ့ part
+        ဖြစ်လာတာဖြစ်ပါတယ်။
+        POST method ကိုတော့ form submission လုပ်လိုက်တဲ့အချိန်မှာ changing records and sending email လို some other
+        action ကို
+        taking လုပ်တဲ့အခါတွေမှာ အသုံးပြုကြတာဖြစစ်ပါတယ်။ POST method ရဲ့ advantages 3 ခုရှိပါတယ်။ First, name values
+        pairs ဟာ URL
+        မှာ display လုပ်မှာမဟုတ်ပါဘူး။ Second, ကတော့ URLs ကို multiple times refreshed လုပ်နိုင်ပါတယ်။ Third ကတော့
+        descriptions
+        တွေလို more data တွေကို submit လုပ်နိုင်တာတို့ပဲဖြစ်ပါတယ်။ Example မှာရှိတဲ့ project.php ထဲမှာ form မှာဆိုရင်
+        method ဟာ
+        post ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ request method post ကို checking လုပ်ရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါအတွက်
+        $SERVER['REQUEST_METHOD'] ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့ condition ထဲမှာ form data and filter input
+        တွေအတွက်
+        some variables ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ fields တွေရဲ့ beginning and end မှာ any white
+        spaces
+        တွေကို မလိုချင်တဲ့အခါမှာ trim function ကိုအသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တု့ိ variables နှစ်ခုလုံးဟာ required
+        ဖြစ်တဲ့အတွက်ကြောင့် ကျွန်တော်တု့ိ လုပ်ဆောင်ရမဲ့ coding မစခင်မှာ variables တွေဟာ empty ဖြစ်မဖြစ်ကို check
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ variables နှစ်ခုလုံး ၊ တစ်ခုဟာ empty ဖြစ်တဲ့အခါမှာ error message ကို
+        display
+        လုပ်ပေးမှာဖြစ်ပါတယ်။ Empty မဖြစ်တဲ့အခါမှာ variables တွေကို screen ပေါ်မှာ display လုပ်ထားတာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>project.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+            $category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING));
+            if (empty($title) || empty($category)){
+            $error_message = 'Please fill in the required fields: Title, Category';
+            } else {
+            echo "title = $title &lt;br /&gt;";
+            echo "title = $category &lt;br /&gt;";
+            }
+            }
+            ?&gt;
+            &lt;div class='container text-center mt-5 mb-5'&gt;
+            &lt;h1&gt; ADD Projects&lt;/h1&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Projects</h1>
+    <p>
+        Relational database တစ်ခုမှာရှိတဲ့ tables အများစုမှာဆိုရင် အဲ့ table ထဲမှာရှိတဲ့ record တစ်ခုချင်းစီကို uniquely
+        identifies လုပ်ပေးတဲ့ primary key တစ်ခုရှိပါတယ်။ ဒါဟာဆိုရင် tables တွေကို specific record တစ်ခုရဲ့ key
+        ကိုအသုံးပြုပြီးတော့ join လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Auto incrementing fields ကိုအသုံးပြုပြီးတော့
+        ကျွန်တော်တို့အတွက် database ကနေ key ကို generate ပ်ဖို့ရန် allow လုပ်ပေးပါတယ်။ နောက် database ထဲကို record
+        တစ်ခုကို
+        adding လုပ်တဲ့အချိန်မှာ database ကို automatically add the key ကို allow လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့
+        database ထဲမှာရှိတဲ့ record တစ်ခုကို updating လုပ်တဲ့အချိန်မှာ update လုပ်ဖို့ရန်အတွက် key ကို specify
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာကျွန်တော်တို့ဟာ data တွေကို accepting လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင်
+        prepared statements ကို အသုံးပြုဖို့ရန်အတွက် အရေးကြီးတဲ့အပိုင်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ prepared statement
+        ကို
+        variables parameters တွေကို အသုံးပြုပြီးတော့ customized လုပ်နိုင်တဲ့ SQL statement တစ်ခုအတွက် template တစ်ခုရဲ့
+        kind
+        တစ်ခုအနေနဲ့ thought လုပ်နိုင်ပါတယ်။ Prepared statements မှာဆိုရင် two major benefits ရှိပါတယ်။ First, query ဟာ
+        parsed or
+        prepared ကို တစ်ကြိမ်ပဲ လုပ်ဖို့လိုအပ်တာဖြစ်ပါတယ်။ ဒါပေမဲ့ same or different parameters နှင့် execute ကို
+        multiple times
+        လုပ်ဆောင်နိုင်ပါတယ်။ Second ကတော့ no SQ injection occur ဖြစ်စေဖို့ variables တွေကို properly အရ escapes
+        လုပ်ပေးပါတယ်။
+        Example အတွက် functions.php files ထဲမှာ new function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ထဲမှာ
+        title and
+        category ဆိုတဲ့ arguments နှစ်ခုကို accept လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ function ထဲမှာ connection.php file ကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိ အသုံးပြုမဲ့ SQL statement ကိုရေးပေးထားပါတယ်။ အဲ့ဒါကတော့ INSERT INTO
+        VALUES
+        ပဲဖြစ်ပါတယ်။ နောက် function ကို set up လုပ်ပြီးတဲ့အခါမှာ အဲ့ function ကို project.php ထဲမှာ
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ function ဟာ true ကို return ပြန်တယ်ဆိုရင် project_list page ကို redirect
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ False ကို return ပြန်တဲ့အခါမှ error message ကို display လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>project.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            require ("inc/function.php");
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+            $category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING));
+            if (empty($title) || empty($category)){
+            $error_message = 'Please fill in the required fields: Title, Category';
+            } else {
+            if(add_project($title,$category)){
+            header('location: project_list.php');
+            exit;
+            } else {
+            $error_message = "Could not add project";
+            }
+            }
+            }
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function add_project($title,$category){
+            include ("connection.php");
+            $sql = 'INSERT INTO projects (title, category) VALUES(?,?)';
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$title, PDO::PARAM_STR);
+            $results->bindValue(2,$category, PDO::PARAM_STR);
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return true;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Reading Task Data</h1>
+    <p>
+        အခု section မှာတော့ adding tasks အတွက် လုပ်ဆောင်လသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် task table ကို
+        reading
+        လုပ်ရမယ်ပြီးတော့ ကျွန်တော်တု့ိရဲ့ task list ကို populating လုပ်မယ်ပြီးတော့ user data တွေကို accepting and
+        filtering
+        လုပ်ပြီးတော့ database ထဲမှာ writing လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ စတင်လုပ်ဆောင်ရမှာကတော့ ကျွန်တော်တု့ိ
+        task list
+        page မှာ show လုပ်ချင်တဲ့ data တွေကို reading လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် function .php
+        ထဲမှာ
+        get_project_list function ကို duplicate လုပ်ပြီးတော့ get_task_list ဆိုပြီးတော့ change လုပ်ထားပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ query မှာဆိုရင် နဲနဲလေးကွာပါတယ်။ Example မှာဆိုရင် task table ကအားလုံးနဲ့ project table က title
+        ကို
+        လိုချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် tables နှစ်ခုကို join လုပ်ပေးဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့ function ကို set
+        up
+        လုပ်ပြီးတဲ့နောက်မှာ task_list.php ထဲမှာ call လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            function get_task_list(){
+            include ("connection.php");
+            try {
+            $sql = 'SELECT tasks.*, projects.title as project FROM tasks'
+            . ' JOIN projects ON tasks.project_id = projects.project_id';
+            return $db->query($sql);
+            } catch (Exception $e){
+            echo "Error!:" .$e->getMessage(). "&lt;/br&gt;";
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Tasks</h1>
+    <p>
+        အခု section မှာတော့ tasks တွေကို adding လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် function.php file ထဲမှာ add_project
+        function
+        ကို duplicate လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ သူ့ထဲမှာရှိတဲ့ parameters တွေကိုလည်း change
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Values တွေကို bind လုပ်တဲ့နေရာမှာလည်း change လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        task ရဲ့
+        drop down list မှာဆိုရင် database ကနေပြီးတော့ options နှင့် populate လုပ်ပေးရမှာဖြစ်ပါတယ်။ Drop down ဟာဆိုရင်
+        project
+        list တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် project_list.php ထဲမှာရှိတဲ့ foreach loop ကို copy ကူပြီးတော့ task.php ရဲ့
+        select
+        element ထဲမှာ paste လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် REQUEST_METHOD ကို POST ဖြစ်မဖြစ်ကို check လုပ်ထားတဲ့ condition
+        တစ်ခုကိုလုံးကို copy ကူးပြီးတော့ task.php ထဲမှာ paste လုပ်ပေးရမှဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် လိုအပ်တဲ့ form inputs
+        တွေကို
+        change လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code> 
+            function add_task($project_id, $title, $date, $time){
+            include ("connection.php");
+            $sql = 'INSERT INTO tasks (project_id, title, date, time) VALUES(?,?,?,?)';
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$project_id, PDO::PARAM_INT);
+            $results->bindValue(2,$title, PDO::PARAM_STR);
+            $results->bindValue(3,$date, PDO::PARAM_STR);
+            $results->bindValue(4,$time, PDO::PARAM_INT);
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return true;
+            }
+        </code>
+    </pre>
+    <h1>Remembering Form Data</h1>
+    <p>
+        အခု section မှာတော့ form fields တွေကို user data တွေနဲ့ equal ဖြစ်ဖို့ရန် set လုပ်သွားမှာဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        form fields အတွက် variables တွေကို form ကို post လုပ်ပြီးတဲ့အခါမှာ setting လုပ်ခဲ့တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        ကျွန်တော်တို့ဟာ ဒီ variables တွေကို form value တွေထဲမှာ အသုံးမပြုခင်မှာ check လုပ်ပေးဖို့လိုပါတယ်။ Another way
+        တစ်ခုကတော့ ကျွန်တော်တို့ရဲ့ script ရဲ့ beginning မှာ variables တွေကို empty string တစ်ခုနဲ့ set
+        လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+        နောက် အဲ့ variables တစ်ခုချင်းစီကို inputs တွေရဲ့ value မှာ htmlspecialchar ကို အသုံးပြုပြီးတော့ put
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            require ("inc/function.php");
+            $project_id = $title = $date = $time = '';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $project_id = trim(filter_input(INPUT_POST, 'project_id', FILTER_SANITIZE_NUMBER_INT));
+            $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+            $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
+            $time = trim(filter_input(INPUT_POST, 'time', FILTER_SANITIZE_NUMBER_INT));
+            if (empty($project_id) || empty($title) || empty($date) || empty($time) ){
+            $error_message = 'Please fill in the required fields: Project_id, Title, Data, Time';
+            } else {
+            if(add_task($project_id, $title, $date, $time)){
+            header('location: task_list.php');
+            exit;
+            } else {
+            $error_message = "Could not add task";
+            }
+            }
+            }
+            ?&gt;
+            &lt;div class="container text-center mt-5 mb-5"&gt;
+            &lt;h1&gt; ADD TASK&lt;/h1&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;form method="post" action="task.php" class="myform pt-5"&gt;
+            &lt;table class="table"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Project *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;select class="custom-select" name="project_id" id="inputGroupSelect01"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;?php
+            foreach (get_task_list() as $items){
+            echo "&lt;option value='". $items['project_id']. "'";
+            if($project_id = $items['project_id']){
+            echo ' selected';
+            }
+            echo "&gt;"
+            .$items['title']."&lt;/option&gt;";
+            }
+            ?&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Title *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="title" value="&lt;?php echo $title; ?&gt;" class="form-control" aria-label="Sizing example
+            input" aria-describedby="inputGroup-sizing-sm"&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Date *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="date" value="&lt;?php echo $date; ?&gt;" class="form-control" placeholder="mm/dd/yy"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Time *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="time" value="&lt;?php echo $time; ?&gt;" class="form-control time" aria-label="Sizing
+            example input" aria-describedby="inputGroup-sizing-sm"&gt; &lt;span class="minute"&gt;minutes&lt;/span&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;input type="submit" class="btn btn-lg btn-block" value="Submit"/&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Validating Dates</h1>
+    <p>
+        ကျွန်တော်တို့ရဲ့ task form ဟာ အလုပ်လုပ်နေပြီဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့မှာ dates တွေဝင်လာတဲ့အခါမှာ any data
+        integrity မရှိဘူးဖြစ်ပါတယ်။ Example မှာဆိုရင် date မှာ first two digit ဟာ month အတွက်ဖြစ်ပြီးတော့ second two
+        digit ဟာ
+        day အတွက် ဖြစ်ပြီးတော့ year အတွက်ဆိုရင် four digit ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ invalid or valid
+        dates တွေကို
+        အလွယ်တကူ add လုပ်လို့ရပါတယ်။ ဒါပေမဲ့ months အားလုံးမှာ 31 days မရှိပါဘူး။ အဲ့ဒါကြောင့် အခု section မှာ date ဟာ
+        correct
+        form ဖြစ်အောင် ဘယ်လို လုပ်မယ် နောက် အဲ့ date ကို actually a valid date ဖြစ်အောင် ဘယ်လို လုပ်ေ်ဆာင်ရမယ်ဆိုတာကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် option တစ်ခုကို explore လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် task.php ထဲမှာ
+        data
+        variable ကို check လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် date ရဲ့ piece တစ်ခုချင်းစီကို explore function ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Explore function ဟာ parameters 2 ခုယူပါတယ်။ First ကတော့ string delimiter နဲ့ second
+        ကတော့
+        string ပဲဖြစ်ပါတယ်။ နောက် ဒီ function ဟာ array တစ်ခုကို returns ပြန်ပေးပါတယ်။ Example မှာဆိုရင် အဲ့ return
+        ပြန်လာတဲ့
+        array ကို dateMatch ဆိုတဲ့ variable ထဲကို assign လုပ်ပေးထားပါတယ်။ နောက် first parameter ဖြစ်တဲ့ string delimiter
+        ဟာ
+        ဘယ်နေရာမှာ string ကို split လုပ်ရမယ်ဆိုတာကို determines လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် function ထဲမှာဆိုရင် date ရဲ့
+        piece
+        တစ်ခုချင်းစီကို forward slash နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ dateMatch ဟာ three item
+        array
+        တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွနန်တော်တို့ဟာ conditional တစ်ခုကို add လုပ်ပေးရမှာဖြစစ်ပါတယ်။ Condition
+        ထဲမှာဆိုရင်
+        dateMatch ဟာ 3 နဲ့ ညီမညီကို check လုပ်ထားတာဖြစ်ပါတယ်။ မညီရင်ကျွန်တော်တို့ဟာ invalid data ဆိုတဲ့ error message
+        ကို
+        display လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ date ကို correct format နဲ့ လိုချင်တဲ့ဖြစ်တဲ့အတွက်ကြောင့်
+        array ရဲ့
+        piece တစ်ခုချင်းစီကို correct link ဖြစ်မဖြစ်ကို check လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် strlen ဆိုတဲ့ method ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟ actually valid ဖြစ်မဖြစ်ကို check လုပ်ဖို့ရန်အတွက် checkdate
+        function
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ function မှာဆိုရင် parameters 3 ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $dateMatch = explode('/', $date);
+            
+            
+            if (empty($project_id) || empty($title) || empty($date) || empty($time) ){
+            $error_message = 'Please fill in the required fields: Project_id, Title, Data, Time';
+            } else if(count($dateMatch) != 3 || strlen($dateMatch[0]) != 2
+            || strlen($dateMatch[1]) != 2
+            || strlen($dateMatch[2]) != 4
+            || !checkdate($dateMatch[0], $dateMatch[1], $dateMatch[2])) {
+            $error_message = 'Invaid Date';
+            
+            } else {
+            if(add_task($project_id, $title, $date, $time)){
+            header('location: task_list.php');
+            exit;
+            } else {
+            $error_message = "Could not add task";
+            }
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Totaling Time</h1>
+    <p>
+        Data တွေကို organizing and filtering လုပ်ထားတာမရှိဘူးဆိုရင် ကျွန်တော်တို့မှာ ဘာ data တွေ ဘယ်လောက်ရှိတယ်ဆိုတာကို
+        သိဖို့ရန်အတွက် difficult ဖြစ်ပါတယ်။ Example မှာရှိတဲ့ reports ဟာဆိုရင် data တွေကို အသုံးပြုပြီးတော့ story
+        တစ်ခုကို write
+        လုပ်လို့ရပါတယ်။ Report တစ်ခုဟာဆိုရင် site's visitors ရဲ့ describe လုပ်လို့ရပြီးတော့ နောက် ဘယ် page ဟာ most
+        popular
+        ဖြစ်တယ်ဆိုတာကို describe လုပ်နိုင်ပါတယ်။ Reports တွေဟာဆိုရင် example မှာဆိုရင် time အတွက် clients တွေကို bill
+        လုပ်ဖို့ရန်အတွက် information တွေကို ပေးပါတယ်။ နောက် sections တွေမှာဆိုရင် database ကနေပြီးတော့ data တွေကို read
+        လုပ်ပြီးတော့ several different reports တွေကို create လုပ်ဖို့ရန်အတွက် အဲ့ data တွေကို organize
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် Task information တွေကို display လုပ်ဖို့ရန်အတွက် table တစ်ခုကို setting up လုပ်ပြီးတော့ end မှာ
+        grand total
+        တစ်ခုပါဝင်ခြင်းဖြင့် time spent ကို summarize လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ tasks
+        တစ်ခုချင်းစီကို loop
+        through လုပ်ရမှာဖြစ်ပြီးတော့ variable တစ်ခုထဲကို time ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;div class="container text-center mt-5 mb-5"&gt;
+            &lt;div class="reprots"&gt;
+            &lt;h1&gt;Reports&lt;/h1&gt;
+            &lt;div class="reports-list"&gt;
+            &lt;table&gt;
+            &lt;?php
+            $total = 0;
+            foreach (get_task_list() as $item){
+            $total += $item['time'];
+            echo "&lt;tr&gt;/n";
+            echo "&lt;td&gt;". $item['title'] . "&lt;/td&gt;/n";
+            echo "&lt;td&gt;". $item['date'] . "&lt;/td&gt;/n";
+            echo "&lt;td&gt;". $item['time'] . "&lt;/td&gt;/n";
+            echo "&lt;/tr&gt;/n";
+            }
+            ?&gt;
+            &lt;tr&gt;
+            &lt;th class="grand-total-lable"&gt;Grand Total&lt;/th&gt;
+            &lt;th class="grand-total-number"&gt;&lt;?php echo $total;?&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            
+            &lt;/div&gt;
+            
+            &lt;/div&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Summarizing Project Time</h1>
+    <p>
+        Example မှာဆိုရင် project အရ tasks တွေကို grouping လုပ်တာဟာ important things တစ်ခုပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        ဒါဟာ
+        ကျွန်တော်တို့ရဲ့ reports အတွက် default view ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် get task list function
+        ကို
+        modify လုပ်ဖို့လိုပါတယ်။ နောက် ကျွ်နေ်တော်တို့ရဲ့ reports page မှာ additional information တွေကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Get task list function ကို modify လုပ်တဲ့အနေရာမှာ optional parameter တစ်ခုကို accept
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့လုပ်ဆောင်ရမှာ sort လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် SQL statement မှာ
+        order by
+        ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ parameter ဟာ set မလုပ်ဘူးဆိုရင် task list page ကို date အရ sort
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် parameter ဟာ set လုပ်ခဲ့တယ်ဆိုရင် project title အရ sort လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>reports.phh</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            $filter = 'all';
+            
+            require ("inc/function.php");
+            ?&gt;
+            &lt;div class="container mt-5 mb-5"&gt;
+            &lt;div class="reports"&gt;
+            &lt;h1 class="text-center"&gt;Reports&lt;/h1&gt;
+            &lt;div class="reports-list "&gt;
+            &lt;table&gt;
+            &lt;?php
+            $total = $project_id = $project_total = 0;
+            $tasks = get_task_list($filter);
+            foreach ( $tasks as $item){
+            if ($project_id != $item['project_id']){
+            $project_id = $item['project_id'];
+            echo "&lt;thead&gt;\n";
+            echo "&lt;tr&gt;\n";
+            echo "&lt;th&gt;" . $item['project'] ."&lt;/th&gt;\n";
+            echo "&lt;th&gt; Date&lt;/th&gt;\n";
+            echo "&lt;th&gt; Time &lt;/th&gt;\n";
+            echo "&lt;/tr&gt;\n";
+            echo "&lt;/thead&gt;\n";
+            }
+            $project_total += $item['time'];
+            $total += $item['time'];
+            echo "&lt;tr&gt;\n";
+            echo "&lt;td&gt;". $item['title'] . "&lt;/td&gt;\n";
+            echo "&lt;td&gt;". $item['date'] . "&lt;/td&gt;\n";
+            echo "&lt;td&gt;". $item['time'] . "&lt;/td&gt;\n";
+            echo "&lt;/tr&gt;\n";
+            if (next($tasks)['project_id'] != $item['project_id']) {
+            echo "&lt;tr&gt;\n";
+            echo "&lt;th class='project_total_label' colspan='2'&gt;Project Total &lt;/th&gt;\n";
+            echo "&lt;th class='project_total_number'&gt; $project_total &lt;/th&gt;\n";
+            echo "&lt;/tr&gt;\n";
+            $project_total=0;
+            }
+            }
+            ?&gt;
+            &lt;tr&gt;
+            &lt;th class="grand-total-lable" colspan="2"&gt;Grand Total&lt;/th&gt;
+            &lt;td class="grand-total-number"&gt;&lt;?php echo $total;?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function get_task_list($filter = null){
+            include ("connection.php");
+            try {
+            $sql = 'SELECT tasks.*, projects.title as project FROM tasks
+            JOIN projects ON tasks.project_id = projects.project_id';
+            
+            $orderby = ' ORDER BY date DESC';
+            
+            if ($filter){
+            $orderby = ' ORDER BY projects.title ASC, date DESC';
+            }
+            
+            $results = $db->prepare($sql. $orderby);
+            $results->execute();
+            
+            } catch (Exception $e){
+            echo "Error!:" .$e->getMessage(). "</br>";
+            }
+            return $results->fetchALL(PDO::FETCH_ASSOC);
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Filtering by Projec</h1>
+    <p>
+        Grouping မှာဆိုရင် ကျွန်တော်တို့ရဲ့ data တွေကို more manageable ဖြစ်အောင်လုပ်ဆောင်ဖို့ရန်အတွက် started ရှိပါတယ်။
+        ဒါပေမဲ့
+        ကျွန်တော်တို့ရဲ့ reports page ဟာဆိုရင် data တွေအားလုံးကို all the time မှာ show လုပ်နေတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့်
+        နောက်
+        ကျွန်တော်တို့လုပ်ဆောင်မှာကတော့ ကျွန်တော်တို့ရဲ့ data တွေကို filter လုပ်ဖို့ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် data ရဲ့
+        portion
+        တစ်ခုကိုပဲ time တစ်ခုမှာ show လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် project အရ filtering လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် first အနေနဲ့ လုပ်ဆောင်ရမှာက ကျွန်တော်တို့ရဲ့ report အတွက် project တစ်ခုကို select လုပ်ဖို့ရန်အတွက်
+        user ကို
+        option ပေးဖို့အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင်အတွက် drop-down နဲ့ new form တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ another foreach loop နဲ့ database ကနေ project information တွေကို pull လုပ်ဖို့ရန်အတွက် PHP ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ select မှာ empty ဖြစ်မဖြစ်ကို check လုပ်တဲ့ condition
+        တစ်ခုကိုလည်း add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ Empty မဖြစ်ဘူးဆိုရင် ကျွန်တော်တို့ဟာ filter variable ထဲကို အဲ့ select ထဲမှာပါလာတဲ့ value
+        ကိုထည့်ပေးမှာဖြစ်ပါတယ်။။ နောက် အဲ့မှာဆိုရင် explode function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဘာလို့လဲဆိုတော့
+        values ရဲ့
+        variable and array တစ်ခုကို string တစ်ခုဖြစ်တယ်ဆိုတာကို ပြုလုပ်ဖို့ရန်အတွက်ပဲဖစ်ပါတယ်။ အဲ့ explode ရဲ့ delimiter
+        ကို
+        colon နဲ့ set လုပ်ခဲ့မှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ function ဟာ more detailed filter ကို accept
+        လုပ်ဖို့ရန်အတွက်
+        update လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် get_task_list function ထဲမှာ where clause တစ်ခုကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ where clause ဟာ filter parameter လေးဟာ array တစ်ခုဖြစ်တဲ့အချိန်မှာပဲ လိုအပ်တာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>report.php</h3>
+    <pre>
+        <code>
+            if (!empty($_GET['filter'])){
+            $filter = explode(':', filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_STRING));
+            }
+        </code>
+    </pre>
+    <h3>functin.php</h3>
+    <pre>
+        <code>
+            function get_task_list($filter = null){
+            include ("connection.php");
+            try {
+            $sql = 'SELECT tasks.*, projects.title as project FROM tasks
+            JOIN projects ON tasks.project_id = projects.project_id';
+            
+            $where ='';
+            if (is_array($filter)){
+            if ($filter[0] == 'project'){
+            $where = ' WHERE projects.project_id = ?';
+            }
+            }
+            
+            $orderby = ' ORDER BY date DESC';
+            
+            if ($filter){
+            $orderby = ' ORDER BY projects.title ASC, date DESC';
+            }
+            
+            $results = $db->prepare($sql. $where . $orderby);
+            if (is_array($filter)){
+            $results ->bindValue(1,$filter[1], PDO::PARAM_INT);
+            }
+            $results->execute();
+            
+            } catch (Exception $e){
+            echo "Error!:" .$e->getMessage(). "&lt;/br&gt;";
+            }
+            return $results->fetchALL(PDO::FETCH_ASSOC);
+            }
+        </code>
+    </pre>
+    <a href="../phpexample/timetracker/index.php">Test Yourself</a>
+    <hr>
+    <h1>Filtering by Category</h1>
+    <p>
+        Filtering ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ report ကို clean up လုပ်ဖို့ရန်အတွက် really help ဖြစ်ပါတယ်။ အခု section
+        မှာတော့
+        second filter ဖြစ်တဲ့ category ဖြင့် filter လုပ်တာကို add လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ reports.php
+        ထဲမှာရှိတဲ့
+        filter dropdown ကို updating လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့အတွက် category ကို add မလုပ်ခင်မှာ optgroup ကို projects
+        အတွက် add
+        လုပ်ရမှာဖြစ်ပါတယ်။ နောက် category optgroup ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ ကျွန်တော်တို့ရဲ့ function
+        ကို
+        modify လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ else if ကို add လုပ်နိုင်ပါတယ်။ ဒါပေမဲ့
+        ကျွန်တော်တို့ဟာ more
+        filters ကို add လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် switch statement ကို change လုပ်မှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့
+        ကျွန်တော်တို့ရဲ့
+        bind value ဟာ int တစ်ခုဖြစ်ချင်တာဖြစ်ပါတယ်။ ဒါပေမဲ့ category ဟာ string ဖြစ်နေပါတယ်။ တစ်ကယ်လို့ string category
+        ကို pass
+        လုပ်မယ်ဆိုရင် သူဟာ category ကနေ non-integer values တွေအားလုံးကို remove လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် third
+        parameter ဟာ optional ဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            function get_task_list($filter = null){
+            include ("connection.php");
+            try {
+            $sql = 'SELECT tasks.*, projects.title as project FROM tasks
+            JOIN projects ON tasks.project_id = projects.project_id';
+            
+            $where ='';
+            switch(is_array($filter)){
+            case 'project':
+            $where = ' WHERE projects.project_id = ?';
+            break;
+            case 'category':
+            $where = ' WHERE category = ?';
+            break;
+            }
+            
+            $orderby = ' ORDER BY date DESC';
+            
+            if ($filter){
+            $orderby = ' ORDER BY projects.title ASC, date DESC';
+            }
+            
+            $results = $db->prepare($sql. $where . $orderby);
+            if (is_array($filter)){
+            $results ->bindValue(1,$filter[1]);
+            }
+            $results->execute();
+            
+            } catch (Exception $e){
+            echo "Error!:" .$e->getMessage(). "&lt;/br&gt;";
+            }
+            return $results->fetchALL(PDO::FETCH_ASSOC);
+            }
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Filtering by Time Period</h1>
+    <p>
+        နောက်ဆုံး filter ကတော့ date နှင့် filter လုပ်တာကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Oftentimes မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ range
+        တစ်ခုကို enter လုပ်ဖို့ allow လုပ်ပေးတဲ့ date reports ကိုတွေ့ရကြပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ရဲ့ report ကို
+        more
+        flexibility ဖြစ်စေပါတယ်။ Example အတွက်ဆိုရင် ကျွန်တော်တို့ရဲ့ reports အားလုံးကို simple drop down တစ်ခုထဲမှာ
+        ရှိစေမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် predefined ranges တွေကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် first အနေနဲ့
+        လုပ်ဆောင်ရမှာကတော့ drop down မှာ date ranges ကို adding လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။ အဲ့ဒါအတွက် report.php ထဲမှာ
+        another
+        optgroup တစ်ခုကို date အတွက် add လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် date ranges အတွက် option မှာ values တွေကို add
+        လုပ်တဲ့အခါမှာ သူဟာ single date မဟုတ်ပါဘူး။ အဲ့ဒါကြောင့် starting and ending dates တွေကို colon တစ်ခုနဲ့ separate
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် dates တွေကို determines လုပ်ဖို့ရန်အတွက် php ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        Date
+        တစ်ချင်းစီရဲ့ format ကတော့ month/day/year ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ dates တွေကို calculate
+        လုပ်ဖို့ရန်အတွက် strtotime function ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ First option ဟာ last week အတွက်ဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့်
+        last week ကို calculate လုပ်ဖို့ရန်အတွက် strtotime('-2 Sunday') ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ် ending
+        date အတွက်
+        strtotime('-1 Saturday) ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် this week အတွက်ဆိုရင် (-1 Sunday)
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပြီးတော့ end date အတွက်ကတော့ current date ဖြစ်တဲ့အတွက်ကြောင့် strtotime ကို remove
+        လုပ်နိုင်ပါတယ်။
+        နောက် last month အတွက်ဆိုရင် "first day of last month" နဲ့ "last day of last month" ဆိုတဲ့ string
+        နှစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံး this month အတွက်ဆိုရင် start date ဟာ " first day of this month" နဲ့
+        end
+        date အတွက် "today" ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် get_task_list function ကို update လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် date ranges ကို utilize လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့အတွက် another case တစ်ခုကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် ကျွန်တော်တို့ရဲ့ second placeholder အတွက် additional bind value တစ်ခုကို add လုပ်ပေးဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                    &lt;div class="form-container"&gt;
+                    &lt;form class="form-reports" action="report.php" method="get"&gt;
+                    &lt;label for='filter'&gt;Filter:&lt;/label&gt;
+                    &lt;select id='filter' name='filter' class='form-control form-control-lg'&gt;
+                    &lt;option value=''&gt;Select One&lt;/option&gt;
+                    &lt;optgroup label='project'&gt;
+                    &lt;?php
+                    foreach (get_project_list() as $item){
+                    echo '&lt;option value="project:' . $item['project_id'] .'"&gt;';
+                    echo $item['title'] ."&lt;/option&gt;\n";
+                    }
+                    ?&gt;
+                    &lt;/optgroup&gt;
+                    &lt;optgroup label='category'&gt;
+                    &lt;option value="category:Billable"&gt;Billable&lt;/option&gt;
+                    &lt;option value="category:Charity"&gt;Charity&lt;/option&gt;
+                    &lt;option value="category:Personal"&gt;Personal&lt;/option&gt;
+                    &lt;/optgroup&gt;
+                    &lt;optgroup label='date'&gt;
+                    &lt;option value="date:
+                    &lt;?php
+                    echo date('m/d/Y', strtotime('-2 Sunday'));
+                    echo ":";
+                    echo date('m/d/Y', strtotime('-1 Saturday'));
+                    
+                    ?&gt;"&gt;Last Week&lt;/option&gt;
+                    &lt;option value="date:
+                    &lt;?php
+                    echo date('m/d/Y', strtotime('-1 Sunday'));
+                    echo ":";
+                    echo date('m/d/Y');
+                    ?&gt;"&gt;This Week&lt;/option&gt;
+                    &lt;option value="date:
+                    &lt;?php
+                    echo date('m/d/Y', strtotime('first day of last month'));
+                    echo ":";
+                    echo date('m/d/Y', strtotime('end day of last month'));
+                    ?&gt;"&gt;Last Month&lt;/option&gt;
+                    &lt;option value="date:
+                    &lt;?php
+                    echo date('m/d/Y', strtotime('first day of this month'));
+                    echo ":";
+                    echo date('m/d/Y');
+                    ?&gt;"&gt;This Month&lt;/option&gt;
+                    &lt;/optgroup&gt;
+                    
+                    &lt;input classs="btn btn-lg btn-block" type="submit" value="Run" /&gt;
+                    &lt;/select&gt;
+                    &lt;/form&gt;
+                    &lt;/div&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Naming Reports</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ reports page ဟာဆိုရင် looking good ဖြစ်နေပြီဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ ဘယ်
+        report ဟာ
+        အမှန်တစ်ကယ် run လုပ်နေတယ်ဆိုတာကို သိဖို့ခက်ခဲနေတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာတော့ ကျွန်တော်တို့ရဲ့
+        header
+        text ကို more details ကျအောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Example မှာဆို Report နေရာမှာ on လိုက်ပြီးတော့
+        ကျွန်တော်တို့ဟာ
+        filter ကို check လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် $filter ဟာ array မဟုတ်ဘူးဆိုရင် Tasks အားလုံးကို
+        Project အရ
+        echo လုပ်မှာဖြစ်ပါတယ်။ တစ်ကယ်လို့filter ဟာ array တစ်ခုဖြစ်တယ်ဆိုရင် first element ကို display လုပ်မှာဖြစ်ပါတယ်။
+        အဲ့ဒါအတွက် ucwords ဆိုတဲ့ function ကို title case အတွက် first letter ကို upper case ကို change လုပ်ဖို့ရန်အတွက်
+        အသုံးပြုသွားမှာဖြစ်ပါတယ်။ နောက် value ကို add မလုပ်ခင်မှာ separation အတွက် colon တစ်ခုကို add
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် switch statement တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် filter array ထဲမှာရှိတဲ့ first element
+        ဟာဆိုရင်
+        project နဲ့ equal ဖြစ်တယ်ဆိုရင် ကျွန်တော်တို့ဟာ database ကနေပြီးတော့ project details တွေကို pull
+        လုပ်ဖို့ရန်အတွက် filter
+        array ရဲ့ second element ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့အတွက် get_project ဆိုတဲ့ function ကို create
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ထဲမှာဆိုရင် parameter ဟာ project_id ကို တစ်ခုကိုပဲ accept
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        sql statement ကို select ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function get_project($project_id){
+            include ("connection.php");
+            $sql = 'SELECT * FROM projects WHERE project_id = ?';
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$project_id, PDO::PARAM_INT);
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return $results->fetch();
+            }
+        </code>
+    </pre>
+    <h3>report.php</h3>
+    <pre>
+        <code>
+                    &lt;h1 class="text-center"&gt;Reports on &lt;?php
+                    if (!is_array($filter)){
+                    echo "All Tasks by Project";
+                    } else {
+                    echo ucwords($filter[0]) . ":";
+                    switch ($filter[0]){
+                    case 'projects':
+                    $project = get_project($filter[1]);
+                    echo $project;
+                    break;
+                    case 'category':
+                    echo $filter[1];
+                    break;
+                    case 'date':
+                    echo $filter[1];
+                    }
+                    }
+                    ?&gt;&lt;/h1&gt;
+        </code>
+    </pre>
+    <a href="../phpexample/timetracker/index.php">Test Yourself</a>
+    <hr>
+    <h1>Updating Projects</h1>
+    <p>
+        အခုနောက်ပိုင်း sections တွေမှာတော့ ကျွန်တော်တို့ရဲ့ CRUD acronym ထဲမှာရှိတဲ့ last letters နှစ်ခုဖြစ်တဲ့ updating
+        and
+        deleting တို့ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ ကျွန်တော်တု့ိဟာ projects တွေကို updating လုပ်တာကို
+        လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Data တွေကို updating and deleting လုပ်တာဟာ data တွေကို maintaining လုပ်တဲ့ integral
+        part
+        တစ်ခုပဲဖြစ်ပါတယ်။ First အနေနဲ့ ကျွန်တော်တို့ရဲ့ project list ကို clickable ဖြစ်အောင်လုပ်ရမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ project.php ထဲမှာ ID ကို accept လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့ဟာ ID ကိုအသုံးပြုပြီးတော့ project
+        details
+        ကို pull လုပ်ရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် project details အားလုံးရဲ့ array တစ်ခုကို return ပြန်ပေးမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် ဒီ array values တွေကို variables တစ်ခုချင်းစီမှာ return ပြန်ပေးဖို့ရန်အတွက် built in list function
+        ကို
+        အသုံးပြုနိုင်ပါတယ်။ နောက် project ကို adding or updating လုပ်ဆိုတာကို show လုပ်ဖို့ရန်အတွက် header text ကို
+        update
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် $project_id ဟာ empty မဖြစ်ဘူးဆိုရင် header text ကို "Updating" ကို display
+        လုပ်ပေးမှာဖြစ်ပြီးတော့ empty ဖြစ်တယ်ဆိုရင် "Add" ကို display လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် project.php ထဲမှာ post
+        section
+        ကို updating လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် first အနေနဲ့ form ကနေပြီးတော့ $project_id ကို grab
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် အဲ့ $project_id ကို add_project function ထဲမှာ pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ project_id ကို
+        ကျွန်တော်တို့ဟာ optional အနေနဲ့ accept လုပ်ချင်တာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ conditional တစ်ခုလိုအပ်ပါတယ်။
+        အဲ့ဒါကတော့ ဘယ် SQL statement ကို ကျွန်တော်တို့အသုံးပြုမယ်ဆိုတာအတွက်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် တစ်ကယ်လို့
+        $project_id ကို
+        accept လုပ်ခဲ့တယ်ဆိုရင် update ကို အသုံးပြုမှာဖြစ်ပြီးတော့ accept မလုပ်ခဲ့ဘူးဆိုရင် insert statement ကို
+        အသုံးပြုမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ $project_id ကို bind ပေးဖို့လဲလိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>project.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            require ("inc/function.php");
+            
+            $title = $category ='';
+            
+            if (isset($_GET['id'])){
+            list($project_id, $title, $category) = get_project(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $project_id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+            $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+            $category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING));
+            if (empty($title) || empty($category)){
+            $error_message = 'Please fill in the required fields: Title, Category';
+            } else {
+            if(add_project($title,$category, $project_id)){
+            header('location: project_list.php');
+            exit;
+            } else {
+            $error_message = "Could not add project";
+            }
+            }
+            }
+            ?&gt;
+            &lt;div class='container text-center mt-5 mb-5'&gt;
+            &lt;h1&gt;&lt;?php
+            if (!empty($project_id)){
+            echo "Updating";
+            } else {
+            echo "ADD";
+            } ?&gt; Projects&lt;/h1&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;form method="post" class="myform pt-5" action="project.php"&gt;
+            &lt;table class="table"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Title *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" class="form-control" value="&lt;?php echo $title;?&gt;" name="title" aria-label="Sizing example
+            input" aria-describedby="inputGroup-sizing-sm"&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Categroy *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;select class="custom-select" name="category" id="inputGroupSelect01"&gt;
+            &lt;option selected&gt;Select One&lt;/option&gt;
+            &lt;option value="Billable"&lt;?php
+            if ($category == 'Billable'){
+            echo 'selected';
+            }
+            ?&gt;&gt;Billable&lt;/option&gt;
+            &lt;option value="Charity"&lt;?php
+            if ($category == 'Charity'){
+            echo 'selected';
+            }
+            ?&gt;&gt;Charity&lt;/option&gt;
+            &lt;option value="Personal"&lt;?php
+            if ($category == 'Personal'){
+            echo 'selected';
+            }
+            ?&gt;&gt;Personal&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;?php
+            if ($project_id){
+            echo '&lt;input type="hidden" name="id" value="'.$project_id .'" /&gt;';
+            }
+            ?&gt;
+            
+            &lt;input type="submit" class="btn btn-lg btn-block" valeu="Submit" /&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function add_project($title,$category, $project_id =null){
+            include ("connection.php");
+            if ($project_id){
+            $sql = 'UPDATE projects SET title= ?, category= ? WHERE project_id = ?';
+            } else{
+            $sql = 'INSERT INTO projects (title, category) VALUES(?,?)';
+            }
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$title, PDO::PARAM_STR);
+            $results->bindValue(2,$category, PDO::PARAM_STR);
+            if ($project_id){
+            $results->bindValue(3, $project_id, PDO::PARAM_INT);
+            }
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return true;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Updating Tasks</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ tasks တွေအတွက် updating လုပ်တာကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ ဒါကတော့
+        projects
+        တွေကို updating လုပ်သလိုပဲ changes လေးနဲနဲပြုလုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>task.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/header.php");
+            require ("inc/function.php");
+            $project_id = $title = $date = $time= '';
+            if (isset($_GET['id'])){
+            list($task_id, $title, $date, $time, $project_id) = get_task(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+            }
+            $project_id = $title = $date = $time = '';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $task_id = filter_input(INPUT_POST,'id', FILTER_SANITIZE_NUMBER_INT);
+            $project_id = trim(filter_input(INPUT_POST, 'project_id', FILTER_SANITIZE_NUMBER_INT));
+            $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+            $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
+            $time = trim(filter_input(INPUT_POST, 'time', FILTER_SANITIZE_NUMBER_INT));
+            
+            $dateMatch = explode('/', $date);
+            
+            if (empty($project_id) || empty($title) || empty($date) || empty($time) ){
+            $error_message = 'Please fill in the required fields: Project_id, Title, Data, Time';
+            } else if(count($dateMatch) != 3 || strlen($dateMatch[0]) != 2
+            || strlen($dateMatch[1]) != 2
+            || strlen($dateMatch[2]) != 4
+            || !checkdate($dateMatch[0], $dateMatch[1], $dateMatch[2])) {
+            $error_message = 'Invaid Date';
+            
+            } else {
+            if(add_task($project_id, $title, $date, $time,$task_id)){
+            header('location: task_list.php');
+            exit;
+            } else {
+            $error_message = "Could not add task";
+            }
+            }
+            }
+            ?&gt;
+            &lt;div class="container text-center mt-5 mb-5"&gt;
+            &lt;h1&gt;&lt;?php
+            if(!empty($task_id)){
+            echo "Updating";
+            }else{
+            echo "ADD";
+            }?&gt;
+            TASK&lt;/h1&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;form method="post" action="task.php" class="myform pt-5"&gt;
+            &lt;table class="table"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Project *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;select class="custom-select" name="project_id" id="inputGroupSelect01"&gt;
+            &lt;option value=""&gt;Select one&lt;/option&gt;
+            &lt;?php
+            foreach (get_task_list() as $items){
+            echo "&lt;option value='". $items['project_id']. "'";
+            if($project_id = $items['project_id']){
+            echo 'selected';
+            }
+            echo "&gt;"
+            .$items['title']."&lt;/option&gt;";
+            }
+            ?&gt;
+            &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Title *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="title" value="&lt;?php echo $title; ?&gt;" class="form-control" aria-label="Sizing example
+            input" aria-describedby="inputGroup-sizing-sm"&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Date *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="date" value="&lt;?php echo $date; ?&gt;" class="form-control" placeholder="mm/dd/yy"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;Time *&lt;/th&gt;
+            &lt;td&gt;
+            &lt;input type="text" name="time" value="&lt;?php echo $time; ?&gt;" class="form-control time" aria-label="Sizing
+            example input" aria-describedby="inputGroup-sizing-sm"&gt; &lt;span class="minute"&gt;minutes&lt;/span&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;?php
+            if ($task_id){
+            echo '&lt;input type="hidden" name="id" value="'.$task_id .'" /&gt;';
+            }
+            ?&gt;
+            &lt;input type="submit" class="btn btn-lg btn-block" value="Submit"/&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+        </code>
+    </pre>
+    <h3>functin.php</h3>
+    <pre>
+        <code>
+            function add_task($project_id, $title, $date, $time, $task_id =null){
+            include ("connection.php");
+            if ($task_id){
+            $sql = 'UPDATE tasks SET project_id= ?, title= ?, date = ?, time= ? '
+            .' WHERE task_id= ?';
+            } else{
+            $sql = 'INSERT INTO tasks (project_id, title, date, time) VALUES(?,?,?,?)';
+            }
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$project_id, PDO::PARAM_INT);
+            $results->bindValue(2,$title, PDO::PARAM_STR);
+            $results->bindValue(3,$date, PDO::PARAM_STR);
+            $results->bindValue(4,$time, PDO::PARAM_INT);
+            if ($task_id){
+            $results->bindValue(5,$task_id, PDO::PARAM_INT);
+            }
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return true;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Deleting Tasks</h1>
+    <p>
+        တစ်ခါတစ်လေမှာတော့ deleting လုပ်တာဟာ extremely powerful ဖြစ်ပါတယ်။ ဒါပေမဲ့ deleting ဟာ တစ်ခါတစ်လေမှာတော့
+        extremely
+        dangerous ဖြစ်ပါတယ်။ အခု section မှာတော့ tasks and projects တွေကို deleting လုပ်သွားမှာဖြစ်ပါတယ်။ Example
+        မှာဆိုရင်
+        function.php file ထဲမှာရှိတဲ့ get_task function ကို duplicate လုပ်ပေးထာပါတယ်။ Name ကို delete_task ကို change
+        လုပ်ပေးထားပါတယ်။ နောက်ထပ်ကတော့ SQL statement ကိုလည်း update လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် task_list.php
+        ထဲမှာဆိုရင် POST
+        ကို database မှာ anything ကို changes တွေကို ပြုလုပ်ချင်တဲ့အခါမှာ good idea တစ်ခုဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် link
+        တစ်ခုကို
+        အသုံးပြုနေမဲ့အစား ကျွန်တော်တို့ရဲ့ foreach loop ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီမှာ form တစ်ခုကို add
+        လုပ်ပေးထားပါတယ်။
+        နောက်ထပ်ကတော့ အဲ့ form က data တွေကို accept လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် item တစ်ခုကို delete
+        လုပ်ပြီးတဲ့အခါမှာ
+        ကျွန်တော်တို့ဟာ redirect လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် redirect လုပ်တဲအခါမှာ msg တစ်ခုကို set လုပ်ပေးထားပါတယ်။ အဲ့
+        msg
+        ကတော့ delete လုပ်လို့ရတယ် မရဘူးဆိုတာကို display လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ အဲ့ msg ကို accept
+        လုပ်ပြီးတော့
+        screen ပေါ်မှာ display လုပ်ပေးဖို့ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>task_list.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/function.php");
+            
+            if(isset($_POST['delete'])){
+            if (delete_task(filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT))){
+            header('location: task_list.php?msg=Task+Deleted');
+            exit;
+            } else{
+            header('location: task_list.php?msg=Unable+to+Delete');
+            exit;
+            }
+            }
+            if (isset($_GET['msg'])){
+            $error_message = trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
+            }
+            
+            include ("inc/header.php");
+            ?&gt;
+            
+            &lt;div class="container text-center mt-5 mb-5"&gt;
+            &lt;div class="row"&gt;
+            &lt;div class="col-12"&gt;
+            &lt;img src="task-icon-55.png" alt="addtasks"&gt;
+            &lt;a href="task.php"&gt;Add Task&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;div class="form-container"&gt;
+            &lt;ul class="items"&gt;
+            &lt;?php
+            foreach (get_task_list() as $items){
+            echo "&lt;li&gt;&lt;a href='task.php?id=". $items['task_id'] . "'&gt;" .$items['title'] ."&lt;/a&gt;";
+            echo "&lt;form method='post' action='task_list.php'&gt;\n";
+            echo "&lt;input type='hidden' value='". $items['task_id'] . "' name='delete' /&gt;\n";
+            echo "&lt;input type='submit' class='delete' value='Delette' /&gt;\n";
+            echo "&lt;/form&gt;";
+            echo "&lt;/li&gt;";
+            }
+            ?&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+
+        </code>
+    </pre>
+    <h3>function.php</h3>
+    <pre>
+        <code>
+            function delete_task($task_id){
+            include ("connection.php");
+            $sql = 'DELETE FROM tasks WHERE task_id = ?';
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$task_id, PDO::PARAM_INT);
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            return true;
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Preserving Data Integrity</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ things တွေကို deleting လုပ်တာဟာ ဘယ်လို easy
+        ဖြစ်တယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ tasks တွေကို deleting လုပ်တဲ့အခါမှာ problem မရှိပေမဲ့ projects တွေကို deleting
+        လုပ်တဲ့အခါမှာတော့ ဒါဟာ bit more complicated ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့ရဲ့ tasks တွေဟာ projects
+        တွေပေါ်မှာ rely လုပ်နေတာဖြစ်တဲ့အတွက်ကြောင့် တစ်ကယ်လို့ tasks တွေကို assigned လုပ်ထားတဲ့ project ကို delete
+        လုပ်လိုက်မယ်ဆိုရင် အဲ့ project မှာ assigned လုပ်ထားတဲ့ tasks တွေကိုပါ delete လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါကို
+        ဖြေရှင်းဖို့ရန်အတွက် parts နှစ်ခုရှိပါတယ်။ First ကတော့ ကျွန်တော်တို့ဟာ user ကို delete လုပ်ချင်ပါသလားဆိုတဲ့
+        verify
+        လုပ်တာကို ask လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ tasks and projects နှစ်ခုလုံးပေါ်မှာ delete
+        လုပ်ချင်လားဆိုတာပဲဖြစ်ပါတယ်။
+        Second ကတော့ ကျွန်တော်တို့ဟာ any tasks ကို assigned လုပ်မထားတဲ့ projects တွေကိုပဲ delete
+        လုပ်ခွင့်ပေးတာပဲဖြစ်ပါတယ်။
+        First solution အတွက်ဆိုရင် example မှာ task_list.php ကို update လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် task ကို
+        delete
+        မလုပ်ခင်မှာ confirmation အတွက် ask လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ delete functionality ကို projects မှာ add
+        လုပ်ပေးရမှာပဲဖြစ်ပါတယ်။ အဲ့ဒါအတွက် task_list ထဲမှာရှိတဲ့ $POST ကို copy ကူးပြီးတော့ name တွေကို change
+        ပေးလိုက်ရုံပဲဖြစ်ပါတယ်။ နောက် project deletion အတွက် function ကို create လုပ်တဲ့အနေရာမှာ WHERE clause တစ်ခုကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ second solution အတွက်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>project_list.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include ("inc/function.php");
+            include ("inc/header.php");
+            
+            if(isset($_POST['delete'])){
+            if (delete_project(filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT))){
+            header('location: project_list.php?msg=Project+Deleted');
+            exit;
+            } else{
+            header('location: project_list.php?msg=Unable+to+Delete+Project');
+            exit;
+            }
+            }
+            if (isset($_GET['msg'])){
+            $error_message = trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
+            }
+            ?&gt;
+            &lt;div class='container text-center mt-5 mb-5'&gt;
+            &lt;div class='row'&gt;
+            &lt;div class='col-12'&gt;
+            &lt;img src='project.png' alt='addproject'&gt;
+            &lt;a href='project.php'&gt;Add Project&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php
+            if (isset($error_message)){
+            echo "&lt;p class='message'&gt; $error_message &lt;/p&gt;";
+            }
+            ?&gt;
+            &lt;div class="form-container mt-5"&gt;
+            &lt;ul class="items"&gt;
+            &lt;?php
+            foreach (get_project_list() as $items){
+            echo "&lt;li&gt;&lt;a href='project.php?id=" . $items['project_id'] ."'&gt;" .$items['title']."&lt;/a&gt;";
+            echo "&lt;form method='post' action='project_list.php' onsubmit=\"return confirm('Are you sure you want to delete this
+            project?');\"&gt;\n";
+            echo "&lt;input type='hidden' value='". $items['project_id'] . "' name='delete' /&gt;\n";
+            echo "&lt;input type='submit' class='delete' value='Delette' /&gt;\n";
+            echo "&lt;/form&gt;";
+            echo "&lt;/li&gt;";
+            }
+            ?&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;?php
+            include ("inc/footer.php");
+            ?&gt;
+
+        </code>
+    </pre>
+    <h3>functin.php</h3>
+    <pre>
+        <code>
+            function delete_project($project_id){
+            include ("connection.php");
+            $sql = 'DELETE FROM projects WHERE project_id = ?'
+            . ' AND project_id NOT IN (SELECT project_id FROM tasks)';
+            try {
+            $results = $db->prepare($sql);
+            $results->bindValue(1,$task_id, PDO::PARAM_INT);
+            $results->execute();
+            } catch (Exception $e){
+            echo "Error!:" . $e->getMessage() . "&lt;br /&gt;";
+            return false;
+            }
+            if ($results->rowCount() > 0){
+            return true;
+            } else{
+            return false;
+            }
+            
+            }
+        </code>
+    </pre>
+    <a href="../phpexample/timetracker/index.php">Test Yourself</a>
+    <hr>
+</body>
+
+</html>

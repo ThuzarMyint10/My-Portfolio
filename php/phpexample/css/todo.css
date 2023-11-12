@@ -1,0 +1,15 @@
+body{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+table{
+    background-color: rgba(66, 66, 65, 0.897);
+    color: bisque;
+    text-align: center;
+}
+table th{
+    background-color: chocolate;
+    color: black;
+    font-size: 2em;
+    font-weight: bold;
+}

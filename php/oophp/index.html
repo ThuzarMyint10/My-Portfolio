@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Oriented in PHP</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Building Relationships</h1>
+    <p>
+        အခု section မှာတော့ ပြီးခဲ့တဲ့ course မှာ learned လုပ်ခဲ့တဲ့ knowledge တွေကို extending လုပ်သွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ same code တွေကို over and over again write မလုပ်ချင်ကြပါဘူး။ ဒါဟာဆိုရင် object oriented
+        programming ရဲ့
+        concepts တွေထဲက တစ်ခုပဲဖြစ်ပါတယ်။ သူ့ရဲ့ aimed ကတော့ ကျွန်တော်တို့ လုပ်လေ့ရှိတဲ့ amount of repetition ကို
+        reducing
+        လုပ်ဖို့ပဲဖြစ်ပါတတယ်။ အဲ့ဒါကို inheritance လို့ခေါ်ပါတယ်။ အရိုးအရှင်းဆုံးအနေနဲ့ ဆိုလိုတာကတော့ ကျွန်တော်တို့ဟာ
+        abilities
+        အားလုံးမှာ child or a subclass တစ်ခုကို give လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ write
+        လုပ်ဖို့လိုအပ်တဲ့
+        amount of code ကို reduce လုပ်တဲ့နေရာမှာကူညီပေးပါတယ်။ Example အနေနဲ့ bike တစ်ခုမှာဆိုရင် frame color, number of
+        gears,
+        and current speed ဆိုတဲ့ properties တွေရှိပါတယ်။ နောက် things တွေကို control လုပ်တဲ့ brake, change speed and
+        change gear
+        ဆိုတဲ့ method တွေရှိပါတယ်။ နောက် electric bike တစ်ခုကို build လုပ်တဲ့အခါမှာဆိုရင် သူဟာ additional electric drive
+        system
+        တစ်ခုနှင့် regular bike တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ battery and motor အတွက် additional
+        properties
+        တွေလိုပါတယ်။ နောက် change power ဆိုတဲ့ power ကို control လုပ်ဖို့ရန်အတွက် method တစ်ခုလိုပါတယ်။ ကျွန်တော်တို့ဟာ
+        ဒီ
+        properties and methods တွေကို bike class ထဲကို adding လုပ်မဲ့အစား electric bike ဆိုတဲ့ original bike class ကနေ
+        extends
+        လုပ်ထားတဲ့ child class တစ်ခုကို create လုပ်နိုင်ပါတယ်။ အဲ့ထဲမှာဆိုရင် original properties and methods တွေကို
+        child class
+        ကနေ access လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် simple directory project တစ်ခုကနေပြီးတော့ extend
+        လုပ်ဖို့ရန်အတွက် code
+        တွေကို write လုပ်သွားမှာဖြစ်ပါတယ်။ Simple directory မှာဆိုရရင် PHP Conferences ရဲ့ list တစ်ခုနဲ့ စပါတယ်။ နောက်
+        edit and
+        deactivate a listing ဆိုတဲ့ ability ရှိပါတယ်။ နောက် new listing တစ်ခုကို add လုပ်ဖို့ ability လည်းရှိပါတယ်။
+        နောက်
+        Premium listings ကို adding လုပ်မယ်ဆိုရင် သူ့မှာ description နဲ့ code of conduct တစ်ခုပါဝင်တဲ့ featured listings
+        တို့ပါဝင်ပါတယ်။ ဒီ new listing types ဟာဆိုရင် listing page ကို အသုံးပြုထားပါတယ်။ အဲ့ features တွေနဲ့ additional
+        styling
+        and navigation ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Extending a Class</h1>
+    <p>
+        Example မှာဆိုရင် project အတွက် classes တွေကို classes ဆိုတဲ့ folder ထဲမှာ store လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ folder
+        ထဲမှာရှိတဲ့ ListingBasi class ဟာဆိုရင် ကျွန်တော်တို့ extends လုပ်မဲ့ class ပဲဖြစ်ပါတယ်။ Extend လုပ်မဲ့ class ရဲ့
+        name
+        ကတော့ ListingPrremium ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် class တစ်ခုကို build လုပ်ဖို့ရန်အတွက် class ဆိုတဲ့ keyword
+        ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ သူ့နောက်မှာ ကျွန်တော်တို့ရဲ့ class name ကို followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ Another
+        class ရဲ့
+        abilities and attributes ကို inherit လုပ်ဖို့ရန်အတွက် "extends" keyword ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        သူ့နောက်မှာ
+        ကျွန်တော်တို့ extend လုပ်ချင်တဲ့ class ရဲ့ name ကို followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        Collection.php ဟာ
+        ကျွန်တော်တို့ application ရဲ့ main controller ပဲဖြစ်ပါတယ်။ ဒီ class ဟာဆိုရင် construction ပေါ်မှာ database ဆီကို
+        connection တစ်ခုယူပါတယ်။ နောက် database ကနေပြီးတော့ listings လုပ်ဖို့ရန်အတွက် method တစ်ခုရှိပါတယ်။ ဒီ method ဟာ
+        addListing method ပဲဖြစ်ပါတယ်။ သူဟာ listing ကို add လုပ်ပြီးတော့ listing object တစ်ခုကို return
+        ပြန်ပေးတာဖြစ်ပါတယ်။ အခု
+        section မှာတော့ ကျွန်တော်တို့အသုံးပြုထားတဲ့ class ကို change လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ ListingBasic ကနေ
+        ListingPremium ကို change လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ အဲ့ဒါအလုပ်မလုပ်ခင်မှာ ဒီ new class ဟာ application
+        မှာ
+        available ဖြစ်အောင် လုပ်ဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingPremium extends ListingBasic
+            {
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု section မှာတော့ premium and basic ကို သီးခြားစီ ထုပ်ဖို့ရန်အတွက် condition ကို add လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Collection.php</h3>
+    <pre>
+        <code>
+                public function addListing($data = null)
+                {
+                if (isset($data['status']) && $data['status'] == 'premium') {
+                $listing = new ListingPremium($data);
+                } else {
+                $listing = new ListingBasic($data);
+                }
+                $this->listings[] = $listing;
+                return $listing;
+                }
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Child Features</h1>
+    <p>
+        Example မှာဆိုရင် listing basic ရဲ့ child တစ်ခုလိုပဲ listing premium class ဟာဆိုရင် same functions အားလုံးကို
+        လုပ်ဆောင်ပြီးတော့ parent class လို same properties တွေကို utilize လုပ်ပါတယ်။ နောက် child တစ်ခုဟာဆိုရင် သူ့ရဲ့
+        own
+        attributes and abilities တွေကို add လုပ်နိုင်ပါတယ်။ Project ထဲမှာဆိုရင် premium listing ကို extend
+        လုပ်ဖို့ရန်အတွက် add
+        လုပ်နိုင်တဲ့ additional features တွေအမျာကြီးရှိပါတယ်။ Example description, logo, dates, code of conduct and cal
+        for
+        papers တို့ပဲဖြစ်ပါတယ်။ ဒီ project အတွက် ကျွန်တော်တို့ဟာ description ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့
+        new
+        property တစ်ခုကို သူ့ရဲ့ getters and setters တို့နဲ့ create လုပ်ပေးဖို့လိုပါတယ်။ New description property ကို
+        add
+        လုပ်ပြီးတဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ description ကို certain tags တွေကို accept လုပ်ဖို့ရန်အတွက် allow
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် many different way တွေရှိပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ
+        strip tags
+        function ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ function မှာဆိုရင် tags တွေကို specify လုပ်ဖို့ရန်အတွက် optional
+        second
+        parameter ကို အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ allow လုပ်ချင်တဲ့ tags ရဲ့ simple form တစ်ခုနဲ့ string
+        တစ်ခုကို
+        specify လုပ်နိုင်ပါတယ်။ အဲ့ဒါအတွက် new protected property ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် set description
+        method
+        ဟာဆိုရင် listing premium class ကိုပဲ specific လုပ်တာဖြစ်ပြီးတော့ listing basic class ကိုတော့ affected
+        မဖြစ်ပါဘူး။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingPremium extends ListingBasic
+            {
+                private $description;
+                protected $allowed_tags = '&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;&lt;ol&gt;&lt;ul&gt;&lt;li&gt;';
+                /**
+                 * Gets the local property $description
+                 * @return string
+                 */
+                public function getDescription()
+                {
+                    return $this->description;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $description
+                 * @param string $value to set property
+                 */
+                public function setDescription($value)
+                {
+                    $this->description = trim(strip_tags($value, $this->allowed_tags));
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Override and Protect Scope</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ additional property and method ကို ကျွန်တော်တို့ရဲ့ child class ဆီကို add
+        လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ Child class တစ်ခုဟာ existing properties and methods တွေကို override လုပ်သွားပါတယ်။
+        ဒါဟာဆိုရင်
+        class scope ရဲ့ part ပဲဖြစ်ပါတယ်။ ကျွန်တော်တု့ိ ဘယ် properties and methods တွေဟာ class ရဲ့ အပြင်မှာ public
+        visibility
+        ကိုအသုံးပြုပြီးတော့ access လုပ်နိုင်တယ်ဆိုတာကို specify လုပ်ခဲ့သလိုပဲ ကျွန်တော်တို့ဟာ certain properties and
+        methods
+        တွေကို child class တစ်ခုကနေ protected visibility ကိုအသုံးပြုပြီးတော့ accessible ဖြစ်ဖို့ရန်အတွက် set
+        လုပ်နိုင်ပါတယ်။
+        Example မှာရှိတဲ့ basic listing and premium listing ကြားမှာရှိတဲ့ major different ဟာ status ပဲဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့်
+        status property ရဲ့ default value ကို change လုပ်ဖို့လိုပါတယ်။ Browser ရဲ့ view page source
+        ကိုသွားကြည့်တဲ့အခါမှာ
+        private status properties နှစ်ခုကို တွေ့ရပါမယ်။ First status property ကတော့ premium value တစ်ခုရှိပြီးတော့
+        second status
+        property ကတော့ basic value ရှိပါတယ်။ အဲ့မှာဆိုရင် basic status ဟာ ListingBasic ကို shows လုပ်ပါတယ်။ ဒါဟာ
+        property ဟာ
+        private ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ListingPremium ဟာ ListingBasic class ရဲ့ status property အကြောင်းကို
+        မသိပါဘူး။
+        အဲ့ဒါကြောင့် သူ့အတွက် own property ကို creates လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ getStatus method ကို
+        call
+        လုပ်တဲ့အချိန်မှာ သူဟာ listing basic class ရဲ့ status ကို pull လုပ်တာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ getStauts
+        method ဟာ
+        ListingBasic class ကလာတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့လိုပဲ အဲ့ class ရဲ့ private property ကို access
+        လုပ်နိုင်ပါတယ်။
+        တစ်ကယ်လို့ child မှာ property ကို တိုက်ရိုက် access မလုပ်ချင်ဘူးဆိုရင် visibility private ကို keep
+        လုပ်ထားရပါမယ်။
+        Properties တွေမှာဆိုရင် default value တစ်ခုမရှိပါဘူး။ ကျွန်တော်တို့ဟာ property တစ်ခုကို child class တစ်ခုကနေ
+        တိုက်ရိုက်
+        access လုပ်ချင်တဲ့အခါမှာ visibility ကို protected ဖြင့် set လုပ်ပေးရပါမယ်။ အဲ့ဒါဟာဆိုရင် outside the class ကနေ
+        property
+        ကို protected လုပ်ထားတာဖြစ်ပါတယ်။ နောက် သူဟာ child class တစ်ခုကို property တစ်ခုကို access လုပ်ဖို့ရန်အတွက်
+        allow
+        လုပ်ပေးပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingPremium extends ListingBasic
+            {
+                private $description;
+                protected $status = 'premium';
+                protected $allowed_tags = '&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;&lt;ol&gt;&lt;ul&gt;&lt;li&gt;';
+                /**
+                 * Gets the local property $description
+                 * @return string
+                 */
+                public function getDescription()
+                {
+                    return $this->description;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $description
+                 * @param string $value to set property
+                 */
+                public function setDescription($value)
+                {
+                    $this->description = trim(strip_tags($value, $this->allowed_tags));
+                }
+                    /**
+                 * Gets the local property $status
+                 * @return string
+                 */
+                public function getStatus()
+                {
+                    return $this->status;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $status
+                 * @param string $value to set property
+                 */
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Extending a Method</h1>
+    <p>
+        Sometimes မှာဆိုရင် ကျွန်တော်တို့ keep လုပ်ချင်တဲ့ method တစ်ခုရှိပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ add လုပ်ရမဲ့
+        little more
+        functionality ရှိပါတယ်။ PHP ဟာဆိုရင် code တွေကို adding လုပ်နေတဲ့အခါမှာ original method ကို keep
+        လုပ်ဖို့ရန်အတွက် way
+        တစ်ခုကို ပေးထားပါတယ်။ Original listing basic class ထဲမှာရှိတဲ့ constructor method ဟာ set values method တစ်ခုကို
+        calls
+        လုပ်ပါတယ်။ ကျွန်တော်တို့ဟာ set values method ကို description ကို set လုပ်ဖို့လိုအပ်ပါတယ်။ အဲ့ဒါကတော့
+        ListingPremium
+        class အတွက်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ basic class ထဲမှာ set လုပ်ထားတဲ့ properties တွေအားလုံးကို set
+        လုပ်နေမဲ့အစား
+        ကျွန်တော်တု့ိဟာ parent class ကနေပြီးတော့ original method ကို call လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            public function setValues($data = []) {
+            parent::setValues($data);
+            if (isset($data['description'])) {
+            $this->setDescription($data['description']);
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Method Scope</h1>
+    <p>
+        Example မှာ ကျွန်တော်တို့ listing ကို upgrade လုပ်လိုက်တဲ့အချိန်မှာ "No such column, allowed tags " ဆိုတဲ့ error
+        တစ်ခုရပါတယ်။ အဲ့မှာဆိုရင် database interactions တွေအားလုံးဟာ collection class ရဲ့ part ဖြစ်တဲ့အတွက်ကြောင့်
+        collection
+        class ကို ကြည့်ဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် listing တစ်ခုကို add လုပ်ဖို့ရန်အတွက် data တွေကို pass လုပ်တယ်။
+        ပြီးတော့
+        object properties တွေကို array တစ်ခုအနေနဲ့ get လုပ်ဖို့ရန်အတွက် listing ပေါ်မှာ toArray ကို call လုပ်တယ်။ နောက်
+        array
+        ကို form the key value placeholders ဆီကို loop through လုပ်တယ်။ နောက် SQL ကို generated လုပ်လိုက်တဲ့အခါမှာ
+        parent ရဲ့
+        properties တွေအားလုံးကို တွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် description မပါတာကိုတွေ့ရပါတယ်။ အဲ့ဒါကြောင့် premium
+        class
+        properties ကို ပြန်သွားရပါမယ်။ ဘာကြောင့်လဲဆိုတော့ description ဟာ private ဖြစ်နေတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        Parent
+        ဟာဆိုရင် private property ကို မသိပါဘူး။ အဲ့ဒါကြောင့် description ကို protected ကို set လုပ်ပေးရပါမယ်။ Protected
+        ဟာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ parent class ကို property အကြောင်းသိစေပါတယ်။ ဒါပေမဲ့ ဒါဟာဆိုရင် outside of the class ကနေပဲ
+        accessed
+        လုပ်ထားသေးတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ allowed tags ကို listing ထဲမှာ မလိုချင်တာဖြစ်တဲ့အတွက်ကြောင့် private
+        ကို
+        လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့လိုချင်တာကတော့ allowed tags ကို object တစ်ခုကို creating မပါဘဲနဲ့ accessible
+        လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အဲ့ property ကို static လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် description
+        ရှိလာပြီးတော့
+        allowed tags မရှိပါဘူး။ ဘာကြောင့်လဲဆိုတော့ static property ကို normal property လိုမျိုး way နဲ့ access
+        လုပ်လို့မရပါဘူး။
+        အဲ့ဒါကြောင့် set description method ကို update လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် static property ကို access
+        လုပ်ဖို့ရန်အတွက်
+        "self" keyword ကိုအသုံးပြုဖို့လိုပါတယ်။ သူ့နောက် :: ပြီးတော့ property ကို dollar sign နဲ့ စပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingPremium extends ListingBasic
+            {
+                protected $description;
+                protected $status = 'premium';
+                protected static $allowed_tags = '&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;&lt;ol&gt;&lt;ul&gt;&lt;li&gt;';
+            
+                public function setValues($data = []) {
+                    parent::setValues($data);
+                    if (isset($data['description'])) {
+                        $this->setDescription($data['description']);
+                    }
+                }
+                /**
+                 * Gets the local property $description
+                 * @return string
+                 */
+                public function getDescription()
+                {
+                    return $this->description;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $description
+                 * @param string $value to set property
+                 */
+                public function setDescription($value)
+                {
+                    $this->description = trim(strip_tags($value, self::$allowed_tags));
+                }
+                    /**
+                 * Gets the local property $status
+                 * @return string
+                 */
+                public function getStatus()
+                {
+                    return $this->status;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $status
+                 * @param string $value to set property
+                 */
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Extending the Display</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ directory ကို display လုပ်ဖို့ရန်အတွက် some finishing touches တွေကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Form ထဲမှာဆိုရင် allowed tags ကို display လုပ်ချင်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် property ဟာ
+        protected
+        ဖြစ်တဲ့အတွက်ကြောင့် tags တွေကို show လုပ်တဲ့ getter တစ်ခုကို create လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် method ကို
+        public and
+        static နဲ့ လုပ်ဖို့လိုပါတယ်။ အဲ့ method ကို ကျွန်တော်တို့ရဲ့ form list ထဲမှာ description label ပြီးတဲ့အခါမှာ add
+        လုပ်မှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ listing ကို update လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် list _item.php ထဲကို
+        သွားပြီးတော့ first အနေနဲ description ကို add လုပ်ရမယ်။ အဲ့ဒါကို panel body ထဲမှာ add လုပ်ရပါမယ်။ နောက်
+        ကျွန်တော်တို့ဟာ
+        different types of listing တွေကို easily view ဖြစ်ဖို့ရန်အတွက် ability ကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        displayed လုပ်တဲ့ status change ဖို့ရန်အတွက် ကျွန်တော်တို့ရဲ့ filter ကို change ဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingPremium.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingPremium extends ListingBasic
+            {
+            protected $description;
+            protected $status = 'premium';
+            protected static $allowed_tags =
+            '&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;&lt;ol&gt;&lt;ul&gt;&lt;li&gt;';
+            
+            public function setValues($data = []) {
+            parent::setValues($data);
+            if (isset($data['description'])) {
+            $this-&gt;setDescription($data['description']);
+            }
+            }
+            /**
+            * Gets the local property $description
+            * @return string
+            */
+            public function getDescription()
+            {
+            return $this-&gt;description;
+            }
+            
+            /**
+            * Cleans up and sets the local property $description
+            * @param string $value to set property
+            */
+            public function setDescription($value)
+            {
+            $this-&gt;description = trim(strip_tags($value, self::$allowed_tags));
+            }
+            
+            public static function dispalyAllowedTags(){
+            return htmlspecialchars(self::$allowed_tags);
+            }
+            
+            /**
+            * Gets the local property $status
+            * @return string
+            */
+            public function getStatus()
+            {
+            return $this-&gt;status;
+            }
+            
+            /**
+            * Cleans up and sets the local property $status
+            * @param string $value to set property
+            */
+            }
+        </code>
+    </pre>
+    <h3>index.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            include 'inc/config.php';
+            
+            $filter = ['status'=&gt;'active'];
+            if (isset($_GET['status'])) {
+            $filter['status'] = filter_input(
+            INPUT_GET,
+            'status',
+            FILTER_SANITIZE_STRING
+            );
+            }
+            $directory-&gt;selectListings($filter);
+            
+            $title = "PHP Conferences";
+            require 'inc/header.php';
+            
+            /*$test = new ListingPremium(['description' =&gt; 'My description with &lt;b&gt; good tags&lt;/b&gt; and &lt;a
+            href="http://exmple.com"&gt; bad tags&lt;/a&gt;!']);
+            var_dump($test);
+            echo get_class($test);
+            var_dump(is_a($test, 'ListingBasic'));
+            var_dump($test-&gt;getStatus());*/
+            
+            echo '&lt;ul class="nav nav-tabs"&gt;';
+            echo '&lt;li role="presentation"';
+            if ($filter['status'] == 'active') echo 'class="active"';
+            echo '&gt;&lt;a href="index.php"&gt;Active&lt;/a&gt;&lt;/li&gt;';
+            foreach ($directory-&gt;getStatuses() as $status){
+            echo '&lt;li role="presentation"';
+            if ($filter['status'] == $status) echo 'class="active"';
+            echo '&gt;&lt;a href="index.php?status=' . $status . '"&gt;';
+            echo ucwords($status) .'&lt;/a&gt;&lt;/li&gt;';
+            
+            }
+            
+            foreach ($directory-&gt;listings as $listing) {
+            include 'views/list_item.php';
+            }
+            
+            require 'inc/footer.php';
+        </code>
+    </pre>
+    <hr>
+    <h1>Siblings and Grandchildren</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာဆိုရင် single child တစ်ခုနှင့် single parent တစ်ခုကို build လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့
+        child
+        ဟာဆိုရင် parent ရဲ့ functionality ကို share and override လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့လိုချင်သလောက်
+        many
+        children တွေကို create လုပ်နိုင်ပါတယ်။ အဲ့ children အားလုံးဟာ parent class ရဲ့ abilities အားလုံးနှင့် attributes
+        အားလုံးကို inherit လုပ်ပါတယ်။ သို့သော်လည်း သူတို့ဟာ အခြား children ရဲ့ any of the added abilities and features
+        မရှိပါဘူး။ အဲ့ဒါကို Sibling Relationship လို့ခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူတို့ classes နှစ်ခုလုံးမှာ same
+        parent
+        ရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ child တစ်ခုရဲ့ abilities and attributes တွေရှိတဲ့ new class
+        တစ်ခုကို
+        create လုပ်ချင်တဲ့အခါမှာ child classes တွေဟာ grandchildren ကို create လုပ်ဖို့ရန်အတွက် extended လုပ်နိုင်ပါတယ်။
+        Example
+        မှာဆိုရင် ListingInactive.php နှင့် ListingFeature.php ဆိုတဲ့ new classes နှစ်ခုကို create လုပ်ထားပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingInactive.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingInactive extends ListingBasic
+            {
+                
+            }
+        </code>
+    </pre>
+    <h3>ListingFeature.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            class ListingFeature extends ListingPremium
+            {
+                
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>A Second Child</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့မှာ ListingInactive လို့ခေါ်တဲ့ second child ရှိနေပြီဖြစ်ပါတယ်။ ဒီ class အတွက်
+        ကျွန်တော်တို့ဟာ
+        get method ကို return ပြန်လာတဲ့ data တွေထဲမှာ title and status ကိုပဲ return ပြန်စေချင်တဲ့အတွက်ကြောင့် rewrite
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် ListingPremium လိုပဲ status ကို update လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် title ကို return
+        ပြန်တဲ့အခါမှာ strike တစ်ခုနဲ့ return ပြန်ပေးထားပါတယ်။ ကျွန်တော်တို့ဟာ title ကို တိုက်ရိုက် access
+        လုပ်လို့မရပါဘူး။
+        အဲ့ဒါကြောင့် getTitle ကို rewriting လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ statuses ကို update
+        လုပ်စရာမလိုပါဘူး။
+        Addlisting method ဟာ ဘယ် listing class ကို ကျွန်တော်တို့ အသုံးပြုပါတယ်ဆိုတာကို determines လုပ်ပေးပါတယ်။
+        အဲ့ဒါအတွက်
+        another condition တစ်ခုကို add လုပ်ရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingInactive.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            
+            class ListingInactive extends ListingBasic
+            {
+                protected $status = 'inactive';
+                public function getTitle()
+                {
+                    return '&lt;strike&gt;' . parent::getTitle() . '&lt;/strike&gt;';
+                }
+                public function getWebsite()
+                {
+                    return;
+                }
+                public function getEmail()
+                {
+                    return;
+                }
+                public function getTwitter()
+                {
+                    return;
+                }
+            }
+        </code>
+    </pre>
+    <a href="extending_oop_s1v4/index.php">Test Yourself</a>
+    <hr>
+    <h1>Extending a Child</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ ListingFeature class အတွက် code of conduct တစ်ခုကို add
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Code
+        of product ဟာဆိုရင် description အလုပ်လုပ်တာနဲ့ တူပါတယ်။ Code အနေနဲ့တော့ ListingPremium ကနေ code တွေကို modify
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် addListing method ကို new class ကိုအသုံးပြုဖို့ရန်အတွက် modify
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        နောက် form ကို update လုပ်ရပါမယ်။ အဲ့ form မှာဆိုရင်လည်း few changes တွေပြုလုပ်ပေးရပါမယ်။ နောက် listing ကို
+        update
+        လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရရင် switch statement မှာ another case တစ်ခုကို adding လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        toggle
+        link တစ်ခုကို add လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>ListingFeature.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            class ListingFeatured extends ListingPremium
+            {
+                protected $coc;
+                protected $status = 'premium';
+            
+                public function setValues($data = []) {
+                    parent::setValues($data);
+                    if (isset($data['coc'])) {
+                        $this->setCoc($data['coc']);
+                    }
+                }
+                /**
+                 * Gets the local property $coc
+                 * @return string
+                 */
+                public function getCoc()
+                {
+                    return $this->coc;
+                }
+            
+                /**
+                 * Cleans up and sets the local property $coc
+                 * @param string $value to set property
+                 */
+                public function setCoc($value)
+                {
+                    $this->coc = trim(strip_tags($value, self::$allowed_tags));
+                }
+            
+                public static function dispalyAllowedTags(){
+                    return htmlspecialchars(self::$allowed_tags);
+                }
+            }
+        </code>
+    </pre>
+    <h3>form_listing.php</h3>
+    <pre>
+        <code>
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="title"&gt;Title (required)&lt;/label&gt;
+            &lt;input class="form-control" type="text" name="title" id="title" placeholder="Enter a Title" value="&lt;?php echo
+            $listing-&gt;getTitle(); ?&gt;" required /&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="type"&gt;Status&lt;/label&gt;
+            &lt;select class="form-control" name="status" id="status" required&gt;
+            &lt;?php
+            foreach ($directory-&gt;getStatuses() as $status) {
+            echo '&lt;option value="' . $status . '"';
+            if ($status == $listing-&gt;getStatus()) echo ' selected';
+            echo '&gt;' . ucwords($status) . '&lt;/option&gt;';
+            }
+            ?&gt;
+            &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="description"&gt;Description (Premium Only)&lt;/label&gt;
+            Allowed Tags: &lt;?php echo ListingPremium::dispalyAllowedTags(); ?&gt;
+            &lt;textarea class="form-control" name="description" id="description"&gt;&lt;?php
+            if (is_a($listing, 'ListingPremium')){
+            echo $listing-&gt;getDescription();
+            }
+            ?&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="coc"&gt;Code of Conduct (Featured Only)&lt;/label&gt;
+            Allowed Tags: &lt;?php echo ListingPremium::dispalyAllowedTags(); ?&gt;
+            &lt;textarea class="form-control" name="coc" id="coc"&gt;&lt;?php
+            if (is_a($listing, 'ListingFeatured')){
+            echo $listing-&gt;getCoc();
+            }
+            ?&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="website"&gt;Website&lt;/label&gt;
+            &lt;input class="form-control" type="text" name="website" id="website" placeholder="Enter a Website" value="&lt;?php
+            echo $listing-&gt;getWebsite(); ?&gt;" size="30" /&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="email"&gt;Email&lt;/label&gt;
+            &lt;input class="form-control" type="text" name="email" id="email" placeholder="Enter an Email" value="&lt;?php echo
+            $listing-&gt;getEmail(); ?&gt;" size="30" /&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group input-group"&gt;
+            &lt;label class="control-label" for="twitter"&gt;Twitter&lt;/label&gt;
+            &lt;input class="form-control" type="text" name="twitter" id="twitter" placeholder="Enter a Twitter" value="&lt;?php
+            echo $listing-&gt;getTwitter(); ?&gt;" size="30"/&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+    <h3>list_item.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            echo '&lt;div class="listing panel ';
+            switch ($listing-&gt;getStatus()){
+            case 'featured':
+            echo "panel-success";
+            break;
+            case 'premium':
+            echo "panel-info";
+            break;
+            case 'inactive':
+            echo 'panel-danger';
+            break;
+            default:
+            echo 'panel-default';
+            }
+            echo '"&gt;' . PHP_EOL;
+            echo '&lt;div class="panel-heading"&gt;';
+            echo '&lt;div class="input-group"&gt;' . PHP_EOL;
+            echo '&lt;h3 class="panel-title"&gt;' . $listing-&gt;getTitle() . '&lt;/h3&gt;' . PHP_EOL;
+            echo '&lt;div class="input-group-btn"&gt;' . PHP_EOL;
+            echo '&lt;form method="post" action="delete.php"&gt;' . PHP_EOL;
+            echo '&lt;input type="hidden" name="id" value="' . $listing-&gt;getId() . '" /&gt;' . PHP_EOL;
+            echo '&lt;a class="btn glyphicon glyphicon-edit" title="Click here to update record in the database." '
+            . 'href="update.php?id=' . $listing-&gt;getId() . '"&gt;&lt;/a&gt;' . PHP_EOL;
+            echo '&lt;button class="btn glyphicon glyphicon-remove" type="submit" name="action" id="action" '
+            . 'title="Click here to delete record in the database." value="DELETE" '
+            . 'onclick="return confirm(\'Are you sure you want to DEACTIVATE this listing? \')"&gt;&lt;/button&gt;' . PHP_EOL;
+            echo '&lt;/form&gt;' . PHP_EOL;
+            echo '&lt;/div&gt;' . PHP_EOL;
+            echo '&lt;/div&gt;' . PHP_EOL;
+            
+            echo '&lt;/div&gt;';
+            echo '&lt;div class="panel-body"&gt;';
+            if (is_a($listing, 'ListingPremium') && !empty($listing-&gt;getDescription()))
+            {
+            
+            echo '&lt;p&gt;' . $listing-&gt;getDescription() . '&lt;/p&gt;';
+            
+            }
+            echo '&lt;p&gt;' . PHP_EOL;
+            if (!empty($listing-&gt;getWebsite())) {
+            echo ' &lt;a href="' . $listing-&gt;getWebsite() . '" target="_blank"&gt;' . $listing-&gt;getWebsite() . '&lt;/a&gt; | '
+            . PHP_EOL;
+            }
+            if (!empty($listing-&gt;getEmail())) {
+            echo ' &lt;a href="mailto:' . $listing-&gt;getEmail() . '" target="_blank"&gt;' . $listing-&gt;getEmail() . '&lt;/a&gt;
+            | ' . PHP_EOL;
+            }
+            if (!empty($listing-&gt;getTwitter())) {
+            echo ' &lt;a href="https://twitter.com/' . $listing-&gt;getTwitter() . '" target="_blank"&gt;@' .
+            $listing-&gt;getTwitter() . '&lt;/a&gt; | ' . PHP_EOL;
+            }
+            if(is_a($listing, 'ListingFeatured') && !empty($listing-&gt;getCoc())){
+            echo '&lt;a href="javascript:;" onclick="toggle(\'coc' . $listing-&gt;getId() . '\')"&gt; Code of Conduct&lt;/a&gt; |';
+            }
+            echo '&lt;/p&gt;' . PHP_EOL;
+            echo '&lt;/div&gt;' . PHP_EOL;/**/
+            if(is_a($listing, 'ListingFeatured') && !empty($listing-&gt;getCoc())){
+            echo '&lt;div class="panel-footer" id="coc' . $listing-&gt;getId();
+            echo '"style="display:none"&gt;' . $listing-&gt;getCoc() . '&lt;/div&gt;';
+            }
+            echo '&lt;/div&gt;' . PHP_EOL;
+        </code>
+    </pre>
+    <a href="extending_oop_s1v4/index.php">Test Yourself</a>
+    <hr>
+
+</body>
+
+</html>

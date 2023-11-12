@@ -1,0 +1,11 @@
+body{
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+}
+.container{
+    width: 85%;
+    margin: auto;
+    padding: 15px;
+    background: rgb(237, 242, 243);
+}

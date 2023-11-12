@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GitHub API Using PHP</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Introducing APIs and the Project</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ pictures and events တွေကို ကျွန်တော်တို့ရဲ့ friends and family တွေဆီကို share လုပ်နိုင်ပါတယ်။
+        ဒါကို
+        constantly အရတော့ laptops, smartphones, and tablets တွေနှင့် accessible လုပ်ပါတယ်။ Sharing information ဟာဆိုရင်
+        web ရဲ့
+        huge part တစ်ခုပဲဖြစ်ပါတယ်။ Many websites တွေဟာဆိုရင် ကျွန်တော်တို့ကို web browser တစ်ခုထက်ပိုတဲ့ content တွေကို
+        access
+        လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ အဲ့ဒါကတော့ API or application programming interface ကို အသုံးပြုပြီးတော့ပဲဖြစ်ပါတယ်။
+        Programmers တွေဟာ information တွေကို other places တွေမှာ available ဖြစ်အောင် ပြုလုပ်ကြပါတယ်။ Websites
+        အားလုံးဟာဆိုရင်
+        သူတို့ဆီကို visit လုပ်ဖို့ရန်အတွက် web browser တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ some websites
+        တွေဟာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ own site ကနေပြီးတော့ certain content တွေကို တိုက်ရိုက် accessing လုပ်ဖို့အတွက် method တစ်ခုကို
+        provide
+        လုပ်ပေးပါတယ်။ အခု section လုပ်ဆောင်မဲ့ project ကတော့ GitHub API ကို connecting လုပ်တာပဲဖြစ်ပါတယ်။ GitHub
+        ဟာဆိုရင် wide
+        range of information တွေကို users တွေဆီကနေ repositories, gists တွေဆီကို access လုပ်ဖို့ရန်အတွက် ပေးပါတယ်။
+        ကျွန်တော်တို့
+        data တွေကို retrieve လုပ်နိုင်ရုံမက data တွေကို submit လည်းလုပ်နိုင်ပါတယ်။ Project ထဲမှာဆိုရင် first အနေနဲ့ loft
+        token
+        တစ်ခုကို user အတွက် requested လုပ်ရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် watch or unwatch particular repositories ကို request
+        လုပ်ဖို့အတွက် allow လုပ်ပါတယ်။ ကျွန်တော်တို့ set up လုပ်ရမဲ့ ability ကတော့ search repositories ပဲဖြစ်ပါတယ်။
+        နောက်
+        project ထဲမှာ အသုံးပြုထားတဲ့ specific repositories တွေကို pull လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ cases နှစ်ခုလုံးမှာ watch
+        and
+        unwatch repositories ဆိုတဲ့ ability ရှိရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Making a RESTful Request</h1>
+    <p>
+        Application programming interfaces or API ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ website ကို Dropbox, Google, or GitHub
+        တို့လို
+        third-party Web service ဆီကို connecting လုပ်ဖို့ရန်အတွက် method တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ ဒါဟာရင် data
+        အတွက်
+        database တစ်ခုကို connecting လုပ်တာနဲ့ အတူတူပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ connection တစ်ခုကို set up လုပ်ရမယ်
+        ပြီးတော့
+        request တစ်ခုလုပ်ရမယ် နောက် results တွေကို receive လုပ်တာတို့ပဲဖြစ်ပါတယ်။ အဲ့ results တွေဟာ XML or JSON
+        တစ်ခုခုနှင့်
+        returned ပြန်လာတာဖြစ်ပါတယ်။ သူတို့နှစ်ခုလုံးဟာ human readable and computer readable ဖြစ်ကြပါတယ်။ ဒီ promotes
+        ဟာဆိုရင်
+        data တွေကို web ပေါ်မှာ sharing လုပ်ဖို့ရန်အတွက် လွယ်ကူပါတယ်။ ဒီမှာဆိုရင် single universal API မရှိပါဘူး။ Site
+        တစ်ခုချင်းစီမှာ သူတို့ရဲ့ ကိုယ်ပိုင် API ရှိကြပါတယ်။ Sites အားလုံးကတော့ ကျွန်တော်တို့အသုံးပြုဖို့ရန်အတွက် API
+        တစ်ခုကို
+        offer လုပ်ပေးမထားပါဘူး။ ကျွန်တော်တို့ဟာ ဘယ် API ကိုပဲ သုံးသုံး first အနေနဲ့ documentation ကို
+        အရင်ကြည့်ရမှာဖြစ်ပါတယ်။
+        Documentation ဟာဆိုရင် ဘယ်လို connect လုပ်ရမယ် ပြီးတော့ ဘာ actions တွေပါဝင်ပါတယ်ဆိုတာကို ပြောပြပေးတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ API ကို အသုံးမပြုခင်မှာ Terms and Conditions ကို sure ဖြစ်အောင် check လုပ်သင့်ပါတယ်။ နောက်
+        GitHub API
+        documentation အရ API အားလုံးဟာဆိုရင် HTTPS ပေါ်မှာ access လုပ်ပါတယ်။ အဲ့မှာရှိတဲ့ data တွေအားလုံးဟာဆိုရင် JSON
+        အနေနဲ့
+        sent and received လုပ်ကြပါတယ်။ API တစ်ခုမှာဆိုရင် connection တစ်ခုကို ways 3 ခုနဲ့ allow လုပ်ပါတယ်။ First, API
+        တစ်ခုမှာ
+        any authentication လိုအပ်ချက်မပါဘဲနဲ့ public endpoint တစ်ခုရှိနိုင်ပါတယ်။ Second, API တစ်ခုဟာ username and
+        password or
+        other credentials တို့လို basic authentication ကို allow လုပ်နိုင်ပါတယ်။ နောက်ဆုံးကတော့ OAuth လို token ဟာဆိုရင်
+        authentication မှာ အခြေခံထားတာဖြစ်ပါတယ်။ GitHub ဟာဆိုရင် ဒီ methods 3 ခုကို supports လုပ်ပေးထားပါတယ်။ ဒါပေမဲ့
+        most of
+        the time မှာ user agent အနေနဲ့ username ကို pass လုပ်ဖို့လိုပါတယ်။
+    </p>
+    <hr>
+    <h1>Communication with cURL</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ GitHub API နဲ့ communicate လုပ်ဖို့ရန်အတွက် cURL ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ CURL ဆိုတာ
+        various
+        protocols တွေကို အသုံးပြုပြီးတော့ data တွေကို transfer လုပ်ဖို့ရန်အတွက် tool တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ command line
+        tool
+        တစ်ခုရှိတဲ့အပြင် CURL ဟာဆိုရင် PHP အပါအဝင် most programming languages တွေမှာလည်း support လုပ်ပေးပါတယ်။ GitHub
+        ဟာဆိုရင်
+        third party wrapper libraries တွေထဲက တစ်ခုကို အသုံးပြပါတယ်။ Wrapper library တစ်ခုဟာ layer of code
+        တစ်ခုဖြစ်ပြီးတော့ သူဟာ
+        GitHub API လို existing interface တစ်ခုကို more easily used interface တစ်ခုအဖြစ်ကို translate လုပ်ပေးပါတယ်။
+        ကျွန်တော်တို့ဟာ application ကို write လုပ်တဲ့အချိန်မှာ wrapper library တစ်ခုကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ APIs
+        အားလုံးမှာတော့ ကျွန်တော်တို့ အသုံးပြုနိုင်တဲ့ wrapper libraries တွေရှိတာမဟုတ်ပါဘူး။ Libraries အားလုံးဟာတော့ CURL
+        ကို
+        အသုံးပြုပြီးတော့ APIs ကို wrap လုပ်ပါတယ်။ PHP cURL function ကိုအသုံးပြုတဲ့အခါမှာ cURL session ကို initialize
+        လုပ်ဖို့အတွက် curl_init function ကို အသုံးပြုပေးရပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ options အားလုံးကို curl_setopt
+        နဲ့ set
+        လုပ်နိုင်ပါတယ်။ နောက် session ကို curl_exec နှင့် execute လုပ်နိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ session ဟာ
+        finish
+        ဖြစ်တာကို curl_close ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>curl.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            $username = 'mikethefrog';
+            $url = 'https://api.github.com/users/treehouse';
+            $process = curl_init($url);
+            curl_setopt($process, CURLOPT_USERAGENT, $username);
+            curl_setopt($process,CURLOPT_RETURNTRANSFER,1);
+            $return = curl_exec($process);
+            $results = json_decode($return);
+            // var_dump($results);
+            echo '&lt;img src="' . $results->avatar_url . '"/&gt;';
+            curl_close($process);
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Using a Wrapper</h1>
+    <p>
+        အခုဆိုရင် APIs ဘယ်လို အလုပ်လုပ်တယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ wrapper library တစ်ခုကနေ
+        GitHub
+        application တစ်ခုကို build လုပ်သွားမှာဖြစ်ပါတယ်။ Wrapper library ဟာဆိုရင် GitHub API ကို သွားတဲ့ kernel
+        connection ကို
+        handle လုပ်ထားပါတယ်။ ပြီးတော့ ကျွန်တော်တို့နှင့် အလုပ်လုပ်ဖို့ရန်အတွက် API object တစ်ခုကို provide လုပ်ပေးပါတယ်။
+        GitHub
+        API documentation မှာဆိုရင် many third party libraries ကို many different languages ကနေ သွားတဲ့ links
+        တွေအများကြီးပါတယ်။
+        Example မှာဆိုရင်တော့ GitHub API Easy Access library ကိုအသုံးပြုထားပါတယ်။ Example မှာဆိုရင်လည်း user information
+        ကို
+        pull လုပ်ပြီးတော့ avatar ကို display လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာ ကျွန်တော်တို့လိုအပ်တာကတော့ wrapper library
+        ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို console ကနေ composer require milo/github-api ကနေပြီးတော့ run လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        example
+        မှာဆိုရင် user.php ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ auto load file
+        ကို
+        လိုအပ်ပါတယ်။ နောက် API object ကို initiate လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် URL ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>user.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require __DIR__ . '/vendor/autoload.php';
+            $api = new Milo\Github\Api;
+
+            $url = 'https://api.github.com/users/treehouse';
+            $response = $api->get($url);
+            $user = $api->decode($response);
+            echo '&lt;img src="' . $user->avatar_url . '" /&gt;'
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        Example မှာဆိုရင် application အတွက် project files တွေကို set up လုပ်ပြီးသားဖြစ်ပြီတော့ API ကနေ data တွေကို
+        accept
+        လုပ်ဖို့ ready ဖြစ်နေပြီဖြစ်ပါတယ်။ Application ကို run လုပ်တဲ့အခါမှာ composer လိုအပ်ပါတယ်။ အခု section မှာတော့
+        search
+        page ရဲ့ search capabilities ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ နောက် Project Repos page မှာဆိုရင် composer.LOC file
+        ကို
+        reads လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့လုပ်ဆောင်ရမဲ့ features နှစ်ခုကတော့ search capability and the ability to
+        watch or
+        unwatch packages ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် search.php ထဲမှာ API object အသစ်တစ်ခုကို create လုပ်ပေးရပါမယ်။
+        နောက်
+        ကျွန်တော်တို့ search string အတွက်c check လုပ်ပေးဖို့လိုပါတယ်။ တစ်ကယ်လို့ search string ဟာ set ဖြစ်တယ်ဆိုရင်
+        အဲ့ဒါကို
+        ကျွန်တော်တို့ရဲ့ API GET method ထဲအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် get method ဟာ optional parameters နှစ်ခုကို
+        accepts
+        လုပ်ပါတယ်။ First, URL အတွက် additional parameters နဲ့ additional headers တို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် search
+        string ကို
+        second parameter အနေနဲ့ add လုပ်နိုင်ပါတယ်။ Second parameter ဟာဆိုရင် array တစ်ခုဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့
+        repositories ကို access လုပ်ဖို့ရန်အတွက် response ကို decode လုပ်ပေးရမှာဖြစ်ပါတယ်။ Search template ကို
+        repositories
+        တွေကို display လုပ်ဖို့ရန်အတွက် set up လုပ်ပေးရပါမယ်။ နောက် ကျွန်တော်တို့ repositories တွေကို items ဆိုတဲ့
+        argument
+        တစ်ခုအနေနဲ့ pass လုပ်ပေးဖို့လိုပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>search.php</h3>
+    <pre>
+        <code> 
+            &lt;?php
+
+            require __DIR__ . '/vendor/autoload.php';
+
+            $loader = new Twig_loader_Filesystem('templates');
+            $twig = new Twig_Environment($loader);
+            $api = new Milo\Githu\Api;
+
+            $args = ['title' => 'Search'];
+
+            if (!empty($_GET['q'])){
+                $response = $api->get(
+                    '/search/repositories/', [
+                        'q' => filter_input(INPUT_GET, 'q', FILTERSANITIZE_STRING)
+                    ]
+                    );
+                    $repositories = $api->decode($response);
+                    $args['item'] = $repositories->items;
+            }
+
+            echo $twig->render('search.html', $args);
+
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>Authenticate with OAuth</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ application အတွက် token based authentication ကို setting up
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင် users တွေကို သူတို့ရဲ့ GitHub account နှင့် connect လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ user တစ်ယောက် watch and unwatch repose လုပ်နိုင်ဖို့အတွက် authentication ကို provide
+        လုပ်ပေးဖို့လိုပါတယ်။ First step ကတော့ application ကို GitHub နဲ့ authorize လုပ်ဖို့ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့ရန်အတွက် GitHub account and application URL လိုအပ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ URL ကို GitHub
+        account
+        ထဲမှာရှိတဲ့ setting ထဲက Developer settings ထဲက OAuth application ထဲမှာ Register a new application ထဲက Homepage
+        URL မှာ
+        ထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် URL ဟာ http နဲ့ စရမှာဖြစ်ပြီးတော့ forward slash နဲ့ end လို့မရပါဘူး။ နောက်
+        authorization callback URL မှာလည်း same URL နဲ့ သူ့ရဲ့နောက်က "inc/authenticate.php"
+        ဆိုပြီးတော့ထည့်ပေးရမှာဖြစ်ပါတယ်။
+        Application name မှာကျွန်တော်တို့ ကြိုက်တာကို ထည့်လို့ရပါတယ်။ ကျွန်တော်တို့ application ကို registering
+        လုပ်ပြီးတဲ့အချိန်မှာ client ID and client secret ကို ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ ကျွန်တော်တို့ရဲ့ application
+        အတွက်
+        အသုံးပြုရမှာဖြစ်ပါတယ်။ ကျွန်တော်ရဲ့ token ကို session တစ်ခုထဲမှာ store လုပ်မှာဖြစ်တဲ့အတွက်ကြောင့် session
+        တစ်ခုကို start
+        လုပ်ပေးဖို့လိုပါတယ်။ နောက် application နဲ့ GitHub ကို connect လုပ်ဖို့ရန်အတွက် three pieces of information
+        တွေလိုအပ်ပါတယ်။ appUrl ဟာဆိုရင် GitHub က URL နဲ့ တူရမှာဖြစ်ပါတယ်။ နောက် clientId and client Secret
+        တို့ပဲဖြစ်ပါတယ်။
+        သူတို့ကိုတော့ GitHub မှာ ပေးပြီးသားဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ လိုအပ်တဲ့ objects တွေကို set up လုပ်ပေးရပါမယ်။
+        နောက်
+        အဲ့ objects တွေကို အသုံးပြုပြီးတော့ token တစ်ခုကို get and set လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>authenticate.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../vendor/autoload.php';
+            session_start();
+
+            $appUrl = '';
+            $clientId = '';
+            $clientSecret = '';
+
+            $config = new Milo\Github\OAuth\Configuration($clientId, $clientSecret, ['user', 'repos']);
+            $storage = new Milo\Github\Storages\SessionStorage;
+            $login = new Milo\Github\OAuth\Login($config,$storage);
+            $api = new Milo\Github\Api;
+
+            if ($login->hasToken()){
+                $token = $login->getToken();
+                $api->setToken($token);
+            } else {
+                if (isset($_GET['redirect'])){
+                    $login->obtainToken($_GET['code'], $_GET['state']);
+                    header("location: " . filter_input(INPUT_GET, 'redirect'));
+                    exit();
+                } else {
+                    $login->askPermissions("$appUrl/inc/authenticated.php?redirect=" .$_SERVER['REQUEST_URL']);
+                }
+            }
+
+            ?&gt;
+        </code>
+    </pre>
+    <hr>
+    <h1>POST Request to Watch Repository</h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ authenticated user ရဲ့ watch status ကို repositories တစ်ခုချင်းစီအတွက် check
+        လုပ်ချင်တာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် repositories တစ်ခုချင်းစီကို loop လုပ်ပြီးတော့ each time မှာ individual API request တစ်ခုကို
+        ပြုလုပ်နိုင်ပါတယ်။ ဒါပေမဲ့ external data sources တွေကို accessing လုပ်တာဟာ time consuming ဖြစ်သလို application
+        ကိုလည်း
+        greatly slow down ဖြစ်စေပါတယ်။ အဲ့အစား ကျွန်တော်တို့ဟာ single call တစ်ခုကို ပြုလုပ်ပြီးတော့ user subscriptions
+        အားလုံးကို တစ်ကြိမ်ထဲ pull လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် repositories တွေကို check လုပ်ရပါမယ်။ User information
+        တွေကို API
+        call ဆီကို passing မလုပ်တဲ့အခါမှာ API ဟာဆိုရင် authenticated user ကို return ပြန်ပေးမှာဖြစ်ပြီးတော့ no user ဟာ
+        authenticated ဆိုရင် error ကို return ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ subscription collection ကို
+        response
+        တွေကို decoding လုပ်ပြီးတော့ create လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>watch.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            if (isset($_GET['subscribe'])) {
+                $response = $api->put(
+                    '/repos/' . $_GET['subscribe'] . '/subscription', [
+                        'subscribed' =>true
+                    ]
+                    );
+            }
+            if (isset($_GET['unsubscribe'])) {
+                $response = $api->delete(
+                    '/repos/' . $_GET['unsubscribe'] . '/subscription', [
+                        'subscribed' =>false
+                    ]
+                    );
+            }
+            
+            $alert = array();
+            if (isset($response)){
+                if (substr($response->getCode(), 0 ,1) == 2){
+                 $alert['type'] = 'success';
+                 $alert['type'] = 'Watch Status Updated';
+                } else {
+                 $alert['type'] = 'danger';
+                 $alert['type'] = 'Unable to Update Watch Status';
+                }
+            }
+            ?>
+        </code>
+    </pre>
+    <h3>authenticate.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require_once __DIR__ . '/../vendor/autoload.php';
+            session_start();
+            
+            $appUrl = '';
+            $clientId = '';
+            $clientSecret = '';
+            
+            $config = new Milo\Github\OAuth\Configuration($clientId, $clientSecret, ['user', 'repos']);
+            $storage = new Milo\Github\Storages\SessionStorage;
+            $login = new Milo\Github\OAuth\Login($config,$storage);
+            $api = new Milo\Github\Api;
+            
+            if ($login->hasToken()){
+                $token = $login->getToken();
+                $api->setToken($token);
+            } else {
+                if (isset($_GET['redirect'])){
+                    $login->obtainToken($_GET['code'], $_GET['state']);
+                    header("location: " . filter_input(INPUT_GET, 'redirect'));
+                    exit();
+                } else {
+                    $login->askPermissions("$appUrl/inc/authenticated.php?redirect=" .$_SERVER['REQUEST_URL']);
+                }
+            }
+            
+            ?>
+        </code>
+    </pre>
+    <hr>
+    <h1>Sharing Functionality in the Application</h1>
+    <p>
+        Example မှာဆိုရင် project.php file ထဲကို files နှစ်ခုလိုအပ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ရဲ့ subscriptions ကို
+        get
+        လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် foreach ရဲ့အစ ၊ repo ကို setting လုပ်ပြီးတဲ့အခါမှာ subscription ကို check
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ project.html file ကို subscription.html file ပါဖို့ update
+        လုပ်ရမှာပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>project.php</h3>
+    <pre>
+        <code>
+            &lt;?php
+            require __DIR__ . '/vendor/autoload.php';
+            require __DIR__ . '/inc/authenticate.php';
+            require __DIR__ . '/inc/watch.php';
+            
+            
+            $response = $api->get('/user/subscriptions');
+            $subscriptions = $api->decode($response);
+            
+            $loader = new Twig_Loader_Filesyste('templates');
+            $twig = new Twig_Environment($loader);
+            
+            $packages = array();
+            $composer = json_decode(file_get_contents('composer.lock'));
+            foreach ($composer->packages as $package){
+                $repo = substr($package->source->url, 9, -4);
+            
+                $subscribed = false;
+                foreach ($subscriptions as $sub){
+                    if ($repo == $sub->full_name){
+                     $subscribed = true;   
+                    }
+                }
+            
+            
+                $packages[] = [
+                    'full_name' => $repo,
+                    'version' => $package->version,
+                    'subscribed' => $subscribed
+                ];
+            }
+            
+            echo $twig->render('project.html',
+            [
+                'alert' => $alert,
+                'title' => 'Project Repos',
+                'items' => $packages
+            
+            ]);
+            ?>
+        </code>
+    </pre>
+
+</body>
+
+</html>

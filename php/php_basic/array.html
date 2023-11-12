@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Arrays</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+<h1>Introduction to Arrays and Control Structure</h1>
+<p>
+    ဒီ course မှာဆိုရင်တော့ ကျွန်တော်တို့ရဲ့ PHP skill ကို next level ရောက်အောင် လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Conditionals, loops and the compound variable arrays တို့ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါတွေအားလုံးဟာဆိုရင် less code တွေကို အသုံးပြုပြီးတော့ more powerful and intelligent programs တွေကို write လုပ်တဲ့အခါမှာ help ဖြစ်ပါတယ်။ First, conditional and logical operators တွေကို ကြည့်ရအောင်။ သူတို့ဟာဆိုရင် ကျွန်တော်တို့ conditional statements တွေကို expressing လုပ်ဖို့အတွက် explore လုပ်တဲ့ available different options တွေပဲဖြစ်ပါတယ်။ Second, compound variable type of arrays တို့ပဲဖြစ်ပါတယ်။ ဒါဟာ compound variable type တစ်ခုကို referred လုပ်တာပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူ့မှာ more than one value တွေ contain ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ကို lists and dictionaries တို့လို more complex data တွေကို store လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ ပြီးတော့ အဲ့ data တွေကို fun and interesting ways မှာ manipulate လုပ်ပေးတာဖြစ်ပါတယ်။ ဒီ section မှာဆိုရင် due date and priority တို့ပါဝင်တဲ့ task တစ်ခုချင်းစီ အကြောင်းကို details ကို storing လုပ်ထားတဲ့ to-do app တစ်ခုနဲ့ start လုပ်သွြးမှာဖြစ်ပါတယ်။ Finally, managing the flow of code in PHP အတွက် available ဖြစ်တဲ့ different loops တွေကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Loops တွေဟာဆိုရင် way of repeating code တစ်ခုဖြစ်ပြီးတော့ repetitive tasks တွေအတွက် very handy ဖြစ်ပါတယ်။ Loops တွေကို array တစ်ခုထဲမှာ cycle through လုပ်ဖို့ရန်အတွက် အသုံးများပါတယ်။ ပြီးတော့ array ထဲမှာရှိတဲ့ element တစ်ခုချင်းစီအတွက် action တစ်ခုကို perform လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ to-do app ဒီ loop options ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ 
+</p><hr>
+<h1>Comparison Operators</h1>
+<p>
+    Operator တစ်ခုဆိုတာ one or more values တွေကို takes လုပ်ပြီးတော့ another value ကို yields လုပ်တဲ့ something ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ several different operators တွေအကြောင်းကို basic course မှာလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် equal and identical values တွေအတွက် comparison operators အကြောင်းကိုလည်းလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ some additional comparison operators အကြောင်း လေ့လာသွားမှာဖြစ်ပါတယ်။ သူတို့ဟာဆိုရင် ကျွန်တော်တို့ကို values တွေကို compare လုပ်ပြီးတော့ true false result တစ်ခုကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါ operators တွေကတော့ >, < ,>= and <= တို့ပဲဖြစ်ပါတယ်။ 
+</p>
+<h3>Example Output</h3>
+<img src="../../javaScriptExample/image/comparisonphp.png" alt="">
+<img src="../../javaScriptExample/image/equal.png" alt=""><hr>
+<h1>Negation Operator</h1>
+<p>
+    ကျွန်တော်တို့မှာ ရှိသင့်တဲ့ one of the goals တစ်ခုဟာဆိုရင် code တွေကို writing လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ code ဟာ ဘာကို လုပ်ဆောင်ပါတယ်ဆိုတာကို ရှင်းရှင်းဖြစ်ဖို့ရန်ပဲဖြစ်ပါတယ်။ ဒီ goal မှာဆိုရင် sometimes မှာ ကျွန်တော်တို့ဟာ something ဟာ equal ဖြစ်နေရင် compare လုပ်စရာမလိုပါဘူး။ Something ဟာ not equal ဖြစ်နေရင်တော့ compare လုပ်ဖု့ိလိုပါတယ်။ ကျွန်တော်တို့ဟာ nonequality ကို check လုပ်ဖို့ရန်အတွက် negation operators ကို အသုံးပြုနိုင်ပါတယ်။ Nonequality အတွက် check လုပ်တဲ့ many different ways တွေရှိပါတယ်။ ဒီမှာဆိုရင် ကျွန်တော်တို့ဟာ something ဟာ less than or greater than a value ကို check လုပ်ဖို့ရန်အတွက် less than or greater than ဆိုတဲ့ operators နှစ်ခုကို combine လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် essentially, ဒါဟာ a is  not equal to b, ကို tests လုပ်တာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ a is either less than or greater than b ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Less than or greater than ဟာဆိုရင် strings တွေကို comparing လုပ်တဲ့အချိန်မှာတော့ sense မလုပ်ပါဘူး။ Fortunately, PHP ဟာဆိုရင် exclamation point ဆိုတဲ့ negation operator တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ ဒီ operator ကို negative value တွေကို checking လုပ်တဲ့ အခါမှာ အသုံးပြုတာကိုတွေ့ရမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ ကျွန်တော်တို့ comparing လုပ်တဲ့ ဘယ် type of values ကို မဆို အလုပ်လုပ်ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် သတိထားရမှာက exclamation point နဲ့ single equal လေးကို အသုံးပြုတဲ့အခါမှာ example မှာဆိုရင်တော့ values of a  and b are not equal ဆိုပြီးတော့ ဆိုလိုပါတယ်။ အဲ့ဒါဟာ variable types ကို compare လုပ်မပေးပါဘူး။ သူဟာ values တွေကိုပဲ compare လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ variable types တွေကိုပါ check လုပ်ချင်တဲအခါမှာ double equal နဲ့ exclamation point ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Conditional statements တွေဟာဆိုရင် given data ရဲ့ value ကိုပဲ either true or false ဆိုပြီးတော့ evaluate လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် value ဟာ 0 ဆိုရင်တော့ most programming languages PHP ဟာ integer 0 ကို false အဖြစ်နဲ့ပဲ treats လုပ်တာဖြစ်ပါတယ်။ 
+</p>
+<h3>Out Example</h3>
+<img src="../../javaScriptExample/image/greatorless.png" alt="">
+<h3>NOT Equal(!)</h3>
+<img src="../../javaScriptExample/image/exclamation.png" alt="">
+<img src="../../javaScriptExample/image/true.png" alt=""><hr>
+<h1>Nested Conditional Statements</h1>
+<p>
+    Sometime မှာဆိုရင် ကျွန်တော်တို့ဟာ more than one expression ကို evaluates လုပ်ဖို့ရန်အတွက် conditional တစ်ခု လိုအပ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် one way ကတော့ two conditional statements ကို nesting လုပ်တာပဖြစ်ပါတယ်။ Example မှာလေ့လာနိုင်ပါတယ်။ Example မှာ $num ဆိုတဲ့ variable ကို 1 ၊ 10 and 10000 ဆိုတဲ့ values တွေကို change လုပ်ပြီးတော့ out put လုပ်ထားတာဖြစ်ပါတယ်။ 
+</p>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/nested.png" alt=""><hr>
+<h1>Logical Operators</h1>
+<p>
+    ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ more than equation ကို compare လုပ်ဖို့ရန်အတွက် conditional statements တွေကို nested လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ multiple equations တွေကို တစ်ကြိမ်ထဲမှာ check ချင်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ conditional statements တွေကို logical operators တွေကို အသုံးပြုပြီးတော့ combine လုပ်နိုင်ပါတယ်။ Logical operators တွေဟာ ကျွန်တော်တို့ကို conditional statements တွေကို combine လုပ်ဖု့ိရန်အတွက် allow လုပ်ပေးပါတယ်။ In the same way, ကျွန်တော်တို့ဟာ phrases in a sentence ကိုလည်း combine လုပ်နိုင်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာရှိတဲ့ if statements နှစ်ခုမှာ logical operators ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Logical operators နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ AND(&&) and OR(||) တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ AND အတွက် logical operators ကိုအသုံးပြုတဲ့ အခါမှာ equations နှစ်ခုလုံးဟာ true ကို evaluate လုပ်ပေးဖို့လိုပါတယ်။ နောက် RO ကိုအသုံးပြုတဲ့အခါမှာတော့ equation တစ်ခုဟာတော့ true ကို evaluate လုပ်ရမှာဖြစ်ပါတယ်။ Equations နှစ်ခုလုံးဟာ true ကို evaluate လုပ်လို့လည်းရပါတယ်။ Double ampersand အစား AND ကိုအသုံးပြုနိုင်သလို double pipes အစား OR ကို အသုံးပြုနိုင်ပါတယ်။ Special operators တွေဖြစ်တဲ့ double ampersand and double pipe တု့ိကို အသုံးများကြပါတယ်။ ဘာလို့လဲဆိုတော့ သူတို့မှာ highest precedence ရှိတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ 
+</p>
+<h3>Output Example</h3>
+<h3>&& Operator</h3>
+<img src="../../javaScriptExample/image/andoperator.png" alt="">
+<h3>|| Operator</h3>
+<img src="../../javaScriptExample/image/oroperator.png" alt=""><hr>
+<h1>Switch Case Statements</h1>
+<p>
+    အခု  section မှာတော့ conditional statements ကို structure လုပ်ဖို့တဲ့ another way တစ်ခုကို လေ့လာသွားမှာဖြစ်ပါတယ်။ PHP ဟာဆိုရင် switch statement လို့ခေါ်တဲ့ another control structure တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ Switch statements တွေဟာဆိုရင် series of if statements တစ်ခုနဲ့ similar ဖြစ်ပါတယ်။ သူတို့ဟာ same expression ကိုအသုံးပြုပါတယ်။ On many occasions, ကျွန်တော်တို့ဟာ same variable or expression ကို many different values တွေနဲ့ compare လုပ်ချင်တဲ့အခါ ပြီးတော့ ဘယ် value ဟာ သူနဲ့ equals ဖြစ်တယ်ဆိုတာပေါ်မှာမူတည်ပြီးတော့ different piece of code ကို execute လုပ်ချင်တဲ့အခါမှာ switch statement ကိုအသုံးပြုနိုင်ပါတယ်။ Example မှာဆိုရင် which day of the week it is ကို အခြေခံပြီးတော့ different actions တွေကို perform လုပ်ပြထားတာဖြစ်ပါတယ်။ Switch နဲ့စပြီးတော့ parentheses ထဲမှာ ကျွန်တော်တို့ evaluate လုပ်ချင်တဲ့ variable or expression ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ curly braces ထဲမှာ ကျွန်တော်တို့ရဲ့ case statements ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Case ရဲ့ နောက်မှာ ကျွန်တော်တို့ compare လုပ်ချင်တဲ့ value ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ perform လုပ်ချင်တဲ့ action ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ break ရဲ့ semicolon တစ်ခုနဲ့ followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ break ဟာဆိုရင် switch statement ကို ကျွန်တော်တို့ match တစ်ခုတွေ့ပြီ ပြီးတော့ evaluating လုပ်တာဟာ finished ဖြစ်သွားပြီဆိုတာကို tell လုပ်တာဖြစ်ပါတယ်။ Switch statement ဟာဆိုရင် default ကို in case none of the other statements  to true မှာ add လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးထားပါတယ်။ နောက် အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ value expressions တွေကို leaving off the break လုပ်ခြင်းဖြင့် combine လုပ်နိုင်ပါတယ်။ Case တစ်ခု found ဖြစ်တဲ့နောက်မှာ အဲ့ဒါဟာ break တစ်ခု မတွေ့မချင်း statements ကို process လုပ်သွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $Today = 'Saturday';
+        switch ($Today){
+            case 'Monday':
+                echo 'wash on Monday';
+                break;
+            case 'Tuesday':
+                echo 'Clean on Tuesday';
+                break;
+            case 'Wednesday':
+                echo 'Clean on Wednesday';
+                break;
+            case 'Thursday':
+                echo 'Clean on Thursday';
+                break;
+            case 'Friday':
+                echo 'Clean on Friday';
+                break;
+            case 'Saturday':
+            case 'Sunday':
+                echo 'Rest on the Weekend';
+                break;
+        }
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/switch.png" alt=""><hr>
+<h1>Pratice Program</h1>
+<p>
+    အခုဆိုရင် ကျွန်တော်တို့ဟာ conditionals အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ descriptive conditionals ကို create လုပ်ဖို့ရန်အတွက်လိုအပ်တဲ့ comparison operators, negation operators, and logical operators တွေပါဝင်တဲ့ many different operators တွေကိုလည်းလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ if statements တွေကို nested and combine လုပ်ဖို့ရန်အတွက် ဒီ conditionals တွေကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ ပြီးတော့ single expression to multiple values တွေကို compare လုပ်ဖို့ရန်အတွက် use of a switch statement တစ်ခုကိုလည်း explored လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ the grade level and final grade average ပေါ်မှာ အခြေခံပြီးတော့ student တစ်ယောက် messaging အတွက် program တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $firstName = 'Lwin';
+        $lastName = 'Moe';
+        $currentGrade = 9;
+        $finalAverage = 0;
+        $messageBody = '';
+        
+        if (!$firstName || !$lastName){
+            echo 'Please enter a student name';
+        } elseif ($currentGrade < 0 || $currentGrade >12){
+            echo 'This is only for high school students. Please enter a grade between 9 and 12';
+        } else { 
+            if($finalAverage < .70)  {
+                $messageBody = 'we look forward to seeing you at summer school, beginning July 1st';
+            } else {
+                switch ($currentGrade){
+                    case 9;
+                       $messageBody = 'Congratulations on completing your fresham year in high school! We will see you on September 1st for the start of your sophomore year!';
+                       break;
+                    case 10;
+                    $messageBody = 'Congratulations on completing your fresham year in high school! We will see you on September 1st for the start of your junior year!';
+                    break;
+                    case 11;
+                    $messageBody = 'Congratulations on completing your fresham year in high school! We will see you on September 1st for the start of your senior year!';
+                    break;
+                    case 12;
+                    $messageBody = 'Congratulations! You have graduated High School! Do not for get to come back and visit.';
+                    break;
+                    default:
+                        $messageBody = 'Error: Grade Level is not 9-12';
+                }
+            }
+            echo "Dear $firstName $lastName \n";
+            echo $messageBody;
+        }
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/school.png" alt=""><hr>
+<h1>Indexed Arrays</h1>
+<p>
+    Array တစ်ခုဆိုတာ compound variable type တစ်ခုပဲဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ သူ့မှာ more than one value တွေ ပါဝင်နိုင်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Array တစ်ခုဆိုတာ list of items တစ်ခုလည်း ဖြစ်နိုင်ပါတယ်။ Arrays တွေဆိုတာ information တွေကို store လုပ်ဖို့ရန်အတွက် one of the most flexible and useful ways ပဲဖြစ်ပါတယ်။ PHP ဟာဆိုရင် an associated array and a nested array called a multi-dimensional array တွေပါတဲ့ arrays တွေကို create and use လုပ်ဖို့ရန်အတွက် several different ways တွေကို provides လုပ်ပေးထားပါတယ်။ အခု section မှာတော့ simple list of values တစ်ခုဖြစ်တဲ့ basic array တစ်ခုနဲ့ start လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ array တစ်ခုကို create လုပ်တဲ့နေရာမှာ array name = array ဆိုတဲ့ keyword ပြီးတော့ parentheses ထဲမှာ list of values တွေကို comma နဲ့ separate လုပ်ပြီးတော့ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာရှိတဲ့ output မှာဆိုရင် array items ဟာ 3 ခုရှိတဲ့အတွက် ကြောင့် array(3) ဆိုပြီးတော့ output ထွက်လာတာဖြစ်ပါတယ်။ နောက် element တစ်ခုချင်းစီအတွက် separate line ကို ကြည့်လိုက်တဲ့အခါမှာ => ဆိုတာလေးဟာ double arrow ကို refer လုပ်ပါတယ်။ အဲ့ double arrow ဟာဆိုရင် key နဲ့ သူ့ရဲ့ values ကြားမှာရှိတဲ့ relationship ကို represents လုပ်တာဖြစ်ပါတယ်။ Array element တစ်ခုချင်းစီမှာဆိုရင် key တစ်ခုလိုအပ်ကြပါတယ်။  PHP ဟာ the largest previously used integer key ကို incrementing လုပ်ခြင်းဖြင့် numerical key တစ်ခုကို automatically assigns လုပ်ပေးပါတယ်။ Default အရ arrays ဟာ zero indexed ဖြစ်ကြပါတယ်။ ဆိုလိုတာဟာ first value ဟာ zero ပြီးတော့ one then two ဆိုပြီးတော့သွားကြတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ array ကို directly display လုပ်လို့မရပါဘူး။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ array values ကို display လုပ်ချင်းတဲ့အခါမှာ ကျွန်တော်တို့ဟာ အဲ့ values တွေကို ဘယ်လို formatted လုပ်ချင်ပါတယ်ဆိုတာကို PHP ကို tell လုပ်ရမှာဖြစ်ပါတယ်။ PHP ဟာဆိုရင် implode လို့ခေါ်တဲ့ function တစ်ခုကို give လုပ်ထားတပါတယ်။ ဒီ function ဟာဆိုရင် array elements တွေကို single string တစ်ခုထဲမှာ အတူတကွ join လုပ်ဖို့ရန်အတွက်  allows လုပ်ပေးပါတယ်။ 
+</p>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/indexedarray.png" alt=""><hr>
+<h1>Adding Array Elements</h1>
+<p>
+    အခုဆိုရင် ကျွန်တော်တို့မှာ first array set up ရှိခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ arrays ရဲ့ contents တွေကို changes လုပ်တဲ့ some ways တွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ array ရဲ့ elements တွေကို add, remove and edit လုပ်နိုင်ပါတယ်။  အဲ့အတွက် ကျွန်တော်တို့ဟာ built in PHP functions တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ array တစ်ခုထဲကို ဘယ်လို new values တွေကို add လုပ်ရတယ်ဆိုတာကိုလေ့လာကြည့်ရအောင်။ အဲ့အတွက် PHP က array တစ်ခုထဲကို elements တွေကို add လုပ်ဖို့ရန်အတွက် give လုပ်ထားတဲ့  three ways ကို show လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ထဲကနှစ်ခုဟာ ကျွန်တော်တို့ကို elements တွေကို end of the array and beginning of the array မှာ add လုပ်ဖို့ရန်အတွက် allow လုပ်ထားတာဖြစ်ပါတယ်။ Element တစ်ခုကို တစ်ကြိမ် add လုပ်ဖို့ရန်အတွက် array name ပြီးတော့ opening and closing square brackets လိုက်ပြီးတော့ assign operator equal and then new value ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ $learn [] = 'Build something awesome!'; ပဲဖြစ်ပါတယ်။ Square brackets မပါဘဲနဲ့ assign လုပ်တဲ့အခါမှာ entire array တစ်ခုလုံးကို override လုပ်သွားမှာဖြစ်ပါတယ်။ Another way တစ်ခုကတော့ one of the PHP built in array functions ကို အသုံးပြတာပဲဖြစ်ပါတယ်။ Array functions တွေအကြောင်းကို PHP array functions ရဲ့ manual မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် push ဟာ elements တွေကို array ရဲ့ end မှာ add လုပ်ပေးတာဖြစ်ပါတယ်။ သူ့ကို အသုံးပြုတဲ့အခါမှာ array_push() ပြီးတော့အသုံးပြုပေးရပါတယ်။ နောက် အဲ့ curly braces ထဲမှာ ကျွန်တော်တို့ add လုပ်ချင်တဲ့ array name နဲ့ comma ခံပြီးတော့ array name ရဲ့ နောက်မှာ new value တွေကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Unshift ဟာဆိုရင်တော့ array ရဲ့ beginning မှာ elements တွေကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ သူ့ကိုလည်း push အသုံးပြုသလိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူတို့နှစ်ခုကြားထဲမှာရှိတဲ့ different နောက်တစ်ခုကတော့ ဒီ functions တွေဟာ array key index ကို ဘယ်လို affect ဖြစ်တယ်ဆိုတာပဲဖြစ်ပါတယ်။ Array push ဟာ order ထဲမှာပဲ next index ကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ Example, array keys တွေဟာ one, three, five ရှိပြီးတော့ ကျွန်တော်တို့ နောက် value တစ်ခုကို add လိုက်တဲ့အခါမှာ one, three, five and six ဆိုပြီးတော့ရှိသွားမှာဖြစ်ပါတယ်။ Array_unshift ဟာဆိုရင် index ကို update လုပ်သွားမှာဖြစ်ပါတယ်။ Example, another value ကို beginning မှာ add လုပ်တဲ့အခါမှာ zero, one, two, three and four ဆိုပြီးတော့ ရှိသွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $learn = array ('Conditionals', 'Arrays', 'Loops');
+        $learn []= 'Build something awesome!';
+        array_push($learn, 'Functions', 'Forms','Objects');
+        array_unshift($learn, 'HTML','CSS');
+         var_dump($learn);
+        // echo $learn[1];
+        // echo $learn;
+        //echo implode("\n",$learn);
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/add.png" alt=""><hr>
+<h1>Removing Array Elements</h1>
+<p>
+    အခု section မှာတော့ array တစ်ခုကနေ elements တွေကို remove လုပ်ဖို့ရန်အတွက် PHP ကနေ provides လုပ်ထားတဲ့ three ways ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ First, array_unshit ရဲ့ opposition ဖြစ်တဲ့ array_shift ဟာဆိုရင် array ရဲ့ first element ကို remove လုပ်ပေးတာဖြစ်ပြီးတော့ သူဟာ argument တစ်ခုပဲ ယူပါတယ်။ အဲ့ argument ကတော့ ကျွန်တော်တို့ remove လုပ်ချင်တဲ့ array name ပဲဖြစ်ပါတယ်။ နောက် array_pop ဟာဆိုရင် array ရဲ့ end element ကို remove လုပ်ပေးတာဖြစ်ပါတယ်။ Finally, ကျွန်တော်တို့ဟာ key နဲ့ any specific array element ကို remove လုပ်နိုင်ပါတယ်။ အဲ့ဒါကေတာ့ unset ပဲဖြစ်ပါတယ်။  Unset ထဲမှာဆိုရင် ကျွန်တော်တို့ရဲ့ array name နဲ့ key ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Unset ဟာဆိုရင် multiple parameters တွေကို ယူပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ တစ်ကြိမ်ထဲမှာ more than one element တွေကို unset လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် other functions အသုံးပြုပြီးတဲ့အခါမှာ array keys ကို updated လုပ်ပါတယ်။ ဒါပေမဲ့ unset ကတော့ မလုပ်ပါဘူး။ ဒါအတွက် array keys ကို re-indexing လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် array values function ကို အသုံးပြပေးရမှာဖြစ်ပါတယ်။ Array_values ဟာဆိုရင် array values ရဲ့ အပြင်မှာ new array တစ်ခုကို creates လုပ်တာဖြစ်ပါတယ်။ Unset ကို any variable နဲ့အသုံးပြုနိုင်ပါတယ်။ ဒါပေမဲ့ array elements နဲ့ တော့အသုံးပြုလို့မရပါဘူး။ ကျွန်တော်တို့ဟာ array တစ်ခုလုံးကို unset လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ array ကို destroy လုပ်လိုက်တာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $learn = array ('Conditionals', 'Arrays', 'Loops');
+        $learn []= 'Build something awesome!';
+        array_push($learn, 'Functions', 'Forms','Objects');
+        array_unshift($learn, 'HTML','CSS');
+        echo 'you removed' . array_shift($learn);
+        echo 'you removed' . array_pop($learn);
+        unset($learn[1],$learn[2]);
+        $learn = array_values($learn);
+         var_dump($learn);
+        // echo $learn[1];
+        // echo $learn;
+        //echo implode("\n",$learn);
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/pop.png" alt=""><hr>
+<h1>Editing Array Elements</h1>
+<p>
+    Sometime မှာ ကျွန်တော်တို့ဟာ array element တစ်ခုကို edit လုပ်ချင်တဲ့အခါမှာ ကျွန်တော်တို့ edit or update လုပ်ချင်တဲ့ value ရဲ့ key ကို array name ထဲမှာ add လုပ်ပြီးတော့ equal sign နဲ့ new value ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Arrays တွေကို change and manipulate လုပ်ဖို့ရန်အတွက် many more ways တွေရှိပါတယ်။
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $learn = array ('Conditionals', 'Arrays', 'Loops');
+        $learn []= 'Build something awesome!';
+        array_push($learn, 'Functions', 'Forms','Objects');
+        array_unshift($learn, 'HTML','CSS');
+        echo 'you removed' . array_shift($learn);
+        echo 'you removed' . array_pop($learn);
+        unset($learn[1],$learn[2]);
+        $learn = array_values($learn);
+        $learn[0] = "Email";
+         var_dump($learn);
+        // echo $learn[1];
+        // echo $learn;
+        //echo implode("\n",$learn);
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/edit.png" alt=""><hr>
+<h1>Associative Arrays</h1>
+<p>
+    ကျွန်တော်တို့ create လုပ်ခဲ့တဲ့ arrays တွေဟာ all numerically indexed တွေပဲဖြစ်ပါတယ်။ PHP ဟာဆိုရင် ကျွန်တော်တို့အသုံးပြုဖို့ရန်အတွက် numeric key ကို automatically assigned လုပ်ပေးထားပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ array element တစ်ခုကို own keys တွေ assign လုပ်နိုင်ပါတယ်။ ပြီးတော့ သူတို့ဟာ numbers တွေတော့ မရှိပါဘူး။ အဲ့ဒါကို associative array လို့ခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ specific key တစ်ခုဟာ specific value တစ်ခုနဲ့ associated ဖြစ်နေတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ associative arrays တွေကို format လုပ်ဖို့ရန်အတွက် double arrow ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ Associative arrays တွေဟာ extremely helpful ဖြစ်ပြီးတော့ a lot of information တွေကို provide လုပ်ပေးပါတယ်။ ဒါပေမဲ့ အဲ့မှာဆိုရင် a few specifics တွေရှိပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ဟာ array keys အကြောင်းကို သိထားသင့်တာဖြစ်ပါတယ်။ Next section မှာဆိုရင်တော့ array keys and values မှာ mixing data types ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $iceCream = array( 
+            'Thuzar' => 'Black Cherry', 
+            'Ko Tun' => 'Chocolate', 
+            'Myo' => 'Cookies and Cream', 
+            'Sai Soe' => 'Strawberry'
+        );
+        echo $iceCream['Thuzar'];
+        var_dump($iceCream);
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/associative.png" alt=""><hr>
+<h1>Mixing Data Types in Arrays</h1>
+<p>
+    ကျွန်တော်တို့ လေ့လာခဲ့သလိုပဲ arrays တွေဟာဆိုရင် collection of data တွေကို store လုပ်ဖို့ရန်အတွက် extremely powerful ဖြစ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ information တွေကို group လုပ်ဖို့ရန်အတွက် arrays တွေကို အသုံးပြုနိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ integers, floats, strings, and boolean တို့ကိုလည်း store လုပ်နိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ first array ထဲမှာ another array တစ်ခုကိုလည်း store လုပ်နိုင်ပါတယ်။ အခု section မှာတော့ ကျွန်တော်တို့ဟာ keys တွေဟာ ဘယ်လိုအလုပ်လုပ်တယ် ပြီးတော့ what types of values တွေကို ကျွန်တော်တို့အသုံးပြုနိုင်တယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ First, array keys တွေဟာ case-sensitive ဖြစ်ပါတယ်။ Next, Keys တွေဟာဆိုရင် string or integer တစ်ခုဖြစ်နိုင်ပါတယ်။ Strings တွေမှာဆိုရင် only numbers တွေပဲပါတာဖြစ်ပြီးတော့ integer တစ်ခုအဖြစ်နဲ့ converted or cast လုပ်တာဖြစ်ပါတယ်။ Float values တွေမှာဆိုရင် decimal တွေပါတဲ့ numbers တွေဖြစ်ပြီးတော့ integer တစ်ခုကို turncated or cast လုပ်တာဖြစ်ပါတယ်။ Boolean values တွေကတော့ one for true and zero for false ဆိုပြီးတော့ integer ကို cast လုပ်တာဖြစ်ပါတယ်။ Array keys တွေလိုပဲ value တစ်ခုချင်းစီမှာ separate variable type တစ်ခုရှိနိုင်ပါတယ်။ Keys တွေနဲ့ မတူတာကတော့ array values တွေမှာဆိုရင် another array တွေပါဝင်နိုင်ပါတယ်။ 
+</p>
+<h2>Code Exampel</h2>
+<pre>
+    <code>
+        &lt;?php
+        $iceCream = array( 
+            'Thuzar' => 'Black Cherry', 
+            'Ko Tun' => 'Chocolate', 
+            'Myo' => 'Cookies and Cream', 
+            'Sai Soe' => 'Strawberry'
+        );
+        $iceCream['alena'] = 'Pistachio';
+        $iceCream ['Dave Thomas'] = 'Cookies and Cream';
+        $iceCream [] = 'Vanilla';
+        $iceCream['Andrew'] =  true;
+        var_dump($iceCream);
+        $keys = array(
+            1 => 'a',
+            '1' => 'b',
+            1.5 => 'c',
+            true => 'd'
+        );
+        // var_dump($keys);
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/mixingdata.png" alt=""><hr>
+<h1>Multidimensional Arrays</h1>
+<p>
+    Arrays တွေကို information တွေ group လုပ်ဖို့ရန် and variable တစ်ခုထဲမှာ multiple pieces of information တွေကို store လုပ်ဖို့ရန်အတွက် ဘယ်လို အသုံးပြုရတယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Multi-dimensional arrays တွေဟာ list ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီ အတွက် nested array of information ကို create လုပ်ဖို့ရန်အတွက် allow လုပ်ပေးပါတယ်။ Multi-dimensional arrays ကို create လုပ်ဖို့ရန်အတွက် format ကို ကြည့်ရအောင်။ In PHP five four မှာဆိုရင် ကျွန်တော်တို့ဟာ short array syntax တစ်ခုကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါဟာ array နေရာမှာ square brackets နဲ့ replaces လုပ်တာပဲဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $list[] = [
+            'title' => 'Laundry',
+            'priority' => 2,
+            'due' => '',
+            'complete' => true
+        ];
+        $list[] = [
+            'title' => 'Clean out refrigerator',
+            'priority' => 3,
+            'due' => '07/20/2020',
+            'complete' => false
+        ];
+        var_dump($list);
+        echo $list[0]['title'];
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/multi_dimensional.png" alt=""><hr>
+<h1>Sorting Arrays</h1>
+<p>
+    Arrays တွေကနေ ကျွန်တော်တို့ကို give လုပ်ထားတဲ့ one of the extra tools တစ်ခုကတော့ the ability to sort ပဲဖြစ်ပါတယ်။ Sorting ဟာဆိုရင် ကျွန်တော်တို့ကို large amounts of data တွေကို organize လုပ်ဖို့ရန်အတွက် allows လုပ်ပါတယ်။  Browser သွားပြီးတော့ PHP sort array manual မှာ sort functions တွေကို လေ့လာနိုင်ပါတယ်။ ကျွန်တော်တို့ အခု section မှာတော့ a few sort functions အကြောင်းကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် asort ဟာဆိုရင် array ထဲမှာရှိတဲ့ array items တွေကို A-Z sort လုပ်ပေးသွားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်တော့ keys တွေဟာ change လုပ်မသွားပါဘူး။ ကျွန်တော်တို့ arrays keys ကို actually re-index လုပ်ချင်တဲ့အခါမှာ sort function ကိုအသုံးပြုလို့ရပါတယ်။ နောက် rsort function ဟာဆိုရင် values တွေကို reverse order ကို sort လုပ်ပေးတာဖြစ်ပါတယ်။ ဒီ functions sort တွေအားလုံးဟာ elements value ပေါ်မှာအခြေခံတာဖြစ်ပါတယ်။ နောက် shuffle function ကို အသုံးပြုပြီးတော့ randomly အရ sort လုပ်နိုင်ပါတယ်။ Sorting values အပြင် ကျွန်တော်တို့ဟာ array key နဲ့လည်း sort လုပ်နိုင်ပါတယ်။ ဒါကတော့ associative arrays နဲ့ useful ဖြစ်ပါတယ်။ အဲ့ဒါအတွက် ကျွန်တော်တို့ဟာ ksort နဲ့ krsort functions နှစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Ksort ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ array ကို alphabetically by key နဲ့ sort လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် capital letters တွေဟာ lowercase letters တွေမတိုင်ခင်မှာ sorted ဖြစ်တာဖြစ်ပါတယ်။ နောက် krsort ဟာ keys တွေကို reverse order မှာ sorts လုပ်တာြဖ်ပါတယ်။ ကျွန်တော်တို့ဟာ associative keys တွေကို value နဲ့ sort လုပ်နိုင်ပါတယ်။ Associative arrays တွေကို value နဲ့ sorting လုပ်တာဟာ asort and arsort ကိုအသုံးပြုတာနဲ့အတူတူပဲဖြစ်ပါတယ်။ Next section မှာတော့ ကျွန်တော်တို့ဟာother powerful features ဖြစ်တဲ့ loops အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Output Example</h2>
+<h3>Asort Function</h3>
+<img src="../../javaScriptExample/image/asort.png" alt="">
+<h3>Sort Function</h3>
+<img src="../../javaScriptExample/image/sort.png" alt="">
+<h3>Rsort Function</h3>
+<img src="../../javaScriptExample/image/rsort.png" alt="">
+<h3>Shuffle Function</h3>
+<img src="../../javaScriptExample/image/shuffle.png" alt="">
+<h3>Ksort Function</h3>
+<img src="../../javaScriptExample/image/ksort.png" alt="">
+<h3>Krsort</h3>
+<img src="../../javaScriptExample/image/krsort.png" alt=""><hr>
+<h1>Do While Looping</h1>
+<p>
+    Programming မှာဆိုရင် loop တစ်ခုဟာ the same action a certain number of time or until a certain condition is met ကို repeat လုပ်ဖို့ရန်အတွက် way တစ်ခုပဲဖြစ်ပါတယ်။ PHP ဟာဆိုရင် loops တွေကို create လုပ်ဖို့ရန်အတွက် several different ways ကို provides လုပ်ပေးထားပါတယ်။ အခု section မှာတော့ while loop ကို ကြည့်ရအောင်။ While loop ကို create လုပ်တဲ့နေရာမှာ while keyword နဲ့ set of parentheses ကို followed လုပ်ပေးရမှာဖြစ်ပါတယ်။ Condition တစ်ခုဟာဆိုရင် အဲ့ set of parentheses ထဲမှာ put လုပ်ပေးရမှာဖြစ်ပါတယ်။ While loop ဟာဆိုရင် condition ဟာ true ဖြစ်နေရင် runs လုပ်နေမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ 100 of years တွေကို output ထုပ်ပြထားတာဖြစ်ပါတယ်။ နောက် do while loop ဟာဆိုရင်တော့ သူ့ကို create လုပ်နေတဲ့နေရာ do keyword နဲ့ {} ထဲမှာ runs လုပ်ချင်တဲ့ code ကိုရေးပေရမှာဖြစ်ပါတယ်။ နောက် while မှာဆိုရင်လည်း while loop လိုပဲ set of parentheses ထဲမှာ condition ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $currentYear = date('Y');
+        $year = $currentYear - 100;
+        // while (++$year <= $currentYear){
+        //     echo $year . "<br />\n";
+        // }
+        do {
+            echo $year . "&lt;br /&gt;\n";
+        } while (++$year <= $currentYear);
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/dowhileloop.php">Test Yourself</a><hr>
+<h1>While Listing Array Values</h1>
+<p>
+    Arrays တွေဆိုတာကတော့ collection of items တွေဖြစ်ပါတယ်။ ဒါဟာ ဘာကိုဆိုလိုတာလဲဆိုတော့ often time မှာ array ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီနဲ့ same thing ကို လုပ်ချင်တာပဲဖြစ်ပါတယ်။ Loops တွေဟာဆိုရင် ကျွန်တော်တို့ကို အဲ့ဒါတွေကိုလုပ်ဆောင်ဖို့ allow လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ an entire array or part of an array တစ်ခုလုံးကို loop လုပ်နိုင်ပြီးတော့ item တစ်ခုချင်းစီပေါ်မှာ any number of actions တွေကို perform လုပ်ပါတယ်။ Example မှာဆိုရင် array ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီကို loop through လုပ်ဖို့ရန်အတွက် while loop ဘယ်လိုအသုံးပြုနိုင်တယ်ဆိုတာကို လုပ်ပြထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် PHP each function ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ Each function ဟာဆိုရင် array ကနေ current key and value pair ကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ နောက် list ဟာဆိုရင် function တစ်ခုတော့မဟုတ်ပါဘူး။ ဒါပေမဲ့ one operation မှာ list of variables တစ်ခုကို assign လုပ်ဖို့ရန်အတွက် အသုံးပြုထားတဲ့ language construct တစ်ခုဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $currentYear = date('Y');
+        $year = $currentYear - 100;
+        // while (++$year <= $currentYear){
+        //     echo $year . "<br />\n";
+        // }
+        /*do {
+            echo $year . "&lt;br /&gt;\n";
+        } while (++$year <= $currentYear);*/
+        $learn = array ('Conditionals', 'Arrays', 'Loops');
+        $learn []= 'Build something awesome!';
+        array_push($learn, 'Functions', 'Forms','Objects');
+        array_unshift($learn, 'HTML','CSS');
+        asort($learn);
+        $count = 0;
+        while ((list($key, $val) = each($learn)) && $count++ < 2) {
+            echo "$key => $val\n";
+        }
+        ?>
+    </code>
+</pre>
+<h3>Output Example</h3>
+<img src="../../javaScriptExample/image/do.png" alt=""><hr>
+<h1>Example Ping Pong</h1>
+<p>
+    အခုတစ်ခါမှာတော့ loops ကိုအသုံးပြုပြီးတော့ ping pong example တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        $player1 = 0;
+        $player2 = 5;
+        $round = 0;
+        //WIN 
+        //player must rreach a score of 11
+        //player must be minimum of 2 point higher than opponent
+        //NOT WINNER
+        while (abs($player1 - $player2) < 2 ||( $player1 < 11 && $player2 < 11)){
+            //NOT WINNER
+            //randomly increment on of player scores each round
+            $round++;
+            echo "&lt;h2&gt; Round $round &lt;/h2&gt;\n";
+            if (rand(0,1)) {
+                $player1++;
+            } else {
+                $player2++;
+            }
+            echo "Player1 = $player1&lt;br /&gt;\n";
+            echo "Player2 = $player2&lt;br /&gt;\n";
+        }
+        echo "&lt;h1&gt;";
+        if ($player1 &gt; $player2){
+            echo "Player1";
+        } else{
+            echo "Player2";
+        }
+        echo "is the winner after $round rounds!&lt;/h1&gt;";
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/pingpong.php">Test Yourself</a><hr>
+<h1>For Loops</h1>
+<p>
+    အခု section မှာတော့ next loop ဖြစ်တဲ့ for loop ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ For loop ဟာဆိုရင် PHP မှာ most complex loops ဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူတို့ဟာ expressions 3 ခုကို အသုံးပြုတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ First expression ဟာ once ကို executed လုပ်ပါတယ်။ Beginning of each iteration expression two ဟာ evaluated လုပ်တာဖြစ်ပါတယ်။ ဒါဟာ conditional part ဖြစ်ပါတယ်။ True ကို evaluates လုပ်တယ်ဆိုရင်တော့ loop ဟာ continues ဖြစ်ပြီးတော့ statement block ကို executed လုပ်မှာဖြစ်ပါတယ်။ False ကို evaluates လုပ်တယ်ဆိုရင် execution of the loop ဟာ ends ဖြစ်သွားမှာဖြစ်ပါတယ်။ At the end of each iteration expression three ဟာ executed ဖြစ်တာဖြစ်ပါတယ်။ For loops တွေကို numbers တွေကို looping through လုပ်တဲ့အချိန်မှာ အသုံးပြုလိုရသလို index arrays တွေနဲ့လည်း အသုံးပြုလို့ရပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+
+        for ($currentYear = date('Y'), $year = $currentYear - 100; $year <=$currentYear;$year++){
+            echo $year . "&lt;br /&gt;\n";
+        }
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/forloop.php">Test Yourself</a><hr>
+<h1></h1>
+<p>
+    ကျွန်တော်တို့ အခု section မှာ foreach loops ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Foreach loops ကို any type array နဲ့ အသုံးပြုနိုင်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ရဲ့ array မှာ any key value တွေရှိနိုင်ပါတယ်။ Foreach loop တစ်ခုကို while statement နဲ့ each function တို့ကို combining လုပ်တာနဲ့ a lot like တစ်ခုဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ multi--dimensional array နဲ့ အသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် $item ဟာ list ထဲက item တစ်ခုကို variable တစ်ခုထဲကို loop တစ်ခုချင်းစီမှာ assign လုပ်ပေးတာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        include 'list.php';
+        echo '&lt;table&gt;';
+        echo '&lt;tr&gt;';
+        echo '&lt;th&gt; Title&lt;/th&gt;';
+        echo '&lt;th&gt; Priority&lt;/th&gt;';
+        echo '&lt;th&gt; Due Date&lt;/th&gt;';
+        echo '&lt;th&gt; Complete&lt;/th&gt;';
+        echo '&lt;/tr&gt;';
+        foreach ($list as $item){
+            echo '&lt;tr&gt;';
+            echo '&lt;td&gt;' . $item['title'] . "&lt;/td&gt;\n";
+            echo '&lt;td&gt;' . $item['priority'] . "&lt;/td&gt;\n";
+            echo '&lt;td&gt;' . $item['due'] . "&lt;/td&gt;\n";
+        
+            echo '&lt;td&gt;';
+            if ($item['complete']){
+                echo 'Yes';
+            } else{
+                echo 'NO';
+            }
+            echo "&lt;/td&gt;\n";
+            echo '&lt;/tr&gt;';
+        }
+        echo '&lt;/table&gt;';
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/todo.php">Test Yourself</a><hr>
+<h1>To Do Program</h1>
+<p>
+    အခု section မှာတော့ To Do Program ကို complete ဖြစ်အောင်လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ 
+</p>
+<pre>
+    <code>
+        &lt;?php
+        include 'list.php';
+        $status = 'all';
+        $filter = array();
+        foreach ($list as $key => $item){
+        if ($status== 'all' || $item['complete'] == $status){
+            $filter[] = $key;
+            // echo '&lt;pre&gt;';
+            // var_dump($key,$item);
+            // echo '&lt;/pre&gt;';
+        }
+        //echo $key . ' = ' . $item['title'] . "&lt;br /&gt;\n";
+            echo '&lt;pre&gt;';
+            var_dump ($status, boolval('all'), $status == 'all');
+        // var_dump($filter, $list);
+            echo '&lt;/pre&gt;';
+        }
+        echo '&lt;table&gt;';
+        echo '&lt;tr&gt;';
+        echo '&lt;th&gt; Title&lt;/th&gt;';
+        echo '&lt;th&gt; Priority&lt;/th&gt;';
+        echo '&lt;th&gt; Due Date&lt;/th&gt;';
+        echo '&lt;th&gt; Complete&lt;/th&gt;';
+        echo '&lt;/tr&gt;';
+        foreach ($filter as $id){
+        echo '&lt;tr&gt;';
+        echo '&lt;td&gt;' . $list[$id]['title'] . "&lt;/td&gt;\n";
+        echo '&lt;td&gt;' . $list[$id]['priority'] . "&lt;/td&gt;\n";
+        echo '&lt;td&gt;' . $list[$id]['due'] . "&lt;/td&gt;\n";
+
+        echo '&lt;td&gt;';
+        if ($list[$id]['complete']){
+            echo 'Yes';
+        } else{
+            echo 'NO';
+        }
+        echo "&lt;/td&gt;\n";
+        echo '&lt;/tr&gt;';
+        }
+        echo '&lt;/table&gt;';
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/todo.php">Test Yourself</a><hr>
+<h1>Sorting Multidimensional Arrays</h1>
+<p>
+    အခု ကျွန်တော်တို့ next feature တစ်ခုဖြစ်တဲ့ ability တစ်ခုကတော့ sort လုပ်ဖို့ရန် filed ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ရဲ့ filter array မှာ values နှစ်ခု ပါဝင်ဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့ရဲ့ list array ထဲမှာအသုံးပြုထားတဲ့ ID ကိုလည်း store လုပ်ဖို့ရန်လိုပါသေးတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ sorting အတွက် အသုံးပြုဖို့ရန်အတွက် information တွေကိုလည်း လိုအပ်ပါတယ်။ ကျွန်တော်တို့ PHP ကနေ ကျွန်တော်တို့ရဲ့ filter array အတွက် key တစ်ခုကို automatically to produce လုပ်တာအစား ကျွန်တော်တို့ဟာ own key value pair ကို set လုပ်နိုင်ပါတယ်။ အဲ့လို set လုပ်တဲ့နေရာမှာ key ဟာ unique ဖြစ်ရပါမယ်။ ကျွန်တော်တို့ဟာ same key ကို အသုံးပြုမယ်ဆိုရင် သူဟာ existing value ကို override လုပ်သွားမှာဖြစ်ပါတယ်။ 
+</p>
+<h2>Code Example</h2>
+<pre>
+    <code>
+        &lt;?php
+        include 'list.php';
+        $status = false;
+        $field = 'priority';
+        $filter = array();
+        foreach ($list as $originalKey => $item){
+        if ($status== 'all' || $item['complete'] == $status){
+            if (isset($field) && isset($item[$field])){
+                $filter[$originalKey] = $item[$field];
+            } else{
+                $filter[$originalKey] = $item['priority']+12;
+            }
+            // echo '&lt;pre&gt;';
+            // var_dump($key,$item);
+            // echo '&lt;/pre&gt;';
+        }
+        //echo $key . ' = ' . $item['title'] . "&lt;br /&gt;\n";
+        asort($filter);
+        //echo '&lt;pre&gt;';
+        //var_dump($filter);
+        //var_dump ($status, boolval('all'), $status == 'all');
+        // var_dump($filter, $list);
+            echo '&lt;/pre&gt;';
+        }
+        echo '&lt;table&gt;';
+        echo '&lt;tr&gt;';
+        echo '&lt;th&gt; Title&lt;/th&gt;';
+        echo '&lt;th&gt; Priority&lt;/th&gt;';
+        echo '&lt;th&gt; Due Date&lt;/th&gt;';
+        echo '&lt;th&gt; Complete&lt;/th&gt;';
+        echo '&lt;/tr&gt;';
+        foreach ($filter as $id =&gt; $value){
+        echo '&lt;tr&gt;';
+        echo '&lt;td&gt;' . $list[$id]['title'] . "&lt;/td&gt;\n";
+        echo '&lt;td&gt;' . $list[$id]['priority'] . "&lt;/td&gt;\n";
+        echo '&lt;td&gt;' . $list[$id]['due'] . "&lt;/td&gt;\n";
+
+        echo '&lt;td&gt;';
+        if ($list[$id]['complete']){
+            echo 'Yes';
+        } else{
+            echo 'NO';
+        }
+        echo "&lt;/td&gt;\n";
+        echo '&lt;/tr&gt;';
+        }
+        echo '&lt;/table&gt;';
+        ?>
+    </code>
+</pre>
+<a href="../phpexample/todo.php" target="_blank">Test Yourself</a><hr>
+</body>
+</html>

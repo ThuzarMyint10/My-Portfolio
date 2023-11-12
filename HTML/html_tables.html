@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+</style>
+<body>
+    <h1>Overview of Tables</h1>
+    
+    <p>
+            ကျွန်တော်တို့အခု HTML tables ကိုအသေးစိတ်လေ့လာကြည့်ကြစို့။ HTML table ဆိုတာ tabular data လို့ခေါ်တဲ့ information တွေကို display လုပ်ပေးတာပဲဖြစ်ပါတယ်။ အဲ့ information တွေကို table တွေကို columns တွေ rows တွေနဲ့ stored လုပ်ထားတာဘဲဖြစ်ပါတယ်။ Table ဟာ paragraphs and images တို့ထက်အရင်ပေါ်လာတာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် table တစ်ခုဆောက်တဲ့နေရာမှာ ကျွန်တော်တို့ဟာ table cells တစ်ခုချင်းစီနဲ့ အဲ့ cells တွေပါဝင်တဲ့ rows တွေကို represent လုပ်ဖို့ရန်အတွက် elements တွေကိုအသုံးပြုဖို့လိုပါတယ်။ CSS မှာဆိုရင် table ကို create လုပ်တာဟာ browser defaults ထက်ပိုပြီးကောင်းပါတယ်။
+    </p><hr>
+    <h1>How to create a Basic Table</h1>
+    <p>
+        ကျွန်တော်အခု Table တစ်ခုကို ဘယ်လို create လုပ်တယ်ဆိုတာနဲ့ သူ့ထဲကို rows တွေ cells တွေကို ဘယ်လို put လုပ်တယ်ဆိုတာကို ပြောပြပေးသွားမှာ ဖြစ်ပါတယ်။ Table တစ်ခုကို create လုပ်တဲ့ အခါ &lt;table&gt; tag ကို အသုံးပြုရမှာ ဖြစ်ပါတယ်။ &lt;table&gt; tag ထဲမှာ attribute တွေထည့်သုံးနိုင်ပါတယ်။ အဲ့ဒါတွေကတော့ border, rules, bgcolor, cellspacing, etc. အသုံးပြုနိုင်ပါတယ်။ Table ထဲကို rows တွေထည့်ချင်ရင် &lt;tr&gt; tag ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့ &lt;tr&gt; tag ထဲကို data or cells တွေကို &lt;td&gt; tag ကို သုံးပေးရပါမယ်။ အဲ့ tag တွေဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို အောက်က example မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Document&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;table&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Name&lt;/td&gt;
+                        &lt;td&gt;E-mail&lt;/td&gt;
+                        &lt;td&gt;Job role&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Nick Pattit&lt;/td&gt;
+                        &lt;td&gt;nick@gmail.com&lt;/td&gt;
+                        &lt;td&gt;web designer&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Thu Zar Myint &lt;/td&gt;
+                        &lt;td&gt;thuzarmyint795@gmail.com&lt;/td&gt;
+                        &lt;td&gt;web developer&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Myo Min Htet&lt;/td&gt;
+                        &lt;td&gt;myomin@gamil.com&lt;/td&gt;
+                        &lt;td&gt;web developer&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            
+              
+                    
+            
+                
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/table_1.html">Output>>>>></a><hr>
+
+    <h1>How to create Table Header and Cell elements</h1>
+    <p>
+            အခုကျွန်တော်ပြောချင်တဲ့အကြောင်းလေးကတော့ Tables တွေအကြောင်းပဲဖြစ်ပါတယ်။ Tables တွေအကြောင်းကို သိသင့်သလောက်သိထားပြီဖြစ်ပါတယ်။ ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ဟာ labeling name ကို table header cells တွေလို့ထင်နိုင်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့ဟာ labeling  columns လည်းမဟတ်သလို labeling rows တွေလည်းမဟုတ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Table header ဟာဆိုရင်အမှန်တစ်ကယ် labeling ဖြစ်နေတဲ့ row တစ်ခု(သို့) column တစ်ခုပဲဖြစ်ပါတယ်။ Columns တွေဟာ rows တစ်ခုချင်းစီးရဲ့ header ဖြစ်နိုင်ပါတယ်။ ဒီမှာဆိုရင် scope attribute ကိုအသုံးပြုပါမယ်။ အဲ့ attribute ဟာ header ဟာ row နဲ့ လည်းတူသလို column နဲ့လည်းအတူတူဖြစ်တယ်ဆိုတာကို ဖော်ပြတာပဲဖြစ်ပါတယ်။ကျွန်တော်ပြောပြခဲ့တာတွေကို အောက်က example မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Name&lt;/th&gt;
+                            &lt;th&gt;E-mail&lt;/th&gt;
+                            &lt;th&gt;Job role&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Nick Pattit&lt;/th&gt;
+                            &lt;td&gt;nick@gmail.com&lt;/td&gt;
+                            &lt;td&gt;web designer&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Thu Zar Myint &lt;/th&gt;
+                            &lt;td&gt;thuzarmyint795@gmail.com&lt;/td&gt;
+                            &lt;td&gt;web developer&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Myo Min Htet&lt;/th&gt;
+                            &lt;td&gt;myomin@gamil.com&lt;/td&gt;
+                            &lt;td&gt;web developer&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                
+                  
+                        
+                
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/mm.html">Output>>>>></a><hr>
+    <h1>About Table Head and Body</h1>
+    <p>
+        အခုတစ်ခါ Table နဲ့ ပါတ်သတ်ပြီး ရှင်းပြပေးသွားမှာကတော့ Table ရဲ့ header အကြောင်းနဲ့ Table ရဲ့ body အကြောင်းပဲဖြစ်ပါတယ်။ &lt;thead&gt; tag ကို table ရဲ့ head အတွက်အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Table ရဲ့ body အတွက်ကတော့ &lt;tbody&gt; tag ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ &lt;thead&gt; tag ကိုသုံးတဲ့ အခါမှာ အဲ့ tag သုံးထားတဲ့ rows ဟာ တစ်ခြား rows တွေနဲ့ မတူဘဲ highlight ပြပေးမှာဖြစ်ပါတယ်။ &tl;tbody&gt; tag ကိုတော့ table ရဲ့ data တွေအတွက်အသုံးနိုင်ပါတယ်။ အဲ့လိုအသုံးပြုတာဟာ table ထဲမှာရှိတဲ့ data တွေကို ဘယ် data တွေက head ဖြစ်ပြီးတော့ ဘယ် data တွေက table ရဲ့ body ဖြစ်တယ်ဆိုတာကို သိရှိစေမှာဖြစ်ပါတယ်။ အောက်က example မှာ သူတို့ရဲ့ အသုံးပြုပုံကို လေ့လာကြည့်နိုင်ပါတယ်။
+    </p>
+    <pre> 
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;title&gt;Document&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                   &lt;table&gt;
+                       &lt;thead&gt;
+                           &lt;tr&gt;
+                             &lt;th&gt;Name&lt;/th&gt;
+                             &lt;th&gt;E-mail&lt;/th&gt;
+                             &lt;th&gt;Job role&lt;/th&gt;
+                           &lt;/tr&gt;
+                      &lt;/thead&gt;
+                      &lt;tbody&gt;
+                    
+                           &lt;tr&gt;
+                             &lt;th&gt;Nick Pattit&lt;/th&gt;
+                             &lt;td&gt;nick@gmail.com&lt;/td&gt;
+                             &lt;td&gt;web designer&lt;/td&gt;
+                           &lt;/tr&gt;
+                           &lt;tr&gt;
+                             &lt;th&gt;Thu Zar Myint&lt;/th&gt;
+                             &lt;td&gt;thuzarmyint795@gmail.com&lt;/td&gt;
+                             &lt;td&gt;web developer&lt;/td&gt;
+                           &lt;/tr&gt;
+                           &lt;tr&gt;
+                             &lt;th&gt;Myo Min Htet&lt;/th&gt;
+                             &lt;td&gt;myomin@gamil.com&lt;/td&gt;
+                             &lt;td&gt;web developer&lt;/td&gt;
+                           &lt;/tr&gt;
+                       &lt;/tbody&gt;
+                   &lt;/table&gt;
+                
+                  
+                        
+                
+                    
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/table_headandbody.html">Output>>>>></a><hr>
+    <h1>About Table Footer Element</h1>
+    <p>
+            Table ထဲ foot element ဟာဘယ်လို effect ဖြစ်တယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ Footer element ဆိုတာ table ရဲ့ summary ပဲဖြစ်ပါတယ်။ ပြောချင်တာကတော့ သူဟာ column တစ်ခုချင်စီရဲ့ sums, totals, and averages တွေကို ဖော်ပြပေးတာပဲဖြစ်ပါတယ်။ A table footer မှာဆိုရင် table နဲ့ ပါတ်သတ်တဲ့ meta-information တွေပါဝင်ပါတယ်။ သူဟာ colspan attribute မပါဘဲအသုံးပြုရင် သူဟာ column တစ်ခုထဲကိုပဲ apply လုပ်မှာဖြစ်ပါတယ်။ span attribute ကိုသုံးမှသာ columns အားလုံးကို apply လုပ်မှာဖြစ်ပါတယ်။ အဲ့ colspan attribute ထဲမှာ ကိုယ် apply လုပ်စေချင်တဲ့ column အရေးအတွက်ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <pre> 
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;table border="5"&gt;
+                        &lt;thead bgcolor="2F4F4F"&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Name&lt;/th&gt;
+                              &lt;th&gt;E-mail&lt;/th&gt;
+                              &lt;th&gt;Job role&lt;/th&gt;
+                            &lt;/tr&gt;
+                       &lt;/thead&gt;
+                       &lt;tfoot&gt;
+                           &lt;tr&gt;
+                               &lt;td colspan="3"&gt;Data is updated every 15 minutes.&lt;/td&gt;
+                           &lt;/tr&gt;
+                       &lt;/tfoot&gt;
+                       &lt;tbody&gt;
+                    
+                            &lt;tr&gt;
+                              &lt;th&gt;Nick Pattit&lt;/th&gt;
+                              &lt;td&gt;nick@gmail.com&lt;/td&gt;
+                              &lt;td&gt;web designer&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Thu Zar Myint &lt;/th&gt;
+                              &lt;td&gt;thuzarmyint795@gmail.com&lt;/td&gt;
+                              &lt;td&gt;web developer&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Myo Min Htet&lt;/th&gt;
+                              &lt;td&gt;myomin@gamil.com&lt;/td&gt;
+                              &lt;td&gt;web developer&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                
+                  
+                        
+                
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/tablefooter.html" aria-colspan="7FFFD4">Output>>>>></a><hr>
+    <h1>About Table Caption</h1>
+    <p>
+            နောက်ထပ် table ထဲမှာ သုံးလို့ရတဲ့ tag တစ်ခုကတော့ table တွေကို title လို့ခေါ်တဲ့ caption tag ပဲဖြစ်ပါတယ်။ အဲ့ tag ကိုတော့ table ကို caption ထည့်ချင်တဲ့ အခါမှာအသုံးပြုနိုင်ပါတယ်။ အဲ့ tag ကို ကျွန်တော်ကအောက်မှာဖော်ပြပေးထားပါတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;table border="3"&gt;
+                        &lt;caption&gt;Employee Infromation&lt;/caption&gt;
+                        &lt;thead bgcolor="FFFAFA"&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Name&lt;/th&gt;
+                              &lt;th&gt;E-mail&lt;/th&gt;
+                              &lt;th&gt;Job role&lt;/th&gt;
+                            &lt;/tr&gt;
+                       &lt;/thead&gt;
+                       &lt;tfoot&gt;
+                           &lt;tr&gt;
+                               &lt;td colspan="3"&gt;Data is updated every 15 minutes.&lt;/td&gt;
+                           &lt;/tr&gt;
+                       &lt;/tfoot&gt;
+                       &lt;tbody&gt;
+                    
+                            &lt;tr&gt;
+                              &lt;th&gt;Nick Pattit&lt;/th&gt;
+                              &lt;td&gt;nick@gmail.com&lt;/td&gt;
+                              &lt;td&gt;web designer&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Thu Zar Myint &lt;/th&gt;
+                              &lt;td&gt;thuzarmyint795@gmail.com&lt;/td&gt;
+                              &lt;td&gt;web developer&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                              &lt;th&gt;Myo Min Htet&lt;/th&gt;
+                              &lt;td&gt;myomin@gamil.com&lt;/td&gt;
+                              &lt;td&gt;web developer&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                
+                  
+                        
+                
+                    
+                &lt;/body&gt;
+                &lt;/html&gt;
+
+        </code>
+    </pre>
+    <a href="../Example/table_caption.html">Output>>>>></a><hr>
+    <h1>How to use Table</h1>
+    <p>
+            အခုတစ်ခါကျွန်တော်ပြောပြပေးမှာကတော့ table တွေကို ဘယ်လိုနေရာတွေမှာအသုံးပြုတယ် ဆိုတာဘဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ table တွေကို web browser တစ်ခုမှာ layout အတွက် ဘယ်တော့မှာအသုံးပြုလို့မရပါဘူး။ Table တွေကို tabular data တွေကို display လုပ်ဖို့အတွက်သာအသုံးပြုနိုင်ပါတယ်။ သူ့ဟာ CSS နဲ့ တွဲပြီး အလုပ်လုပ်နိုင်သောကြောင့် သူ့ကို images and text တွေကို positioning လုပ်ဖို့အတွက် အသုံးမပြုနိုင်ပါတယ်။ HTML ရဲ့ emails တွေ tables တွေမှာ layout အတွက် အသုံးပြုပါတယ်။ တစ်ကယ်လို့ front end development ကို လေ့လာတဲ့အခါမှာ table ထဲကို jQuery အချို့ကို add လုပ်ပေးဖို့လိုပါတယ်။ အဲ့လိုလုပ်တဲ့နေရာမှာ right plug-in နဲ့ အခြား static table ထဲကို sorting and filtering လို features တွေကို add လုပ်နိုင်ပါတယ်။ တစ်ကယ်လို့ Ruby, PHP and Python တု့ိလို back end languages တွေကို လေ့လာတဲ့ အခါမှာ database တစ်ခုကနေ data တွေကို အသုံးပြုပြီး table တစ်ခုကို populate လုပ်နိုင်ပါတယ်။ Database ဆိုတာ table structure တစ်ခုထဲမှာ information တွေကို store လုပ်ထားတာဘဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် database တစ်ခုက data တွေကို အလွယ်တစ်ကူမြင်နိုင်ပါတယ်။
+    </p><hr>
+    
+</body>
+</html>

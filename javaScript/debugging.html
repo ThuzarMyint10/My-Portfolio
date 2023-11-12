@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Lesson</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>What is debugging?</h1>
+    <p>
+        အခု section မှာလေ့လာမှာကတော့ browser ထဲမှာ debugging JavaScript အတွက် techniques အချို့ကို
+        လေ့လာသွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ debugging ဆိုတာဘာလဲ။ Debugging ဆိုတာကတော့ software ထဲမှာတွေ့ရတဲ့ defects
+        တေကို finding and resolving လုပ်တဲ့ process ပဲဖြစ်ပါတယ်။ နောက်သူဟာ developers တွေဟာ သူတိုရဲ့ code ထဲမှာ
+        ဘာတွေမှားနေတယ်ဆိုတာကို မြန်မြန် identify လုပ်ဖို့ရန်အတွက် အသုံးပြုတဲ့ way တစ်ခုလည်းဖြစ်ပါတယ်။ Program ရဲ့
+        specific moments မှာရှိတဲ့ logging variables တွေဟာ ကျွန်တော်တို့ကို program ရဲ့ ဘယ်နေရာတွေမှာ မှားနေတယ်ဆိုတာကို
+        အလွယ်တကူသိရှိစေပါတယ်။ အဲ့မှာဆိုရင် console.log() နဲ့ အလုပ်လုပ်တဲ့ some issues တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ
+        editor ထဲမှာ log statements တွေကို write လုပ်ပြီးတော့ save လုပ်ပြီးတော့ browser မှာ switch လိုက်ပြီးတော့ refresh
+        လုပ်လိုက်တဲ့အခါမှာ value ဟာ console မှာ helpful မဖြစ်ခဲ့ဘူးဆိုရင် ကျွန်တော်တို့ဟာ editor code ကို
+        ပြန်သွားရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ debugging ကို လုပ်ဆောင်ပြီးတဲ့နောက်မှာ program ကို ပြန်သွားပြီးတော့
+        ကျွန်တော်တို့ write လုပ်လိုက်တဲ့ log statements တွေကို remove လုပ်ပေးရမှာဖြစ်ပါတယ်။ တစ်ခါတစ်လေမှာတော့ value
+        ဟာဆိုရင် console မှာ live ဖြစ်နေတတ်ပါတယ်။ ဆိုလိုတာကတော့ သူဟာ state of program နဲ့ change လုပ်နိုင်ပါတယ်။ Example
+        div element တစ်ခုကို သူရဲ့ class name inspect လုပ်တဲ့အခါမှာ div ရဲ့ class name ဟာ change သွားတာတို့ဖြစ်ပါတယ်။
+        Program ဟာ quickly run လုပ်တဲ့အတွက် ကြောင့် debugging ဟာ program ကို stopping လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါဟာ
+        debugging ရဲ့ first step ဖြစ်ပါတယ်။ Program ကို specific line of code မှာ stopping လုပ်တာဖြစ်ပါတယ်။ Program
+        တစ်ခု တစ်ကြိမ် pause ဖြစ်သွားတဲ့အခါမှာ အဲ့ pause ဖြစ်တဲ့ point မှာရှိတဲ့ different values တွေကို
+        မြင်ရမှာဖြစ်ပါတယ်။ အဲ့ values တွေကတော့ strings လည်းဖြစ်နိုင်သလို အခြား ကျန်တဲ့ numbers, or even dom elements
+        တွေလည်းဖြစ်နိုငင်ပါတယ်။ အဲ့မှာ ဘယ်လို variables တွေပဲရှိရှိ ဘာမှမဖြစ်ပါဘူး။ ကျွန်တော်တို့ဟာ values တွေကို change
+        လုပ်လိုက်တဲ့အခါမှာ program ကို ဘယ်လို effect ဖြစ်တယ်ဆိုတာကို စမ်းသပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့ debugging ရဲ့ second
+        step ပဲဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ time တစ်ခုမှာ program one line ကို execute or run လုပ်ဖို့ရန်အတွက် ready
+        ဖြစ်တာကို debugging ရဲ့ third phase ဖြစ်ပါတယ်။ code တွေကို line by line stepping လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ way နဲ့
+        ကျွန်တော်တို့ဟာ program run လုပ်တဲ့အခါမှာ program ထဲမှာ ဘာတွေဖြစ်နေတယ်ဆိုတာကို မြင်နိုင်ပါတယ်။ Program change
+        ထဲမှာ variables, values and objects တွေကို လည်းမြင်နိုင်ပါတယ်။ နောက်ဆုံးကတော့ problems တွေကို identify
+        လုပ်တဲ့နေရာမှာ fixing ဖြစ်ဖို့လိုပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် editor ကို ပြန်သွားပြီးတော့ program ကို
+        fix the bug , and check လုပ်ပေးရမှာဖြစ်ပါတယ်။ Debugging လုပ်နေချိန်မှာ cycle လို့ပဲ
+        အကြိမ်အများကြီးရှိနိုင်ပြီးတော့ four steps ဟာ ကျွန်တော်တို့ရဲ့ program ဟာ ကျွန်တော်တို့ လုပ်ဆောင်စေသလို
+        လုပ်ဆောင်တဲံအထိ repeating ဖြစ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် debug လုပ်ဖို့ရန်အတွက် tools တွေအများကြီးရှိပါတယ်။
+        တစ်ခုကတော့ Google's Chrome browser ရဲ့ right မှာ built လုပ်ထားတဲ့ dev tools ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Breaking on Events and Basic Stepping</h1>
+    <p>
+        Example page မှာဆိုရင် confirm ကို click လုပ်လိုက်တဲ့အခါမှာ list item တွေဟာ highlight ဖြစ်သွားသင့်ပါတယ်။
+        ပြီးတော့ အဲ့ဒါကို uncheck လုပ်လိုက်တဲ့အခါမှာ list item တွေဟာ သူတို့ရဲ့ highlight ကို ပျောက်သွားရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါ့ကို ကျွန်တော်တို့ရဲ့ first debug အနေနဲ့ လုပ်ဆောင်သွားရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့ရန်အတွက် developer tools ကို open လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အခု section မှာတော့ Source tab
+        အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ tab အောက်မှာဆိုရင် panes ၃ ခုကိုတွေ့ရပါလိမ့်မယ်။ သူတို့ကို visible
+        မလုပ်ချင်ဘူးဆိုရင် အဲ့မှာရှိတဲ့ button ၃ ခု နဲ့ သူတို့ကို expanding လုပ်နိုင်ပါတယ်။ Left pane မှာဆိုရင် file
+        tree တစ်ခုကိုတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် app.js ကို click လုပ်လိုက်တဲ့အခါမှာ app.js ရဲ့ contents
+        တွေအားလုံးဟာ middle pane မှာ တွေ့မြင်ရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ click လုပ်လိုက်လို့ contents တွေကို
+        မတွေ့ရတဲ့အခါမှာ browser ရဲ့ refresh button ကို ပြန်လိုက်ပေးလိုက်ရင်ရပါတယ်။ နောက်တစ်ခု အပေါ်ဆုံးနားလေးမှာဆိုရင်
+        app ကို ကျွန်တော်တို့ဟာ ဘယ်လို serving လုပ်တယ်ဆိုတာနဲ့ ပါတ်သတ်တဲ့ name တစ်ခုကိုတွေ့ရပါတယ်။ နောက်အောက်မှာဆိုရင်
+        Google ကနေ လာတဲ့ Web Fonts တို့လို others sources တွေကနေ pull လုပ်ထားတဲ့ assets တွေရှိပါသေးတယ်။ Right pane
+        မှာဆိုရင် tools အတော်များများကို တွေ့ရပါလိမ့်မယ်။ အဲ့ tools တွေကို အသုံးပြပြီးတော့ ကျွန်တော်တို့ရဲ့ code တွေကို
+        debug လုပ်နိုင်ပါတယ်။ First အနေနဲ့ problem ကို ဘယ်လို ကိုင်တွယ်သင့်တယ်ဆိုတာကို စဉ်းစားရမှာဖြစ်ပါတယ်။ Bug
+        ဟာဆိုရင် boxes တွေကို check and uncheck လုပ်တဲ့အချိန်မှာဖြစ်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် program ဟာ respond
+        မမြန်နိုင်ပါဘူး။ Event change တွေတွေ့ရတဲ့အခါမှာ execution လုပ်ဆောင်ကြရအောင်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက်
+        breakpoint တစ်ခုကို setting လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        Example မှာဆိုရင် list ရဲ့ Event Listener breakpoints တွေကို expanding လုပ်ပြီးတော့ breakpoint တစ်ခုကို set
+        လုပ်မှာရမှာဖြစ်ပါတယ်။ Right ဘက်မှာဆိုရင် ကျွန်တော်တို့ break လုပ်နိုင်တဲ့ types or events တွေရှိပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ problem အတွက် control ကို click ပြီးတော့ အဲ့ထဲကမှ check ကို click
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ page ရဲ့ check box ကို click လုပ်တဲ့အခါမှာ သူဟာ ကျွန်တော်တို့ debug
+        လုပ်ရချင်တဲ့ line ကို highlight လုပ်ပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ရဲ့ code ထဲမှာရှိတဲ့ listener
+        functions စတဲ့နေရာပဲဖြစ်ပါတယ်။ Right pane ကို သွားကြည့်တဲ့အခါမှာ အဲ့မှာဆိုရင် current function ထဲမှာရှိတဲ့ list
+        of the variables တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ any lines of handler တွေ execute မလုပ်ခင်မှာ paused
+        လုပ်တဲ့အတွကကြောင့် အဲ့မှာဆိုရင် variables ၃ ခုကို assigned လုပ်ထားတာပဲဖြစ်ပါတယ်။ နောက်သူတို့ဟာ undefined
+        တွေဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ function ဆီကို သွားတဲ့အခါမှာ သူတို့ဟာ values တွေကို assign လုပ်ဖို့ဖြစ်လာပါတယ်။
+        အဲ့မှာဆိုရင် e ဟာ event object ဖြစ်ပါတယ်။ သူတို့ defined လုပ်ထားတဲ့ event တွေကို trigger လုပ်လိုက်တဲ့အခါမှာ pass
+        လုပ်ထားတာဖြစ်ပါတယ်။ နောက် object ရဲ့ properties တွေဟာ အဲ့လို လုပ်တေနတဲ့အချိန်မှာ program ကို pause
+        လုပ်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် this keyword ကိုတွေ့ပါလိမ့်မယ်။ သူဟာ bid topic တစ်ခုဖြစ်ပြီးတော့ JavaScript
+        functions အားလုံးကို present လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ line တစ်ခုချင်းစီကို step by step သွားချင်တဲ့
+        အခါမှာ Step over ဆိုတဲ့ button ကိုအသုံးပြုနိုင်ပါတယ်။
+        ကျွန်တော်တို့အခုလေ့လာခဲ့တာဟာ Dev tools ထဲမှာရှိတဲ့ Sources tab ရဲ့ overview ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ browser
+        event တစ်ခုပေါ်မှာ ကျွန်တော်တို့ရဲ့ first breakpoint တစ်ခုကို set လုပ်ခဲ့တာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        function execute လုပ်နေတဲ့အခါမှာ variables နဲ့ သူတို့ရဲ့ values တွေကို
+        ဘယ်မှာသွားကြည့်ရမယ်ဆိုတာကိုလည်းသိရှိသွားပြီဖြစ်ပါတယ်။ နောက် function ကို line by line သွားပြီးတော့ values တွေ
+        change သွားကို ကြည့်ဖို့ရန်အတွက် Step over button ကို လည်းသိခဲ့ပြီဖြစ်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/debug.png">
+
+    <pre>
+         <code>
+              
+                ul.addEventListener('change', (e) => {
+                    const checkbox = e.target;
+                    const listItem = checkbox.parentNode.parentNode;
+                    const checked = checkbox.checked;
+
+                    if (checked) {
+                    listItem.className = 'responded';
+                    } else {
+                    listItem.className = '';
+                    }
+                });
+         </code>
+     </pre>
+    <a href="../javaScriptExample/index.html">Test Yourself</a>
+    <hr>
+    <h1>Conditional Line Breakpoints</h1>
+    <p>
+        အခု အဲ့ program ကိုပဲ another bug တစ်ခုကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် Hide checkbox ကို click
+        လုပ်လိုက်တဲ့ချိန်မှာ confirm checkbox ကို click မလုပ်ရသေးတဲ့ သူတွေဟာ page ကနေ disappear ဖြစ်ရမှာဖြစ်ပါတယ်။ Dev
+        tools ကို ဖွင့် ပြီးတော့ အရင် section အတိုင်းလုပ်ဆောင်လိုက်တဲ့အခါမှာ debugger ဟာ line 17 မှာ pause
+        လုပ်နေတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ program ကို stepping မလုပ်ခင်မှာ ကျွန်တော်တို့ သိထားရမှာက for loop ထဲမှာ
+        ဘယ်လိုတွေဖြစ်နေတယ်ဆိုတာကို သိရမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ဟာ specific line of code တစ်ခုကို breakpoint
+        တစ်ခုကို setting လုပ်သွားမှာဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ browser events တွေပေါ်မှာ
+        breakpoints တွေကို set လုပ်ခဲ့တာဖြစ်ပါတယ်။ အခုတစ်ခါမှာတော့ line တစ် line ပေါ်မှာ breakpoint တစ်ခုကို set
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Breakpoint တစ်ခုကို set လုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ breakpoint လုပ်ချင်တဲ့ line number
+        ကို click လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် line 23 ကို breakpoint လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာကျွန်တော်တို့ဟာ
+        highlight ကို line 23 ကို ပို့ချင်တဲ့အခါမှာ play button ကို click လုပ်လိုက်ရုံပါပဲ။ Dev tools ဟာဆိုရင် certain
+        condition တစ်ခုကို တွေရင် breakpoint ကို set လုပ်ပြီးတော့ pause လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ line 23 ကို
+        right click ထောက်ပြီးတော့ Add conditional breakpiont ကို add လုပ်နိုင်ပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ any
+        condition ကို enter လုပ်နိုင်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/linebreakpoint.png" alt="conditionbreakpoint">
+    <pre>
+         <code>
+                        
+                for (let i = 0; i < lis.length; i += 1) {
+                    let li = lis[i];
+                    if (li.className === 'responded') {
+                    li.style.display = '';
+                    } else {
+                    li.style.display = 'none';
+                    }
+         </code>
+     </pre>
+    <a href="../javaScriptExample/index.html">Test Yourself</a>
+    <hr>
+    <h1>Debugging Functions</h1>
+    <p>
+        Example program မှာဆိုရင် bugs တွေရှိပါသေးတယ်။ ဥပမာ RSVP app ထဲမှာ new name တစ်ခုကို add လုပ်ပြီးတော့ submit
+        လုပ်လိုက်တဲ့အခါမှာ ကျွန်တော်တို့ add လုပ်လိုက်တဲ့ new name နဲ့ confirm checkbox တွေဟာ ကျလာရမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ new name ဟာ ပါမလာတာကိုတွေ့ရပါတယ်။ အဲ့ဒါကို ကျွန်တော်တို့ဟာ debug
+        လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ Event Listener Breakpoints ကို ပြန်သွားပြီးတော့ control ထဲကနေ အခုတစ်ခါ check box
+        မဟုတ်ပါဘူး အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ submit ကို click လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ text
+        ကို string အနေနဲ့ put လုပ်ထားတဲ့အတွက်ကြောင့် ကျွန်တော်တို့ရဲ့ new name ဟာ text ကို ပဲ output ထွက်နေတာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် text string ကို ဖြုတ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/functionbreak.png" alt="">
+    <pre>
+         <code>
+                const li = document.createElement('li');
+                appendToLI('span', 'textContent', text);
+                appendToLI('label', 'textContent', 'Confirmed')
+                  .appendChild(createElement('input', 'type', 'checkbox'));
+                appendToLI('button', 'textContent', 'edit');
+                appendToLI('button', 'textContent', 'remove');
+                return li;
+              }
+            
+         </code>
+     </pre>
+    <a href="../javaScriptExample/index.html">Test Yourself</a>
+    <hr>
+    <h1>Debugging Exception Errors</h1>
+    <p>
+        JavaScript interpreter ဟာဆိုရင် code ထဲမှာရှိတဲ့ any problems တွေကို မမြင်ရပါဘူး။ Errors တွေဟာ bugs နဲ့
+        တူကပ်ပါလာတာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် great thing တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ ကျွန်တော်တို့ bug ကို find လုပ်တဲ့နေရာမှာ
+        faster ဖြစ်စေပါတယ်။ Example မှာဆိုရင် remove button ကို click လုပ်လိုက်ရင် name နဲ့ confirm check တို့ဟာ remove
+        ဖြစ်သွားရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို remove မဖြစ်တဲ့အတွက်ကြောင့် errors ကို bug လုပ်ပြီးတော့ရှာမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ program မှာ errors တစ်ခု (သို့) နှစ်ခုတက်နေခဲ့ရင် Sources tab ရဲ့ right ဘက်မှာ red X ဟာ
+        ပေါ်လာပါတယ်။ အဲ့ဒါကို click လုပ်လိုက်တဲ့အခါမှာ code ထဲမှာ ရှိနေတဲ့ errors တွေကို console window နောက်တစ်ခုနဲ့
+        ပြပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/errors.png" alt="">
+    <hr>
+    <h1>Breaking on DOM changes and Watch Expressions</h1>
+    <p>
+        Example page မှာဆိုရင် ကျွန်တော်တို့ bug လုပ်ရမဲ့တစ်ခုကျန်ပါသေးတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ဟာ edit button ကို
+        click လုပ်လိုက်တဲ့အချိန်မှာ input name ဟာ disappear ဖြစ်သွားတာဖြစ်ပါတယ်။ အဲ့ bug ဟာ DOM ရဲ့ change နဲ့ connect
+        ဖြစ်နေတာဖြစ်ပါတယ်။ အခုတစ်ခါမှာတော့ break points တွေကို DOM changes မှာ set လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        inspect ကို click ပြီးတော့ Dev tools ကို ခေါ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ list element ပေါ်မှာ
+        right click ထောက်ပြီးတော့ ကျွန်တော်တို့ဟာ subtree modifications ကို click လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် left
+        ဘက်မှာ blue dot ကိုတွေ့ရမှာပါ။ အဲ့ dot ဟာ break point ကို DOM element ထဲမှာ add လုပ်ထားတယ်ဆိုတာကို indicate
+        လုပ်ပေးတာဖြစ်ပါတယ်။ Page ကို refresh လုပ်ပြီးတော့ edit button ကို click လုပ်ကြည့်လိုက်ပါ။ အဲ့မှာဆိုရင် program
+        ရဲ့ line 94 မှာ freezes ဖြစ်နေတာကိုတွေ့ရပါလိမ့်မယ်။ အဲ့ဒါဟာ input element ကို DOM ထဲကို insert
+        မလုပ်ခင်ဖြစ်ပါတယ်။ အဲ့ state မှာဆိုရင် element ဟာ create လုပ်ပြီးတော့ DOM ထဲကို add လုပ်ဖို့ရန်အတွက် ready
+        ဖြစ်နေတာဖြစ်ပါတယ်။ အဲ့မှာ bug နဲ့ clue တစ်ခုကိုရှာကြည့်ချင်တဲ့အခါမှာ console ကို ခေါ်ပြီးတော့ အဲ့မှာဆိုရင်
+        constant input ကို type လုပ်ပြီးတော့ enter လုပ်လိုက်တဲ့အခါမှာ အဲ့မှာ problem ကိုတွေ့ရပါလိမ်မယ်။ Example ရဲ့
+        problem ကတော့ name ကို input element ထဲမှာ place လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့လိုချင်တာဟာ name ကို point
+        လုပ်တဲ့ သူ့ရဲ့ value property ကို လိုချင်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် နောက်တစ်ခု ရှိပါသေးတယ်။ အဲ့ဒါကတော့ console
+        မှာသွားလုပ်လိုက်တဲ့ input ရဲ့ logging value ဟာ current bug ကို see လုပ်ဖို့ရန်အတွက် အရှင်းဆုံး way
+        ဖြစ်နိုင်ပါတယ်။ တစ်ခါတစ်လေ ကျွန်တော်တို့ဟာ variable တစ်ခုကို program တစ်ခုကို debug လုပ်ဖို့ရန်အတွက် over and
+        over typing လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့လိုလုပ်မဲ့အစား watch expressions ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါဟာ
+        call stack အပေါ်မှာရှိတဲ့ Watch ကို click လုပ်ပြီးတော့ plus sign ကို press လုပ်လိုက်ပါ။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ any expression ကို type လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် variable names, equality check or object
+        properties တွေလည်း ပါလို့ရပါတယ်။ Value တစ်ခုကို produce လုပ်ပြီးတော့ watch expressions နဲ့ monitored
+        လုပ်နိုင်ပါတယ်။ အခုလေ့လာခဲ့တာကတော့ specific DOM element တစ်ခု change တစ်ခုအပေါ်မှာဘယ်လို break
+        လုပ်ရတယ်ဆိုတာကိုလေ့လာခဲ့တာဖြစ်ပါတယ်။ နောက် repetitive typing of a variable တစ်ခုကို eliminate လုပ်ဖို့အတွက်
+        watch expressions ကို ဘယ်လိုအသုံးပြုရမယ်ဆိုတာကိုလည်းလေ့လာခဲ့တာဖြစ်ပါတယ်။
+    </p>
+    <img src="../javaScriptExample/image/breakdom.png" alt="">
+    <h2>Code Example</h2>
+    <pre>
+         <code>
+              
+        edit: () => {
+            const span = li.firstElementChild;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = span.textContent;
+            li.insertBefore(input, span);
+            li.removeChild(span);
+            button.textContent = 'save';   
+          },
+         </code>
+     </pre>
+    <hr>
+
+</body>
+
+</html>

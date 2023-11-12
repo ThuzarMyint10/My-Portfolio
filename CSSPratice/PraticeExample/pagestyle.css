@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.grid > *{
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 1em;
+            border-radius: 0.3em;
+}
+header {
+    background: rgb(17, 76, 238);
+}
+main {
+    background: rgb(236, 15, 181);
+}
+.about {
+    background: rgb(48, 46, 46);
+}
+.news {
+    background: rgb(48, 46, 46);
+}
+.links {
+    background: rgb(48, 46, 46);
+}
+.ads {
+    background: rgb(48, 46, 46);
+}
+footer{
+    background: rgb(20, 236, 136);
+}

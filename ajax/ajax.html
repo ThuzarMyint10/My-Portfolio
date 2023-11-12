@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Lesson</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to Ajax</h1>
+    <p>
+        AJAX ဟာ Asynchronous JavaScript and XML ပဲဖြစ်ပါတယ်။ သူ့ရဲ့ concept ဟာ really simple ဖြစ်ပါတယ်။ AJAX ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ HTML ကို new webpage တစ်ခုကို loading မလုပ်ဘဲနဲ့ update ဖြစ်ဖို့ရန်အတွက် ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ အမြဲအသုံးပြုနေကြဖြစ်တဲ့ Google Maps,  Gmail, Facebook, Twitter တို့မှာ AJAX ရဲ့ action တွေကို တွေမြင်နိုင်ပါတယ်။ များသောအားဖြင့်တော့ more web content တွေကို get လုပ်တဲ့နေရာမှာ new page တစ်ခုကို load လုပ်ရတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ link တစ်ခုကို click လုပ်လိုက်တဲ့အချိန်မှာ current page ကနေ leave လုပ်ပြီးတော့ new page တစ်ခုကို load လုပ်ပေးတာဖြစ်ပါတယ်။ AJAX  ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ webpages တွေကို faster and more user friendly ဖြစ်တဲ့ way တစ်ခုကို ပေးထားပါတယ်။ ကျွန်တော်တို့ဟာ every time မှာ new information တွေကို ရဖို့ရန်တွက် new webpage တစ်ခုကို jumping လုပ်နေမဲ့အစား AJAX ဟာဆိုရင် web server တစ်ခုကနေ information တွေအတွက် ask လုပ်တဲ့ webpages တွေကို build လုပ်ခွင့်ပြုထားပါတယ်။ အဲ့ web server ဟာဆိုရင် web browser ဆီကို data တွေ returns ပြန်ပေးတာဖြစ်ပါတယ်။ ပြီးတော့ JavaScript ဟာဆိုရင် အဲ့ data တွေကို  web page ရဲ့ parts တွေအဖြစ် change လုပ်ဖု့ိရန်အတွက် processes လုပ်ပေးပါတယ်။ Returns ပြန်လာတဲ့ data တွေဟာ ကျန်တော်တို့ full webpage တစ်ခုအတွက် ask လုပ်လုက်တဲ့ အချိန်မှာ sent လုပ်လိုက်တဲ့ data တွေထက် less ဖြစ်ပါတယ်။ Another reason တစ်ခုကတော့ AJAX ဟာ ကျွန်တော်တို့ရဲ့ page ကို feel fast and responsive ဖြစ်အောင် လုပ်ဆောင်ပေးနိုင်ပါတယ်။ Information အတွက် server တစ်ခုကို asking လုပ်တဲ့ process ကို technically အရ server ရဲ့ request တစ်ခုကို making လုပ်တာလို့ခေါ်ပါတယ်။ ပြီးတော့ server ဟာ သူ့ရဲ့ answer ကို sends backs လုပ်လိုက်တာကို response တစ်ခုလို့ခေါ်ပါတယ်။ Web ဟာဆိုရင် clients လို့ခေါ်တဲ့ browsers တွေကို ပေါ်မှာ built လုပ်ထားတာဖြစ်ပါတယ်။ Web servers တွေဆီကို requests တွေကို sending လုပ်တယ် ပြီးတော့ servers ကနေပြီးတော့ responses တွေကို ပြန်ပြီးတော့ sending လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ AJAX action တွေကို most web browsers တွေမှာဆိုရင် JavaScript console ကိုအသုံးပြုပြီးတော့ မြင်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ AJAX requests တွေကို console မှာတွေ့ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် XHR ဆိုတာ XML HTTP Requests ရဲ့ short ပဲဖြစ်ပါတယ်။ AJAX ဟာဆိုရင် web designers and developers တွေအားလုံးသိထားသင့်တဲ့ important technology တစ်ခုဖြစ်ပါတယ်။ အခု course မှာဆိုရင်တော့ ကျွန်တော်တို့ရဲ့ webpages တွေမှာ AJAX ကို add လုပ်ဖို့ရန်အတွက် JavaScript ကို ဘယ်လို အသုံးပြုရတယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ နောက် jQuery ဟာ AJAX နဲ့ ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကိုလည်း လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ဒီ course ကို မေ့လလာခင်မှာ JavaScript and jQuery ကြောင်းကိုတော့ သိထားဖို့လိုပါတယ်။ 
+    </p><hr>
+    <h1>How AJAX Works</h1>
+    <p>
+        AJAX ဟာဆိုရင် အချိန်အကြာကြီးတည်ရှိနေတာဖြစ်ပါတယ်။ Microsoft ဟာဆိုရင် Internet Explorer 5 နဲ့ 1999 မှာ ပထမဆုံး introduced လုပ်ခဲ့တာပဲဖြစ်ပါတယ်။ အဲ့အချိန်မှာတော့ AJAX လု့ိခေါ်ခဲ့တာမဟုတ်ပါဘူး။ AJAX ဟာဆိုရင် သူ့ရဲ့ really official name မဟုတ်ပါဘူး။ Technically အရတော့ သူ့ကို XMLTHttpRequest Object လို့ခေါ်ပါတယ်။ တစ်ခါတစ်ရံမှာတော့ XHR လု့ိ shorthand နဲ့ ဖော်ပြကြပါတယ်။ ကျွန်တော်တို့ simply data တွေကို put လုပ်လိုက်တဲ့အချိန်မှာ AJAX ဟာဆိုရင် JavaScript ကို အသုံးပြုပြီးတော့ webb server တစ်ခုကိုဆီကို request တစ်ခုကို send လုပ်ဖို့ရန်အတွက် process လုပ်ပါတယ်။ ပြီးတော့ ပြန်လာတဲ့ response ကို receive လုပ်ပြီးတော့ အဲ့ response နဲ့ something ကိုလုပ်တာဖြစ်ပါတယ်။ AJAX ထဲမှာရှိတဲ့ J ဆိုတဲ့ word ဟာ နားလည်းဖု့ိရန်အတွက် လွယ်ကူပါတယ်။ သူဟာ JavaScript ပဲဖြစ်ပါတယ်။ JavaScript ဟာ AJAX stuff happen တွေကို ပြုလုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်တဲ့ programming language ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ JavaScript ကိုအသုံးပြုပြီးတော့ AJAX request တစ်ခုကို sent out လုပ်နိုင်ပါတယ်။ နောက် incoming response တွေကို process လုပ်ဖို့ရန်အတွက်လည်း JavaScript ကိုအသုံးပြုနိုင်ပါတယ်။ ပြီးတော့ JavaScript ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ page ကိုလည်း update လုပ်နိုင်ပါတယ်။ နောက် first A လေးဟာတော့ asynchronous ပဲဖြစ်ပါတယ်။ သူဟာ web server ဆီကို request ဟာ ဘယ်လို sent ဖြစ်တယ်ဆိုတာကို refer လုပ်တာဖြစ်ပါတယ်။ Asynchronous request ဟာဆိုရင် waiting မလုပ်ဘဲနဲ့ sent လုပ်တာဖြစ်ပါတယ်။ တစ်ကယ်တော့ ကျွန်တော်တို့ဟာ multiple AJAX requests တွေကို sent out လုပ်နိုင်ပါတယ်။ နောက် request တစ်ခုချင်းစီကို တစ်ခုပြီးမှ တစ်ခုလည်း sent လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ ဘယ် request ဟာ first အနေနဲ့ ပြန်လာတယ်ဆိုတာကို မသိပါဘူး။ Server ရဲ့ speed ၊ request ရဲ့ complexity and any internet traffic တွေဟာ request တစ်ခုဟာ browser ဆီကို information တွေကို return ပြန်လာတဲ့အချိန်မှာ determining ထဲမှာရှိတဲ့ part တစ်ခုအနေနဲ့ ပါဝင်ပါတယ်။ နောက် AJAX မှာရှိတဲ့ X ဟာဆိုရင်တော့ XML or Extensible Markup Language ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် အခု ကျွန်တော်တို့ လေ့လာနေတဲ့ technology အတွက် XMLHttpRequest Object လို့ခေါ်တဲ့ official name တစ်ခုအနေနဲ့ appears ဖြစ်လာတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ JavaScript ကို အသုံးပြုပြီးတော့ request တစ်ခုကို prepare လုပ်နိုင်တယ် ပြီးတော့ အဲ့ request ကို sent လုပ်ပြီးတော့ response အတွက် process လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ AJAX programming ကို steps လေးခုနဲ့ break လုပ်နိုင်ပါတယ်။ First, XMLHTTPRequest object တစ်ခုကို create လုပ်ရမှာဖြစ်ပါတယ်။ ဒီ step ဟာဆိုရင် ready ဖြစ်ဖို့ရန်အတွက် web browser ကို tells လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ AJAX request တစ်ခုကို send လုပ်ချင်တဲ့အခါမှာ web browser ဟာဆိုရင် object တစ်ခုကို create လုပ်ဖို့လိုပါတယ်။ အဲ့ object မှာ ကျွန်တော်တို့ data တွေကို send and receive လုပ်ဖို့ရန်အတွက် methods တွေအားလုံးရှိပါတယ်။ Second, callback function တစ်ခုကို define လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ callback function ဟာ server ဟာ သူ့ရဲ့ response ကို return လုပ်လိုက်တဲ့အခါမှာ run လုပ်ဖို့ရန်အတွက် programming ပဲဖြစ်ပါတယ်။ Callback ဟာဆိုရင် ကျွန်တော်တို့ return ပြန်လာတဲ့ data တွေကို ဘယ်နေရမှာပဲ process လုပ်လုပ် page ပေါ်မှာရှိတဲ့ HTML ကို update လုပ်ပေးတာဖြစ်ပါတယ်။ Third, request တစ်ခုကို open လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ step မှာဆိုရင် ကျွန်တော်တို့ဟာ browser ကို two pieces of information ကို ပေးရမှာဖြစ်ပါတယ်။ Four, request ကို sent လုပ်ရမှာဖြစ်ပါတယ်။   ပြီးခဲ့ steps သုံးခုဟာဆိုရင် လိုအပ်တဲ့ information တွေကို web browser ကို ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် step four ဟာဆိုရင် request ကို web server ဆီကို send လုပ်တာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>A Simple AJAX Example</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့မှာ Ajax ဟာဘာလဲ ၊ Ajax ဟာဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ အခု section မှာတော့ Ajax ကို အသုံးပြုပြီးတော့ chunk of HTML တစ်ခုကို page တစ်ခုမှာ load လုပ်ဖို့ရန်အတွက် plain JavaScript ကိုအသုံးပြုပြီးတော့ simple example တစ်ခုကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ AJAX requests တွေဟာဆိုရင် web server တစ်ခုကို ဖြတ်ပြီးမှပဲ အလုပ်လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ပြီးခဲ့တဲ့ section မှာ ရှင်းပြခဲ့သလိုပဲ AJAX programming မှာဆိုရင် steps လေးခုရှိပါတယ်။ Step one, XMLHTTP Request object တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒီ step ဟာဆိုရင် AJAX အတွက် ready ဖြစ်တယ်ဆိုတာကို web browser ကို ပြောပြတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် xml http request object တစ်ခုကို variable တစ်ခုနဲ့ create လုပ်ခဲ့ရမှာဖြစ်ပါတယ်။ တစ်ကယ်တော့ ajax request တစ်ချင်းစီအတွက် new XHR  object တစ်ခုကို create လုပ်ပေးသင့်ပါတယ်။ နောက် step two ကတော့ callback function တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် AJAX process ရဲ့ most complicated part ပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ callback function ဟာဆိုရင် server ကနေပြီးတော့ သူ့ရဲ့ response ကို sends back လုပ်လိုက်တဲ့အချိန်မှာ browser ကို ကျွန်တော်တို့ လိုချင်သလို run လုပ်ဖို့ရန်အတွက် programming တွေဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Callback function ဟာဆိုရင်  AJAX program တစ်ခုရဲ့ heart ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာာ call back ကို trigger လုပ်ဖို့ရန်အတွက် special browser event ကို အသုံးပြုပေးဖို့လိုပါတယ်။ Events တွေအများကြီးရှိပါတယ်။ AJAX ဟာဆိုရင် won set of events တွေရှိပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ events တွေကို response လုပ်ဖို့ရန်အတွက် programming ကို add လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် most important ကတော့ onreadystatechange event ပဲဖြစ်ပါတယ်။ ဒီ event ဟာဆိုရင် AJAX request တစ်ခုထဲမှာရှိတဲ့ change တစ်ခုကို ဘယ်အချိန်မှာပဲဖြစ်ဖြစ် trigger လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ request ကို response လုပ်ဖို့ရန်အတွက် callback ကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ programming ဟာဆိုရင် AJAX request ရဲ့ state မှာ change တစ်ခုကို အချိန်တစ်ခုချင်းစီမှာ runs လုပ်တဲ့ function တစ်ခုကို sets up လုပ်တာဖြစ်ပါတယ်။ Ajax process မှာရှိတဲ့ step တစ်ခုချင်းစီဟာ change of state တစ်ခုကို trigger လုပ်တာကို request လုပ်တာဖြစ်ပါတယ်။ ဒီ call back function ဟာဆိုရင် state ရဲ့ final change မှာပဲ interest ဖြစ်တာဖြစ်ပါတယ်။ အဲ့ဒါဟာ server ဟာ သူ့ရဲ့ response ကို sends back လုပ်တဲ့အခါပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ response ကို get လုပ်ဖို့ရန်လိုပြီးတော့ ကျွန်တော်တို့ရဲ့ webapge ကို update လုပ်ရမှာဖြစ်ပါတယ်။ XML http request object ဟာဆိုရင် ready state လို့ ခေါ်တဲ့ special property တစ်ခုကို အသုံးပြုပြီးတော့ track of the state ကို keep လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ property မှာ request ရဲ့ current state ပါတဲ့ number တစ်ခုပါဝင်ပါတယ်။ ပြီးတော့ အဲ့ property ဟာဆိုရင် number 4 ကို hold လုပ်ထားတာဖြစ်ပါတယ်။ နောက် request ဟာ done ဖြစ်သွားတဲ့အခါမှာ server ဟာဆိုရင် response တစ်ခုကို sent back လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ state ကို test လုပ်ဖို့ရန်အတွက် conditional statement တစ်ခုကို add လုပ်ပေးဖို့လိုပါတယ်။ နောက် inner HTML property မှာဆိုရင် element တစ်ခုထဲမှာ HTML အားလုံးပါဝင်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ သူ့ရဲ့ value ကို change လုပ်ပြီးတော့ သူ့ထဲမှာ appears ဖြစ်လာအောင် HTML ကို change လုပ်နိုင်ပါတယ်။ နောက် XML HTTP Request object တစ်ခုချင်းစီမှာ response text လို့်ခေါ်တဲ့ property တစ်ခုရှိကြပါတယ်။ အဲ့ property ဟာဆိုရင် web server ကနေ sends back လုပ်လိုက်တဲ့ information တွေပဲဖြစ်ပါတယ်။ နောက် step three ကတော့ request တစ်ခုကို open လုပ်ပေးရမှာဖြစ်ပါတယ်။ XHR object တစ်ခုမှာ open လို့ခေါ်တဲ့ method or function တစ်ခုရှိပါတယ်။ အဲ့ function ဟာဆိုရင် browser ကို request ကို sending လုပ်ဖို့ရန်အတွက် prepare လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ function ကို two pieces of information နဲ့ပေးရမှာဖြစ်ပါတယ်။ First ကတော့ ကျွန်တော်တို့အသုံးပြုမဲ့ HTTP method ဖြစ်ပါတယ်။ Most common methods တွေကတော့ GET and POST တို့ပဲဖြစ်ပါတယ်။ PUT and DELETE တို့လို others methods တွေလည်းရှိပါတယ်။ Date အတွက် request တစ်ခုကို send လုပ်ချင်တဲ့အခါမှာ GET ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ POST ကိုတော့ data တွေကို sending လုပ်တဲ့အချိန်မှာ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ ဒီ methods နှစ်ခုကြောင်းကို သေးစိတ်လေ့လာသွားမှာဖြစ်ပါတယ်။ Second ကတော့ request ဟာဘယ်လို သွားမယ်ဆိုတဲ့ URL ပဲဖြစ်ပါတယ်။ Final step ဖြစ်တဲ့ step 4  ကတော့ request ကို sending လုပ်တာပဲဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ step 3 ခုဟာ web browser လိုအပ်တဲ့ information တွေအားလုံးကို ပေးတာဖြစ်ပါတယ်။ Request ကို sending လုပ်တဲ့နေရာမှာ simple bit of code တစ်ခုကို ယူပါတယ်။ Example ကို သွားကြည့်ရအောင်။
+    </p>
+    <h2>Code Example </h2>
+    <pre>
+        <code>
+             
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;AJAX with JavaScript&lt;/title&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;link rel="stylesheet" href="css/main.css"&gt;
+                &lt;script&gt;
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            document.getElementById('ajax').innerHTML = xhr.responseText;
+                        }
+                    };
+                    xhr.open('GET', 'sidebar.html');
+
+                    function sendAJAX() {
+                        xhr.send();
+                        document.getElementById('load').style.display = "none";
+                    }
+                &lt;/script&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="grid-container centered"&gt;
+                    &lt;div class="grid-100"&gt;
+                        &lt;div class="contained"&gt;
+                            &lt;div class="grid-100"&gt;
+                                &lt;div class="heading"&gt;
+                                    &lt;h1&gt;Bring on the AJAX&lt;/h1&gt;
+                                    &lt;button id="load" onclick="sendAJAX()"&gt;Bring it!&lt;/button&gt;
+                                &lt;/div&gt;
+                                &lt;div id="ajax"&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/index.html">Test Yourself</a><hr>
+    <h1>GET and POST</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ Ajax request တစ်ခုကို set up and send လုပ်ဖို့ရန်အတွက် basic steps တွေကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ First, ကျွန်တော်တို့ဟာ XML HTTP request object ကို create လုပ်ပေးရမယ်။ နောက် callback function တစ်ခုကို define လုပ်ပေးရမယ်။ ပြီးတော့ request ကို open လုပ်ပေးရမယ်။ ပြီးတော့ အဲ့ request ကို send လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ပြီးခဲ့တဲ့ section မှာ လေ့လာခဲ့သလိုပဲ request တစ်ခုကို opening လုပ်တဲ့နေရာမှာ request ကို send လုပ်ဖို့ရန်အတွက်နဲ့ request ကို sent လုပ်ဖို့ရန်အတွက် URL ကို အသုံးပြုခဲ့တဲ့ specifying method ကို လိုအပ်ပါတယ်။ Most common methods နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ GET and POST  methods တို့ပဲဖြစ်ပါတယ်။ GET method ကို ကျွန်တော်တို့ဟာ server ဆီကနေ information တွေကို receiving and getting လုပ်အသုံးပြုရပါတယ်။ POST ကိုတော့ ကျွန်တော်တို့ saved အတွက် data တွေကို sending လုပ်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ GET method ကို web browser တစ်ခုကို open လုပ်ပြီးတော့ web address တစ်ခုကို type လုပ်တဲ့အချိန်တိုင်းမှာအသုံးပြုနိုင်ပါတယ်။ အဲ့ web browser ဟာ အဲ့ဒါကို ယူူပြီးတော့ webpage တစ်ခုကို request လုပ်လိုက်တာဖြစ်ပါတယ်။ GET method ဟာဆိုရင် webpage တစ်ခု၊ image, or other file from a web server တို့လို resource တစ်ခုကို get လုပ်တာပဲဖြစ်ပါတယ်။ နောက်တစ်မျိုးပြောရရင် သူဟာ request တစ်ခုကို ရဖို့ရန်အတွက် လိုအပ်တဲ့ url တစ်ခုပဲဖြစ်ပါတယ်။ Customized information တွေကို send လုပ်တဲ့ server site program တစ်အတွက်ဆိုရင် ကျွန်တော်တို့ဟာ server ဆီကို some information တွေကို send လုပ်ဖို့လိုပါတယ်။ ကျွန်တော်တို့အဲ့ဒါကို url ဆီကို data တွေကို add လုပ်ပြီးတော့ server ဆီကို sent လုပ်ခြင်းနဲ့ လုပ်ဆောင်နိုင်ပါတယ်။ ဥပမာ "http://website.com/employee.php?lastName=Jones" ဆိုတဲ့ထဲမှာ question mark ရဲ့ နောက်က  part ကို query string တစ်ခုလို့ခေါ်ပါတယ်။ Query string တစ်ခုဟာ URL တစ်ခုရဲ့ အဆုံးမှာ appear ဖြစ်လာတာဖြစ်ပြီးတော့ web server ကနေပြီးတော့ သူ့ response ရဲ့ output ကို control လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်တဲ့ additional information တွေကို send လုပ်ဖို့ရန်အတွက် way တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ Commonly, query string တစ်ခုမှာရှိတဲ့ data တွေကို information ရဲ့ database ကို search လုပ်ဖို့ရန်အတွက် အသုံးပြုတာဖြစ်ပြီးတော့ single record or a small subset of information တစ်အနေနဲ့ return ပြန်ပေးတာဖြစ်ပါတယ်။ Query string တစ်ခုကို one or more name value pairs တွေနဲ့ ပြုလုပ်ထားတာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ query string  မှာ one name value pair တစ်ခုပဲပါတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် last name ဟာ name or property ဖြစ်ပါတယ်။ Jones ဆိုတာကတော့ အဲ့ property ရဲ့ value ပဲဖြစ်ပါတယ်။ Query strings တွေဟာ multiple name value pairs တွေကို hold လုပ်နိုင်ပါတယ်။ GET method ဟာဆိုရင် data တွေကို web server တစ်ခုဆီကို send လုပ်တဲ့ simple way တစ်ခုပဲဖြစ်ပါတယ်။ နောက် POST method ကိုတော့ ကျွန်တော်တို့ဟာ information တွေကို database တစ်ခုထဲမှာ store လုပ်ချင်တဲ့အခါမှာ sending လုပ်ဖို့ရန်အတွက်အသုံးပြုနိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>AJAX Response Formats</h1>
+    <p>
+        ကျွန်တော်တို့ AJAX request တစ်ခုကို send လုပ်ပြီးတဲ့နောက်မှာ ကျွန်တော်တို့ရဲ့ callback function ဟာ response တစ်ခုအတွက် waits လုပ်နေမှာဖြစ်ပါတယ်။ Web servers တွေဟာ များသောအားဖြင့်တော့ AJAX request တစ်ခုကို text response တစ်ခုနဲ့ reply ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ okay, or message received တို့လို simple message တစ်ခုဖြစ်နိုင်ပါတယ်။ နောက် two common data change formats တွေကတော့ XML and JSON တု့ိပဲဖြစ်ပါတယ်။ XML ဆိုတာကတော့ X ဟာ AJAX မှာတဲ့ X ပဲဖြစ်ပါတယ်။ XML ရဲ့ stands for ကတော့ extensible markup language တစ်ခုဖြစ်ပါတယ်။ သူဟာ HTML very similar ြဖ်စ်ပါတယ်။ သူဟာ HTML လို့ပဲ data တွေကို structure လုပ်ဖို့ရန်အတွက် tags တွေကို အသုံးပြုပါတယ်။ နောက် xml မှာဆိုရင် own tags တွေကို create လုပ်နိုင်ပါတယ်။ တစ်ကယ်တော့ အဲ့ tags တွေဟာ official tags တွေတော့မဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ XML documents တွေကို create လုပ်နေချိန်မှာ own XML tags တွေကို ပြုလုပ်နိုင်ပါတယ်။ XML ရဲ့ format structure ရဲ့ benefit ကတော့ data တွေကို clear ဖြစ်စေပြီးတော့ consistently organized လုပ်နိုင်တယ်၊ computer တစ်လုံးမတွက် usable chunks မှာ data တွေကို split လုပ်ဖို့ရန်အတွက် easy ဖြစ်စေပါတယ်။ XML ဟာဆိုရင် computers တွေကြားထဲမှာ data တွေကို exchanging လုပ်ဖို့ရန်အတွက် very common format တစ်ခုပဲဖြစ်ပါတယ်။ Most sever-side languages ဟာ XML ကို လွယ်လွယ်ကူကူ handle လုပ်နိုင်ပါတယ်။ သို့သော်လည်း XML data တွေကို JavaScript နဲ့ အသုံးပြုမယ်ဆိုရင်တော့ easy မဖြစ်ပါဘူး။ အဲ့မှာဆိုရင် several steps တွေ involves ဖြစ်လာမှာဖြစ်ပါတယ်။ Many AJAX applications တွေဟာ JSON လို့ခေါ်တဲ့ JavaScript data format တွေထက် better ဖြစ်ပါတယ်။ တစ်ကယ်တော့ JSON ဟာ AJAX ကိုအသုံးပြုပြီးတော့ data တွေကို exchange လုပ်ဖို့ရန်အတွက် most popular way ဖြစ်လာပါတယ်။ 
+    </p><hr> 
+    <h1>AJAX Security Limitations</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ Ajax ဟာဆိုရင် web server တစ်ခုကနေပြီးတော့ requests တွေကို လုပ်နိုင်တယ် ပြီးတော့ responses တွေကို back လုပ်နိုင်တယ်ဆိုတာကို သိရှိခဲ့ပြီးဖြစ်ပါတယ်။ ဒါပေမဲ့ Ajax ကို ဘယ်လိုအသုံးပြုနိုင်တယ်ဆိုတဲ့ limitations တွေရှိပါသေးတယ်။ Ajax ဟာဆိုရင် web server တစ်ခုကနေပြီးတော့ content ကို JavaScript ကနေပြီးတော့ ဘယ်လို access လုပ်နို်င်တယ်ဆိုတာကို controls လုပ်တဲ့ web browser တစ်ခုရဲ့ same origin policy တစ်ခုပေါ်မှာ normally limited လုပ်ထားတာဖြစ်ပါတယ်။ General အားဖြင့်တော့ same web server ပေါ်မှာ page တစ်ခုနဲ့ တစ်ခုကို communicate လုပ်တဲ့နေရမှာ Ajax ကိုအသုံးပြုနိုင်ပါတယ်။ ဒါပေမဲ့ other web servers တွေပေါ်မှာဆိုရင်တော့ access မလုပ်နိုင်ပါဘူး။ Example, www.myserver.com မှာရှိတဲ့ page မှာ Ajax code တွေရှိတယ်ဆိုပါစို့။ ကျွန်တော်တို့ဟာ အဲ့ server ပေါ်မှာရှိတဲ့ PHP file ကို talk လုပ်ဖို့ရန်အတွက် Ajax ကိုအသုံးပြုနိုင်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ဟာ same server မှာရှိတဲ့ subfolders ထဲမှာရှိတဲ့ files တွေကို talk လုပ်ဖို့ရန်အတွက်လည်းအသုံးပြုနိုင်ပါတယ်။ သို့သော်လည်း following cases တွေမှာ run လုပ်တယ်ဆိုရင်တော့ problems တွေရှိပါတယ်။ အဲ့ဒါတွေကတော့ same server ကမဟုတ်တဲ့ another website ကနေပြီးတော့ data တွေကို requesting လုပ်တာတွေ၊ Switching protocols, HTTPS mysever.com မှာ ကျွန်တော်တို့ဟာ AJAX request တစ်ခုကို ပြုလုပ်ဖို့ရန်အတွက် try လုပ်ရင်လည်း browser ဟာ allow လုပ်မှာမဟုတ်ပါဘူး။ HTTP ကနေပြီးတော့ HTTPS ကို switching လုပ်တာကို allow လုပ်မှာမဟုတ်ပါဘူး။ နောက် ports numbers တွေကို switching လုပ်တာကိုလည်း ခွင့်ပြုမှာမဟုတ်ပါဘူူး။ နောက် hosts တွေကို switching လုပ်တာကိုလည်း allow လုပ်ပေးမှာမဟုတ်ပါဘူး။ Example www.myserver.com ကနေပြီးတော့ db.myserver.com ကို switching လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် myserver.com ဆိုတဲ့ same domain မှာ share လုပ်ထာတယ်ဆိုပေမဲ့ hosts ဟာ different ဖြစ်နေတာဖြစ်ပါတယ်။ WWW and DB ။ ဒီ limitations တွေဟာဆိုရင် ကျွန်တော်တို့ရဲ့ web pages ကို more responsive ဖြစ်အောင်လုပ်တာတွေ ပြီးတော့ ကျွန်တော်တို့ရဲ့ site ကနေပြီးတော့ new information တွေကို load တာတွေကို simply လုပ်ဆောင်ချင်တဲ့ အချိန်မှာတော့ any trouble ကို ဖြစ်စေမှာမဟုတ်ပါဘူး။ ဒါပေမဲ့ Google map, ကျွန်တော်တို့ရဲ့ tweets or photo from Flicker တို့မှာ embed လုပ်ချင်တဲ့အခါမှာ ဒီ assets အားလုံးဟာ ကျွန်တော်တို့ ပိုင်ဆိုတာတဲ့ domain ထက် different domains တွေဖြစ်ပါတယ်။ နောက်အဲ့မှာဆိုရင် same origin policy ကို circumvent လုပ်ဖို့ရန်အတွက် a few ways တစ်ခုရှိပါတယ်။
+    </p>
+    <p>
+        First, အနေနဲ့ Web Proxy တစ်ခုကို ကျွန်တော်တို့ဟာ create လုပ်နိုင်တယ်။ Web servers တွေဟာ same origin policy မှာ limited လုပ်တာဖြစ်တဲ့အတွက်ကြောင့် web server တစ်ခုဟာ other domains မှာရှိတဲ့ servers ကနေပြီးတော့ data တွေကို request လုပ်နိုင်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ ကျွန်တော်တို့ဟာ script တစ်ခုကို PHP, or using Ruby on Rails ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ server ပေါ်မှာ set up လုပ်နိုင်ပါတယ်။ အဲ့ script ဟာ another web server ကနေ information တွေအတွက် ask လုပ်တာဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ site ပေါ်မှာ script ကို talk လုပ်ဖို့ရန်အတွက် ajax ကိုအသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါဟာ other site ကို talk လုပ်ပြီးတော့ ကျွန်တော်တို့ရဲ့ page ကို data တွေကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့လိုလုပ်တာဟာ ajax part ကို same website မှာ stays ဖြစ်ဖို့ သေချာအောင်လုပ်တာပဲဖြစ်ပါတယ်။ Second, another common technique တစ်ခုကို အသုံးပြုထားတဲ့ JSONP လို့ခေါ်တဲ့ something ပဲဖြစ်ပါတယ်။ JSONP ဆိုတာကတော့ JSON with Padding ပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် AJAX traditional မဟုတ်ပါဘူး။ သူဟာ domains တွေကို across လုပ်ပြီးတော့ JavaScript ကို link လုပ်ဖို့ရန်အတွက် ability ပေါ်မှာ actually relies လုပ်တာပဲဖြစ်ပါတယ်။ အမှန်တစ်ကယ်တော့ browsers တွေဟာ many type of across domain links တွေကို allow လုပ်ပေးထားပါတယ်။ တစ်ကယ်တော့ domains  တွေကို across လုပ်ပြီးတော့ JavaScript files တွေကို linking လုပ်တာဟာ jQuery လို popular JavaScript libraries နဲ့ working လုပ်တဲ့အချိန်မှာ common technique တစ်ခုဖြစ်ပါတယ်။ တစ်ကယ်တော့ ဒါဟာ CDNs or Content Delivery Networks ကြောင့်ပဲဖြစ်ပါတယ်။ CDN တစ်ခုဟာ other sites တွေကနေ အသုံးပြုနိုင်တဲ့ files တွေကို hosts လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ own server ပေါ်မှာ jQuery javaScript file ကို putting လုပ်နေမဲ့အစား jQuery ကို download လုပ်ဖို့ရန်အတွက် Google's CDN ကို  link လုပ်နိုင်ပါတယ်။ အဲ့ဒါဟာ disk space ကို waste ဖြစ်စေပြီးတော့ ကျွန်တော်တို့ server ရဲ့ processing power ကိုလည်း waste ဖြစ်စေမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ another web server ကို contact လုပ်ဖို့ရန်အတွက် AJAX ကို အသုံးပြုမဲ့အစား other site ကနေပြီးတော့ JavaScript file တစ်ခုကို load လုပ်လို့ရပါတယ်။ 
+    </p><hr>
+    <h1>Introduction the Project</h1>
+    <p>
+        ဒီ section မှာတော့ ကျွန်တော်တို့ရဲ့ imaginations ကို အသုံးပြုညြ့်ရအောင်။ ကျွန်တော်တို့ဟာ small web development company တစ်ခုမှာရှိတဲ့ web developer တစ်ယောက်ဆိုကြပါစို့။ ကျွန်တော်တို့ရဲ့ job ဟာ companies intranet ကနေပြီးတော့ HTML, CSS and JavaScript တို့ကို produce လုပ်ပေးရတာဖြစ်ပါတယ်။ Intranet ဆိုတာကတော့ အလုပ်လုပ်နေတဲ့ people တွေကို company ကနေပြီးတော့ see and use လုပ်နိုင်ဖို့ရန်အတွက် internal website တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ employees တွေ သူတို့ရဲ့ အလုပ် done ဖြစ်ဖို့ရန်အတွက် help ဖြစ်စေတဲ့ tools and information တွေကို provide လုပ်ပေးထားတာဖြစ်ပါတယ်။ ဒီနေ့ boss ဟာ ကျွန်တော်တို့ကို intranet မှာ new feature တစ်ခုကို add ဖို့ရန်အတွက် said လုပ်လာခဲ့ပါတယ်။ အဲ့ဒါတော့ currently employees တွေနဲ့ အခု office မှာ ရှိတဲ့သူပဲဖြစ်ဖြစ် မရှိတဲ့ သူပဲဖြစ်ဖြစ် အဲ့ lists တွေအားလုံးပါတဲ့ small sidebar element တစ်ခုပဲဖြစ်ပါတယ်။ တစ်ကယ်လို့ employee ဟာ office မှာရှိတယ်ဆိုရင် green icon ဟာ appears ဖြစ်လာပြီးတော့ သူတို့ရဲ့ name ဟာ next မှာ appear ဖြစ်လာမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ employee ဟာ office မှာမရှိတော့ဘူးဆိုရင် ret OUT icon ဟာ appear ဖြစ်လာမှာဖြစ်ပါတယ်။ ဒီ project ဟာဆိုရင် ပြီးခဲ့တဲ့ section တွေမှာ ကျွန်တော်တို့ လုပ်ခဲ့တဲ့ Ajax request ထက် more complicated ဖြစ်ပါတယ်။ ဒီ project ကို done ဖြစ်ဖို့ဆိုရင် Ajax call backs အကြောင်းကို ထပ် လေ့လာဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့ JSON လို့ခေါ်တဲ့ very popular data exchange format တစ်ခုကိုလည်းလေ့လာဖို့လိုပါတယ်။ 
+    </p><hr>
+    <h1>AJAX Callbacks</h1>
+    <p>
+        အခု section မှာတော့ AJAX ဟာ ဘယ်လို အလုပ်လုပ်တယ် ပြီးတော့ callbacks and response formats ကြောင်းတွေကို အသေးစိတ်လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒါပေမဲ့ AJAX basic ရဲ့ review ကို ပြန်သွားကြည့်ရအောင်။ ကျွန်တော်တို့ ပြီးခဲ့တဲ့ section မှာလေ့လာခဲ့တာဟာ AJAX request တစ်ခုမှာဆိုရင် four steps ရှိပါတယ်။ First, XML HTTP request object တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second, callback function တစ်ခုကို create လုပ်ပေးရမယ်။ Third, request ကို open လုပ်ပေးရမယ်။ Fourth, request ကို sent လုပ်ပေးရမယ်။ Most of the programming တွေဟာ callback function မှာပဲ happens လုပ်ကြတာဖြစ်ပါတယ်။ Callback ဆိုတာကတော့ server ဟာ သူ့ရဲ့ response ကို sends back လုပ်လိုက်တဲ့အချိန်မှာ ကျွန်တော်တို့ run လုပ်ချင်တဲ့ programming ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ အဲ့ response နဲ့something လုပ်ဆောင်တဲ့ programming ပဲဖြစ်ပါတယ်။ AJAX process ရဲ့ stage တစ်ခုချင်းစီမှာ XML HTTP request တစ်ခုကို create လုပ်ရမယ် ၊ request တစ်ခုကို open လုပ်ရမယ် ၊ အဲ့ request ကို sending လုပ်ရမယ် ၊ ပြီးတော့ ready state တစ်ခုကို call လုပ်ပေးရမယ်။ Browser တစ်ခုဟာ process ထဲမှာရှိတဲ့ new step တစ်ခုကို ရောက်တဲ့အခါမှာ request ရဲ့ ready state ဟာ changes ဖြစ်သွားမှာဖြစ်ပါတယ်။ XML HTTP request object ရဲ့ readyState property ဟာ 0 to 4 ဆိုတဲ့ number တစ်ခုကို holds လုပ်ထားတာဖြစ်ပါတယ်။ Number ဟာ AJAX request ရဲ့ state တစ်ခုချင်းစီကို represents လုပ်တာဖြစ်ပါတယ်။ Number zero to three ကို early stages တွေမှာ represent လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ XML HTTP request object တစ်ခုကို create လုပ်ပြီးရင် 0 ၊ response ပြန်လာတဲ့အချိန်မှာ 3 ဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ရဲ့ program အတွက် most importantly ကတော့ ready state of 4 တစ်ခုပဲဖြစ်ပါတယ်။ ဒါဟာဆိုရင် web server ဆီကို everything ကို send လုပ်ဖို့ရန်အတွက် sent လုပ်ထားတာဖြစ်ပါတယ်။ HTML တွေဟာ AJAX requests တွေအတွက် common data format တော့မဟုတ်ပါဘူး။ More commonly, ကျွန်တော်တို့ဟာ data တွေကို receiving လုပ်တဲ့နေရာမှာ XML or JSON တို့လို format တစ်ခုမှာ receive လုပ်ရတာဖြစ်ပါတယ်။ JSON အကြောင်းကိုတော့ next section မှာလေ့လာသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Introducing JSON</h1>
+    <p>
+        ကျွန်တော်တို့ပြီးခဲ့တဲ့ section မှာလေ့လာခဲ့သလိုပဲ web server တစ်ခုဟာ AJAX requests တွေကို text response, plain text or HTML တစ်ခုခုနဲ့ commonly response လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် common text formats နှစ်ခုရှိပါသေးတယ်။ အဲ့ဒါတွေကတော့ XML and JSON တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ XML ကို ပြီးခဲ့တဲ့ stage မှာ လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ XML ဆိုတာ reliable data format တစ်ခုဖြစ်ပါတယ်။ ဒါပေမဲ့ သူဟာ JavaScript နဲ့ အသုံးပြုဖို့ရန်အတွက် difficult ဖြစ်ပါတယ်။ Many AJAX applications တွေအတွက် JSON ဟာ better choice တစ်ခုဖြစ်ပါတယ်။ JSON ရဲ့ stands ကတော့ JavaScript Object Notation ပဲဖြစ်ပါတယ်။ ဒါဟာ information မှာ JavaScript ကို pass လုပ်ဖို့ရန်အတွက် အသုံးပြုတဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ data တွေကို store လုပ်ဖို့ရန်အတွက် basic JavaScript arrays and objects တို့ကို အသုံးပြုထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ JSON ကို format လုပ်နိုင်တဲ့ ways နှစ်ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ array notation or object notation တို့ပဲဖြစ်ပါတယ်။ JSON ကို format လုပ်ဖို့ရန်အတွက် way တစ်ခုကတော့ JavaScript array ပဲဖြစ်ပါတယ်။ Array တစ်ခုဆိုတာ shopping list တစ်ခုနဲ့ တူပါတယ်။ Shopping list တစ်ခုမှာဆိုရင် a few items တွေရှိပါတယ်။ ဒါမဟုတ်ရင် hundreds of items တွေရှိပါတယ်။ JavaScript မှာဆိုရင် ကျွန်တော်တို့ array တစ်ခုကို create လုပ်တဲ့အခါမှာ list of items ကို start လုပ်ဖို့ရန်အတွက် opening bracket တစ်ခုကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ list ကို finish ဖြစ်ဖို့ရန်အတွက် closing bracket တစ်ခုကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Brackets ထဲမှာ ကျွန်တော်တို့ဟာ values တွေကို commas တွေနဲ့ separate လုပ်ပြီးတော့ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Value တစ်ခခုဟာ string လည်းဖြစ်နိုင်တယ်။ String ဆိုရင်တော့ quotes ထဲမှာ ထည့်ရေးပေးရမှာဖြစ်ပါတယ်။ Number ဆိုရင်တော့ quotes ထဲမှာရေးစရာမလိုပါဘူး။ ကျွန်တော်တို့ arrays နဲ့အလုပ်လုပ်တဲ့အချိန်မှာ problem ရှိပါတယ်။ အဲ့ဒါကတော့ data တွေဟာ ဘာလို ဆိုလိုတယ်ဆိုတာကို အမှန်တစ်ကယ်မသိပါဘူး။ အဲ့ဒါကို JavaScript Object Notation ရဲ့ object part ဟာ handy လုပ်နိုင်ပါတယ်။ JavaScript Object တစ်ခုဆိုတာ set of key value pairs တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ set of key value pairs ကို property value pairs လို့လည်းခေါ်ပါတယ်။ Key ဆိုတာ property တစ်ခုကို identify လုပ်ဖို့ရန်အတွက် အသုံးးပြုတဲ့ name တစ်ခုပဲဖြစ်ပါတယ်။ နောက် value ဆိုတာကတော့ အဲ့ property ကို ပေးချင်တဲ့ value ပဲဖြစ်ပါတယ်။ Basic object တစ်ခုဟာ opening brace တစ်ခုနဲ့ starts လုပ်ပြီးတော့ closing brace တစ်ခုနဲ့ ends လုပ်ပေးရတာဖြစ်ပါတယ်။ အဲ့ braces ထဲမှာ ကျွန်တော်တို့ဟာ name value pairs တွေကို add လုပ်နို်င်ပါတယ်။ Objects တွေမှာ property name တစ်ခု ပါဝင်တာဟာ object တစ်ခုရဲ့ different parts တွေကို identify လုပ်ဖို့ရန်အတွက် easy ဖြစ်စေပါတယ်။ JavaScript object တစ်ခုမှာ key တစ်ခုချင်းစီကို သူ့ရဲ့ value ကနေပြီးတော့ comma တစ်ခုနဲ့ separate လုပ်ပေးထားရပါတယ်။ သို့သော်လည်း JSON formatted data တွေအတွက် extra requirement တစ်ခုရှိပါသေးတယ်။ First, regular JavaScript objects keys တွေမှာဆိုရင် quote ရှိစရမလိုပါဘူး။ သို့သော်လည်း valid JSON ကတော့ property name တစ်လျောက်မှာ quotes တွေပဲလိုတာမဟုတ်ဘဲနဲ့ double quotes တွေလည်း လိုအပ်ပါတယ်။ Single quote ဟာ အလုပ်လုပ်မလုပ်ပါဘူး။ Strings တွေမှာဆိုရင်လည်း double quotes လိုအပ်ပါတယ်။ ကျွန်တော်တို့ဟာ JSON file valid ဖြစ်တယ် မဖြစ်ဘူးဆိုတာကို check လုပ်ဖို့ရန်အတွက် JSONLint လို့ online validator ကိုအသုံးပြုနိုင်ပါတယ်။ အခု ကျွန်တော်တို့ လေ့လာခဲ့တဲ့ section မှာတော့ AJAX ရဲ့ front-end part ကို လေ့လာခဲ့တာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Parsing JSON Data</h1>
+    <p>
+        အခုဆိုရင် call backs ဟာ ဘယ်လို အလုပ်လုပ်တယ် ပြီးတော့ Json ဆိုတာဘာလဲဆိုတာကို ပိုပြီးတော့ သိရှိခဲ့ပြီးဖြစ်ပါတယ်။ Ajax နဲ့ browser ဟာ request တစ်ခုကို web server ဆီကို sent out လုပ်လိုက်တယ်။ ပြီးတော့ web server ကနေပြီးတော့ response တစ်ခုကို sent လုပ်လိုက်တယ်။ Response ဆိုတာ plain text တစ်ခုပဲဖြစ်ပါတယ်။ Server ဟာ information တွေကို sends back လုပ်တဲ့အခါမှာ HTML, XML or JSON တို့နဲ့လည်း send back လုပ်လာနိုင်ပါတယ်။ Web browser တစ်ခုမှာဆိုရင် အဲ့ responses တွေဟာ string of characters တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ Json data တွေကို အသုံးပြုဖို့ဆိုရင် string တစ်ခုကို ယူပြီးတော့ သူ့ကို JavaScript အဖြစ်ကို convert လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့လို လုပ်တဲ့ process ကို parsing လို့ခေါ်ပါတယ်။ Fortunately, ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် really easy ဖြစ်ပါတယ်။ Current web browsers အားလုံးဟာ single command တစ်ခုကို အသုံးပြုပြီးတော့ အဲ့ဒါကိုလုပ်ဆောင်နိုင်ပါတယ်။ Example မှာဆိုရင် Json.parse ဟာ current web browsers အားလုံးမှာ built လုပ်ထားတဲ့ method တစ်ခုဖြစ်ပါတယ်။ Json.parse method ဟာ string တစ်ခုကို ယူပြီးတော့ အဲ့ string ကို JavaScript object တစ်ခုအဖြစ်ကို convert လုပ်ဖို့ရန်အတွက် tries လုပ်တာဖြစ်ပါတယ်။ နောက် text response ဟာ employees.json file ကနေပြီးတော့ Json formatted string တစ်ခုကို server ကနေပြီးတော့ get လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ Json formatted data ဟာ array items or object full of key value pairs တစ်ခုဖြစ်ရပါမယ်။ နောက် Json formatted objects ထဲမှာရှိတဲ့ keys တွေဟာဆိုရင် double quotes ထဲမှာရှိရမှာဖြစ်ပါတယ်။ ပြီးတော့ string values တွေဟာလည်း double quotes ထဲမှာရှိရမှာဖြစ်ပါတယ်။ Json.parse method ဟာဆိုရင် sting ဟာ correct Json အတိုင်း formatted လုပ်ထားတာမဟုတ်ဘူးဆိုရင်တော့ အလုပ်လုပ်မှာမဟုတ်ပါဘူး။ Json.parse method ဟာ complete ဖြစ်သွားတဲ့အချိန်မှာ သူဟာ JavaScript object တစ်ခုကို return ပြန်ပေးတာဖြစ်ပါတယ်။  
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    var employees = JSON.parse(xhr.responseText);
+                    console.log(employees);
+            
+                }
+            };
+            xhr.open('GET', 'data/employee.json');
+            xhr.send();
+        </code>
+    </pre><hr>
+    <h1>Processing JSON Data</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ JSON data တွေကို usable JavaScript အဖြစ်ကို convert လုပ်ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ အဲ့ information တွေကို ကျွန်တော်တို့ရဲ့ page မှာ ဘယ်လို output ထုပ်မယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ HTML and CSS အကြောင်းကိုလည်းသိထားဖို့လိုပါတယ်။ သူတို့ကို ကျွန်တော်တို့ရဲ့ page မှာရှိတဲ့ list မှာ effectively present ဖြစ်ဖို့ရန်အတွက် အသုံးပြုမှာဖြစ်ပါတယ်။ CSS ရဲ့ before and after pseudo classes တွေကို in and out icons တွေကို display လုပ်ဖို့ရန်အတွက် အသုံးပြုရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ HTML ကို generate လုပ်ဖို့ရန်အတွက် company မှာရှိတဲ့ employee တစ်ယောက်ချင်းစီအတွက် list item တစ်ခုကို build လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် following steps တွေနဲ့လုပ်ဆောင်သွားရမှာဖြစ်ပါတယ်။ First, new HTML list item တစ်ခုကို create လုပ်ပေးရမယ်။ Two, inoffice property ကို check လုပ်ပေးရမယ်။ တစ်ကယ်လို့ value ဟာ false ဖြစ်ခဲ့တယ်ဆိုရင် out class တစ်ခုကို li tag မှာသွားပြီးတော့ add လုပ်ပေးမှာဖြစ်ပါတယ်။ တစ်ကယ်လို value ဟာ true ဖြစ်ခဲ့တယ်ဆိုရင် in class ကို add လုပ်မှာဖြစ်ပါတယ်။ Third, name property အတွက် value ကို get လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကတော့ employee ရဲ့ name ဖြစ်ပြီးတော့ သူ့ကို li tag ထဲမှာ insert လုပ်ထားတာဖြစ်ပါတယ်။ Fourth, li tag ကို close လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့အခု လေ့လာတဲ့ process အတိုင်းလုပ်ဆောင်ပြီးတဲ့အခါမှာ employees ရဲ့ array တစ်ခုလုံးဟာ web page ဆီကို add လုပ်လို့ရပြီဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    var employees = JSON.parse(xhr.responseText);
+                    var statusHTML = '&lt;ul class="bulleted"&gt;';
+                    for(var i=0; i< employees.length; i += 1){
+                        if(employees[i].inoffice === ture){
+                            statusHTML += '&lt;li class="in"&gt;';
+                        } else {
+                            statusHTML += '&lt;li class="out"&gt;';
+                        }
+                        statusHTML += employees[i].name;
+                        statusHTML += '&lt;/li&gt;';
+                    }
+                statusHTML += '&lt;/ul&gt;';
+                document.getElementById('employeeList').innerHTML = statusHTML;
+            
+                }
+            };
+            xhr.open('GET', 'data/employee.json');
+            xhr.send();
+        </code>
+    </pre>
+    <a href="ajaxexample/emplotee.html">Test Yourself</a><hr>
+    <h1>Introducing jQuery</h1>
+    <p>
+        jQuery ဟာ most popular JavaScript library ပဲဖြစ်ပါတယ်။ သူ့ကို millions of websites တွေမှာ အသုံးပြုကြပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ many programming tasks တွေကို simpler ဖြစ်အောင်လုပ်ဆောင်ပေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ jQuery အကြောင်းကို သိခဲ့တယ်ဆိုရင်တော့ သူ့ရဲ့ excellent document object model tools or DOM ကို သိခဲ့ပြီးဖြစ်ပါတယ်။ နောက် CSS-based selector syntax တွေ အသုံးပြုတာကိုလည်း သိခဲ့ပြီလို့ထင်ပါတယ်။ jQuery ဟာဆိုရင် set of tools တစ်ခုကိုလည်း supply လုပ်ပေးထားပါတယ်။ အဲ့ tool ဟာဆိုရင် AJAX နဲ့ အလုပ်လုပ်တဲ့နေရာမှာ simple and quick ဖြစ်အောင်လုပ်ဆောင်ပေးပါတယ်။ JavaScript နဲ့ AJAX ဟာ difficult မဖြစ်ပါဘူး။ နောက် jQuery ဟာ အဲ့ဒါကို ပိုပြီးတော့ လွယ်ကူအောင်လုပ်ဆောင်ပေးနိုင်ပါတယ်။ Developers တွေဟာ သူတို့ရဲ့ AJAX abilities အတွက် jQuery ကိုအသုံးပြုကြပါတယ်။ အခုကျွန်တော်တို့ example အနေနဲ့ first stage လုပ်ခဲ့တဲ့ example ကိုသွားကြည့်ရအောင်။ အဲ့မှာဆိုရင် web page တစ်ခုဆီကို HTML တွေကို load လုပ်ဖို့ရန်အတွက် AJAX ကို ဘယ်လိုအသုံးပြုတယ်ဆိုတာကို demonstrated လုပ်သွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် button ကို click လိုက်တဲ့အခါမှာ chunk of HTML ကို AJAX နဲ့ dynamically load လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ program ကို ကျွန်တော်တို့ဟာ AJAX request တစ်ခုရဲ့ four steps ကို followed လုပ်ထားတာဖြစ်ပါတယ်။ အခု အဲ့ script ကို jQuery ကို convert လုပ်ကြည့်ရအောင်။ First, အနေနဲ့ ကျွန်တော်တို့လုပ်ရမှာက jQuery file ကို HTML page မှာ link လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် script tag ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ JavaScript code နေရာမှာ ကျွန်တော်တို့ရဲ့ jQuery programming ကို replace လုပ်မှာဖြစ်ပါတယ်။ jQuery code ကိုကြည့်ရအောင်။ အဲ့မှာဆိုရင် dollar sing AJAX part ဟာ jQuery selector တစ်ခုဖြစ်ပါတယ်။ နောက် .load ဟာဆိုရင် jQuery function တစ်ခုဖြစ်ပြီးတော့ method လို့လဲခေါ်ပါတယ်။ အဲ့ဒါဟာ chunk of HTML ကို request လုပ်ပြီးတော့ page ဆီကို inserting လုပ်ဖို့ရန်အတွက် shorthand command တစ်ခုဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ jQuery ကို အသုံးပြုပြီးတော့ button ကို လွယ်လွယ်ကူကူ hide လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+              
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+
+                &lt;head&gt;
+                    &lt;title&gt;AJAX with JavaScript&lt;/title&gt;
+                    &lt;meta charset="utf-8"&gt;
+                    &lt;link rel="stylesheet" href="main.css"&gt;
+                    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                    &lt;script&gt;
+                        
+                        function sendAJAX() {
+                        $('#ajax').load('sidebar.html');
+                        $('#load').hide();
+                        }
+                    &lt;/script&gt;
+                &lt;/head&gt;
+
+                &lt;body&gt;
+                    &lt;div class="grid-container centered"&gt;
+                        &lt;div class="grid-100"&gt;
+                            &lt;div class="contained"&gt;
+                                &lt;div class="grid-100"&gt;
+                                    &lt;div class="heading"&gt;
+                                        &lt;h1&gt;Bring on the AJAX&lt;/h1&gt;
+                                        &lt;button id="load" onclick="sendAJAX()"&gt;Bring it!&lt;/button&gt;
+                                    &lt;/div&gt;
+                                    &lt;div id="ajax"&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/index.html">Test Yourself</a><hr>
+    <h1>jQuery’s AJAX Shorthand Methods</h1>
+    <p>
+        Web developers တွေဟာ AJAX ကို different purposes တွေအတွက်အသုံးပြုကြပါတယ်။ Webpage တစ်ခုထဲမှာရှိတဲ့ HTML ကို inject လုပ်ဖို့ရန်, web server တစ်ခုကနေ JSON data တွေကို receive လုပ်ဖို့ရန်, database တစ်ခုဆီကို form data တွေကို post လုပ်ဖို့ရန်တို့ပဲဖြစ်ပါတယ်။ jQuery team ဟာဆိုရင် web developers တွေအသုံးပြုတဲ့ AJAX ကို common ways တွေနဲ့ realized လုပ်ပေးထားပါတယ်။ ပြီးတော့ AJAX requests တွေရဲ့ most common types တွေကို simplify လုပ်ဖို့ရန်အတွက် shorthand functions တွေကိုလည်း ပြုလုပ်ပေးထားပါတယ်။ jQuery website ကို သွားပြီးတော့ list of shorthand methods တွေကို find လုပ်နိုင်ပါတယ်။ အဲ့ site မှာဆိုရင် AJAX shorthand methods ကို click လုပ်ပြီးတော့ jQuery's AJAX shorthand methods နဲ့ပါတ်သတ်တဲ့ more information တွေကို လေ့လာနိုင်ပါတယ်။ အဲ့မှာကျွန်တော်တို့ဟာ load method အကြောင်းကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Four other options တွေဟာ different AJAX requests တွေနဲ့ perform လုပ်တာဖြစ်ပါတယ်။ jQuery.get method ဟာ HTTP get method ကို အသုံးပြုပြီးတော့ request တစ်ခုကို web server တစ်ခုဆီကို sent လုပ်တဲ့ simply another way တစ်ခုဖြစ်ပါတယ်။ Get method ရဲ့ basic structure ကို example မှာ လေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ jQuery ရဲ့ .get method ကို jQuery selector နဲ့ အသုံးပြုလို့မရပါဘူး။ Get method ရဲ့ first argument ဟာ URL ပဲဖြစ်ပါတယ်။ အဲ့ URL ဟာ request ကို လုပ်ဆောင်တာပဲဖြစ်ပါတယ်။ URL ကို XML HTTP Request object ပေါ်မှာရှိတဲ့ regular open method တစ်ခုကိုအသုံးပြုပြီးတော့လည်းရေးနိုင်ပါတယ်။ Second argument ဟာဆိုရင် optional ဖြစ်ပါတယ်။ အဲ့ဒါဟာ ကျွန်တော်တို့ web server ကို send လုပ်လိုက်တဲ့ data တွေပဲဖြစ်ပါတယ်။ အဲ့ data တွေဟာ query string တစ်ခုအနေနဲ့ URL ဆီကို add လုပ်ထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ second argument ကို JavaScript object တစ်ခုကိုလည်း provide လုပ်နိုင်ပါတယ်။ နောက်ဆုံးကတော့ data တွေကို return ပြန်ပေးတဲ့ process ကိုလုပ်ဆောင်ဖို့ရန်အတွက် callback function တစ်ခုကို လိုအပ်ပါတယ်။ အဲ့ callback function ဟာဆိုရင် regular JavaScript-only AJAX callback ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာနဲ့ အတူတူပဲဖြစ်ပါတယ်။ အဲ့ဒါကို အသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့ဟာ XHR ready status ကိုလည်း check လုပ်စရာမလိုတော့ပါဘူး။ နောက် ကျွန်တော်တို့ file not found or server error တို့လို any HTTP status errors တွေအတွက်လည်း check လုပ်စရာမလိုတော့ပါဘူး။ Callback function ဟာဆိုရင် AJAX request ဟာ complete and successful ဖြစ်သွားတဲ့အချိန်မှ run လုပ်တာဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် သူ့ရဲ့ response callback function ကို hands လုပ်ထားပါတယ်။ Response argument ဟာဆိုရင် XHR object ရဲ့ response text property နဲ့ အတူတူပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var url = '/employees.json';
+            var data = {
+                firstNmae: "Dave",
+                lastNName: "McFarland"
+            };
+            var callback = function (response){
+                    //do something with the response
+            };
+            $.get(url, data, callback);
+        </code>
+    </pre><hr>
+    <h1>The Office Status Project Revisited</h1>
+    <p>
+        ကျွန်တော်တို့ပြီးခဲ့တဲ့ section မှာ built လုပ်ခဲ့တဲ့ employee status widget ကို jQuery ကို အသုံးပြုပြီးတော့ လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ပြီးခဲ့တဲ့ stage မှာ အဲ့ဒါကို plain JavaScript နဲ့built လုပ်ထားခဲ့တာဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် AJAX helper function တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ အဲ့ function ဟာ လိုအပ်တဲ့ AJAX requests တွေကို performs လုပ်ပေးရုံမဟုတ်ဘဲနဲ့ return JSON file ကိုလည်း parses လုပ်ပေးတာဖြစ်ပါတယ်။    ကျွန်တော်တို့ဟာ start လုပ်ဖို့ရန်အတွက် document.ready function ကို add လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ function ဟာဆိုရင် jQuery thing တစ်ခုဖြစ်ပါတယ်။ သူဟာ file တစ်ခုထဲမှာရှိတဲ့ HTML အားလုံးကို သူ့ထဲမှာ any of the JAVA script တွေ running မလုပ်ခင်မှာ browser ထဲမှာ load လုပ်ဖို့ရန်အတွက် waits လုပ်တာဖြစ်ပါတယ်။ ဒါဟာ html မလာခင် ကျွန်တာ်တို့ document ရဲ့ head ထဲမှာ ကျွန်တော်တို့ရဲ့ JavaScript include ဖြစ်တဲ့အချိန်မှာသာလျှင် လိုအပ်တာဖြစ်ပါတယ်။ အခုနောက်ထပ် getJSON function ကို add လုပ်ကြည့်ရအောင်။ သူဟာဆိုရင် ပြီးခဲ့တဲ့ section မှာ လေ့လာခဲ့တဲ့ get function နဲ့ အလုပ်လုပ်တာဟာ nearly same ဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် argument 3 ခုကို pass လုပ်နိုင်ပါတယ်။ အခု example မှာ ကျွန်တော်တို့ဟာ any data ကို sending မလုပ်တဲ့အတွက်ကြောင့် data argument ကို delete လုပ်ထားတာဖြစ်ပါတယ်။ Callback အတွက် ကျွန်တော်တို့ဟာ anonymous function တစ်ခုကို add လုပ်နိုင်ပါတယ်။ get function လိုပဲ callback ဟာဆိုရင် json function အတွက် server ကနေပြီးတော့ response return ကို passed လုပ်ထားတာဖြစ်ပါတယ်။ သို့သော်လည်း ဒီ function ဟာဆိုရင် json data ကိုပဲ handles လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ server ကနေပြီးတော့ callback ဆီကို response ကို passing မလုပ်ခင်မှာ usable JavaScript array or object တစ်ခုမှာ jQuery ဟာ response ကို parses လုပ်ပေးရမှာဖြစ်ပါတယ်။ ဒါဟာ important part ပဲဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ last stage မှာတုန်းက plain javaScript နဲ့ add လုပ်သလိုပဲ  လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် call back ကနေ generate လုပ်လိုက်တဲ့ HTML ကို hold လုပ်ဖို့ရန်အတွက် variable တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် callback မှာ အဲ့ response variable ရှိသွားပြီဖြစ်ပါတယ်။ အဲ့ response ဟာဆိုရင် employees.json file ကနေ javaScript file ကို convert လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် response variable ဟာ objects တွေရဲ့ array တစ်ခုကို hold လုပ်ထားတာဖြစ်ပါတယ်။ အရင် pure JavaScript solution မှာဆိုရင် array elements တစ်ခုချင်းစီကို ဖြတ်ပြီးတော့ iterate လုပ်ဖို့ရန်အတွက် loop တစ်ခုကို အသုံးပြုခဲ့တာဖြစ်ပါတယ်။ သို့သော်လည်း jQuery ဟာဆိုရင် arrays တွေကို looping through လုပ်ဖို့ရန်အတွက် သူ့ရဲ့ own utility ကို provide လုပ်ပေးထားပါတယ်။ jQuery ရဲ့ $.each function ဟာဆိုရင် items တွေရဲ့ array တစ်ခုကို looping through လုပ်ဖို့ရန်အတွက် useful utility ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် JavaScript ရဲ့ for loop လို့ပဲ အလုပ်လုပ်တာအတူတူဖြစ်ပါတယ်။ ဒါပေမဲ့ သူကတော့ using less code ဖြစ်ပါတယ်။ $.getJSON function လိုပဲ $.each ဟာလည်း general jQuery utility method တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ arguments နှစ်ခုယူပါတယ်။ First argument အနေနဲ့ array or object တစ်ခုဖြစ်ပါတယ်။ Second argument ကတော့ callback function ပဲဖြစ်ပါတယ်။ နောက် callback function ဟာဆိုရင် သူကိုယ်တိုင် arguments နှစ်ခုယူပါတယ်။ အဲ့ဒါတွေကတော့ $.each method ကနေ provided လုပ်ထားတာပဲဖြစ်ပါတယ်။ First argument ဟာ number တစ်ခုဖြစ်ပါတယ်။ အဲ့ number ကတော့ current array item ရဲ့ index value ပဲဖြစ်ပါတယ်။ Second argument ကတော့ အဲ့ index မှာရှိတဲ့ actual array element ပဲဖြစ်ပါတယ်။ နောက်ထပ် ကျန်တဲ့ code တွေကေတော့ အရင် create လုပ်ခဲ့တဲ့ code တွေနဲ့အတူတူပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                var url = "./data/employees.json";
+                $.getJSON(url, function(response){
+                    var statusHTML = '&lt;ul class= "bulleted"&gt;';
+                    $.each(response, function(index, employees){
+                        if(employees.Inoffice === true){
+                            statusHTML += '&lt;li class="in"&gt;';
+                        } else {
+                            statusHTML += '&lt;li class="out"&gt;';
+                        }
+                    statusHTML += employees.name + '&lt;/li&gt;';
+               
+                    });
+                    statusHTML += '&lt;/ul&gt;';
+                    $('#employeeList').html(statusHTML);
+                }); //end get JSON
+            }); //end ready
+        </code>
+    </pre>
+    <a href="ajaxexample/emplotee.html">Test Yourself</a><hr>
+    <h1>Posting Data with jQuery</h1>
+    <p>
+        jQuery ရဲ့ $.get method ဟာဆိုရင် request တစ်ခုကို web server တစ်ခုဆီကို sent off လုပ်ဖို့ရန်အတွက် great way တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ information တွေရဲ့ big forms worth တစ်ခုကို submit လုပ်ဖို့လိုအပ်တဲ့အခါမှာ ကျွန်တော်တို့ဟာ post method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ more data တွေကို supports လုပ်ပေးပြီးတော့ သူ့ရဲ့ purpose ကတော့ data တွေကို sent လုပ်တာပဲဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ data တွေကို database တစ်ခုထဲမှာ store လုပ်ထားတာပဲဖြစ်ပါတယ်။ Post method ဟာဆိုရင် GET method နဲ့ တူပါတယ်။ သူဟာ form data တွေကို process လုပ်ပေးတဲ့ server side program ကို pointing လုပ်တဲ့ URL တစ်ခုကို ယူပါတယ်။ နောက် data ကတော့ post တစ်လျောက်လုံးမှာ send လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ နောက် callback function ကတော့ server မှ response ကို handle လုပ်တာဖြစ်ပါတယ်။ Data part မှာဆိုရင် GET method အတွက် data လိုပဲ အလုပ်လုပ်နိုင်ပါတယ်။ အခု ကျွန်တော်တို့ဟာ example အနေနဲ့ ကျွန်တာ်တို့ရဲ့ newsletter form အတွက် sign up တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် user ဟာ submit လုပ်လိုက်တဲ့အချိန်မှာ form ကနေပြီးတော့ leave လုပ်သွားမှာဖြစ်ပါတယ်။ Page ကနေပြီးတော့ leave လုပ်သွားတာမဟုတ်ပါဘူး။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် two text fields and a submit button တစ်ခုပါတဲ့ form တစ်ခုကို create လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် form data တွေဟာ ဘယ်နေရာမှာ sent လုပ်မယ်ဆိုတဲ့ URL ကို point လုပ်တဲ့ action attribute တစ်ခုရှိပါတယ်။ First, ကျွန်တော်တို့ဟာ jQuery file ကို link လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ document.ready function တစ်ခုကို add လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် visitor ဟာ submit button ကို click လုပ်တဲ့အခါမှာ ကျွန်တော်တို့ရဲ့ Ajax request ကို sent off လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ form ကို select လုပ်ဖို့ရန်အတွက် jQuery ကို အသုံးပြုပေးရမှာဖြစ်ပြီးတော့ submit event handler ကိုလည်း add လုပ်ထားတာဖြစ်ပါတယ်။ နောက် user ဟာ form ကို submits လုပ်လိုက်တဲ့အချိန်မှာ run လုပ်မဲ့ function တစ်ခုကိုလည်း add လုပ်ထားတာဖြစ်ပါတယ်။ Next, submit button ကို click လုပ်လိုက်တဲ့အချိန်မှာ actually submitting ကနေပြီးတော့ form ကို prevents လုပ်ပေးတဲ့ bit of code ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် prevent default method ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ another jQuery method တစ်ခုဖြစ်ပါတယ်။ Prevent default method ဟာ browser ကို form ကို submit လုပ်ဖို့ရန်အတွက် current webpage ကနေပြီးတော့ leaving လုပ်တာကနေ simply stops လုပ်ပေးတာဖြစ်ပါတယ်။ Ajax request တိုင်းဟာ action property တစ်ခုရှိတဲ့ URL and HTML forms တစ်ခုကို လိုအပ်ပါတယ်။ အဲ့ဒါကြောင့်  ကျွန်တော်တို့ဟာ URL ကို form ရဲ့ action property ဆီကို set လုပ်နိုင်ပါတယ်။ jQuery ကိုအသုံးပြုပြီးတော့ form ကို select လုပ်မယ် ပြီးတော့ အဲ့ form ရဲ့ action attribute ကို pull out လုပ်ပေးရမှာဖြစ်ပါတယ်။ Next, form data တွေကို capture လုပ်ရမှာဖြစ်ပါတယ်။ Normally, plain JavaScript ကိုအသုံးပြုမယ်ဆိုရင် ကျွန်တော်တို့ဟာ form field တိုင်းရဲ့ list တစ်ခုကို generate လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးတော့ အဲ့ list ကို သွားပြီးတော့ form field တစ်ခုချင်းစီအတွက် name and value ကို retrieve လုပ်ပေးပြီးတော့ သူတို့ကို encode လုပ်ပေးရမှာဖြစ်ပါတယ်။ Fortunately, jQuery ဟာဆိုရင် simpler way တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ form ကို select လုပ်တယ် ပြီးတော့ jQuery ရဲ့ serialized method ကို သူ့ထဲမှာ run တာပဲဖြစ်ပါတယ်။ အခုဆိုရင် ကျွန်တော်တို့မှာ URL and data တွေရှိနေပြီဖြစ်ပါတယ်။ နောက် post method ဟာလည်း run လုပ်ဖို့ရန်အတွက် ready ဖြစ်နေပြီဖြစ်ပါတယ်။ Last step ကတော့ form ကို submitted လုပ်ပြီးပြီဆိုတာကို visitor ကို know ဖြစ်ဖို့ let လုပ်ပေးမှာဖြစ်ပါတယ်။ Example မှာ ကျွန်တော်ပြောပြခဲ့တဲ့ steps တွေကိုလေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="demo.css"&gt;
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                &lt;title&gt;Posting Data with jQuery Example&lt;/title&gt;
+                &lt;script&gt;
+                    $(document).ready(function(){
+                        $('form').submit(function(evt){
+                            evt.preventDefault();
+                            var url = $(this).attr("action");
+                            var formData = $(this).serialize();
+                            $.post(url, formData, function(response){
+                                $('#signup').html("&lt;p&gt;Thanks for signing up!&lt;/P&gt;");
+                            });// end post
+                        });// end submit
+                    });// end ready
+            
+                &lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="grid"&gt;
+                        &lt;div class="heading"&gt;
+                            &lt;h1&gt;Sign Up for Our Newsletter&lt;/h1&gt;
+                            &lt;div id="signup"&gt;
+                                &lt;form method="POST" action="#signup"&gt;
+                                    &lt;label for="username"&gt;Please type your name:&lt;/label&gt;
+                                    &lt;input type="text" name="username"/&gt;&lt;br&gt;
+                                    &lt;label for="email"&gt;Your email address&lt;/label&gt;
+                                    &lt;input type="text" name="username"/&gt;&lt;br&gt;
+                                    &lt;input type="submit" value="Signup!" id="submit"/&gt;
+                                &lt;/form&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/demo.html">Test Yourself</a><hr>
+    <h1>The jQuery AJAX Method</h1>
+    <p>
+        ဒီ stage မှာ ကျွန်တော်တို့ဟာ load, get, post and getJSON ဆိုတဲ့ jQuery method တွေဟာ shorthand methods တွေပဲဖြစ်ပါတယ်။ ဒီ methods တွေရဲ့ တစ်ခုချင်းစီကို $.ajax လို့ခေါ်တဲ့ more robust and complicated method ပေါ်မှာ built လုပ်ထားတာဖြစ်ပါတယ်။ $.ajax method ဟာ other methods တွေထက် simpler ဖြစ်ပါတယ်။ သူ့မှာ basic structure တွေရှိပါတယ်။ URL ကတော့ other methods တွေနဲ့ အတူတူပဲဖြစ်ပါတယ်။ URL ကတော့ request အတွက်ပဲဖြစ်ပါတယ်။ နောက် setting argument ကတော့ bit more complex ဖြစ်ပါတယ်။ Setting argument ဟာ request ရဲ့ various options တွေကို set လုပ်ထားတဲ့ one or more key value pairs ပါတဲ့ JavaScript object တစ်ခုဖြစ်ပါတယ်။ တစ်ကယ်တော့ ဒါဟာ jQuery အတွက် ultimate Ajax method ပဲဖြစ်ပါတယ်။ ပြီးခဲ့တဲ့ section မှာ လုပ်ခဲ့တဲ့ POST method နေရာမှာ $.ajax method ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ First, ကျွန်တော်တို့ဟာ $.post နေရာမှာ $.ajax ကို replace လုပ်ပေးပြီးတော့ data and success callback ကို remove လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second argument အနေနဲ့ JavaScript object ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် သူ့ထဲမှာ data ကို form data ဆိုတဲ့ value တစ်ခုကို ပေးခဲ့ရမှာဖြစ်ပါတယ်။ အဲ့ data ကတော့ form  submitted လုပ်လိုက်တဲ့အချိန်မှာ ကျွန်တော်တို့ pull out လုပ်တဲ့ form ရဲ့ data တွေပဲဖြစ်ပါတယ်။ Next, အဲ့ request အတွက် method ကို specify လုပ်ဖု့ိရန်အတွက်လိုအပ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ GET method ကိုအသုံးပြုလို့မရပါဘူး။ အဲ့မှာ POST method ပဲဖြစ်ပါတယ်။ နောက် request succeeds ဖြစ်တဲ့အချိန်မှာ function တစ်ခုကို run လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကို jQuery documentation မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် success option တစ်ခုရှိပါတယ်။ သူဟာ function တစ်ခုကို value တစ်ခုအနေနဲ့ ယူပါတယ်။ အဲ့ဒါကြောင့် သူဟာ callback တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ server ကနေပြီးတော့ response တစ်ခုကို successfully get ဖြစ်တဲ့အချိန်မှာ ဘာကို run လုပ်ချင်တာလဲဆိုတာပဲဖြစ်ပါတယ်။ သူ့ရဲ့ code တွေကတော့ $.post method အတိုင်းပဲ same results တွေကို produce လုပ်ပေးရမှာဖြစ်ပါတယ်။ $.ajax method ကို အသုံးပြုမယ်ဆိုရင် ကျွန်တော်တို့ဟာ time out တစ်ခုကို set လုပ်နိုင်ပါတယ်။ အဲ့ time ကတော့ အဲ့ server ကနေပြီးတော့ hear back လုပ်တဲ့အခါမှာ wait လုပ်ဖို့ရန်အတွက် number of milliseconds တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;link rel="stylesheet" href="demo.css"&gt;
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                &lt;title&gt;Posting Data with jQuery Example&lt;/title&gt;
+                &lt;script&gt;
+                    $(document).ready(function(){
+                        $('form').submit(function(evt){
+                            evt.preventDefault();
+                            var url = $(this).attr("action");
+                            var formData = $(this).serialize();
+                            $.ajax(url, {
+                                data: formData,
+                                type: "POST",
+                                success: function(response){
+                                    $('#signup').html("&lt;p&gt;Thanks for signing up!&lt;/P&gt;");
+                                }
+                            });// end post
+                        });// end submit
+                    });// end ready
+            
+                &lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="grid"&gt;
+                        &lt;div class="heading"&gt;
+                            &lt;h1&gt;Sign Up for Our Newsletter&lt;/h1&gt;
+                            &lt;div id="signup"&gt;
+                                &lt;form method="POST" action="#signup"&gt;
+                                    &lt;label for="username"&gt;Please type your name:&lt;/label&gt;
+                                    &lt;input type="text" name="username"/&gt;&lt;br&gt;
+                                    &lt;label for="email"&gt;Your email address&lt;/label&gt;
+                                    &lt;input type="text" name="username"/&gt;&lt;br&gt;
+                                    &lt;input type="submit" value="Signup!" id="submit"/&gt;
+                                &lt;/form&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/demo.html">Test Yourself</a><hr>
+    <h1>Handling Errors</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ web server နဲ့ communicating လုပ်တဲ့အချိန်မှာ problems တွေ arise လာနိုင်ပါတယ်။ ကျွန်တော်တို့ file တစ်ခုကို request လုပ်ဖို့ရန်အတွက် AJAX ကို အသံုံးပြုတဲ့အခါမှာ အဲ့ file ဟာ server ပေါ်မှာမရှိတာတွေ or server ဟာ technical error တစ်ခုကို encounter လုပ်တာပြီးတော့ ကျွန်တာ်တို့ရဲ့ request ကို process လုပ်ဖို့ရန်အတွက် enable ဖြစ်တာတွေ ပဲဖြစ်ပါတယ်။ jQuery's AJAX functions တွေဟာ silently fail ဖြစ်ကြပါတယ်။ ဆိုလိုတာတော့ request တစ်ခု fails ဖြစ်တဲ့အချိန်မှာ any big error ကို ပြပေးမှာမဟုတ်ပါဘူး။ Many cases တွေမှာတော့ ဒါဟာ အဆင်ပြေပါတယ်။ ဒါပေမဲ့ တစ်ခါတစ်ရံမှာတော့ request လုပ်လိုက်တဲ့အချိန်မှာ problem တစ်ခုရှိတယ်ဆိုတာကို user ကို know ဖြစ်စေချင်တဲ့အခါတွေရှိနိုင်ပါတယ်။ get, post, load and ajax methods တို့လို jQuery's methods တစ်ခုချင်းစီအတွက် any problems ကို handle လုပ်ဖို့ရန်အတွက် additional method တစ်ခုဖြစ်ပါတယ်။ သူ့ရဲ့ purpose ကတော့ AJAX request တစ်ခု fails ဖြစ်တဲ့အချိန်မှာ function တစ်ခုကို run လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် အဲ့ method ကို လုပ်အသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် $.get method ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ get method ဟာဆိုရင် request တစ်ကို server ဆီကို get လုပ်ပြီးတော့ response တစ်ခုကို receives လုပ်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် missing.html ဆိုတဲ့ content file ကို mydiv ဆိုတဲ့ ID ရှိတဲ့ page မှာရှိတဲ့ HTML tag ထဲကို loads လုပ်လိုက်တာပဲဖြစ်ပါတယ်။ တစ်ကယ်လို server မှာ problem တစ်ခု or အဲ့ file ဟာ missing ဖြစ်တဲ့အခါမှာ request fails ဖြစ်တဲ့အခါမှာပဲ run လုပ်တဲ့ function တစ်ခုကို add လုပ်နိုင်ပါတယ်။ jQuery's ရဲ့ fail method ကို .load method မှ တစ်ပါး ကျန်တဲ့ any of jQuery's AJAX methods တွေရဲ့ end မှာ tag လုပ်နိုင်ပါတယ်။ jQuery ဟာဆိုရင် chaining လို့ခေါ်တဲ့ process တစ်ခုကို supports လုပ်ပေးထားပါတယ်။ အဲ့နေရာမှာ some methods တွေကို last method ရဲ့ end ဟာ directly tag လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် .get ရဲ့ end မှာ .fail ကို add လုပ်နိုင်ပါတယ်။ fail method ဟာဆိုရင် single argument တစ်ခုကို ယူပါတယ်။ အဲ့ဒါကတော့ request fails ဖြစ်တဲ့အချိန်မှာ run လုပ်တဲ့ callback function တစ်ခုပဲဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် callback မှာ several arguments တွေကို passes လုပ်ပါတယ်။ ဒါပေမဲ့ really useful ဖြစ်တဲ့ first argument တစ်ခုဖြစ်တဲ့ jQuery XHR object တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။  jQuery XHR object ဟာဆိုရင် regular XML HTTP Request object တစ်ခုရဲ့ enhanced version တစ်ခုပဲဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် AJAX programming အတွက် useful ဖြစ်တဲ့ bunch of extra properties တစ်ခုကိုလည်း provides လုပ်ပေးထားပါတယ်။ jQuery XHR object မှာဆိုရင် error နဲ့ ပါတ်သတ်တဲ့ some important information တွေပါဝင်ပါတယ်။ ကျွန်တော်တို့ဟာ error ကို alert နဲ့ display လုပ်လို့ရသလို page မှာလည်း display လုပ်လို့ရပါတယ်။ ကျွန်တော်တို့ note အနေနဲ့ မှတ်ထားရမှာကတော့ jQuery ရဲ့ fail method ဟာ $.load method မှာတော့ အလုပ်မလုပ်ပါဘူး။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+               
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+
+                &lt;head&gt;
+                    &lt;title&gt;AJAX with JavaScript&lt;/title&gt;
+                    &lt;meta charset="utf-8"&gt;
+                    &lt;link rel="stylesheet" href="main.css"&gt;
+                    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                    &lt;script&gt;
+                        $(document).ready(function(){
+                            $.get('missing.html', function(data){
+
+                            }) .fail(function(jqXHR){
+                                var errorMessage = "&lt;p&gt;Sorry! There, 's been an error.'";
+                                    errorMessage += "Please try agian later.&lt;/p&gt;";
+                                $('#ajax').html(errorMessage);
+                            });
+                        });
+                    &lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div class="grid-container centered"&gt;
+                        &lt;div class="grid-100"&gt;
+                            &lt;div class="contained"&gt;
+                                &lt;div class="grid-100"&gt;
+                                    &lt;div class="heading"&gt;
+                                        &lt;h1&gt;Bring on the AJAX&lt;/h1&gt;
+                                        &lt;button id="load" onclick="sendAJAX()"&gt;Bring it!&lt;/button&gt;
+                                    &lt;/div&gt;
+                                    &lt;div id="ajax"&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/handleerror.html">Test Yourself</a><hr>
+    <h1>AJAX Challenge</h1>
+    <p>
+        အခုတစ်ခါမှာတော့ ကျွန်တော်တို့ဟာ challenge တစ်ခုကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ ပြီးခဲ့တဲ့ section လုပ်ဆောင်ခဲ့တဲ့ employee widget ထဲမှာ metting room ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ rooms တွေအတွက် json file တစ်ခုကို create လုပ်ပြီးတော့ အဲ့ထဲက data တွေကို AJAX ကိုအသုံးပြုပြီးတော့ add လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                var url = "./data/employees.json";
+                $.getJSON(url, function(response){
+                    var statusHTML = '&lt;ul class= "bulleted"&gt;';
+                    $.each(response, function(index, employees){
+                        if(employees.Inoffice === true){
+                            statusHTML += '&lt;li class="in"&gt;';
+                        } else {
+                            statusHTML += '&lt;li class="out"&gt;';
+                        }
+                    statusHTML += employees.name + '&lt;/li&gt;';
+               
+                    });
+                    statusHTML += '&lt;/ul&gt;';
+                    $('#employeeList').html(statusHTML);
+                }); //end get JSON
+                
+                $.getJSON('./data/rooms.json', function(response){
+                    var roomStatus = '&lt;ul class="rooms"&gt;';
+                    $.each(response, function(index, evt){
+                        if(evt.available === true){
+                            roomStatus += '&lt;li class="empty"&gt;';
+                        } else {
+                            roomStatus += '&lt;li class="full"&gt;';
+                        }
+                    roomStatus += evt.room + '&lt;/li&gt;';
+               
+                    });
+                    roomStatus += '&lt;/ul&gt;';
+                    console.log(roomStatus);
+                    $('#roomLists').html(roomStatus);
+                }); //end get JSON
+            }); //end ready
+        </code>
+    </pre>
+    <a href="ajaxexample/emplotee.html">Test Yourself</a><hr>
+    <h1>What is an API</h1>
+    <p>
+        Web ဟာဆိုရင် information တွေကို sharing လုပ်တဲ့အခါမှာ easy ဖြစ်အောင် လုပ်ဆောင်ပေးပါတယ်။ တစ်ကယ်တော့ Web  ရဲ့ success ဟာဆိုရင် အဲ့ဒါကို ဘယ်လို easy ဖြစ်အောင်လုပ်တယ်ဆိုတာကိုအခြေခံပြီးတော့ နောက် သူဟာ stuff လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Sharing information တွေဟာ Web ရဲ့ big part တစ်ခုပဲဖြစ်ပါတယ်။ Many websites တွေဟာဆိုရင် ကျွန်တော်တို့ကို plain old web browser ထက် ပိုတဲ့ content တွေကို access လုပ်ခွင့်ပြုထားပါတယ်။ အဲ့ဒါကတော့ API or application programming interface ကို အသုံးပြုတာပဲဖြစ်ပါတယ်။ Programmers တွေဟာဆိုရင် vast stockpile of tweets on Twitter, posts on Facebook, and photos on Flickr တို့ကို tap လုပ်နိုင်ပါတယ်။ Websites အားလုံးဟာ ကျွန်တော်တို့ကို သူ့ကိုဆီကို visit လုပ်ဖို့ရန်အတွက် web browser တစ်ခုကို အသုံးပြုခွင့်ပေးထားပါတယ်။ အချို့ကတော့ PHP, Ruby, or Python တို့လို server-side programming language တစ်ခုခုကို အသုံးပြုပြီးတော့ another web server တစ်ခုကနေ certain content တွေကို access လုပ်ဖို့ရန်အတွက် method တစ်ခုကိုလည်း provide လုပ်ပေးထားပါတယ်။ Application programming interface တစ်ခုဟာ ကျွန်တော်တို့ရဲ့ site နဲ့ YouTube, Dropbox, or Flickr တို့လို third-party web service တစ်ခုနဲ့ connecting လုပ်ဖို့ရန်အတွက် method တစ်ခုကို provide လုပ်ပေးထားပါတယ်။ API တစ်ခုကို web server တစ်ခုကနြေ့ပီးတော့ ဘာတွေ get လုပ်နိုင်တယ် ပြီးတော့ အဲ့ဒါတွေကို ဘယ်လို get လုပ်တယ်ဆိုပြီးတော့ define လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် API တစ်ခုထဲမဟုတ်ပါဘူး။ Site တစ်ချင်းစီမှာဆိုရင် သူူ့ရဲ့ ကိုယ်ပိုင် API ရှိကြပါတယ်။ Sites အားလုံးကတော့ API တစ်ခုကို offer လုပ်ထားတော့မဟုတ်ပါဘူး။ အချို့ websites တွေဟာဆိုရင် JavaScript APIs တွေကိုလည်း provide လုပ်ပေးထားပါတယ်။ အဲ့ဒါကြောင့် webpage တစ်ခုကနေပြီးတော့ data တွေကို AJAX ကို အသုံးပြုပြီးတော့ directly access လုပ်နို်င်တာပဲဖြစ်ပါတယ်။ ဒီ way နဲ့ပဲ ကျွန်တော်တို့ရဲ့ web server ဆီကို another websites တွေကနေ goodies တွေကို get လုပ်ဖို့ရန်အတွက် any server-side programming ကို add လုပ်ပေးရန်အတွက် မလိုပါဘူး။ အခုဆိုရင် ကျွန်တော်တို့ new client တစ်ခုအတွက် project တစ်ခုကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ company ဟာ entire website ကို redesigning လုပ်ဖို့တာဖြစ်ပါတယ်။ ဒါပေမဲ့ client ကတော့ special request တစ်ခုကိုပဲ လုပ်ဆောင်သွားတာဖြစ်ပါတယ်။ Boss ဟာ သူ့ရဲ့ site မှာ fun page တစ်ခုကို add လုပ်ချင်တယ်။ visitors တွေဟာ photo-sharing site Flickr ကနေ pictures တွေကို took လုပ်ဖို့ရန်အတွက် အသုံးပြုနိုင်တာဖြစ်ပါတယ်။ Boss ကတော့ ဒါဟာ ဘယ်လို အလုပ်လုပ်တယ်ဆိုတာကို သိမှာမဟုတ်ပါဘူး။ သူကတော့ ကျွန်တော်တို့ကို basic prototype တစ်ခု ပြီးတော့ simple test တစ်ခုကို build လုပ်အတွက်ပဲပြောသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ prototype ကို finish ဖြစ်ဖို့ရန်အတွက် jQuery ရဲ့ $.getjson ဆိုတဲ့ method ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ jQuery ရဲ့ $.getjson method ဟာတော့ Flickr's public photo stream ကို talk လုပ်ဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ project ကို မသွားခင်မှာ Flickr အကြောင်းကို နဲနဲပြောကြည့်ရအောင်။ 
+    </p><hr>
+    <h1>Flickr's API</h1>
+    <p>
+        Flickr ဆိုတာကတော့ Yahoo ပိုင်တဲ့ giant photo-sharing website တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် billions of photos တွေရှိပါတယ်။ သူ့ရဲ့ users တွေဟာဆိုရင် every single day မှာ over 3 million photos တွေကို upload လုပ်လုပ်တာဖြစ်ပါတယ်။ Some people တွေကတော့ အဲ့ဒါကို သူတို့ရဲ့ photos အားလုံးကို back up လုပ်ဖို့ရန်အတွက် အသုံးပြုကြပါတယ်။ Many others တွေကတော့ သူတို့ရဲ့ photos တွေကို friends, family and the world နဲ့ share လုပ်ဖို့ရန်အတွက် အသုံးပြုကြပါတယ်။ Flickr ဟာဆိုရင် hugely popular ဖြစ်ပါတယ်။ Programmers တွေဟာဆိုရင် much of Flickr functionality တွေကို tap လုပ်နိုင်ပါတယ်။ Example photo editing apps တွေဖြစ်တဲ့ iPhoto, Lightroom and Windows Photo Gallery တို့ဟာ photos အားလုံးကို Flickr ဆီကို post လုပ်နိုင်ပါတယ်။ သူ့ရဲ့ API ဟာဆိုရင် photos တေကို Flickr website ဆီကို post လုပ်ဖို့ရန်အတွက် programs တွေကို ခွင့်ပြုပေးပါတယ်။ Flickr ဟာဆိုရင် web developers တွေအတွက် comprehensive API တစ်ခုကိုလည်း offers လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် Flickr ပေါ်မှာ data တွေနဲ့ interact လုပ်နိုင်တဲ့ dozens of ways တွေကို provide လုပ်ပေးထားပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ API ကိုအသုံးပြုဖို့ရန်အတွက် API key တစ်ခုကို apply လုပ်ဖို့ရန်အတွက် လိုပါတယ်။ API key တစ်ခုကို getting လုပ်တာဟာ ကျွန်တော်တို့ရဲ့ အကြောင်းကို Flickr ကို telling လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် API ကိုအသုံးပြုပြီးတော့ ဘာ application ကို build လုပ်ဖို့ရန်အတွက် intend လုပ်တာပဲဖြစ်ပါတယ်။ API key တစ်ခုကတော့ password တစ်ုလိုပဲ acts လုပ်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ web server ကို connect လုပ်တဲ့အချိန်မှာ ကျွန်တော်တို့ရဲ့ API key ကို send လုပ်ပေးရပါမယ်။ အဲ့ဒါမှာ server ဟာ ဘယ်သူက request လုပ်တယ်ဆိုတာကို သိပြီးတော့ service ကို limit access လုပ်ထားတဲ့ server ကို ခွင့်ပြုပေးမှာဖြစ်ပါတယ်။ Sites အားလုံးနီးပါးမှာ API တစ်ခုအတွက်လိုအပ်တဲ့ API key တစ်ခုကို offer လုပ်ပေးထားပါတယ်။ Fortunately for us, Flickr ဟာဆိုရင် သူတို့ရဲ့ API ရဲ့ trimmed-down version တစ်ခုကို offers လုပ်ပေးပါတယ်။ အဲ့ဒါကတော့ freely accessible ဖြစ်ပြီးတော့ API key တစ်ခုကို မလိုအပ်ပါဘူး။ Flickr Feeds page ရဲ့ URLs lists ဟာဆိုရင် different types of photos and information တွေကို access လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးပါတယ်။ ဒီ course မှာဆိုရင် ကျွန်တော်တို့ဟာ AJAX ရဲ့ some of the security limitations ကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Example web browser တစ်ခုဟာ data တွေကို different server တစ်ခုနေ another domain ပေါ်မှာ request မလုပ်နိုင်ပါဘူး။ In other words, ကျွန်တော်တို့ရဲ့ client site တစ်ခုပေါ်မှာရှိတဲ့ page တစ်ခုဟာ Flickr ကနြေ့ပီးတော့ AJAX ကိုအသုံးပြုပြီး data တွေကို request မလုပ်နိုင်ပါဘူး။ သို့သော်လည်း web developers တွေဟာ ဒီ problem တွေအတွက် clever way တစ်ခုကို figured out လုပ်ထားခဲ့ပါတယ်။ Web browsers တွေဟာဆိုရင် ကျွန်တော်တို့ကို images, CSS files and JavaScript files တို့လို different servers ပေါ်မှာရှိတဲ့ other types of files တွေကို link လုပ်ဖိုရန်အတွက် ခွင့်ပြုပေးပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ Flickr ရဲ့ server ပေါ်မှာ JavaScript file တစ်ခုကို link လုပ်နိုင်တာပဲဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ရဲ့ web browser ဟာ Flickr ကို JavaScript file ကို send လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးမှာဖြစ်ပါတယ်။ Trick ဟာဆိုရင် Flickr ဖြစ်ပြီးတော့ JavaScript file  တစ်ခုမှာ wrapped up လုပ်နေတဲ့ photo data အားလုံးကို sending လုပ်တာဖြစ်ပါတယ်။ ဒါကိုတော့ JSON P ကို အသုံးပြုပြီးတော့ accomplished လုပ်ထားဖြစ်ပါတယ်။ JSON P ကတော့ JSON with padding ပဲဖြစ်ပါတယ်။ ပြီးတော့ ဒါဟောဆိုရင် AJAX request တစ်ခုမဟုတ်ပါဘူး။ အဲ့ဒါဟာ another server တစ်ခုကနေ JavaScript file တစ်ခုကို loads လုပ်တဲ့ script tag ်တစ်ခုကို adding လုပ်ပြီးတော့ involves ဖြစ်လာတာဖြစ်ပါတယ်။ In other words, Flickr ကနေ ကျွန်တော်တို့ရဲ့ photos တွေကို get လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ Flickr ကနေ JavaScript file တစ်ခုကို actually request လုပ်ရမှာဖြစ်ပါတယ်။ ဒီ process ဟာ a bit tricky ဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့အတွက် jQuery ဟာဆိုရင် all of the messy details ကို handle လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့အတွက်တော့ ဒါဟာ jQuery $.getJSON function ကိုအသုံးပြုတဲ့ normal AJAX request တစ်ခုလိုပဲဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Beginning the Project</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာဆိုရင် site မှာ posted လုပ်ထားတဲ့ a list of 20 most recent photos ဘယ်လို get လုပ်ရတယ်ဆိုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ Flickr ဟာဆိုရင် သူ့ရဲ့ public photo feed ကို point လုပ်တဲ့ URL တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ Normally, Flickr ဟာဆိုရင် data တွေကို XML format နဲ့ပဲ send back လုပ်လိုက်တာဖြစ်ပါတယ်။ ဒါပေမဲ့  ကျွန်တော်တို့ဟာ $format=JSON ဆိုတဲ့ query string တစ်ခုကို add လုပ်လိုက်တဲ့အချိန်မှာ data တွေကို JSON format နဲ့ ပြန်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ GET request ကို AJAX ကိုအသုံးပြုပြီးတော့ လုပ်လို့ရသလို jQuery ရဲ့ $.getJSON method အသုံးပြုပြီးတော့လည်း လုပ်နိုင်ပါတယ်။ Project မှာဆိုတော့ button တစ်ခုကို click လုပ်လိုက်တဲ့အခါမှာ button ပေါ်မှာရှိတဲ့ word နဲ့ match ဖြစ်တဲ့ photos တွေကို retrieve လုပ်ပေးမှာဖြစ်ပါတယ်။ Project ကို လုပ်ဆောင်တဲ့ နေရမှာ steps 5 ခုနဲ့ လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။ First, user ဟာ button တစ်ခုကို click လုပ်ပြီးတော့ second , JavaScript program ဟာ အဲ့ button ပေါ်မှာရှိတဲ့ word ကို get ပါတယ်။ Third, Flickr ကို  along word မှာ sending လုပ်ဖို့ရန်အတွက် GET request တစ်ခုကို ပြုလုပ်ရမယ်။ Fourth, JSON response ကို receive လုပ်ရမယ်။ Fifth, return data ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီကို link တစ်ခုနဲ့ image tag တစ်ကို page မှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ ကျွန်တော်တို့ဟာ jQuery ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Adding jQuery</h1>
+    <p>
+        First အနေနဲ့ ကျွန်တော်တို့ဟာ jQuery library ကို link လုပ်ဖို့ လိုအပ်ပါတယ်။ Link လုပ်တဲ့နေရာမှာ script tag နဲ့ CDN link ကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ html fully loaded မလုပ်ခင်မှာ ကျွန်တော်တို့ရဲ့ JavaScript code တွေဟာ run မလုပ်ဖို့ရန်အတွက် special function တစ်ခုဖြစ်တဲ့ $(document).ready ဆိုတဲ့ function ကို အသုံးပြုပေးဖို့လိုပါတယ်။ နောက် ကျွန်တော်တို့လုပ်ဆောင်ရမှာက visitor တစ်ယောက်ဟာ button ကို click လုပ်လိုက်တဲ့အခါမှာ button ရဲ့ appearance ဟာ changes ဖြစ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် button tag မှာ class တစ်ခုကို adding လုပ်ပေးရမှာဖြစ်ပါတယ်။ jQuery ဟာ အဲ့ဒါကို လွယ်လွယ်ကူကူလုပ်ဆောင်နိုင်ပါတယ်။ First, event handler ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ button ကို click လုပ်လိုက်တဲ့အခါမှာ run လုပ်မဲ့ program ပဲဖြစ်ပါတယ်။ Example မှာ ရေးထားတဲ့ code ဟာဆိုရင်တော့ page မှာရှိတဲ့ buttons အားလုံးကို selecting လုပ်တာပဲဖြစ်ပါတယ်။ နောက် example မှာ jQuery ရဲ့ click method ကို အသုံးပြုထားပါတယ်။ ဒီ method ဟာဆိုရင် another helper function ဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ anonymous function တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် click လုပ်လိုက်တဲ့ button ကို highlight အနေနဲ့ ပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် jQuery ကိုအသုံးပြုပြီးတော့ new class တစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် $(this) ဟာဆိုရင် click event ကို response လုပ်တဲ့ element ကို indicate လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ In othre words, $(this) ဟာ user click လုပ်လိုက်တဲ့ button ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ button တစ်ခုကို click လုပ်လိုက်တဲ့အခါမှာ highlight ဖြစ်ပြီးတော့ နောက် button တစ်ခုကို click လုပ်လိုက်တဲ့အခါမှာ first click လုပ်ထားတဲ့ button ရဲ့ highlight ဟာ remove ဖြစ်မသွားပါဘူး။ ကျွန်တော်တို့ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် class ကို remove လုပ်ပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ actually programming the AJAX request and callback တို့ကို project မှာအသုံးပြုသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <h3>flickr.js</h3>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $("button").removeClass("selected");
+                    $(this).addClass("selected");
+                });
+            });
+        </code>
+    </pre>
+    <h3>flickr.html</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;AJAX Flickr Photo Feeder&lt;/title&gt;
+                &lt;link rel="stylesheet" href="flickr.css"&gt;
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                &lt;script src="js/flickr.js"&gt;&lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="grid-container centered"&gt;
+                    &lt;div class="grid-100"&gt;
+                        &lt;div class="contained"&gt;
+                            &lt;div class="heading"&gt;
+                                &lt;h1&gt;Flickr Photo Feeder&lt;/h1&gt;
+                                &lt;p&gt;
+                                    Choose which kind of animal you'd like to return photos of .....
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;ul class="filter-select"&gt;
+                                &lt;li&gt;&lt;button&gt;Dog&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;Cat&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;Moose&lt;/button&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class="photos"&gt;
+            
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="ajaxexample/flickr.html">Test Yourself</a><hr>
+    <h1>Making the AJAX Request</h1>
+    <p>
+       အခုဆိုရင် ကျွန်တော်တို့မှာ design ဆိုပြီးဆိုတော့ programming ကို သွားကြည့်ရအောင်။ အဲ့ဒါကြောင့် jQuery ရဲ့ getJSON method ကို အသုံးပြုပြီးတော့ Ajax တစ်ခုကိုပြုလုပ်ပါမယ်။ ကျွန်တော်တို့ဟာ visitor တစ်ယောက် buttons တွေထဲက တစ်ခုကို pushes လုပ်လိုက်တဲ့ချိန်မှာ Ajax request ကို send လုပ်ဖို့လိုပါတယ်။ အခုကျွန်တော်တို့ရဲ့ click event ထဲမှာ Ajax programming ကို put လုပ်မှာဖြစ်ပါတယ်။ jQuery ရဲ့ getJSON method ဟာဆိုရင် arguments သုံးခုကို ယူပါတယ်။ First အနေနဲ့ resource ရဲ့ URL ဖြစ်ပါတယ်။ အခု example မှာတော့ Flickr's public photo feed ပဲဖြစ်ပါတယ်။ Second ကတော့ URL တစ်လျှောက်မှာ send လုပ်ချင်တဲ့ data ပဲဖြစ်ပါတယ်။ အဲ့ data တွေဟာဆိုရင် Flickr ရဲ့ response ထဲမှာ return ပြန်တဲ့ ဘယ်လို information ကိုမဆို affect ဖြစ်ပါတယ်။ Third argument ကတော့ call back function ပဲဖြစ်ပါတယ်။ သူကတော့ Flickr ကနေ သူ့ရဲ့ response ကို send back လုပ်လိုက်တဲ့ အချိန်မှာ programming ပဲဖြစ်ပါတယ်။အဲ့ဒါကိုတော့ example မှာလေ့လာနိုင်ပါတယ်။ နောက် ကျွန်တော်တို့ example မှာဆိုရင် URL ရဲ့ end မှာ something extra ကို notice မိပါလိမ့်မယ်။ အဲ့ဒါကတော့ query string တစ်ခုဖြစ်ပါတယ်။ သူဟာ အရမ်းအရေးကြီးပါတယ်။ အဲ့ဒါဟာ JSONP request တစ်ခုကို ကျွန်တော်တို့ ပြုလုပ်နေတယ်လို့ Flickr ကို tells လုပ်ပေးတာပဲဖြစ်ပါတယ်။ URL ရဲ့ နောက်ဆုံးမှာ question mark jsoncallback equals question mark ကို adding လုပ်တာဟာ security limitation ကို get ဖြစ်စေမှာဖြစ်ပါတယ်။ Many of the websites တွေမှာဆိုရင် ကျွန်တော်ပြောပြခဲ့တဲ့ query string ဖြစ်တဲ့ jsoncallback term ကိုအသုံးပြုပြီးတော့ သူတို့ရဲ့ API ကို အသုံးပြုပြီးတော့ access လုပ်ခွင့်ပြုပေးထားပါတယ်။ Next argument ကတော့ getJSON method ကို supply လုပ်မဲ့ data တွေပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ button ကို click လုပ်လိုက်တဲ့အချိန်တိုင်းမှာ Flickr ကို give လုပ်ပေးမှာဖြစ်ပါတယ်။ Project မှာဆိုရင် ကျွန်တော်တို့လိုချင်တာဟာ first button ကို clicked လုပ်လိုက်တဲ့အချိန်မှာ pictures of dog ကို လိုချင်တယ်၊ second button ကို clicked လုပ်လိုက်တဲ့အချိန်မှာ pictures of cats ကိုလိုချင်ပြီးတော့ last button ကို clicked လုပ်လိုက်တဲ့အချိန်မှာ pictures of moose ကို လိုချင်တာပဲဖြစ်ပါတယ်။ In other words, button တစ်ကို clicked လုပ်လိုက်တဲ့အချိန်တိုင်းမှာ different data တွေကို send လုပ်ပေးဖို့လိုပါတယ်။ အဲ့အတွက် ကျွန်တော်တို့ဟာ variable တစ်ခုကို create လုပ်ပြီးတော့ သူ့ထဲမှာ word တွေကို store လုပ်ထားမှာဖြစ်ပါတယ်။
+    </p>
+    <p>
+        အဲ့ဒါကြောင့် dollar sign this ဟာဆိုရင် page မှာ click လုပ်လိုက်တဲ့ button ကို refer လုပ်တာဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် text လို့ခေါ်တဲ့ handy method တစ်ခုကိုလည်း provide လုပ်ပေးထားပါတယ်။ အဲ့ method ဟာဆိုရင် HTML element ထဲမှာရှိတဲ့ all of the text ကို gets လုပ်တာဖြစ်ပါတယ်။ In other words, animal ဆိုတဲ့ variable ဟာ cat button ကို clicked လုပ်လိုက်တဲ့အချိန်မှာ cat ဆိုတဲ့ value ကို hold လုပ်ပြီးတော့ dog button ကို clicked လုပ်လိုက်တဲ့အချိန်မှာ dog value ကို hold လုပ်မှာဖြစ်ပြီးတော့ နောက်ဆုံး moose button ကို clicked လုပ်လိုက်တဲ့ချိန်မှာ moose value ကို hold လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ ဒီ word တွေကို Flickr ဆီကို သူ့ရဲ့ server ဟာ ဘယ် pictures တွေကို ကျွန်တော်တို့ လိုချင်ပါတယ်ဆိုတာကို tell လုပ်ဖို့ရန်အတွက် send လုပ်ပေးဖို့လိုပါတယ်။ နောက် second argument ဟာဆိုရင် URL နဲ့ send လုပ်မဲ့ data တွေပဲဖြစ်ပါတယ်။ jQuery ကိုသုံးပြုတဲ့အတွက်ကြောင့် အဲ့ data တွေဟာ JavaScript object တစ်ခုရဲ့ format ပဲဖြစ်ရပါမယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ name value pair တွေကို put လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော် add လုပ်ထားတဲ့ tags ဆိုတဲ့ property name ဖြစ်ပြီးတော့ animal ကတော့ သူ့ရဲ့ value ဖြစ်ပါတယ်။ အဲ့ animal ကတော့ variable name animal ပဲဖြစ်ပါတယ်။ အဲ့ property name ရဲ့ value ဟာ ဘယ် button ပေါ်မှာ click လုပ်တယ်ဆိုတဲ့ အပေါ်မှာ မူတည်ပြီးတော့ change လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ tags property ဟာ ဘယ်ကလာတယ် သူကဘာကို ဆိုလိုတယ်ဆိုတာကို Flickr's public feed မှာလေ့လာနိုင်ပါတယ်။ Tags option ဟာဆိုရင် particular tag နဲ့ match ဖြစ်တဲ့ photos တွေအတွက် search လုပ်ဖို့ရန်အတွက် Flickr ကို tells လုပ်တာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်နောက်ထပ် format option ဟာဆိုရင် data တွေကို ကျွန်တော်တို့လိုချင်တဲ့ format ကို Flickr ကို tells လုပ်တာဖြစ်ပါတယ်။ Normally, Flickr ဟာ XML format နဲ့ပဲ send လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့လိုချင်တာဟာ JSON format နဲ့ဖြစ်ပါတယ်။ နောက်ဆုံးကတော့ call back function ကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။  jQuery ရဲ့ getJSON method ကို အခုလို argument 3 ခုကို အသုံးပြုလို့ရသလို အဲ့ arguments 3 ခုအစား variables ကို declare မလုပ်ဘဲနဲ့ method ထဲမှာ တိုက်ရိုက် put လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <h3>flickr.js</h3>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $("button").removeClass("selected");
+                    $(this).addClass("selected");
+                    var flickerAPI = "http://api.flickr.com/services/feeds/photo_public.gne?jsoncallback=?";
+                    var animal = $(this).text();
+                    var flickOptions = {
+                        tags: animal,
+                        format: "json"
+                    };
+                    function displayPhotos(data){
+                        
+                    }
+                    $.getJSON(flickerAPI, flickOptions, displayPhotos)
+                });
+            });
+        </code>
+    </pre>
+    <h3>alternate.js</h3>
+    <pre>
+        <code>
+            $.getJSON("http://api.flickr.com/services/feeds/photo_public.gne?jsoncallback=?", {
+                tags: animal,
+                format: "json"
+            },
+            function (data){
+                        
+            });
+        </code>
+    </pre><hr>
+    <h1>Displaying the Photos</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ရဲ့ project ဟာ complete ဖြစ်လုနီးပါးဖြစ်နေပြီးဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ကျန်ရှိနေတာကတော့ page ထဲကို HTML ကို ဘယ်နေရာမှာ actually write လုပ်မယ်ဆိုတာပဲဖြစ်ပါတယ်။ Project ထဲမှာဆိုရင် image တစ်ခုချင်းဆီဟာ li ထဲမှာရှိတယ်။ အဲ့ li မှာ link တစ်ခုရှိတာပဲဖြစ်ပါတယ်။ အဲ့ link ထဲမှာမှ Flickr ပေါ်မှာရှိတဲ့ graphic တစ်ခုကို pointing လုပ်ပြတဲ့ image tag တစ်ခုရှိတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ photoHTML ဆိုတဲ့ variable တစ်ခုကို create လုပ်တယ်။ အဲ့ variable ဟာဆိုရင် photos တွေအတွက် HTML အားလုံးကို hold လုပ်ထားတာဖြစ်ပါတယ်။ Example မှာဆိုရင် image တစ်ခုချင်းစီကို li tag တစ်ခုနဲ့ represented လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ photo တစ်ခုချင်းစီကို individual list items တစ်ခုစီကို create လုပ်ပြီးတော့ Flickr feed ကနေ returned ပြန်ဖို့လိုပါတယ်။ အဲ့ဒါအတွက် loop ကို အသုံးပြုရမှာဖြစ်ပါတယ်။ jQuery ဟာဆိုရင် array တစ်ခုထဲကို easily looping through ဖြစ်ဖို့ရန်အတွက် handy utility function တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ $.each ပဲဖြစ်ပါတယ်။ $.each method ဟာဆိုရင် arguments နှစ်ခုယူပါတယ်။ First, array တစ်ခုဖြစ်ပါတယ်။ Second ကတော့ callback function ဖြစ်ပါတယ်။ ဒီ method ဟာဆိုရင် array တစ်ခုထဲမှာရှိတဲ့ item တစ်ခုချင်းကို loops လုပ်ပြီးတော့ သူတို့ကို callback function ကို applies လုပ်ပေးတာဖြစ်ပါတယ်။ $.each method ကပေးထားတဲ့ callback function ဟာဆိုရင် arguments နှစ်ခုရှိပါတယ်။ First ဟာ array item ရဲ့ index value ဖြစ်ပြီးတော့ second ကတော့ array ထဲမှာရှိတဲ့ actual item ပဲဖြစ်ပါတယ်။ အခု Flickr feed ကနေပြီးတော့ photos တစ်ခုချင်းစီကို loop through လုပ်ဖို့ရန်အတွက် $.each method ကိုအသုံးပြုကြည့်ရအောင်။ ဒီနေရာမှာ ကျွန်တော်တို့ ဘာကို access လုပ်ဖို့လိုတာလဲဆိုတော့ Flickr feed ရဲ့ example ကို ကြည့်ကြည့်လိုက်တဲ့အခါမှာ အဲ့မှာ item ဆိုတဲ့ property name ရှိတယ်။ သူ့ထဲမှာဆိုရင် photo information ရဲ့ array တစ်ခုပါပါတယ်။ Array item တစ်ခုဟာ photo တစ်ခုချင်းစီအတွက်ပဲဖြစ်ပါတယ်။ အဲ့ array ကို ကျွန်တော်တို့ ဘယ်လို access လုပ်မလဲဆိုတော့ Flickr ကနေ returned ပြန်လာတဲ့ data တွေဟာ ကျွန်တော်တို့ရဲ့ AJAX callback ကို given လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ အဲ့ဒါကို stored လုပ်တဲ့ data ဆိုတဲ့ variable တစ်ခုရှိပြီးသားဖြစ်ပါတယ်။ Data ဟာ JSON data တွေကို holds လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် data ဟာ JavaScript object တစ်ခုဖြစ်ပါတယ်။ အဲ့ object ရဲ့ property တစ်ခုကို access လုပ်ဖို့ရန်အတွက် ကျွန်တော်တို့ဟာ dot syntax ကို အသုံးပြုဖို့လိုပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် data.item ဟာ photos ရဲ့ array တစ်ခုလုံးကို holds လုပ်ထားတာဖြစ်ပါတယ်။ အခုဆိုရင် ကျွန်တော်တို့ဟာ photo တစ်ခုချင်းစီအတွက် HTML ကို build up လုပ်ပေးဖို့လိုပါတယ်။ An HTML list item , a link, and an image တို့ဖြစ်ပါတယ်။ Li ကို add တဲ့နေရာမှာ ကျွန်တော်တို့ designed လုပ်ထားတဲ့ class name တွေကို ထည့်ပေးထားတာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် link ဟာ href attribute အတွက် ဘယ် URL ကို ကျွန်တော်တို့အသုံးပြုရမလဲဆိုတော့ Flickr feed ကို ပြန်ကြည့်တဲ့အခါမှာ items array ထဲမှာရှိတဲ့ item တစ်ခုချင်းစီဟာ property names and values တွေနဲ့ လုပ်ထားတဲ့ JavaScript object တစ်ခုဖြစ်နေတာဖြစ်ပါတယ်။ Link အတွက် property name ဟာ link ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ dot syntax ကိုအသုံးပြုပြီးတော့ photo.link ဆိုပြီးတော့ အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖု့ိရန်အတွက် string concatenation ကို အသုံးပြုဖို့လိုပါတယ်။ နောက် image ရဲ့ source property အတွက်ဆိုရင် Flickr feed ကိုပြန်သွားကြည့်ရအောင်။ အဲ့မှာဆိုရင် media ဟာ photos တွေအတွက် property name ဖြစ်ပါတယ်။ သူ့ထဲမှာနောက်ထပ် m ဆိုတဲ့ object တစ်ခုပါပါသေးတယ်။ အဲ့ဒါကြောင့် photo.medai.m ဆိုမှ image file ရဲ့ path ပါဝင်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက်လည်း string concatenation ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အခုဆိုရင် ကျွန်တော်တိုရဲ့ list of photo ဟာ done ဖြစ်သွားပြီဖြစ်တဲ့အတွက် ul tag ကို close လုပ်မယ်။ နောက်ဆုံးလုပ်ရမှာကတော့ ဒီ string ကို page ရဲ့ HTML မှာ add လုပ်ပေးဖို့ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $("button").removeClass("selected");
+                    $(this).addClass("selected");
+                    var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+                    var animal = $(this).text();
+                    var flickOptions = {
+                        tags: animal,
+                        format: "json"
+                    };
+                    function displayPhotos(data){
+                        var photoHTML = '&lt;ul&gt;';
+                        $.each( data.items, function( i, photo){
+                            photoHTML += '&lt;li class="grid-25"&gt;';
+                            photoHTML += '&lt;a href="' +photo.link + '" class= "image"&gt;';
+                            photoHTML += '&lt;img src=" ' + photo.media.m +'"&gt;&lt;/a&gt;&lt;/li&gt;';
+                        });
+                        photoHTML += '&lt;/ul&gt;';
+                        $('#photos').html(photoHTML);
+            
+                    }
+                    $.getJSON(flickerAPI, flickOptions, displayPhotos)
+                });
+            });
+        </code>
+    </pre>
+    <a href="ajaxexample/flickr.html">Test Yourself</a><hr>
+    <h1>Challenge For Ajax</h1>
+    <p>
+        အခု section မှာတော့ challenge တစ်ခုကို လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ buttons 3 ခု နေရာမှာ ကျွန်တော်တို့ဟာ form တစ်ခုကို create လုပ်ပြီးတော့ photos တွေကို search လုပ်သွားမှာဖြစ်ပါတယ်။ First, ကျွန်တော်တို့ဟာ button click event နေရာမှာ form submit event တစ်ခုကို replace လုပ်ပေးရမှာဖြစ်ပါတယ်။ Second, form ကို submitting ကနေ stop လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ရန်အတွက် jQuery ရဲ့ preventDefault method ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Third, input field ထဲမှာ visitor တွေ type လုပ်လိုက်တဲ့ value ကို retrieve လုပ်ပေးရမှာဖြစ်ပါတယ်။ jQuery ဟာ ဒါကို လွယ်လွယ်ကူကူ လုပ်ဆောင်နိုင်ပါတယ်။ Text field ထဲက value တစ်ခုကို get လုပ်ဖို့ရန်အတွက် form ကို select လုပ်ပြီးတော့ "val" method ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example မှာ ကျွန်တော်ရဲ့ challenge answer ကိုလေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <h3>challenge.html</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;AJAX Flickr Photo Feeder&lt;/title&gt;
+                &lt;link rel="stylesheet" href="challenge.css"&gt;
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+                &lt;script src="js/challenge.js"&gt;&lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="grid-container centered"&gt;
+                    &lt;div class="grid-100"&gt;
+                        &lt;div class="contained"&gt;
+                            &lt;div class="heading"&gt;
+                                &lt;h1&gt;Flickr Photo Search&lt;/h1&gt;
+                                &lt;form&gt;
+                                    &lt;label for="search"&gt;Type a search term&lt;/label&gt;
+                                    &lt;input type="text" id="search"&gt;
+                                    &lt;input type="submit" value="Search" id="submit"&gt;
+                                &lt;/form&gt;   
+                            &lt;/div&gt;
+                                
+                        &lt;/div&gt;
+                        &lt;div id="photos"&gt;
+            
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h3>challenge.js</h3>
+    <pre>
+        <code>
+            $(document).ready(function(){
+                $('form').submit(function(evt){
+                    evt.preventDefault();
+                    var $searchField = $('#search');
+                    var $submitButton = $('#submit');
+                    $searchField.prop("disabled",true);
+                    $submitButton.attr("disabled", true).val("searching.....");
+                    var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+                    var animal = $searchField.val();
+                    var flickOptions = {
+                        tags: animal,
+                        format: "json"
+                    };
+                    function displayPhotos(data){
+                        var photoHTML = '&lt;ul&gt;';
+                        $.each( data.items, function( i, photo){
+                            photoHTML += '&lt;li class="grid-25"&gt;';
+                            photoHTML += '&lt;a href="' +photo.link + '" class= "image"&gt;';
+                            photoHTML += '&lt;img src=" ' + photo.media.m +'"&gt;&lt;/a&gt;&lt;/li&gt;';
+                        });
+                        photoHTML += '&lt;/ul&gt;';
+                        $('#photos').html(photoHTML);
+                        $searchField.prop("disabled",false);
+                        $submitButton.attr("disabled", false).val("search");
+                    }
+                    $.getJSON(flickerAPI, flickOptions, displayPhotos)
+                });
+            });
+        </code>
+    </pre>
+    <a href="ajaxexample/challenge.html">Test Yourself</a>
+    
+</body>
+</html>

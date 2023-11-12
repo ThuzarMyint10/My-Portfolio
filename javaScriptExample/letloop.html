@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>button - let and Const</title>
+</head>
+<body>
+    <h1>Buttons</h1>
+    <button>Buttton 0</button>
+    <button>Buttton 1</button>
+    <button>Buttton 2</button>
+    <button>Buttton 3</button>
+    <button>Buttton 4</button>
+    <button>Buttton 5</button>
+    <button>Buttton 6</button>
+    <button>Buttton 7</button>
+    <button>Buttton 8</button>
+    <button>Buttton 9</button>
+    <button>Buttton 10</button>
+    <script>
+        const buttons = document.getElementsByTagName('button');
+        for ( let i=0; i<= buttons.length; i++){
+                let button = buttons[i];
+                button.addEventListener('click', function (){
+                    alert("Button" + i + "pressed")
+                }
+            );
+        }
+    </script>
+</body>
+</html>

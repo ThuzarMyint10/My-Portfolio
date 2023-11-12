@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+    <h1>Introduction to Bootstrap</h1>
+    <p>
+            Bootstrap ဟာဆိုရင် popular ဖြစ်တဲ့ open source front-end frameworks တစ်ခုပဲဖြစ်ပါတယ်။ Bootstrap ဟာဆိုရင် functional design and layout ကို create လုပ်တဲ့နေရာမှာ အကူအညီပေးပါတယ်။ Bootstrap ကိုအသုံးပြုခြင်းရဲ့ biggest advantages တစ်ခုကတော့ development speed ပဲဖြစ်ပါတယ်။ Bootstrap ဟာဆိုရင် web development faster and easier ဖြစ်အောင် လုပ်ပေးပါတယ်။ သူဟာဆိုရင် latest and most advanced front-end tool ကိုအသုံးပြုထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ scratch ကနေပြီးတော့ ကျွန်တော်တို့ရဲ့ site app ကို designing and coding လုပ်မဲ့အစား bootstrap ရဲ့ ready made components ရဲ့ advantage တွေကို အသုံးပြုတာဟာ ပိုပြီးတော့ လွယ်ကူစေပါတယ်။ Bootstrap ဟာဆိုရင် buttons, forms, navigation, grids စတဲ့ common elements တွေအတွက် reusable HTML and CSS ကနေပြီးတော့လာတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ JavaScript ရဲ့ single line ကို ရေးစရာမလိုတဲ့ dozen custom JavaScrip plugins နဲ့ many of the components တွေကို interactivity ကို add လုပ်တဲ့နေရာမှာ လွယ်လွယ်ကူကူ add လုပ်နိုင်ပါတယ်။ Bootstrap ရဲ့ best part တစ်ခုကတော့ cross-browser compatibility ပဲဖြစ်ပါတယ်။ Bootstrap ကိုအသုံးပြုခြင်းဖြင့် testing လုပ်တဲ့နေရာမှာ အချိန်တွေအများကြီးကုန်နေစရာမလိုတော့ပါဘူး။ သူဟာဆိုရင် testing လုပ်ရမဲ့ အပိုင်းတွေအတွက် already figured out လုပ်ပေးထားတာပဲဖြစ်ပါတယ်။ Bootstrap ကို မလေ့လာခင်မှာ HTML and CSS basic ကို နားလည်ထားဖို့လိုပါတယ်။ 
+    </p><hr>
+    <h1>Using Bootstrap</h1>
+    <p>
+            Bootstrap ကို 2011 မှာ Twitter မှာရှိတဲ့ developers တွေက create လုပ်ခဲ့တာပဲဖြစ်ပါတယ်။ Bootstrap ဟာ web ပေါ်မှာ building, responsive, mobile first projects တွေအတွက် popular ဖြစ်ပါတယ်။Over 7 million apps and sites တွေကို built လုပ်တဲ့နေရာမှာ bootstrap ကိုအသုံးပြုထားတာပဲဖြစ်ပါတယ်။ Web designers, front end developers and programmers တွေဟာ projects တွေကို build လုပ်တဲ့နေရာမှာ faster and easier ဖြစ်ဖို့ရန်အတွက် Bootstrap ကိုအသုံးပြုကြပါတယ်။ Bootstrap ဟာဆိုရင် front end framework တစ်ခုပဲဖြစ်ပါတယ်။ Framework တစ်ခုဆိုတာ reusable platform တစ်ခုဖြစ်ပြီးတော့ သူဟာ higher level projects ကို build လုပ်တဲ့နေရာမှာ အကူအညီပေးနိုင်ပါတယ်။ Front end framework တစ်ခုဟာ many of the common layout တွေကို solve လုပ်နိုင်ပါတယ်။ Bootstrap ရဲ့ latest documentation ကို getbootstrap.com မှာ လေ့လာနိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Setup Starter Template</h1>
+    <p>
+            Bootstrap ကို အသုံးပြုတဲ့နေရာမှာ နည်းလမ်းအနည်းငယ် ရှိပါတယ်။ နည်းလမ်းတစ်ခုချင်းစီဟာ မတူညီတဲ့ skill level or use case တွေကနပြီးတော့ appeal ဖြစ်လာတာပဲဖြစ်ပါတယ်။ Bootstrap ကို getbootstrap.com မှာ download လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် bootstrap framework ကို ဘယ်လို download လုပ်ရမယ် ဘယ်လို install လုပ်ရမယ်ဆိုတဲ့ instructions တွေကို လုပ်ဆောင်ရမှာဖြစ်ပါတယ်။ Bootstrap ရဲ့ source file တစ်ခုကို new or existing projects ထဲမှာ ထည့်ချင်တဲ့အခါမှာ npm, Bower, even  Composer တို့လို package managers တွေကို အသုံးပြုဖို့လိုပါတယ်။ Project တစ်ခုကို bootstrap နဲ့ running လုပ်တဲ့နေရာမှာ fastest way တစ်ခုကတော့ Bootstrap CDN ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ CDN ကတော့ cotent delivery network ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ files တွေကို download or install မလုပ်ချင်ဘူးဆိုရင် အဲ့မှာ ရှိတဲ့ CDN links တွေကို အသုံးပြုနိုင်ပါတယ်။ CDN links တွေကို HTML ထဲမှာ add လုပ်တဲ့အခါမှာ CDN servers ကနေ Bootstrap's CSS and JavaScript ကို load လုပ်လိုက်တာဖြစ်ပါတယ်။ 
+ 
+    </p>
+    <a href="bootstrapexample/stratertemplate.html">Test Yourself</a><hr>
+    <h1>Create Sign Form Using Bootstrap</h1>
+    <p>
+            အခု bootstrap ကိုအသုံးပြုပြီးတော့ first project တစ်ခုကို create လုပ်သွားမှာဖြစ်ပါတယ်။ Full Stack Conf အတွက် website တစ်ခုကို build လုပ်ပြီးသားဖြစ်ပါတယ်။ Conference organizers ဟာ page တစ်ခုကိုဘယ်လို မြင်ချင်ပါတယ်ဆိုတဲ့ mock-up တစ်ခုကိုပေးပါတယ်။ Page မှာဆိုရင် conference name တစ်ခုနဲ့ big headline တစ်ခုရှိပါတယ်။ နောက် သူ့ရဲ့အောင်မှာ short description တစ်ခုနဲ့ users တွေ conference အကြောင်းကို receive လုပ်နိုင်တဲ့ sign up form တစ်ခုပါပါတယ်။ Bootstrap ဟာ lots of global styles တွေနဲ့လာပါတယ်။ သူဟာ content တွေကို set လုပ်နိုင်ပါတယ်။ Example ကျွန်တော်တို့ဟာ Normalized CSS reset ကို အသုံးပြုတဲ့အခါမှာ သူဟာ different browsers and operating systems တွေမှာ same across ကို HTML tags တွေ render လုပ်နိုင်တဲ့ base styles ကို provide လုပ်ပေးပါတယ်။ သူ့ကို နောက်ထပ် base CSS rules တွေနဲ့ custom set of styles တွေနဲ့ build လုပ်ထားတာကို Reboot လို့ခေါ်ပါတယ်။ သူတို့ဟာ element-specific CSS styles တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ HTML ရဲ့ common elements တွေဖြစ်တဲ့ headings, forms, text တို့ကို display လုပ်တဲ့နေရာမှာ ကူညီပေးနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;!doctype html&gt;
+                &lt;html lang="en"&gt;
+                  &lt;head&gt;
+                    &lt;!-- Required meta tags --&gt;
+                    &lt;meta charset="utf-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+                
+                    &lt;!-- Bootstrap CSS --&gt;
+                    &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+                
+                    &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                  &lt;/head&gt;
+                  &lt;body&gt;
+                    &lt;div class="container text-center"&gt;
+                        &lt;h1 class="display-1"&gt;Full Stack Conf&lt;/h1&gt;
+                        &lt;p class="lead " &gt;Coming Soon. a One-day Conference About All Things JavaScript&lt;/p&gt;
+                        &lt;div class="input-group mb-3 mx-auto"&gt;
+                            &lt;input type="text" class="form-control" placeholder="Enter your emai for info" aria-label="Enter your emai for info" aria-describedby="button-addon2"&gt;
+                            &lt;div class="input-group-append"&gt;
+                              &lt;button class="btn btn-outline-secondary" type="button" id="button-addon2"&gt;Sign Up&lt;/button&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;/body&gt;
+                &lt;/html&gt;  
+        </code>
+    </pre>
+    <a href="bootstrapexample/stratertemplate.html">Test Yourself</a><hr>
+    <h1>Sign Up Form</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ page ရဲ့ background ကို change လုပ်ချင်တဲ့အခါမှာ Utilities ထဲမှ classes or colors ထဲမှာ ကျွန်တော်တို့အသုံးပြုချင်တဲ့ color ကို အသုံးပြုနိုင်ပါတယ်။ နောက် buttons တွေကို color ပြောင်းချင်တဲ့ အခါမှာ Buttons section မှာသွားပြီးတော့ ရွေးချယ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် predefined လုပ်ထားတဲ့ button styles ၆ ခုရှိပါတယ်။ နောက် margin ကို adjust လုပ်ချင်တဲ့အခါမှာ Utilities ထဲက spacing ကို သွားပြီးတော့ choose လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် sides တွေကို t,b,l and r ဆိုပြီးတော့ letters တွေနဲ့ defined လုပ်ထားပါတယ်။ သူတို့ဟာ top, bottom, left and right ကို set လုပ်ထားတာပဲဖြစ်ပါတယ်။ Bootstrap ဟာ margins and padding တွေကို set လုပ်ဖို့ရန်အတွက် rem unit ကိုအသုံးပြုပါတယ်။ Rem ရဲ့ stand for ကတော့ root ဖြစ်ပြီးတော့ သူဟာ flexible unit တစ်ခုဖြစ်ပါတယ်။ Classes names တွေထဲက numbers တွေကို bootstrap ရဲ့ global default value ဖြစ်တဲ့ 1rem နဲ့ multiples လုပ်ထားတာပဲဖြစ်ပါတယ်။ကျွန်တော်တို့ဟာ 1 လို့ set လုပ်တာဟာ 0.25rem နဲ့အတူတူူပဲဖြစ်ပါတယ်။ 2 ဆိုရင် 0.5rem, 4 ဆိုရင် 1.5rem, 5 ဆိုရင် 3 rem ဆိုပြီးတော့ ရှိပါတယ်။ နောက် ml-1 ဟာ margin-left 1 လို့ပေးလိုက်တာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;
+            !doctype html&gt;
+            &lt;
+            html lang="en"&gt;
+              &lt;
+              head&gt;
+                &lt;
+                !-- Required meta tags --&gt;
+                &lt;
+                meta charset="utf-8"&gt;
+                &lt;
+                meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;
+                !-- Bootstrap CSS --&gt;
+                &lt;
+                link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+            
+                &lt;
+                title&gt;Full Stack Conf&lt;
+                /title&gt;
+              &lt;
+              /head&gt;
+              &lt;
+              body class=" bg-primary text-white "&gt;
+                &lt;
+                div class="container text-center"&gt;
+                    &lt;
+                    h1 class="display-1"&gt;Full Stack Conf&lt;
+                    /h1&gt;
+                    &lt;
+                    p class="lead " &gt;Coming Soon. a One-day Conference About All Things JavaScript&lt;
+                    /p&gt;
+                    &lt;
+                    div class="input-group mb-3 mx-auto"&gt;
+                        &lt;
+                        input type="text" class="form-control" placeholder="Enter your emai for info" aria-label="Enter your emai for info" aria-describedby="button-addon2"&gt;
+                        &lt;
+                        div class="input-group-append"&gt;
+                          &lt;
+                          button class="btn btn-info" type="button" id="button-addon2"&gt;Sign Up&lt;
+                          /button&gt;
+                        &lt;
+                        /div&gt;
+                      &lt;
+                      /div&gt;
+              &lt;
+              /div&gt;
+              &lt;
+              /body&gt;
+            &lt;
+            /html&gt;  
+        </code>
+    </pre>
+    <a href="bootstrapexample/stratertemplate.html">Test Yourself</a><hr>
+    <h1>Several Componens and Options in Bootstrap</h1>
+    <p>
+        Bootstrap ဟာဆိုရင် project တစ်ခုကို laying out လုပ်ဖို့ရန်အတွက် several components and options တွေရှိပါတယ်။ အဲ့ဒါတွေကတော့ responsive container, grid system, media object and utilities တို့ပဲဖြစ်ပါတယ်။ Containers ဟာ bootstrap ရဲ့ basic layout component တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ page layout အတွက် foundation တစ်ခုကို provide လုပ်ပေးရုံပဲမဟုတ်ပါဘူး grid system ကို အသုံးပြုတဲ့အချိန်မှာလည်း သူ့ကို လိုအပ်ပါတယ်။ Bootstrap ဟာဆိုရင် mobile အတွက်ပဲ ပထမ ဦးဆုံး develop ဖြစ်လာတာပဲဖြစ်ပါတယ်။ သူ့ရဲ့ media queries ဟာ wider screens and devices တွေအတွက် layout ကို adjust လုပ်ဖို့ရန်အတွက် breakpoints တွေကို create လုပ်ပေးပါတယ်။ သူ့ရဲ့ mobile first approach မှာဆိုရင် bootstrap မှာဆိုရင် five tiers ကို responsive breakpoints အတွက် အသုံးပြုပါတယ်။ Portrait phones or extra small devices မှာဆိုရင် default range ဟာဆိုရင် layout အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ media query range ဟာဆိုရင် landscape phones, tablets, desktops and large desktops တွေအတွက်ပဲဖြစ်ပါတယ်။ Bootstrap ဟာဆိုရင် သူ့ရဲ့ media queries အတွက်ဆိုရင် pixel units ကိုအသုံးပြုပါတယ်။ Extra small range အတွက်ဆိုရင် less than 576 pixels ကိုအသုံးပြုရပါတယ်။ Small range ဆိုရင် 576 pixels and up ကိုအသုံးပြုပါတယ်။ Medium range ဆိုရင် 768 pixels and up ကိုအသုံးပြုပါတယ်။ Large range ဆိုရင် 992 pixels and up ကိုအသုံးပြုပါတယ်။ Extra large range အတွက်ဆိုရင် 1200 pixels ကိုအသုံးပြုပါတယ်။  
+    </p><hr>
+    <h1>Bootstrap Grid System</h1>
+    <p>
+        အခု bootstrap ရဲ့ grid system ကိုအသုံးပြုပြီးတော့ page ကို laying out လုပ်မှာဖြစ်ပါတယ်။ Example မှာဆိုရင် bootstrap's CDN links ကို အသုံးပြုထားပါတယ်။ ပြီးတော့ bootstrap plugins အားလုံးဟာ proper.js ဆိုတဲ့ jQuery နဲ့ JavaScript library ကိုအသုံးပြုထားပါတယ်။ Bootstrap ရဲ့ mobile-first flexbox grid ဟာဆိုရင် shapes and sizes အားလုံးရဲ့ layouts ကို build လုပ်ဖို့ရန်အတွက် 12 columns system ကိုအသုံးပြုပါတယ်။ Bootstrap's grid system မှာဆိုရင် major components ၃ ခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ containers, rows and columns တို့ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင် အဲ့ components ၃ ခုလုံးဟာ ဘယ်လို အတူတူအလုပ်လုပ်တယ်ဆိုတာကို လေ့လာနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ container ထဲမှာ rows တွေကို add လုပ်လို့ရပါတယ်။ နောက် row ထဲမှာ columns တွေကို add လုပ်နိုင်ပါတယ်။ Columns တွေဟာဆိုရင် rows တွေအတွက် immediate children တွေဖြစ်တဲ့အတွက်ကြောင့် သူတို့ဟာ content ထဲမှာ contain ဖြစ်နေတာပဲဖြစ်ပါတယ်။ Rows တစ်ခုတိုင်းမှာ 1 to 12  columns တွေပါရှိနိုင်ပါတယ်။ Column တစ်ခုချင်းစီကို classes တွေနဲ့ assign လုပ်နိုင်ပါတယ်။ ပြီးတော့ classes name နဲ့ width ကို specifies လုပ်နိုင်ပါတယ်။ HTML comment တစ်ခုကို create လုပ်ဖို့ဆိုရင် cmd or ctrl နဲ့ forward slash ကို နှိပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;
+                !doctype html&gt;
+                &lt;
+                html lang="en"&gt;
+                  &lt;
+                  head&gt;
+                    &lt;
+                    !-- Required meta tags --&gt;
+                    &lt;
+                    meta charset="utf-8"&gt;
+                    &lt;
+                    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+                
+                    &lt;
+                    !-- Bootstrap CSS --&gt;
+                    &lt;
+                    link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+                
+                    &lt;
+                    title&gt;Grid System&lt;
+                    /title&gt;
+                  &lt;
+                  /head&gt;
+                  &lt;
+                  body&gt;
+                        &lt;
+                        div class="container"&gt;
+                            &lt;
+                            !-- about --&gt;
+                                &lt;
+                                div class="row"&gt;
+                                  &lt;
+                                  div class="col"&gt;
+                                    &lt;
+                                    h3&gt;About Full Stack Conf&lt;
+                                    /h3&gt;
+                                    &lt;
+                                    p&gt;The beautiful city of portand, Oregon will be the host city for Full Stack Conf!&lt;
+                                    /p&gt;
+                                    &lt;
+                                    p&gt;Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.&lt;
+                                    /p&gt;
+                                  &lt;
+                                  /div&gt;
+                                  &lt;
+                                  div class="col"&gt;
+                                    &lt;
+                                    h3&gt;Expert Speakers&lt;
+                                    /h3&gt;
+                                    &lt;
+                                    p&gt;Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!&lt;
+                                    /p&gt;
+                                    &lt;
+                                    p&gt;Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript &lt;
+                                    /p&gt;
+                                    &lt;
+                                    p&gt;Full Stack Conf is comitted to being inclsive and welcoming for everyone. We look forward to another intensive day of learning and sharing &lt;
+                                    /p&gt;
+                                  &lt;
+                                  /div&gt;
+                                  &lt;
+                                  div class="col"&gt;
+                                   &lt;
+                                   h3&gt;What You'll Learn&lt;
+                                   /h3&gt;
+                                   &lt;
+                                   ul&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;MongoDB&lt;
+                                        /strong&gt;: NoSQL database&lt;
+                                        /li&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;Express&lt;
+                                        /strong&gt;: Framework for Node&lt;
+                                        /li&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;React&lt;
+                                        /strong&gt;: JavaScript Library&lt;
+                                        /li&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;Node.js&lt;
+                                        /strong&gt;: JavaScript environment&lt;
+                                        /li&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;ES2015&lt;
+                                        /strong&gt;: Latest version of JavaScript &lt;
+                                        /li&gt;
+                                        &lt;
+                                        li&gt;&lt;
+                                        strong&gt;Bable&lt;
+                                        /strong&gt;: JavaScript compiler&lt;
+                                        /li&gt;
+                                       
+                                   &lt;
+                                   /ul&gt;
+                                  &lt;
+                                  /div&gt;
+                                &lt;
+                                /div&gt; &lt;
+                                !--/about--&gt;
+                        &lt;
+                        /div&gt;&lt;
+                        !--/container--&gt;
+                
+                    &lt;
+                    !-- Optional JavaScript --&gt;
+                    &lt;
+                    !-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                    &lt;
+                    script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"&gt;&lt;
+                    /script&gt;
+                    &lt;
+                    script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;
+                    /script&gt;
+                    &lt;
+                    script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;
+                    /script&gt;
+                  &lt;
+                  /body&gt;
+                &lt;
+                /html&gt;
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a>
+    <h1>Bootstrap Options and Configurations </h1>
+    <p>
+            Example မှာဆိုရင် some of the grid options and configurations တွေမရခင်မှာ နောက်ထပ် content တွေကို columns တွေဆီကို add လုပ်ပြီးတော့ bootstrap's content ကိုအသုံးပြုပြီးတော့ သူတို့ကို style လုပ်ပေးရမှာဖြစ်ပါတယ်။ Heading နဲ့ top of the page ကြားမှာရှိတဲ့ space ကို ပေးချင်တဲ့အခါမှာ utility classes မှာရှိတဲ့ spacing section မှာ လေ့လာနိုင်ပါတယ်။ နောက်ထပ် image တွေရဲ့ size ကို adjust လုပ်ချင်တဲ့အခါမှာ images section ကိုသွားပြီးတော့ adjust လုပ်နိုင်ပါတယ်။ နောက်ထပ် image ကို border ပေးချင်ရင် border section မှာလေ့လာနိင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+               &lt;!doctype html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;!-- Required meta tags --&gt;
+                   &lt;meta charset="utf-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+
+                   &lt;!-- Bootstrap CSS --&gt;
+                   &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+
+                   &lt;title&gt;Grid System&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                       &lt;div class="container pt-4"&gt;
+                           &lt;!-- about --&gt;
+                               &lt;div class="row"&gt;
+                               &lt;div class="col"&gt;
+                                   &lt;h3 class="mb-4"&gt;About Full Stack Conf&lt;/h3&gt;
+                                   &lt;img src="portland.jpg" alt="portland" class="img-fluid rounded mb-4"&gt;
+                                   &lt;p&gt;The beautiful city of portand, Oregon will be the host city for Full Stack Conf!&lt;/p&gt;
+                                   &lt;p&gt;Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.&lt;/p&gt;
+                               &lt;/div&gt;
+                               &lt;div class="col"&gt;
+                                   &lt;h3 class="mb-4"&gt;Expert Speakers&lt;/h3&gt;
+                                   &lt;p&gt;Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!&lt;/p&gt;
+                                   &lt;p&gt;Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript&lt;/p&gt;
+                                   &lt;p&gt;Full Stack Conf is comitted to being inclsive and welcoming for everyone. We look forward to another intensive day of learning and sharing&lt;/p&gt;
+                               &lt;/div&gt;
+                               &lt;div class="col"&gt;
+                               &lt;h3 class="mb-4"&gt;What You'll Learn&lt;/h3&gt;
+                               &lt;ul&gt;
+                                       &lt;li&gt;&lt;strong&gt;MongoDB&lt;/strong&gt;: NoSQL database&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Express&lt;/strong&gt;: Framework for Node&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;: JavaScript Library&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Node.js&lt;/strong&gt;: JavaScript environment&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;ES2015&lt;/strong&gt;: Latest version of JavaScript&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Bable&lt;/strong&gt;: JavaScript compiler&lt;/li&gt;
+                                    
+                               &lt;/ul&gt;
+                               &lt;/div&gt;
+                               &lt;/div&gt;&lt;!--/about--&gt;
+                               &lt;!--Speakers--&gt;
+                               &lt;h1 class="display-4 text-center my-5 text-muted"&gt;Speakers&lt;/h1&gt;
+                                [Speaker bios go here]
+                               &lt;!--/Speaker--&gt;
+
+
+                               &lt;!--Schedule--&gt;
+                               &lt;h1 class="display-4 text-center my-5 text-muted"&gt;Schedule&lt;/h1&gt;
+                                [Conference schedule goes here]
+                               &lt;!--/Schedule--&gt;
+                       &lt;/div&gt;&lt;!--/container--&gt;
+
+                   &lt;!-- Optional JavaScript --&gt;
+                   &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                   &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"&gt;&lt;/script&gt;
+                   &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;
+                   &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <h1>Media Query in Bootstrap</h1>
+    <p>
+            Bootstrap ရဲ့ mobile first grid ဟာဆိုရင် 12 column layout ပေါ်မှာ အခြေခံထားတာပဲဖြစ်ပါတယ်။ အရင်ကလေ့လာခဲ့သလိုပဲ five media query ranges အရ adjust လုပ်နိုင်ပါတယ်။ Bootstrap ရဲ့ column sizing classes တွေကိုအသုံးပြုပြီးတော့ different break points or different devices တွေမှာ columns ဘယ်လောက်ကို display လုပ်ချင်တယ်ဆိုတာကို specify လုပ်လို့ရပါတယ်။ Example မှာရှိတဲ့ column ဟာဆိုရင် three equal width columns နဲ့ break points အားလုံးမှာ display လုပ်ထားတာပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် smallest devices တွေနဲ့ largest devices တွေမှာရော three columns ကို display လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ smallest devices တွေမှာ one column layout ကို display လုပ်ဖို့ရန်အတွက် bootstrap မှာဆိုရင် .clo-sm ဆိုပြီးတော့ bootstrap ရဲ့ media query  ကို shorthand နဲ့ အသုံးပြုနိုင်ပါတယ်။ .col-md ဆိုတာ medium devices တွေအတွက်ဖြစ်ပါတယ်။ .col-lg ဆိုတာ larger devices တွေအတွက်ဖြစ်ပြီးတော့  .col-xl ဆိုကတော့ extra larger devices တွေအတွက်ပဲဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ col classes တွေကို .col-lg ကိုအသုံးပြုထားတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Extra Options in Bootstrap</h1>
+    <p>
+            gird columns တွေကို create လုပ်ဖို့ရန်အတွက် predefined classes တွေကို set လုပ်ပြီးတဲ့အခါမှာ bootstrap မှာ options တွေရှိပါသေးတယ်။ အဲ့ဒါတွေကတော့ device ပေါ်မှာမူတည်ပြီးတော့ content တွေကို showing and hiding အတွက် aligning, reordering and offsetting columns, and responsive utility classes တွေအတွက် options တွေရှိပါသေးတယ်။ ကျွန်တော်တို့ဟာ reordering classes တွေကိုအသုံးပြုပြီးတော source order effect မပါဘဲနဲ့ columns ရဲ့ visual arrangement ကို လွယ်လွယ်ကူကူ swap လုပ်နိုင်ပါတယ်။ အဲ့ classes တွေဟာ responsive ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ break point တွေနဲ့ order ကို set လုပ်နိုင်ပါတယ်။ Different break points တွေမှာ ကျွန်တော်တို့ဟာ first column ကို second column နေရာမှာ switch ဖြစ်သွားတာကို လုပ်ဆောင်နိုင်ပါတယ်။ Example မှာဆိုရင် image ပါတဲ့ About column ကို large and extra large screens တွေမှာ ဆိုရင် center column ကို display လုပ်တာကို ရေးထားတာပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် order-lg-1 ဆိုတာ large and extra large screen မှာဆိုရင် row ရဲ့ first position မှာ reorder လုပ်မယ်ဆိုတာကိုပြောပြပေးတာဖြစ်ပါတယ်။ Break point နေရာမှာ ကျွန်တော်တို့ row မှာ ယူချင်တဲ့ position ကို ပေးနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example </h2>
+    <pre>
+        <code>
+               &lt;!doctype html&gt;
+               &lt;html lang="en"&gt;
+                 &lt;head&gt;
+                   &lt;!-- Required meta tags --&gt;
+                   &lt;meta charset="utf-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+                
+                   &lt;!-- Bootstrap CSS --&gt;
+                   &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+                
+                   &lt;title&gt;Grid System&lt;/title&gt;
+                 &lt;/head&gt;
+                 &lt;body&gt;
+                       &lt;div class="container pt-4"&gt;
+                           &lt;!-- about --&gt;
+                               &lt;div class="row"&gt;
+                                 &lt;div class="col-lg order-lg-2"&gt;
+                                   &lt;h3 class="mb-4"&gt;About Full Stack Conf&lt;/h3&gt;
+                                   &lt;img src="portland.jpg" alt="portland" class="img-fluid rounded mb-4 d-none d-sm-block"&gt;
+                                   &lt;p&gt;The beautiful city of portand, Oregon will be the host city for Full Stack Conf!&lt;/p&gt;
+                                   &lt;p&gt;Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.&lt;/p&gt;
+                                 &lt;/div&gt;
+                                 &lt;div class="col-lg order-lg-1"&gt;
+                                   &lt;h3 class="mb-4"&gt;Expert Speakers&lt;/h3&gt;
+                                   &lt;p&gt;Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!&lt;/p&gt;
+                                   &lt;p&gt;Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript&lt;/p&gt;
+                                   &lt;p&gt;Full Stack Conf is comitted to being inclsive and welcoming for everyone. We look forward to another intensive day of learning and sharing&lt;/p&gt;
+                                 &lt;/div&gt;
+                                 &lt;div class="col-lg order-lg-3"&gt;
+                                  &lt;h3 class="mb-4"&gt;What You'll Learn&lt;/h3&gt;
+                                  &lt;ul&gt;
+                                       &lt;li&gt;&lt;strong&gt;MongoDB&lt;/strong&gt;: NoSQL database&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Express&lt;/strong&gt;: Framework for Node&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;: JavaScript Library&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Node.js&lt;/strong&gt;: JavaScript environment&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;ES2015&lt;/strong&gt;: Latest version of JavaScript&lt;/li&gt;
+                                       &lt;li&gt;&lt;strong&gt;Bable&lt;/strong&gt;: JavaScript compiler&lt;/li&gt;
+                                       
+                                  &lt;/ul&gt;
+                                 &lt;/div&gt;
+                               &lt;/div&gt;&lt;!--/about--&gt;
+                               &lt;!--Speakers--&gt;
+                               &lt;h1 class="display-4 text-center my-5 text-muted"&gt;Speakers&lt;/h1&gt;
+                                [Speaker bios go here]
+                               &lt;!--/Speaker--&gt;
+                
+                
+                               &lt;!--Schedule--&gt;
+                               &lt;h1 class="display-4 text-center my-5 text-muted"&gt;Schedule&lt;/h1&gt;
+                                [Conference schedule goes here]
+                               &lt;!--/Schedule--&gt;
+                               &lt;!--Sign form--&gt;
+                               &lt;hr&gt;
+                               &lt;div class="row py-4 text-muted"&gt;
+                                   &lt;div class="col-md col-xl-5"&gt;
+                                       &lt;p&gt;&lt;strong&gt; About ITVisioHub&lt;/strong&gt;&lt;/p&gt;
+                                       &lt;p&gt;
+                                            ITVisioHub brings affordable technology education to people eveywhere to help them achieve their dreams and change the world.
+                                       &lt;/p&gt;
+                                   &lt;/div&gt;
+                                   &lt;div class="col-md col-xl-5 ml-auto"&gt;
+                                       &lt;p&gt;&lt;strong&gt;Stay up-to-date on Full Stack Conf&lt;/strong&gt;&lt;/p&gt;
+                                       &lt;div class="input-group"&gt;
+                                               &lt;div class="input-group mb-3 ml-auto"&gt;
+                                                       &lt;input type="text" class="form-control" placeholder="Emai" aria-label="Email" aria-describedby="button-addon2"&gt;
+                                                       &lt;div class="input-group-append"&gt;
+                                                       &lt;span&gt;
+                                                         &lt;button class="btn btn-info" type="button" id="button-addon2"&gt;Sign Up&lt;/button&gt;
+                                                       &lt;/span&gt;
+                                                       &lt;/div&gt;
+                                                     &lt;/div&gt;
+                
+                                       &lt;/div&gt;
+                
+                                   &lt;/div&gt;
+                
+                               &lt;/div&gt;
+                       &lt;/div&gt;&lt;!--/container--&gt;
+                
+                   &lt;!-- Optional JavaScript --&gt;
+                   &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                   &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"&gt;&lt;/script&gt;
+                   &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;
+                   &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;
+                 &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Create Navnar in Bootstrap</h1>
+    <p>
+            Bootstrap ဟာ navigation systems, form controls, drop down menus တို့ကို  building လုပ်တဲ့နေရာမှာ many complex or time consuming tasks တွေကို simplifies ဖြစ်စေပါတယ်။ Example, drop down, alert, and model widows တွေလို interactive components တွေကို လုပ်ဆောင်တဲ့အခါမှာ JavaScript ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Bootstrap မှာဆိုရင် interactive component တစ်ခုကို element တစ်ခုရဲ့ class, ID, or data attribute ကို ပေးပြီးတော့ မြန်မြန် create လုပ်နိင်ပါတယ်။ အဲ့မှာဆိုရင် any JavaScript ကိုရေးစရာမလိုပါဘူး။ Bootstrap မှာ အဲ့ဒါတွေဟာ provide လုပ်ပြီးဖြစ်ပါတယ်။ Bootstrap components တွေဟာဆိုရင် interactive components တွေကို create လုပ်တဲ့နေရာမှာ လွယ်ကူစေပါတယ်။ အခုကျွန်တော်တို့ interactive components တွေထဲက nav bar ကို စပြီးတော့ create လုပ်သွားမှာဖြစ်ပါတယ်။ Bootstrap မှာဆိုရင် losts of easily customizable navigation components တွေရှိပါတယ်။ Projects တစ်ခုရဲ့ nav bar ကို create လုပ်ချင်တဲ့အခါမှာ bootstrap ရဲ့  base nav component snippet မှာ သွားရောက်ပြီးတော့အသုံးပြုနိုင်ပါတယ်။ Nav ကို horizontally or vertically align လုပ်နိုင်တဲ့ option တွေရှိပါတယ်။ နောက် extra small နဲ့ medium breakpoints range မှာဆိုရင် navbar-toggle icon ကို လည်း display လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                <!--navigation bar-->
+            &lt;
+            nav class="navbar navbar-expand-lg navbar-white  bg-dark "&gt;
+                    &lt;
+                    div class="container"&gt;
+                        &lt;
+                        a class="navbar-brand order-1 mr-0" href="#" target="_blank"&gt;Presented By ITVisioHub&lt;
+                        /a&gt;
+                        &lt;
+                        button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"&gt;
+                        &lt;
+                        span class="navbar-toggler-icon"&gt;&lt;
+                        /span&gt;
+                        &lt;
+                        /button&gt;
+                        &lt;
+                        div class="collapse navbar-collapse" id="navbarNavAltMarkup"&gt;
+                        &lt;
+                        div class="navbar-nav"&gt;
+                            &lt;
+                            a class="nav-item nav-link " href="#home"&gt;Home &lt;
+                            span class="sr-only"&gt;(current)&lt;
+                            /span&gt;&lt;
+                            /a&gt;
+                            &lt;
+                            a class="nav-item nav-link" href="#about"&gt;About&lt;
+                            /a&gt;
+                            &lt;
+                            a class="nav-item nav-link" href="#speakers"&gt;Speakers&lt;
+                            /a&gt;
+                            &lt;
+                            a class="nav-item nav-link " href="#schedule" tabindex="-1" aria-disabled="true"&gt;Schedule&lt;
+                            /a&gt;
+                        &lt;
+                        /div&gt;
+                        &lt;
+                        /div&gt;
+                    &lt;
+                    /div&gt;
+                    &lt;
+                    /nav&gt;
+        <!--/navigation bar-->
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Jumbotron in bootstrap</h1>
+    <p>
+            ဒီတစ်ခါမှာတော့ Full Stack Conf ပါတဲ့ large page header ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါဟာ page ရဲ့ အရေးကြီးတဲ့အပိုင်းပဲဖြစ်ပါတယ်။ Bootstrap မှာဆိုရင် အဲ့ဒါကို create လုပ်ဖို့ရန်အတွက် component ရှိပါတယ်။ သူ့ကို Jumbotron လု့ိခေါ်ပါတယ်။ Jumbotron component ဟာဆိုရင် showcasing key content အတွက် ideal ပဲဖြစ်ပါတယ်။ အဲ့ဒါကို action လို့လည်းခေါ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                <!--Jumbotron-->
+                &lt;div class="jumbotron jumbotron-fluid bg-info text-white"&gt;
+                        &lt;div class="container text-sm-center pt-5"&gt;
+                        &lt;h1 class="display-2"&gt;Full Stack Conf&lt;/h1&gt;
+                        &lt;p class="lead"&gt;A One-day Confer About All Things JavaScript!&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                 <!--/Jumbotron-->
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Button Styles in Bootstrap</h1>
+    <p>
+            အခုတစ်ခါ action, callout, button ကို page မှာ add လုပ်သွားမှာဖြစ်ပါတယ်။ Buttons ဟာ conference registration form and a list of speakers တွေကို users တွေကို link လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့ buttons တွေကို bootstrap ရဲ့ predefined button styles ကိုအသုံးပြုပြီးတော့ create လုပ်သွားမှာဖြစ်ပါတယ်။ Bootstrap မှာ predefined button styles 9 ခုရှိပါတယ်။ အဲ့ထဲကနေ ကျွန်တော်တို့ ကြိုက်တဲ့ button styles ကို ယူပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+               <!--Jumbotron-->
+                &lt;div class="jumbotron jumbotron-fluid bg-info text-white"&gt;
+                    &lt;div class="container text-sm-center pt-5"&gt;
+                    &lt;h1 class="display-2"&gt;Full Stack Conf&lt;/h1&gt;
+                    &lt;p class="lead"&gt;A One-day Confer About All Things JavaScript!&lt;/p&gt;
+                    &lt;div class="btn-group mt-5" role="group" aria-label="Callout button"&gt;
+                            &lt;button type="button" class="btn btn-primary btn-lg "&gt;Register Now&lt;/button&gt;
+                            &lt;a class="btn btn-light btn-lg" href="#speaders"&gt;See Speakers&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+            &lt;/div&gt;
+            <!--/Jumbotron-->
+            &lt;!--Schedule--&gt;
+            &lt;h1 class="display-4 text-center my-5 text-muted"&gt;Schedule&lt;/h1&gt;
+            [Conference schedule goes here]
+            <!--/Schedule-->
+            <!--callout button-->
+            &lt;button type="button" class="btn btn-outline-success btn-lg d-block mx-auto my-5"&gt;Don's Miss Out, Register Now&lt;/button&gt;
+            <!--/callout button-->
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Dropdown in Footer</h1>
+    <p>
+        ဒီတစ်ခါမှာ base nav component ကို အသုံးပြုပြီးတော့ basic page footer ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ Bootstrap ဟာ links တွေရဲ့ list ကို display လုပ်ဖို့ရန်အတွက် interactive dropdown components တွေကို provide လုပ်ပေးပါတယ်။ Dropdown မှာရှိတဲ့ arrow ကို up ကို ထားချင်တဲ့အခါမှာ dropup class ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                <!--footer-->
+                &lt;
+                div class="row py-3"&gt;
+                        &lt;
+                        div class="clo-md-7"&gt;
+                            &lt;
+                            ul class="nav"&gt;
+                                &lt;
+                                li class="nav-item"&gt;
+                                  &lt;
+                                  a class="nav-link" href="#"&gt;Community&lt;
+                                  /a&gt;
+                                &lt;
+                                /li&gt;
+                                &lt;
+                                li class="nav-item"&gt;
+                                  &lt;
+                                  a class="nav-link" href="#"&gt;Track&lt;
+                                  /a&gt;
+                                &lt;
+                                /li&gt;
+                                &lt;
+                                li class="nav-item"&gt;
+                                  &lt;
+                                  div class="btn-group dropup"&gt;
+                                      &lt;
+                                      button type="button" class="btn btn-outline-secondary"&gt;Other Confs&lt;
+                                      /button&gt;
+                                      &lt;
+                                      button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                                        &lt;
+                                        span class="sr-only"&gt;Toggle Dropdown&lt;
+                                        /span&gt;
+                                      &lt;
+                                      /button&gt;
+                                      &lt;
+                                      div class="dropdown-menu"&gt;
+                                        &lt;
+                                        a class="dropdown-item" href="#"&gt;CSS Conf&lt;
+                                        /a&gt;
+                                        &lt;
+                                        a class="dropdown-item" href="#"&gt;Python Conf&lt;
+                                        /a&gt;
+                                        &lt;
+                                        a class="dropdown-item" href="#"&gt;Java Conf&lt;
+                                        /a&gt;
+                                        &lt;
+                                        a class="dropdown-item" href="#"&gt;Swift&lt;
+                                        /a&gt;
+                                      &lt;
+                                      /div&gt;
+                                    &lt;
+                                    /div&gt;
+                                &lt;
+                                /li&gt;
+                              &lt;
+                              /ul&gt;
+      
+                        &lt;
+                        /div&gt;
+                        &lt;
+                        div class="col-md text-md-right"&gt;
+                          &lt;
+                          small&gt; &copy; 2019 Full Stack Conf &amp; ITVisioHub&lt;
+                          /small&gt;
+      
+                        &lt;
+                        /div&gt;
+      
+                      &lt;
+                      /div&gt;
+      
+                      <!--/footer-->
+      
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Create Speaker Section</h1>
+    <p>
+            အခု speaker section ကို build လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် speaker list မှာ image, name and a short bio တွေပါပါတယ်။ Bootstrap 4 ဟာ cards လို့ခေါ်တဲ့ new UI component ကို introduces လုပ်ပေးထားပါတယ်။ Card တစ်ခုဟာ images, text, list groups and headings တွေပါတဲ့ wide variety of content ကို displaying လုပ်ဖို့အတွက် flexible and stylish တစ်ခုဖြစ်ပါတယ်။ Cards မှာ speaker line up မှာ display လုပ်ဖို့ရန်အတွက် လိုအပ်တဲ့ element အားလုံး ရှိပါတယ်။ 
+    </p>
+    <h2>Code Example </h2>
+    <pre>
+        <code>
+                     <!--Speakers-->
+                &lt;
+                h1 class="display-4 text-center my-5 text-muted" id="speaders"&gt;
+                Speakers&lt;
+                /h1&gt;
+
+                &lt;
+                div class="row"&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="girl-cartoon.png" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                    &lt;
+                    /div&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="girl1.png" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                      &lt;
+                      /div&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="cartoon.jpg" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                      &lt;
+                      /div&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="girl-cartoon.png" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                      &lt;
+                      /div&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="developer.png" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                      &lt;
+                      /div&gt;
+
+                    &lt;
+                    div class="col-md-6 col-lg-4"&gt;
+
+                        &lt;
+                        div class="card mb-3"&gt;
+
+                            &lt;
+                            img src="business.png" class="card-img-top" alt="..."&gt;
+
+                            &lt;
+                            div class="card-body"&gt;
+
+                              &lt;
+                              h5 class="card-title"&gt;
+                              Card title&lt;
+                              /h5&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;
+                              /p&gt;
+
+                              &lt;
+                              p class="card-text"&gt;
+                              &lt;
+                              small class="text-muted"&gt;
+                              Last updated 3 mins ago&lt;
+                              /small&gt;
+                              &lt;
+                              /p&gt;
+
+                            &lt;
+                            /div&gt;
+
+                          &lt;
+                          /div&gt;
+
+  
+                      &lt;
+                      /div&gt;
+
+  
+                  &lt;
+                  /div&gt;
+
+                <!--/Speaker-->
+
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>List Groups</h1>
+    <p>
+            List groups ဟာဆိုရင် lists of elements simple and complex နှစ်ခုလုံးကို display လုပ်ဖို့အတွက် flexible UI component တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါကို အသုံးပြုပြီးတော့ example ရဲ့ schedule section ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;
+                div class="col-lg order-lg-3"&gt;
+                        &lt;
+                        h3 class="mb-4"&gt;What You'll Learn&lt;
+                        /h3&gt;
+                        &lt;
+                        div class="list-group"&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;MongoDB&lt;
+                           /strong&gt;: NoSQL database&lt;
+                           /a&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;Express&lt;
+                           /strong&gt;: Framework for Node&lt;
+                           /a&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;React&lt;
+                           /strong&gt;: JavaScript Library&lt;
+                           /a&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;Node.js&lt;
+                           /strong&gt;: JavaScript environment&lt;
+                           /a&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;ES2015&lt;
+                           /strong&gt;: Latest version of JavaScript &lt;
+                           /a&gt;
+                           &lt;
+                           a href="#" class="list-group-item list-group-item-action"&gt;&lt;
+                           strong&gt;Bable&lt;
+                           /strong&gt;: JavaScript compiler&lt;
+                           /a&gt;
+                            
+                        &lt;
+                        /div&gt;
+                       &lt;
+                       /div&gt;
+
+                    <!--Schedule-->
+                &lt;
+                h1 class="display-4 text-center my-5 text-muted"&gt;
+                Schedule&lt;
+                /h1&gt;
+
+                &lt;
+                ul class="list-group"&gt;
+
+                  &lt;
+                  li class="list-group-item"&gt;
+
+                    &lt;
+                    div class="d-flex justify-content-between"&gt;
+
+                      &lt;
+                      h5 class="mb-1"&gt;
+                      Keynote: Internet of Things&lt;
+                      /h5&gt;
+
+                      &lt;
+                      span class="badge badge-pill badge-info p-2"&gt;
+                      9:00am&lt;
+                      /span&gt;
+
+                    &lt;
+                    /div&gt;
+
+                    &lt;
+                    p class="mb-1"&gt;
+                    NodeStradamus&lt;
+                    /p&gt;
+
+                  &lt;
+                  /li&gt;
+
+                  &lt;
+                  li class="list-group-item"&gt;
+
+                      &lt;
+                      div class="d-flex justify-content-between"&gt;
+
+                        &lt;
+                        h5 class="mb-1"&gt;
+                        React Basics&lt;
+                        /h5&gt;
+
+                        &lt;
+                        span class="badge badge-pill badge-info p-2"&gt;
+                        10:00am&lt;
+                        /span&gt;
+
+                      &lt;
+                      /div&gt;
+
+                      &lt;
+                      p class="mb-1"&gt;
+                      Vivianne McVue&lt;
+                      /p&gt;
+
+                    &lt;
+                    /li&gt;
+
+                    &lt;
+                    li class="list-group-item"&gt;
+
+                        &lt;
+                        div class="d-flex justify-content-between"&gt;
+
+                          &lt;
+                          h5 class="mb-1"&gt;
+                          Hey,Mongo!&lt;
+                          /h5&gt;
+
+                          &lt;
+                          span class="badge badge-pill badge-info p-2"&gt;
+                          11:00am&lt;
+                          /span&gt;
+
+                        &lt;
+                        /div&gt;
+
+                        &lt;
+                        p class="mb-1"&gt;
+                        Jay Query&lt;
+                        /p&gt;
+
+                      &lt;
+                      /li&gt;
+
+                      &lt;
+                      li class="list-group-item list-group-item-success"&gt;
+
+                          &lt;
+                          div class="d-flex justify-content-between"&gt;
+
+                            &lt;
+                            h5 class="mb-1"&gt;
+                            Lunch&lt;
+                            /h5&gt;
+
+                            &lt;
+                            span class="badge badge-pill badge-info p-2"&gt;
+                            12:00pm&lt;
+                            /span&gt;
+
+                          &lt;
+                          /div&gt;
+
+                          &lt;
+                          p class="mb-1"&gt;
+                          Free pizza for everyone!&lt;
+                          /p&gt;
+
+                        &lt;
+                        /li&gt;
+
+                &lt;
+                /ul&gt;
+
+                <!--/Schedule-->
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Modal Window in Bootstrap</h1>
+    <p>
+            ကျွန်တော်တို့ဟာ user register လုပ်ဖို့ရန်အတွက် form တစ်ခုကို create လုပ်တဲ့နေရာမှာ နောက်ထပ် HTML page တစ်ခုကို ယူပြီးတော့ create လုပ်နေစရာမလိုပါဘူး။ Bootstrap ရဲ့ modal window ကိုအသုံးပြုနိုင်ပါတယ်။ Modal windows တွေဟာ interactive pop up windows တွေပဲဖြစ်ပါတယ်။ Modal window ကို bootstrap ရဲ့ modal component မှာ ယူပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                <!--Modal widow-->
+                &lt;
+                div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registeration form" aria-hidden="true"&gt;
+                        &lt;
+                        div class="modal-dialog" role="document"&gt;
+                        &lt;
+                        div class="modal-content"&gt;
+                            &lt;
+                            div class="modal-header"&gt;
+                            &lt;
+                            h5 class="modal-title" id="exampleModalLabel"&gt;Register For ITVisioHub&lt;
+                            /h5&gt;
+                            &lt;
+                            button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                                &lt;
+                                span aria-hidden="true"&gt;&times;&lt;
+                                /span&gt;
+                            &lt;
+                            /button&gt;
+                            &lt;
+                            /div&gt;
+                            &lt;
+                            div class="modal-body"&gt;
+                            Form goes here
+                            &lt;
+                            /div&gt;
+                            &lt;
+                            div class="modal-footer"&gt;
+                            &lt;
+                            button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;
+                            /button&gt;
+                            &lt;
+                            button type="button" class="btn btn-primary"&gt;Save changes&lt;
+                            /button&gt;
+                            &lt;
+                            /div&gt;
+                        &lt;
+                        /div&gt;
+                        &lt;
+                        /div&gt;
+                    &lt;
+                    /div&gt;
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Scrollspy in Bootstrap</h1>
+    <p>
+            Bootstrap မှာဆိုရင် Scrollspy လုပ်ဖို့ရန်အတွက် simple solution တစ်ခုရှိပါတယ်။ Scrollspy ဟာ interactive JavaScript plugin တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ active navigation links ကို highlights လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူ့ကို user ရဲ့ scroll position ပေါ်မှာမူတည်ပြီးတော့ nav links တွေကို active လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို create လုပ်ဖို့ဆိုရင် data-spy attribute တစ်ခုကို page ရဲ့ body ထဲမှာ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ ပြီးရင် data-target attribute ကို id or ကျွန်တော်တို့ navigation component ရဲ့ class name နဲ့ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Forms in Bootstrap</h1>
+    <p>
+            Forms တွေကို web မှာ အတွေ့ရများပါတယ်။ Websites and apps အတော်များများ forms ကို users တွေဆီကနေ information တွေကို collect လုပ်ဖို့ရန်အတွက် form ကိုအသုံးပြုကြပါတယ်။ Web form တစ်ခုကို designing and building လုပ်တဲ့နေရာမှာ အချိန်တွေလည်းပေးရပြီးတော့ tedious ဖြစ်ဖွယ်လည်းကောင်းပါတယ်။ နောက် form ကို style ကို create လုပ်တဲ့နေရာမှာလည်း ခက်ခဲပါတယ်။ Bootstrap ရဲ့ form control styles, layout options, and custom components တွေဟာ form တစ်ခုကို build လုပ်တဲ့နေရာမှာ quickly and painlessly ဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ modal window ထဲမှာ registration form တစ်ခုကို example အနေနဲ့ build လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်ထပ် registration form မှာဆိုရင် job role ကို menu တစ်ခုကနေ select လုပ်နိုင်တာကိုလည်း ရေးပြသွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+                &lt;
+                form>
+                        &lt;
+                        h5 class="mb-4"&gt;
+                        Basic Info&lt;
+                        /h5&gt;
+
+                          &lt;
+                          div class="form-group"&gt;
+
+                            &lt;
+                            label for="name"&gt;
+                            Name:&lt;
+                            /label&gt;
+
+                            &lt;
+                            input type="text" class="form-control" id="name"&gt;
+
+                          &lt;
+                          /div&gt;
+
+                          &lt;
+                          div class="form-group"&gt;
+
+                            &lt;
+                            label for="email"&gt;
+                            Email:&lt;
+                            /label&gt;
+
+                            &lt;
+                            input type="text" class="form-control" id="email"&gt;
+
+                          &lt;
+                          /div&gt;
+
+                          &lt;
+                          div class="form-group"&gt;
+
+                            &lt;
+                            label for="role"&gt;
+                            Job Role&lt;
+                            /label&gt;
+
+                            &lt;
+                            select class="form-control" id="role"&gt;
+
+                              &lt;
+                              option value="full stack js developer"&gt;
+                              Full Stack JavaScript Developer&lt;
+                              /option&gt;
+
+                              &lt;
+                              option value="front end developer"&gt;
+                              Front End Developer&lt;
+                              /option&gt;
+
+                              &lt;
+                              option value="back end developer"&gt;
+                              Back End Developer&lt;
+                              /option&gt;
+
+                              &lt;
+                              option value="designer"&gt;
+                              Designer&lt;
+                              /option&gt;
+
+                              &lt;
+                              option value="student"&gt;
+                              Student&lt;
+                              /option&gt;
+
+                            &lt;
+                            /select&gt;
+
+  
+  
+                          &lt;
+                          /div&gt;
+
+                        &lt;
+                        /form&gt;
+
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Checkbox in Bootstrap</h1>
+    <p>
+            Bootstrap မှာ custom form styles လည်းပါပါတယ်။ နောက် bootstrap styles ဟာ different browsers and devices မှာ forms ကို  ကြည့်တဲ့ အခါမှာ same ဖြစ်အောင်လုပ်တဲ့ consistent visual design တစ်ခုကိုလည်း provide လုပ်ပေးပါတယ်။ Example မှာ checkbox ကိုအသုံးပြုထားတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a><hr>
+    <h1>Add Custom CSS</h1>
+    <p>
+            Bootstrap ဟာဆိုရင် web development အတွက် popular ဖြစ်တဲ့ front end framework တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ bootstrap မှာ နောက်ထပ် custom CSS ကို add လုပ်ပြီးတော့ရေးနိုင်ပါတယ်။ အခု example page ကို custom CSS တစ်ခု add လုပ်ပြီးတော့ modify လုပ်သွားမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h1>Code in CSS</h1>
+    <pre>
+        <code>
+                .navbar .navbar-brand {
+                    color: rgba(255, 255, 255, 0.85);
+                    font-size: 1rem;
+                
+                }
+                .jumbotron {
+                    background-image: url('portland.jpg');
+                    background-size: cover;
+                }
+        </code>
+    </pre>
+    <a href="bootstrapexample/gridsystem.html">Test Yourself</a>
+
+</body>
+</html>

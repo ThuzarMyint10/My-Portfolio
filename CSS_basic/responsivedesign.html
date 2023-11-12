@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+     <h1>Introduction to Responsive Design</h1>
+     <p>
+            General အားဖြင့်တော့ responsive design မှာဆိုရင် fluid grids, fluid images and media queries တွေပါဝင်ပါတယ်။ origins and foundational principles တွေကို နားလည်ထားတာဟာ ကျွန်တော်တို့ဟာ advanced  concepts တွေကို သွားတဲ့အခါမှာ အကူအညီဖြစ်ပါတယ်။ ကျွန်တော် အခုပြောပြပေးမှာကတော့ responsive design ဖြစ်တဲ့ layouts တွေကို အဓိကထားပြီးတော့ ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် breakpoints and design patterns တွေလိုမျိုး ပိုပြီး specific ဖြစ်တဲ့ concepts တွေကို သွားမှာဖြစ်ပါတယ်။ developer တစ်ယောက်ဟာ ဘယ် web page ကိုပဲရေးရေး principles တွေဟာအတူတူပါပဲ။ plain CSS ဟာဆိုရင် လူတိုင်းနားလည်နိုင်တဲ့ course တစ်ခုဖြစ်ပါတယ်။ CSS ဟာ ကျွန်တော်တို့အတွက် ပိုပြီးတော့ comfortable ဖြစ်ပါတယ်။
+     </p>
+        <p>Responsive web design ဟာဆိုရင် multiple screen sizes တွေမှာပါ အလုပ်ဖြစ်တဲ့ websites တွေကို build လုပ်ဖို့ရန်အတွက် techniques တွေရဲ့ collection တစ်ခုပဲဖြစ်ပါတယ်။ Responsive design ကို သေချာလေ့လာကြည့်မယ်ဆိုရင် traditional screens or high DPI screens လို different pixel densities တွေမှာ အလုပ်ဖြစ်တဲ့ websites တွေပါပါတယ်။ အဲ့ဒါကို Ethan Marcotte ဟာ May 2010 မှာ seminal article တစ်ခုဖြစ်တဲ့ Responsive Web Design ကို blog A List Apart ပေါ်မှာ ရေးခဲ့ပါတယ်။ web prrofessionals တွေဟာ သူတို့ရဲ့ site ကို mobile version and desktop version အတွက်နှစ်ခုလုံးမှာပါ create လုပ်ကြပါတယ်။ ကျွန်တော်တို့ဟာ layouts တွေကို create လုပ်တဲ့အခါမှာ ဘယ် device မှာဘဲဖြစ်ဖြစ် respond ဖြစ်အောင် create လုပ်ရမှာဖြစ်ပါတယ်။ </p>
+        <p>
+                Responsive design မတိုင်ခင်မှာ wen designers အမျာစုဟာ print design လို့ပဲထင်ခဲ့ကြပါတယ်။ သူတို့ဟာ fixed pixel-based units မှာ layout ကို control လုပ်ခဲ့ကြပါတယ်။ goal အနေနဲ့ကတော့ websites တွေကို ကြည့်တဲ့အခါမှာ browser တိုင်းမှာ same ဖြစ်အောင်လုပ်တာပဲဖြစ်ပါတယ်။ digital screens တွေမှာဆိုရင် printed pages တွေဟာ မတူညီကြပါဘူး။ ဘာလို့လဲဆိုတော့ digital screens တွေဟာ different sizes, different orient တွေ ပြီးတော့ different pixel densities နဲ့ပါ ဖြစ်လတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ layout တစ်ခုကို fixed values တွေ တွေးနေမဲ့အစား ratios or percentages တွေနဲ့ တွေးကြည့်ရပါမယ်။ ဥပမာ two-column layout ကိုတစ်ခုဟာ responsive design မပေါ်လာခင်မှာ 960 pixels across ဖြစ်ပြီးတော့ screen ရဲ့ centered မှာဖြစ်နေပါတယ်။ first column ဟာ 672 pixels across ဖြစ်ပြီးတော့ second column ဟာ 288 pixels across ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ elements တွေကို parent container မှာ percentages ကိုအသုံးပြုတာဟာ အဲ့ parent ရဲ့ ကျန်တဲ့ percentage ကို ကျွန်တော်တို့ဟာ နောက်ထပ် element ကို apply လုပ်နိင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ percentage ratio ဟာ အဲ့ columns နှစ်ကြားမှာရှိနေပါတယ်။ ဥပမာ ကျွန်တော်တို့ဟာ parent အတွက်ကို 80% ပေးလိုက်တဲ့အခါမှာ parent ဟာဆိုရင် browser width ရဲ့ 80% ကို ယူပေးမှာပဲဖြစ်ပါတယ်။ multiple-column layout တွေဟာ big screen တွေမှာပဲကြည့်လို့ကောင်းတာဖြစ်ပါတယ် phone မှာတော့ ကြည့်လို့ကောင်းမှာမဟုတ်ပါဘူး။ phone အတွက်ဆိုရင် one-column layout ကိုပဲ အသုံးပြုသင့်ပါတယ်။ 
+        </p><hr>
+     <h1>Media Query in Responsive Web Design</h1>
+     <p>
+            ကျွန်တော်တို့မှာ projects အတော်များများမှာ media queries ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါတယ်။ Responsive web design ကို media queries မပါဘဲနဲ့ ပြောပြဖို့ရန်အတွက် ခက်ခဲပါတယ်။ Media queries ဟာဆိုရင် CSS rule တစ်ခုပဲဖြစ်ပါတယ်။ သူ့မှာဆိုရင် certain conditions တွေမှာ အလုပ်လုပ်နိုင်တဲ့ CSS code တွေဟာ ကျွန်တော်တို့ကို ကူညီပေးပါတယ်။ အဲ့ conditions တွေကို media queries လို့ခေါ်ပါတယ်။ responsive web design မှာဆိုရင် အသုံးများတဲ့ media feature ဟာဆိုရင် width , min or minimum width ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ media features တွေကို Mozilla Developer Network မှာ check out လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် orientation ဟာ mobile devices တွေနဲ့ dealing လုပ်တဲ့အခါမှာ အသုံးများတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ device ကို landscape or portrait mode ကို detect လုပ်နိုင်ပါတယ်။ detecting width ဟာ great start တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ user တစ်ယောက်ဟာ phone မှာရှိတဲ့ browser ကို  landscape mode နဲ့ open လုပ်ထားခဲ့မယ်ဆိုရင် layouts ဟာဆိုရင် extra width ကို ယူမှာမဟုတ်ပါဘူး အဲ့မှာဆိုရင် လိုအပ်တာထပ်ပိုပြီးတော့ scrolling  လုပ်ရမှာဖြစ်ပါတယ်။ Scrolling ဟာဆိုရင် mobile layout ဟာ one column ကို reduce လုပ်လိုက်တဲ့အချိန်မှာ common  ဖြစ်ပါတယ်။
+     </p>
+     <h2>Code in HTML</h2>
+     <pre>
+         <code>
+               &lt;!doctype html&gt;
+               &lt;html&gt;
+                   &lt;head&gt;
+                       &lt;meta charset="utf-8"&gt;
+                       &lt;title&gt;Responsive Design&lt;/title&gt;
+                       &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                
+                       &lt;link rel="stylesheet" href="normalize.min.css"&gt;
+                       &lt;link rel="stylesheet" href="main.css"&gt;
+                   &lt;/head&gt;
+                   &lt;body&gt;
+                
+                       &lt;div class="header-container"&gt;
+                           &lt;header class="wrapper clearfix"&gt;
+                               &lt;h1 class="title"&gt;Responsive Design&lt;/h1&gt;
+                               &lt;nav&gt;
+                                   &lt;ul&gt;
+                                       &lt;li&gt;&lt;a href="#"&gt;Grids&lt;/a&gt;&lt;/li&gt;
+                                       &lt;li&gt;&lt;a href="#"&gt;Images&lt;/a&gt;&lt;/li&gt;
+                                       &lt;li&gt;&lt;a href="#"&gt;Media Queries&lt;/a&gt;&lt;/li&gt;
+                                   &lt;/ul&gt;
+                               &lt;/nav&gt;
+                           &lt;/header&gt;
+                       &lt;/div&gt;
+                
+                       &lt;div class="main-container"&gt;
+                           &lt;div class="main wrapper clearfix"&gt;
+                
+                               &lt;article&gt;
+                                   &lt;header&gt;
+                                       &lt;h1&gt;article header h1&lt;/h1&gt;
+                                       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                                   &lt;/header&gt;
+                                   &lt;section&gt;
+                                       &lt;h2&gt;article section h2&lt;/h2&gt;
+                                       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                                   &lt;/section&gt;
+                                   &lt;section&gt;
+                                       &lt;h2&gt;article section h2&lt;/h2&gt;
+                                       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                                   &lt;/section&gt;
+                                   &lt;footer&gt;
+                                       &lt;h3&gt;article footer h3&lt;/h3&gt;
+                                       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                                   &lt;/footer&gt;
+                               &lt;/article&gt;
+                
+                               &lt;aside&gt;
+                                   &lt;h3&gt;aside&lt;/h3&gt;
+                                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+                               &lt;/aside&gt;
+                
+                           &lt;/div&gt;&lt;!-- #main --&gt;
+                       &lt;/div&gt;&lt;!-- #main-container --&gt;
+                
+                       &lt;div class="footer-container"&gt;
+                           &lt;footer class="wrapper"&gt;
+                               &lt;h3&gt;footer&lt;/h3&gt;
+                           &lt;/footer&gt;
+                       &lt;/div&gt;
+                      
+                   &lt;/body&gt;
+               &lt;/html&gt;
+                
+         </code>
+     </pre>
+     <h2>Code in CSS</h2>
+     <pre>
+         <code>
+                /*************************
+                Base Styles
+                *************************/
+                
+                html {
+                  color: #222;
+                  font-size: 1em;
+                  line-height: 1.4;
+                  box-sizing: border-box;
+                }
+                
+                *, *:before, *:after {
+                  box-sizing: inherit;
+                }
+                
+                body {
+                  font-family: Helvetica, Helvetica Neue, Arial;
+                  font-size: 16px;
+                  line-height: 26px;
+                }
+                
+                .wrapper {
+                  width: 90%;
+                  margin: 0 auto;
+                }
+                
+                .header-container {
+                    border-bottom: 20px solid #599a68;
+                }
+                
+                .footer-container,
+                .main aside {
+                    border-top: 20px solid #599a68;
+                }
+                
+                .header-container,
+                .footer-container,
+                .main aside {
+                    background: #6ab47b;
+                }
+                
+                .title {
+                    color: white;
+                }
+                
+                nav ul {
+                  margin: 0;
+                  padding: 0;
+                  list-style-type: none;
+                }
+                
+                nav a {
+                  display: block;
+                  margin-bottom: 10px;
+                  padding: 15px 0;
+                  text-align: center;
+                  text-decoration: none;
+                  font-weight: bold;
+                  color: white;
+                  background: #599a68;
+                }
+                
+                nav a:hover,
+                nav a:visited {
+                  color: white;
+                }
+                
+                nav a:hover {
+                  text-decoration: underline;
+                }
+                
+                .main {
+                  padding: 30px 0;
+                }
+                
+                .main article h1 {
+                  font-size: 2em;
+                }
+                
+                .main aside {
+                  color: white;
+                  padding: 0px 5% 10px;
+                }
+                
+                .footer-container footer {
+                  color: white;
+                  padding: 20px 0;
+                }
+                
+                
+                /*************************
+                Media Queries
+                *************************/
+                
+                @media only screen and (min-width: 480px) {
+                
+                  nav a {
+                    float: left;
+                    width: 30%;
+                    margin: 0 0 0 5%;
+                    padding: 25px 1%;
+                    margin-bottom: 0;
+                  }
+                
+                  nav li:first-child a {
+                    margin-left: 0;
+                  }
+                
+                  nav li:last-child a {
+                    margin-right: 0;
+                  }
+                
+                }
+                
+                @media only screen and (min-width: 768px),
+                       only screen and (min-width: 700px) and (orientation: landscape) {
+                
+                  .title {
+                    float: left;
+                    font-size: 1.4em;
+                  }
+                
+                  nav {
+                    float: right;
+                    width: 60%;
+                  }
+                
+                  nav a {
+                    padding: 15px 1%;
+                  }
+                
+                  .main article {
+                    float: left;
+                    width: 57%;
+                  }
+                
+                  .main aside {
+                    float: right;
+                    width: 38%;
+                  }
+                  
+                }
+                
+                @media only screen and (min-width: 1140px) {
+                
+                  .wrapper {
+                    width: 1026px;
+                    margin: 0 auto;
+                  }
+                
+                  .title {
+                    font-size: 2em;
+                  }
+                
+                  nav a {
+                    padding: 25px 1%;
+                  }
+                  
+                }
+                
+                
+                /*************************
+                Clearfix
+                *************************/
+                
+                .clearfix:before,
+                .clearfix:after {
+                  content: " ";
+                  display: table;
+                }
+                
+                .clearfix:after {
+                  clear: both;
+                }
+                
+                .clearfix {
+                  *zoom: 1;
+                }
+                
+                
+         </code>
+     </pre>
+     <a href="CSS_Example/responsivemedia.html">Test Yourself</a><hr>
+     <h1>Break Point</h1>
+     <p>
+            Responsive web design မှာဆိုရင် ကျွန်တော်တို့ဟာ break point တစ်ခုကို width တစ်ခုလို့ပြောလို့ရပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ဟာ layout ကို break လုပ်ချင်တဲ့အခါမှာ layout ကို adjust ကို လုပ်ဖို့ရန်အတွက် media query ကို လိုအပ်လာမှာဖြစ်ပါတယ်။ ဥပမာ mobile approach တစ်ခုမှာဆိုရင် အဲ့ဒါဟာ single column မှာ stretched ဖြစ်နေတာကို screen ကြီးတဲ့ monitor တစ်ခုမှာ across လုပ်ကြည့်တဲ့အခါမှာ text တွေကို ဖတ်ရတာခက်တာတွေ button တွေဟာ တစ်ခုနဲ့ တစ်ခု ဝေးနေတာတွေဖြစ်တတ်ပါတယ်။ အဲ့လိုမျိုးတွေမဖြစ်အောင် break point ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ ဘယ် media query မှာပဲဖြစ်ဖြစ် layout ကို adjust လုပ်ဖို့ရန်အတွက် width လို့ခေါ်တဲ့ break point ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။
+     </p>
+     <p>
+            Break point ကို layout တွေကို change ချင်တဲ့အခါမှာ define လုပ်ပေးရမှာဖြစ်ပါတယ်။ မတူညီတဲ့ popular devices တွေမှာ အခြေခံပြီးတော့ break point ကို create လုပ်ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ one column layout ပဲဖြစ်နေတယ်ဆိုရင် break point ကို create လုပ်ပြီးတော့ သင့်လျော်တဲ့ adjustments တွေလုပ်သင့်ပါတယ်။ ဆိုလိုတာကော့ one column ကနေ multi-column ကို ဖြည်းဖြည်းချင်း change လုပ်သွားတာပဲဖြစ်ပါတယ်။ break point ကို create လုပ်တဲ့နေရာမှာ major and minor breakpoints ကိုလည်း create လုပ်သင့်ပါတယ်။ element တစ်ခုဟာ slightly resized လုပ်ဖို့လိုမယ် ဒါမှမဟုတ် list ထဲမှာ padding ကို change လုပ်ဖို့လိုခဲ့မယ်ဆိုရင် minor breakpoints ကို set up လုပ်နိုင်ပါတယ်။
+     </p>
+     <p>
+            Single mobile column တစ်ခုကနေ multiple columns ဖြစ်လာတဲ့ idea ဟာဆိုရင် many responsive layouts တွေမှာ common feature တစ်ခုပဲဖြစ်ပါတယ်။ သို့သော်လည်း အဲ့ဒါကို သေချာစဉ်းစားကြည့်တဲ့အခါမှာ သူဟာဆိုရင် different design patterns ကို break point တစ်ခုကနေ တစ်ခု ဘယ်လို translate လုပ်တယ်ဆိုတာကို consider လုပ်ဖို့ရန်အတွက် အရေးကြီးပါတယ်။
+     </p><hr>
+     <h1>Flexbox Property</h1>
+     <p>
+      အခုကျွန်တော်တို့ဟာ responsive frameworks တွေကို အသုံးပြုမှာမဟုတ်ပါဘူး။ ဒါပေမဲ့ apply လုပ်ခဲ့တဲ့ principles တွေနဲ့တော့ similar ဖြစ်ပါတယ်။ frameworks အများစုဟာ less complex ဖြစ်တဲ့ responsive ကို calculations လုပ်ဖို့ရန်အတွက် floated elements and box sizing  ကိုအသုံးပြုပါတယ်။ ကျွန်တော်ရှေ့မှာပြောပြခဲ့တဲ့ responsive grids ဟာ ဆိုရင် Flexbox ထဲမှာရေးထားတာပဲဖြစ်ပါတယ်။ သူဟာ 2015 အစောပိုင်းက Flexbox ဖြစ်တဲ့အတွက်ြကောင့် သူဟာ modern browsers တွေမှာဘဲ support လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူဟာ Internet Explore 11 မှာအလုပ်လုပ်ပြီးတော့ IE10 မှာရှိတဲ့ older syntax ကိုအသုံးပြုပြီးတော့ အလုပ်လုပ်ပါတယ်။ သူဟာ ကျွန်တော်ပြောပြခဲ့တဲ့ version တွေထက် older ဖြစ်တာတွေကို အလုပ်လုပ်မှာ မဟုတ်ပါဘူး။ Flexbox container ဟာဆိုရင် သူ့ထဲမှာရှိတဲ့ child element တွေကို flex item တစ်ခုအဖြစ်နဲ့ အလုပ်လုပ်ပေးပါတယ်။ Flexbox ဟာဆိုရင် container flexbox ကို available space မှာ ပြုလုပ်ပြီးတော့ responsive web design ကို အခြေခံကျကျလုပ်ဆောင်ပေးပါတယ်။ ကျွန်တော်တို့ဟာ Flexbox ရဲ့ detail ကို CSS tricks မှာလေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် flexbox ကို နားလည်ဖို့အရေးကြီး ပါတယ်။ သူ့ကိုအသုံးပြုတဲ့အခါမှာ CSS property or value ကို တစ်ခုထဲအသုံးပြုလို့မရပါဘူး။ အရင်းဆုံးအသုံးပြုရမဲ့ property ဟာအရေးကြီးပါတယ်။ အဲ့ဒါကတော့ ကျွန်တော်တို့ သိပြီးသားဖြစ်တဲ့ display property ပဲဖြစ်ပါတယ်။ သူ့မှာသုံးရမဲ့ value ကတော့ flex ဖြစ်ပါတယ်။ နောက်ထပ်သုံးရမဲ့ သုံးရမဲ့ property ကတော့ flex direction ကို column, row, reverse-column, reverse-row ဆိုတဲ့ values တွေ အသုံးပြုနိုင်ပါတယ်။ 
+     </p><hr>
+    
+
+</body>
+</html>

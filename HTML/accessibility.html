@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Accessibility</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+    
+</style>
+<body>
+    <h1>Web Accessibility</h1>
+    <p>
+        Web accessibility ဆိုတာကတော့ practice of making content ပဲဖြစ်ပါတယ်။ အဲ့ဒါတွေကို many people or as many pieces of software as is possible, regardless of their abilities or disabilites  တွေက အသုံးပြုပါတယ်။ တစ်ချို့လူတွေဟာ accessibility ကို traditional definition လို့ think ကြပါတယ်။ People တွေဟာ vision impairment, hearing impairments or motor impairments လို့ခေါ်တဲ့ different ways တွေနဲ့ web ကို browse လုပ်ပါတယ်။ ဥပမာ blindness or some other vision impairment ဖြစ်နေတဲ့ လူတွေဟာ screen ပေါ်မှာ text တွေကို reads လုပ်တဲ့ special software တွေနဲ့ web ကို browse လုပ်ကြပါတယ်။ Hearing impairment or native language ကိုမပြောနိုင်တဲ့ သူတွေအတွက် content တွေကို videos တွေရဲ့ subtitles တွေကို ရေးပေးထားရမှာဖြစ်ပါတယ်။ သို့သော်လည်း milder impairments တွေဟာ general population ရဲ့ huge portions တွေကို impact လုပ်နိုင်ပါတယ်။ အခြား definition ဟာ different type of hardware တွေနဲ့ ပေါ်ထွက်လာပါတယ်။ လူငယ်ပဲဖြစ်ဖြစ် လူကြီးပဲဖြစ်ဖြစ် web ကို access လုပ်ဖို့ရန်အတွက် mobile devices ကိုအသုံးပြုကြပါတယ်။ Mobile devices တွေဟာဆိုရင် လူတစ်ယောက်အတွက် online သုံးဖို့အတွက် very attractive way တစ်ခုပဲဖြစ်ပါတယ်။ အမှန်တော့ mobile  devices တွေဟာ ဆိုရင် regular computers တွေထက် more web traffic ကို generate လုပ်ဖို့ရန်အတွက် predicted လုပ်နိုင်ကြပါတယ်။ ကျွန်တော်တို့ဟာ နောက်ဆိုရင် well structured markup နဲ့ open technologies တွေကိုသုံးပြီးတော့ standards-based websites တွေကို create လုပ်နိုင်တော့မှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ဟာ great content ပေးပြီးတော့ သင့်လျော်တဲ့ html ကို structure လုပ်လိုက်တဲ့အပေါ်မှာ ဘာမှစိတ်ပူစရာမလိုပါဘူး။  အဲ့မှာဆိုရင်  many different definitions of accessibility တွေရှိပါတယ်။ အချို့ဟာ scope လိုပဲ very broad ဖြစ်ကြပါတယ်။ အဲ့မှာဆိုရင် accessibility for people with physical disabilities, software accessibility, and mobile accessibility ဆိုတဲ့ scenarios ၃ ခုပါဝင်ပါတယ်။ Search engines and other software တွေဟာဆိုရင် Properly structured markup တွေကို utilizing လုပ်ခြင်းဖြင့် addressed လုပ်နိုင်ပါတယ်။ Addressed လုပ်ဖို့ရန်အတွက်အကောင်းဆုံးနည်းလမ်းကတော့ second scenario ဖြစ်တဲ့ mobile devices ပဲဖြစ်ပါတယ်။ သူ့ကိုတော့ responsive web design လို့ခေါ်တဲ့ newer technique တစ်ခုကနေအသုံးပြုပါတယ်။  
+    </p><hr>
+    <h1>Accessibility: Vision 1</h1>
+    <p>
+        Accessibility ဟာ broad subject တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ ကျယ်ကျယ်ပြန့်ပြန့်တော့ မသိကြသေးပါဘူး။ အခု ပြောပြပေးမည့် technique ကတော့ vision impairments တွေရှိတဲ့ visitors တွေအတွက် ကျွန်တော်တို့ကနေ ပြီးတော့ usable ဖြစ်အောင် ပြုလုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ vision impairments ရှိတဲ့ သူတွေဟာ သူတို့ဟာ blindness ဖြစ်နေကြတယ်လို့ မကြာခဏ တွေးနေတတ်ကြပါတယ်။ သို့သော်လည်း full eyesight and blindness တို့မှာ အခြား impairments တွေလည်းရှိပါသေးတယ်။ First အနေနဲ့ကတော့ color blindness ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာဆိုရင် ကျွန်တော်ထင်သလိုပဲ visual impairment တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ color blindness မှာဆိုရင်လည်း အခြားမတူူညီတဲ့ types တွေအများကြီးရှိပါသေးတယ်။ အဲ့မှာဆိုရင် တစ်ယောက်ချင်းစီကနေ grayscale မှာမြင်နေတာတွေပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ web designers တွေအတွက် very complex challenge တစ်ခုပဲဖြစ်ပါတယ်။ ဒါပေမဲ့ အဖြေဟာ ရိုးရိုးရှင်းရှင်းလေးပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ web site တစ်ခုကို designing လုပ်တဲ့ခါမှာ contrast ကို check လုပ်သင့်ပါတယ်။ ကျွန်တော်တို့ လူတွေဟာ perceiving changes in color ထက် perceiving changes in lightness and darkness ကိုပိုပြီးလုပ်ဆောင်နိုင်ကြပါတယ်။ Secondly, ကျန်တော်တို့မှာ good value တစ်ခုတော့ ရှိသင့်ပါတယ်။ ဥပမာ text and title မှာ အလွန် dark ဖြစ်နေတာတွေ background color ဟာအလွန် bright ဖြစ်နေတောတွေအလုပ်သင့်ပါဘူး။ နောက်ဆုံးတစ်ခုကတော့ ကျွန်တော်အစောကပြောပြခဲ့တဲ့ color-blind users အတွက်ပဲဖြစ်ပါတယ်။ ဒီတစ်ခုဟာ ကျွန်တော်တို့ရဲ့ site မှာ good set of contrast တွေရှိအောင် ပြုလုပ်ဖို့ရန်အတွက် good idea တစ်ခုပဲဖြစ်ပါတယ်။ Low vision ကို ဖြစ်စေတဲ့ many pathologies တွေရဲ့ result ကတော့ color blindness ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် vision impairments ကို လေ့လာဖို့ရန်အတွက် အရေးကြီးတဲ့ things တွေအများကြီးရှိပါသေးတယ်။
+    </p><hr>
+    <h1>Accessibility: Vision 2</h1>
+    <p>
+        Visual impairments ဟာ တစ်ယောက်နဲ့ တစ်ယောက်မှာ အမျိုးမျိုးရှိကြပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ဟာ မတူညီတဲ့ sever vision loss and complete blindness တွေနဲ့ တစ်ခုချင်းစီကို လုပ်ဆောင်ဖို့ရန်လိုအပ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါတွေကို လုပ်ဆောင်ဖို့ရန်အတွက် semantic markup ကို ဦးတည်နေတဲ့ tendency တစ်ခုကို အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ဒါဟာ users တွေအားလုံးအတွက် better usability ကိုလည်း ဦးတည်နေပါတယ်။ Sever vision loss and blindness ဖြစ်နေတဲ့ users တွေဟာဆိုရင် computers တွေကို အသုံးပြုဖို့ရန်အတွက်နဲ့ web pages တွေကို interpret လုပ်ဖို့ရန်အတွက်ဆိုရင် သူတို့ဟာာ screen reading software ပေါ်မှာ မူတည်နေပါတယ်။ A screen reader ဆိုတာကတော့ a piece of software ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ screen ပေါ်မှာ ဘာတွေရှိတယ်ဆိုတာကို read လုပ်ဖို့ရန်အတွက် synthesized computer voice တစ်ခုကို အသုံးပြုပါတယ်။ တစ် ချို့ screen readers ဟာ cost money ဖြစ်ပြီးတော့ တစ်ချို့ကတော့ free၊ တစ်ချို့ကတော့ operating system ထဲမှာ built လုပ်ထားပါတယ်။ Screen reader ဟာ paragraph text ရဲ့ blocks တွေကို reading လုပ်တဲ့နေရာ very useful ဖြစ်ပါတယ်။ နောက်ထပ် screen readers တွေရဲ့ accessibility ကို improving ဖြစ်ဖို့ရန်အတွက် အခြား techniques တွေ အများကြီးရှိပါတယ်။
+    </p><hr>
+    <h1>Accessibility: Hearing </h1>
+    <p>
+        Visual impairments တွေအတွက် accessibility technique တွေရှိသလိုပဲ hearing impairments အတွက်လည်း accessibility ကို improve ဖြစ်ဖို့ရန်အတွက် techniques တွေရှိပါတယ်။ Hearing impairments ဟာ တစ်ယောက်နဲ့တစ်ယောက်မှာ အမျိုးမျိုးရှိနိုင်ပါတယ်။ တစ်ချို့တွေကတော့ certain volume level မှာတောင် အသံမကြားရတာတွေနဲ့ တစ်ချို့ကတော့ နားပင်းနေကြတာပဲဖြစ်ပါတယ်။ တစ်ချို့ကြော့ နားဟာ တစ်ဖက်ပဲ မကြားရတာမျိုးတွေလည်းရှိနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ အသက်ကြီးလာတဲ့အခါမှာ အသံတွေကို ကြားရဖို့က ပိုပြီးတော့ difficult ဖြစ်လာပါတယ်။ Certain frequencies မှာတောင်မှာ မကြားရတာတွေဖြစ်တတ်လာပါတယ်။ ကျွန်တော်ဟာ အဲ့ကိစ္စကို ဘယ်လိုဖြေရှင်းမလဲဆိုတာကို ပြောပြပေးမှာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ podcast တစ်ခုကနေ video တစ်ခုကို အသုံးပြုနေတဲ့အချိန်မှာဆိုရင် အဲ့ video ကို transcript တစ်ခု provide လုပ်ဖို့ရန်အရေးကြီးပါတယ်။ အဲ့ဒါဟာ လွယ်လွယ်နဲ့တော့မဖြစ်နိုင်ပါဘူး။ ဘာလို့လဲဆိုရင် အဲ့လိုလုပ်တာဟာ အချိန်တွေလည်းကြာနိုင်ပြီးတော့ တစ်ခါတစ်လေမှာ very expensive ဖြစ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ content တွေကို post လုပ်ဖို့ရန်အတွက် မြန်မြန်ဆန်ဆန် ဖြစ်စေချင်တဲ့အခါမှာ transcript တစ်ခုကို create မလုပ်နိုင်ပါဘူး။ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ရဲ့ podcasts တွေအတွက် transcripts ကို ကျွန်တော်တို့ ကိုယ်တိုင် typing လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ video တစ်ခုကို using လုပ်နေတဲ့အချိန်မှာ ကျွန်တော်တို့ဟာ အဲ့ video ကို subtitles ကို add လုပ်ဖို့ နည်းလမ်းကို find လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါကိုလုပ်ဖို့ဆိုရင် murky area ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ အဲ့နေရာမှာ dramatic improvements တွေရှိပါတယ်။ ပထနတစ်ခုကတော့ video ရဲ့ major services တွေ losts ဖြစ်နေတာတွေ အခုဆိုရင်တော့ videos တွေကို closed captioning ကို add လုပ်လို့ရနေပါပြီ။ ကျွန်တော်တို့ဟာ captioning ကို ကိုယ်တိုင် add လုပ်တာဟာ YouTube ရဲ့ interesting case တစ်ခုပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့ဟာ automatic transcription ကို offer လုပ်ထားလို့ပဲဖြစ်ပါတယ်။ Automatic transcribing ဆိုတာဟာ beta feature တစ်ခုပဲဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် captions ဟာ အခြားအရာတွေထက် ပိုပြီး better ဖြစ်တဲ့အတွက်ြကောင့်ပဲဖြစ်ပါတယ်။ Better solution ကတော့ captions တွေကို manually အရ add လုပ်တာပဲဖြစ်ပါတယ်။ ဒါဟာကျွန်တော်တို့အတွက် time တွေပိုပြီးတော့ ကုန်စေပါတယ်။ ကျွန်တော်တို့ဟာ automatically generate လုပ်ပေးထားတဲ့ caption file တွေကို download လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ download လုပ်ပြီးတဲ့အချိန်မှာ corrections တွေလုပ်နိုင်ပါတယ် ပြီးတော့ သူ့ကို re-upload လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ scratch ကနေပြီးတော့ captions and timings တွေကို လုပ်ဆောင်ချင်တယ်ဆိုရင် ကျွန်တော်တို့ဟာ caption file ကို transcript နဲ့ upload လုပ်သင့်ပါတယ်။ ပြီးတော့ timings အားလုံးကိုလည်း upload လုပ်သင့်ပါုတယ်။ ဒီ techniques ဟာ hearing impairments ဖြစ်တဲ့လူ တစ်ယောက်ချင်းစီအတွက် သူဟာ ကျွန်တော်တို့ရဲ့ audio content တွေ ပြုလုပ်တဲ့အခါမှာ more accessible ဖြစ်ဖို့ရန်အတွက် ကူညီပေးပါတယ်။ 
+    </p><hr>
+    <h1>Accessibility:Mobility</h1>
+    <p>
+        ကျွန်တော်တို့မှာ visual and hearing impairments အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ အခုနောက်ထပ် other impairments တွေနဲ့ ကျွန်တော်တို့ဟာ accessibility ကို ဘယ်လို improve ဖြစ်အောင်လုပ်နိုင်တယ်ဆိုတာကို လေ့လာကြမှာဖြစ်ပါတယ်။ လူတွေဟာ web accessibility အကြောင်းကို ပြောကြတဲ့အခါမှာ visual and hearing impairments ကို အရင်းဆုံးစဉ်းစားကြတာပဲဖြစ်ပါတယ်။ သို့သော်လည်း impairments တွေအများကြီးရှိနိုင်ပါသေးတယ်။ အဲ့ဒါတွေကတော့ fine motor skills and muscle control တွေ ပြီးတော့ muscle movement ကို slow ဖြစ်စေနိုင်ပါတယ်။ ဒါဟာ challenging တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ impaired mobility ရှိတဲ့ users တွေအတွက် ကျွန်တော်တို့ရဲ့ sites ကို ပိုပြီးတော့ accessible ဖြစ်အောင်ပြုလုပ်နိုင်ပါတယ်။ First အနေနဲ့ကတော့ ကျွန်တော်တို့ရဲ့ site keyboard ပေါ်မှာ functionality တွေကို accessible ဖြစ်အောင်ပြုလုပ်တာပဲဖြစ်ပါတယ်။ ဒါဟာ အလွန်လွယ်ကူပါတယ် ဘာလို့လဲဆိုရင် browsers and operating systems တွေိမှာဆိုရင် web pages တွေအတွက် robust keyboard navigation ပါတဲ့အတွက်ြကောင့်ပဲဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ ကျွန်တော်တို့ဟာ users တွေရဲ့ task ကို accomplish ဖြစ်ဖို့ရန်အတွက် လုံလောက်တဲ့ time ကို provide လုပ်ပေးရပါမယ်။ Static web page တစ်ခုမှာဆိုရင် အဲ့ဒါကို လုပ်ဆောင်ပြီးသားဖြစ်ပါတယ်။ နောက်ဆုံးတစ်ခုကတော့ ကျွန်တော်တို့ဟာ number of steps တွေကို minimize ဖြစ်အောင် လုပ်သင့်ပါတယ်။ ဒါဟာဘာကို ဆိုလိုတာလဲဆိုရင် special keyboard shortcuts ကို creating လုပ်တယ်၊ ကျွန်တော်တို့ရဲ့ user interface ကို simplifying လုပ်ပေးတယ်၊ amount of clicking ကို cutting down လုပ်တာတွေပဲဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Screen Reader</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ improving accessibility အတွက် some techniques အကြောင်းတွေကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုကျွန်တော်တို့ဟာ real project ကို apply လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့်ဟာ screen readers နဲ့ အနည်းငယ် familiar ဖြစ်ပြီးသားဖြစ်ပါတယ်။ Screen reading software ရဲ့ pieces တွေအများကြီးရှိပါတယ်။ တစ်ခုကတော့ NVDA(NonVisual Desktop Access) ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ web site တစ်ခုပဲဖြစ်ပါတယ်။ ဒီ software ဟာဆိုရင် window မှာပဲ အလုပ်လုပ်တာပဲဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ JAWS ဟာဆိုရင် popular choice တစ်ခုပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ free မဟုတ်ပါဘူး။ သူ့ကို $1000 ပေးရပါတယ်။ သူဟာလည်း window မှာပဲ အလုပ်လုပ်တာပဲဖြစ်ပါတယ်။ နောက်ဆုံးတစ်ခုကတော့ VoiceOver ပဲဖြစ်ပါတယ်။ သူဟာဆိုရင်တော့ Mac OS X မှာပဲ အလုပ်လုပ်တာပဲဖြစ်ပါတယ်။ Screen reader ဟာ "link" လို့လဲပြောနိုင်ပါတယ်။ သူဟာ page ရဲ့ single link တစ်ခုပဲဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Accessibility: Lsow-fidelity</h1>
+    <p>
+        အခုဆိုရင် ကျွန်တော်တို့ဟာ accessibility and screen readers အကြောင်းကို ပြောပြခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ knowledge တွေကို real project မှာ အသုံးပြုမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ low-fidelity mockup ကို create လုပ်တယ်ဆိုတာ ကျွန်တော်တို့ရဲ့ major site elements ကို layout အကြမ်းချတာပဲဖြစ်ပါတယ်။  အဲ့လိုလုပ်တဲ့နေရာမှာ real HTML and CSS ကိုအသံုံးပြုရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အခု product တစ်ခုအတွက် "Widget" လို့ခေါ်တဲ့ product landing page တစ်ခုကို create လုပ်မှာဖြစ်ပါတယ်။ သူ့ကို company တွေကလဲ "Widget" လို့ပဲခေါ်ကြပါတယ်။  A new widget တစ်ခုမှာဆိုရင် launched ရှိပါတယ်။ 
+    </p>
+    <pre>
+        <code>
+             <img src="../image/mockup.png" alt="">
+        </code>
+    </pre><hr>
+    <h1>Access WebSite</h1>
+    <p>
+        ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ဟာ ကျွန်တော်တို့ ဆွဲခဲ့တဲ့ widget ပုံကို HTML နဲ CSS files တွေနဲ့ အသုံးပြုပြီးရေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+               &lt;!DOCTYPE html&gt;
+               &lt;html lang="en"&gt;
+               &lt;head&gt;
+                   &lt;meta charset="UTF-8"&gt;
+                   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                   &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                   &lt;link rel="stylesheet" href="../CSS/styleaccess.css"&gt;
+                   &lt;title&gt;Access WebSite&lt;/title&gt;
+               &lt;/head&gt;
+               &lt;body&gt;
+                    &lt;div id="wrapper"&gt;
+                        &lt;div id="header"&gt;
+                            &lt;h1&gt;Widget&lt;/h1&gt;
+                            &lt;ul id="nav"&gt;
+                                &lt;li&gt;&lt;a href="access.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="#"&gt;Product&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="#"&gt;Company&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div id="content"&gt;
+                            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, laboriosam obcaecati delectus nemo accusantium ab error ullam repudiandae officia omnis culpa tenetur sint nisi minus earum blanditiis praesentium. Nisi, quaerat.&lt;/p&gt;
+                            &lt;div id="cta"&gt;
+                                &lt;h3 id="just_10"&gt;The new widget is just $10.&lt;/h3&gt;
+                                &lt;a href="#" id="buy_now"&gt;Buy Now&lt;/a&gt;
+                            &lt;/div&gt;
+                
+                        &lt;/div&gt;
+                        &lt;div id="widget_pic"&gt;
+                            &lt;img src="../image/gg.png" alt="A drawing of a widget"&gt;
+                        &lt;/div&gt;
+                        &lt;p id="compare"&gt;Compare Widget to other productss.&lt;/p&gt;
+                        &lt;table id="product_table"&gt;
+                            &lt;thead&gt;
+                               &lt;tr&gt;
+                                   &lt;th&gt;Product&lt;/th&gt;
+                                   &lt;th&gt;Quality&lt;/th&gt;
+                                   &lt;th&gt;Speed&lt;/th&gt;
+                                   &lt;th&gt;Strenght&lt;/th&gt;
+                                   &lt;th&gt;Price&lt;/th&gt;
+                               &lt;/tr&gt;
+                               &lt;tr&gt;
+                                       &lt;td&gt;
+                                           &lt;strong&gt;Widget&lt;/strong&gt;
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            High Quality
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                        Fast
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            Strong
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            $10
+                                       &lt;/td&gt;
+                               &lt;/tr&gt;
+                               &lt;tr&gt;
+                                       &lt;td&gt;
+                                           &lt;strong&gt;Gadget&gt;/strong&gt;
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            Good Quality
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            Slow
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            Weak
+                                       &lt;/td&gt;
+                                       &lt;td&gt;
+                                            $15
+                                       &lt;/td&gt;
+                               &lt;/tr&gt;
+                               &lt;tr&gt;
+                                   &lt;td&gt;
+                                       &lt;strong&gt;Gizmo&lt;/strong&gt;
+                                   &lt;/td&gt;
+                                   &lt;td&gt;
+                                        Poor Quality
+                                   &lt;/td&gt;
+                                   &lt;td&gt;
+                                        Slowest
+                                   &lt;/td&gt;
+                                   &lt;td&gt;
+                                        Weakest
+                                   &lt;/td&gt;
+                                   &lt;td&gt;
+                                        $25
+                                   &lt;/td&gt;
+                               &lt;/tr&gt;
+                          &lt;/thead&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+               &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+       </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                /**************************
+                BASIC PAGE STYLES
+                **************************/
+                body{
+                    margin: 0;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 0.85em;
+                    background: #eac657;
+                }
+                #wrapper{
+                    width: 920px;
+                    margin: 0 auto;
+                }
+                /**************************
+                HEADER
+                **************************/
+                #header{
+                    float: left;
+                    margin: 20px 0;
+                    width: 100%;
+                }
+                h1{
+                    float: left;
+                    margin: 0;
+                    padding: 0 75px;
+                    width: 286px;
+                    height: 57px;
+                    background: url('../image/gg.png') top left no-repeat;
+                    background-size: contain;
+                }
+                /**************************
+                NAVIGATION
+                **************************/
+                #nav{
+                    margin-top: 20px;
+                    list-style: none;
+                    float: right;
+                }
+                #nav li{
+                    float: left;
+                    margin-left: 20px;
+                }
+                a{
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    padding: 10px;
+                    background-color: black;
+                    color: #eac657;
+                    text-decoration: none;
+                    border-radius: 15px;
+                
+                }
+                a:hover, a:focus{
+                    color: chartreuse;
+                    background-color: #000;
+                }
+                /**************************
+                CONTENT
+                **************************/
+                img{
+                    max-width: 100%;
+                
+                }
+                #widget_pic{
+                    float: left;
+                    width: 30%;
+                    margin-left: 5%;
+                    height: 300px;
+                
+                }
+                #content{
+                    width: 65%;
+                    float: left;
+                }
+                #content{
+                    font-size: 1.3em;
+                    margin: 20px 0px;
+                    float: left;
+                
+                }
+                #content p{
+                    background: #d2b140;
+                    padding: 20px;
+                    font-style: italic;
+                    font-size: 0.9em;
+                }
+                /**************************
+                TABLE
+                **************************/
+                #compare{
+                    float: left;
+                    font-weight: bold;
+                
+                }
+                #product_table{
+                    float: left;
+                    width: 100%;
+                    font-size: 1.2em;
+                
+                }
+                #product_table thead{
+                    background: black;
+                    color:#EEE;
+                    text-align: left;
+                }
+                #product_table th, product_table td{
+                    padding: 10px;
+                }
+                #product_table td{
+                    background: #d2b14e;
+                    color: #333;
+                }
+        </code>
+    </pre>
+    <a href="../Example/access.html">Test Yourself</a><hr>
+    <h1>Web Forms</h1>
+    <p>
+        အခုပြောပြပေးမဲ့အကြောင်းအရာကတော့ Websites and Web apps နှစ်ခုကြားမှာရှိတဲ့ မတူတဲ့ အပိုင်းလေးတွေကို ပြောပြပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အခု web apps ကို ပိုပြီးတော့ accessible ဖြစ်အောင် ဘယ်လိုလုပ်ရတယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Web apps ရဲ့ big part ကတော့ forms ပဲဖြစ်ပါတယ်။ Forms ဆိုတာကတော့ source of poor usability တွေပဲဖြစ်ပါတယ်။ Good visual design နဲ့ form တစ်ခုဟာဆိုရင် users တွေအတွက် benefit တွေရှိနိုင်ပါတယ်။ Real web form တစ်ခုမှာဆိုရင် submitted လုပ်လိုက်တဲ့ အချိန်မှာ process လုပ်ဖို့ရန်အတွက် ready ဖြစ်နေတဲ့ some sort of server code or java script code တွေပါပါတယ်။ ကျွန်တော်အခု web app form တစ်ခုကို create လုပ်ပြပေးမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ tab key ကို နှိပ်လည်း ကျွန်တော်တို့်ရဲ့ web form မှာအလုပ်လုပ်မှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Web App Form&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;form action="#" method="get"&gt;
+                     &lt;p&gt;&lt;strong&gt;Select your favorite colors:&lt;/strong&gt;&lt;/p&gt;
+            
+                     &lt;input id="red" type="checkbox" name="color" tabindex="2"&gt;
+                     &lt;label for="red"&gt;Red&lt;/label&gt;
+                     &lt;input id="green" type="checkbox" name="color" tabindex="3"&gt;
+                     &lt;label for="green"&gt;Green&lt;/label&gt;
+                     &lt;input id="blue" type="checkbox" name="color" tabindex="4"&gt;
+                     &lt;label for="blue"&gt;Blue&lt;/label&gt;
+            
+                     &lt;label for="first_name"&gt;First Name:&lt;/label&gt;
+                     &lt;input type="text" id="first_name" name="first_name" tabindex="1"&gt;
+                 &lt;/form&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/exform.html">Test Yourself</a><hr>
+    <h1>Web Form: Table</h1>
+    <p>
+        Web app ထဲမှာဆိုရင် tabular data တွေကို display လုပ်ဖို့ရန်အတွက်လိုပါတယ်။ ကျွန်တော်ဟာ table ကို more accessible ဖြစ်အောင် ဘယ်လုပ်ရမယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ အခုပြောပြပေးမဲ့ table ကတော့ various types of fruit တွေအကြောင်းပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် canned fruit ဟာဆိုရင် fresh fruit ထက် less expensive ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ table ထဲမှာဆိုရင် scope attribute ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ table data ဟာ ဘယ်ဟာ row ဘယ်ဟာက column ဆိုတာကို ခွဲခြားပေးမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                &lt;title&gt;Web Table&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                 &lt;Table summery="Camparison of canned fruit prices and fresh prices."&gt;
+                     &lt;caption&gt; Fresh Fruit Prices Conned Fruit Prices&lt;/caption&gt;
+                     &lt;tr&gt;
+                         &lt;th scope="col"&gt;Packaging&lt;/th&gt;
+                         &lt;th scope="col"&gt;Peaches&lt;/th&gt;
+                         &lt;th scope="col"&gt;Pears&lt;/th&gt;
+                         &lt;th scope="col"&gt;Apples&lt;/th&gt;
+                     &lt;/tr&gt;
+                     &lt;tr&gt;
+                         &lt;th scope="row"&gt;Canned&lt;/th&gt;
+                         &lt;td&gt;$1&lt;/td&gt;
+                         &lt;td&gt;$2&lt;/td&gt;
+                         &lt;td&gt;$1&lt;/td&gt;
+                     &lt;/tr&gt;
+                     &lt;tr&gt;
+                         &lt;th scope="row"&gt;Fresh&lt;/th&gt;
+                         &lt;td&gt;$2&lt;/td&gt;
+                         &lt;td&gt;$3&lt;/td&gt;
+                         &lt;td&gt;$2&lt;/td&gt;
+                     &lt;/tr&gt;
+                 &lt;/Table&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/webapptable.html">Test Yourself</a><hr>
+    <h1>Create Chart and Graph</h1>
+    <p>
+        အခုကျွန်တော်ပြောပြပေးမဲ့အကြောင်းအကြာကတော့ charts and graphs တွေကို more accessible ဖြစ်အောင်ဘယ်လိုလုပ်ရမယ်ဆိုတာကိုပြောပြပေးမှာဖြစ်ပါတယ်။ Online charting solutions တွေဟာဆိုရင် browser plugins ကိုအသုံးပြုကြပါတယ်။ ဒါပေမဲ့ အဲ့ solutions တွေဟာ screen readers မှာ accessible ဖြစ်ကြပါတယ်။ ကျွန်တော်က HTML and CSS ကိုအသုံးပြုပြီးတော့ accessible charts ကို ဘယ်လို create လုပ်ရတယ်ဆိုတာကို example တစ်ခုရေးပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒါကို လုပ်ဆောင်ဖို့ဆိုရင် charting libraries ကို လိုအပ်ပါတယ် ဒါပေမဲ့ တစ်ခါတစ်ရံ သူတို့မှာ implementations တွေရှိပါတယ်။
+    </p>
+    <h2>Code in HTML</h2>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;link rel="stylesheet" href="../CSS/chart.css"&gt;
+                    &lt;title&gt;Chart and Graph&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                      &lt;div id="wrapper"&gt;
+                          &lt;h1&gt;Fruit Forms in Florida&lt;/h1&gt;
+                          &lt;ul class="graph"&gt;
+                              &lt;li&gt;
+                                  &lt;span class="fruit" style="width: 40%"&gt;Oranges&lt;/span&gt;
+                                  &lt;span class="total"&gt;120 Forms&lt;/span&gt;
+                
+                              &lt;/li&gt;
+                              &lt;li&gt;
+                                    &lt;span class="fruit" style="width: 27%"&gt;Strawberries&lt;/span&gt;
+                                    &lt;span class="total"&gt;80 Forms&lt;/span&gt;
+                
+                               &lt;/li&gt;
+                               &lt;li&gt;
+                                    &lt;span class="fruit" style="width: 20%"&gt;Apples&lt;/span&gt;
+                                    &lt;span class="total"&gt;60 Forms&lt;/span&gt;
+                
+                
+                               &lt;/li&gt;
+                               &lt;li&gt;
+                                        &lt;span class="fruit" style="width: 13%"&gt;Bananas&lt;/span&gt;
+                                        &lt;span class="total"&gt;40 Forms&lt;/span&gt;
+                
+                        
+                               &lt;/li&gt;
+                          &lt;/ul&gt;
+                
+                      &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                #wrapper{
+                    font-family: sans-serif;
+                    width: 80%;
+                    margin: 0 auto;
+                }
+                .graph{
+                    padding: 0;
+                    width: 50%;
+                    float: left;
+                    border-bottom: 1px solid #888;
+                }
+                .graph li{
+                    position: relative;
+                    list-style: none;
+                    border-top: 1px solid #888;
+                    clear: both;
+                }
+                .fruit{
+                    display: block;
+                    padding: 1em;
+                    position: relative;
+                    color: #222;
+                    background: #66ee99;
+                    font-weight: bold;
+                    float: left;
+                }
+                .total{
+                    margin-top: 15px;
+                    float: right;
+                }
+        </code>
+    </pre>
+    <a href="../Example/chart.html">Test Yourself</a><hr>
+    
+
+</body>
+
+</html>

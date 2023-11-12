@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition and Transform</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        
+    </style>
+<body>
+    <h1>Introductin to Transition and Transform</h1>
+    <p>
+            အခုလေ့လာမှာကတော့ CSS Transition and Transforms အကြောင်းပဲဖြစ်ပါတယ်။ သူတို့ကို developers တွေဟာ simple animations and websites or apps တွေရဲ့ enhance the interactive တွေကို create လုပ်တဲ့နေရာမှာအသုံးပြုပါတယ်။ ကျွန်တော်တို့ဟာ webpages တွေကို browser ပေါ်မှာ ဘယ်လို appear ဖြစ်ချင်တယ်ဆိုတာကို control လုပ်နိုင်ပါတယ်။ ဥပမာ button ရဲ့ color လေးတွေ hover လုပ်လိုက်တဲ့ အချန်မှာ change သွားတာတွေ layout ရဲ့ color တွေchange သွားတာတွေ content တွေကို position လုပ်တာတွေကိုလုပ်ဆောင်နိုင်ပါတယ်။ CSS transitions and transforms နဲ့ content တွေကို animations လေးတွေနဲ့ add လုပ်နိုင်ပါတယ်။ CSS transitions features ဟာဆိုရင် value တစ်ခုကနေ တစ်ခုကို second ပိုင်းတွေအတွင်းမှာ CSS properties တစ်ခုကနေ အများကြီးကို change လုပ်နိုင်ပါတယ်။ CSS transforms features ဟာဆိုရင် element တစ်ခုရဲ့ position ကို change လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ transforms functions တွေဖြစ်တဲ့ move, rotate, scale and skew ဆိုတဲ့ functions တွေကို အသုံးပြုပြီးတော့ page ရဲ့ content ကို control လုပ်နိုင်ပါတယ်။ Transitions and transforms ဟာဆိုရင် CSS features တွေနဲ့ အမှန်တစ်ကယ်တော့ related ဖြစ်နေတာမဟုတ်ပါဘူး။ သူတို့ဟာဆိုရင် stand alone တွေပါဖြစ်ကြပါတယ်။ Element တစ်ခုကို transition မပါဘဲနဲ့ transforms လုပ်နိုင်ပါတယ်။ Site မှာ အမှန်တစ်ကယ် သသေပ်တဲ့ animation effects တွေကို transitioning the position, rotation or scale တွေကို page မှာရှိတဲ့ element တိုင်းကို apply လုပ်ပြီးတော့ addလုပ်နိုင်ပါတယ်။ ဥပမာ images and icons တွေနဲ့ size and positions တွေကို animate ဖြစ်လာအောင်လုပ်တာတွေကို လုပ်ဆောင်နိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Transition Duration</h1>
+    <p>
+        CSS transitions ဟာဆိုရင် အချိန်တစ်ခုအတွင်းမှာပေးထားတဲ့ value တတစ်ခုကနေ တစ်ခုကို CSS properties တွေ changing လုပ်ခြင်းဖြင့် interface ရဲ့ parts တွေကို animate ဖြစ်အောင်လုပ်တဲ့ အလွယ်အကူဆုံးနည်းလမ်းပဲဖြစ်ပါတယ်။ Normally အရဆိုရင်တော့ CSS property တစ်ခုရဲ့ value ကို change လုပ်လိုက်တဲ့အခါမှာ အဲ့ change လုပ်တာဟာ ရုတ်တရက်ပြောင်းလဲသွားတာပဲဖြစ်ပါတယ်။ ဥပမာ button တစ်ခုပေါ်မှာ hover လုပ်လိုက်တဲ့အချိန်မှာ သူ့ရဲ့ background color ဟာ change သွားတာမျိုးတို့ပဲဖြစ်ပါတယ်။ Value တစ်ခုကနေ တစ်ခုကို transition လုပ်တဲ့ CSS properties မှာဆိုရင် ဘယ် properties ကို transition လုပ်မယ် ပြီးတော့ အဲ့ transition လေးဟာ ဘယ်လောက်အချိန်ကြာယူမယ်ဆိုတာကို browser ကို ပြောပြဖို့လိုပါတယ်။ Transition တစ်ခုကို အချိန်ဘယ်လောက်ကြမယ်ဆိုတာကိုပြောပြဖို့အတွက် transition duration property ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ သူ့မှာဆိုရင် ကျွန်တော်တို့ဟာ value ကို second or milisecond နဲ့ပေးနိုင်ပါတယ်။ Transitions မှာဆိုရင် hover လုပ်တဲ့အချိန်ပြောင်းသွားတာတွေ mouse click လုပ်လိုက်တဲ့အချိန်မှာ ပြောင်းလဲသွားတာတွေ focus လုပ်ထားတာတဲ့အချိန်မှာ ပြောင်းလဲသွားတာတွေကို လုပ်ဆောင်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                .photo_container .button{
+                    display: flex;
+                    justify-content: center;
+                    width: 75%;
+                    padding: 10px;
+                    flex-wrap: nowrap;
+                    flex-direction: row;
+                    flex-basis: 1;
+                    margin: 50px auto;
+                    background: #0ee6db;
+                    transition-duration: .4;
+                }
+                .button:hover{
+                    background: #f34b18;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/transition.html">Test Yourself</a><hr>
+    <h1>OverLay Property</h1>
+    <p>
+            Animatable properties တွေပဲ CSS နဲ့ transitioned လုပ်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS property တိုင်းကိုတော့ animate လုပ်လို့မရပါဘူး။ CSS transitions အတွက် အသုံးပြုနိုင်တဲ့ animatable properties အားလုံးကို w3.org မှာ လေ့လာနိုင်ပါတယ်။ အဲ့မှာဆိုရင် CSS နဲ့ transitioned လုပ်နိုင်တဲ့ properties တွေကို listed လုပ်ထားတာပဲဖြစ်ပါတယ်။ Image ပေါ်မှာ hover လုပ်လိုက်တဲ့အခါမှာ image ရဲ့ description and title ဟာ image ပေါ်မှာပေါ်လာဖို့ရန်အတွက်overlay property ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ အဲ့လို အသုံးပြုတဲ့အခါမှာ transition-duration ကိုလည်းပေးခဲ့ရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+                .photo-overlay {
+                    opacity: 0;
+                    transition-property: opacity;
+                    transition-duration: .4s;
+                    background: #171616a3;
+                }
+                
+                .photo-overlay:hover {
+                    opacity: 1;
+                    cursor: pointer;
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/transition.html">Test Yourself</a><hr>
+    <h1>Transiton Property</h1>
+    <p>
+            CSS transitions ဟာဆိုရင multiple transitions တွေကို defined လုပ်ဖို့ရန်အတွက် ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ဟာ button ပေါ်ကို hover လုပ်လိုက်တဲ့အခါမှာ border တွေဖြစ်သွားတာတွေ button ရဲ့ color တွေ change သွားတာတွေကိုလည်း လုပ်ဆောင်နိုင်ပါတယ်။ border-radius, background, and color တို့အတွက်ကိုလည်း transition-duration ကိုတစ်ခါထဲပေးနိုင်ပါတယ်။ Transition ရဲ့ multiple properties တွေကို transition-property ထဲမှာ separate လေးတွေခြားပြီးတော့ ပေးနိုင်ပါတယ်။ Transition property list ထဲမှာရှိတဲ့ first property ဟာ ဆိုရင် transition duration property ထဲက first value နဲ့ match ဖြစ်နေမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ specific property တွေဖြစ်တဲ့ transition property and transition duration နှစ်ခုလုံးနဲ့ transition လုပ်နိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Transition Dealy Property</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ CSS properties တွေရဲ့ set of values တစ်ခုကနေစ်ခုကို transition လုပ်တာကိုလေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုတစ်ခုတစ်ခါမှာတာ့ transition တစ်ခုကို start လုပ်လိုက်တဲ့အချိန်မှာ transition property ကိုအသုံးပြုပြီးတော့ ဘယ်လို delay လုပ်နိုင်တယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Transition delay property ကိုအသုံးပြုပြီးတော့ transition ဟာ ဘယ်အချိန်မှာစမယ်ဆိုတာကို control လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို create လုပ်ဖို့ဆိုရင် steps တွေအများကြီးနဲ့ လုပ်ဆောင်ရပါတယ်။ ဥပမာ နှစ်ခုထက်ပိုတဲ့ transition တွေကို trigger လုပ်နိုင်ပြီးတော့ အဲ့ transition တစ်ခုချင်းစီးမှာ မတူညီတဲ့ delay time တွေကို sets လုပ်နိုင်ပါတယ်။ Transition delay property မှာ values တွေကို set လုပ်တဲ့အခါမှာ seconds or milliseconds နဲ့ set လုပ်နိုင်ပါတယ်။ Transition-property and transition-duration property တွေပဲ delay values တွေကိုလည်း comma တွေနဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /* Button Transition */
+
+            .button {
+                opacity: 0;
+                transition-property: opacity,background,box-shadow;
+                transition-duration: .5s;
+                transition-delay: .2s, .3s;
+            }
+            
+            .button:hover {
+                background: rgba(74,137,202,1);
+                box-shadow: 0 0 0  3px rgba(255,255,255, .7);
+            }
+            
+            .photo-overlay:hover .button {
+                opacity: 1;
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/delay.html">Test Yourself</a><hr>
+    <h1>Timing Function Property</h1>
+    <p>
+        Transition တစ်ခုရဲ့ speed ဟာဆိုရင် သူ့ရဲ့ duration ပေါ်မှာ မူတည်ပြီးတော့ ပြောင်းလဲနိုင်ပါတယ်။ Transition speed ကို timing function ကို set လုပ်ပြီးတော့ rapidly or slowly လုပ်နိုင်ပါတယ်။ Timing function ကို easing function လို့လဲခေါ်ပါတယ်။ Real life objects တွေဟာဆိုရင် constant speed မှပဲ move လုပ်ကြတာမဟုတ်ပါဘူး။ Timing functions နဲ့ browser ဟာ real life motion ကို အတုလုပ်နိုင်ပါတယ်။ CSS timing function property ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ဟာ easing effects တွေကို time intervals တွေေပေးပြီးတော့လည်း create လုပ်လို့ရသလို predefined timing function keyword values တွေထဲက တစ်ခုကိုပေးပြီးတော့လည်း create လုပ်နိုင်ပါတယ်။ Keyword values တွေကတော့ ease, linear, ease-in, ease-out, and ease-in-out ဆိုပဲဖြစ်ပါတယ်။ သူတို့ဟာဆိုရင် transition တစ်ခုရဲ့ အစနဲ့ အဆုံးကို ဘယ်လိုဖြစ်စေချင်တယ်ဆိုတာကို ဆုံးဖြတ်ပေးတာပဲဖြစ်ပါတယ်။ Ease ဟာဆိုရင် browser ကနေ apply လုပ်ပေးလိုက်တဲ့ default timing function ပဲဖြစ်ပါတယ်။ Linear timing function မှာဆိုရင်တော့ linear motion ကို maintain လုပ်ပေးပါတယ်။ Ease-in value ဟာ starts မှာ gradually ဖြစ်ပြီးတော့ stops မှာ suddenly ဖြစ်သွားတာဖြစ်ပါတယ်။ Ease-out ဟာဆိုရင် ease-in နဲ့ opposite ဖြစ်တာဖြစ်ပါတယ်။ သူ့မှာဆိုရင် starts ဟာ suddenly ဖြစ်ပြီးတော့ stops မှာ slow down ဖြစ်သွားမှာဖြစ်ပါတယ်။ Ease-in-out ဟာဆိုရင် starts and stops ဟာ gradually ဖြစ်ပါတယ်။ Timing function value တွေဟာဆိုရင် transition duration ကိုတော့ effect ဖြစ်မှာမဟုတ်ပါဘူး။ Timing function value တစ်ုခုချင်းစီဟာဆိုရင် transition property မှာ listed လုပ်ထားတဲ့ corresponding properties တွေကို apply လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /***************
+            TIMING FUNCTION
+            ***************/
+            .btn-icon{
+                opacity: o;
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                background: url(img/thambnalis/download.png);
+                position: absolute;
+                left: 45%;
+                top: 75%;
+            }
+            .btn-icon {
+                transition-property: opacity, left;
+                transition-duration: .5s;
+                transition-delay: .3s;
+                transition-timing-function: ease-out;
+            }
+            .button:hover .btn-icon {
+                opacity: 1;
+                left: 70%;
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/delay.html">Test Yourself</a><hr>
+    <h1>Transition Shorthand Property</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ transition properties and values  တစ်ခုချင်းစီကို transition property ကိုအသုံးပြုပြီးတော့ ရေးနိုင်ပါတယ်။ ကျွန်တော်တို့ရဲ့  overlay မှာဆိုရင် ရှေ့ဆုံးကတော့ opacity ပဲရေးရမှာဖြစ်ပါတယ်။ နောက်ကတော့ transition duration အတွက် ကိုရေးပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါတွေကြားထဲမှာတော့ comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့လိုရေးတဲ့အခါမှာ time values နှစ်ခုပါပါတယ်။ တစ်ခုကတော့ transition duration, နောက်တစ်ခုကတော့ transition delay အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ time values နှစ်ခုရဲ့ ကြားခဲ့ထဲမှာ transition timing function ကို duration and delay values နှစ်ခုကြားထဲမှာ ထည့်ပေးရမှာဖြစ်ပါတယ်။  transition delay နဲ့ timing function ဟာ optional ဖြစ်ပါတယ်။
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code> 
+            /* Photo Overlay Property */
+            .photo-overlay {
+                opacity: 0;
+                /* transition-property: opacity;
+                transition-duration: .5s; */
+                transition: opacity, 5s;
+                background: #171616a3;
+            }
+            
+            .photo-overlay:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+            
+            /* Button Transition */
+            
+            .button {
+                opacity: 0;
+               transition: opacity .3s ease-out .2s, background .4s ease-out .3s, box-shadow .5s ease-out 0s; 
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/delay.html">Test Yourself</a><hr>
+    <h1>Transform Property</h1>
+    <p>
+        CSS transform ဟာဆိုရင် elements ရဲ့ size, position and change တွေကို appearance ဖြစ်ဖို့ရန်အတွက် different ways တွေရှိပါတယ်။ Transform နဲ့ content တွေကို rotating, scaling, skewing, and moving တွေလုပ်ခြင်းဖြင့် manipulate လုပ်နိုင်ပါတယ်။ CSS transformations တွေအားလုံးဟာ transform property လို့ခေါ်တဲ့ property တစ်ခုထဲမှာဘဲ လုပ်ဆောင်နိုင်ပါတယ်။ Page မှာ transform ကိုအသုံးပြုဖို့လိုအပ်တဲ့အခါမှာ transform property တစ်ခုထဲမှာဘဲ transform ရဲ့ one or several functions တွေကို လုပ်ဆောင်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ transform property ကိုအသုံးပြုတဲ့အခါမှာ rotation function ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Rotation function ထဲမှာ arguments တွေကို မတူညီတဲ့ angle units တွေနဲ့ accepts လုပ်နိုင်ပါတယ်။ ဥပမာ degrees, gradients, radians, and turns တို့ပဲဖြစ်ပါတယ်။ သူတို့ထဲမှာအသုံးများတာကတော့ degrees unit ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ rotation function ကိုအသုံးပြုပြီးတော့ image တွေကို clockwise or counterclockwise ကို control လုပ်နိုင်ပါတယ်။  
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /******************
+            TRANSFORM:ROTATION
+            *******************/
+            img:hover{
+                transform: rotate(45deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/transform.html">Test Yourself</a><hr>
+    <h1>Transform with Transition Duration</h1>
+    <p>
+        Transforms တွေဟာ default အရ animated ဖြစ်နေတာတော့မဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ transform ကို hover လုပ်လိုက်အချန်မှာ change ဖြစ်သွားတဲ့နေရာမှာလည်း apply လုပ်နိင်ပါတယ်။ Transform ဖြစ်သွားတဲ့အချိန်ကိုလည်း transition property ကိုအသုံးပြုပြီးတော့ control လုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /******************
+            TRANSFORM:ROTATION
+            *******************/
+            img{
+                transition: transform .5s;
+            }
+            img:hover{
+                transform: rotate(-5deg);
+            }
+            /***********
+            LOGO---
+            ************/
+            .logo:hover {
+                 transform: rotate(-45deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/transform.html">Test Yourself</a><hr>
+    <h1>Skew Function</h1>
+    <p>
+        ခုကျွန်တော်တို့လေ့လာမှာကတော့ elements တွေရဲ့ left to right axis  and vertical up and down axis မှာ skew function ကိုအသုံးပြုပြီးတော့ ဘယ်လို effect ဖြစ်တယ်ဆိုတာကိုလေ့လာကြမှာဖြစ်ပါတယ်။ Skew function ဟာဆိုရင် element တစ်ခုကို slanted or twisted ဖြစ်သွားတာတွေကို လုပ်ဆောင်နိုင်ပါတယ်။ Skew function ကိုအသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့ဟာ X and Y ဆိုတဲ့ ကျွန်တော်တို့ appearance ဖြစ်ချင်တဲ့ horizontal or vertical axis ကိုရွေးနိုင်ပါတယ်။ Skew function မှာလည်း degrees unit ကိုအသုံးပြုနိုင်ပါတယ်။ သူ့မှာဆိုရင်လည်း negative value ကိုပေးပြီးတော့ top right and bottom left corners တို့ရဲ့ opposite direction ကိုလည်းပေးနိုင်ပါတယ်။ Skew function ဟာဆိုရင် အခြား transform functions တွေလိုပဲ element တစ်ခုရဲ့ children အားလုံးကို transform လုပ်နိုင်ပါတယ်။  Example Front-End Design Conference websites မှာဆိုရင် skew function ကို direction မျိုးမျိုးနဲ့ အသဲုးပြုထားတာကိုလေ့လာနိင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /************************
+            SKEW FUNCTION
+            ************************/
+            img{
+                transition: transform .5s;
+            }
+            img:hover{
+                transform: skewY(10deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/skew.html">Test Yourself</a><hr>
+    <h1>Trasform Scale Function </h1>
+    <p>
+        CSS transformation မှာအသုံးများတဲ့ transformation တစ်ခုကတော့ scale ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ element ရဲ့ size ကို scale function ကိုအသုံးပြုပြီးတော့ x or y axis မှာ increase or decrease လုပ်နိုင်ပါတယ်။ အဲ့ဒါကိုအသုံးပြုတဲ့အခါမှာ scale shorthand function ကိုပဲ အသုံးပြုကြပါတယ်။ Scale function ကို value ပေးတဲ့အခါမှာ နှစ်ခုပေးနိုင်ပါတယ်။ First တစ်ခုကတော့ image ရဲ့ width အတွက်ဖြစ်ပြီးတော့ second ကတော့ image ရဲ့ height အတွက်ပဲဖြစ်ပါတယ်။ Scale function ကို image တွေကို hover လုပ်လိုက်တဲ့အချိန်မှာ image ရဲ့ size ဟာ ကြီးလာတာတို့မှာ အသုံးပြုနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /************************
+            SCALE FUNCTION
+            ************************/
+            img{
+                transition: transform .5s;
+            }
+            img:hover{
+                transform: SCALE(1.1);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/scale.html">Test Yourself</a><hr>
+    <h1>Trasform Origin Property</h1>
+    <p>
+
+        HTML element တစ်ခုရဲ့ default transform origin ဟာ သူ့ရဲ့ center ကနေပဲအလုပ်လုပ်ပါတယ်။ Transform functions တွေမှာဆိုရင် elements တွေရဲ့ center point ကိုကြည့်ပြီးတော့ elements တွေရဲ့ move ကို apply လုပ်နိုင်ပါတယ်။ အဲ့ဒါကိုလုပ်ဆောင်ဖို့ရန်အတွက် transform origin ဆိုတဲ့ property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Transform origin ဟာဆိုရင် CSS property ရဲ့ separate တစ်ခုပဲဖြစ်ပါတယ်။ Transform property မှာဆိုရင် values တွေကို percentages or pixels တွေနဲ့လဲပေးနိုင်သလို top-left and bottom-right ဆိုပြီးတော့လည်းပေးနိုင်ပါတယ်။ အဲ့မှာဆိုရင် transform origin values ကို (0,0) ဆိုပြီးတော့ ပေးလိုက်တဲ့အခါမှာ element ဟာဆိုရင် top-left corner ကို move လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် values ကို နှစ်ခုပေးတာဟာ first value ဟာ horizontal အတွက်ဖြစ်ပြီးတော့ နောက်တစ်ခုကတော့ vertical အတွက်ပဲဖြစ်ပါတယ်။ Value ကို (100%,100%) လို့ပေးတာဟာ bottom-right နဲ့အတူတူပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            .main-photo img {
+                transform-origin: 0 0;
+            }
+            .main-photo:hover img {
+                transform: scale(1.2);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/transformorigin.html">Test Yourself</a><hr>
+    <h1>Translation Functions </h1>
+    <p>
+        အခုကျွန်တော်တို့ လေ့လာမှာကတော့ CSS transform မှာရှိ translations ဟာ ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Translation ဆိုတာကတော့ element တစ်ခုကို place တစ်ခုကနေ တစ်ခုကို moving လုပ်ပေးတဲ့ process ပဲဖြစ်ပါတယ်။ TranslateX ဆိုတာကတော့ element ကို X axis မှာ move လုပ်ပေးပါတယ်။ TranslateY ကတော့ Y axis မှာ move လုပ်ပေးမှာဖြစ်ပါတယ်။ အဲ့နှစ်ခုလုံးကို translation function ကိုအသုံးပြုပြီးတော့ ရေးပေးရမှာဖြစ်ပါတယ်။ သူတို့ကို shorthand function ကိုအသုံးပြုပြီးတော့လည်းရေးနိုင်ပါတယ်။ အဲ့လိုေ့ရးတဲ့နေရာမှာ first value ဟာ X axis အတွက်ဖြစ်ပြီးတော့ second value ဟာ Y axis အတွက်ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2> Code in CSS</h2>
+    <pre>
+        <code>
+            body{
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            img{
+                transition: transfrom(.2s);
+            }
+            img:hover{
+                transform: translate(50%, 80px);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/translation.html">Test Yourself</a><hr>
+    <h1>Traslate Functions</h1>
+    <p>
+        အခုဆိုရင် translations နဲ့ CSS transforms ကို familiar ဖြစ်နေပြီးဖြစ်ပါတယ်။ ဒီတစ်ခါမှာတော့ neat interaction feature တွေကို translate ကိုအသုံးပြုပြီးတော့ create လုပ်မှာဖြစ်ပါတယ်။ Example မှာဆိုရင် photo overlay ထဲမှာဆိုရင် image title ရယ် description and download button တွေကို background area opaque blue နဲ့ add လုပ်ထားတာကိုတွေရမှာဖြစ်ပါတယ်။ အဲ့ blue overlays ကို images တွေရဲ့ top မှာ positioned ချထားရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ translate X function ကိုအသုံးပြုပြီးတော့ overlay area ကို view ရဲ့ အပြင်မှာရှိထားပြီးတော့ image ကို display လုပ်မှာဖြစ်ပါတယ်။ User တစ်ယောက်က slide container ပေါ်မှာ hover လုပ်လိုက်တဲ့အခါမှာ title, description and button ဟာ left ဘက်ကနေပြီးတော့ slide လုပ်မှာဖြစ်ပြီးတော့ image slides ဟာ view ရဲ့ အပြင်ဘက်ကို left to right ဖြစ်သွားတာပဲဖြစ်ပါတယ်။ CSS transforms ဟာဆိုရင် design-specific feature ပဲဖြစ်ပါတယ်။ Translate function ကိုအသုံးပြုပြီးတော့ desktop and mobile browsers တွေရဲ့ better performance ကို achieve လုပ်နိင်ပါတယ်။ Translate ဟာဆိုရင် browser ရဲ့ advantage feature တစ်ခုဖြစ်တဲ့ hardware acceleration ကို ယူပြီးတော့ transition ကို run လိုက်တဲ့အချန်မှာ transition တစ်ခုကို သူ့ရဲ့ position opposites နဲ့ လုပ်တာထက် smoother ဖြစ်ဖို့ရန်အတွက် ကူူညီပေးဖို့ရန်အတွက်ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+              
+                /* Translation Function */
+
+                .slide {
+                    overflow: hidden;
+                }
+
+                .side .photo-desc,
+                .slide img {
+                    transition: transform .6s;
+                }
+
+                .slide .photo-desc {
+                    transform: translateX(-100%);
+                }
+
+                .slide:hover .photo-desc {
+                    transform: translateX(0);
+                }
+
+                .slide:hover img {
+                    transform: translate(100%);
+                }
+        </code>
+    </pre>
+    <a href="CSS_Example/translate.html">Test Yourself</a><hr>
+    <h1>Transformation Combine</h1>
+    <p>
+        Transform property ဟာဆိုရင် လိုအပ်တဲ့ many functions တွေကို accept လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ function တွေကို ကျွန်တော်တို့လိုချင်သလို combine လုပ်ပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ အဲ့ဒါဟာ အသုံးများကြပါတယ်။ ဥပမာ ကျွန်တော်တို့ဟာ element တစ်ခုရဲ့ size ကို same time မှာ rotate and scale လုပ်ချင်တဲ့အခါမှာ ပြုလုပ်နိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+        <code>
+               
+            /******************
+            TRANSFORM:ROTATION
+            *******************/
+            img{
+                transition: transform .5s;
+            }
+            img:hover{
+                transform: rotate(-5deg) scale(1.1) translateY(-20px);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/transform.html">Test Yourself</a><hr>
+    <h1>Cubic-bezier</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ ပိုပြီးတော့ စိတ်ဝင်စားဖို့ကောင်းတဲ့ timing function တွေအကြောင်းကို previous section မှာ cover လုပ်ထားခဲ့တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ timing functions တွေကို CSS transform မှာ add လုပ်နိင်ပါတယ်။ အခုကျွန်တော်တို့ဟာ more complex ဖြစ်တဲ့ timing functions တွေကို cubic-bezier function ကိုအသုံးပြုပြီးတော့ ဘယ်လို create လုပ်တယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Cubic-bezier ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ဟာ all kinds of fun တွေ interesting easing effects တွေကို create လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ cubic-bezier curve လို့ခေါ်တဲ့ more complex timing function တွေကို create လုပ်ဖို့ရန်အတွက် shorthand property ဖြစ်တဲ့ pre-defined timing function key word တစ်ခုချင်းစီးကို လေ့လာခဲ့ ပြီးဖြစ်ပါတယ်။ကျွန်တော်တို့ဟာ key word တစ်ခုချင်းစီအတွက် description ကို read လုပ်လိုက်တဲ့ခါမှာ အဲ့ description တစ်ခုချင်းစီဟာ key word တွေဟာ funky number values တွေပါတဲ့ specific cubic-bezier function နဲ့ equivalent ဖြစ်တယ်ဆိုတာကို ပြောပြပါလိမ့်မယ်။ ကျွန်တော်တို့ဟာ cubic-beizer ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို မလေ့လာခင်မှာ အဲ့ numbers တွေဟာ ဘာကိုဆိုလိုတယ်ဆိုတာကို အရင်းဆုံးသိရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ cubic-bezier နဲ့ types of easing effect တွေကို create လုပ်နိုင်ပါတယ်။ Cubic-bezier နဲ့ ကျွန်တော်တို့ဟာ speed ကို dramatically အရ change လုပ်နိုင်ပါတယ်။ Functions တွေဟာဆိုရင် bezie-curve လို့ခေါ်တဲ့ timing curve ကို define လုပ်ပေးတာဖြစ်ပြီးတော့ အဲ့ bezie-curve ဟာဆိုရင် transition speeds ကို accelerates and decelerates လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ Illustrator or Sketch တို့လို vector program ကိုအသုံးပြုခဲ့မယ်ဆိုရင်  beizer-curves နဲ့ familiar ဖြစ်နေမှာဖြစ်ပါတယ်။ Cubic-bezier CSS function မှာဆိုရင် bezier-curve ကို values လေးခုနဲ့ defined လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ values တွေဟာ start and end point and acceleration curve ရဲ့ control points ကို create လုပ်ပေးတာပဲဖြစ်ပါတယ်။ cubicbezier.com ဟာဆိုရင် bezier-curves နဲ့ easing functions တွေကို creating, testing, and comparing လုပ်ဖို့ရန်အတွက် simple app တစ်ခုပဲဖြစ်ပါတယ်။         
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            img{
+                transition: transform .5s cubic-bezier(.7, -0.39, .32, 1.38);
+            }
+            img:hover{
+                transform: rotate(-5deg) scale(1.1) translateY(-20px);
+            }
+            /***********
+            LOGO---
+            ************/
+            .logo:hover {
+                 transform: rotate(-45deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/transform.html">Test Yourself</a><hr>
+    <h1>3D Transform</h1>
+    <p>
+        ဒီတစ်ခါ လေ့လာမှာကတော့ 3D elements အကြောင်းပဲဖြစ်ပါတယ်။ CSS 3D transform နဲ့ ကျွန်တော်တို့ဟာ element တစ်ခုကို page မှာ depth ကို add လုပ်နိုင်ပါတယ်။ 3D ဟာဆိုရင် 2D transforms ရဲ့ extension တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ 3D space တစ်ခုကို Z-axis လို့ခေါ်တဲ့ 3rd axis တစ်ခုကို introducing လုပ်ချင်ဖြင့် simulate လုပ်လို့ရပါတယ်။  Z-axis ဟာ two dimensional screen တစ်ခုမှာ create လုပ်ထားတဲ့ illusion of depth ပဲဖြစ်ပါတယ်။ Z-axis မှာဆိုရင် element တစ်ခုကို viewer ဆီကနေ towards or away ကို move လုပ်နိုင်ပါတယ်။ Rotate and scale ဟာ 3D perspective မှာပဲ လုပ်တာဖြစ်ပြီးတော့ 3D transform ဟာဆိုရင် web ပေါ်မှာ အလုပပ်လုပ်တာပဲဖြစ်ပါတယ်။ 3D transform ကို Amazon.com မှာလေ့လာနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ all sorts of 3D effects တွေကို transform properties ကိုအသုံးပြုပြီးတော့ create လုပ်နိုင်ပါတယ်။ 
+    </p><hr>
+    <h1>Perspective Property</h1>
+    <p>
+        ကျွန်တော်တို့ဟာ element တစ်ခုကို 3D ကို transform မလုပ်ခင်မှာ 3D perspective ကို page မှာ အရင်ဆုံး establish လုပ်ဖို့လိုပါတယ်။ Perspective  ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ transform ကို flat and two dimensional မှာ appear ဖြစ်ဖို့ရန်အတွက် ပဲဖြစ်ပါတယ်။ 3D ကို  define လုပ်ဖို့ရန်အတွက် perspective property ကိုအသုံးပြုနိုင်ပါတယ်။  Perspective property ကို page ရဲ့ body element, div element, or any other block-level element တွေမှာလည်း apply လုပ်နိုင်ပါတယ်။ Perceptive property ဟာ illusion of depth ကို create လုပ်ပေးတာပဲဖြစ်ပါတယ်။ သူဟာဆိုရင် viewer နဲ့ objects ကြားထဲမှာရှိတဲ့ transforming လုပ်တဲ့ distance ကို set လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Distance ကို ကျွန်တော်တို့ အသုံးပြုလိုက်တဲ့ perspective value နဲ့ determined လုပ်ထားတာပဲဖြစ်ပါတယ်။ Perspective ဟာဆိုရင် value တစ်ခုကိုပဲ accept လုပ်တာပဲဖြစ်ပါတယ်။ အဲ့ value ကို pixels, ems or rems တွေနဲ့ပေးနိုင်ပါတယ်။ Perspective ကို define လုပ်လိုက်တာနဲ့ ကျွန်တော်တို့ဟာ page မှာ ဘယ်လို changes တွေကို တွေ့ရမှာမဟုတ်ပါဘူး။ ဘာကြောင့်လဲဆိုတော့ perspective property ဟာဆိုရင် 3D objects ကို သူတစ်ဦးထဲ create မလုပ်နိုင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် transform property ကို add လုပ်ပေးဖို့လိုပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /* Photo 3D Transform & Transition */
+
+            .content {
+                perspective: 700px;
+            }
+            
+            .photo {
+                transform: rotateX(-35deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/perspective.html">Test Yourself</a><hr>
+    <h1>Element Flipping</h1>
+    <p>
+        အခုတစ်ခါမှာတော့ photo gallery ကို 3D flipping animation ကို add လုပ်သွားမှာဖြစ်ပါတယ်။ Image ပေါ်မှာ hover လုပ်လိုက်တဲ့အချိန်မှာ image ရဲ့ title, description and download button တွေဟာ backside ကနေပြီးတော့ show လုပ်ပေးမှာဖြစ်ပါတယ်။ Photo div ထဲမှာဆိုရင် transition property ကို transform value နဲ့ set လုပ်ခဲ့မှာဖြစ်ပါတယ်။ HTML section ထဲမှာဆိုရင် image and div ကို add လုပ်ထားတဲ့ new class names  တွေဟာ photo ထဲမှာ nested ဖြစ်နတာကို တွေ့ရပါလိမ့်မယ်။ အဲ့မှာဆိုရင် side A မှာဆိုရင် image တွေရှိပြီးတော့ side B မှာဆိုရင် image ရဲ့ title description and button တွေရှိပါတယ်။ Side B div ဟာဆိုရင် absolute positioning ကို အသုံးပြုပြီးတော့ side A ရဲ့ နောက်မှာ positioned လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါကို မြင်ရမှာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ photo div ထဲကို rotation Y axis ကို add လုပ်လိုက်ပြီးတော့ value ကို -180 degrees ပေးထားခဲ့တဲ့အခါမှာ photo div ဟာ right to left ကို 180 degree rotate ဖြစ်သွားမှာဖြစ်ပါတယ်။ 180 degrees ပေါ်မှာ flip ဖြစ်သွားတဲ့ အချိန်မှာ images တွေရဲ့ reverse side ကို မြင်ရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် image ရဲ့ နောက်မှာရှိတဲ့ side B div ကို မြင်ရမှာမဟုတ်ပါဘူး။ Side B div ကိုမြင်ရဖို့အတွက် nested elements တွေဖြစ် side A နဲ့ side B တို့ကို 3D space ကို behave လုပ်ဖို့လိုပါတယ်။ 3D space ကို content div မှာပဲ defined လုပ်ထားတာဖြစ်ပြီးလို့ သူ့ရဲ့ direct children ကိုပဲ apply လုပ်ပေးမှာဖြစ်ပါတယ်။ Side A and side B ရဲ့ parent ဖြစ်တဲ့ photo div မှာ   ကျွန်တော်တို့ဟာ transform style property ကိုသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် flat and 3D preserved ဆိုတဲ့ values  နှစ်ခုရှိပါတယ်။ Flat ဆိုတာ photo ရဲ့ element ဟာဆိုရင် flat and 2 dimensional မှာ appear ဖြစ်လာမှာဖြစ်ပြီးတော့ preserved 3D ဟာဆိုရင် element ရဲ့ children တွေဟာ 3D space မှာ positioned ဖြစ်ရမယ်ဆိုတာကို indicate လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် photo ထဲကို  transform style property ကို preserved 3D ဆိုပြီးတော့ set လုပ်ခဲ့တာဖြစ်ပါတယ်။ ဒါကြောင့် content div ထဲမှာရှိတဲ့ child elements ဟာဆိုရင် preserved 3D ကို defined လုပ်ပေးမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            /* Photo 3D Transform & Transition */
+
+            .content {
+                perspective: 700px;
+            }
+            
+            .photo {
+                transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+                transform-style: preserve-3d;
+            }
+            .photo:hover {
+                transform: rotateY(-180deg);
+            }
+            .side-b
+            {
+                backface-visibility: hidden;
+            }
+            .side-b {
+                transform: rotateY(180deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/perspective.html">Test Yourself</a><hr>
+    <h1>3D Rotate Function</h1>
+    <p>
+        အခုကျွန်တော်တို့ဟာ 3D space ဟာ X and Y axis မှာ ဘယ်လို rotation ဖြစ်တယ်ဆိုတာကို သိရှိပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် 3D transform ဟာ Z axis လို့ခေါ်တဲ့ third axis မှာ rotate ဖြစ်တာဖြစ်ပါတယ်။ Element တစ်ခုရဲ့ rotate ဟာဆိုရင် X, Y and Z axis အားလုံးမှာ same time မှာ rotate လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် rotate3d function ကိုအသုံးပြုပြီးတော့ values ၄ ခုကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ ရှေ့ဆုံး values ၃ ခုဟာ X, Y and Z အတွက်ဖြစ်ပြီးတော့ fourth value ကတော့ rotation angle အတွက်ဖြစ်ပါတယ်။ သူတို့ကို comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+        <code>
+            /* Photo 3D Transform & Transition */
+
+            .content {
+                perspective: 700px;
+            }
+            
+            .photo {
+                transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+                transform-style: preserve-3d;
+            }
+            .photo:hover {
+                transform: rotate3d(0, 1, 0, 180deg);
+            }
+            .side-b
+            {
+                backface-visibility: hidden;
+            }
+            .side-b {
+                transform: rotateY(180deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/perspective.html">Test Yourself</a><hr>
+    <h1>Perspective-Origin Property </h1>
+    <p>
+        အစောပိုင်းမှာ content ထဲမှာ perspective ကို 700px ဆိုပြီးတော့ content ကို 3D space ရဖို့အတွက် defined လုပ်ပေးထားခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် default အရ 3D space ဟာဆိုရင် screen ရဲ့ center မှာတွေ့ရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ viewing position ကို perspective-origin property ကို အသုံးပြုပြီးတော့ change နိုင်ပါတယ်။ Perspective-origin property ဟာဆိုရင် သူတိုယ်တိုင် အလုပ်မလုပ်နိုင်ပါဘူး။ Perspective-origin property ဟာ horizontal နဲ့ vertical အတွက်ဆိုပြီးတော့ values နှစ်ခုကို set လုပ်နိုင်ပါတယ်။ Perspective-origin property ရဲ့ default value ကတော့ 50% 50% ပဲဖြစ်ပါတယ်။ Values တွေကို set လုပ်တဲ့အခါမှာ length units, percentages or top, right, bottom and left ဆိုတဲ့ keyword တွေလည်းပေးနိုင်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS</h2>
+    <pre>
+        <code>
+            .content {
+                perspective: 700px;
+                perspective-origin: 50% 100%;
+            }
+            
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/perspective.html">Test Yourself</a>
+    <p>
+        Default အရဆိုရင် 3D transform elements ဟာဆိုရင် parent container ထဲမှာ same perspective ကို share လုပ်နိင်ပါတယ်။ Photos တွေဟာ 3D scene မှာ same vanishing point တွေရှိကြပါတယ်။ အဲ့ point တွေဟာ perspective ထဲမှာ အရာအားလုံးကို keep လုပ်ထားပြီးတော့ realistic depth ကို create လုပ်ပေးတာပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code in CSS </h2>
+    <pre>
+        <code>
+            /* Photo 3D Transform & Transition */
+
+            .photo-container{
+                perspective: 700px;
+                perspective-origin: 50% 100%;
+            }
+            
+            .photo {
+                transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+                transform-style: preserve-3d;
+            }
+            .photo:hover {
+                transform: rotate3d(0, 1, 0, 180deg);
+            }
+            .side-b
+            {
+                backface-visibility: hidden;
+            }
+            .side-b {
+                transform: rotateY(180deg);
+            }
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/perspective.html">Test Yourself</a>
+    <h1>Cube Gallery</h1>
+    <p>
+        ဒီတစ်ခါမှာတော့ 3D transform ရဲ့ rotating photo cube gallery ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် cube container ၃ ခုရှိပါတယ်။ သူတို့ထဲမှာ images ၃ ပုံနဲ့ image ရဲ့ description နဲ့ title ရယ် button တွေပါပါတယ်။ သူတို့ကိုတော့ front, back, left, and right ဆိုတဲ့ class name တစ်ခုစီတဲ့ set လုပ်ထားတာဖြစ်ပါတယ်။ First အနေနဲ့ cube container div တစ်ခုချင်းစီအတွက် perspective property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Value ကိုတော့ 800 px ဆိုပြီးတော့ set လုပ်ခဲ့တာဖြစ်ပါတယ်။ နောက်ထပ်ကျွန်တော်တို့ဟာ image တွေကို set လုပ်ထားတဲ့ photo cube ကို target လုပ်ပြီးတော့  transition property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ နောက်ထပ် image ရဲ့ image ရဲ့ width နဲ့ height ကို ပေးခဲ့ရမှာဖြစ်ပါတယ်။ Side တစ်ခုချင်းစီအတွက် 3D transformed element တွေဖြစ်ဖို့အတွက် transform style property ကို preserve 3D ကို set လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် photo cube ကို hover လုပ်လိုက်တဲ့အခါမှာ Y axis မှာ rotate ဖြစ်ဖို့ရန်အတွက် transform property ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ Value ကို -270deg ကို set လုပ်တာဟာ photo cube ဟာ right to left rotate ဖြစ်ချင်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ဟာ side ၄ ခုကို target လုပ်ပေးပြီးတော့ width, height, layout style ကို apply လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် display block နဲ့ position absolute ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2> Code in CSS </h2>
+    <h3>main.css</h3>
+    <pre>
+        <code>
+            /* ================================= 
+            Base Element Styles
+          ==================================== */
+          
+          * {
+              box-sizing: border-box;
+          }
+          body {
+              font: 1em/1.5 'Open Sans', sans-serif;
+              color: #373737;
+              background: #eaeaea;
+              margin: 0;
+          }
+          a {
+              text-decoration: none;
+          }
+          h1,
+          h2,
+          h3 {
+              text-transform: uppercase;
+          }
+          h2 {
+              font-size: 1.125em;
+              color: #4a89ca;
+              font-weight: 600;
+              margin: 0;
+          }
+          h3 {
+              font-size: 1.3em;
+              line-height: 1.25em;
+              margin-top: .85em;
+              margin-bottom: .5em;
+          }
+          p {
+              font-size: .875em;
+              line-height: 1.4;
+              margin: 0 0 1.5em;
+          }
+          
+          img {
+              max-width: 100%;
+          }
+          
+          /* ================================= 
+            Base Layout Styles
+          ==================================== */
+          
+          /* ---- Layout Containers ---- */
+          
+          .container,
+          .content {
+              margin: auto;
+          }
+          .container {
+              width: 94.02985075%;
+              max-width: 1260px;
+              padding: 0 2.25em 4em;
+              background: #fff;
+          }
+          .main-header {
+              text-align: center;
+              padding: 2.8em 0 3.8em;
+          }
+          .cube-container {
+              max-width: 200px;
+              text-align: center;
+              margin: 0 auto 4.5em;
+          }
+          /* ---- Page Elements ---- */
+          
+          .name {
+              font-size: 1.65em;
+              font-weight: 800;
+              margin: 0 0 1.5em;
+              line-height: 1;
+          }
+          .name span {
+              font-weight: 300;
+              margin-left: -7px;
+          }
+          .logo {
+              width: 45px;
+              margin-bottom: .4em;
+              cursor: pointer;
+          }
+          .button {
+              font-size: .8em;
+              color: #fff;
+              width: 90%;
+              line-height: 1.15;
+              font-weight: 700;
+              display: block;
+              text-decoration: none;
+              text-transform: uppercase;
+              padding: .95em 0;
+              border-radius: .5em;
+              background: rgba(74,137,202, .8);
+              margin: auto;
+          }
+          /* ---- Photo Overlay ---- */
+          
+          .photo-desc {
+              font-size: .85em;
+              color: #fff;
+              padding: 1.1em 1em 0;
+              background: #345d88;
+          }
+          /* ---- Float clearfix ---- */
+          
+          .clearfix::after {
+              content: " ";
+              display: table;
+              clear: both;
+          }
+          
+          /* ================================= 
+            Media Queries
+          ==================================== */
+          
+          @media (min-width: 769px) {
+              .cube-container {
+                  float: left;
+                  margin-left: 16.6%;
+              }
+          }
+          @media (min-width: 1025px) {
+              .cube-container:first-child {
+                  margin-left: 0;
+              }
+              .cube-container:last-child{
+                  float: right;
+              }
+              .content {
+                  max-width: 900px;
+                  margin: auto;
+              }
+          }
+        </code>
+    </pre>
+    <h3>cube.css</h3>
+    <pre>
+        <code>
+            /* ================================= 
+            Button Transitions
+          ==================================== */
+          
+          .button {
+              transition: background .3s;
+          }
+          .button:hover {
+              background: rgba(74,137,202, 1);
+          }
+          
+          /* ================================= 
+            Photo 3D Transforms & Transitions
+          ==================================== */
+          
+          .cube-container {
+              box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
+              perspective: 800px;
+          }
+          
+          .photo-cube {
+              transition: transform 2s ease-in-out;
+              width: 220px;
+              height: 200px;
+              transform-style: preserve-3d;
+          }
+          
+          .photo-cube:hover {
+              transform: rotateY(-270deg);
+              cursor: pointer;
+          }
+          
+          .front,
+          .back,
+          .left,
+          .right {
+              width: 100%;
+              height: 100%;
+              display: block;
+              position: absolute;
+          }
+          
+          .front {
+              transform: translateZ(110px);
+          }
+          .back {
+              transform: translateZ(-110px) rotateY(270deg);
+              transform-origin: center left;
+          }
+          
+          .left {
+              transform: rotateY(-270deg) translateX(110px);
+              transform-origin: top right;
+          }
+          
+          .right {
+              transform: translateZ(-110px) rotateY(180deg);
+          }
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/cube.html">Test Yourself</a><hr>
+    <h1>Translate3D Shorthand Property</h1>
+    <p>ကျွန်တော်တို့ဟာ element ကို rotate လုပ်တဲ့အခါမှာ rotate 3D function ကိုအသုံးပြုပြီးတော့ multiple directions မှာ rotate လုပ်နိုင်ပါတယ်။ Translate 3D နဲ့ ကျွန်တော်တို့ဟာ X, Y, and Z axis တွေမှာ translation ကို function တစ်ခုထဲမှာ define လုပ်နိုင်ပါတယ်။ Translate 3D ဟာဆိုရင် translate X, translate Y and translate Z တို့ရဲ့ shorthand function ပဲဖြစ်ပါတယ်။ Values တွေကိုတော့ comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ project ထဲမှာ CSS ရဲ့ transform function or property ကိုအသုံးပြုမယ်ဆိုရင် CanIUse.com မှာလေ့လာနိုင်ပါတယ်။ 
+    </p>
+    <h2> Code in CSS</h2>
+    <pre>
+        <code>
+            .cube-container {
+                box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
+                perspective: 800px;
+            }
+            
+            .photo-cube {
+                transition: transform 2s ease-in-out;
+                width: 220px;
+                height: 200px;
+                transform-style: preserve-3d;
+            }
+            
+            .photo-cube:hover {
+                transform: rotateY(-270deg);
+                cursor: pointer;
+            }
+            
+            .front,
+            .back,
+            .left,
+            .right {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+            }
+            
+            .front {
+                transform: translate3d(0, 0, 110px);
+            }
+            .back {
+                transform: translateZ(-110px) rotateY(270deg);
+                transform-origin: center left;
+            }
+            
+            .left {
+                transform: rotateY(-270deg) translate3d(110px, 0, 0);
+                transform-origin: top right;
+            }
+            
+            .right {
+                transform: translate3d(0, 0, -110px) rotateY(180deg);
+            }
+            
+        </code>
+    </pre>
+    <a href="CSS_Example/3Dexample/cube.html">Test Yourself</a>
+
+</body>
+</html>

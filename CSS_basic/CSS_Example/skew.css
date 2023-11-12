@@ -1,0 +1,9 @@
+/************************
+SKEW FUNCTION
+************************/
+img{
+    transition: transform .5s;
+}
+img:hover{
+    transform: skewY(10deg);
+}

@@ -1,0 +1,8 @@
+/* div:nth-of-type(3){
+    background: #52bab3;
+    color: white;
+} */
+div:nth-last-of-type(3){
+    background: #52bab3;
+    color: white;
+}

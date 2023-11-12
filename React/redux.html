@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React and Redux</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        p {
+            font-family: Myanmar3, Yunghkio;
+        }
+
+        img {
+            width: 80%;
+            margin: 0 0 50px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What is Redux</h1>
+    <p>
+        အခု course မှာတော့ applications တွေကို React နဲ့ Redux ကိုအသုံးပြုပြီးတော့ ဘယ်လို built
+        လုပ်ရမယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ အခု section မှာတော့ React basic course မှာ build လုပ်ခဲ့တဲ့ scoreboard
+        application ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် အခု section မှာတော့ Redux အကြောင်းကို
+        ပြောပြသွားမှာဖြစ်ပါတယ်။
+        Redux ဟာ popular JavaScript framework တစ်ခုဖြစ်ပါတယ်။ သူဟာ application state ကို scalable, predictable and
+        testable way
+        တစ်ခုမှာ maintains and manages လုပ်ပေးတာဖြစ်ပါတယ်။ Redux ဟာဆိုရင် ကျွန်တော်တို့ရဲ့ application ကို robust,
+        scalable and
+        maintainable ဖြစ်အောင်လုပ်ဆောင်ပေးမှာဖြစ်ပါတယ်။ ဒါတွေဟာ ကျွန်တော်တို့ရဲ့ app ကို production ready ဖြစ်အောင်
+        ပြုလုပ်ပေးတဲ့ critical တွေအားလုံးပဲဖြစ်ပါတယ်။ Redux ကို learning လုပ်တာဟာ ကျွန်တော်တို့ကို more appealing
+        ဖြစ်စေပါတယ်။
+        Docker, Facebook and Instagram တို့မှာလည်း Redux ကိုအသုံးကြပါတယ်။ ကျွန်တော်တို့ Redux ကိုအသွားခင်မှာ scoreboard
+        app ကို
+        review ပြန်လုပ်ကြည့်ရအောင်။ နောက် Redux ကို ဘာကြောင့် ဘယ်လို အသုံးပြုသင့်တယ်ဆိုတာကို identify
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        React basic course မှာ built လုပ်ခဲ့တဲ့ scoreboard application မှာဆိုရင် data or state တွေကို top down manner
+        တစ်ခုမှာ
+        component to component ကိုpassing လုပ်ထားတာဖြစ်ပါတယ်။ State ဆိုတာ over time မှာ changes ဖြစ်သွားတဲ့ application
+        ထဲမှာရှိတဲ့ a piece of data တွေပဲဖြစ်ပါတယ်။ App ထဲမှာဆိုရင် state ကို maintained လုပ်တဲ့ places နှစ်ခုရှိပါတယ်။
+        အဲ့ဒါတွေကတော့ Players data array ဟာ any component ရဲ့ outside မှာ defined လုပ်ပေးထားပါတယ်။ သူ့ကို application
+        ထဲမှာရှိတဲ့ various components တွေဆီကို information တွေကို provide လုပ်ဖို့အသုံးပြုပါတယ်။ နောက် stopwatch data
+        တွေကို
+        Stopwatch component ကနေပြီးတော့ local state အနေနဲ့ managed လုပ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် stopwatch component
+        ထဲမှာ
+        အားလုံးကို defined လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် player data တွေကို array variable တစ်ခုထဲမှာ store လုပ်တာဟာ
+        fine
+        ဖြစ်ပါတယ်။ သို့သော်လည်း app grows တစ်ခုအနေနဲ့ more code တွေကို gets လုပ်တဲ့အခါမှာ another data တွေကို add
+        လုပ်ဖို့
+        အဆင်မပြေပါဘူး။
+    </p>
+    <p>
+        ဥပမာ data တွေကို API တစ်ခုကနေ fetched လုပ်တာတွေဖြစ်ပါတယ်။ Example မှာလို အဲ့လို way တစ်ခုနဲ့ data
+        တွေကို
+        storing လုပ်တာဟာ advantageous တော့ မဟုတ်ပါဘူး။ Example မှာဆိုရင် scoreboard application အတွက် data တွေကို
+        initial state
+        object ထဲမှာ preloaded လုပ်ထားတာဖြစ်ပါတယ်။ ဒါပေမဲ့ real application တစ်ခုမှာဆိုရင်တော့ server တစ်ခုကနေ player
+        data
+        တွေကို fetch လုပ်ဖို့ ယူတဲ့ time အတွက် timing considerations ဖြစ်လာနိုင်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ရဲ့
+        application
+        မှာ some kind of data governance or auditing ကိုလိုအပ်လာမယ်ဆိုရင် ကျွန်တော်တို့ ကိုယ်တိုင် implement
+        လုပ်ပေးရပါမယ်။
+        အဲ့နေရာ Redux ဟာ most value ကို provides လုပ်ပေးပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူဟာ data governance, and data
+        tracking တွေကို
+        offers လုပ်တဲ့ အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Data ဆိုတာ application ရဲ့ parts အားလုံးမှာ universally accessible
+        ဖြစ်ပါတယ်။
+        ဆိုလိုတာကတော့ Redux ဟာ application အတွက် much mor robust infrastructure ကို provides လုပ်ပေးပါတယ်။ ဒါဟာဆိုရင်
+        Redux ဟာ
+        app's data requirements အားလုံးကို implemented လုပ်တယ်လို့ဆိုလိုတာ မဟုတ်ပါဘူး။ Example မှာဆိုရင် state data ကို
+        stopwatch ကနေ manage လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါဟာ Redux ရဲ့ benefit တော့မဟုတ်ပါဘူး။ နောက် section မှာတော့ Redux
+        ကိုအသုံးပြုရခြင်းရဲ့ benefits တွေကို discuss လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Why Redux</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ Redux ရဲ့ basic ကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့ ဘာကြောင့် Redux
+        ကိုအသုံးပြုသင့်တယ်ဆိုတာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Redux ဟာဆိုရင် project ထဲကို substantial overhead ကို add
+        လုပ်တာဖြစ်ပါတယ်။ သူဟာ some very explicit patterns တွေကို follow လုပ်ဖို့ expects လုပ်ပါတယ်။ အခု section မှာတော့
+        ကျွန်တော်တု့ိရဲ့ applications တွေထဲကို Redux ကို incorporate လုပ်တဲ့အချိန်မှာ some of the benefits အကြောင်းကို
+        discuss
+        လုပ်သွားမှာဖြစ်ပါတယ်။ Redux ကို React မှာ view library တစ်ခုအနေနဲ့ အသုံးပြုဖို့မလိုအပ်ပါဘူး။ Example
+        မှာဆိုရင်တော့
+        scoreboard app ကို reuse လုပ်ထားတာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ reacting redux ဟာ align themselves almost
+        perfectly
+        ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ React မှာဆိုရင် အဲ့ဒါကို လုပ်ဆောင်ဖို့အတွက် written familiar environment
+        တစ်ခုကို
+        provides လုပ်ပေးထားပါတယ်။ First အနေနဲ့ application development မှာရှိတဲ့ very common scenario တစ်ခုနဲ့ start
+        လုပ်ကြည့်ရအောင်။ ကျွန်တော်တို့ဟာ application တစ်ခုကို build လုပ်ဖို့ decide လုပ်လိုက်တဲ့အခါမှာ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့မှာ React နဲ့ပါတ်သတ်ပြီးတော့ great things တွေကို ကြားထားခဲ့ပြီးဆိုပါဆို့။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ဟာ
+        ချက်ချင်း components တွေကို building လုပ်ပြီးတော့ nice looking UI တစ်ခုကို wiring up လုပ်လိုက်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့
+        app ဟာ tested ဖြစ်တယ် ၊ regularly launched ဖြစ်တယ်၊ နောက် everything ဟာ great ဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ
+        app ကို
+        some changes တွေလုပ်ဖို့လိုပါတယ်။ နောက် number of changes တွေဟာ application ထဲက components တွေကို across
+        လုပ်ပြီးတော့
+        data တွေကို sharing လုပ်ဖို့ involve ဖြစ်လာပါတယ်။ အဲ့ဒါတွေကတော့ new UI components တွေကို new development ကို
+        support
+        လုပ်ပေးရုံမဟုတ်ဘဲနဲ့ ကျွန်တော်တို့ဟာ application ကို throughout လုပ်ပြီးတော့ data တွေကို share and synchronize
+        လုပ်ဖို့အတွက် way တစ်ခုကိုလည်း figure out လုပ်ရပါမယ်။
+    </p>
+    <p>
+        အဲ့ဒါတွေကို Redux ဟာ လုပ်ဆောင်နိုင်ပါတယ်။ Redux ဟာ single
+        source
+        of truth တစ်ခုကို provide လုပ်ပေးဖို့ facilities တွေနဲ့ equipped လုပ်လာပါတယ်။ သူဟာဆိုရင် sync မှာ application
+        state ကို
+        keep လုပ်ဖို့အတွက် easier ဖြစ်အောင် လုပ်ဆောင်ပေးပါတယ်။ နောက် state data တွေကို predictable and deterministic way
+        တစ်ခုမှာ distribute လုပ်ပေးပါတယ်။ Resulting အနေနဲ့ more reliable and stable application တစ်ခုကို ရရှိပါတယ်။
+        နောက် Redux
+        ကို React နဲ့ အသုံးပြုတဲ့အခါမှာ Redux ဟာဆိုရင် React ဟာ presentation ကို manages လုပ်နေတဲ့အခါမှာ Redux ဟာ data
+        management အားလုံးကို handles လုပ်ပေးပါတယ်။ Redux ဟာ opinionated framework တစ်ခုအနေနဲ့ considered
+        လုပ်ထားတာဖြစ်ပါတယ်။
+        ဆိုလိုတာကတော့ Redux ဟာ features တွေကို implement လုပ်ဖို့အတွက် specific way တစ်ခုကို expects လုပ်ပေးပါတယ်။
+        Couple of
+        reasons ရှိပါတယ်။ First, Redux ဟာ consistent pattern တစ်ခုကို following လုပ်ပြီးတော့ implemented လုပ်သင့်ပါတယ်။
+        အဲ့
+        pattern ဟာ Redux ကိုအသုံးပြုပြီးတော့ another app ကို look up လုပ်ဖို့ easier ဖြစ်စေပါတယ်။ Second, Redux ကနေ
+        recommended
+        လုပ်ထားတဲ့ design patterns တွေကို following လုပ်တာပဲဖြစ်ပါတယ်။ သူဟာ application ကို debugging and testing
+        လုပ်တဲ့အနေရာမှာ easier ဖြစ်စေပါတယ်။ ဘာကြောင့်လဲဆိုတော့ application responsibilities ဟာ distinct and isolated
+        ဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ Project ကိုမသွားခင်မှာ တစ်ခုသိထားရမှာကတော့ React applications တွေမှာ Redux
+        ကိုအသုံးပြုဖို့မလိုပါဘူး။ တစ်ကယ်တော့ very simple react application or web application တစ်ခုအတွက်ဆိုရင် minimal
+        React
+        components တွေကိုပဲ အသုံးပြုသင့်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Redux Initial Setup - Dev Dependencies</h1>
+    <p>
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ first React Redux project ကို လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့
+        project ထဲကို
+        Redux and React Redux depth dependencies ကို add လုပ်သွားရမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်တော့ NPM
+        ကိုအသုံးပြုထာားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် run ရမဲ့ command တစ်ခုရှိပါတယ်။ npm install --save redux react-redux
+        ဆိုတဲ့
+        command ကို run လုပ်ပေးရမှာဖြစ်ပါတယ်။ Redux မှာဆိုရင် web application တစ်ခုထဲကို Redux ကို incorporate
+        လုပ်ဖို့အတွက်
+        essential items တွေအားလုံးပါဝင်ပါတယ်။ နောက် react-redux ဟာ library တစ်ခုဖြစ်ပါတယ်။ သူဟာ React application
+        တစ်ခုထဲမှာ
+        Redux နဲ့ အလုပ်လုပ်တဲ့အခါမှာ boilerplate code ကို writing လုပ်ဖို့အတွက် ကူညီပေးပါတယ်။ react-redux library မှာ
+        number of
+        helper methods တွေရှိပါတယ်။ အဲ့ methods တွေဟာ application နဲ့ Redux ကို connect လုပ်တဲ့နေရာမှာ easier
+        ဖြစ်အောင်လုပ်ဆောင်ပေးပါတယ်။ နောက် section မှာတော့ root Scoreboard component ကို create လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Redux Initial Setup - index.js</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာ ကျွန်တော်တို့ဟာ redux and react-redux တို့ကို install လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခု section
+        မှာတော့
+        application အတွက် entry point အနေနဲ့ လုပ်ဆောင်ပေးတဲ့ index.js file ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်
+        အဲ့ထဲမှာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ application ကို hold လုပ်ထားတဲ့ App.js ကို Scoreboard.js ကို rename လုပ်ပြီးတော့ render
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ dev server တစ်ခုကို မစခင်မှာ ကျွန်တော်တို့ရဲ့ additional NPM packages
+        တွေကို
+        installed လုပ်ပြီးပြီဆိုတာကို sure ဖြစ်အောင်လုပ်ဖို့လိုပါတယ်။ အဲ့ဒါကတော့ terminal မှာ "npm install" ဆိုတဲ့
+        command ကို
+        run လုပ်ပေးရမှာဖြစ်ပါတယ်။ Next section မှာတော့ existing scoreboard app ကို discrete components and modules
+        တွေအဖြစ်ကို break လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Exampe</h2>
+    <h3>index.js</h3>
+    <pre>
+        <code>
+            import React from 'react;
+            import {render} from 'react-dom';
+            import Scoreboard from './Scoreboard';
+            
+            rener (
+            &lt;Scoreboard /&gt;,
+            document.getElementById('root')
+            );
+        </code>
+    </pre>
+    <hr>
+    <h1>Developing Your Component Hierarchy</h1>
+    <p>
+        Example မှာဆိုရင် components and logic တွေအားလုံးကို Scoreboard.js ထဲမှာ ရှိတာဖြစ်ပါတယ်။ Over time မှာဆိုရင်
+        components
+        and logic တွေအားလုံးကို monolithic file တစ်ခုထဲမှာ ထားတာဟာ manage လုပ်တဲ့အချိန်မှာ difficult ဖြစ်လာပါတယ်။
+        အဲ့ဒါကြောင့်
+        အခု section မှာတော့ ကျွန်တော်တို့ရဲ့ components တွေကို သူတို့ရဲ့ own modules ဆီကို move လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ own
+        modules တွေဆီကို move လုပ်တာဟာ manage လုပ်တဲ့နေရာမှာ application ကို better ဖြစ်စေပါတယ်။ ကျွန်တော်တို့
+        အဲ့လိုလုပ်တာဟာ
+        implementing Redux ကို files တွေရဲ့ logical organization ကြောင့် much smoother ဖြစ်စေပါတယ်။ App ကို modularizing
+        မလုပ်ခင်မှာ ကျွန်တေ်ာတို့သိထာားရမှာကတော့ Redux နဲ့ အလုပ်လုပ်တဲ့အချိန်မှာ different types of components
+        တွေအကြောင်းကို
+        နားလည်ထားဖို့လိုပါတယ်။ အခု section မှာ ကျွန်တော်တို့အသုံးပြုသွားမဲ့ component types နှစ်ခုရှိပါတယ်။
+        အဲ့ဒါတွေကတော့ first
+        ဟာ presentational component ဖြစ်ပါတယ်။ သူဟာ component type တစ်ခုပြီးတော့ things look ဘယ်လိုဖြစ်ပါတယ်ဆိုတာနဲ့
+        concerned
+        ဖြစ်ပါတယ်။ Presentational component ဟာ any other React components တွေလိုပဲ သူဟာ HTML ကို renders လုပ်ပြီးတော့
+        Redux
+        ကိုအသုံးပြုမယ်ဆိုရင်လည်း care လုပ်မှာမဟုတ်ပါဘူး။ သူဟာ props data တွေကို receive လုပ်ပြီးတော့ same render
+        လုပ်တာဖြစ်ပါတယ်။ နောက် second type of component ကတော့ React Redux application မှာဆိုရင် Container component
+        ပဲဖြစ်ပါတယ်။
+        Container component ဟာ things တွေဘယ်လို အလုပ်လုပ်ပါတယ်ဆိုတာနဲ့ concerned ဖြစ်ပါတယ်။ သူဟာ object ထဲမှာ storing
+        လုပ်ထားတဲ့
+        receives data တွေနဲ့ application ရဲ့ entire state တစ်ခုလုံးကို interacts လုပ်ပေးတာဖြစ်ပါတယ်။ Container component
+        ရဲ့
+        responsibility ဟာ data တွေကို presentational components တွေဆီကို propagate လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ Container
+        component
+        ဟာ သူ့ရဲ့ markup ပါဝင်မဲ့အစား data and behavior ကို presentational components တွေဆီကို provides လုပ်ပြီးတော့
+        renders
+        လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် presentational components တွေကို categories နှစ်ခု separate လုပ်နိုင်ပါတယ်။
+        အဲ့ဒါတွေကတော့
+        logical and pure တို့ပဲဖြစ်ပါတယ်။ Logical components တွေဟာ React components တွေဖြစ်ပြီးတော့ သူတို့ဟာ own React
+        state ကို
+        manage လုပ်ကြပါတယ်။ သူတို့ဟာ React lifecycle events တွေကို လိုအပ်တဲ့အခါမှာ ယူပါတယ်။ Pure components တွေဟာ
+        stateless
+        function လို့လည်း React မှာခေါ်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူတို့ဟာ own state ကို manage
+        မလုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။
+        သူတို့ဟာ pure functions တွေအဖြစ် implemented လုပ်ပြီးတော့ React lifecycle events ကို မယူပါဘူး။ Example မှာရှိတဲ့
+        scoreboard ကို categorize လုပ်ရမယ်ဆိုရင် stopwatch and add player form components တို့ဟာ logical components
+        တွေဖြစ်ကြပါတယ်။ ဘာကြောင့်လဲဆိုတော့ သူတို့မှာ any other components တွေပေါ်မှာ no dependency ရှိတဲ့အတွက်ကြောင့်နဲ့
+        သူတို့ရဲ့ own state ကို manage လုပ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ နောက် stats and counter components တွေဟာ pure
+        components
+        တွေဖြစ်ကြပါတယ်။ နောက် player and header components နှစ်ခုလုံးဟာ other components တွေပေါ်မှာ depend လုပ်ပြီးတော့
+        other
+        components တွေကို dependencies တွေအနေနဲ့ လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် သူဟာ pure component ပဲဖြစ်ပါတယ်။
+        နောက်ဆုံးကတော့ scoreboard.js file ဟာ root component ဖြစ်လာပါတယ်။ သူဟာ data တွေကို other components တွေဆီကို pass
+        down
+        လုပ်တဲ့ container component အနေနဲ့ လုပ်ဆောင်ပေးပါတယ်။ ကျွန်တော်တို့ app ကို modularizing မလုပ်ခင်မှာ အခု
+        ကျွန်တော်တို့
+        လေ့လာခဲ့တဲ့ pieces တွေဟာ အတူတူဘယ်လို fit ဖြစ်နေတယ်ဆိုတာကို လေ့လာရပါမယ်။ အဲ့ဒါမှ Redux ကို implementing
+        လုပ်တဲ့အခါမှာ
+        easier ဖြစ်စေမှာဖြစ်ပါတယ်။ နောက် section မှာတော့ module တစ်ခုချင်းစီကို create လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့မှာဆိုရင်
+        stopwatch component ကို first အနေနဲ့ လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Building the Stopwatch Logical Component</h1>
+    <p>
+        အခု section မှာတော့ Stopwatch component ကို move လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် အဲ့မှာဆိုရင် component declaration
+        and
+        implementation ကို more concise ဖြစ်အောင် some ES 2015 syntactic ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Example မှာဆိုရင်
+        src
+        folders ထဲမှာ folders နှစ်ခု separate လုပ်ပေးထာပါတယ်။ အဲ့ဒါတွေကတော့ components and containers တို့ပဲဖြစ်ပါတယ်။
+        Components ထဲမှာဆိုရင် presentational components တွေအားလုံးကို put လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် containers
+        ဟာဆိုရင် data
+        တွေကို presentational components တွေဆီကို passes လုပ်တဲ့ container component ကို add လုပ်ပေးသွားမှာဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင်တော့ container ဟာ scoreboard component ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် scoreboard component ကို container
+        folder
+        ထဲကို move လုပ်ပေးရပါမယ်။ နောက် components folder ထဲမှာ Stopwatch ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပြီးတော့
+        scoreboard.js ထဲမှာရှိတဲ့ stopwatch component ကို move လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ new file ထဲမှာဆိုရင်
+    </p>
+    <h2>Code Example</h2>
+    <h3>Stopwatch.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class StopWatch extends Component {
+            state = {
+            isRunning: false,
+            elapsedTime: 0,
+            previousTime: 0
+            };
+            
+            
+            componentDidMount() {
+            this.intervalID = setInterval(() =&gt; this.tick(), 100);
+            }
+            
+            componentWillMount() {
+            clearInterval(this.intervalID);
+            }
+            
+            tick = () =&gt; {
+            if (this.state.isRunning) {
+            const now = Date.now();
+            this.setState({
+            previousTime: now,
+            elapsedTime: this.state.elapsedTime + (now - this.state.previousTime)
+            });
+            }
+            }
+            
+            handleReset = () =&gt; {
+            this.setState({
+            elapsedTime: 0
+            });
+            }
+            
+            handleStopwatch = () =&gt; {
+            this.setState({
+            isRunning: !this.state.isRunning
+            });
+            if (!this.state.isRunning) {
+            this.setState({
+            previousTime: Date.now()
+            });
+            
+            }
+            }
+            
+            render() {
+            const seconds = Math.floor(this.state.elapsedTime / 1000);
+            return (
+            &lt;div className="stopwatch"&gt;
+            &lt;h2&gt;Stopwatch&lt;/h2&gt;
+            &lt;span className="stopwatch-time"&gt;{seconds}&lt;/span&gt;
+            &lt;button onClick={this.handleStopwatch}&gt;{
+            this.state.isRunning ? 'Stop' : 'Start'
+            }&lt;/button&gt;
+            &lt;button onClick={this.handleReset}&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            }
+            export default StopWatch;
+        </code>
+    </pre>
+    <hr>
+    <h1>Building the Stats and Counter Pure Component</h1>
+    <p>
+        အခု section မှာတော့ နောက်ထပ် stats and counter components တွေကို set လုပ်သွားမှာဖြစ်ပါတယ်။ သူတို့နှစ်ခုလုံးဟာ
+        pure or
+        stateless components တွေဖြစ်ကြပါတယ်။ First အနေနဲ့ components folder ထဲမှာ Stats.js and Counter.js ဆိုတဲ့ new
+        files
+        နှစ်ခုကို add လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် scoreboard.js ထဲက stats component ကို move လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်
+        counter
+        component ကိုလည်း move လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် သူတို့ components နှစ်ခုကို scoreboard.js ထဲမှာ import
+        ပြန်လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Stats.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const Stats = (props) =&gt; {
+            const totalPlayers = props.players.length;
+            const totalPoints = props.players.reduce((total, player) =&gt; {
+            return total + player.score;
+            }, 0);
+            return (
+            &lt;table className="stats"&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Players:&lt;/td&gt;
+            &lt;td&gt;{totalPlayers}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;td&gt;Total Points:&lt;/td&gt;
+            &lt;td&gt;{totalPoints}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            );
+            }
+            
+            Stats.propTypes = {
+            players: PropTypes.arrayOf(PropTypes.shape(
+            {
+            score: PropTypes.number
+            }
+            ))
+            };
+            
+            export default Stats;
+        </code>
+    </pre>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const Counter = ({ index, score, changeScore }) =&gt; {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" onClick={() =&gt; changeScore(index, -1)}&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={() =&gt; changeScore(index, 1)} &gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            Counter.propTypes = {
+            index: PropTypes.number,
+            score: PropTypes.number,
+            changeScore: PropTypes.func
+            };
+            
+            export default Counter;
+        </code>
+    </pre>
+    <hr>
+    <h1>Building the AddPlayerForm Logical Component</h1>
+    <p>
+        အခု section မှာတော့ addplayerform ကို move လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် components folder ထဲမှာ
+        AddPlayerForm.js
+        ဆိုတဲ့ new file တစ်ခုကို create လုပ်ပေးရပါမယ်။ နောက် socreboard.js ထဲမှာရှိတဲ့ addplayerform component ကို new
+        file
+        ထဲကို move လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Exmaple</h2>
+    <h3>AddPlayerForm.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            
+            class AddPlayerForm extends Component {
+            
+            state = {
+            value: ''
+            }
+            
+            handleValueChange = (e) =&gt; {
+            this.setState({
+            value: e.target.value
+            });
+            }
+            
+            handleSubmit = (e) =&gt; {
+            e.preventDefault();
+            this.props.addPlayer(this.state.value);
+            this.setState({
+            value: ""
+            });
+            }
+            
+            render() {
+            return (
+            &lt;form onSubmit={this.handleSubmit}&gt;
+            &lt;input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleValueChange}
+            placeholder="Enter a player's name"
+            /&gt;
+            &lt;input
+            type="submit"
+            value="Add Player"
+            /&gt;
+            &lt;/form&gt;
+            );
+            }
+            }
+            export default AddPlayerForm;
+        </code>
+    </pre>
+    <hr>
+    <h1>Building the Player and Header Pure Components</h1>
+    <p>
+        အခု section မှာတော့ နောက်ကျန်တဲ့ Player and Header components တွေကို own modules ထဲကို move
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် first အနေနဲ့ components folder ထဲမှာ Player.js and Header.js ဆိုတဲ့ file နှစ်ခုကို create
+        လုပ်ပေးရပါမယ်။
+        အဲ့မှာဆိုရင် Player component ထဲမှာ counter component ကို အသုံးပြုထားတာဖြစ်တဲ့အတွက်ကြောင့် Counter component ကို
+        import
+        လုပ်ပေးရပါမယ်။ နောက် Header component ထဲမှာ stats component ကို အသုံးပြုထားတာဖြစ်တဲ့အတွက်ကြောင့် stat component
+        ကို
+        import လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React, { PureComponent } from 'react';
+            import PropTypes from 'prop-types';
+            import Counter from './Counter';
+            
+            class Player extends PureComponent {
+            static propTypes = {
+            changeScore: PropTypes.func,
+            removePlayer: PropTypes.func,
+            name: PropTypes.string.isRequired,
+            score: PropTypes.number.isRequired,
+            id: PropTypes.number,
+            index: PropTypes.number
+            };
+            render() {
+            const {
+            name,
+            id,
+            index,
+            score,
+            removePlayer,
+            changeScore
+            } = this.props;
+            
+            
+            
+            return (
+            &lt;div className="player"&gt;
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; removePlayer(id)}&gt;x&lt;/button&gt;
+            &lt;i className='fas fa-crown'&gt;&lt;/i&gt;
+            {name}
+            
+            &lt;/span&gt;
+            &lt;Counter
+            score={score}
+            index={index}
+            changeScore={changeScore}
+            /&gt;
+            &lt;/div &gt;
+            );
+            }
+            
+            }
+            
+            export default Player;
+        </code>
+    </pre>
+    <h3>Header.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import Stats from './Stats';
+            import StopWatch from './StopWatch';
+            
+            function Header({ players, title }) {
+            return (
+            &lt;header&gt;
+            &lt;Stats players={players} /&gt;
+            &lt;h1&gt;{title}&lt;/h1&gt;
+            &lt;StopWatch /&gt;
+            &lt;/header&gt;
+            );
+            }
+            
+            Header.propTypes = {
+            players: PropTypes.arrayOf(PropTypes.object),
+            title: PropTypes.string
+            
+            };
+            
+            Header.defaultProps = {
+            title: 'Scoreboard'
+            }
+            
+            export default Header;
+        </code>
+    </pre>
+    <hr>
+    <h1>Intro to Action Types</h1>
+    <p>
+        အခု section မှာတော့ Redux ကို actually putting လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို စတင်ဖို့အတွက် best place ကတော့
+        answering
+        the question ပဲဖြစ်ပါတယ်။ အဲ့ဒါကတော့ application state ထဲမှာ change တစ်ခုထဲမှာ result တွေရှိတယ်ဆိုတာကို ဘယ်
+        actions တွေက
+        လုပ်ဆောင်တာလဲဆိုတာဖြစ်ပါတယ်။ Example မှာဆိုရင် any components ကိုကြည့်တဲ့အခါမှာ သူတို့ဟာ state ကို directly or
+        through
+        event methods တစ်ခုခုနဲ့ manage or manipulate လုပ်ကြပါတယ်။ နောက် ကျွန်တော်တို့ဟာ state ကို application level
+        တစ်ခု or
+        component level တစ်ခုမှာ manage လုပ်သင့်တယ်ဆိုတာကို determine လုပ်ဖို့လိုပါတယ်။ Example ရဲ့ scoreboard.js
+        ထဲမှာဆိုရင်
+        application ထဲမှာရှိတဲ့ players တွေအတွက် set လုပ်ထားတဲ့ initial state တစ်ခုရှိပါတယ်။ အဲ့ state ဟာ application
+        ရဲ့ root
+        level တစ်ခုကို defined လုပ်ပါတယ်။ အဲ့ဒါကြောင့် scoreboard ဟာ container component ဖြစ်ပါတယ်။ သူဟာ state ကို other
+        components တွေဆီကို pass down လုပ်ပေးပါတယ်။ Player state ကို Redux ထဲကို integrating မလုပ်ခင်မှာ
+        ကျန်တဲ့အပိုင်းကိုကြည့်ရအောင်။ အဲ့ဒါတွေဟာ Redux ထဲမှာ include ဖြစ်ဖို့အတွက် candidates လုပ်တဲ့ any other good
+        state
+        တွေပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် Stopwatch component ထဲမှာ state ကို managing လုပ်ပါသေးတယ်။ အဲ့ stopwatch.js ထဲမှာ
+        state
+        managed ဟာ tightly coupled ဖြစ်ပါတယ်။ သူ့မှာဆိုရင် any other component တွေပေါ်မှာ dependencies တွေမရှိပါဘူး။ ဒီ
+        indicates ဟာဆိုရင် part of Redux အတွက် best candidate တော့မဟုတ်ပါဘူး။ Data တွေကို local state မှာပဲ storing
+        လုပ်မယ်ဆိုရင် အဲ့ component ဟာ Redux ရဲ့ part မဟုတ်ပါဘူး။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ playes aspect of the
+        application
+        ကို focus လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ application အတွက် identified လုပ်ပေးရမယ်။ နောက်
+        Redux
+        ကိုအသုံးပြုပြီးတော့ players array ကို manage လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ players တွေနဲ့ related ဖြစ်တဲ့
+        ဘယ်
+        types of actions တွေ identify လုပ်ဖို့ပဲဖြစ်ပါတယ်။ Scoreboard.js ထဲမှာ event handlers 3 ခုကို defined
+        လုပ်ထားတာကို
+        တွေ့ရပါတယ်။ အဲ့ဒါတွေကတော့ handleScroeChange, handleAddPlaeyr and handleRemovePlayer တို့ပဲဖြစ်ပါတယ်။ သူတို့ 3
+        ခုဟာ
+        unique actions ကို represent လုပ်ပါတယ်။ သူတို့ဟာ ကျွန်တော်တို့ရဲ့ player data ကို affect ဖြစ်စေပါတယ်။ ဒါဟာဆိုရင်
+        Redux
+        ထဲမှာ manage လုပ်ဖို့အတွက် type of actions တွေကိုလည်း represent လုပ်ပါတယ်။ အခု step ကတော့ actiontypes တွေကို
+        defined
+        လုပ်တာဖြစ်ပြီးတော့ next step ကတော့ actions တစ်ခုချင်းစီကို string constant တစ်ခုအနေနဲ့ define
+        လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် example မှာဆိုရင် actiontypes ဆိုတဲ့ new folder တစ်ခုကို create လုပ်ပေးထားပါတယ်။ နောက် အဲ့ folder
+        ထဲမှာ
+        Player.js ဆိုတဲ့ new file တစ်ခုကိုလည်း create လုပ်ပေးထားပါတယ်။ နောက် actiontypes တစ်ခုချင်းစီကို string constant
+        အနေနဲ့
+        define လုပ်ရပါမယ်။ အဲ့လို လုပ်တာဟာ မလိုအပ်ပါဘူး။ ဒါပေမဲ့ အဲ့လို လုပ်တာဟာ rest of application ကနေ isolating
+        actiontypes
+        အတွက် useful ဖြစ်ပါတယ်။ နောက် section မှာတော့ actiontypes တွေကို အသုံးပြုပြီးတော့ action တစ်ခုကို response
+        လုပ်ဖို့
+        player data တွေဟာ ဘယ်လို changes ဖြစ်သွားတယ်ဆိုတာကို implement လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            export const ADD_PLAYER = 'player/ADD_PLAYER';
+            export const REMOVE_PLAYER = 'player/REMOVE_PLAYER';
+            export const UPDATE_PLAYER_SCORE = 'player/UPDATE_PLAYER_SCORE';
+        </code>
+    </pre>
+    <hr>
+    <h1>Intro to Reducers</h1>
+    <p>
+        Redux မှာဆိုရင် action တစ်ခုဟာ reducer လို့ခေါ်တဲ့ new state တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ Reducer
+        ဟာဆိုရင် Redux
+        ရဲ့ big part တစ်ခုပဲဖြစ်ပါတယ်။ သူတို့ဟာ Redux မှာရှိတဲ့ most of the work ကို လုပ်ဆောင်ပေးပါတယ်။ Example
+        မှာဆိုရင် player
+        data ဟာ good reducer တစ်ခုဖြစ်ပါတယ်။ Next step အနေနဲ့ player reducer ကို define လုပ်ပေးရပါမယ်။ သူဟာ app
+        ထဲမှာရှိတဲ့
+        actions ကို interpret လုပ်ပြီးတော့ player data တွေအတွက် new state တစ်ခုကို produce လုပ်ပေးတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့
+        coding ကိုမစခင်မှာ Redux မှာရှိတဲ့ reducers တွေဟာ principles တွေပေါ်မှာအခြေခံပြီးတော့ mutate the current state
+        မလုပ်တဲ့
+        pure function တစ်ခုအနေနဲ့ implement လုပ်တာကို point out လုပ်မှာဖြစ်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ ရှေ့ကို
+        ဆက်သွားဖို့အတွက် အရမ်းအရေးကြီးပါတယ်။ ဘာကြောင့်လဲဆိုတော့ Redux ဟာ immutability ကို enforce မလုပ်ပါဘူး။ ပြီးခဲ့တဲ့
+        section
+        မှာဆိုရင်တော့ different action types တွေကို storing လုပ်ဖို့အတွက် actiontypes file ကို create
+        လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အခု
+        section မှာတော့ reducer file တစ်ခုလိုအပ်ပါတယ်။ အဲ့ဒါကြောင့် reducers folder တစ်ခုကို create လုပ်ပေးရပါမယ်။ နောက်
+        အဲ့
+        folder ထဲမှာ Player.js file ကို create လုပ်ပေးထားပါတယ်။ အဲ့မှာဆိုရင် multiple directories မှာ Player.js ကို
+        filename
+        အနေနဲ့ အသုံးပြုတာဟာ ကျွန်တော်တို့ရဲ့ Redux elements တွေဟာ multiple directories ကို across လုပ်ပြီးတော့ logically
+        organizing လုပ်ဖို့အတွက် useful ဖြစ်ပါတယ်။ နောက် Player.js ထဲမှာ ကျွန်တော်တို့ရဲ့ action types တွေကို import
+        လုပ်ပေးရပါမယ်။ အဲ့ import မှာဆိုရင် player.js file ထဲက exports အားလုံးကို ယူပြီးတော့ PlayerActionTypes ဆိုတဲ့
+        object
+        တစ်ခုနဲ့ set လုပ်ပေးထားပါတယ်။ နောက် ကျွန်တော်တို့လုပ်ဆောင်ရမှာက new file ထဲမှာ initial state တစ်ခုနဲ့ set
+        လုပ်ပြီးတော့
+        state ရဲ့ data တွေကို move လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် objects 3 ခုကိုပဲ copy လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ state ဟာ player objects ရဲ့ array တစ်ခုအနေနဲ့ initially defined လုပ်ထားတာဖြစ်တဲ့အတွက်ကြောင့်
+        reducer ဟာ
+        players array ရဲ့ existing state ကို ယူပြီးတော့ players array အတွက် some action occurring ပေါ်မှာအခြေခံပြီးတော့
+        new
+        state တစ်ခုကို producing လုပ်ပေးပါတယ်။
+    </p>
+    <p>
+        Example မှာဆိုရင် reducer ကို pure function တစ်ခုအနေနဲ့ write လုပ်ပေးရပါမယ်။ သူဟာ
+        arguments နှစ်ခုယူပါတယ်။ အဲ့ဒါတွေကတော့ current state နဲ့ သူ့ထဲမှာယူတဲ့ action ပဲဖြစ်ပါတယ်။ နောက် အဲ့ function
+        ထဲမှာ new
+        state တစ်ခုကို produce လုပ်ဖို့ action type ပေါ်မှာ switch လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် action types
+        တစ်ခုချင်းဆီအတွက် case တစ်ခုရှိတဲ့ switch block တစ်ခုကို add လုပ်ပေးရပါမယ်။ First case မှာဆိုရင် return
+        ပြန်ထားတာကတော့
+        ကျွန်တော်တို့ဟာ first အနေနဲ့ state array ထဲမှာရှိတဲ့ items အားလုံးကို return ပြန်ချင်တာဖြစ်ပါတယ်။ အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့
+        spread operator ကိုအသုံးပြုပေးရပါမယ်။ အဲံမှာဆိုရင် state ဟာ already existing item in state ကို ယူတာဖြစ်ပါတယ်။
+        နောက်
+        သူတို့ပါဝင်တဲ့ new array ရဲ့ part အနေနဲ့ ကျွန်တော်တု့ိဟာ generating လုပ်ပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ added
+        လုပ်ထားတဲ့
+        player object ပဲဖြစ်ပါတယ်။ နောက် remove player အတွက် case မှာဆိုရင် spread operator ကို array နှစ်ခုကို
+        concatenate
+        လုပ်ဖို့ အသုံးပြုပေးရပါမယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ 0 ကနေ specific index တစ်ခုမှာ original player array ရဲ့
+        subset
+        ကို create လုပ်လိုက်တာဖြစ်ပါတယ်။ နောက် index မှာရှိတဲ့ player ကို plus one နဲ့ combine လုပ်လိုက်တာဖြစ်ပါတယ်။
+        Spread
+        operator ဟာဆိုရင် array တစ်ခုကနေ objects တွေကို extract လုပ်ဖို့ easy ဖြစ်စေပါတယ်။ နောက်ဆုံးကတော့ update အတွက်
+        case
+        ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင်လည်း array တစ်ခုကို produce လုပ်ရပါမယ်။ အဲ့မှာဆိုရင်တော့ player တစ်ယောက်ရဲ့ index
+        ကိုအသုံးပြုပါမယ်။ နောက် map function ကိုလည်း အသုံးပြုပေးရပါမယ်။ အဲ့မှာရှိတဲ့ return ဟာဆိုရင် new array တစ်ခုကို
+        produce
+        လုပ်ဖို့ map function ကနေက provided လုပ်လိုက်တဲ့ index ကိုအသုံးပြုတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် default
+        တစ်ခုပါဝင်ရပါမယ်။
+        သူဟာ state ကို return ပြန်ပေးထားပါတယ်။ Next section မှာတော့ actions and actions creators ကို create
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import * as PlayerActionTypes from '../actiontypes/Player';
+            
+            const initialState = [
+            {
+            name: "Alex",
+            score: 0,
+            id: 1
+            },
+            {
+            name: "John",
+            score: 0,
+            id: 2
+            },
+            {
+            name: "Smith",
+            score: 0,
+            id: 3
+            },
+            {
+            name: "Thour",
+            score: 0,
+            id: 4
+            },
+            {
+            name: "Rock",
+            score: 0,
+            id: 5
+            }
+            ];
+            
+            
+            export default function Player(state = initialState, action) {
+            switch (action.type) {
+            case PlayerActionTypes.ADD_PLAYER:
+            return [
+            ...state,
+            {
+            name: action.name,
+            score: 0
+            }
+            ];
+            case PlayerActionTypes.REMOVE_PLAYER:
+            return [
+            ...state.slice(0, action.index),
+            ...state.slice(action.index + 1)
+            ];
+            case PlayerActionTypes.UPDATE_PLAYER_SCORE:
+            return state.map((player, index) => {
+            if (index === action.index) {
+            return {
+            ...player,
+            score: player.score + action.score
+            };
+            }
+            });
+            default:
+            return state;
+            }
+            }
+        </code>
+    </pre>
+    <hr>
+    <h1>Actions and Action Creators</h1>
+    <p>
+        အခု section မှာတော့ action တစ်ခုဖြစ်သွားတဲ့အချိန်မှာ reducer ကို notifying လုပ်ဖို့အတွက် mechanism တစ်ခုကို
+        ပေးသွားမှာဖြစ်ပါတယ်။ ဒါကို action creators, actions and dispatch ကိုအသုံးပြုပြီးတော့ လုပ်ဆောင်သွားမှာဖြစ်ပါတယ်။
+        Redux
+        မှာဆိုရင် action တစ်ခုဆိုတာ event တစ်ခုဖြစ်ပါတယ်။ Redux အလုပ်လုပ်ဖို့ submitting an action တစ်ခုရဲ့ general
+        principle
+        အောက်ကလို အလုပ်လုပ်ပါတယ်။ Action creator ကို action တစ်ခုကို generate လုပ်ဖို့ အသုံးပြုပါတယ်။ နောက် action ဟာ
+        App state
+        ကို holds လုပ်ထားတဲ့ Redux ကို dispatched လုပ်လိုက်ပါတယ်။ အဲ့ဒါကေတာ့ action ကို handles လုပ်ထားတဲ့ reducer
+        တစ်ခုပဲဖြစ်ပါတယ်။ နောက် reducer ဟာ action ကို component ဆီကို passes လုပ်ပြီးတော့ new state တစ်ခုကို returns
+        ပြန်ပေးတာဖြစ်ပါတယ်။ First အနေနဲ့ actions folder ကို create လုပ်ပေးရပါမယ်။ နောက် player.js ဆိုတဲ့ file တစ်ခုကို
+        create
+        လုပ်ပေးရပါမယ်။ အဲ့ new file ထဲမှာ action creators ကို export လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် action
+        တစ်ခုချင်းစီအတွက် action
+        create ကို create လုပ်ပေးရပါမယ်။ အဲ့ဒါကြောင့် action ဟာ 3 ခုဖြစ်တဲ့အတွက်ကြောင့်action creators 3 ခုကို create
+        လုပ်ပေးရပါမယ်။ နောက် addPlayer action creator ကို create လုပ်ပေးရပါမယ်။ သူဟာဆိုရင် name ကို argument တစ်ခုအနေနဲ့
+        ယူပြီးတော့ action တစ်ခုကို returns ပြန်ပေးတာဖြစ်ပါတယ်။ နောက် action ဟာ type of addPlayer နဲ့ name တစ်ခုကို
+        returns
+        ပြန်ပေးပါတယ်။ နောက် အဲ့ဒါဟာ action metadata အဖြစ်နဲ့ added လုပ်ထားတဲ့ player ရဲ့ name ကို provide လုပ်ပေးပါတယ်။
+        အဲ့
+        action ဟာ state မှာ change တစ်ခုကို trigger လုပ်ဖို့ dispatched လုပ်လိုက်တဲ့အခါမှာ သူဟာ reducer ထဲမှာရှိတဲ့
+        ADD_PLAYER
+        switch ကို handled လုပ်ပေးပါတယ်။ နောက် remove player action creator ကို build လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် index
+        argument
+        ကိုပဲ ယူတာဖြစ်ပါတယ်။ နောက် update action creator ဟာဆိုရင် index and score arguments နှစ်ခုကို ယူပါတယ်။
+        ကျွန်တော်တို့ဟာ
+        ဒီ features တွေကို App မှာ wire up လုပ်ဖို့လိုပါသေးတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>player.js</h3>
+    <pre>
+        <code>
+            import * as PlayerActionTypes from '../actiontypes/Player';
+            
+            export const addPlayer = name => {
+            return {
+            type: PlayerActionTypes.ADD_PLAYER,
+            name
+            };
+            };
+            
+            export const removePlayer = index => {
+            return {
+            type: PlayerActionTypes.REMOVE_PLAYER,
+            index
+            };
+            };
+            
+            export const updatePlayerScore = (index, score){
+            return {
+            type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
+            index,
+            score
+            };
+            };
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        အခု section မှာ key Redux concepts တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Redux application တစ်ခုရဲ့ heart
+        ဟာဆိုရင်
+        application state ဖြစ်ပါတယ်။ Redux store ဟာဆိုရင် application state အတွက် single source o truth ပဲဖြစ်ပါတယ်။
+        ဆိုလိုတာကတော့ state အားလုံးဟာ store ဆိုတဲ့ နေရာတစ်ခုထဲမှာပဲ resides ဖြစ်နေတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ next
+        section မှာ
+        store ကို create လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် player data တွေပါဝင်ပါတယ်။ Redux ဟာဆိုရင် player data ရဲ့
+        history
+        ကို store ထဲမှာ ဘယ် actions ကိုပဲတွေ့တွေ့ always maintain လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ action တစ်ခုဟာ
+        event
+        တစ်ခုဖြစ်ပါတယ်။ သူဟာ application ထဲမှာ occur ဖြစ်ပါတယ်။ Redux မှာဆိုရင် JavaScript object တစ်ခုဖြစ်ပါတယ်။ သူ့မှာ
+        type
+        တစ်ခုနဲ့ ယူတဲ့ action နဲ့ associated ဖြစ်တဲ့ additional metadata တွေရှိပါတယ်။ Type ဟာဆိုရင် action ကို
+        identifies
+        လုပ်တာဖြစ်ပြီးတော့ action တစ်ခုရဲ့ metadata ဟာ store ကို update လုပ်ဖို့အတွက် လိုအပ်တဲ့ extra information
+        တွေပဲဖြစ်ပါတယ်။ Actions တွေကို Redux မှာဆိုရင် action creators ဖြင့် create လုပ်ပေးထားပါတယ်။ Redux မှာ actions
+        တွေကို
+        interpreted and handled လုပ်ဖို့ရန်အတွက် reducer တစ်ခုလိုအပ်ပါတယ်။ Example မှာဆိုရင် player data တွေအတွက်
+        reducer ကို
+        create လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် reducers ကို arguments နှစ်ခုကို ယူတဲ့ pure function တစ်ခုအနေနဲ့
+        created
+        လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ Action တစ်ခုဟာ Redux store ထဲကို တစ်ကြိမ် through လုပ်ရင် reducer တစ်ခုဟာ အဲ့ action ကို
+        catches
+        လုပ်ထားပါမယ်။ နောက် incoming action ကို သူ့ရဲ့ type နဲ့ interprets လုပ်ပြီးတော့ new state တစ်ခုကို provide
+        လုပ်ပေးလိုက်တာဖြစ်ပါတယ်။ Reducers တွေဟာ Redux ရဲ့ big part တစ်ခုဖြစ်ပါတယ်။ သူတို့ဟာ Redux store နဲ့ registered
+        and
+        interact လုပ်ကြတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ application အတွက် state container ဖြစ်လာမဲ့ composition of reducers
+        ပဲဖြစ်ပါတယ်။
+        First အနေနဲ့ reducers တွေကို pure functions တွေအနေနဲ့ implemented လုပ်တာကို သေချာအောင်လုပ်ဆောင်ပေးရပါမယ်။
+        သူတို့ဟာဆိုရင်
+        current state ကို mutate or alter မလုပ်ကြပါဘူး။ နောက်ဆုံးကတော့ reducers တွေဟာ actions တွေကို receive
+        လုပ်ဖို့ရန်အတွက်
+        actions တွေဟာ dispatched လုပ်ပေးရပါမယ်။ Actions တွေကို dispatched လုပ်တာဟာ store ထဲမှာ state ကို change ဖို့
+        intent
+        တစ်ခုကို express လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် dispatch method ကိုအသုံးပြုပေးရပါမယ်။ Action creator တစ်ခုထဲ
+        invoking
+        လုပ်တာဟာ state မှာ change တစ်ခုကို trigger လုပ်ဖို့ enough မဖြစ်ပါဘူး။ Created လုပ်ထားတဲ့ action ဟာ dispatched
+        လုပ်ပေးရပါမယ်။ Next stage မှာတော့ scoreboard container ကို Redux နဲ့ connect လုပ်တဲ့အချိန်မှာ dispatch တစ်ခုကို
+        ဘယ်လို
+        provide လုပ်ရမယ်ဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Creating the Redux Store</h1>
+    <p>
+        အခု section မှာတော့ Redux ရဲ့ most critical component ဖြစ်တဲ့ store ကို implement လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့အတွက် react redux component တစ်ခုဖြစ်တဲ့ provider ကိုအသုံးပြုသွားမှာဖြစ်ပါတယ်။ Store ဟာဆိုရင်
+        example
+        မှာရှိတဲ့ scoreboard container အတွက် primary source of information တစ်ခုအနေနဲ့ အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+        Container ဟာ
+        store ထဲမှာ state changes ကို subscribe လုပ်နိုင်ပြီးတော့ components တွေဆီကို အဲ့ information တွေကို pass
+        လုပ်ပေးပါတယ်။
+        Redux store ဟာဆိုရင် application state တစ်ခုလုံးကို holds လုပ်တာဖြစ်ပါတယ်။ နောက်သူဟာ reducers တွေအားလုံးရဲ့
+        composition
+        တစ်ခုဖြစ်ပါတယ်။ အဲ့ဒါဟာ application အတွက် one single state container ဖြစ်လာမှာဖြစ်ပါတယ်။ Example မှာဆိုရင် store
+        မှာ one
+        reducer တစ်ခုပဲပါဝင်ပါတယ်။ နောက် index.js ထဲမှာဆိုရင် scoreboard component ကို root dom element မှာ render
+        လုပ်ထားတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ application မှာ redux store တစ်ခုကို provide လုပ်ဖို့ရန်အတွက်
+        ကျွန်တော်တို့ဟာ
+        player reducer ရဲ့ composed ဖြစ်တဲ့ store တစ်ခုကို create လုပ်ပေးရပါမယ်။ နောက် အဲ့ store ကို react redux
+        provider
+        component မှာ pass လုပ်ပေးရပါမယ်။ Store ကို create လုပ်ဖို့အတွက် a few file ကို import လုပ်ပေးဖို့လိုပါတယ်။
+        First,
+        provider ကို react redux ကနေ import လုပ်ပေးရပါမယ်။ နောက် createStore လို့ခေါ်တဲ့ helper method ကို redux ကနေ
+        import
+        လုပ်ပေးရပါမယ်။ နောက်ဆုံး import ကတော့ PlayerReducer file ကို import လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်store ကို create
+        လုပ်ပေးရပါမယ်။ အဲ့ create store method ထဲမှာ PlayerReducer ကို pass လုပ်ပေးရပါမယ်။ Example မှာဆိုရင် create
+        store method
+        ဟာ PlayerReducer ကို ယူပြီးတော့ အဲ့ဒါကို Redux နဲ့ registers လုပ်တာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ PlayerReducer ဟာ
+        Redux
+        pipeline ထဲမှာ participate လုပ်ဖို့ ready ဖြစ်နေပြီဆိုတာပဲဖြစ်ပါတယ်။ နောက်ထပ်လုပ်ရမှာကတော့ scoreboard component
+        ကို
+        provider component နဲ့ wrap လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက် store property ကို set လုပ်ပေးရပါမယ်။ ဒါဟာဆိုရင်
+        ကျွန်တော်တို့ရဲ့ Redux ကိုအသုံးပြုဖို့ရန်အတွက် application ရဲ့ root ကို set up လုပ်လိုက်တာဖြစ်ပါတယ်။ ဒါပေမဲ့
+        application
+        ဟာ Redux store ကိုအသုံးမပြုသေးပါဘူး။ Next section မှာတော့ scoreboard container ကို Redux နဲ့ connect
+        လုပ်သွားမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>index.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import './index.css';
+            import Scoreboard from './containers/Scoreboard';
+            import { Provider } from 'react-redux';
+            import { createStore } from 'redux';
+            import PlayerReducer from './reducers/Player';
+            import * as serviceWorker from './serviceWorker';
+            
+            const store = createStore(
+            PlayerReducer
+            );
+            
+            ReactDOM.render(
+            &lt;Provider store={store}&gt;
+            &lt;Scoreboard /&gt;
+            &lt;/Provider&gt;,
+            document.getElementById('root')
+            );
+            
+            // If you want your app to work offline and load faster, you can change
+            // unregister() to register() below. Note this comes with some pitfalls.
+            // Learn more about service workers: https://bit.ly/CRA-PWA
+            serviceWorker.unregister();
+
+        </code>
+    </pre>
+    <hr>
+    <h1>Connecting the Scoreboard Container to Redux</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာဆိုရင်တော့ Redux store ကို create လုပ်ခဲ့ပြီးတော့ ကျွန်တော်တို့ရဲ့ application မှာ
+        provided
+        လုပ်ပေးခဲ့ပြီးဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် connected လုပ်ထားတဲ့ container မရှိပါဘူး။ ဆိုလိုတာကတော့ ကျွန်တော်တို့ဟာ
+        Redux
+        elements တွေရဲ့ advantage ကို ယူပြီးတော့ အသုံးပြုလို့မရတာပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် application ဟာဆိုရင် any of
+        the
+        actions ကို invoke မလုပ်နိုင်ပါဘူး။ နောက် store ကိုလည်း updated လုပ်လို့မရပါဘူး။ အဲ့ဒါကြောင့် အခု section
+        မှာတော့
+        ကျွန်တော်တို့ create လုပ်ထားတဲ့ store ဆီကို scoreboard container ကို connect လုပ်သွားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့
+        scoreboard ကို Redux ကို connect လုပ်ပေးဖို့လိုပါတယ်။ React Redux ဟာဆိုရင် connect လို့ခေါ်တဲ့ helper method
+        တစ်ခုကို
+        provide လုပ်ပေးထားပါတယ်။ သူဟာဆိုရင် Redux stroe ရဲ့ specific parts တွေကို subscribe လုပ်ဖို့အတွက် way တစ်ခုကို
+        provides
+        လုပ်ပေးပါတယ်။ အဲ့ဒါကြောင့် example မှာဆိုရင် connect ကို scoreboard.js ထဲမှာ import လုပ်ပေးရပါမယ်။ အဲ့ connect
+        method
+        ဟာဆိုရင် argument တစ်ခုကို ယူပါတယ်။ နောက် function ဟာဆိုရင် state to props translator အနေနဲ့ လုပ်ဆောင်ပေးပါတယ်။
+        အဲ့
+        state to props translator ဟာ ကျွန်တော်တို့ရဲ့ container ကို passes ဖြစ်လာတဲ့ state data တွေကို props data
+        တွေအဖြစ်
+        convert လုပ်တာကို allow လုပ်ပေးပါတယ်။
+    </p>
+    <p>
+        Example မှာဆိုရင် bottom မှာ mapStateToProps ဆိုတဲ့ function ကို create
+        လုပ်ပေးထားပါတယ်။ Example အတွက်ဆိုရင် function ဟာ player state data တွေကို ယူပြီးတော့ သူ့ကို players ဆိုတဲ့ prop
+        value
+        တစ်ခုထဲမှာ assign လုပ်ထားတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ object တစ်ခုကို return ပြန်ပြီးတော့ scoreboard components props
+        ထဲကို
+        merged လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် အဲ့ဒါကိုလုပ်ဆောင်ဖို့အတွက် export default နဲ့
+        အခါတိုင်းလိုမတူတာတွေလုပ်ဆောင်ပေးရပါမယ်။
+        export default ရဲ့ နောက်မှာ connect method ကို followed လုပ်ပေးရပါမယ်။ နောက် mapStateToProps ကို parentheses
+        ထဲမှာ set
+        လုပ်ပေးထားပါတယ်။ နောက်က parentheses ထဲမှာ Scoreboard ကို set လုပ်ပေးရပါမယ်။ အဲ့ code ကို ကြည့်ရအောင်။
+        အဲ့မှာဆိုရင်
+        connect ဟာ mapStateToProps function ကိုယူထားတာကိုတွေ့ရပါလိမ့်မယ်။ နောက်က parentheses ထဲက Scoreboard ဟာ
+        ဘာကိုလုပ်ဆောင်ပေးတာလဲဆိုတော့ သူဟာ explain လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ Function ပါတဲ့ first parentheses ဟာ state to
+        props
+        ကို transform လုပ်ဖို့ ကျွန်တော်တု့ိအသုံးပြုချင်တဲ့ function ပဲဖြစ်ပါတယ်။ နောက် second set of parentheses
+        ထဲကတော့
+        ကျွန်တော်တို့ Redux ကို connect လုပ်ချင်တဲ့ container ပဲဖြစ်ပါတယ်။
+    </p>
+    <p>
+        အဲ့မှာဆိုရင် သူဟာ Scoreboard မှာ any changes
+        in state
+        or any Redux store updates တို့ကို subscribes လုပ်တာဖြစ်ပါတယ်။ နောက် Redux ကို connect လုပ်ပြီးပြီဆိုရင်
+        mapStateToProps
+        function ထဲမှာ defined လုပ်ထားတဲ့ player's prop အတွက် prop validation ကို add လုပ်ပေးဖို့လိုပါတယ်။ အဲ့ဒါကို
+        လုပ်ဆောင်ဖို့အတွက် react ကနေ prop types ကို import လုပ်ပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ်ကတော့ scoreboard ရဲ့ render
+        method ကို
+        update လုပ်ရမှာဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ appropriate action creators တွေနဲ့ player data တွေကို respective
+        components
+        တွေကို passing လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ဒါအတွက် actions တွေကို components ဆီကို provide လုပ်ဖို့ယူဖို့ method
+        တစ်ခုကို
+        အသုံးပြုပေးရပါမယ်။ အဲ့ဒါကတော့ redux ကနေ provided လုပ်ထားတဲ့ use of helper method တစ်ခုဖြစ်တဲ့
+        bindActionCreators()
+        ပဲဖြစ်ပါတယ်။ အဲ့ method ထဲမှာဆိုရင် bound action creator ကို construct လုပ်ပေးရပါမယ်။ Bound action creator
+        တစ်ခုဟာ
+        action creator တစ်ခုဖြစ်ပါတယ်။ သူဟာ invoked လုပ်တဲ့အချိန်မှာ တစ်ခါတည်း dispatched လုပ်ပေးလိုက်တာဖြစ်ပါတယ်။ နောက်
+        dispatch ကိုလည်း every child component ဆီကို pass down လုပ်ဖို့လိုပါတယ်။ Bind action creators
+        ကိုအသုံးပြုဖို့အတွက် first
+        အနေနဲ့ သူ့ကို import လုပ်ပေးဖို့လိုပါတယ်။ နောက် PlayerActionCreators ကိုလည်း import လုပ်ပေးရပါမယ်။ နောက်
+        လုပ်ဆောင်ရမှာကတော့ dispatch and players from props တွေကို destructurig assignment ကိုအသုံးပြုပြီးတော့ extract
+        လုပ်ပေးဖို့လိုပါတယ်။
+    </p>
+    <p>
+        နောက် example မှာဆိုရင် bound action creators 3 ခုကို create လုပ်ပေးဖို့လိုပါတယ်။
+        အဲ့ဒါတွေကတော့
+        addPlayer, removePlayer and updatePlayerScore တို့ပဲဖြစ်ပါတယ်။ နောက် actual bound action creators တွေကို create
+        လုပ်ဖို့အတွက် ကျွန်တော်တို့ဟာ bind action creators method ကို action creators တစ်ခုချင်းစီအတွက် invoked
+        လုပ်ပေးဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် bind action creators ဟာဆိုရင် dispatch ကို သူ့ရဲ့ second argument အနေနဲ့
+        ယူပါတယ်။
+        အဲ့ဒါဟာ action creator ဟာ invoked လုပ်တဲ့အချိန်မှာ တစ်ခါတည်း dispatched လုပ်တာကို ensures ဖြစ်စေပါတယ်။ နောက်
+        render
+        method ထဲမှာ players ပေါ်မှာ iterate လုပ်ပြီးတော့ player တစ်ယောက်ချင်းစီအတွက် player component ကို create
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက် return statement ထဲမှာ same players Redux data တွေကို header component ဆီကို provide
+        လုပ်ပေးရပါမယ်။ အဲ့ဒါကြောင့် header component ထဲမှာ this.state.players မှာ players ကို replace လုပ်ပေးရပါမယ်။
+        နောက်
+        players div ထဲကို generated လုပ်ခဲ့တဲ့ player component ကို add လုပ်ပေးရပါမယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Scoreboard.js</h3>
+    <pre>
+        <code>
+            import React, { Component, PropTypes } from 'react';
+            import { bindActionCreatros } from 'redux';
+            import { connect } from 'react-redux';
+            import * as PlayerActionCreators from '../actions/player';
+            import Header from '../components/Header';
+            import Player from '../components/Player';
+            import AddPlayerForm from '../components/AddPlayerForm';
+            import '../App.css';
+            
+            
+            
+            class Scoreboard extends Component {
+            
+            static propTypes = {
+            players: PropTypes.array.isRequired
+            };
+            
+            render() {
+            const { dispatch, players } = this.props;
+            const addPlayer = bindActionCreatros(PlayerActionCreators.addPlayer, dispatch);
+            const removePlayer = bindActionCreatros(PlayerActionCreators.removePlayer, dispatch);
+            const updatePlayerScore = bindActionCreatros(PlayerActionCreators.updatePlayerScore, dispatch);
+            
+            const playerComponents = players.map((player, index) =&gt; (
+            &lt;Player
+            index={index}
+            name={player.name}
+            score={player.score}
+            key={player.name}
+            updatePlayerScore={updatePlayerScore}
+            /&gt;
+            ));
+            
+            return (
+            &lt;div className="scoreboard" &gt;
+            &lt;Header players={playes} /&gt;
+            &lt;div className="players"&gt;
+            {playerComponents}
+            &lt;/div&gt;
+            
+            &lt;AddPlayerForm addPlayer={addPlayer} /&gt;
+            &lt;/div &gt;
+            );
+            }
+            }
+            
+            const mapStateToProps = state =&gt; (
+            {
+            players: state
+            }
+            );
+            export default connect(mapStateToProps)(Scoreboard);
+        </code>
+    </pre>
+    <hr>
+    <h1>Updating the Player, Counter and AddPlayerForm Components</h1>
+    <p>
+        အခု section မှာတော့ appropriate components တွေဆီကို updated Redux props ကို receive လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်
+        components တွေဟာ appropriate actions တွေကို invoked လုပ်နိုင်တယ်ဆိုတာကို သေချာအောင်လုပ်ဆောင်ပေးရမှာဖြစ်ပါတယ်။
+        Example
+        မှာဆိုရင် Redux state changes ကို player data တွေကို subscribed လုပ်ပြီးဖြစ်ပါတယ်။ နောက် components တွေဟာ
+        appropriate
+        prop data တွေကို passed လုပ်ပြီးဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ changes တွေကို impacted ဖြစ်တဲ့ any of the
+        components
+        တွေကို update လုပ်ရမှာဖြစ်ပါတယ်။ အဲ့ components တွေကတော့ player, counter and add player form components
+        တို့ပဲဖြစ်ပါတယ်။
+        First အနေနဲ့ ကျွန်တော်တို့ လုပ်ဆောင်ရမှာတော့ သူတို့ထဲမှာ prop validation ကို update လုပ်ပေးရပါမယ်။ နောက်
+        Player.js
+        ထဲမှာဆိုရင် removePlayer ဆိုတဲ့ bound action creator method ကို add လုပ်ပေးရပါမယ်။ နောက် return statement
+        ထဲမှာရှိတဲ့
+        remove-player ကို update လုပ်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <h3>Player.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import Counter from './Counter';
+            
+            const Player = props =&gt; {
+            
+            return (
+            &lt;div className="player"&gt;
+            &lt;span className="player-name"&gt;
+            &lt;button className="remove-player" onClick={() =&gt; props.removePlayer(props.index)}&gt;x&lt;/button&gt;
+            &lt;i className='fas fa-crown'&gt;&lt;/i&gt;
+            {props.name}
+            &lt;/span&gt;
+            &lt;Counter
+            score={props.score}
+            index={props.index}
+            updatePlayerScore={props.updatePlayerScore}
+            /&gt;
+            &lt;/div &gt;
+            );
+            
+            
+            }
+            
+            Player.propTypes = {
+            name: PropTypes.string.isRequired,
+            index: PropTypes.number.isRequired,
+            score: PropTypes.number.isRequired,
+            removePlayer: PropTypes.func.isRequired,
+            updatePlayerScore: PropTypes.func.isRequired
+            };
+            
+            export default Player;
+        </code>
+    </pre>
+    <h3>Counter.js</h3>
+    <pre>
+        <code>
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            
+            const Counter = props =&gt; {
+            return (
+            &lt;div className="counter" &gt;
+            &lt;button className="counter-action decrement" onClick={() =&gt; props.updatePlayerScore(props.index,
+            -1)}&gt;-&lt;/button&gt;
+            &lt;span className="counter-score"&gt;{props.score}&lt;/span&gt;
+            &lt;button className="counter-action increment" onClick={() =&gt; props.updatePlayerScore(props.index, 1)}
+            &gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+            
+            Counter.propTypes = {
+            index: PropTypes.number,
+            score: PropTypes.number,
+            updatePlayerScore: PropTypes.func.isRequired
+            };
+            
+            export default Counter;
+        </code>
+    </pre>
+    <h3>AddPlayerForm.js</h3>
+    <pre>
+        <code>
+            import React, { Component } from 'react';
+            import PropTypes from 'prop-types';
+            
+            class AddPlayerForm extends Component {
+            
+            state = {
+            value: ''
+            }
+            
+            handleValueChange = (e) =&gt; {
+            this.setState({
+            value: e.target.value
+            });
+            }
+            
+            handleSubmit = (e) =&gt; {
+            e.preventDefault();
+            this.props.addPlayer(this.state.value);
+            this.setState({
+            value: ""
+            });
+            }
+            
+            render() {
+            return (
+            &lt;form onSubmit={this.handleSubmit}&gt;
+            &lt;input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleValueChange}
+            placeholder="Enter a player's name"
+            /&gt;
+            &lt;input
+            type="submit"
+            value="Add Player"
+            /&gt;
+            &lt;/form&gt;
+            );
+            }
+            }
+            AddPlayerForm.propTypes = {
+            addPlayer: PropTypes.func.isRequired
+            }
+            
+            export default AddPlayerForm;
+        </code>
+    </pre>
+    <hr>
+    <h1>Adding Redux DevTools</h1>
+    <p>
+        အခု section မှာတော့ redux devtools ကို အသုံးပြုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ သူဟာ Google chrome extension
+        တစ်ခုဖြစ်ပြီးတော့ more robust redux development experience ကို ရရှိစေပါတယ်။ Chrome ရဲ့ Chrome web store မှာ
+        redux
+        devtools ကို search လုပ်လိုက်တဲ့အခါမှာ extensions အောက်မှာ extensions listed ကိုတွေ့ရပါလိမ့်မယ်။ နောက် Add TO
+        Chrome ကို
+        click လုပ်ပြီးတော့ extension ကို install လုပ်ပေးရပါမယ်။ နောက် ကျွန်တော်တု့ိရဲ့ example မှာ redus devtools
+        ကိုအသုံးပြုဖို့ဆိုရင် createStore method မှာ additional piece of data တစ်ခုကို add လုပ်ပေးဖို့လိုပါတယ်။
+        အဲ့မှာဆိုရင်
+        DevTools ကို Redux middleware pipeline မှာ add လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ window.devToolsExtension &&
+        window.devToolsExtension() ပဲဖြစ်ပါတယ်။ နောက် application ကို start လုပ်ပြီးတော့ Chrome developer tools ကို open
+        လုပ်ပေးရပါမယ်။ အဲ့မှာဆိုရင် redux ဆိုတဲ့ tab ကို တွေ့ရပါလိမ်မယ်။
+    </p>
+    <hr>
+    <h1>The Player Detail Component</h1>
+    <p>
+        အခု section မှာတော့ Player တစ်ယောက်ပေါ်ကို click လုပ်လိုက်တဲ့အခါမှာ အဲ့ Player ရဲ့ details တွေကို display
+        လုပ်သွားမှာဖြစ်ပါတယ်။ First အနေနဲ့ example မှာဆိုရင် actionTypes ထဲမှာ အရင်က create လုပ်ခဲ့တဲ့ action types
+        တွေလိုပဲ
+        SELECT_PLAYER ဆိုတဲ့ actin type တစ်ခုကို create လုပ်ပေးရပါတယ်။ နောက် reducers ထဲက player.js file ထဲမှာ select
+        player
+        action ကို interpret လုပ်ဖို့အတွက် reducer တစ်ခုကို defined လုပ်ပေးထားပါတယ်။ နောက် အဲ့ဒါဟာ player details data
+        အတွက် new
+        state တစ်ခုကို produce လုပ်ပေးမှာဖြစ်ပါတယ်။ နောက် new SELECT_PLAYER action type အတွက် switch case ကို
+        ရေးပေးရပါမယ်။
+        နောက် အဲ့ block ဟာ state ထဲက existing items တွေကို brings လုပ်ပြီးတော့ new array ရဲ့ part အနေနဲ့
+        ပါဝင်ပေးမှာဖြစ်ပါတယ်။
+        အဲ့ဒါကြောင့် example မှာဆိုရင် selectedPlayerIndex မှာ action.index ကိုထည့်ပေးထားပါတယ်။ နောက် ကျွန်တော်တို့
+        ADD_PLAYER
+        case ကို JavaScript နဲ့ current date တွေကို created လုပ်ထားတဲ့ added players တွေကို set လုပ်ဖို့ update
+        လုပ်ပေးရပါမယ်။
+        နောက် UPDATA_PLAYER_SCORE case မှာဆိုရင် player ရဲ့ updated value ကို set လုပ်ဖို့ရန်အတွက် same string literal
+        ကို
+        အသုံးပြုပေးရပါမယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ တစ်ခုသတိထားရမှာတော့ Player data တွေဟာ player's array တစ်ခုပါတဲ့
+        object
+        တစ်ခုအနေနဲ့ defined လုပ်ထားတာရယ် နောက် selectedPlayerIndex ဟာ array ရဲ့ outside မှာ define
+        လုပ်ထားတာဖြစ်တဲ့အတွက်ကြောင့်
+        ကျွန်တော်တို့ဟာ new state ကို produce လုပ်ဖို့ရန်အတွက် switch block ထဲမှာ way ကို change လုပ်ပေးရပါမယ်။ နောက်
+        action ထဲက
+        player.js file ထဲမှာ action creator တစ်ခုကို selectPlayer action အတွက် added လုပ်ပေးရပါမယ်။ နောက် scorebard.js
+        ထဲမှာ
+        render method ထဲမှာ selectPlayerIndex ကို pull လုပ်ပေးရပါမယ်။
+    </p>
+    <p>
+        နောက် ကျွန်တော်တို့ဟာ new bound action creator
+        တစ်ခုကို
+        selectPlayer အတွက် create လုပ်ပေးရပါမယ်။ နောက် if statement တစ်ခုကို player array ကနေပြီးတော့ selected player
+        ကိုပဲ pull
+        လုပ်ဖို့အတွက် အသုံးပြုထားပါတယ်။ နောက် playerComponent constant ထဲမှာ player component ဆီကို selectPlayer bound
+        action
+        creator ကို passed လုပ်ပေးရပါမယ်။ နောက် return statement ထဲမှာ prop နဲ့ player details ထဲကို selectedPlayer
+        object ကို
+        passes လုပ်ပေးပါမယ်။ နောက် ကျွန်တော်တု့ိ update တာကို sure ဖြစ်ဖို့အတွက် mapStateToProps method ထဲမှာ
+        selectedPlayerIndex ကို account လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့မှာဆိုရင် players array နဲ့ selected player index
+        value
+        တစ်ခုရှိနေပါတယ်။ နောက် playerdetails component ထဲမှာ selectPlayer prop နဲ့ passed လုပ်လိုက်တဲ့ data တွေကို
+        အသုံးပြုထားပါတယ်။ အဲ့မှာဆိုရင် name, score, created and updated တို့ကို display လုပ်ထားပါတယ်။ ကျွန်တော်တို့ဟာ
+        player
+        တစ်ယောက်ကို click လုပ်လိုက်မှ detail ကို display လုပ်ချင်တာဖြစ်တဲ့အတွက်ကြောင့် player.js ထဲက player-name dive
+        မှာ
+        OnClick event တစ်ခုကို function တစ်ခုနဲ့ ပေးရမှာဖြစ်ပါတယ်။ အဲ့ function ဟာ select player bound action creator
+        ကို
+        invokes လုပ်တာဖြစ်ပါတယ်။ သူဟာ player ရဲ့ index ကို argument အနေနဲ့ provides လုပ်ပေးထားပါတယ်။
+    </p>
+    <a href="http://www.reactredux.itvisionlab.com" target="_blank">Test Yourself</a>
+</body>
+
+</html>

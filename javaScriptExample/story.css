@@ -1,0 +1,13 @@
+div {
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px;
+    background: whitesmoke;
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+}
+h1 {
+    margin: 20px auto;
+}

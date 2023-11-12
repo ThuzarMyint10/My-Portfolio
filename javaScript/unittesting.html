@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Lesson</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/link.css">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</head>
+    <style>
+        p{
+            font-family:Myanmar3,Yunghkio;
+        }
+        img{
+            width: 80%;
+            margin: 0 0 50px 0;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to Unit Testing </h1>
+    <p>
+        အခု section မှာတော့ JavaScript Unit Testing Basics အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အခု section မှာရှိတဲ့ material တွေဟာ ကျွန်တော်တို့ရဲ့ JavaScript objects,node and npm တွေမှာရှိတဲ့ way တွေလို့ ယူဆပါတယ်။ နောက် ဒီ section မှာ  Behavior Driven Development or BDD လို့ခေါ်တဲ့ JavaScript ကို write လုပ်ဖို့ရန်အတွက် way ကို practice လုပ်သွားမှာဖြစ်ပါတယ်။ BDD မှာဆိုရင် ကျွန်တော်တို့ဟာ real code တွေကို write မလုပ်ခင်မှာ ကျွန်တော်တို့ application အတွက် tests လို့ခေါ်တဲ့ special functions တွေကို write လုပ်တာဖြစ်ပါတယ်။ ဒီ tests တွေဟာ code တစ်ခုဟာ ဘယ်လို လုပ်သင့်တယ်ဆိုတာကို describe လုပ်တာဖြစ်ပါတယ်။ နောက်တစ်မျိုးပြောရရင် tests တွေဟာ ကျွန်တော်တို့ application ရဲ့ expected behavior ကို describe လုပ်တာဖြစ်ပါတယ်။ ဒီ tests တွေကို ready written လုပ်ပြီးသားဆိုရင်တော့ ကျွန်တော်တို့ write လုပ်ချင်တဲ့ code တွေကို နားလည်ဖို့ရန်အတွက် ကူညီပေးပါတယ်။ ကျွန်တော်တို့ဟာ one small unit ကို cover လုပ်ဖို့ရန်အတွက် tests တွေကို တစ်ကြိမ်ပဲ build လုပ်ရတာဖြစ်ပါတယ်။ အဲ့လို testing လုပ်တဲ့ style ကို unit testing လို့ခေါ်ပါတယ်။ Unit tests တွေဟာ small, meaningful chunks of functionality ပေါ်မှာ focus ထားတဲ့အတွက်ကြောင့် သူတို့ဟာ နားလည်ဖို့ရန်အတွက် လွယ်ကူတဲ့ good unit tests တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ ကျွန်တော်တို့ရဲ့ code တစ်ခုချင်းစီဟာ ဘာလုပ်ချင်တယ်ဆိုတဲ့ piece တစ်ခုချင်းစီကို prove လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် section မှာ development ကို easier ဖြစ်အောင်လုပ်တဲ့ unit testing ရဲ့ some ways တွေကို cover လုပ်ပြသွားမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>Mocha</h1>
+    <p>
+        ဒီ section မှာ ကျွန်တော်တို့ရဲ့ application မှာရှိတဲ့ units of code တစ်ခုချင်းစီအတွက် automated tests ကို write လုပ်ဖို့ရန်အတွက် Mocha လို့ခေါ်တဲ့ tool တစ်ခုကို အသုံးပြုသွားမြှဖြစ်ပါတယ်။ ကျွန်တော်တို့ test functions တွေရဲ့ collection တစ်ခုကို build လုပ်လိုက်တာကို suite တစ်ခုလို့ခေါ်ပါတယ်။ Mocha ဟာ testing frameworks တွေအားလုံးနဲ့တူပါတယ်။ သူ့ကိုအသုံးပြုပြီးတော့ ကျွန်တော်တို့ရဲ့ tests  တွေအားလုံကို run လုပ်နိုင်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ functions တွေကို ကျွန်တော်တို့လိုချင်သလို run လုပ်နိုင်ပါတယ်။ ဒါဟာဆိုရင် ကျွန်တော်တို့ရဲ့ code တွေနဲ့ အလုပ်လုပ်တဲ့အခါမှာ confidence ကို increase ဖြစ်စေပါတယ်။ သူဟာဆိုရင် problems ကို understanding လုပ်တဲ့နေရာမှာ ပိုပြီးတော့ easier ဖြစ်စေပါတယ်။ Developers တွေဟာ term test suite ကို တစ်ခါတစ်လေမှာ different ways တွေနဲ့အသုံးပြုနိုင်ပါတယ်။ တစ်ချို့ကတော့ test ရဲ့ collection တစ်ခုလုံးကို refer လုပ်ဖို့ရန်အတွက် အသုံးပြုကြပါတယ်။ တစ်ခါတစ်လေမှာတော့ သူဟာ related ဖြစ်နေတဲ့ tests ရဲ့ particular selection တစ်ခုကို ဆိုလိုတာဖြစ်ပါတယ်။ အခုဆိုရင် team ဟာ related tests တွေရဲ့ specific group တစ်ခုကို describe လုပ်ဖို့ရန်အတွက် suite ကိုအသုံးပြုပြီးတော့ Mocha ကို designed လုပ်ထားတာဖြစ်ပါတယ်။ တစ်ချို့ကတော့ အဲ့ဒါကို different ways တွေမှာ အသုံးပြုတာကို နားလည်ကြပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ context ပေါ်မှာမူတည်ပြီးတော့ သူတို့ဘာကိုတိတိကျကျဆိုလိုတယ်ဆိုတာကို someone ကို ask လုပ်နိုင်ပါတယ်။ Example မှာဆိုရင် test suite တစ်ခုကို tiny gatherNamesOf function အတွက် written လုပ်ပြီးသားဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>Different Types of Testing</h1>
+    <p>
+        အခု course မှာ automated test ရဲ့ kind တွေကို learn လုပ်နေတာဖြစ်ပါတယ်။ အဲ့ဒါတွေကို Unit Tests လို့ခေါ်ပါတယ်။ Unit Testing ဟာဆိုရင် code ရဲ့ piece တစ်ခုစီရဲ့ အလုပ်လုပ်တဲ့ way or individual function တစ်ခုကို confirm လုပ်တဲ့ tests တွေကို writing လုပ်ပေးတာပဲဖြစ်ပါတယ်။ Code အတွက် Unit Test ကို write လုပ်တဲ့အခါမှာ clear specific purpose တစ်ခုရှိကြပါတယ်။ Example ကျွန်တော်တို့ဟာ program တစ်ခုထဲမှာ individual function အတွက် unit test ကို write လုပ်တဲ့အခါမှာ unit tests ဟာဆိုရင် ကျွန်တော်တို့ မျှော်လင့်သလို function behaves ကို သိဖို့ရန်အတွက် သေချာအောင်ပြုလုပ်ဖို့ရန်အတွက် application တစ်ခုလုံးကို run လုပ်ဖို့ရန်အတွက် လိုအပ်တာတွေမပါဘဲနဲ့ function ကို call လုပ်နိုင်ပါတယ်။ နောက် integration testing ကို  preexisting code ထဲကို new code တစ်ခုကို add လုပ်ချင်တဲ့အခါမှာ အသုံးပြုနိုင်ပါတယ်။ Product managers or people တစ်ယောက်ဟာ open-source projects တွေကို run လုပ်တဲ့အခါမှာ integration tests တွေကိုလည်း run လုပ်ရမှာဖြစ်ပါတယ်။ နောက် end-to-end testing ကိုတော့ application ကို fire up လုပ်လိုက်တယ်။ ပြီးတော့ သူ့ကို user stories အားလုံးအတွက် start to finish အထိ run လုပ်ပါတယ်။ ဒါဟာဆိုရင် program ကို live ဆီကို သွားဖို့ရန်အတွက် ensures ဖြစ်အောင်လုပ်ပေးပါတယ်။ 
+    </p><hr>
+    <h1>Behavior Driven Development</h1>
+    <p>ကျွန်တော်တို့အစပိုင်းမှာ Behavior Driven Development or BDD အကြောင်းကိုပြောခဲ့ကြပါတယ်။ BDD ဟာဆိုရင် unit testing or integration testing တို့လို type of testing တစ်ခုမဟုတ်ပါဘူး။ BDD ဟာဆိုရင် software ကို build လုပ်ဖို့ရန်အတွက် approach တစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ essay or story တစ်ခုကို written လုပ်တဲ့အခါမှာ plan မရှိဘဲနဲ့ write လုပ်နေမယ်ဆိုရင် ခက်ခဲပါတယ်။ BDD ဟာဆိုရင် ကျွန်တော်တို့ program ကို write မလုပ်ခင်မှာ plan တစ်ခုကို create လုပ်တာနဲ့တူပါတယ်။ Bunch of code တွေကို write လုပ်ပြီးတော့ သူဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို ကြည့်နေမဲ့အစား BDD နဲ့ဆိုရင် test ကိုအရင် လုပ်ပြီးမှ code တွေကို second အနေနဲ့ write လုပ်နိုင်ပါတယ်။ BDD ဟာဆိုရင် program တစ်ခုရဲ့ parts တွေမှာရှိတဲ့ behavior ကို describing လုပ်ခြင်းဖြင့် start ပါတယ်။ နောက်တစ်မျိုးပြောရရင် program ကို ဘယ်လိုအလုပ်လုပ်သင့်တယ်ဆိုတာကို describing လုပ်တာဖြစ်ပါတယ်။ သူတို့အားလုံးဟာ tests တွေပဲဖြစ်ပါတယ်။ နောက် section တွေမှာ example နဲ့အတူ လုပ်ပြပေးသွားမှာဖြစ်ပါတယ်။ First မှာတော့ ကျွန်တော်တို့ရဲ့ expectations တွေဟာ ဖြစ်လာသေးမှာမဟုတ်ပါဘူး။ ဘာကြောင့်လဲဆိုတော့ functions တွေဟာ testing မလုပ်ရသေးတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် errors တွေဟာ bright red နဲ့ပေါ်လာပါတယ်။ ပြီးတော့ functions တွေကို tests တွေ pass ဖြစ်တဲ့အထိ code ကို step by step လုပ်သွားတဲ့အခါမှာ အဲ့ bright red errors တွေဟာ green check marks ကို passing လုပ်ပြီးတော့ replace ဖြစ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ errors တွေကို one by one နဲ့ fix ဖြစ်အောင် လုပ်နေသလိုပဲ  new errors တွေကို ရနိုင်ပြီးတော့ အဲ့ဒါတွေဟာ new piece of our function ကို writing လုပ်တဲ့အခါမှာ guidance လုပ်ပေးပါတယ်။ First မှာတော့ code ဟာ looking good ဖြစ်တာကို worry ဖြစ်စရာမလိုပါဘူး။ ပြီးရင် အဲ့ထဲကို test ကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ test တွေဟာ good ဖြစ်လာတဲ့အချိန်မှာ ကျွန်တော်တို့ဟာ ပိုပြီးတော့ confident ရှိလာပါတယ်။ အဲ့ဒါဟာ function ဟာ ကျွန်တော်တို့ သူ့ကို လုပ်စေချင်သလို လုပ်ဆောင်ပေးပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ function ကိုသွားပြီးတော့ run တဲ့ နေရာမှာ faster ဖြစ်ဖို့ or read လုပ်တဲ့နေရာမှာ nicer ဖြစ်အောင် လုပ်ဖို့ရန်အတွက် change things ကို လုပ်ဆောင်ရပါတယ်။ ဒီလို ကျွန်တော်တို့ code ရဲ့ improving ရဲ့ process ကို refactoring လို့ခေါ်ပါတယ်။ ဒီ development cycle ကို Red Green Refactor လို့ခေါ်ပါတယ်။ First, tests တွေကို write လုပ်တယ်။ ဒါပေမဲ့ သူတို့ဟာ fail ဖြစ်နိုင်တယ်။ Second, function ကို အခြေခံပြီးတော့ tests တွေကို pass လုပ်တယ်။ Third, ကတော့ improvements အတွက် function ဆီကို go back and re-factor လုပ်တာဖြစ်ပါတယ်။ Cycle ကို move လုပ်ဖို့ရန်အတွက် ready ဖြစ်တဲ့အထိ repeat လုပ်တာဖြစ်ပါတယ်။ နောက် section မှာတော့ ဒါတွေကို ဘယ်လိုလုပ်ရတယ်ဆိုတာကို clear examples တွေနဲ့ အတူ လုပ်ပြပေးသွားမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+    <h1>Red, Green, Refactor</h1>
+    <p>
+        အခု title casing ကို handle လုပ်တဲ့ function တစ်ခုကို writing လုပ်ပြီးတော့ BDD principles ကို အသုံးပြုကြည့်ရအောင်။ First လုပ်ရမှာကတော့ chai လို့ခေါ်တဲ့ testing tool တစ်ခုကို install လုပ်ရမှာဖြစ်ပါတယ်။ Chai ကို expectation library တစ်ခုလို့ခေါ်ပါတယ်။ Chai မှာဆိုရင် expectation တစ်ခု met ဖြစ်တဲ့အချိန်မှာ error ကို throw လုပ်တဲ့ special functions တွေပါပါတယ်။ အခု small function တစ်ခုအတွက် BDD outline ကို write လုပ်ဖို့ရန်အတွက် chai functions ကို အသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် chai ကို install လုပ်တဲ့အခါမှာ terminal ကို open လုပ်ပြီးတော့ npm install chai --save-dev ဆိုပြီးတော့ chai ကို install လုပ်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ console ကနေပြီးတော့ JavaScript file တစ်ခုကို create လုပ်ချင်တဲ့အခါမှာ touch ဆိုပြီးတော့ ကျွန်တော်ရဲ့JavaScript file name ပေးပြီးတော့ .js ဆိုပြီးတော့ create လုပ်နိုင်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ stuff ကို chai library ကနေပြီးတော့ import လုပ်ရမှာဖြစ်ပါတယ်။ Example မှာတော့ expect method ကိုအသုံးပြုထားတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် stuff ကို import လုပ်တဲ့နေရာမှာ ကျွန်တော်တို့ဟာ require လု့ိ write လုပ်ပြီးတော့ အဲ့ထဲမှာ library ရဲ့ name ကို string တစ်ခုအနေနဲ့ add လုပ်ပေးရမှာဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ရဲ့ expect function ရှိနေပြီဖြစ်ပါတယ်။ အဲ့ဒါကို outline ကဲ့သို့ some expectations တွေကို write လုပ်ဖို့ရန်အတွက်အသုံးပြုနိုင်ပါတယ်။ အဲ့ကြောင့် expect လို့ရေးပြီးတော့ သူ့ထဲမှာ comparison အတွက် အသုံးပြုချင်တဲ့ value တစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            expect(true).to.be.false;
+             function titleCase (title) {
+                return title;
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+        </code>
+    </pre><hr>
+    <h1>Greater Expectations</h1>
+    <p>
+        အခု project ထဲမှာ new line တစ်ခုနဲ့ စကြည့်ရအောင်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ same string ကို ပြန်ပြီးတော့လိုချင်တာမဟုတ်ပါဘူး။ ကျွန်တော်တို့ဟာ different string တစ်ခုကို give လုပ်ဖို့ရန်အတွက် function ကို လိုချင်တာဖြစ်ပါတယ်။ Example မှာဆိုရင် the great mouse detective ဟာ correct capitalization ဆိုပြီးတော့ string ကို return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် .to.equal 'The Great Mouse Detective ' ဆိုတဲ့အပိုင်းမှာ word တစ်ခုချင်းစီဟာ capital letter တစ်ခုနဲ့ စတာဖြစ်ပါတယ်။ အဲ့ဒါကို console မှာ run လုပ်လိုက်တဲ့အခါမှာ AssertionError တက်လာပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            // expect(true).to.be.false;
+             function titleCase (title) {
+                return title;
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+            expect(titleCase('the great mouse detective')).to.equal('The Great Mouse Detective');
+            
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/expectation.png" alt="">
+    <p>
+        အပေါ်မှာ တက်ခဲ့တဲ့ error ဟာဆိုရင် ဘာကြောင့်လဲဆိုတော့ titleCase function ဟာဆိုရင် ကျွန်တော်တို့ put လုပ်လိုက်တဲ့ same string ကိုပဲ return ပြန်ပေးတာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် လိုအပ်တာကတော့ ကျွန်တော်တို့ရဲ့ function တစ်ခုလုံးကို အလုပ်လုပ်ဖို့ရန်ပဲဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ဟာ အဲ့ဒါကို smaller expectations အဖြစ် break လုပ်ဖို့ရန်အတွက် အဲ့ဒါကို ဘယ်လိုလုပ်ရမယ်ဆိုတာကို သိပြီးသားဖြစ်ပါတယ်။ များသောအားဖြင့်တော့ tests တွေကို writing လုပ်နေချိန်မှာ most comprehensive expectations ဟာ last မှာပဲ written လုပ်သင့်ပါတယ်။ အဲ့နည်းလမ်နဲ့  ကျွန်တော်တို့ရဲ့ functions ဟာ simpler tests အားလုံးကို first အနေနဲ့ pass လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ to.equal expectation ကို keep လုပ်ထားမယ်။ ကျွန်တော်အဲ့ပေါ်မှာ new test တစ်ခုကို write လုပ်လိုက်မယ်။ အဲ့ထဲမှာဆိုရင် function ဟာ same letter capitalized ကိုပဲ return ပြန်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တို့ရဲ့ expectation ဟာ something ဖြစ်သင့်ပြီးတော့ သူ့ကို captures လုပ်ရပါမယ်။ အဲ့မှာဆိုရင်လည်း ကျွန်တော်တို့ first တက်ခဲ့တဲ့ error လိုပဲတက်လာတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ အဲ့ဒါကို လုပ်နိုင်ပါတယ်။ ဘာလို့လဲဆိုတော့ အဲ့ဒါတွေကို JavaScript ထဲမှာ built လုပ်ထားတဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။  
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            // expect(true).to.be.false;
+             function titleCase (title) {
+                return title;
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+            expect(titleCase('a')).to.equal('A');
+            expect(titleCase('the great mouse detective')).to.equal('The Great Mouse Detective');
+            
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/output1.png" alt="">
+    <p>
+        အဲ့ဒါကြောင့် textUtilities file ကိုသွားပြီးတော့ title မှာ toUpperCase method ကို call လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို save ပြီးတော့ run လိုက်တဲ့အခါမှာလည်း final test ဟာ different reason နဲ့ failed ဖြစ်နေတုန်းပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            // expect(true).to.be.false;
+             function titleCase (title) {
+                return title.toUpperCase();
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+            expect(titleCase('a')).to.equal('A');
+            expect(titleCase('the great mouse detective')).to.equal('The Great Mouse Detective');
+            
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/output2.png" alt="">
+    <p>
+        ဒါဟာ good progresses တွေပဲဖြစ်ပါတယ်။ အခု another expectation ကို add လုပ်မှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် one letter တစ်ခုထက် မပိုတဲ့ single word title တစ်ခုကို အသုံးပြုမှာဖြစ်ပါတယ်။ အဲ့ဒါကို run လိုက်တဲ့အခါမှာလည်း same problem ကိုပဲ တက်လာတာဖြစ်ပါတယ်။ အဲ့ဒါဟာ small problem ကို keep လုပ်ဖို့ရန်အတွက် help ဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ title ထဲမှာရှိတဲ့ first character ကို target လုပ်လိုက်ပါမယ်။ ပြီးတော့ run လိုက်တဲ့အခါမှာ expected capital V to equal Vertigo ဆိုတဲ့ error တက်လာတာပဲဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင်တော့ first letter ကိုပဲ return ပြန်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ 
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            // expect(true).to.be.false;
+             function titleCase (title) {
+                return title[0].toUpperCase() + title.substring(1);
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+            expect(titleCase('a')).to.equal('A');
+            expect(titleCase('vertigo')).to.equal('Vertigo');
+            expect(titleCase('the great mouse detective')).to.equal('The Great Mouse Detective');
+            
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/output3.png" alt="">
+    <p>အခုဆိုရင် final teats ကိုလုပ်ဆောင်မှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ AssertionError expected The great mouse detective to equal The Great Mouse Detective ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ဟာ string တစ်မှာရှိတဲ့ first letter ကို capitalize လုပ်ရမယ်ဆိုတာကို ဘယ်လိုသိထားပြီးဖြစ်ပါတယ်။ နောက် strings တွေကို ဘယ်လို အတူတူ add လုပ်ရတယ်ဆိုတာကို သိထားပြီးဖြစ်ပါတယ်။ အဲ့ဒါကို title ထဲမှာရှိတဲ့ word တစ်ခုချင်းစီကို လုပ်ဆောင်ပေးဖို့လိုပါတယ်။ Title case function မှာဆိုရင် title ကို splitting လုပ်ပြီးတော့ စရမှာဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် split နောက်က quotes ထဲမှာ ထည့်ရေးပေးရမှာဖြစ်ပါတယ်။ </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            var expect = require('chai').expect;
+            // expect(true).to.be.false;
+             function titleCase (title) {
+                 var words = title.split(' ');
+                 var titleCaseWords = words.map(function(word){
+                    return word[0].toUpperCase() + word.substring(1);
+                 });
+                 return titleCaseWords.join(' ');
+                
+            }
+            expect(titleCase('the great mouse detective')).to.be.a('string');
+            expect(titleCase('a')).to.equal('A');
+            expect(titleCase('vertigo')).to.equal('Vertigo');
+            expect(titleCase('the great mouse detective')).to.equal('The Great Mouse Detective');
+            
+        </code>
+    </pre>
+    <img src="../javaScriptExample/image/output4.png" alt=""><hr>    
+    <h1>Getting Started with Mocha and Chai</h1>
+    <p>
+        ပြီးခဲ့တဲ့ section မှာတုန်းက Behavior Driven Development or BDD လို့ခေါ်တဲ့ development ရဲ့ style အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ဖြစ်ပါတယ်။ သူဟာဆိုရင် ကျွန်တော်တို့ရဲ့ application code တွေကို write မလုပ်ခင်မှာ guide or outline တစ်ခုအနေနဲ့ unit test ကို write လုပ်တာပဖြစ်ပါတယ်။ အခု section မှာတော့ ကျွန်တော်ရဲ့ application code ကနေ ပြီးတော့ separate လုပ်ထားတဲ့ file တစ်ခုထဲကို code တွေကို put လုပ်ဖို့ရန်အတွက် unit tests တွေကို writing လုပ်ဖို့ရန်အတွက် professional approach အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်မှတ်ထားရမဲ့ important thing ကတော့ console မှာ  logging လုပ်တဲ့ separates unit testing ဆိုတာဘာလဲဆိုတော့ အဲ့ဒါဟာ expected behaviors ကို describe လုပ်တာဖြစ်ပါတယ်။ အခု BDD ကို digital version of battleship တစ်ခုအတွက် game engine တစ်ခုကို build လုပ်ဖို့ရန်အတွက် အသုံးပြုမှာဖြစ်ပါတယ်။ နောက် ကျွန်တော်တို့ဟာ BDD approach ကို better ဖြစ်အောင် Mocha လို့ခေါ်တဲ့ testing framework တစ်ခုကို အသုံးပြုမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ test functions အားလုံးကို separate file တစ်ခုထဲမှာ keep လုပ်နိုင်ပါတယ်။ အဲ့ဒါကို စဖို့ရန်အတွက် Mocha ကို install လုပ်ဖို့လိုပါတယ်။ အဲ့မှာဆိုရင် ကျွန်တော်တို့ရဲ့ project ထဲမှာ mocha and chai ရှိဖို့ရန်အတွက် npm install --save-dev mocha chai ဆိုပြီးတော့ terminal မှာ type လုပ်ပေးရမှာဖြစ်ပါတယ်။ 
+    </p><hr>
+</body>
+</html>

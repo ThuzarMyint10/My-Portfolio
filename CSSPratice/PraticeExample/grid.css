@@ -1,0 +1,17 @@
+.wrapper {
+    max-width: 990px;
+    /* turn on grid */
+    display: grid;
+
+    /* declare 3 rows tracks  100px , 400px,  200px */
+    grid-template-rows: 100px 400px 200px;
+
+    /* declare 3 column tracks each 320px */
+    grid-template-columns: repeat(3,320px);
+
+    /* apply 20px gutter for row and 15pox for column */
+
+    /* grid-row-gap: 20px;
+    grid-column-gap: 15px; */
+    grid-gap: 20px 15px;
+}

@@ -1,0 +1,85 @@
+body{
+    box-sizing: border-box;
+    margin: 0 !important;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+header{
+    display: flex;
+    background-color: rgb(5, 64, 112);
+    color: cornsilk;
+    padding: 12px;
+    margin-left: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+header h1{
+    margin: 0 auto;
+    padding: 10px;
+}
+header .stats{
+    padding: 20px;
+    margin-left: auto !important;
+    margin-right: -10px;
+}
+/* Player */
+.player{
+    color: black;
+    background: cornsilk;
+    font-size: 1em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid;
+}
+.player .counter{
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: 35px 60px 35px;
+}
+.player .player-name{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* For counter buttons */
+.counter .counter-action{
+    padding: 10px;
+    font-size: 1.65em;
+    border-radius: 5px;
+}
+.counter .counter-score{
+    padding: 20px;
+    font-size: 1.45em;
+}
+ .player .remove-player{
+    color: #0d0a0a;
+    margin-right: 10px;
+    background: red;
+    opacity: 0;
+}
+/*Botton Hover*/
+.counter .decrement:hover{
+    background: rgb(250, 36, 36);
+    transition: .5s;
+}
+.counter .increment:hover{
+    background: rgb(122, 248, 122);
+    transition: .5s;
+}
+.player-name:hover .remove-player{
+    opacity: 1;
+}
+
+/*Media Query*/
+@media(min-width: 569px){
+    .scoreboard{
+    width: 50%;
+    margin: auto;
+    top: 25%;
+    position: absolute;
+    left: 25%;
+    text-align: center;
+}
+}

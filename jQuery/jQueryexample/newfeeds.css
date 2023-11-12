@@ -1,0 +1,43 @@
+.box{
+    width: 50%;
+    margin: 10px auto;
+    background: rgb(245, 243, 241);
+    color: black;
+    padding: 30px;
+    border-radius: 5px;
+}
+/* .box h1{
+    text-align: center;
+} */
+.box #links ul{
+    list-style: none;
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.box #links ul li {
+    margin-bottom: 30px;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+.box #links ul li a{
+    text-decoration: none;
+}
+.secure:after{
+    content: "Safe";
+    color: black;
+    font-size: 10px;
+    padding: 5px 8px;
+    background-color: rgb(37, 233, 112);
+    margin-left: 8px;
+    border-radius: 3px;
+}
+.pdf:after{
+    content: "Locked";
+    color: black;
+    font-size: 10px;
+    padding: 5px 8px;
+    background-color: rgb(241, 58, 58);
+    margin-left: 8px;
+    border-radius: 5px;
+}

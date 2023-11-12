@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP Basic</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../../default.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/link.css">
+    <script src="../../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<style>
+    p {
+        font-family: Myanmar3, Yunghkio;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 0 50px 0;
+
+    }
+</style>
+</head>
+
+<body>
+    <h1>Retrieving Results in a Particular Order</h1>
+    <p>
+        ကျွန်တော်တု့ိ data တွေကို specific order တစ်ထဲမှာ retrieve လုပ်ချင်တဲ့အခါမှာ ORDER BY
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        သူ့ရဲ့နောက်မှာ ကျွန်တော်တို့ specific order မှာ retrieve လုပ်ချင်တဲ့ column name ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ အဲ့
+        column
+        ရဲ့နောက်မှာ ကျွန်တော်တို့ဟာ specific order တစ်ခုကို ascending or descending တစ်ခုတစ်ခုမှာ retrieve
+        လုပ်ချင်တဲ့အခါမှာ
+        [ASC|DESC] ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ဟာ multiple columns တွေကို specific order မှာ retrieve
+        လုပ်ချင်တဲ့မှာ column တစ်ခုချင်းစီကို comma နဲ့ separate လုပ်ပေးရမှာဖြစ်ပါတယ်။ Example " SELECT &lt;columns&gt;
+        FROM &lt;table&gt;
+        ORDER BY &lt;column&gt; [ASC|DESC];" and " SELECT &lt;columns&gt; FROM &lt;table&gt; ORDER BY &lt;column&gt;
+        [ASC|DESC] ,
+        &lt;column 2&gt;
+        [ASC|DESC], &lt;column ...&gt; [ASC|DESC];" ။
+    </p>
+    <hr>
+    <h1>Limiting the Number of Results</h1>
+    <p>
+        Databases ဟာ massive amount of data တွေကို store လုပ်ထားတာဖြစ်ပါတယ်။ တစ်ခါတစ်ရံမှာ ကျွန်တော်တို့ဟာ results
+        အားလုံးကို
+        bring မလုပ်ချင်တဲ့အခါမှာတွေရှိပါတယ်။ အဲ့အတွက် SQL ဟာ returned ပြန်လာတဲ့ amount of results ကို limit
+        လုပ်ပေးနိုင်တဲ့ way
+        တစ်ခုကို provides လုပ်ပေးထားပါတယ်။ အဲ့ဒါကတော့ LIMIT keyword ကိုအသုံးပြုတာပဲဖြစ်ပါတယ်။ LIMIT keyword ရဲ့နောက်မှာ
+        ကျွန်တော်တို့ retrieve လုပ်ချင်တဲ့ rows အရေအတွက်ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ Example "SELECT * FORM &lt;table&gt;
+        ORDER BY
+        &lt;column&gt; DESC LIMIT 3;" ။ ကျွန်တော်တို့ဟာ WHERE clauses နှင့်လည်း results တွေကို limit လုပ်နိုင်ပါတယ်။
+        နောက် အခု LIMIT keyword ကို
+        အသုံးပြုပြီးတော့လည်း results တွေကို limit လုပ်နိုင်ပါတယ်။ WHERE clause ကိုအသုံးပြုတဲ့အခါမှာ ကျွန်တော်တို့ filter
+        လုပ်ချင်တဲ့ conditions ကို တိတိကျကျသိရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Paging Through Results</h1>
+    <p>
+        Results တွေရဲ့ top set နဲ့ limiting လုပ်တာဟာ fine thing တစ်ခုဖြစ်ပါတယ်။ Example results တွေထဲက 50 အထိ skipped
+        လုပ်ပြီးတော့ သူ့ရဲ့နောက် 50 results ကို retrieve လုပ်ချင်တယ်ဆိုပါစို့ ။ ကျွန်တော်တု့ိဟာ skipped လုပ်တဲ့ 50
+        ရဲ့ရှေ့မှာ
+        OFF-SET ဆိုတဲ့ keyword ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example "SELECT * FROM &lt;table&gt; LIMIT 50 OFF-SET 50"
+        ဆိုပြီးတော့
+        create လုပ်ပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Adding Text Columns Together</h1>
+    <p>
+        ကျွန်တော်တု့ိ ပြီးခဲ့တဲ့ section မှာ column names တွေကို human readable ဖြစ်အောင် AS keyword ကို
+        အသုံးပြုခဲ့တာဖြစ်ပါတယ်။
+        ကျွန်တော်တု့ိဟာ column or values တွေကို အတူတူဖြစ်အောင် operator တစ်ခုကို အသုံးပြုပြီးတော့ join လုပ်နိုင်ပါတယ်။
+        အဲ့
+        operator ကို concatenation operator လို့ခေါ်ပါတယ်။ Concatenate လုပ်တယ်ဆိုတာ things တွေကို link or join
+        လုပ်ပေးတာဖြစ်ပါတယ်။ Concatenate operator ကတော့ "||" ပဲဖြစ်ပါတယ်။ Example &lt;value or column&gt; || &lt;value or
+        column&gt;
+        ။
+    </p>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ database ထဲမှာရှိတဲ့ user name ရဲ့ length ကိုလိုချင်တဲ့အခါမှာ "LENGTH()"
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ LENGTH() ထဲမှာ ကျွန်တော်တို့ သိချင်တဲ့ column name ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ ဒီ function ကို ways အမျိုးနဲ့
+        အသုံးပြုနိုင်ပါတယ်။ Example "SELECT LENGTH(&lt;column&gt;) AS &lt;alias&gt; FROM &lt;table&gt;;" and "SELECT
+        &lt;columns&gt; FROM
+        &lt;table&gt; WHERE
+        LENGTH (&lt;column&gt;) &lt;operator&gt;
+        &lt;value&gt;;" ။
+    </p>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တို့ case of string ကို change လုပ်ဖို့ရန်အတွက် number of reasons တွေရှိပါတယ်။ Example column
+        တစ်ခုမှာရှိတဲ့
+        text တွေကို uppercase or lowercase ကို change လုပ်တာတို့ပဲဖြစ်ပါတယ်။ အသုံးပြုရတဲ့ functions တွေကတော့ uppercase
+        ကို
+        change လုပ်ချင်တဲ့အခါမှာ UPPER(&lt;column name&gt;) and lowercase ကို change လုပ်ချင်တဲ့အခါမှာ LOWER(&lt;column
+        name&gt;)
+        တု့ိပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Replacing Portions of Text</h1>
+    <p>
+        Another handy way တစ်ခုဖြစ်တဲ့ portions of text ကို other values တွေနဲ့ replace လုပ်လို့ရတာပဲဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင် web
+        page တစ်ခုဆီကို styling ကို adding လုပ်ဖို့ရန်အတွက် ကောင်းပါတယ်။ Example ကျွန်တော်တို့ဟာ search results မှာ
+        search term
+        ကို code တွေကို adding လုပ်ခြင်းဖြင့် web browser မှာ appears ဖြစ်လာအောင် highlight လုပ်နိုင်ပါတယ်။ အဲ့ဒါကတော့
+        REPLACE()function ပဲဖြစ်ပါတယ်။ Example REPLACE( &lt;value or column&gt;, &lt;target&gt;, &lt;replacement&gt;)
+        ပဲဖြစ်ပါတယ်။ အဲ့မှာဆိုရင် &lt;target&gt; ဟာ ကျွန်တော်တု့ိ replace လုပ်ချင်တဲ့ value ပဲဖြစ်ပါတယ်။ နောက်
+        &lt;replacement&gt; ကတော့ ကျွန်တော်တို့ replacement လုပ်မဲ့ text ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+    <h1>Count Function and DISTINCT</h1>
+    <p>
+        အခု section မှာတော့ numbers တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ COUNT() function ပဲဖြစ်ပါတယ်။
+        သူ့ကို many
+        different ways တွေနဲ့ အသုံးပြုကြပါတယ်။ သူ့ရဲ့ common usages ကတော့ table ထဲမှာရှိတဲ့ rows အားလုံးကို counting
+        လုပ်တာပဲဖြစ်ပါတယ်။ Counting ဟာ query တစ်ခုထဲမှာရှိတဲ့ number of results ဖြစ်ပါတယ်။ နောက် counting ဟာ table
+        တစ်ခုထဲမှာရှိတဲ့ unique or distinct entries တစ်ခုဖြစ်ပါတယ်။ နောက် ကျွန်တော်တု့ိဟာ aggregates or collections of
+        things
+        တွေကိုလည်း count လုပ်နိုင်ပါတယ်။ Count ဟာဆိုရင် rows ထဲမှာရှိတဲ့ value တွေကိုပဲ counts လုပ်ပေးတာဖြစ်ပါတယ်။
+        နောက်ကျွန်တော်တု့ိဟာ duplicates ဖြစ်နေတဲ့ rows တွေရှိတဲ့အခါမှာ row အရေးအတွက်ကို သိချင်တဲ့အခါမှာ DISTINCT
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ Example "SELECT DISTINCT category FROM products; " ။
+    </p>
+    <hr>
+    <h1>Counting Groups of Rows</h1>
+    <P>
+        အခု section မှာတော့ group of rows ကို count လုပ်ဖို့ရန်အတွက် Count function ကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။
+        Example
+        category တစ်ခုချင်းစီမှာ products ဘယ်လောက်ရှိတယ်ဆိုတာပဲဖြစ်ပါတယ်။ အဲ့ဒါအတွက် GROUP BY ကို
+        အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        ဒါဟာဆိုရင် DISTINCT keyword နဲ့ တူပါတယ်။ ဒါပေမဲ့ key different တစ်ခုရှိပါတယ်။ DISTINCT ဟာ duplicates တွေကို
+        discards
+        လုပ်ပေးတာဖြစ်ပါတယ်။ Group by ကတော့ rows တွေကို အတူတူ groups လုပ်ပေးတာဖြစ်ပါတယ်။ နောက် DISTINCT ကို column
+        တစ်ခုထဲမှာရှိတဲ့ unique values ကို get လုပ်ဖို့ရန်အတွက် အသုံးပြုတာဖြစ်ပါတယ်။ သူ့ကို query တစ်ခုရဲ့ SELECT
+        portion ထဲမှာ
+        အသုံးပြုရတာဖြစ်ပါတယ်။ နောက် GROUP BY ကတော့ statement ရဲ့ နောက်ဆုံးမှာ appears ဖြစ်လာတာဖြစ်ပါတယ်။ သူဟာ
+        collections of
+        rows ကို column တစ်ခုထဲမှာရှိတဲ့ particular value နဲ့ grouped လုပ်ပေးတာဖြစ်ပါတယ်။ Example "SELECT DISTINCT
+        &Lt;column&gt; FROM &Lt;table&gt;; " and "SELECT &Lt;column&gt; FROM &Lt;table&gt; GROUP BY &Lt;column&gt;; " ။
+    </P>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တို့ဟာ rows တွေကို counted လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ Example ကျွန်တော်တု့ိဟာ e-commerce site database
+        တစ်ခုနှင့်
+        အလုပ်လုပ်နေတယ်ဆိုပါစို့ ။ CEO ဟာ gift card တစ်ခုနဲ့ most loyal customer ကို reward လုပ်ချင်တဲ့အခါမှာ
+        ကျွန်တော်တို့ဟာ ဘယ်
+        customer ဟာ ကျွန်တော်တု့ိရဲ့ site မှာ most money ကို spent လုပ်ထားတယ်ဆိုတာကို find out လုပ်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့အတွက်
+        ကျွန်တော်တို့ဟာ SUM function ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူ့ကို GROUP BY keywords နဲ့ column တစ်ခုရဲ့ sum total
+        ကို
+        calculate လုပ်ဖို့ရန်အတွက် conjunction လုပ်ပြီးတော့ အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တု့ိ SUM function ကို GROUP BY
+        keywords
+        နဲ့ အသုံးပြုတဲ့အခါမှာ differently grouped rows ကနေပြီးတော့ total values ကို generate လုပ်နိုင်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ most money spent ဖြစ်တဲ့ customer ကို လိုချင်တာဖြစ်တဲ့အတွက်ကြောင့် ORDER BY
+        ကိုလည်းအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက်ကျွန်တော်တို့ သူ့တစ်ယောက်ထဲကိုလိုချင်တာဖြစ်တဲ့အတွက်ကြောင့်LIMIT function
+        ကိုလည်းအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ နောက် most loyal customer ရဲ့ information ပေါ်မှာအခြေခံပြီးတော့ CEO ဟာ $250
+        ထက်ပိုတဲ့
+        anyone ကို gift တစ်ခုကို ပေးချင်တဲ့အခါမှာ WHERE keywords ကို အသုံးပြုတဲ့အခါမှာ "misuse of aggregate: SUM()"
+        ဆိုတဲ့ error
+        ကိုရရှိမှာဖြစ်ပါတယ်။ ဒါဟာ ဘာကြောင့်လဲဆိုတော့ WHERE conditions ဟာ things တွေကို together grouping
+        မလုပ်ခင်မှာresult set
+        or rows ကို filtered လုပ်တာဖြစ်တဲ့အတွက်ကြောင့်ပဲဖြစ်ပါတယ်။ SUM ဟာဆိုရင် aggregated values တွေပေါ်မှာပဲ
+        အလုပ်လုပ်တာဖြစ်ပါတယ်။ အဲ့ဒါကြောင့် ကျွန်တော်တု့ိဟာ HAVING keyword ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူ့ကို GROUP BY
+        keywords
+        ရဲ့နောက်မှာ HAVING keyword ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+    </p>
+    <h2>Example Code</h2>
+    <pre>
+        <code>
+            SELECT SUM(cost) AS total_spend, user_id FROM orders 
+                GROUP BY user_id
+                HAVING total_spend > 250
+                ORDER BY total_spend;
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ column တစ်ခုလုံးရဲ့ average amount ကို လိုချင်တဲ့အခါမှာ AVG function
+        ကိုအသုံးပြုပေးရမှာဖြစ်ပါတယ်။ သူ့ကို
+        average ရဲ့ aggregate function လို့လည်းခေါ်ပါတယ်။ ကျွန်တော်တို့ဟာ records ရဲ့ subset တစ်ခုပေါ်မှာ average ကို
+        find
+        လုပ်ချင်တဲ့အခါမှာ WHERE clause ကိုအသုံးပြုနိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            SELECT AVG(&lt;numeric colun&gt;) FROM &lt;table&gt;;
+            SELECT AVG (&lt;numeric colun&gt;) FROM &lt;table&gt; WHERE &lt;condition&gt;;
+            SELECT AVG (&lt;numeric colun&gt;) FROM &lt;table&gt; ORDER BY &lt;column&gt;;
+        </code>
+    </pre>
+    <hr>
+    <h1>Getting Minimum and Maximum Values</h1>
+    <p>
+        Example ကျွန်တော်တို့ largest values and smallest values တွေကို လိုချင်တဲ့အခါမှာ MAX and MIN functions
+        တို့ကိုအသုံးပြုနိုင်ပါတယ်။ ဒီ functions နှစ်ခုလုံးဟာ AVG function နှင့် အလုပ်လုပ်ပုံချင်းတူပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+             MAX(&lt;column&gt;), MIN (&lt;column&gt;)
+        </code>
+    </pre>
+    <hr>
+    <h1></h1>
+    <p>
+        ကျွန်တော်တု့ိဟာ ပြီးခဲ့တဲ့ section တွေမှာ operators တွေအကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခု section မှာတော့
+        numeric
+        types ပေါ်မှာ mathematical transformations တွေကို လုပ်ဆောင်ပေးတဲ့ operators တွေအကြောင်းကိုလေ့လာသွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒါတွေကတော့ addition operator (+) , subtraction operator(-), multiplication operator (*) and division operator
+        (/)
+        တို့ပဲဖြစ်ပါတယ်။ နောက်ကျွန်တော်တု့ိဟာ decimal ရဲ့နောက်မှာ number ပါဝင်တာကို control လုပ်ဖို့ရန်အတွက် ROUND
+        function
+        ကိုအသုံးပြုနိုင်ပါတယ်။ ဒီ ROUND function ဟာ arguments နှစ်ခုယူပါတယ်။ First ကတော့ ကျွန်တော်တု့ိ round လုပ်ချင်တဲ့
+        value
+        နဲ့ second ကတော့ ကျွန်တော်တို့ value ကို round လုပ်ချင်တဲ့ decimal ရဲ့ number ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+             ROUND(&lt;value&gt;, &lt;decimal places&gt;)
+        </code>
+    </pre>
+    <hr>
+    <h1>Differences Between Databases</h1>
+    <p>
+        Most of the SQL မှာဆိုရင် relational database systems မှာအလုပ်လုပ်ကြပါတယ်။ Example Mysql, SQL Server, Postgres,
+        and
+        SQLite တို့ပဲဖြစ်ပါတယ်။ သို့သော်လည်း database system တစ်ခုချင်းစီမှာ dates တွေနှင့် အလုပ်လုပ်တဲ့အခါမှာ different
+        ways
+        တွေနဲ့ အလုပ်လုပ်ကြပါတယ်။ ဒီ databases တွေမှာ dates တွေကို differently အရ treat လုပ်တဲ့ key ways တွေကတော့ SQL
+        queries မှာ
+        dates ကို ဘယ်လို writes လုပ်တယ်ဆို ၊ နောက် dates တွေကို calculate လုပ်ဖို့ရန်အတွက် different database systems
+        တွေမှာ
+        different functions တွေရှိပါတယ်။ နောက် human readable format တစ်ခုထဲမှာ dates တွေကို ဘယ်လို formatted
+        လုပ်မယ်ဆိုတာကို
+        handle လုပ်ဖို့ရန်အတွက် different functions တွေရှိပါတယ်။
+    </p>
+    <hr>
+    <h1></h1>
+    <p>
+        SQL နဲ့ လုပ်နိုင်တဲ့ powerful things တစ်ခုကတော့ today's date ပေါ်မှာအခြေခံံပြီးတော့ queries တွေကို run
+        လုပ်နိုင်ပပါတယ်။
+        ကျွန်တော်တု့ိဟာ SQL function တစ်ခုကို အသုံးပြုပြီးတော့ today's date ကို get လုပ်နိုင်ပါတယ်။ တစ်ကယ်လို့
+        ကျွန်တော်တု့ိဟာ
+        blog တစ်ခုထဲမှာရှိတဲ့ today's comments တွေအားလုံးကို get လုပ်ဖို့ရန်အတွက် query တစ်ခုကို running လုပ်တယ် or last
+        week
+        မှာရှိတဲ့ cells တွေကို retrieving လုပ်ချင်တဲ့အခါမှာ date function ကိုအသုံးပြုပေးဖို့လိုပါတယ်။ Date function
+        ကနေပြီးတော့
+        today's date ကို get လုပ်ဖို့ဆိုရင် "now" ဆိုတဲ့ string ကို pass လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+             SELECT * FROM orders WHERE status = "place" AND ordered_on =DATE('now');
+        </code>
+    </pre>
+    <hr>
+    <h1>Calculating Dates</h1>
+    <p>
+        Example ကျွန်တော်တို့ဟာ last seven days က number of sales ကို လိုချင်တဲ့အခါမှာ DATE function မှာ modifier
+        လို့ခေါ်တဲ့
+        another argument တစ်ခုကို pass လုပ်ပေးရမှာဖြစ်ပါတယ်။ Modifier တစ်ခုဆိုတာ DATE function မှာရှိတဲ့ first argument
+        အနေနဲ့
+        passed လုပ်ထားတဲ့ time string value ကို modifies or changes လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တု့ိဟာ any number of
+        modifiers
+        တွေကို အတူတူ change လုပ်နိုင်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+             SELECT COUNT(*) FROM orders WHERE ordered_on  
+                             BETWEEN DATE("now", "-7 days", "-7 days")
+                                AND DATE( "now", "-1 days", "-7 days");
+        </code>
+    </pre>
+    <hr>
+    <h1>Formatting Dates For Reporting</h1>
+    <p>
+        ကျွန်တော်တို့ dates တွေကို calculated လုပ်ခဲ့ပြီးဖြစ်ပါတယ်။ ကျွန်တော်တို့ output of dates and times ကို ဘယ်လို
+        manipulate လုပ်ထားတယ်ဆိုတာကို နားလည်ဖို့ရန်အတွက် different date types တွေကို နားလည်ထားဖို့လိုပါတယ်။ Date types 3
+        types
+        ရှိပါတယ်။ အဲ့ဒါတွေကတော့ date, time and column တစ်ခုထဲမှာ date နှင့် time ကို show လုပ်တာတို့ပဲဖြစ်ပါတယ်။ Dates
+        types
+        ဆိုတာ column တစ်ခုထဲမှာ date ကို ဘယ်လို stored လုပ်ထားသင့်တယ်ဆိုတာကို scribe လုပ်တဲ့ way တစ်ခုပဲဖြစ်ပါတယ်။ Most
+        programming languages ဟာ types of dates ကို converts လုပ်ဖို့ရန်အတွက် functions တစ်ခုကို provide
+        လုပ်ပေးထားပါတယ်။
+        တစ်ကယ်လို့ ကျွန်တော်တို့ဟာ time ကိုလိုချင်တဲ့အခါမှာ TIME function ကိုအသုံးပြုပေးမှာဖြစ်ပါတယ်။ နောက်
+        ကျွန်တော်တို့ဟာ date
+        ကို calculate လုပ်ဖို့ရန်အတွက် STRFTIME function ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ အဲ့မှာဆိုရင် %d ဟာ date ဖြစ်ပြီးတော့
+        %m
+        ဆိုတာ month အတွက် ဖြစ်ပြီးတော့ %Y ကတော့ year အတွက်ပဲဖြစ်ပါတယ်။
+    </p>
+    <h2>Code Example</h2>
+    <pre>
+        <code>
+            STRFTIME(&lt;format string&gt;, &lt;time string&gt;, &lt;modifier&gt;)
+        </code>
+    </pre>
+</body>
+
+</html>

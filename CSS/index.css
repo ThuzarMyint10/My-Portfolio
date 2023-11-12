@@ -1,0 +1,123 @@
+ul{
+    list-style: none;
+    margin: 0;
+}
+body{
+    box-sizing: border-box;
+    margin: 0 auto;
+} 
+.landscape img{
+    width: 300px;
+    height: 169px;
+}
+.navbar .container .navbar-toggler-icon{
+    color: aliceblue;
+}
+.navbar.navbar-expand-lg{
+    background-color: rgb(3, 3, 88);
+    height: 90px;
+}
+a{
+    text-decoration: none !important;
+    color: whitesmoke;
+
+}
+ul li a:hover{
+    color: rgb(218, 247, 214);
+   border: 1px solid;
+   border-spacing: 2em;
+}
+.lead{
+    font-size: 2em;
+}
+/* .navbar.navbar-expand-lg .container 
+{
+    border-bottom: 2px solid white;
+    font-family: 'Lato';
+} */
+.navbar-brand.mr-0
+{
+    font-size: 3em;
+    text-shadow: 2px 2px 5px 0px rgb(240, 232, 232);
+}
+.collapse.navbar-collapse
+{
+    flex-grow: 0;
+    font-size: 1.5em;
+}
+.jumbotron.jumbotron-fluid{
+    background-image:
+                     url('image/keyboard.jpg');
+    background-size: cover;
+    height: 550px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.container.pt-4 .grid{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10%;
+  flex-grow: 1;
+  align-items: center;
+
+}
+.container.pt-4{
+    width: 100%;
+    margin-top: 80px;
+}
+.container.pt-4 .grid{
+    width: 97%;
+    margin: 0 auto;
+}
+span .navbar-toggler-icon {
+    background-color: aqua;
+}
+.learn
+{
+    margin: 20px -10px;
+    transform-origin: 0 0;
+}
+img {
+    box-shadow: 2px 2px 2px 2px rgba(13, 13, 14, 0.938);
+    transition-duration: .5s;
+    
+}
+img:hover {
+    transform: rotateZ(-2deg) scale(1.05) translate(5px);
+}
+
+.container.pt-4 .grid .learn p{
+    text-align: center;
+    color: black;
+    font-size: 1.5em;
+    margin: 0; 
+}
+/*FONT*/
+@font-face{
+    font-family: 'Lato';
+    src: url(../font/Lato-Regular.ttf)
+}
+/*Medis Query*/
+@media(max-width:769px){
+    body{
+        margin: 0;
+    }
+    .conatiner{
+        margin: 0;
+        width: 100%;
+    }
+    .container.pt-4 .grid{
+        max-width: 60%;
+    }
+}
+@media(max-width:220px){
+    .page_title{
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+}

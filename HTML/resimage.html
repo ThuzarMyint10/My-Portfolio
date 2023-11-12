@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive</title>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="../caption.vtt">
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<style>
+    p{
+        font-family:Myanmar3,Yunghkio;
+    }
+    
+</style>
+<body>
+    <h1>Introduction to Responsive Image </h1>
+    <p>
+            ကျွန်တော်အခုပြောပြပေးမည့်အကြောင်းအရာကတော့ web page တွေထဲမှာ image တွေ ဘယ်လို responsive ဖြစ်တယ်ဆိုတဲ့အကြောင်းပဲဖြစ်ပါတယ်။ Web-browsing devices ဟာဆိုရင် sizes, resolutions, and pixel densities တို့နဲ့ အတူ လာပါတယ်။ အဲ့ဒါတွေကတော့ landscape pr portrait orientation ကို လုပ်ဆောင်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ webpages တွေရဲ့ layout ကို adjust လုပ်ဖို့ရန်အတွက် media queries ကို အသုံးပြုနိုင်ပါတယ်။  SRC attribute or source နဲ့ အတူ image element ဟာ အခြား device တွေမှာ image တစ်ခု deliver ဖြစ်ဖို့ရန်အတွက် အသုံးများကြပါတယ်။ အမှန်တော့ဒါဟာ many cases တွေမှာ valid technique တစ်ခုပဲဖြစ်ပါတယ်။ Problem ကဘာလဲဆိုတော့ တစ်ခါတစ်လေမှာ ကျွန်တော်တို့ဟာ images တွေကို မတူညီတဲ့ devices တွေဆီကို deliver လုပ်ဖို့လိုလာပါတယ်။ ဆိုလိုတာကတော့ ကျွန်တော်တို့မှာ screen ပေါ်မှာ photo background လို space အနည်းငယ်ယူတဲ့ image တစ်ခုရှိတယ်ဆိုပါစို့။ ကျွန်တော်တို့ဟာ Apple's retina displays and most modern phones တို့လို high DPI screens အတွက် two x resolution ကို deliver လုပ်ဖို့လိုပါတယ်။ ဒါပေမဲ့ single image တစ်ခုကို mobile device တစ်ခုဆီကို send လုပ်ရင် one x resolution တစ်ခုပဲဖြစ်ပါတယ်။ Delivering responsive images အတွက် အခြေခံကျတဲ့ နည်းလမ်းကတော့ one big image ကို all devices တွေဆီကို send လုပ်လိုက်ခြင်းပဲဖြစ်ပါတယ်။ အဲ့လိုလုပ်တာဟာ ကျွန်တော်ထင်သလိုပဲ အလွန်အကောင်းကြီးတော့အဟုတ်ပါဘူး။ ဒီမှာနောက်ထပ်ပြောပြပေးမှာကတော့ HTML element တစ်ခုနဲ့ HTML attribute နှစ်ခုပဲဖြစ်ပါတယ်။ Attribute ကိုတော့ source set, sizes, and the element လို့ခေါ်တဲ့ picture element ပဲဖြစ်ပါတယ်။ ဒီ markup ရဲ့ pieces တွေမှာ resolution, pixel densityအပေါ် ကို အခြေခံပြီးတော့ မှန်ကန်တဲ့ image နွေကို မှန်ကန်တဲ့ device တွေဆီကို deliver လုပ်ဖို့ရန် allow လုပ်ထားပါတယ်။ ကျွန်တော်တို့ဟာ CSS background နဲ့ media queries ရဲ့ approach တစ်ခုကို mobile တစ်ခုမှာ combine လုပ်ချင်တယ်ဆိုရင် device ဟာ လိုအပ်တဲ့ image တွေကိုပဲ download လုပ်ပါလိမ့်မယ်။  တစ်ခါတစ်ရံမှာ အဲ့ဒါဟာ technical reasons အတွက်ပဲဖြစ်ပါတယ်။ ဒါမှမဟုတ်ရင် အဲ့ဒါဟာ CSS layout restrictions အတွက်ပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ CSS ထဲမှာ အဟုတ်ဘဲနဲ့ HTML ထဲမှာ images တွေကို put လုပ်ဖို့ရန်လိုအပ်တဲ့ HTML တွေကို generate လုပ်ပေးတဲ့ backend server တစ်ခုကြောင့်ပဲဖြစ်ပါတယ်။ Better reason တစ်ခုကတော့ many images တွေဟာ content တွေပဲဖြစ်ပါတယ်။ ဒီလို images တွေပါတာဟာ SEO, accessbility, RSS Feeds, and basically any other mechanism တွေအတွက်ကောင်းပါတယ်။ General rule တစ်ခုဟာဆိုရင် images တွေဟာဆိုရင် HTML ကိုသွားတဲ့ content တွေပဲဖြစ်ပါတယ်။ JavaScript မှာဆိုရင် error prone တွေဟာ HTML တို့ CSS တို့ထက်အလွန်များပါတယ်။ ကျွန်တော်တို့ဟာ content deliver ဖြစ်ဖို့ရန်အတွက် HTML အစား JavaScript ကို သုံးမယ်ဆိုရင် အဲမှာ instances တွေအများကြီးရှိပါတယ်။
+    </p><hr>
+    <h1>About Image Format</h1>
+    <p>
+            ဒီတစ်ခါကျွန်တော်ပြောပြမှာကတော့ image format တွေအကြောင်းပဲဖြစ်ပါတယ်။ Web ပေါ်မှာဆိုရင် image formats တွေ အများကြီးရှိပါတယ်။ ကျွန်တော်တို့ဟာ SVGs လို့ခေါ်တဲ့ scalable vectors graphics အကြောင်းကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ဒါဟာ sizes အကြီးကြီးတွေ pixel densities တွေမှာ အလုပ်လုပ်တဲ့ delivering images တွေ ရဲ့ best options တစ်ခုပဲဖြစ်ပါတယ်။ SVGs ဟာ mark-up ပဲဖြစ်ပါတယ်။ SVGs ဟာဆိုရင် large ဖြစ်တယ်၊ ပြီးတော့ flat areas of color ရှိတယ်တဲ့ အတွက်ကြောင့် images တွေအတွက် ကောင်းကောင်း အလုပ်လုပ်နိုင်ပါတယ်။ Photograph တစ်ခုမဟုတ်တဲ့ images တွေအတွက်ဆိုရင် ကျွန်တော်တို့မှာ choices နဲနဲရှိပါတယ်။ အဲ့ဒါတွေကတော့ Ping or  png ပဲဖြစ်ပါတယ်။ အဲ့ formats ကတော့ jpeg လိုပဲအသုံးများပါတယ်။ အခုအသစ်ပေါ်လာတဲ့ formats ကတော့ webp ပဲဖြစ်ပါတယ်။ General jpegs ဟာဆိုရင် photographs တွေအတွက် ကောင်းကောင်းအလုပ်လုပ်ဖို့ပဲဖြစ်ပါတယ်။ ကျွနတော်တို့ရဲ့ full alpha transparency ကို image တစ်ခုမှာ အသုံးပြုဖို့လိုမယ်ဆိုရင် 24-bit png တစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ သို့သော်လည်း gifs and pngs မှာဆိုရင် သူတို့ရဲ့ higher file sizes တွေကြောင့် load time increase ဖြစ်ဖို့ရန်အတွက် tendency တစ်ခုရှိပါတယ်။ JEPG ဟာဆိုရင် digital photography အတွက် designed ချထားတာပဲဖြစ်ပါတယ်။ Source set sizes and picture တို့ဟာ browser ကနေ support လုပ်ထားတဲ့ ဘယ် image format နဲ့ မဆို အလုပ်လုပနိုင်ပါတယ်။ ဒီမှာဆိုရင် ကျွန်တော်တို့ဟာ .jpgs ကိုအသုံးပြုမှာဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင် case အတော်များများမှာ သူဟာ represent လုပ်တဲ့အတွက်ကြောင့်နဲ့ အဲ့ file size ဟာဆိုရင် image compression ratio အတွက် အကောင်းဆုံး file size ဖြစ်တဲ့အတွက်ကြောင့်တို့ပဲဖြစ်ပါတယ်။ .jpgs နဲ့ အလုပ်လုပ်တာဟာ 2x pixel density နဲ့ images တွေမှာ small file size တွေရဖို့အတွက် trick တစ်ခုပဲဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>About SRCset</h1>
+    <p>
+        Source set နဲ့ sizes attributes တွေဟာ picture elememt မှာ most optimal image assets တွေကို deliver ဖြစ်ဖို့ရန် allow လုပ်ထားပါတယ်။ Double pixel နဲ့ သေးငယ်တဲ့ mobile screen တစ်ခုမှာဆိုရင် ဒီ elements တွေဟာ craft the experience ကို wasting bandwith or low resolution မှာတဲ့ delivering images တွေထက် ပိုပြီး carefully လုပ်နိုင်ပါတယ်။ ဒီ HTML ရဲ့ new pieces တွေ old browsers မှာဘဲဖြစ်ဖြစ် current browsers မှာဘဲဖြစ်ဖြစ် အလုပ်လုပ်ဖို့ရန်အတွက် polyfill လို့ခေါ်တဲ့ a piece of JavaScript တွေလည်းပါဝင်ရမှာဖြစ်ပါတယ်။ A polyfill တစ်ခုဟာ browsers မှာရှိတဲ့ specific features တွေကို implement လုပ်ပေးပါတယ်။ Polyfill ကို picturefill လို့လဲခေါ်ပါတယ်။ Source set attribute ဟာ single image အတွက် multiple files တွေကို specify လုပ်ဖို့ allow လုပ်ပေးပါတယ်။
+    </p><hr>
+    <h1>How to use SRCsset</h1>
+    <p>
+        အခုကျွန်တော်ပြောပြမှာကတော့ srcset ကို ဘယ်လိုအသုံးပြုရတယ်ဆိုတာနဲ့ သူဟာ ဘယ်လိုမျိုးအလုပ်လုပ်တယ်ဆိုတာဘဲဖြစ်ပါတယ်။ srcset attribute ကို image tag ထဲမှာအသုံးပြုရပါမယ်။ သူဟာ src attribute ကိုအသုံးပြုတာနဲ့ အတူတူပါပဲ။ သူထဲမှာ image ကို တစ်ပုံထက်ပိုပြီးထည့်ချင်လျှင် "," ခံပြီးတော့ အသုံးပြုရပါမယ်။ အောက်က example မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div&gt;
+                        &lt;div&gt;
+                            &lt;img 
+                            srcset="blue-bird.jpg, 
+                                    f2.jpg"
+                            src="blue-bird.jpg" alt="This a photo of Bird."&gt;
+                        &lt;/div&gt;
+                        &lt;p&gt;
+                        The Eternal Affection™ Arrangement is a peaceful offering of heartfelt sympathy. White gladiolus, Peruvian lilies, carnations, mini carnations and lush greens are beautifully arranged in a round whitewash handled basket to create a beautiful display of soft serenity.
+                        BETTER bouquet is approximately 18"H x 14"W
+                        &lt;/p&gt;
+                        &lt;div&gt;
+                           &lt;img 
+                             src="f2.jpg" alt="This is a Flower."&gt;
+                        &lt;/div&gt;
+                
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/imageset.html" target="_blank">Output>>>>></a><hr>
+    <h1>About Size attribute</h1>
+    <p>
+            ဒီတစ်ခါမှာတော့ size attribute အကြောင်းကိုရှင်းပြချင်ပါတယ်။ သူဟာအနည်းငယ်ရုှပ်ထွေးပါတယ်။ Size attribute ဟာဆိုရင် CSS media conditions and length unit နဲ့ တာပဲဖြစ်ပါတယ်။ အဲ့ဒါဟာ image ဟာ layout ထဲမှာ ဘယ်လောက် space ယူတယ်ဆိုတာကို browser ကိုပြောပြတာပဲဖြစ်ပါတယ်။ image ရဲ့ width ကို adjust လုပ်တာကို CSS လေ့လာတဲ့အခါကျရင်ပိုပြီးတော့ နားလည်လာမှာဖြစ်ပါတယ်။ အဲ့လို adjust လုပ်တဲ့ အခါကျရင် number or rough guess နဲ့ image ရဲ့ size ကိုပေးရပါတယ်။ အဲ့ဒါကို example မှာ လေ့လာလိုက်ရင်ပိုပြီးနားလည်မှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>About Art Direction</h1>
+    <p>
+        Art direction ဟာ different devices တွေမှာမြင်ရတဲ့ image ရဲ့ အရေးကြီးတဲ့ အပိုင်းတွေကို drawing attention လုပ်တဲ့ technique တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ wide angle တစ်ခုကနေ person photo တစ်ပုံရှိတယ်ဆိုပါစို့ အဲ့ပုံဟာ large screen မှာဆိုရင် အဲ့ပုံဟာ ကြည့်ရတကောင်းပါတယ်။ ဒါမှမဟုတ် small screen တွေမှာဆိုရင် ကျွန်တော်တို့ဟာ person photo ကိုရှင်းရှင်းလင်းလင်းမမြင်ရနိုင်ပါဘူး။ အဲ့လိုဖြစ်နေရင်  ကျွန်တော်တို့ဟာ image အတွက် different crops and focal points တွေပေးပြီးတော့ art direction ကိုအသုံးပြုဖို့လိုပါတယ်။ အဲ့ပုံမှာဆိုရင် different image sources တွေနဲ့ different crops တွေကိုအသုံးပြုပြီးတော့ art direction အနည်းပါဝင်ပြီးသားဖြစ်ပါတယ်။ ဒါပေမဲ့ art direction ထပ်ထည့်ဖို့လိုပါတယ်။ Art direction ရဲ့အကြောင်းကို ပြည့်စုံအောင်အောက်ကအပိုင်းမှာဆက်ပြောပြသွားမှာဖြစ်ပါတယ်။
+    </p><hr>
+    <h1>How to use Picture element in Responsive Image</h1>
+    <p>
+            အခုပြောပြပေးမှာကတော့ picture element ထဲမှာ image tag တွေနဲ့ srcser တို့ကို ဘယ်လိုအသုံးပြုတယ်ဆိုတာကို ပြောပြပေးမှာဖြစ်ပါတယ်။ Picture element ဟာ child element တစ်ခုရဲ့ multiple source files တွေကို specify လုပ်တဲ့ container တစ်ခုပဲဖြစ်ပါတယ်။ Picture element ထဲမှာ source tag ကိုလည်းအသုံးပြုနိုင်ပါတယ်။ ပြီးလျှင် srcset ကိုအသုံးပြုတာဟာ ကျွန်တော်တို့ဟာ browser ကို resize လုပ်လိုက်တဲ့ အခါမှာ ဘယ် pixel ရောရင် ဘယ်ပုံပေါ်မယ်ဆိုတာကို ဖော်ပြပေးတာပဲဖြစ်ပါတယ်။ Coding ကို အောက်မှာလေ့လာနိုင်ပါတယ်။
+    </p>
+    <pre>
+        <code>
+             &lt;!DOCTYPE html&gt;
+             &lt;html lang="en"&gt;
+             &lt;head&gt;
+                 &lt;meta charset="UTF-8"&gt;
+                 &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                 &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                 &lt;title&gt;Document&lt;/title&gt;
+             &lt;/head&gt;
+             &lt;body&gt;
+                 &lt;picture&gt;
+                       
+                     &lt;source 
+                        media="(orentation: landscape)"
+                        srcset="Example/f2.jpg 1000w,
+                                Example/blue-bird.jpg 800w"
+                        /&gt;
+                     &lt;img src="f2.jpg" alt="this is a flower."/&gt;
+                 &lt;/picture&gt;
+             &lt;/body&gt;
+             &lt;/html&gt;
+        </code>
+    </pre>
+    <a href="../Example/picture.html">Output>>>>></a><hr>
+
+
+    
+</body>
+</html>
